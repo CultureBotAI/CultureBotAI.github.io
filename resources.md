@@ -40,7 +40,6 @@ kg-microbe integrates data from:
 - **NCBI Taxonomy** - Microbial taxonomy and phylogeny
 - **UniProt** - Protein sequences and functional annotations
 - **GO (Gene Ontology)** - Functional gene classifications
-- **KEGG** - Metabolic pathways and enzyme information
 - **Environmental ontologies** - Habitat and growth condition data
 - **Literature sources** - Manually curated cultivation data
 
@@ -59,7 +58,7 @@ git clone https://github.com/Knowledge-Graph-Hub/kg-microbe.git
 cd kg-microbe
 pip install -r requirements.txt
 
-# Download latest knowledge graph
+# Build latest knowledge graph
 kg download
 kg transform
 kg merge
@@ -86,7 +85,6 @@ Curated collection of cultivation protocols for diverse microorganisms based on 
 - Growth media compositions
 - Environmental conditions (temperature, pH, atmosphere)
 - Cultivation methods and protocols
-- Success rates and optimization notes
 - Literature references
 
 ### Environmental Metadata Collection
@@ -117,10 +115,7 @@ Comprehensive documentation for programmatic access to kg-microbe and related to
 - Data schema specifications
 
 ### Tutorials
-Step-by-step guides for common use cases:
-- **"Predicting Growth Conditions"** - Using kg-microbe for cultivation planning
-- **"Integration Workflows"** - Connecting kg-microbe with laboratory systems
-- **"Knowledge Graph Querying"** - Advanced SPARQL and Cypher queries
+Coming soon!
 
 ### Example Notebooks
 Jupyter notebooks demonstrating practical applications:
@@ -139,9 +134,7 @@ Jupyter notebooks demonstrating practical applications:
 Coming soon
 
 ### Query Interfaces
-- **SPARQL Endpoint** - Semantic queries over RDF data
-- **GraphQL API** - Flexible graph-based queries
-- **REST API** - Standard HTTP-based access
+Coming soon
 
 ## 📦 Software Packages
 
