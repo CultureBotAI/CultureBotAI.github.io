@@ -47,7 +47,9 @@ cd kg-microbe
 pip install -r requirements.txt
 
 # Download latest knowledge graph
-make download
+kg download
+kg transform
+kg merge
 ```
 
 ## 🔧 Computational Tools
