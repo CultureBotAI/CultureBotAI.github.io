@@ -33,7 +33,6 @@ kg-microbe integrates data from:
 
 ### Applications
 - **Growth condition prediction** for uncultured organisms
-- **Media optimization** using metabolic network analysis
 - **Taxonomic relationship exploration** and phylogenetic analysis
 - **Literature mining** for cultivation protocols
 - **Cross-organism comparison** of growth preferences
@@ -62,11 +61,6 @@ AI-powered tool for predicting optimal growth conditions for target microorganis
 - Media composition suggestions
 - Confidence scoring for predictions
 
-### Cultivation Protocol Generator
-Automated generation of cultivation protocols based on organism characteristics and environmental preferences.
-
-### Culture Monitoring Dashboard
-Real-time monitoring and analysis platform for automated culture systems.
 
 ## 📊 Datasets
 
@@ -103,22 +97,19 @@ Comprehensive dataset linking microorganisms to their natural habitats and envir
 
 ### API Documentation
 Comprehensive documentation for programmatic access to kg-microbe and related tools:
-- REST API endpoints
-- GraphQL query interface  
+- Neo4j graph database interface  
 - Python SDK usage examples
 - Data schema specifications
 
 ### Tutorials
 Step-by-step guides for common use cases:
 - **"Predicting Growth Conditions"** - Using kg-microbe for cultivation planning
-- **"Media Optimization"** - Computational approaches to media design
 - **"Integration Workflows"** - Connecting kg-microbe with laboratory systems
 - **"Knowledge Graph Querying"** - Advanced SPARQL and Cypher queries
 
 ### Example Notebooks
 Jupyter notebooks demonstrating practical applications:
 - Growth condition prediction workflows
-- Metabolic network analysis
 - Literature mining pipelines
 - Data visualization examples
 
@@ -130,16 +121,7 @@ Jupyter notebooks demonstrating practical applications:
 - **Ontology Files** - OWL/RDF ontology definitions
 
 ### API Endpoints
-```
-# Base API URL
-https://api.culturebotai.github.io/v1/
-
-# Example endpoints
-/organisms/{taxid}        # Organism information
-/growth-conditions/{taxid} # Growth condition data  
-/media/{organism_id}      # Media recommendations
-/predict                  # Growth prediction service
-```
+Coming soon
 
 ### Query Interfaces
 - **SPARQL Endpoint** - Semantic queries over RDF data
@@ -149,17 +131,7 @@ https://api.culturebotai.github.io/v1/
 ## 📦 Software Packages
 
 ### Python Packages
-```bash
-pip install kg-microbe           # Core knowledge graph utilities
-pip install culturebot-predict  # Growth prediction models
-pip install microbe-media       # Media optimization tools
-```
-
-### R Packages
-```r
-devtools::install_github("CultureBotAI/kg-microbe-r")
-devtools::install_github("CultureBotAI/growth-predictor-r")
-```
+Coming soon
 
 ## 🤝 Community & Collaboration
 
@@ -179,9 +151,10 @@ We welcome contributions from the research community:
 If you use kg-microbe or other CultureBotAI resources in your research, please cite:
 
 ```
-Joachimiak, M.P. et al. (2025). kg-microbe: A comprehensive knowledge graph 
-for microbial cultivation and AI-driven growth prediction. bioRxiv. 
-https://doi.org/10.1101/2025.02.24.639989
+Santangelo, B.E., Hegde, H., Caufield, J.H., Reese, J., Kliegr, T., Hunter, L.E., 
+Lozupone, C.A., Mungall, C.J., Joachimiak, M.P. (2025). KG-Microbe - Building 
+Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. 
+bioRxiv. https://doi.org/10.1101/2025.02.24.639989
 ```
 
 ---
@@ -190,7 +163,7 @@ https://doi.org/10.1101/2025.02.24.639989
 
 For technical support, collaboration inquiries, or questions about our resources:
 
-- **Email:** [mjoachimiak@lbl.gov](mailto:mjoachimiak@lbl.gov)
+- **Email:** [MJoachimiak@lbl.gov](mailto:MJoachimiak@lbl.gov)
 - **GitHub Issues:** [Report bugs or request features](https://github.com/CultureBotAI)
 - **Documentation:** Comprehensive guides and API references
 - **Community Forums:** Connect with other researchers and developers

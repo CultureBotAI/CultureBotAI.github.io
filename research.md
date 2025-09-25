@@ -29,15 +29,15 @@ We develop AI-powered approaches to successfully cultivate previously unculturab
 Our culture optimization research leverages big data and machine learning to dramatically improve cultivation success rates:
 
 - **Environmental parameter optimization** (temperature, pH, oxygen, nutrients)
-- **Media composition prediction** using metabolic network analysis
+- **Media composition prediction** using computational approaches
 - **Co-culture design** for synthetic microbial communities
-- **Contamination prevention** through predictive modeling
 
 **Technologies Employed:**
 - High-throughput screening platforms
 - Automated liquid handling systems
 - Real-time monitoring sensors
 - Multi-objective optimization algorithms
+- Graph learning
 
 ### 🧠 Growth Preference Prediction Using AI/ML Methods
 
@@ -45,15 +45,9 @@ We develop sophisticated predictive models to understand and forecast microbial 
 
 #### Machine Learning Approaches
 - **Deep neural networks** for complex pattern recognition in microbial data
-- **Random forest models** for feature importance analysis
-- **Support vector machines** for classification of growth outcomes
+- **Gradient boosted decision trees** for predictive modeling
 - **Ensemble methods** combining multiple predictive approaches
 
-#### AI-Powered Prediction Systems
-- **Metabolic network reconstruction** from genomic data
-- **Environmental niche modeling** using ecological datasets
-- **Growth curve prediction** from initial culture conditions
-- **Optimal harvest timing** for maximum yield
 
 **Data Integration:**
 - Genomic and metagenomic sequences
@@ -73,7 +67,7 @@ Our flagship [kg-microbe project](https://github.com/Knowledge-Graph-Hub/kg-micr
 - **Community-driven updates** ensuring data currency
 
 **Data Sources Integrated:**
-- NCBI Taxonomy and GenBank
+- NCBI Taxonomy
 - UniProt protein databases
 - Environmental ontologies
 - Cultivation databases
@@ -83,17 +77,15 @@ Our flagship [kg-microbe project](https://github.com/Knowledge-Graph-Hub/kg-micr
 
 ### 🔬 Automated Culture Monitoring Platform
 Development of AI-powered systems for continuous culture monitoring using:
-- Computer vision for colony morphology analysis
-- Sensor arrays for environmental parameter tracking
-- Predictive models for contamination detection
-- Automated intervention systems
+- Iterative computational-experimental process
+- High-throughput cultivation
+- Physical parameter scanning
 
 ### 📊 Predictive Growth Modeling
 Creating comprehensive models that predict:
 - Optimal growth conditions for target organisms
 - Media composition requirements
 - Co-culture compatibility
-- Scale-up parameters for industrial cultivation
 
 ### 🌐 Knowledge Graph Applications
 Expanding kg-microbe capabilities for:
@@ -118,7 +110,7 @@ We actively collaborate with:
 - Publish comprehensive growth prediction models
 
 ### Long-term Vision (3-5 years)  
-- Achieve 90%+ success rate in novel organism cultivation
+- Achieve high success rate in novel organism cultivation
 - Enable fully automated microbial cultivation pipelines
 - Integrate CultureBotAI tools into standard laboratory workflows
 
@@ -136,4 +128,4 @@ Interested in collaborating on microbial cultivation research? We welcome:
 - **Open source contributors** to our software tools
 - **Data contributors** sharing cultivation datasets
 
-[Contact us](/about) to explore collaboration opportunities.
+[Contact us](mailto:MJoachimiak@lbl.gov) to explore collaboration opportunities.
