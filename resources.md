@@ -67,7 +67,7 @@ AI-powered tool for predicting optimal growth conditions for target microorganis
 ## 📊 Datasets
 
 ### Curated Cultivation Database
-Manually curated collection of successful cultivation protocols for diverse microorganisms.
+Curated collection of cultivation protocols for diverse microorganisms based on reference sources and literature.
 
 **Contents:**
 - Growth media compositions
