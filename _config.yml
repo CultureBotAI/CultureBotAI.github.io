@@ -1,0 +1,51 @@
+title: CultureBotAI
+description: >
+  AI-powered solutions for microbial research, cultivation, and analysis.
+  Bridging artificial intelligence and microbial cultivation to advance
+  microbiological discoveries.
+
+baseurl: ""
+url: "https://culturebotai.github.io"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Site navigation
+header_pages:
+  - about.md
+  - research.md
+  - resources.md
+  - publications.md
+
+# Social links
+github_username: CultureBotAI
+
+# Contact info
+email: mjoachimiak@lbl.gov
+
+# Author info
+author:
+  name: Dr. Marcin P. Joachimiak
+  email: mjoachimiak@lbl.gov
+  organization: Lawrence Berkeley National Laboratory
+
+# SEO
+lang: en
+twitter:
+  username: 
+  card: summary
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
