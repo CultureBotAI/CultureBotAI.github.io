@@ -15,6 +15,19 @@ CultureBotAI develops and maintains various computational resources, databases, 
 
 **📄 [Read the Preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)** - bioRxiv publication detailing kg-microbe development and applications.
 
+### 📋 METPO Ontology Integration
+
+The [Microbial Ecology and Taxonomy Phenotypic Ontology (METPO)](https://bioportal.bioontology.org/ontologies/METPO) plays a crucial role in kg-microbe by providing standardized terminology for microbial phenotypes and ecological characteristics.
+
+**Key Benefits:**
+- **Knowledge Organization** - METPO terms provide semantic structure to organize diverse microbial data within the kg-microbe knowledge graph
+- **Text Extraction** - Standardized ontology terms power automated literature mining and text extraction processes
+- **Semantic Consistency** - Ensures consistent representation of microbial characteristics across different data sources
+
+**Links:**
+- **BioPortal:** [https://bioportal.bioontology.org/ontologies/METPO](https://bioportal.bioontology.org/ontologies/METPO)
+- **GitHub Repository:** [https://github.com/microbiomedata/METPO](https://github.com/microbiomedata/METPO)
+
 ### Key Features
 - **Multi-source integration** from major biological databases
 - **Semantic consistency** through ontology-driven organization  
