@@ -26,7 +26,7 @@ Various repositories within this organization contain tools and resources for AI
 
 ### kg-microbe: Software Package and Knowledge Graph
 **Repository:** [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)  
-**License:** MIT License
+**License:** BSD-3-Clause License
 
 ---
 
