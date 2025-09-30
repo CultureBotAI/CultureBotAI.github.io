@@ -1,11 +1,12 @@
 ---
 layout: home
-title: "Welcome to CultureBotAI"
+title: "CultureBotAI — KG-Microbe by Dr. Marcin P. Joachimiak | AI for Microbial Cultivation"
+description: "CultureBotAI develops KG-Microbe, a modular microbiology knowledge graph led by Dr. Marcin P. Joachimiak (LBNL), with AI/ML for growth preference prediction and culture optimization."
 ---
 
-# CultureBotAI 🦠
+# CultureBotAI — KG-Microbe Knowledge Graph for AI-Driven Microbial Cultivation 🦠
 
-Welcome to CultureBotAI - where artificial intelligence meets microbial cultivation.
+Welcome to CultureBotAI - where artificial intelligence meets microbial cultivation through the [KG-Microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe) developed by [Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-joachimiak/).
 
 ## About Us
 
@@ -23,11 +24,14 @@ Our primary research areas include:
 
 ## Key Resources
 
-### 🧬 [kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe) 
-The comprehensive knowledge graph that powers CultureBotAI. This resource integrates diverse microbial data to enable AI-driven insights.
+### 🧬 [KG-Microbe Knowledge Graph](https://github.com/Knowledge-Graph-Hub/kg-microbe) 
+The comprehensive modular knowledge graph that powers CultureBotAI, developed by Dr. Marcin P. Joachimiak. This resource integrates diverse microbial data to enable AI-driven insights.
 
-### 📄 [kg-microbe Preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)
-Read our bioRxiv preprint detailing the development and applications of the kg-microbe knowledge graph.
+### 📄 [KG-Microbe Preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)
+Read our bioRxiv preprint by Dr. Marcin P. Joachimiak detailing the development and applications of the KG-Microbe knowledge graph.
+
+### 📊 [METPO Ontology](https://github.com/Knowledge-Graph-Hub/kg-microbe/tree/main/src/kg_microbe/transform/metpo)
+Microbial experimental and theoretical preference ontology for standardizing growth preference data.
 
 ---
 

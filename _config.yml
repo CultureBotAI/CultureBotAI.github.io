@@ -1,8 +1,5 @@
-title: CultureBotAI
-description: >
-  AI-powered solutions for microbial research, cultivation, and analysis.
-  Bridging artificial intelligence and microbial cultivation to advance
-  microbiological discoveries.
+title: "CultureBotAI"
+description: "KG-Microbe knowledge graph and AI for microbial cultivation by Dr. Marcin P. Joachimiak (LBNL)."
 
 baseurl: ""
 url: "https://culturebotai.github.io"
@@ -13,6 +10,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Site navigation
 header_pages:
@@ -20,6 +18,8 @@ header_pages:
   - research.md
   - resources.md
   - publications.md
+  - kg-microbe.md
+  - marcin-joachimiak.md
 
 # Social links
 github_username: CultureBotAI
@@ -29,8 +29,9 @@ email: mjoachimiak@lbl.gov
 
 # Author info
 author:
-  name: Dr. Marcin P. Joachimiak
+  name: "Dr. Marcin P. Joachimiak"
   email: mjoachimiak@lbl.gov
+  url: "https://biosciences.lbl.gov/profiles/marcin-joachimiak/"
   organization: Lawrence Berkeley National Laboratory
 
 # SEO

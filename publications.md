@@ -1,12 +1,13 @@
 ---
 layout: page
-title: Publications
+title: "Publications by Dr. Marcin P. Joachimiak — KG-Microbe and AI for Microbiology"
+description: "Research publications and preprints by Dr. Marcin P. Joachimiak on KG-Microbe knowledge graph development and AI applications in microbial cultivation."
 permalink: /publications/
 ---
 
-# Publications & Preprints
+# Publications by Dr. Marcin P. Joachimiak — KG-Microbe and AI for Microbiology
 
-Our research outputs span knowledge graph development, AI applications in microbiology, and computational approaches to microbial cultivation.
+Our research outputs led by Dr. Marcin P. Joachimiak span KG-Microbe knowledge graph development, AI applications in microbiology, and computational approaches to microbial cultivation.
 
 ## 📄 Preprints
 

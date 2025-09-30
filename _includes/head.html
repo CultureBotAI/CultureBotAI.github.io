@@ -1,0 +1,74 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#org",
+        "name": "CultureBotAI",
+        "url": "{{ site.url }}",
+        "sameAs": [
+          "https://github.com/CultureBotAI"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#marcin",
+        "name": "Dr. Marcin P. Joachimiak",
+        "affiliation": {"@id": "{{ site.url }}/#org"},
+        "jobTitle": "Principal Investigator",
+        "worksFor": {"@id": "{{ site.url }}/#org"},
+        "sameAs": [
+          "https://scholar.google.com/citations?user=WOaZlYAAAAAJ", 
+          "https://orcid.org/0000-0001-8175-045X",
+          "https://biosciences.lbl.gov/profiles/marcin-joachimiak/"
+        ]
+      },
+      {
+        "@type": "Project",
+        "@id": "{{ site.url }}/#kg-microbe",
+        "name": "KG-Microbe",
+        "url": "https://github.com/Knowledge-Graph-Hub/kg-microbe",
+        "creator": {"@id": "{{ site.url }}/#marcin"},
+        "keywords": ["knowledge graph","microbiology","AI/ML","growth preference","ontology"]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences",
+        "author": [{"@id": "{{ site.url }}/#marcin"}],
+        "url": "https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1",
+        "identifier": "https://doi.org/10.1101/2025.02.24.639989"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}",
+        "name": "CultureBotAI",
+        "publisher": {"@id": "{{ site.url }}/#org"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},
+          {"@type":"ListItem","position":2,"name":"Research","item":"{{ site.url }}/research/"},
+          {"@type":"ListItem","position":3,"name":"Resources","item":"{{ site.url }}/resources/"},
+          {"@type":"ListItem","position":4,"name":"Publications","item":"{{ site.url }}/publications/"},
+          {"@type":"ListItem","position":5,"name":"About","item":"{{ site.url }}/about/"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>

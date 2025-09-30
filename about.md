@@ -1,18 +1,19 @@
 ---
 layout: page
-title: About
+title: "About Dr. Marcin P. Joachimiak and CultureBotAI"
+description: "Learn about Dr. Marcin P. Joachimiak who leads CultureBotAI and KG-Microbe development at Lawrence Berkeley National Laboratory, advancing AI for microbial cultivation."
 permalink: /about/
 ---
 
-# About CultureBotAI
+# About Dr. Marcin P. Joachimiak and CultureBotAI
 
-CultureBotAI represents a cutting-edge intersection of artificial intelligence and microbiology, dedicated to revolutionizing how we approach microbial research and cultivation.
+Dr. Marcin P. Joachimiak leads CultureBotAI and KG-Microbe development, representing a cutting-edge intersection of artificial intelligence and microbiology, dedicated to revolutionizing how we approach microbial research and cultivation.
 
 ## Principal Investigator
 
 **[Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/)**
 
-Dr. Joachimiak leads the CultureBotAI initiative as a researcher in the [Environmental Genomics and Systems Biology Division](https://biosciences.lbl.gov/egsb/) at Lawrence Berkeley National Laboratory. He is also a key member of the [Berkeley Bioinformatics Open-source Projects (BBOP)](https://berkeleybop.github.io/people/marcin-joachimiak/) group.
+Dr. Marcin P. Joachimiak leads the CultureBotAI initiative and KG-Microbe knowledge graph development as a researcher in the [Environmental Genomics and Systems Biology Division](https://biosciences.lbl.gov/egsb/) at Lawrence Berkeley National Laboratory. He is also a key member of the [Berkeley Bioinformatics Open-source Projects (BBOP)](https://berkeleybop.github.io/people/marcin-joachimiak/) group.
 
 ### Research Expertise
 - Microbial cultivation and isolation

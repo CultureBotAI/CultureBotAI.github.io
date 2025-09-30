@@ -1,17 +1,18 @@
 ---
 layout: page
-title: Resources
+title: "Resources — KG-Microbe Knowledge Graph and AI Tools"
+description: "Access KG-Microbe knowledge graph, METPO ontology, and AI tools for microbial cultivation developed by Dr. Marcin P. Joachimiak at CultureBotAI."
 permalink: /resources/
 ---
 
-# Resources & Tools
+# Resources & Tools — KG-Microbe Knowledge Graph and AI Tools
 
-CultureBotAI develops and maintains various computational resources, databases, and tools for the microbial research community.
+CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various computational resources, databases, and tools for the microbial research community, including the comprehensive KG-Microbe knowledge graph.
 
-## 🧬 kg-microbe: Microbial Knowledge Graph
+## 🧬 KG-Microbe: Microbial Knowledge Graph
 
 ### Overview
-[kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe) is our flagship resource - a comprehensive knowledge graph that integrates diverse microbial data sources to enable AI-driven insights and predictions.
+[KG-Microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe) is our flagship resource developed by Dr. Marcin P. Joachimiak - a comprehensive knowledge graph that integrates diverse microbial data sources to enable AI-driven insights and predictions.
 
 **📄 [Read the Preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)** - bioRxiv publication detailing kg-microbe development and applications.
 
