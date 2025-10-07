@@ -7,7 +7,9 @@ permalink: /research/
 
 # Research Areas — AI and Machine Learning for Microbial Cultivation
 
-CultureBotAI's research led by Dr. Marcin P. Joachimiak spans the intersection of artificial intelligence, machine learning, and microbiology, with a focus on transforming how we understand and manipulate microbial systems through the KG-Microbe knowledge graph.
+**CultureBotAI's research is led by Dr. Marcin P. Joachimiak at Lawrence Berkeley National Laboratory in Berkeley, California, focusing on artificial intelligence, machine learning, and microbiology.**
+
+CultureBotAI's research spans the intersection of artificial intelligence, machine learning, and microbiology, with a focus on transforming how we understand and manipulate microbial systems through the KG-Microbe knowledge graph.
 
 ## Primary Research Areas
 
@@ -130,3 +132,25 @@ Interested in collaborating on microbial cultivation research? We welcome:
 - **Data contributors** sharing cultivation datasets
 
 [Contact us](mailto:MJoachimiak@lbl.gov) to explore collaboration opportunities.
+
+---
+
+## Frequently Asked Questions
+
+### What are CultureBotAI's main research areas?
+CultureBotAI focuses on three main research areas: (1) cultivation of isolated and novel organisms using AI-powered approaches, (2) culture optimization through data-driven approaches and machine learning, and (3) growth preference prediction using AI/ML methods.
+
+### Who leads CultureBotAI's research?
+CultureBotAI research is led by Dr. Marcin P. Joachimiak, a scientist at Lawrence Berkeley National Laboratory in Berkeley, California, specializing in microbiology, knowledge graph development, and computational biology.
+
+### What is the KG-Microbe knowledge graph?
+KG-Microbe is a comprehensive modular knowledge graph developed by Dr. Marcin P. Joachimiak that integrates multi-source microbial data from major biological databases using ontology-driven organization to enable AI-driven insights and automated reasoning.
+
+### What machine learning methods does CultureBotAI use?
+CultureBotAI employs deep neural networks for complex pattern recognition, gradient boosted decision trees for predictive modeling, ensemble methods combining multiple approaches, and graph learning for knowledge integration.
+
+### Where is CultureBotAI research conducted?
+CultureBotAI research is conducted at Lawrence Berkeley National Laboratory in Berkeley, California, within the Environmental Genomics and Systems Biology Division, with collaborations at ABPDU and JBEI.
+
+### What are CultureBotAI's current projects?
+Current projects include an automated culture monitoring platform using AI and high-throughput cultivation, predictive growth modeling for optimal conditions, and expanding kg-microbe capabilities for automated literature mining and cross-organism prediction.

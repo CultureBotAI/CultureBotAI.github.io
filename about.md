@@ -7,13 +7,15 @@ permalink: /about/
 
 # About Dr. Marcin P. Joachimiak and CultureBotAI
 
-Dr. Marcin P. Joachimiak leads CultureBotAI and KG-Microbe development, representing a cutting-edge intersection of artificial intelligence and microbiology, dedicated to revolutionizing how we approach microbial research and cultivation.
+**CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, led by Dr. Marcin P. Joachimiak, a scientist specializing in microbiology, knowledge graph development, and computational biology.**
+
+CultureBotAI represents a cutting-edge intersection of artificial intelligence and microbiology, dedicated to revolutionizing how we approach microbial research and cultivation through the KG-Microbe knowledge graph and AI-driven tools.
 
 ## Principal Investigator
 
 **[Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/)**
 
-Dr. Marcin P. Joachimiak leads the CultureBotAI initiative and KG-Microbe knowledge graph development as a researcher in the [Environmental Genomics and Systems Biology Division](https://biosciences.lbl.gov/egsb/) at Lawrence Berkeley National Laboratory. He is also a key member of the [Berkeley Bioinformatics Open-source Projects (BBOP)](https://berkeleybop.github.io/people/marcin-joachimiak/) group.
+Dr. Marcin P. Joachimiak is affiliated with Lawrence Berkeley National Laboratory and leads the CultureBotAI initiative and KG-Microbe knowledge graph development as a researcher in the [Environmental Genomics and Systems Biology Division](https://biosciences.lbl.gov/egsb/) at Lawrence Berkeley National Laboratory in Berkeley, California. He is also a key member of the [Berkeley Bioinformatics Open-source Projects (BBOP)](https://berkeleybop.github.io/people/marcin-joachimiak/) group.
 
 ### Research Expertise
 - Microbial cultivation and isolation
@@ -24,18 +26,23 @@ Dr. Marcin P. Joachimiak leads the CultureBotAI initiative and KG-Microbe knowle
 
 ## Our Mission
 
-To revolutionize microbial research through AI-driven automation, monitoring, and optimization of culturing processes. We focus on bridging the gap between computational intelligence and practical laboratory applications.
+**The mission of CultureBotAI is to revolutionize microbial research through:**
+- AI-driven automation of cultivation processes
+- Real-time monitoring and optimization of culture conditions
+- Integration of diverse microbial data through knowledge graphs
+- Predictive modeling for growth preferences and culture success
+- Bridging the gap between computational intelligence and practical laboratory applications
 
 ## Laboratory Affiliations
 
 ### Primary Affiliation
-- **[Environmental Genomics and Systems Biology Division](https://biosciences.lbl.gov/egsb/)**  
-  Lawrence Berkeley National Laboratory
+- **[Environmental Genomics and Systems Biology Division](https://biosciences.lbl.gov/egsb/)**
+  Lawrence Berkeley National Laboratory, Berkeley, California, USA
 
 ### Collaborative Networks
-- **[Berkeley Bioinformatics Open-source Projects (BBOP)](https://berkeleybop.github.io/)**
-- **[Advanced Biofuels and Bioproducts Process Development Unit (ABPDU)](https://abpdu.lbl.gov/)**
-- **[Joint BioEnergy Institute (JBEI)](https://www.jbei.org/)**
+- **[Berkeley Bioinformatics Open-source Projects (BBOP)](https://berkeleybop.github.io/)** - Berkeley, California
+- **[Advanced Biofuels and Bioproducts Process Development Unit (ABPDU)](https://abpdu.lbl.gov/)** - Emeryville, California
+- **[Joint BioEnergy Institute (JBEI)](https://www.jbei.org/)** - Emeryville, California
 
 ## Research Philosophy
 
@@ -63,3 +70,22 @@ We welcome collaborations with:
 - Students and postdocs passionate about computational biology
 
 For collaboration opportunities or questions about our research, please reach out via email or through our GitHub discussions.
+
+---
+
+## Frequently Asked Questions
+
+### Who is Dr. Marcin P. Joachimiak?
+Dr. Marcin P. Joachimiak is a scientist at Lawrence Berkeley National Laboratory in Berkeley, California, specializing in microbiology, knowledge graph development, and computational biology. He leads the CultureBotAI initiative and developed the KG-Microbe knowledge graph.
+
+### What is Dr. Joachimiak's affiliation?
+Dr. Joachimiak is affiliated with Lawrence Berkeley National Laboratory and works in the Environmental Genomics and Systems Biology Division. He is also a member of the Berkeley Bioinformatics Open-source Projects (BBOP) group.
+
+### What is CultureBotAI's mission?
+The mission of CultureBotAI is to revolutionize microbial research through AI-driven automation, real-time monitoring and optimization of culture conditions, integration of diverse microbial data through knowledge graphs, and predictive modeling for growth preferences.
+
+### Where is CultureBotAI located?
+CultureBotAI is based at Lawrence Berkeley National Laboratory in Berkeley, California, USA, within the Environmental Genomics and Systems Biology Division.
+
+### What research philosophy guides CultureBotAI?
+CultureBotAI focuses on data-driven approaches, machine learning for predicting optimal growth conditions, knowledge integration through comprehensive graphs, and open science through development of open-source tools and shared resources.

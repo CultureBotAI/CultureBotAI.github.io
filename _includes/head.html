@@ -19,6 +19,28 @@
         "@id": "{{ site.url }}/#org",
         "name": "CultureBotAI",
         "url": "{{ site.url }}",
+        "description": "CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, developing AI-driven tools and knowledge graphs for microbial cultivation and computational biology.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Berkeley",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Lawrence Berkeley National Laboratory",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berkeley",
+            "addressRegion": "California",
+            "addressCountry": "USA"
+          }
+        },
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Lawrence Berkeley National Laboratory",
+          "url": "https://www.lbl.gov/"
+        },
         "sameAs": [
           "https://github.com/CultureBotAI"
         ]
@@ -27,29 +49,64 @@
         "@type": "Person",
         "@id": "{{ site.url }}/#marcin",
         "name": "Dr. Marcin P. Joachimiak",
-        "affiliation": {"@id": "{{ site.url }}/#org"},
+        "givenName": "Marcin",
+        "familyName": "Joachimiak",
+        "honorificPrefix": "Dr.",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Lawrence Berkeley National Laboratory",
+          "department": "Environmental Genomics and Systems Biology Division",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berkeley",
+            "addressRegion": "California",
+            "addressCountry": "USA"
+          }
+        },
         "jobTitle": "Principal Investigator",
         "worksFor": {"@id": "{{ site.url }}/#org"},
+        "knowsAbout": ["microbiology", "knowledge graphs", "computational biology", "AI/ML", "microbial cultivation"],
         "sameAs": [
-          "https://scholar.google.com/citations?user=WOaZlYAAAAAJ", 
+          "https://scholar.google.com/citations?user=WOaZlYAAAAAJ",
           "https://orcid.org/0000-0001-8175-045X",
           "https://biosciences.lbl.gov/profiles/marcin-joachimiak/"
         ]
       },
       {
-        "@type": "Project",
+        "@type": "ResearchProject",
         "@id": "{{ site.url }}/#kg-microbe",
         "name": "KG-Microbe",
+        "description": "A comprehensive modular knowledge graph for microbiology and microbiome research that integrates diverse microbial data sources to enable AI-driven insights for growth preference prediction and culture optimization.",
         "url": "https://github.com/Knowledge-Graph-Hub/kg-microbe",
         "creator": {"@id": "{{ site.url }}/#marcin"},
-        "keywords": ["knowledge graph","microbiology","AI/ML","growth preference","ontology"]
+        "sponsor": {
+          "@type": "Organization",
+          "name": "Lawrence Berkeley National Laboratory"
+        },
+        "keywords": ["knowledge graph","microbiology","AI/ML","growth preference","ontology","microbial cultivation"]
       },
       {
         "@type": "ScholarlyArticle",
         "headline": "KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences",
-        "author": [{"@id": "{{ site.url }}/#marcin"}],
+        "author": [
+          {"@type": "Person", "name": "Brook E. Santangelo"},
+          {"@type": "Person", "name": "Harshad Hegde"},
+          {"@type": "Person", "name": "J. Harry Caufield"},
+          {"@type": "Person", "name": "Justin Reese"},
+          {"@type": "Person", "name": "Tomas Kliegr"},
+          {"@type": "Person", "name": "Lawrence E. Hunter"},
+          {"@type": "Person", "name": "Catherine A. Lozupone"},
+          {"@type": "Person", "name": "Christopher J. Mungall"},
+          {"@id": "{{ site.url }}/#marcin"}
+        ],
+        "datePublished": "2025-02-24",
+        "publisher": {
+          "@type": "Organization",
+          "name": "bioRxiv"
+        },
         "url": "https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1",
-        "identifier": "https://doi.org/10.1101/2025.02.24.639989"
+        "identifier": "https://doi.org/10.1101/2025.02.24.639989",
+        "about": "knowledge graph, microbiology, microbiome, AI, machine learning"
       },
       {
         "@type": "WebSite",
@@ -66,6 +123,59 @@
           {"@type":"ListItem","position":3,"name":"Resources","item":"{{ site.url }}/resources/"},
           {"@type":"ListItem","position":4,"name":"Publications","item":"{{ site.url }}/publications/"},
           {"@type":"ListItem","position":5,"name":"About","item":"{{ site.url }}/about/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is CultureBotAI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, that develops AI-driven tools and knowledge graphs for microbial cultivation and computational biology."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who leads CultureBotAI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CultureBotAI is led by Dr. Marcin P. Joachimiak, a scientist specializing in microbiology, knowledge graph development, and computational biology at Lawrence Berkeley National Laboratory."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is CultureBotAI based?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CultureBotAI is based at Lawrence Berkeley National Laboratory in Berkeley, California, within the Environmental Genomics and Systems Biology Division."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is KG-Microbe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KG-Microbe is a comprehensive modular knowledge graph developed by Dr. Marcin P. Joachimiak that integrates diverse microbial data sources to enable AI-driven insights for growth prediction and culture optimization."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I access KG-Microbe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-microbe under the BSD-3-Clause license. The preprint is available at https://doi.org/10.1101/2025.02.24.639989"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does CultureBotAI work on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CultureBotAI focuses on three main areas: (1) cultivation of isolated and novel organisms, (2) culture optimization through data-driven approaches, and (3) growth preference prediction using machine learning and AI methods."
+            }
+          }
         ]
       }
     ]
