@@ -65,16 +65,115 @@ kg transform
 kg merge
 ```
 
-## 🔧 Computational Tools
+## 🔧 CultureBotAI Software & Tools
 
-### CultureBot Predictor
-AI-powered tool for predicting optimal growth conditions for target microorganisms.
+### Growth Media Prediction & Design
+
+#### MicroGrowLink
+**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowLink)** | Python
+
+Knowledge graph-based framework for predicting microbial growth media using advanced graph and transformer models. Integrates microbial, chemical, and environmental data into a heterogeneous knowledge graph and applies link prediction to forecast which media enable growth of given taxa.
+
+**Supported Models:**
+- RGT (Relational Graph Transformer)
+- HGT (Heterogeneous Graph Transformer)
+- NBFNet (Neural Bellman-Ford Network)
+
+**Key Features:**
+- Heterogeneous knowledge graph integration
+- Advanced transformer-based link prediction
+- Multi-modal data integration (microbial, chemical, environmental)
+
+---
+
+#### MicroGrowAgents
+**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowAgents)** | Python | [Documentation](https://CultureBotAI.github.io/MicroGrowAgents)
+
+Agent-based system for AI-driven microbial cultivation and growth media design. Bridges the microbial cultivation gap through AI-powered multi-agent systems that integrate knowledge graphs, machine learning, and experimental automation.
+
+**Specialized Agents:**
+- **LiteratureAgent** - Mining 245+ papers for cultivation protocols
+- **AnalogyReasoningAgent** - Cross-organism comparison and reasoning
+- **GenomeFunctionAgent** - Auxotrophy detection from 57 Bakta-annotated genomes (667K features)
+- **MediaFormulationAgent** - Schema-driven media recommendation with evidence-based ingredient suggestions
+
+**Key Achievements:**
+- 864,363 validated species across bacteria, archaea, fungi, and protozoa (GTDB + LPSN + NCBI)
+- Multi-modal reasoning combining literature mining, metabolic modeling (FBA/gap-filling), chemical similarity (208K+ embeddings)
+- Genome-guided design for organism-specific media formulation
+
+---
+
+#### MicroMediaParam
+**[GitHub Repository](https://github.com/CultureBotAI/MicroMediaParam)** | Python
+
+Comprehensive chemical compound knowledge graph mapping pipeline for microbial growth media analysis. Extracts chemical compounds from media compositions and maps them to knowledge graph entities with standardized chemical properties.
 
 **Features:**
-- Machine learning models trained on kg-microbe data
-- Growth condition recommendations
-- Media composition suggestions
-- Confidence scoring for predictions
+- Processes 23,181 chemical entries from 1,807 microbial growth media
+- 78% ChEBI coverage (18,088 compounds mapped)
+- Multi-database mapping to ChEBI, PubChem, and CAS-RN identifiers
+- Intelligent hydrate parsing and molecular weight calculation
+- Solution expansion for DSMZ solution references
+- 99.99% chemical mapping accuracy
+
+### Specialized Research Pipelines
+
+#### CMM-AI: Lanthanide Bioprocessing Data Pipeline
+**[GitHub Repository](https://github.com/CultureBotAI/CMM-AI)** | Python
+
+Automated data pipeline for lanthanide bioprocessing research, focusing on rare earth element-dependent biological processes in microorganisms. Integrates multiple biological databases to create comprehensive research datasets.
+
+**Scientific Focus:**
+- XoxF methanol dehydrogenase systems (lanthanide-dependent enzymes)
+- Methylotrophic bacteria (Methylobacterium, Methylorubrum, Paracoccus)
+- Environmental metal cycling and biogeochemistry
+- Siderophore/lanthanophore transport mechanisms
+- PQQ-dependent enzyme complexes
+
+---
+
+#### PFAS-AI: Machine Learning-Enabled PFAS Biodegradation Pipeline
+**[GitHub Repository](https://github.com/CultureBotAI/PFAS-AI)** | Python
+
+ML-enabled data pipeline for PFAS biodegradation research, focusing on identification and characterization of microorganisms capable of degrading per- and polyfluoroalkyl substances (PFAS).
+
+**Research Objectives:**
+- **ML-Powered Database** - Semantically-aware database using KG-Microbe platform to identify putative PFAS biodegradation genes, pathways, taxa, and environments
+- **Intelligent Consortia Design** - Graph learning and LLMs to design optimized microbial consortia for PFAS remediation
+
+**Scientific Focus:**
+- C-F bond cleavage mechanisms (dehalogenases and defluorinases)
+- Fluoride resistance systems
+- Hydrocarbon degradation pathways
+- Environmental context (AFFF-contaminated sites, groundwater, wastewater)
+
+### Data Processing & Analysis
+
+#### assay-metadata: BacDive API Assay Metadata Extractor
+**[GitHub Repository](https://github.com/CultureBotAI/assay-metadata)** | Python
+
+Extracts API assay metadata from BacDive JSON data with comprehensive identifier mappings to CHEBI, EC, RHEA, and PubChem databases.
+
+**Capabilities:**
+- Parses 99,392 bacterial strain records from BacDive
+- Extracts 17 unique API kit types (API zym, API 50CHac, etc.)
+- Maps substrate codes to CHEBI and PubChem identifiers
+- Maps enzyme EC numbers to RHEA reaction databases
+- Generates consolidated JSON metadata files
+
+---
+
+#### microbe-rules: Machine Learning Models for Microbial Data
+**[GitHub Repository](https://github.com/CultureBotAI/microbe-rules)** | Python
+
+Research code repository containing machine learning models and analysis pipelines for binary classification and comparative modeling of microbial datasets.
+
+**Features:**
+- Binary classification models for microbial data
+- Model comparison and evaluation frameworks
+- Automated data preparation pipelines
+- Reproducible research workflows
 
 
 ## 📊 Datasets
