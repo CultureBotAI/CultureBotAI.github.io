@@ -60,6 +60,27 @@ The **Microbial Experimental and Theoretical Preference Ontology (METPO)** provi
 - **Knowledge Discovery**: Identify novel microbial relationships
 - **Data Mining**: Extract patterns from large-scale microbial datasets
 
+## Projects Built on KG-Microbe
+
+The kg-microbe knowledge graph serves as the foundation for numerous CultureBotAI projects:
+
+### Data Integration Projects
+- **CultureMech & MicroMediaParam** - Integrate chemical compound data with standardized identifiers
+- **assay-metadata** - Add phenotypic assay results from 99K+ BacDive strains
+- **MATE-LLM** - Extract and integrate literature-derived cultivation data
+- **eggnogtable** - Map genome functional annotations to ontology terms
+
+### Prediction & Analysis Tools
+- **MicroGrowAgents** - Multi-agent system using kg-microbe for evidence-based media design
+- **MicroGrowLink** - Graph transformer models trained on kg-microbe structure
+- **PFAS-AI & PFASCommunityAgents** - PFAS biodegradation using microbial relationships
+- **CMM-AI** - Lanthanide bioprocessing research leveraging metabolic data
+
+### Web Services
+- **MicroGrowLinkService** - RESTful API providing programmatic access to predictions
+
+[Explore all projects and their relationships →](/resources/#project-ecosystem--workflows)
+
 ## Access and Usage
 
 ### Repository

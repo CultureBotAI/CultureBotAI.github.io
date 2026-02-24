@@ -36,6 +36,17 @@ Read our bioRxiv preprint by Dr. Marcin P. Joachimiak detailing the development 
 ### 📊 [METPO Ontology](https://github.com/Knowledge-Graph-Hub/kg-microbe/tree/main/src/kg_microbe/transform/metpo)
 Microbial experimental and theoretical preference ontology for standardizing growth preference data.
 
+## How Our Tools Work Together
+
+CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe):
+
+- **Data processing pipelines** prepare chemical, genomic, and literature data
+- **AI agent systems** combine multiple data sources for intelligent predictions
+- **Specialized applications** target specific research domains (PFAS, lanthanide)
+- **Web services** provide API access to prediction models
+
+[Explore the complete project ecosystem →](/resources/#project-ecosystem--workflows)
+
 ---
 
 ## Frequently Asked Questions

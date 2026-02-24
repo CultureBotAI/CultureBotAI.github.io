@@ -9,6 +9,19 @@ permalink: /resources/
 
 CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various computational resources, databases, and tools for the microbial research community, including the comprehensive KG-Microbe knowledge graph.
 
+## Quick Navigation
+
+**New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#project-ecosystem--workflows) to understand how tools work together.
+
+**Looking for specific tools?**
+- [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents
+- [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
+- [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
+- [Literature Mining](#ai-agent-systems) - MATE-LLM
+- [Specialized Research](#specialized-research-pipelines) - PFAS, Lanthanide bioprocessing
+
+**Want to see workflows?** Jump to [Common Workflows](#common-workflows)
+
 ## 🧬 KG-Microbe: Microbial Knowledge Graph
 
 ### Overview
@@ -65,6 +78,101 @@ kg transform
 kg merge
 ```
 
+## 🌐 Project Ecosystem & Workflows
+
+### Understanding the CultureBotAI Ecosystem
+
+The CultureBotAI toolkit consists of interconnected projects organized into a data processing pipeline with kg-microbe as the foundational knowledge graph.
+
+### Architecture Overview
+
+```
+                         ┌─────────────────┐
+                         │   kg-microbe    │
+                         │  (Foundation)   │
+                         └────────┬────────┘
+                                  │
+         ┌────────────────────────┼────────────────────────┐
+         │                        │                        │
+  ┌──────▼──────┐      ┌─────────▼─────────┐    ┌────────▼────────┐
+  │ Data        │      │ Chemical          │    │ Genome          │
+  │ Ingestion   │      │ Processing        │    │ Analysis        │
+  │             │      │                   │    │                 │
+  │ • assay-    │      │ • CultureMech     │    │ • eggnog_runner │
+  │   metadata  │      │ • MicroMediaParam │    │ • eggnogtable   │
+  │ • MATE-LLM  │      │                   │    │                 │
+  └──────┬──────┘      └─────────┬─────────┘    └────────┬────────┘
+         │                       │                        │
+         └───────────────────────┼────────────────────────┘
+                                 │
+                    ┌────────────▼────────────┐
+                    │   AI Agent Systems      │
+                    │                         │
+                    │ • MicroGrowAgents       │
+                    │ • MicroGrowLink         │
+                    │ • PFASCommunityAgents   │
+                    └────────────┬────────────┘
+                                 │
+         ┌───────────────────────┼───────────────────────┐
+         │                       │                       │
+  ┌──────▼──────┐     ┌─────────▼─────────┐   ┌────────▼────────┐
+  │ Specialized │     │ Web Services      │   │ Analysis        │
+  │ Apps        │     │                   │   │ Tools           │
+  │             │     │ • MicroGrowLink   │   │                 │
+  │ • PFAS-AI   │     │   Service         │   │ • microbe-rules │
+  │ • CMM-AI    │     │                   │   │                 │
+  └─────────────┘     └───────────────────┘   └─────────────────┘
+```
+
+### Common Workflows
+
+#### Workflow 1: Novel Organism Media Prediction
+1. Start with organism taxonomy/genome
+2. Run eggnog_runner + eggnogtable (functional annotation)
+3. Query kg-microbe (related organisms, known preferences)
+4. Use MicroGrowAgents (integrate genome, literature, analogies)
+5. Get media recommendations with evidence
+
+#### Workflow 2: Chemical Compound Knowledge Graph Integration
+1. Start with media composition text
+2. Run CultureMech (extract chemical entities)
+3. Run MicroMediaParam (map to ChEBI/PubChem)
+4. Integrate into kg-microbe (standardized chemical data)
+5. Enable downstream media predictions
+
+#### Workflow 3: PFAS Biodegradation Consortia Design
+1. Query PFAS-AI database (identify candidate organisms)
+2. Extract genome features (eggnog_runner/eggnogtable)
+3. Query kg-microbe (environmental compatibility)
+4. Use PFASCommunityAgents (design optimized consortia)
+5. Get consortium composition + rationale
+
+#### Workflow 4: Literature-Driven Culture Optimization
+1. Run MATE-LLM (extract cultivation protocols from papers)
+2. Integrate into kg-microbe (structured cultivation data)
+3. Use MicroGrowAgents LiteratureAgent (mine similar organisms)
+4. Get evidence-based media recommendations
+
+### Getting Started Guide
+
+**For Growth Media Prediction:**
+- Start with: MicroGrowAgents or MicroGrowLink
+- Prerequisites: Access to kg-microbe knowledge graph
+- Recommended workflow: Workflow 1
+
+**For Chemical Data Processing:**
+- Start with: CultureMech or MicroMediaParam
+- Prerequisites: Media composition text data
+- Recommended workflow: Workflow 2
+
+**For Specialized Research:**
+- PFAS biodegradation: Start with PFAS-AI, then PFASCommunityAgents
+- Lanthanide bioprocessing: Start with CMM-AI
+
+**For Web-Based Access:**
+- API users: Start with MicroGrowLinkService
+- Prerequisites: HTTP client, REST API knowledge
+
 ## 🔧 CultureBotAI Software & Tools
 
 ### Growth Media Prediction & Design
@@ -84,6 +192,11 @@ Knowledge graph-based framework for predicting microbial growth media using adva
 - Advanced transformer-based link prediction
 - Multi-modal data integration (microbial, chemical, environmental)
 
+**Related Projects:**
+- **Depends on:** kg-microbe (knowledge graph foundation), MicroMediaParam (chemical compound mappings)
+- **Feeds into:** Media formulation recommendations, MicroGrowLinkService (API deployment)
+- **Works with:** MicroGrowAgents (complementary multi-agent predictions)
+
 ---
 
 #### MicroGrowAgents
@@ -102,6 +215,11 @@ Agent-based system for AI-driven microbial cultivation and growth media design. 
 - Multi-modal reasoning combining literature mining, metabolic modeling (FBA/gap-filling), chemical similarity (208K+ embeddings)
 - Genome-guided design for organism-specific media formulation
 
+**Related Projects:**
+- **Depends on:** kg-microbe (knowledge graph foundation), MicroMediaParam (chemical mappings), eggnogtable (genome annotations), MATE-LLM (literature extraction)
+- **Feeds into:** Media formulation recommendations, PFASCommunityAgents (consortium design)
+- **Works with:** MicroGrowLink (complementary prediction approach)
+
 ---
 
 #### MicroMediaParam
@@ -117,6 +235,29 @@ Comprehensive chemical compound knowledge graph mapping pipeline for microbial g
 - Solution expansion for DSMZ solution references
 - 99.99% chemical mapping accuracy
 
+**Related Projects:**
+- **Depends on:** CultureMech (chemical entity extraction)
+- **Feeds into:** kg-microbe (standardized chemical data), MicroGrowAgents (chemical mappings), MicroGrowLink (knowledge graph integration)
+- **Works with:** assay-metadata (compound identification)
+
+---
+
+#### CultureMech
+**[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | Python
+
+Chemical compound processing pipeline for extracting entities from microbial growth media text. Identifies and parses chemical compounds, concentrations, and media components from unstructured text data.
+
+**Features:**
+- Chemical entity recognition and extraction
+- Concentration parsing and normalization
+- Media composition text processing
+- Integration with downstream mapping pipelines
+
+**Related Projects:**
+- **Depends on:** Text-based media composition data
+- **Feeds into:** MicroMediaParam (entity mapping), kg-microbe (chemical data integration)
+- **Works with:** assay-metadata (standardized substrate processing)
+
 ### Specialized Research Pipelines
 
 #### CMM-AI: Lanthanide Bioprocessing Data Pipeline
@@ -130,6 +271,11 @@ Automated data pipeline for lanthanide bioprocessing research, focusing on rare 
 - Environmental metal cycling and biogeochemistry
 - Siderophore/lanthanophore transport mechanisms
 - PQQ-dependent enzyme complexes
+
+**Related Projects:**
+- **Depends on:** kg-microbe (organism data), eggnogtable (functional annotations)
+- **Feeds into:** Specialized lanthanide bioprocessing research
+- **Works with:** MicroGrowAgents (media optimization for lanthanide-dependent organisms)
 
 ---
 
@@ -148,6 +294,29 @@ ML-enabled data pipeline for PFAS biodegradation research, focusing on identific
 - Hydrocarbon degradation pathways
 - Environmental context (AFFF-contaminated sites, groundwater, wastewater)
 
+**Related Projects:**
+- **Depends on:** kg-microbe (organism and gene identification)
+- **Feeds into:** PFASCommunityAgents (consortium design)
+- **Works with:** eggnogtable (functional gene annotations)
+
+---
+
+#### PFASCommunityAgents
+**[GitHub Repository](https://github.com/CultureBotAI/PFASCommunityAgents)** | Python
+
+Multi-agent system for designing optimized microbial consortia for PFAS biodegradation. Uses AI-powered reasoning to compose consortia with complementary metabolic capabilities and syntrophic relationships.
+
+**Key Features:**
+- Consortium composition optimization
+- Syntrophic relationship prediction
+- Environmental context-aware design
+- Multi-species compatibility assessment
+
+**Related Projects:**
+- **Depends on:** PFAS-AI (candidate organism database), MicroGrowAgents (agent architecture), kg-microbe (organism relationships)
+- **Feeds into:** PFAS remediation research and consortium cultivation
+- **Works with:** MicroGrowAgents (media design for consortia)
+
 ### Data Processing & Analysis
 
 #### assay-metadata: BacDive API Assay Metadata Extractor
@@ -162,6 +331,48 @@ Extracts API assay metadata from BacDive JSON data with comprehensive identifier
 - Maps enzyme EC numbers to RHEA reaction databases
 - Generates consolidated JSON metadata files
 
+**Related Projects:**
+- **Depends on:** BacDive API data
+- **Feeds into:** kg-microbe (phenotypic assay data integration)
+- **Works with:** MicroMediaParam (compound identification), CultureMech (substrate processing)
+
+---
+
+#### eggnog_runner
+**[GitHub Repository](https://github.com/CultureBotAI/eggnog_runner)** | Python
+
+Automated pipeline for running EggNOG-mapper functional annotation at scale. Processes genome assemblies in batch to generate functional annotations for downstream analysis.
+
+**Features:**
+- Batch genome processing with parallel execution
+- Automated EggNOG-mapper execution
+- Output standardization and organization
+- Error handling and retry logic
+
+**Related Projects:**
+- **Depends on:** kg-microbe (genome data), EggNOG-mapper tool
+- **Feeds into:** eggnogtable (annotation post-processing)
+- **Works with:** MicroGrowAgents GenomeFunctionAgent (functional predictions)
+
+---
+
+#### eggnogtable
+**[GitHub Repository](https://github.com/CultureBotAI/eggnogtable)** | Python
+
+Post-processing pipeline for EggNOG-mapper output into structured datasets. Extracts and organizes functional annotations including GO terms, EC numbers, and KEGG pathways.
+
+**Features:**
+- GO term extraction and organization
+- EC number mapping
+- KEGG pathway assignment
+- Ontology term integration
+- Structured dataset generation
+
+**Related Projects:**
+- **Depends on:** eggnog_runner (annotation output)
+- **Feeds into:** MicroGrowAgents GenomeFunctionAgent (auxotrophy detection), kg-microbe (functional annotations), CMM-AI (enzyme identification)
+- **Works with:** assay-metadata (enzyme EC number mapping)
+
 ---
 
 #### microbe-rules: Machine Learning Models for Microbial Data
@@ -175,6 +386,48 @@ Research code repository containing machine learning models and analysis pipelin
 - Automated data preparation pipelines
 - Reproducible research workflows
 
+**Related Projects:**
+- **Depends on:** kg-microbe (training data), various microbial datasets
+- **Feeds into:** Model optimization research
+- **Works with:** MicroGrowLink (model comparison), MicroGrowAgents (ML component evaluation)
+
+### AI Agent Systems
+
+#### MATE-LLM
+**[GitHub Repository](https://github.com/CultureBotAI/MATE-LLM)** | Python
+
+LLM-powered system for extracting structured microbial information from scientific literature. Automates the extraction of cultivation protocols, growth conditions, and microbial annotations from research papers.
+
+**Key Features:**
+- Entity extraction from scientific literature
+- Automated cultivation protocol annotation
+- Literature mining for growth conditions
+- Knowledge graph integration preparation
+- Structured data generation from unstructured text
+
+**Related Projects:**
+- **Depends on:** Scientific literature corpus, LLM APIs
+- **Feeds into:** kg-microbe (literature-derived data), MicroGrowAgents LiteratureAgent (cultivation protocols)
+- **Works with:** METPO ontology (standardized terminology)
+
+### Web Services & APIs
+
+#### MicroGrowLinkService
+**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowLinkService)** | Python | REST API
+
+RESTful API service wrapper for MicroGrowLink prediction models. Provides HTTP endpoints for programmatic access to growth media predictions and enables integration with laboratory information management systems (LIMS).
+
+**Key Features:**
+- HTTP API endpoints for predictions
+- Model serving infrastructure
+- Batch prediction support
+- LIMS integration capabilities
+- Production deployment configuration
+
+**Related Projects:**
+- **Depends on:** MicroGrowLink (prediction models), kg-microbe (knowledge graph)
+- **Feeds into:** External applications, LIMS integrations, web interfaces
+- **Works with:** MicroGrowAgents (complementary API services)
 
 ## 📊 Datasets
 

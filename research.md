@@ -97,25 +97,34 @@ Expanding kg-microbe capabilities for:
 - Novel organism property inference
 - Integration with laboratory information systems
 
+## Tools Supporting Our Research
+
+Our research goals are enabled by a suite of interconnected software tools:
+
+### For Cultivation of Novel Organisms
+- [MicroGrowAgents](/resources/#microgrowagents) - AI-driven media design with multi-agent reasoning
+- [MicroGrowLink](/resources/#microgrowlink) - Graph-based growth prediction using transformers
+- [MATE-LLM](/resources/#mate-llm) - Literature protocol extraction with LLMs
+
+### For Culture Optimization
+- [CultureMech](/resources/#culturemech) - Chemical compound processing pipeline
+- [MicroMediaParam](/resources/#micromediaparam) - Media composition analysis and mapping
+- [microbe-rules](/resources/#microbe-rules) - ML model optimization and comparison
+
+### For Growth Preference Prediction
+- [kg-microbe](/kg-microbe/) - Knowledge graph foundation with 864K+ validated species
+- [assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor) - Phenotypic assay data from BacDive
+- [eggnog_runner & eggnogtable](/resources/#eggnog_runner) - Genome functional annotation
+
+[See all tools and workflows →](/resources/)
+
 ## Collaborative Research
 
 We actively collaborate with:
 - **Academic institutions** developing novel cultivation techniques
-- **Industry partners** scaling up microbial production processes  
+- **Industry partners** scaling up microbial production processes
 - **Government laboratories** studying environmental microorganisms
 - **Open source communities** building computational biology tools
-
-## Future Directions
-
-### Short-term Goals (1-2 years)
-- Release production version of kg-microbe knowledge graph
-- Deploy automated culture monitoring in partner laboratories
-- Publish comprehensive growth prediction models
-
-### Long-term Vision (3-5 years)  
-- Achieve high success rate in novel organism cultivation
-- Enable fully automated microbial cultivation pipelines
-- Integrate CultureBotAI tools into standard laboratory workflows
 
 ---
 
