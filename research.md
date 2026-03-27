@@ -107,7 +107,8 @@ Our research goals are enabled by a suite of interconnected software tools:
 - [MATE-LLM](/resources/#mate-llm) - Literature protocol extraction with LLMs
 
 ### For Culture Optimization
-- [CultureMech](/resources/#culturemech) - Chemical compound processing pipeline
+- [CultureMech](/culturemech/) - Microbial culture media knowledge graph with 10,000+ recipes
+- [MediaIngredientMech](/mediaingredientmech/) - LLM-assisted ingredient curation and ontology mapping
 - [MicroMediaParam](/resources/#micromediaparam) - Media composition analysis and mapping
 - [microbe-rules](/resources/#microbe-rules) - ML model optimization and comparison
 
@@ -115,6 +116,11 @@ Our research goals are enabled by a suite of interconnected software tools:
 - [kg-microbe](/kg-microbe/) - Knowledge graph foundation with 864K+ validated species
 - [assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor) - Phenotypic assay data from BacDive
 - [eggnog_runner & eggnogtable](/resources/#eggnog_runner) - Genome functional annotation
+- [neurosymbolreason](/resources/#neurosymbolreason---neurosymbolic-analogy-reasoning) - Neurosymbolic analogy reasoning on knowledge graph embeddings
+
+### For Consortium Design & Community Modeling
+- [CommunityMech](/communitymech/) - Microbial community interaction modeling with LinkML schema
+- [PFASCommunityAgents](/resources/#pfascommunityagents) - AI-driven consortium design for PFAS biodegradation
 
 [See all tools and workflows →](/resources/)
 

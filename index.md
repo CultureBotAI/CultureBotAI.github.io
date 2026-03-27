@@ -27,11 +27,14 @@ Our primary research areas include:
 
 ## Key Resources
 
-### 🧬 [KG-Microbe Knowledge Graph](https://github.com/Knowledge-Graph-Hub/kg-microbe) 
+### 🧬 [KG-Microbe Knowledge Graph](https://github.com/Knowledge-Graph-Hub/kg-microbe)
 The comprehensive modular knowledge graph that powers CultureBotAI, developed by Dr. Marcin P. Joachimiak. This resource integrates diverse microbial data to enable AI-driven insights.
 
 ### 📄 [KG-Microbe Preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)
 Read our bioRxiv preprint by Dr. Marcin P. Joachimiak detailing the development and applications of the KG-Microbe knowledge graph.
+
+### 🤖 [AI Curation Tools — X-Mech Suite](/culturemech/)
+The X-Mech suite ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/)) provides AI-powered curation of microbial cultivation records, transforming unstructured literature data into standardized knowledge graphs with 10,000+ media recipes.
 
 ### 📊 [METPO Ontology](https://github.com/Knowledge-Graph-Hub/kg-microbe/tree/main/src/kg_microbe/transform/metpo)
 Microbial experimental and theoretical preference ontology for standardizing growth preference data.
@@ -40,9 +43,10 @@ Microbial experimental and theoretical preference ontology for standardizing gro
 
 CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe):
 
+- **AI curation pipelines** ([X-Mech suite](/culturemech/)) transform unstructured cultivation data into standardized knowledge graphs
 - **Data processing pipelines** prepare chemical, genomic, and literature data
 - **AI agent systems** combine multiple data sources for intelligent predictions
-- **Specialized applications** target specific research domains (PFAS, lanthanide)
+- **Specialized applications** target specific research domains (PFAS biodegradation, lanthanide bioprocessing)
 - **Web services** provide API access to prediction models
 
 [Explore the complete project ecosystem →](/resources/#project-ecosystem--workflows)
@@ -74,6 +78,7 @@ KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-m
 ## Quick Links
 
 - 🔬 [Research Areas](/research) - Detailed overview of our research focus
+- 🤖 [AI Curation Tools](/culturemech/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech)
 - 📚 [Resources](/resources) - Tools, databases, and knowledge graphs
 - 📄 [Publications](/publications) - Papers, preprints, and presentations
 - 👥 [About](/about) - Team information and lab details

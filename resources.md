@@ -14,11 +14,14 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
+- [AI Curation Tools](#-ai-curation-tools) - CultureMech, MediaIngredientMech, CommunityMech (NEW!)
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
 - [Literature Mining](#ai-agent-systems) - MATE-LLM
 - [Specialized Research](#specialized-research-pipelines) - PFAS, Lanthanide bioprocessing
+- [Advanced Research Tools](#advanced-research-tools) - Neurosymbolic reasoning, term extraction (NEW!)
+- [Developer Resources](#developer-resources) - Claude Code skills, APIs (NEW!)
 
 **Want to see workflows?** Jump to [Common Workflows](#common-workflows)
 
@@ -123,6 +126,61 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
   │ • CMM-AI    │     │                   │   │                 │
   └─────────────┘     └───────────────────┘   └─────────────────┘
 ```
+
+## 🤖 AI Curation Tools
+
+The **X-Mech Suite** (CultureMech, MediaIngredientMech, CommunityMech) forms the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature and laboratory records into standardized, machine-readable knowledge graphs.
+
+### Pipeline Overview
+
+```
+Raw Cultivation Records (Literature, Lab Protocols)
+    ↓
+CultureMech → Chemical Entity Extraction (10,000+ media recipes)
+    ↓
+MediaIngredientMech → LLM-Assisted Ontology Mapping
+    ↓
+CommunityMech → Community Interaction Modeling
+    ↓
+KG-Microbe Knowledge Graph
+    ↓
+AI Predictions (MicroGrowAgents, MicroGrowLink)
+```
+
+### CultureMech - Microbial Culture Media Knowledge Graph
+**[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License | 7 ⭐
+
+Comprehensive collection of 10,000+ culture media recipes from major international repositories with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
+
+**What it does**: Extracts chemical entities from unstructured media composition text and grounds them to standard chemical ontologies.
+
+**→ [Learn more on the dedicated CultureMech page](/culturemech/)**
+
+---
+
+### MediaIngredientMech - LLM-Assisted Ingredient Curation
+**[Dedicated Page](/mediaingredientmech/)** | **[GitHub Repository](https://github.com/CultureBotAI/MediaIngredientMech)** | Python
+
+Curated media ingredient ontology mappings with LLM-assisted workflows for standardizing microbial cultivation ingredient data. Uses Large Language Models to intelligently map ingredient names to standardized ontology terms.
+
+**What it does**: Leverages LLMs for semantic matching of ambiguous ingredient names to ChEBI, PubChem, and METPO ontologies with human-in-the-loop validation.
+
+**→ [Learn more on the dedicated MediaIngredientMech page](/mediaingredientmech/)**
+
+---
+
+### CommunityMech - Microbial Community Interaction Modeling
+**[Dedicated Page](/communitymech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CommunityMech)** | **[Web Interface](https://culturebotai.github.io/CommunityMech/)** | BSD-3-Clause License | 2 ⭐
+
+LinkML-based modeling of microbial communities with evidence-based ecological interactions for consortium design and multi-organism cultivation.
+
+**What it does**: Provides structured representation of community composition, syntrophic interactions, and cultivation requirements for multi-species systems.
+
+**Related**: Powers [PFASCommunityAgents](#pfascommunityagents) for AI-driven consortium design.
+
+**→ [Learn more on the dedicated CommunityMech page](/communitymech/)**
+
+---
 
 ### Common Workflows
 
@@ -243,19 +301,15 @@ Comprehensive chemical compound knowledge graph mapping pipeline for microbial g
 ---
 
 #### CultureMech
-**[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | Python
+**[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-Chemical compound processing pipeline for extracting entities from microbial growth media text. Identifies and parses chemical compounds, concentrations, and media components from unstructured text data.
+Comprehensive collection of 10,000+ culture media recipes with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
 
-**Features:**
-- Chemical entity recognition and extraction
-- Concentration parsing and normalization
-- Media composition text processing
-- Integration with downstream mapping pipelines
+**→ See the [dedicated CultureMech page](/culturemech/) for full documentation, use cases, and examples.**
 
 **Related Projects:**
 - **Depends on:** Text-based media composition data
-- **Feeds into:** MicroMediaParam (entity mapping), kg-microbe (chemical data integration)
+- **Feeds into:** MicroMediaParam (entity mapping), kg-microbe (chemical data integration), [MediaIngredientMech](/mediaingredientmech/) (ingredient curation)
 - **Works with:** assay-metadata (standardized substrate processing)
 
 ### Specialized Research Pipelines
@@ -428,6 +482,74 @@ RESTful API service wrapper for MicroGrowLink prediction models. Provides HTTP e
 - **Depends on:** MicroGrowLink (prediction models), kg-microbe (knowledge graph)
 - **Feeds into:** External applications, LIMS integrations, web interfaces
 - **Works with:** MicroGrowAgents (complementary API services)
+
+---
+
+## 🔬 Advanced Research Tools
+
+#### neurosymbolreason - Neurosymbolic Analogy Reasoning
+**[GitHub Repository](https://github.com/CultureBotAI/neurosymbolreason)** | Python
+
+Neurosymbolic analogy reasoning on microbial knowledge graph embeddings to analyze relationships between microbial taxa and their physical growth preferences. Combines neural network embeddings with symbolic reasoning for cross-organism inference.
+
+**Key Features:**
+- Knowledge graph embedding analysis
+- Analogy-based reasoning for growth preferences
+- Taxonomic relationship exploration
+- Novel organism growth condition inference
+
+**Related Projects:**
+- **Depends on:** kg-microbe (knowledge graph embeddings), taxonomic data
+- **Feeds into:** MicroGrowAgents (AnalogyReasoningAgent), growth prediction pipelines
+- **Works with:** MicroGrowLink (complementary prediction approach)
+
+---
+
+#### auto-term-catalog - Automated Term Extraction
+**[GitHub Repository](https://github.com/CultureBotAI/auto-term-catalog)** | Python
+
+Code for extracting AUTO terms from ontoGPT output. Processes ontology-based text mining results to create curated term catalogs for microbial cultivation research.
+
+**Key Features:**
+- OntoGPT output processing
+- Automated term extraction and cataloging
+- Integration with METPO ontology
+- Standardized term generation
+
+**Related Projects:**
+- **Depends on:** OntoGPT output, METPO ontology
+- **Feeds into:** kg-microbe (ontology terms), MATE-LLM (standardized vocabulary)
+- **Works with:** Literature mining pipelines
+
+---
+
+## 🛠️ Developer Resources
+
+#### culturebot-skills - Claude Code Skills
+**[GitHub Repository](https://github.com/CultureBotAI/culturebot-skills)** | Skills/Configuration
+
+Claude Code skills for CultureBot/KG-Microbe projects. Custom skills and workflows for AI-assisted development within the CultureBotAI ecosystem.
+
+**What it provides:**
+- Pre-configured Claude Code skills for common tasks
+- Project-specific development workflows
+- Integration helpers for CultureBotAI tools
+- Best practices and code patterns
+
+**Use Cases:**
+- Automated code generation for kg-microbe integrations
+- Data pipeline development assistance
+- Documentation generation
+- Testing and validation workflows
+
+**Getting Started:**
+```bash
+# Install Claude Code skills
+git clone https://github.com/CultureBotAI/culturebot-skills.git
+# Follow setup instructions in repository README
+```
+
+---
 
 ## 📊 Datasets
 
