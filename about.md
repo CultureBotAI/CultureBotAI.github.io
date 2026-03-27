@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "About Dr. Marcin P. Joachimiak and CultureBotAI"
+title: "About"
 description: "Learn about Dr. Marcin P. Joachimiak who leads CultureBotAI and KG-Microbe development at Lawrence Berkeley National Laboratory, advancing AI for microbial cultivation."
 permalink: /about/
 ---
 
 # About Dr. Marcin P. Joachimiak and CultureBotAI
 
-**CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, led by Dr. Marcin P. Joachimiak, a scientist specializing in microbiology, knowledge graph development, and computational biology.**
+**CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, led by Dr. Marcin P. Joachimiak, a staff researcher specializing in microbiology, knowledge graph development, and computational biology.**
 
 CultureBotAI represents a cutting-edge intersection of artificial intelligence and microbiology, dedicated to revolutionizing how we approach microbial research and cultivation through the KG-Microbe knowledge graph and AI-driven tools.
 
@@ -76,7 +76,7 @@ For collaboration opportunities or questions about our research, please reach ou
 ## Frequently Asked Questions
 
 ### Who is Dr. Marcin P. Joachimiak?
-Dr. Marcin P. Joachimiak is a scientist at Lawrence Berkeley National Laboratory in Berkeley, California, specializing in microbiology, knowledge graph development, and computational biology. He leads the CultureBotAI initiative and developed the KG-Microbe knowledge graph.
+Dr. Marcin P. Joachimiak is a staff researcher at Lawrence Berkeley National Laboratory in Berkeley, California, specializing in microbiology, knowledge graph development, and computational biology. He leads the CultureBotAI initiative and developed the KG-Microbe knowledge graph.
 
 ### What is Dr. Joachimiak's affiliation?
 Dr. Joachimiak is affiliated with Lawrence Berkeley National Laboratory and works in the Environmental Genomics and Systems Biology Division. He is also a member of the Berkeley Bioinformatics Open-source Projects (BBOP) group.

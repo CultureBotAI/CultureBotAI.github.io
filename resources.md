@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Resources — KG-Microbe Knowledge Graph and AI Tools"
+title: "Resources"
 description: "Access KG-Microbe knowledge graph, METPO ontology, and AI tools for microbial cultivation developed by Dr. Marcin P. Joachimiak at CultureBotAI."
 permalink: /resources/
 ---

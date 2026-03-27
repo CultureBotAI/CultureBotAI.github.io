@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "MediaIngredientMech - LLM-Assisted Media Ingredient Curation"
+title: "MediaIngredientMech"
 description: "Curated media ingredient ontology mappings with LLM-assisted workflows for standardizing microbial cultivation ingredient data"
 permalink: /mediaingredientmech/
 ---

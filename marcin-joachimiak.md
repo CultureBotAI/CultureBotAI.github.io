@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "Dr. Marcin P. Joachimiak — Principal Investigator"
+title: "Dr. Joachimiak"
 description: "Dr. Marcin P. Joachimiak leads CultureBotAI and KG-Microbe development at Lawrence Berkeley National Laboratory (LBNL) as part of the Berkeley Bioinformatics Open-source Projects (BBOP)."
 permalink: /marcin-joachimiak/
 ---
 
 # Dr. Marcin P. Joachimiak — Principal Investigator
 
-Dr. Marcin P. Joachimiak leads CultureBotAI and the development of KG-Microbe, a groundbreaking knowledge graph for microbiology research. As a scientist at Lawrence Berkeley National Laboratory (LBNL) and member of the Berkeley Bioinformatics Open-source Projects (BBOP), Dr. Joachimiak bridges artificial intelligence and microbial cultivation to advance microbiological discoveries.
+Dr. Marcin P. Joachimiak leads CultureBotAI and the development of KG-Microbe, a groundbreaking knowledge graph for microbiology research. As a staff researcher at Lawrence Berkeley National Laboratory (LBNL) and member of the Berkeley Bioinformatics Open-source Projects (BBOP), Dr. Joachimiak bridges artificial intelligence and microbial cultivation to advance microbiological discoveries.
 
 ## Research Focus
 

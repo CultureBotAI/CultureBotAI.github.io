@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Research Areas — AI and Machine Learning for Microbial Cultivation"
+title: "Research"
 description: "CultureBotAI research by Dr. Marcin P. Joachimiak focuses on AI-powered microbial cultivation, KG-Microbe knowledge graph development, and growth preference prediction using machine learning."
 permalink: /research/
 ---
@@ -156,7 +156,7 @@ Interested in collaborating on microbial cultivation research? We welcome:
 CultureBotAI focuses on three main research areas: (1) cultivation of isolated and novel organisms using AI-powered approaches, (2) culture optimization through data-driven approaches and machine learning, and (3) growth preference prediction using AI/ML methods.
 
 ### Who leads CultureBotAI's research?
-CultureBotAI research is led by Dr. Marcin P. Joachimiak, a scientist at Lawrence Berkeley National Laboratory in Berkeley, California, specializing in microbiology, knowledge graph development, and computational biology.
+CultureBotAI research is led by Dr. Marcin P. Joachimiak, a staff researcher at Lawrence Berkeley National Laboratory in Berkeley, California, specializing in microbiology, knowledge graph development, and computational biology.
 
 ### What is the KG-Microbe knowledge graph?
 KG-Microbe is a comprehensive modular knowledge graph developed by Dr. Marcin P. Joachimiak that integrates multi-source microbial data from major biological databases using ontology-driven organization to enable AI-driven insights and automated reasoning.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "KG-Microbe — Knowledge Graph for Microbiology"
+title: "KG-Microbe"
 description: "KG-Microbe is a modular knowledge graph led by Dr. Marcin P. Joachimiak for AI-driven growth preference prediction and cultivation insights."
 permalink: /kg-microbe/
 ---

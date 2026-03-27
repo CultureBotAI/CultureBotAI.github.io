@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "CultureMech - Microbial Culture Media Knowledge Graph"
+title: "CultureMech"
 description: "Comprehensive collection of 10,000+ culture media recipes from major international repositories with LinkML schema, ontology grounding, and browser-based exploration"
 permalink: /culturemech/
 ---

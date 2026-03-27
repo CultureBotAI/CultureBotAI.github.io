@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "CommunityMech - Microbial Community Mechanisms Knowledge Base"
+title: "CommunityMech"
 description: "LinkML-based modeling of microbial communities with evidence-based ecological interactions for consortium design and multi-organism cultivation"
 permalink: /communitymech/
 ---

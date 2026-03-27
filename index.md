@@ -59,7 +59,7 @@ CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe kn
 CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, that develops AI-driven tools and knowledge graphs for microbial cultivation and computational biology.
 
 ### Who leads CultureBotAI?
-CultureBotAI is led by Dr. Marcin P. Joachimiak, a scientist specializing in microbiology, knowledge graph development, and computational biology at Lawrence Berkeley National Laboratory.
+CultureBotAI is led by Dr. Marcin P. Joachimiak, a staff researcher specializing in microbiology, knowledge graph development, and computational biology at Lawrence Berkeley National Laboratory.
 
 ### What does CultureBotAI work on?
 CultureBotAI focuses on three main areas: (1) cultivation of isolated and novel organisms, (2) culture optimization through data-driven approaches, and (3) growth preference prediction using machine learning and AI methods.
