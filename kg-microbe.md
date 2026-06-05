@@ -65,19 +65,24 @@ The **Microbial Experimental and Theoretical Preference Ontology (METPO)** provi
 The kg-microbe knowledge graph serves as the foundation for numerous CultureBotAI projects:
 
 ### Data Integration Projects
-- **CultureMech & MicroMediaParam** - Integrate chemical compound data with standardized identifiers
-- **assay-metadata** - Add phenotypic assay results from 99K+ BacDive strains
-- **MATE-LLM** - Extract and integrate literature-derived cultivation data
-- **eggnogtable** - Map genome functional annotations to ontology terms
+- **[CultureMech](/culturemech/) & [MicroMediaParam](/resources/#micromediaparam)** - Integrate chemical compound data with standardized identifiers
+- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping (ChEBI, PubChem, METPO)
+- **[assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor)** - Add phenotypic assay results from 99K+ BacDive strains
+- **MATE-LLM** - Literature-derived cultivation data extraction *(private repo, public release planned)*
+- **eggnog_runner / eggnogtable** - Genome functional annotation pipeline *(eggnogtable is private, public release planned)*
+- **[auto-term-catalog](/resources/#auto-term-catalog---automated-term-extraction)** - OntoGPT term extraction for ontology grounding
 
 ### Prediction & Analysis Tools
-- **MicroGrowAgents** - Multi-agent system using kg-microbe for evidence-based media design
-- **MicroGrowLink** - Graph transformer models trained on kg-microbe structure
-- **PFAS-AI & PFASCommunityAgents** - PFAS biodegradation using microbial relationships
-- **CMM-AI** - Lanthanide bioprocessing research leveraging metabolic data
+- **[MicroGrowAgents](/resources/#microgrowagents)** - Multi-agent system using kg-microbe for evidence-based media design
+- **MicroGrowLink** - Graph transformer models trained on kg-microbe structure *(private repo, public release planned)*
+- **[neurosymbolreason](/resources/#neurosymbolreason---neurosymbolic-analogy-reasoning)** - Neurosymbolic analogy reasoning over kg-microbe embeddings
+- **[microbe-rules](/resources/#microbe-rules-machine-learning-models-for-microbial-data)** - ML model comparison framework
+- **[CommunityMech](/communitymech/)** - Multi-organism community interaction modeling
+- **[PFAS-AI](/resources/#pfas-ai-machine-learning-enabled-pfas-biodegradation-pipeline)** & PFASCommunityAgents - PFAS biodegradation research *(PFASCommunityAgents is private, public release planned)*
+- **CMM-AI** - Lanthanide bioprocessing research leveraging metabolic data *(private repo, public release planned)*
 
 ### Web Services
-- **MicroGrowLinkService** - RESTful API providing programmatic access to predictions
+- **[MicroGrowLinkService](/resources/#microgrowlinkservice)** - RESTful API providing programmatic access to predictions
 
 [Explore all projects and their relationships →](/resources/#project-ecosystem--workflows)
 

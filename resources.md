@@ -148,7 +148,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink)
 ```
 
 ### CultureMech - Microbial Culture Media Knowledge Graph
-**[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License | 7 ⭐
+**[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
 Comprehensive collection of 10,000+ culture media recipes from major international repositories with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
 
@@ -170,7 +170,7 @@ Curated media ingredient ontology mappings with LLM-assisted workflows for stand
 ---
 
 ### CommunityMech - Microbial Community Interaction Modeling
-**[Dedicated Page](/communitymech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CommunityMech)** | **[Web Interface](https://culturebotai.github.io/CommunityMech/)** | BSD-3-Clause License | 2 ⭐
+**[Dedicated Page](/communitymech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CommunityMech)** | **[Web Interface](https://culturebotai.github.io/CommunityMech/)** | BSD-3-Clause License
 
 LinkML-based modeling of microbial communities with evidence-based ecological interactions for consortium design and multi-organism cultivation.
 
@@ -236,7 +236,7 @@ LinkML-based modeling of microbial communities with evidence-based ecological in
 ### Growth Media Prediction & Design
 
 #### MicroGrowLink
-**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowLink)** | Python
+**Private repository — public release planned** | Python
 
 Knowledge graph-based framework for predicting microbial growth media using advanced graph and transformer models. Integrates microbial, chemical, and environmental data into a heterogeneous knowledge graph and applies link prediction to forecast which media enable growth of given taxa.
 
@@ -315,7 +315,7 @@ Comprehensive collection of 10,000+ culture media recipes with chemical entity e
 ### Specialized Research Pipelines
 
 #### CMM-AI: Lanthanide Bioprocessing Data Pipeline
-**[GitHub Repository](https://github.com/CultureBotAI/CMM-AI)** | Python
+**Private repository — public release planned** | Python
 
 Automated data pipeline for lanthanide bioprocessing research, focusing on rare earth element-dependent biological processes in microorganisms. Integrates multiple biological databases to create comprehensive research datasets.
 
@@ -356,7 +356,7 @@ ML-enabled data pipeline for PFAS biodegradation research, focusing on identific
 ---
 
 #### PFASCommunityAgents
-**[GitHub Repository](https://github.com/CultureBotAI/PFASCommunityAgents)** | Python
+**Private repository — public release planned** | Python
 
 Multi-agent system for designing optimized microbial consortia for PFAS biodegradation. Uses AI-powered reasoning to compose consortia with complementary metabolic capabilities and syntrophic relationships.
 
@@ -411,7 +411,7 @@ Automated pipeline for running EggNOG-mapper functional annotation at scale. Pro
 ---
 
 #### eggnogtable
-**[GitHub Repository](https://github.com/CultureBotAI/eggnogtable)** | Python
+**Private repository — public release planned** | Python
 
 Post-processing pipeline for EggNOG-mapper output into structured datasets. Extracts and organizes functional annotations including GO terms, EC numbers, and KEGG pathways.
 
@@ -448,7 +448,7 @@ Research code repository containing machine learning models and analysis pipelin
 ### AI Agent Systems
 
 #### MATE-LLM
-**[GitHub Repository](https://github.com/CultureBotAI/MATE-LLM)** | Python
+**Private repository — public release planned** | Python
 
 LLM-powered system for extracting structured microbial information from scientific literature. Automates the extraction of cultivation protocols, growth conditions, and microbial annotations from research papers.
 
@@ -467,7 +467,7 @@ LLM-powered system for extracting structured microbial information from scientif
 ### Web Services & APIs
 
 #### MicroGrowLinkService
-**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowLinkService)** | Python | REST API
+**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowLinkService)** | Python | REST API | BSD-3-Clause
 
 RESTful API service wrapper for MicroGrowLink prediction models. Provides HTTP endpoints for programmatic access to growth media predictions and enables integration with laboratory information management systems (LIMS).
 

@@ -85,7 +85,7 @@ Export to Knowledge Graph
   - Literature mining outputs
 
 - **Feeds Into**:
-  - [MicroMediaParam](/resources/#micrmedparam) - Enhanced ingredient standardization
+  - [MicroMediaParam](/resources/#micromediaparam) - Enhanced ingredient standardization
   - [kg-microbe](/kg-microbe/) - Ontology-grounded knowledge graph
   - [MicroGrowAgents](/resources/#microgrowagents) - Evidence-based media design
 
@@ -275,9 +275,9 @@ ingredient_name,source,context
 ## Repository & Documentation
 
 - **GitHub**: [github.com/CultureBotAI/MediaIngredientMech](https://github.com/CultureBotAI/MediaIngredientMech)
-- **License**: To be determined
+- **License**: Not yet specified — see repository for updates
 - **Language**: Python
-- **Status**: Active development (Public as of March 2026)
+- **Status**: Public, active development
 
 ---
 
@@ -341,7 +341,7 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) project at Lawrence
 
 - **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (10,000+ recipes)
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
-- **[MicroMediaParam](/resources/#micrmedparam)** - Chemical compound standardization (78% ChEBI coverage)
+- **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization (78% ChEBI coverage)
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
 ---

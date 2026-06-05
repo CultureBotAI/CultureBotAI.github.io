@@ -402,7 +402,6 @@ Design bioaugmentation strategies by modeling how introduced species will intera
 - **Web Interface**: [culturebotai.github.io/CommunityMech](https://culturebotai.github.io/CommunityMech/)
 - **License**: BSD-3-Clause
 - **Language**: Python
-- **Stars**: 2 ⭐
 
 ### Topics
 `microbes` · `microbial-communities` · `microbial-community-assembly` · `microbial-ecology` · `microbial-interactions` · `microbiology` · `microbiome` · `microbiome-analysis` · `microbiome-data` · `microbial-community-dynamics`

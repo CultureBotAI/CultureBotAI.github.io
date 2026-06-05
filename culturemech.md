@@ -82,14 +82,14 @@ CultureMech Knowledge Graph
   - BacDive phenotypic data
 
 - **Feeds Into**:
-  - [MicroMediaParam](/resources/#micrmedparam) - Chemical compound standardization (78% ChEBI coverage)
+  - [MicroMediaParam](/resources/#micromediaparam) - Chemical compound standardization (78% ChEBI coverage)
   - [kg-microbe](/kg-microbe/) - Central knowledge graph integration
   - [MicroGrowAgents](/resources/#microgrowagents) - AI-driven media design
   - [MicroGrowLink](/resources/#microgrowlink) - Graph-based growth predictions
 
 - **Works With**:
   - [MediaIngredientMech](/mediaingredientmech/) - LLM-assisted ingredient ontology mapping
-  - [assay-metadata](/resources/#assay-metadata) - Phenotypic assay integration
+  - [assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor) - Phenotypic assay integration
 
 ---
 
@@ -172,7 +172,6 @@ MgSO4·7H2O (0.05 g), sodium pyruvate (0.3 g), pH 7.2"
 - **Web Interface**: [culturebotai.github.io/CultureMech](https://culturebotai.github.io/CultureMech/)
 - **License**: CC0 1.0 Universal (Public Domain)
 - **Language**: HTML, Python
-- **Stars**: 7 ⭐
 
 ### Topics
 `growth-media` · `microbes` · `microbial-ecology` · `microbiology` · `cultivation` · `media` · `media-ingredients` · `microbial-growth` · `microbial-culturing`
@@ -212,7 +211,7 @@ kg.export(format="json", output="media_data.json")
 
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
-- **[MicroMediaParam](/resources/#micrmedparam)** - Chemical compound standardization and ChEBI mapping
+- **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization and ChEBI mapping
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
 ---
