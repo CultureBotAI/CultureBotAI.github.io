@@ -258,7 +258,7 @@ Knowledge graph-based framework for predicting microbial growth media using adva
 ---
 
 #### MicroGrowAgents
-**[GitHub Repository](https://github.com/CultureBotAI/MicroGrowAgents)** | Python | [Documentation](https://CultureBotAI.github.io/MicroGrowAgents)
+**[Dedicated Page](/microgrowagents/)** | **[GitHub Repository](https://github.com/CultureBotAI/MicroGrowAgents)** | Python | BSD-3-Clause
 
 Agent-based system for AI-driven microbial cultivation and growth media design. Bridges the microbial cultivation gap through AI-powered multi-agent systems that integrate knowledge graphs, machine learning, and experimental automation.
 
