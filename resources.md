@@ -34,7 +34,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 
 ### 📋 METPO Ontology Integration
 
-The [Microbial Ecology and Taxonomy Phenotypic Ontology (METPO)](https://bioportal.bioontology.org/ontologies/METPO) plays a crucial role in kg-microbe by providing standardized terminology for microbial phenotypes and ecological characteristics.
+The [Microbial Ecophysiological Trait and Phenotype Ontology (METPO)](https://bioportal.bioontology.org/ontologies/METPO) plays a crucial role in kg-microbe by providing standardized terminology for microbial phenotypes and ecological characteristics.
 
 **Key Benefits:**
 - **Knowledge Organization** - METPO terms provide semantic structure to organize diverse microbial data within the kg-microbe knowledge graph
@@ -43,7 +43,7 @@ The [Microbial Ecology and Taxonomy Phenotypic Ontology (METPO)](https://bioport
 
 **Links:**
 - **BioPortal:** [https://bioportal.bioontology.org/ontologies/METPO](https://bioportal.bioontology.org/ontologies/METPO)
-- **GitHub Repository:** [https://github.com/microbiomedata/METPO](https://github.com/microbiomedata/METPO)
+- **GitHub Repository:** [github.com/berkeleybop/metpo](https://github.com/berkeleybop/metpo)
 
 ### Key Features
 - **Multi-source integration** from major biological databases
@@ -276,7 +276,7 @@ Knowledge graph-based framework for predicting microbial growth media using adva
 ---
 
 #### MicroGrowAgents
-**[Dedicated Page](/microgrowagents/)** | **[GitHub Repository](https://github.com/CultureBotAI/MicroGrowAgents)** | Python | BSD-3-Clause
+**[Dedicated Page](/microgrowagents/)** | **[GitHub Repository](https://github.com/CultureBotAI/MicroGrowAgents)** — **private repository, public release planned** | Python | BSD-3-Clause
 
 Agent-based system for AI-driven microbial cultivation and growth media design. Bridges the microbial cultivation gap through AI-powered multi-agent systems that integrate knowledge graphs, machine learning, and experimental automation.
 
@@ -705,7 +705,7 @@ For technical support, collaboration inquiries, or questions about our resources
 3. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
 5. **Joachimiak MP**, Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ. *kg-microbe: modular knowledge graph for microbiome and microbial sciences* [software]. [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)
-6. METPO: Microbial Ecology and Taxonomy Phenotypic Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/microbiomedata/METPO)
+6. METPO: Microbial Ecophysiological Trait and Phenotype Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/berkeleybop/metpo)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)

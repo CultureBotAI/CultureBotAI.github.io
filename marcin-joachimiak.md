@@ -16,7 +16,7 @@ Dr. Joachimiak's research centers on developing AI-powered solutions for microbi
 - **Knowledge Graph Development**: Leading the creation of KG-Microbe, a modular and scalable knowledge graph for microbiome and microbial sciences
 - **AI for Cultivation**: Applying machine learning and artificial intelligence methods for growth preference prediction and culture optimization
 - **Data Integration**: Developing frameworks for integrating diverse microbial data sources into unified, queryable knowledge systems
-- **Ontology Development**: Creating standardized vocabularies like METPO (Microbial Experimental and Theoretical Preference Ontology) for microbiology research
+- **Ontology Development**: Creating standardized vocabularies like METPO (Microbial Ecophysiological Trait and Phenotype Ontology) for microbiology research
 
 ## Professional Affiliations
 
@@ -39,7 +39,7 @@ Principal investigator and founder of CultureBotAI, developing AI-powered soluti
 Lead developer of KG-Microbe, a comprehensive knowledge graph that integrates diverse microbial data sources to enable AI-driven insights for growth preference prediction and culture optimization.
 
 ### METPO Ontology
-Creator of the Microbial Experimental and Theoretical Preference Ontology, providing standardized vocabulary for growth preferences and experimental conditions in microbiology research.
+Creator of the Microbial Ecophysiological Trait and Phenotype Ontology, providing standardized vocabulary for growth preferences and experimental conditions in microbiology research.
 
 ## Selected Publications
 
@@ -50,9 +50,9 @@ Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L.
 
 ## Academic Profiles and Links
 
-- **LBNL Profile**: [https://biosciences.lbl.gov/profiles/marcin-joachimiak/](https://biosciences.lbl.gov/profiles/marcin-joachimiak/)
+- **LBNL Profile**: [https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/](https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/)
 - **ORCID**: [https://orcid.org/0000-0001-8175-045X](https://orcid.org/0000-0001-8175-045X)
-- **Google Scholar**: [https://scholar.google.com/citations?user=WOaZlYAAAAAJ](https://scholar.google.com/citations?user=WOaZlYAAAAAJ)
+- **Google Scholar**: [https://scholar.google.com/citations?user=zSlIlYQAAAAJ](https://scholar.google.com/citations?user=zSlIlYQAAAAJ)
 - **BBOP Profile**: [https://berkeleybop.github.io/people/marcin-joachimiak/](https://berkeleybop.github.io/people/marcin-joachimiak/)
 
 ## Contact Information

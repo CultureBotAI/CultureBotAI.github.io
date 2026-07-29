@@ -11,7 +11,7 @@ permalink: /kg-microbe/
 
 ## Overview
 
-KG-Microbe is a comprehensive, modular knowledge graph designed specifically for microbiology and microbiome research. Developed by [Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-joachimiak/) at Lawrence Berkeley National Laboratory in Berkeley, California, this innovative resource integrates diverse microbial data sources to enable AI-driven insights for growth preference prediction and culture optimization.
+KG-Microbe is a comprehensive, modular knowledge graph designed specifically for microbiology and microbiome research. Developed by [Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/) at Lawrence Berkeley National Laboratory in Berkeley, California, this innovative resource integrates diverse microbial data sources to enable AI-driven insights for growth preference prediction and culture optimization.
 
 ## Key Features
 
@@ -40,7 +40,7 @@ KG-Microbe employs a sophisticated ETL (Extract, Transform, Load) pipeline that:
 - Loads integrated data into a unified knowledge graph structure
 
 ### METPO Ontology
-The **Microbial Experimental and Theoretical Preference Ontology (METPO)** provides:
+The **Microbial Ecophysiological Trait and Phenotype Ontology (METPO)** provides:
 - Standardized vocabulary for growth preferences
 - Controlled terms for experimental conditions
 - Hierarchical classification of microbial traits
@@ -174,7 +174,7 @@ Cite the GigaScience article: Santangelo, B. E., et al. (2026). KG-Microbe - Bui
 3. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
 5. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
-6. METPO: Microbial Ecology and Taxonomy Phenotypic Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/microbiomedata/METPO)
+6. METPO: Microbial Ecophysiological Trait and Phenotype Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/berkeleybop/metpo)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)
