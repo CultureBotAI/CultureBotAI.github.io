@@ -14,7 +14,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
-- [AI Curation Tools](#-ai-curation-tools) - CultureMech, MediaIngredientMech, CommunityMech (NEW!)
+- [AI Curation Tools](#-ai-curation-tools) - CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
@@ -30,7 +30,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 ### Overview
 [KG-Microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe) is our flagship resource developed by Dr. Marcin P. Joachimiak - a comprehensive knowledge graph that integrates diverse microbial data sources to enable AI-driven insights and predictions.
 
-**📄 [Read the Preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)** - bioRxiv publication detailing kg-microbe development and applications.
+**📄 [Read the Publication](https://doi.org/10.1093/gigascience/giag077)** - *GigaScience* article detailing kg-microbe development and applications.
 
 ### 📋 METPO Ontology Integration
 
@@ -129,7 +129,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **X-Mech Suite** (CultureMech, MediaIngredientMech, CommunityMech) forms the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature and laboratory records into standardized, machine-readable knowledge graphs.
+The **X-Mech Suite** (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech) forms the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs.
 
 ### Pipeline Overview
 
@@ -179,6 +179,24 @@ LinkML-based modeling of microbial communities with evidence-based ecological in
 **Related**: Powers [PFASCommunityAgents](#pfascommunityagents) for AI-driven consortium design.
 
 **→ [Learn more on the dedicated CommunityMech page](/communitymech/)**
+
+---
+
+### TraitMech - Microbial Ecophysiological Traits
+**[GitHub Repository](https://github.com/CultureBotAI/TraitMech)** | **[Web Interface](https://culturebotai.github.io/TraitMech/)** | CC0-1.0 License
+
+Microbial ecophysiological trait knowledge base seeded from METPO and curated incrementally — 477 trait records across 9 categories, each with definitions, causal graphs, and kg-microbe matches.
+
+**What it does**: Standardizes the trait vocabulary used to describe microbial growth and ecology, and links each trait to its evidence and to kg-microbe.
+
+---
+
+### ProteinTraitsMech - Protein Sequence & Structure Traits
+**[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC0-1.0 License
+
+Knowledge base of protein sequence, structure, and function traits — 400,000+ LinkML-validated records from 29 sources, one YAML per trait, with evidence-backed causal graphs.
+
+**What it does**: Extends trait curation from the organism level to the molecular level, connecting protein features to the phenotypes they help explain.
 
 ---
 
@@ -635,9 +653,9 @@ If you use kg-microbe or other CultureBotAI resources in your research, please c
 
 ```
 Santangelo, B.E., Hegde, H., Caufield, J.H., Reese, J., Kliegr, T., Hunter, L.E., 
-Lozupone, C.A., Mungall, C.J., Joachimiak, M.P. (2025). KG-Microbe - Building 
+Lozupone, C.A., Mungall, C.J., Joachimiak, M.P. (2026). KG-Microbe - Building 
 Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. 
-bioRxiv. https://doi.org/10.1101/2025.02.24.639989
+GigaScience, giag077. https://doi.org/10.1093/gigascience/giag077
 ```
 
 ---

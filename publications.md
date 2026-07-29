@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Publications"
-description: "Research publications and preprints by Dr. Marcin P. Joachimiak on KG-Microbe knowledge graph development and AI applications in microbial cultivation."
+description: "Peer-reviewed publications by Dr. Marcin P. Joachimiak on KG-Microbe knowledge graph development and AI applications in microbial cultivation."
 permalink: /publications/
 ---
 
@@ -9,16 +9,29 @@ permalink: /publications/
 
 Our research outputs led by Dr. Marcin P. Joachimiak span KG-Microbe knowledge graph development, AI applications in microbiology, and computational approaches to microbial cultivation.
 
-## 📄 Preprints
+## 📄 Journal Articles
 
 ### KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences
 
 **Full Citation (APA):**
-Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., Mungall, C. J., & Joachimiak, M. P. (2025). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *bioRxiv*. https://doi.org/10.1101/2025.02.24.639989
+Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., Mungall, C. J., & Joachimiak, M. P. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*, giag077. https://doi.org/10.1093/gigascience/giag077
 
-**DOI:** [10.1101/2025.02.24.639989](https://doi.org/10.1101/2025.02.24.639989)
+**DOI:** [10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 
-**Preprint URL:** [https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)
+**Article URL:** [https://doi.org/10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+
+---
+
+## 📝 Preprints
+
+### MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering
+
+**Full Citation (APA):**
+Naseem, S., Miller, M. A., Martinez-Gomez, N. C., Sun, N., & Joachimiak, M. P. (2026). MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. https://doi.org/10.64898/2026.06.04.729985
+
+**DOI:** [10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
+
+**Project page:** [MicroGrowAgents](/microgrowagents/)
 
 ---
 
@@ -42,13 +55,13 @@ Joachimiak, M. P., Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kli
 
 ### Primary Citation for CultureBotAI Work
 ```bibtex
-@article{santangelo2025kgmicrobe,
+@article{santangelo2026kgmicrobe,
   title={KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences},
   author={Santangelo, Brook E and Hegde, Harshad and Caufield, J Harry and Reese, Justin and Kliegr, Tomas and Hunter, Lawrence E and Lozupone, Catherine A and Mungall, Christopher J and Joachimiak, Marcin P},
-  journal={bioRxiv},
-  year={2025},
-  doi={10.1101/2025.02.24.639989},
-  url={https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1}
+  journal={GigaScience},
+  year={2026},
+  doi={10.1093/gigascience/giag077},
+  url={https://doi.org/10.1093/gigascience/giag077}
 }
 ```
 
@@ -80,10 +93,10 @@ We welcome collaboration opportunities and are open to:
 ## Frequently Asked Questions
 
 ### How do I cite CultureBotAI's work?
-Cite the primary publication: Santangelo, B. E., et al. (2025). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. bioRxiv. https://doi.org/10.1101/2025.02.24.639989
+Cite the primary publication: Santangelo, B. E., et al. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. GigaScience, giag077. https://doi.org/10.1093/gigascience/giag077
 
-### What is the DOI for the KG-Microbe preprint?
-The DOI is 10.1101/2025.02.24.639989, available at https://doi.org/10.1101/2025.02.24.639989
+### What is the DOI for the KG-Microbe publication?
+The DOI is 10.1093/gigascience/giag077, available at https://doi.org/10.1093/gigascience/giag077
 
 ### Where can I find Dr. Joachimiak's publications?
 Dr. Joachimiak's publications are listed on Google Scholar at https://scholar.google.com/citations?user=zSlIlYQAAAAJ&hl=en and ORCID at https://orcid.org/0000-0001-8175-045X

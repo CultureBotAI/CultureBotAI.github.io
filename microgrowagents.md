@@ -76,6 +76,7 @@ Organism-Specific Media Recommendation
 ## Repository & Documentation
 
 - **GitHub**: [github.com/CultureBotAI/MicroGrowAgents](https://github.com/CultureBotAI/MicroGrowAgents)
+- **Preprint**: [MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering](https://doi.org/10.64898/2026.06.04.729985) (bioRxiv, 2026)
 - **License**: BSD-3-Clause
 - **Languages**: Python, HTML, Shell, R
 - **Topics**: `ai4curation` · `monarchinitiative`
@@ -87,6 +88,8 @@ Organism-Specific Media Recommendation
 - **[CultureMech](/culturemech/)** - Microbial culture media knowledge graph (10,000+ recipes)
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
+- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[MicroGrowLink](/resources/#microgrowlink)** - Graph-based growth media prediction
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
@@ -101,7 +104,9 @@ MicroGrowAgents is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosys
 - Evidence-based cultivation protocol synthesis from literature
 - Data-driven cultivation optimization
 
-**Citation**: See the [KG-Microbe preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1) for details on the broader knowledge graph ecosystem.
+**Citation**: Naseem, S., Miller, M. A., Martinez-Gomez, N. C., Sun, N., & Joachimiak, M. P. (2026). MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. [10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
+
+See also the [KG-Microbe publication](https://doi.org/10.1093/gigascience/giag077) in *GigaScience* for details on the broader knowledge graph ecosystem.
 
 ---
 

@@ -7,7 +7,7 @@ permalink: /marcin-joachimiak/
 
 # Dr. Marcin P. Joachimiak — Principal Investigator
 
-Dr. Marcin P. Joachimiak leads CultureBotAI and the development of KG-Microbe, a groundbreaking knowledge graph for microbiology research. As a staff researcher at Lawrence Berkeley National Laboratory (LBNL) and member of the Berkeley Bioinformatics Open-source Projects (BBOP), Dr. Joachimiak bridges artificial intelligence and microbial cultivation to advance microbiological discoveries.
+Dr. Marcin P. Joachimiak leads CultureBotAI and the development of KG-Microbe, the first comprehensive and ontology-grounded knowledge graph for microbiology research. As a staff researcher at Lawrence Berkeley National Laboratory (LBNL) and member of the Berkeley Bioinformatics Open-source Projects (BBOP), Dr. Joachimiak bridges artificial intelligence and microbial cultivation to advance microbiological discoveries.
 
 ## Research Focus
 
@@ -43,10 +43,10 @@ Creator of the Microbial Experimental and Theoretical Preference Ontology, provi
 
 ## Selected Publications
 
-### Recent Preprint
-**Joachimiak, M.P.** (2025). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *bioRxiv*. [https://doi.org/10.1101/2025.02.24.639989](https://doi.org/10.1101/2025.02.24.639989)
+### Recent Publication
+Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., Mungall, C. J., & **Joachimiak, M. P.** (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*, giag077. [10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 
-*This comprehensive preprint describes the development, architecture, and applications of KG-Microbe, demonstrating its potential for advancing microbiology research through AI-driven knowledge discovery.*
+*This peer-reviewed article describes the development, architecture, and applications of KG-Microbe, demonstrating its potential for advancing microbiology research through AI-driven knowledge discovery.*
 
 ## Academic Profiles and Links
 

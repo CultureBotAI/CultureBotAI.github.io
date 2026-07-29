@@ -102,7 +102,7 @@ Expanding kg-microbe capabilities for:
 Our research goals are enabled by a suite of interconnected software tools:
 
 ### For Cultivation of Novel Organisms
-- [MicroGrowAgents](/resources/#microgrowagents) - AI-driven media design with multi-agent reasoning
+- [MicroGrowAgents](/microgrowagents/) - AI-driven media design with multi-agent reasoning
 - [MicroGrowLink](/resources/#microgrowlink) - Graph-based growth prediction using transformers *(private repo, public release planned)*
 - [MATE-LLM](/resources/#mate-llm) - Literature protocol extraction with LLMs *(private repo, public release planned)*
 

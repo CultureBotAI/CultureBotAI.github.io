@@ -84,7 +84,7 @@ CultureMech Knowledge Graph
 - **Feeds Into**:
   - [MicroMediaParam](/resources/#micromediaparam) - Chemical compound standardization (78% ChEBI coverage)
   - [kg-microbe](/kg-microbe/) - Central knowledge graph integration
-  - [MicroGrowAgents](/resources/#microgrowagents) - AI-driven media design
+  - [MicroGrowAgents](/microgrowagents/) - AI-driven media design
   - [MicroGrowLink](/resources/#microgrowlink) - Graph-based growth predictions
 
 - **Works With**:
@@ -211,6 +211,8 @@ kg.export(format="json", output="media_data.json")
 
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
+- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization and ChEBI mapping
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
@@ -225,7 +227,7 @@ CultureMech is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosystem 
 - Systematic analysis of microbial growth requirements
 - Evidence-based media design for novel organisms
 
-**Citation**: See the [KG-Microbe preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1) for details on the broader knowledge graph ecosystem.
+**Citation**: See the [KG-Microbe publication](https://doi.org/10.1093/gigascience/giag077) in *GigaScience* for details on the broader knowledge graph ecosystem.
 
 ---
 

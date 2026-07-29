@@ -73,7 +73,7 @@ The kg-microbe knowledge graph serves as the foundation for numerous CultureBotA
 - **[auto-term-catalog](/resources/#auto-term-catalog---automated-term-extraction)** - OntoGPT term extraction for ontology grounding
 
 ### Prediction & Analysis Tools
-- **[MicroGrowAgents](/resources/#microgrowagents)** - Multi-agent system using kg-microbe for evidence-based media design
+- **[MicroGrowAgents](/microgrowagents/)** - Multi-agent system using kg-microbe for evidence-based media design
 - **MicroGrowLink** - Graph transformer models trained on kg-microbe structure *(private repo, public release planned)*
 - **[neurosymbolreason](/resources/#neurosymbolreason---neurosymbolic-analogy-reasoning)** - Neurosymbolic analogy reasoning over kg-microbe embeddings
 - **[microbe-rules](/resources/#microbe-rules-machine-learning-models-for-microbial-data)** - ML model comparison framework
@@ -101,24 +101,24 @@ The kg-microbe knowledge graph serves as the foundation for numerous CultureBotA
 
 ## Citation
 
-If you use KG-Microbe in your research, please cite our preprint:
+If you use KG-Microbe in your research, please cite our GigaScience paper:
 
 ### APA Format
-Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., Mungall, C. J., & Joachimiak, M. P. (2025). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *bioRxiv*. https://doi.org/10.1101/2025.02.24.639989
+Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., Mungall, C. J., & Joachimiak, M. P. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*, giag077. https://doi.org/10.1093/gigascience/giag077
 
 ### BibTeX
 ```bibtex
-@article{santangelo2025kgmicrobe,
+@article{santangelo2026kgmicrobe,
   title={KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences},
   author={Santangelo, Brook E and Hegde, Harshad and Caufield, J Harry and Reese, Justin and Kliegr, Tomas and Hunter, Lawrence E and Lozupone, Catherine A and Mungall, Christopher J and Joachimiak, Marcin P},
-  journal={bioRxiv},
-  year={2025},
-  doi={10.1101/2025.02.24.639989},
-  url={https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1}
+  journal={GigaScience},
+  year={2026},
+  doi={10.1093/gigascience/giag077},
+  url={https://doi.org/10.1093/gigascience/giag077}
 }
 ```
 
-**DOI:** [10.1101/2025.02.24.639989](https://doi.org/10.1101/2025.02.24.639989)
+**DOI:** [10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 
 ## Related Resources
 
@@ -153,7 +153,7 @@ KG-Microbe is freely available on GitHub at https://github.com/Knowledge-Graph-H
 KG-Microbe uses a modular architecture with scalable design, flexible integration of new data sources and ontologies, and standardized frameworks across all modules for easy expansion and maintenance.
 
 ### How do I cite KG-Microbe?
-Cite the bioRxiv preprint: Santangelo, B. E., et al. (2025). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. bioRxiv. https://doi.org/10.1101/2025.02.24.639989
+Cite the GigaScience article: Santangelo, B. E., et al. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. GigaScience, giag077. https://doi.org/10.1093/gigascience/giag077
 
 ---
 
