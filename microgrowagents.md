@@ -75,7 +75,7 @@ Organism-Specific Media Recommendation
 
 ## Repository & Documentation
 
-- **GitHub**: [github.com/CultureBotAI/MicroGrowAgents](https://github.com/CultureBotAI/MicroGrowAgents)
+- **GitHub**: [github.com/CultureBotAI/MicroGrowAgents](https://github.com/CultureBotAI/MicroGrowAgents) *(private repository — public release planned)*
 - **Preprint**: [MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering](https://doi.org/10.64898/2026.06.04.729985) (bioRxiv, 2026)
 - **License**: BSD-3-Clause
 - **Languages**: Python, HTML, Shell, R

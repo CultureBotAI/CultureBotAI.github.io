@@ -8,7 +8,7 @@ description: "CultureBotAI develops KG-Microbe, a modular microbiology knowledge
 
 **CultureBotAI is a research initiative at Lawrence Berkeley National Laboratory in Berkeley, California, developing AI-driven tools and knowledge graphs for microbial cultivation and computational biology.**
 
-Led by [Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-joachimiak/), CultureBotAI focuses on the [KG-Microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe) and AI-powered solutions for microbial research, cultivation, and analysis.
+Led by [Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/), CultureBotAI focuses on the [KG-Microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe) and AI-powered solutions for microbial research, cultivation, and analysis.
 
 ## About Us
 
@@ -37,7 +37,7 @@ Read our peer-reviewed *GigaScience* paper by Dr. Marcin P. Joachimiak detailing
 The X-Mech suite ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)) provides AI-powered curation of microbial cultivation records, transforming unstructured literature data into standardized knowledge graphs with 10,000+ media recipes, 477 ecophysiological traits, and 400,000+ protein traits.
 
 ### 🧠 [MicroGrowAgents](/microgrowagents/)
-Multi-agent AI system for microbial cultivation and growth media design across 864,363 validated species — [GitHub repository](https://github.com/CultureBotAI/MicroGrowAgents) · [bioRxiv preprint](https://doi.org/10.64898/2026.06.04.729985)
+Multi-agent AI system for microbial cultivation and growth media design across 864,363 validated species — [GitHub repository](https://github.com/CultureBotAI/MicroGrowAgents) *(private repository — public release planned)* · [bioRxiv preprint](https://doi.org/10.64898/2026.06.04.729985)
 
 ### 🧮 [KOGUT Transformer](/resources/#kogut-transformer)
 Relational graph transformer for link prediction over kg-microbe, trained for growth media prediction on 1.3M nodes and 3.0M edges. Registered as [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162); no public repository yet.
@@ -45,8 +45,8 @@ Relational graph transformer for link prediction over kg-microbe, trained for gr
 ### 📐 [Explainable Media Prediction](https://doi.org/10.1016/j.csbj.2025.10.014)
 Human-readable rules that predict cultivation media from microbial traits — the interpretable counterpart to our neural models, published in *Computational and Structural Biotechnology Journal*.
 
-### 📊 [METPO Ontology](https://github.com/Knowledge-Graph-Hub/kg-microbe/tree/main/src/kg_microbe/transform/metpo)
-Microbial experimental and theoretical preference ontology for standardizing growth preference data.
+### 📊 [METPO Ontology](https://github.com/berkeleybop/metpo)
+The Microbial Ecophysiological Trait and Phenotype Ontology, used to standardize growth preference data and to drive text extraction in kg-microbe. Also on [BioPortal](https://bioportal.bioontology.org/ontologies/METPO).
 
 ## How Our Tools Work Together
 

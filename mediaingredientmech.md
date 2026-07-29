@@ -40,7 +40,7 @@ permalink: /mediaingredientmech/
 ### 🔗 Ontology Integration
 - **ChEBI** (Chemical Entities of Biological Interest)
 - **PubChem** compound database
-- **METPO** (Microbial Ecology and Taxonomy Phenotypic Ontology)
+- **METPO** (Microbial Ecophysiological Trait and Phenotype Ontology)
 - Custom microbial cultivation vocabularies
 
 ### 💾 Standardized Outputs
@@ -192,7 +192,7 @@ Complementary chemical database integration:
 - Bioassay data links
 - Literature references
 
-### METPO (Microbial Ecology and Taxonomy Phenotypic Ontology)
+### METPO (Microbial Ecophysiological Trait and Phenotype Ontology)
 
 Domain-specific ontology for microbial cultivation:
 - Growth condition terms
@@ -393,7 +393,7 @@ https://github.com/CultureBotAI/MediaIngredientMech
 
 1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 2. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
-3. METPO: Microbial Ecology and Taxonomy Phenotypic Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/microbiomedata/METPO)
+3. METPO: Microbial Ecophysiological Trait and Phenotype Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/berkeleybop/metpo)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)
