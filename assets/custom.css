@@ -412,6 +412,30 @@ a {
 
 .page-content ol > li::marker { color: var(--accent); font-weight: 700; }
 
+/* ---- Bibliography ------------------------------------------------------- */
+
+/* Reference lists carry {: .bibliography} from the Markdown source. */
+.page-content ol.bibliography {
+  margin: 1.2rem 0 1.6rem;
+  padding: 1.3rem 1.5rem 1.3rem 2.6rem;
+  font-size: .93rem;
+  line-height: 1.5;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow);
+}
+
+.page-content ol.bibliography > li {
+  margin-bottom: .85rem;
+  padding-left: .2rem;
+}
+
+.page-content ol.bibliography > li:last-child { margin-bottom: 0; }
+.page-content ol.bibliography > li::marker { color: var(--accent); font-weight: 700; }
+.page-content ol.bibliography em { color: var(--muted); }
+
 /* ---- Rules, quotes, tables, code ---------------------------------------- */
 .page-content hr {
   height: 2px;

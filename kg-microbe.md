@@ -120,6 +120,15 @@ Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L.
 
 **DOI:** [10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 
+## Models Built on KG-Microbe
+
+KG-Microbe is the training substrate for several prediction approaches, spanning the interpretability spectrum:
+
+- **[Explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014)** — human-readable association rules predicting cultivation media from microbial traits (*CSBJ* 2025)
+- **[KOGUT](/resources/#kogut-transformer)** — relational graph transformer trained on the merged graph (1,379,337 nodes, 2,960,472 edges, 24 Biolink relation types) for growth media link prediction
+- **[MicroGrowAgents](/microgrowagents/)** — multi-agent system that reasons over the graph alongside literature and genome evidence
+- **[MicroGrowLink](/resources/#microgrowlink)** — graph and transformer models for media link prediction
+
 ## Related Resources
 
 - [CultureBotAI Home](/) - Main project page
@@ -154,6 +163,21 @@ KG-Microbe uses a modular architecture with scalable design, flexible integratio
 
 ### How do I cite KG-Microbe?
 Cite the GigaScience article: Santangelo, B. E., et al. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. GigaScience, giag077. https://doi.org/10.1093/gigascience/giag077
+
+
+---
+
+## Bibliography
+
+1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+2. **Joachimiak MP**, Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ. *kg-microbe: modular knowledge graph for microbiome and microbial sciences* [software]. [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)
+3. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
+4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
+5. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
+6. METPO: Microbial Ecology and Taxonomy Phenotypic Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/microbiomedata/METPO)
+{: .bibliography}
+
+[Full publication list →](/publications/#bibliography)
 
 ---
 

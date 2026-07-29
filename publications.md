@@ -9,45 +9,45 @@ permalink: /publications/
 
 Our research outputs led by Dr. Marcin P. Joachimiak span KG-Microbe knowledge graph development, AI applications in microbiology, and computational approaches to microbial cultivation.
 
-## 📄 Journal Articles
+## Bibliography
 
-### KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences
+Every publication, preprint, and software record from this work, with resolvable links. Individual pages link back to the entries relevant to them.
 
-**Full Citation (APA):**
-Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., Mungall, C. J., & Joachimiak, M. P. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*, giag077. https://doi.org/10.1093/gigascience/giag077
+### Journal Articles
 
-**DOI:** [10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 
-**Article URL:** [https://doi.org/10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+2. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
 
----
+### Preprints
 
-## 📝 Preprints
+3. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
 
-### MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering
+   Project page: [MicroGrowAgents](/microgrowagents/)
 
-**Full Citation (APA):**
-Naseem, S., Miller, M. A., Martinez-Gomez, N. C., Sun, N., & Joachimiak, M. P. (2026). MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. https://doi.org/10.64898/2026.06.04.729985
+### Software and Data Records
 
-**DOI:** [10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
+4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
 
-**Project page:** [MicroGrowAgents](/microgrowagents/)
+   KOGUT is registered in DOE CODE and has no public source repository yet. See the [tool entry](/resources/#kogut-transformer) for architecture and training details.
 
----
+5. **Joachimiak MP**, Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ. *kg-microbe: modular knowledge graph for microbiome and microbial sciences* [software]. [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)
 
-## 🛠 Software Publications
+   License: BSD-3-Clause. See [KG-Microbe](/kg-microbe/).
 
-### CultureBotAI Organization Repositories
-**Repository Collection:** [github.com/CultureBotAI](https://github.com/CultureBotAI)  
+6. CultureBotAI organization repositories — CultureMech, MediaIngredientMech, CommunityMech, TraitMech, and ProteinTraitsMech. [github.com/CultureBotAI](https://github.com/CultureBotAI). Each repository carries its own citation and license; see [Resources](/resources/).
 
-Various repositories within this organization contain tools and resources for AI-driven microbial cultivation. Each repository will have its own specific citation format and documentation.
+### Related Work from the Group
 
-### kg-microbe: Software Package and Knowledge Graph
-**Repository:** [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)
-**License:** BSD-3-Clause License
+Methods and infrastructure this work builds on, co-authored by Dr. Joachimiak.
 
-**Software Citation (APA):**
-Joachimiak, M. P., Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L. E., Lozupone, C. A., & Mungall, C. J. (2025). *kg-microbe: Modular knowledge graph for microbiome and microbial sciences* (Version 1.0) [Computer software]. GitHub. https://github.com/Knowledge-Graph-Hub/kg-microbe
+7. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
+
+8. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
+
+9. **Joachimiak MP**, Miller MA, Caufield JH, Ly R, Harris NL, et al. The Artificial Intelligence Ontology: LLM-Assisted Construction of AI Concept Hierarchies. *Applied Ontology*. 2024;19:408–418. [doi:10.1177/15705838241304103](https://doi.org/10.1177/15705838241304103)
+
+10. Clark T, Caufield JH, Parker JA, Al Manir S, Amorim E, et al. (incl. **Joachimiak MP**). AI-readiness Criteria for Biomedical Data. *bioRxiv*. 2024. [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
 
 ---
 
@@ -62,6 +62,20 @@ Joachimiak, M. P., Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kli
   year={2026},
   doi={10.1093/gigascience/giag077},
   url={https://doi.org/10.1093/gigascience/giag077}
+}
+```
+
+### Explainable Media Prediction
+```bibtex
+@article{masa2025explainable,
+  title={Explainable rule-based prediction of cultivation media for microbes},
+  author={M{\'a}{\v s}a, Petr and Kliegr, Tom{\'a}{\v s} and Joachimiak, Marcin P},
+  journal={Computational and Structural Biotechnology Journal},
+  volume={27},
+  pages={5194--5206},
+  year={2025},
+  doi={10.1016/j.csbj.2025.10.014},
+  url={https://doi.org/10.1016/j.csbj.2025.10.014}
 }
 ```
 
