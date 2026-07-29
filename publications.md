@@ -45,7 +45,7 @@ Every publication, preprint, and software record from this work, with resolvable
 
 ### Talks and Presentations
 
-Newest first. Titles are given as published by the hosting channel; ISCB truncates them with an ellipsis.
+Newest first. Titles are given as published by the hosting channel; ISCB truncates them with an ellipsis. Entries marked "poster and short talk" were presented as posters at ISMB, which also accepts a recorded short talk alongside the poster — that recording is what is linked.
 
 8. **Joachimiak MP**. RuleML webinar. 2026. *Recording to be linked.*
    <!-- TODO: replace with the RuleML 2026 webinar recording URL when available -->
@@ -54,11 +54,11 @@ Newest first. Titles are given as published by the hosting channel; ISCB truncat
 
 10. Santangelo BE. "Harmonizing human and microbial datasets to…" Bio-Ontologies COSI, ISMB 2024. [Recording (ISCB)](https://www.youtube.com/watch?v=iZXc2dzl9VQ)
 
-11. **Joachimiak MP**. "Machine Learning to Uncover Microbial…" Function COSI poster, ISMB 2022. [Recording (ISCB)](https://www.youtube.com/watch?v=j6hy31OfzRk)
+11. **Joachimiak MP**. "Machine Learning to Uncover Microbial…" Function COSI poster and short talk, ISMB 2022. [Recording (ISCB)](https://www.youtube.com/watch?v=j6hy31OfzRk)
 
 12. **Joachimiak MP**. PowerTalks Seminar Series. UAB Department of Biomedical Informatics and Data Science; 14 January 2022. [Recording (UAB DBIDS)](https://www.youtube.com/watch?v=5LGZJOzt5A4)
 
-13. **Joachimiak MP**. "KG-Microbe: a reference knowledge-graph and…" BOSC poster, ISMB/ECCB 2021. [Recording (ISCB)](https://www.youtube.com/watch?v=IKfJPWLSS3w)
+13. **Joachimiak MP**. "KG-Microbe: a reference knowledge-graph and…" BOSC poster and short talk, ISMB/ECCB 2021. [Recording (ISCB)](https://www.youtube.com/watch?v=IKfJPWLSS3w)
 {: start="8"}
 
 ### Related Work from the Group
