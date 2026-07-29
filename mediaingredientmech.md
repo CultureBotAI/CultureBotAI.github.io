@@ -87,7 +87,7 @@ Export to Knowledge Graph
 - **Feeds Into**:
   - [MicroMediaParam](/resources/#micromediaparam) - Enhanced ingredient standardization
   - [kg-microbe](/kg-microbe/) - Ontology-grounded knowledge graph
-  - [MicroGrowAgents](/resources/#microgrowagents) - Evidence-based media design
+  - [MicroGrowAgents](/microgrowagents/) - Evidence-based media design
 
 - **Complements**:
   - [CultureMech](/culturemech/) - Chemical entity extraction
@@ -341,6 +341,8 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) project at Lawrence
 
 - **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (10,000+ recipes)
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
+- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization (78% ChEBI coverage)
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
@@ -377,7 +379,7 @@ For questions about MediaIngredientMech or to contribute:
 
 ## Citation
 
-If you use MediaIngredientMech in your research, please cite the [KG-Microbe preprint](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1) and reference this tool:
+If you use MediaIngredientMech in your research, please cite the [KG-Microbe publication](https://doi.org/10.1093/gigascience/giag077) and reference this tool:
 
 ```
 MediaIngredientMech: LLM-Assisted Media Ingredient Curation

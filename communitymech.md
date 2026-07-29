@@ -494,9 +494,11 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosystem at Lawren
 
 - **[CultureMech](/culturemech/)** - Single-organism media requirements (10,000+ recipes)
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
+- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[PFASCommunityAgents](/resources/#pfascommunityagents)** - AI-driven consortium design for PFAS biodegradation
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph (864K+ species)
-- **[MicroGrowAgents](/resources/#microgrowagents)** - Multi-agent media design system
+- **[MicroGrowAgents](/microgrowagents/)** - Multi-agent media design system
 
 ---
 
@@ -506,7 +508,7 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosystem at Lawren
 
 If you use CommunityMech in your research, please cite:
 
-> Joachimiak MP, et al. (2025). KG-Microbe: A modular knowledge graph for microbial cultivation. *bioRxiv*. doi: [10.1101/2025.02.24.639989](https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1)
+> Santangelo BE, et al. (2026). KG-Microbe - Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*, giag077. doi: [10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 
 ### Related Publications
 
