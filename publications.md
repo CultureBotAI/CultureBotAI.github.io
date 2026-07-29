@@ -45,23 +45,34 @@ Every publication, preprint, and software record from this work, with resolvable
 
 ### Talks and Presentations
 
-8. **Joachimiak MP**. "Knowledge-Graph-driven and LLM-enhanced Microbial…" BOKR COSI, ISMB/ECCB 2025. [Recording (ISCB)](https://www.youtube.com/watch?v=TgSUbOWQHfI)
+Newest first. Titles are given as published by the hosting channel; ISCB truncates them with an ellipsis.
 
-   The recording is published by ISCB under the title shown, which the uploader truncated.
+8. **Joachimiak MP**. RuleML webinar. 2026. *Recording to be linked.*
+   <!-- TODO: replace with the RuleML 2026 webinar recording URL when available -->
+
+9. **Joachimiak MP**. "Knowledge-Graph-driven and LLM-enhanced Microbial…" BOKR COSI, ISMB/ECCB 2025. [Recording (ISCB)](https://www.youtube.com/watch?v=TgSUbOWQHfI)
+
+10. Santangelo BE. "Harmonizing human and microbial datasets to…" Bio-Ontologies COSI, ISMB 2024. [Recording (ISCB)](https://www.youtube.com/watch?v=iZXc2dzl9VQ)
+
+11. **Joachimiak MP**. "Machine Learning to Uncover Microbial…" Function COSI poster, ISMB 2022. [Recording (ISCB)](https://www.youtube.com/watch?v=j6hy31OfzRk)
+
+12. **Joachimiak MP**. PowerTalks Seminar Series. UAB Department of Biomedical Informatics and Data Science; 14 January 2022. [Recording (UAB DBIDS)](https://www.youtube.com/watch?v=5LGZJOzt5A4)
+
+13. **Joachimiak MP**. "KG-Microbe: a reference knowledge-graph and…" BOSC poster, ISMB/ECCB 2021. [Recording (ISCB)](https://www.youtube.com/watch?v=IKfJPWLSS3w)
 {: start="8"}
 
 ### Related Work from the Group
 
 Methods and infrastructure this work builds on, co-authored by Dr. Joachimiak.
 
-9. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
+14. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
 
-10. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
+15. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
 
-11. **Joachimiak MP**, Miller MA, Caufield JH, Ly R, Harris NL, et al. The Artificial Intelligence Ontology: LLM-Assisted Construction of AI Concept Hierarchies. *Applied Ontology*. 2024;19:408–418. [doi:10.1177/15705838241304103](https://doi.org/10.1177/15705838241304103)
+16. **Joachimiak MP**, Miller MA, Caufield JH, Ly R, Harris NL, et al. The Artificial Intelligence Ontology: LLM-Assisted Construction of AI Concept Hierarchies. *Applied Ontology*. 2024;19:408–418. [doi:10.1177/15705838241304103](https://doi.org/10.1177/15705838241304103)
 
-12. Clark T, Caufield H, Parker JA, Al Manir S, Amorim E, et al. (31 authors, incl. **Joachimiak M**). AI-readiness criteria for biomedical data. *bioRxiv*. 2026 (v6; first posted 2024). [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
-{: start="9"}
+17. Clark T, Caufield H, Parker JA, Al Manir S, Amorim E, et al. (31 authors, incl. **Joachimiak M**). AI-readiness criteria for biomedical data. *bioRxiv*. 2026 (v6; first posted 2024). [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
+{: start="14"}
 
 ---
 
