@@ -15,7 +15,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 
 **Looking for specific tools?**
 - [AI Curation Tools](#-ai-curation-tools) - CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech
-- [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents
+- [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents, KOGUT
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
 - [Literature Mining](#ai-agent-systems) - MATE-LLM
@@ -295,6 +295,33 @@ Agent-based system for AI-driven microbial cultivation and growth media design. 
 - **Depends on:** kg-microbe (knowledge graph foundation), MicroMediaParam (chemical mappings), eggnogtable (genome annotations), MATE-LLM (literature extraction)
 - **Feeds into:** Media formulation recommendations, PFASCommunityAgents (consortium design)
 - **Works with:** MicroGrowLink (complementary prediction approach)
+
+---
+
+#### KOGUT Transformer
+**[DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)** | **[doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3)** | Released 2025-12-18
+
+**KOGUT** (Knowledge Oriented Graph Unified Transformer) adapts the Relational Graph Transformer (RelGT) architecture — originally designed for relational tables and multi-table databases — to heterogeneous biological knowledge graphs, for link prediction over kg-microbe. Its primary task is predicting which growth media support a given microbial taxon.
+
+**Training data:**
+- Merged kg-microbe knowledge graph: 1,379,337 nodes and 2,960,472 edges
+- 24 Biolink relation types spanning taxonomic hierarchies, metabolic interactions, phenotype associations, and environmental relationships
+- Primary task: growth media suitability (`biolink:occurs_in`, ~50K edges); the model can predict any of the 24 relation types
+- Trained on NVIDIA A100 GPUs at NERSC Perlmutter
+
+**Adaptations beyond the original RelGT:**
+- Multimodal node encoding from KG metadata — labels, categories, descriptions, and synonyms
+- Extended k-hop subgraph sampling (3-hop default) tuned for sparse biological networks
+- Biolink predicate preservation, with type-specific transformations for the 24 edge semantics
+- Inductive learning, enabling zero-shot prediction for novel and uncultured taxa from feature-based embeddings (temperature, oxygen requirement, gram stain, cell shape)
+
+**Reported performance** on growth media prediction: MRR 0.9966, Precision@1 0.9932, Hit@10 1.0000.
+
+**Status**: registered in DOE CODE; no public source repository yet.
+
+**Related Projects:**
+- **Depends on:** kg-microbe (training graph)
+- **Works with:** MicroGrowLink and MicroGrowAgents (complementary media-prediction approaches); [explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014) (interpretable counterpart)
 
 ---
 
@@ -668,3 +695,17 @@ For technical support, collaboration inquiries, or questions about our resources
 - **GitHub Issues:** [Report bugs or request features](https://github.com/CultureBotAI)
 - **Documentation:** Comprehensive guides and API references
 - **Community Forums:** Connect with other researchers and developers
+
+---
+
+## Bibliography
+
+1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+2. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
+3. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
+4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
+5. **Joachimiak MP**, Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ. *kg-microbe: modular knowledge graph for microbiome and microbial sciences* [software]. [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)
+6. METPO: Microbial Ecology and Taxonomy Phenotypic Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/microbiomedata/METPO)
+{: .bibliography}
+
+[Full publication list →](/publications/#bibliography)

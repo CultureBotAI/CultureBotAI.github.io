@@ -114,6 +114,8 @@ Our research goals are enabled by a suite of interconnected software tools:
 
 ### For Growth Preference Prediction
 - [kg-microbe](/kg-microbe/) - Knowledge graph foundation with 864K+ validated species
+- [KOGUT](/resources/#kogut-transformer) - Relational graph transformer for link prediction over kg-microbe *(DOE CODE record; no public repository yet)*
+- [Explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014) - Human-readable rules predicting cultivation media, published in *CSBJ*
 - [assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor) - Phenotypic assay data from BacDive
 - [eggnog_runner](/resources/#eggnogrunner) & eggnogtable - Genome functional annotation *(eggnogtable is private, public release planned)*
 - [neurosymbolreason](/resources/#neurosymbolreason---neurosymbolic-analogy-reasoning) - Neurosymbolic analogy reasoning on knowledge graph embeddings
@@ -136,7 +138,7 @@ We actively collaborate with:
 
 ## Publications & Preprints
 
-For detailed methodology and results from our research, see our [Publications](/publications) page.
+Our methods are described in the [KG-Microbe paper](https://doi.org/10.1093/gigascience/giag077) (*GigaScience* 2026), the [explainable rule mining paper](https://doi.org/10.1016/j.csbj.2025.10.014) (*CSBJ* 2025), and the [MicroGrowAgents preprint](https://doi.org/10.64898/2026.06.04.729985) (bioRxiv 2026). See the [Bibliography](#bibliography) below, or the [Publications](/publications) page for the full list.
 
 ## Get Involved
 
@@ -169,3 +171,17 @@ CultureBotAI research is conducted at Lawrence Berkeley National Laboratory in B
 
 ### What are CultureBotAI's current projects?
 Current projects include an automated culture monitoring platform using AI and high-throughput cultivation, predictive growth modeling for optimal conditions, and expanding kg-microbe capabilities for automated literature mining and cross-organism prediction.
+
+---
+
+## Bibliography
+
+1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+2. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
+3. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
+4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
+5. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
+6. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
+{: .bibliography}
+
+[Full publication list →](/publications/#bibliography)

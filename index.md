@@ -39,6 +39,12 @@ The X-Mech suite ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingr
 ### 🧠 [MicroGrowAgents](/microgrowagents/)
 Multi-agent AI system for microbial cultivation and growth media design across 864,363 validated species — [GitHub repository](https://github.com/CultureBotAI/MicroGrowAgents) · [bioRxiv preprint](https://doi.org/10.64898/2026.06.04.729985)
 
+### 🧮 [KOGUT Transformer](/resources/#kogut-transformer)
+Relational graph transformer for link prediction over kg-microbe, trained for growth media prediction on 1.3M nodes and 3.0M edges. Registered as [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162); no public repository yet.
+
+### 📐 [Explainable Media Prediction](https://doi.org/10.1016/j.csbj.2025.10.014)
+Human-readable rules that predict cultivation media from microbial traits — the interpretable counterpart to our neural models, published in *Computational and Structural Biotechnology Journal*.
+
 ### 📊 [METPO Ontology](https://github.com/Knowledge-Graph-Hub/kg-microbe/tree/main/src/kg_microbe/transform/metpo)
 Microbial experimental and theoretical preference ontology for standardizing growth preference data.
 
@@ -49,6 +55,7 @@ CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe kn
 - **AI curation pipelines** ([X-Mech suite](/culturemech/)) transform unstructured cultivation data into standardized knowledge graphs
 - **Data processing pipelines** prepare chemical, genomic, and literature data
 - **AI agent systems** combine multiple data sources for intelligent predictions
+- **Prediction models** range from interpretable rule mining to graph transformers ([KOGUT](/resources/#kogut-transformer))
 - **Specialized applications** target specific research domains (PFAS biodegradation, lanthanide bioprocessing)
 - **Web services** provide API access to prediction models
 
@@ -87,6 +94,19 @@ KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-m
 - 📄 [Publications](/publications) - Papers, preprints, and presentations
 - 👥 [About](/about) - Team information and lab details
 - 🔗 [GitHub Organization](https://github.com/CultureBotAI) - Browse our repositories
+
+
+---
+
+## Bibliography
+
+1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
+2. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
+3. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
+4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
+{: .bibliography}
+
+[Full publication list →](/publications/#bibliography)
 
 ---
 
