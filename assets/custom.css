@@ -289,12 +289,14 @@ a {
   box-shadow: 0 4px 14px rgba(255, 122, 24, .32);
 }
 
+/* On mobile the toggle flows inline after the site title. Absolutely
+   positioning it near the hamburger would put it on top of the dropdown
+   panel once the menu is opened. */
 @media screen and (max-width: 600px) {
   .theme-toggle {
-    position: absolute;
-    top: 13px;
-    right: 68px;
-    z-index: 41;
+    position: static;
+    margin: 0 0 0 .6rem;
+    vertical-align: middle;
   }
 }
 
