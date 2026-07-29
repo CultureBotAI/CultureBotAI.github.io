@@ -1,0 +1,37 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <p class="footer-name">{{ site.author.name | escape }}</p>
+        <p>{{ site.author.organization | escape }}<br>Berkeley, California, USA</p>
+      </div>
+
+      <div class="footer-col">
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p><a href="https://github.com/{{ site.github_username }}">github.com/{{ site.github_username }}</a></p>
+        <p><a href="{{ site.author.url }}">LBNL profile</a></p>
+      </div>
+
+      <div class="footer-col">
+        <p>{{ site.description | escape }}</p>
+      </div>
+    </div>
+
+    <p class="footer-family">
+      <span>KG-Microbe Mechs:</span>
+      <a href="{{ "/culturemech/" | relative_url }}">CultureMech</a>
+      <a href="{{ "/mediaingredientmech/" | relative_url }}">MediaIngredientMech</a>
+      <a href="{{ "/communitymech/" | relative_url }}">CommunityMech</a>
+      <a href="https://culturebotai.github.io/TraitMech/">TraitMech</a>
+      <a href="https://culturebotai.github.io/proteintraitsmech/">ProteinTraitsMech</a>
+      <a href="{{ "/microgrowagents/" | relative_url }}">MicroGrowAgents</a>
+    </p>
+
+  </div>
+
+</footer>

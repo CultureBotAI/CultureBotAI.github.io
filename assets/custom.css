@@ -1,4 +1,208 @@
-/* Custom overrides for the Minima theme */
+/* ==========================================================================
+   CultureBotAI site theme — pastel + neon overrides for the Minima theme.
+
+   Palette: pastel peach + pastel gray-green (sage), burnt-orange accent,
+   with neon orange/mint used sparingly for glows, rules and hover states.
+   Deliberately distinct from the sibling X-Mech sites, which already use
+   pink/blue (CommunityMech), teal/amber (ProteinTraitsMech), gray/red
+   (TraitMech), aqua/purple (MediaIngredientMech) and green (CultureMech),
+   while keeping the same light, positive visual language: pastel hero
+   gradient, rounded cards, pill buttons and soft shadows.
+   ========================================================================== */
+
+:root {
+  --pastel-a: #FFD8B2;          /* pastel peach   */
+  --pastel-b: #DDE8DF;          /* pastel sage    */
+  --accent:   #C25E12;          /* burnt orange   */
+  --accent-2: #3F7D62;          /* deep sage      */
+  --neon:     #FF7A18;          /* neon orange    */
+  --neon-2:   #2FE0A0;          /* neon mint      */
+  --ink:      #1e2321;
+  --muted:    #5a635e;
+  --card:     #ffffff;
+  --bg:       #F4F8F5;
+  --line:     rgba(0, 0, 0, .10);
+  --wash-a:   #F6EDE4;          /* pastel-a tint, color-mix fallback */
+  --wash-b:   #EDF3EE;          /* pastel-b tint, color-mix fallback */
+  --shadow:   0 1px 3px rgba(30, 45, 38, .07);
+  --shadow-lg: 0 12px 30px rgba(30, 45, 38, .12);
+  --radius:   16px;
+  color-scheme: light;
+}
+
+/* ---- Dark theme: OS preference, overridable by the toggle ---------------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --pastel-a: #2f2319;
+    --pastel-b: #141a17;
+    --accent:   #FFA35C;
+    --accent-2: #7FD8AE;
+    --ink:      #e9efea;
+    --muted:    #a0b2a8;
+    --card:     #1a201d;
+    --bg:       #111613;
+    --line:     #2b3531;
+    --wash-a:   #221b16;
+    --wash-b:   #171d1a;
+    --shadow:   0 1px 3px rgba(0, 0, 0, .4);
+    --shadow-lg: 0 12px 30px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --pastel-a: #2f2319;
+  --pastel-b: #141a17;
+  --accent:   #FFA35C;
+  --accent-2: #7FD8AE;
+  --ink:      #e9efea;
+  --muted:    #a0b2a8;
+  --card:     #1a201d;
+  --bg:       #111613;
+  --line:     #2b3531;
+  --wash-a:   #221b16;
+  --wash-b:   #171d1a;
+  --shadow:   0 1px 3px rgba(0, 0, 0, .4);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60rem 32rem at 12% -8%, rgba(255, 176, 106, .28), transparent 62%),
+    radial-gradient(52rem 30rem at 92% 2%, rgba(120, 190, 160, .18), transparent 62%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  max-width: 1040px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+::selection { background: rgba(255, 122, 24, .25); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color .15s ease, background-size .2s ease;
+}
+
+/* Neon underline that grows on hover, for body links only. */
+.page-content a {
+  background-image: linear-gradient(90deg, var(--neon), var(--neon-2));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 2px;
+  padding-bottom: 1px;
+}
+
+.page-content a:hover {
+  background-size: 100% 2px;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  min-height: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+  background: rgba(255, 255, 255, .82);
+  -webkit-backdrop-filter: saturate(1.6) blur(10px);
+  backdrop-filter: saturate(1.6) blur(10px);
+}
+
+:root[data-theme="dark"] .site-header { background: rgba(26, 32, 29, .85); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-header { background: rgba(26, 32, 29, .85); }
+}
+
+/* Neon hairline along the top edge. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon), var(--pastel-a), var(--neon-2));
+}
+
+.site-title,
+.site-title:visited {
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -.02em;
+  color: var(--accent);
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-nav {
+  background: transparent;
+  border: 0;
+}
+
+.site-nav .page-link,
+.site-nav .page-link:visited {
+  color: var(--muted);
+  font-size: .88rem;
+  font-weight: 600;
+  padding: .3em .72em;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.site-nav .page-link:hover {
+  color: var(--accent);
+  background: var(--wash-a);
+  border-color: var(--line);
+  box-shadow: 0 2px 10px rgba(255, 122, 24, .18);
+  text-decoration: none;
+}
+
+.site-nav .page-link.current {
+  color: #fff;
+  background: linear-gradient(100deg, var(--accent), var(--neon));
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(255, 122, 24, .3);
+}
+
+/* The dark-theme accent is light, so flip the pill's label to dark ink. */
+:root[data-theme="dark"] .site-nav .page-link.current { color: #111613; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-nav .page-link.current { color: #111613; }
+}
 
 /* Header navigation: with many nav links the default float-based header
    overflows the page on wider screens. Use a flex row that wraps instead.
@@ -8,15 +212,15 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-  }
-
-  .site-header {
-    min-height: 0;
+    gap: .25rem .4rem;
+    padding-top: .55rem;
+    padding-bottom: .55rem;
   }
 
   .site-title {
     float: none;
-    margin-right: auto;
+    margin: 0 auto 0 0;
+    line-height: 1.3;
   }
 
   .site-nav {
@@ -26,6 +230,383 @@
 
   .site-nav .page-link {
     display: inline-block;
-    line-height: 2;
+    line-height: 1.9;
+    margin-left: 2px;
   }
+
+  /* Keep the toggle in the top-right corner rather than letting it wrap
+     onto a row of its own once the nav links wrap. */
+  .site-header .wrapper { position: relative; padding-right: 68px; }
+
+  .theme-toggle {
+    position: absolute;
+    top: .5rem;
+    right: 24px;
+    margin-left: 0;
+  }
+}
+
+/* Mobile dropdown menu */
+@media screen and (max-width: 600px) {
+  .site-nav {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .site-nav .menu-icon > svg path { fill: var(--accent); }
+
+  .site-nav .page-link {
+    display: block;
+    margin: 2px 0;
+    text-align: right;
+  }
+}
+
+/* ---- Light/dark toggle (injected by _layouts/default.html) --------------- */
+.theme-toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: .35rem;
+  padding: 0;
+  font-size: .95rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink);
+  background: var(--wash-a);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 122, 24, .32);
+}
+
+@media screen and (max-width: 600px) {
+  .theme-toggle {
+    position: absolute;
+    top: 13px;
+    right: 68px;
+    z-index: 41;
+  }
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.page-content { padding: 0 0 3rem; }
+
+/* ---- Hero: first heading of a page plus its lede paragraph --------------- */
+.page-content > .wrapper > h1:first-child,
+.page-content .post-content > h1:first-child,
+.page-content .home > h1:first-child {
+  margin: 2rem 0 2.6rem;
+  padding: 2.4rem 2rem;
+  font-size: 2.35rem;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  line-height: 1.18;
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--pastel-a), var(--pastel-b));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* When a lede paragraph follows the title, merge the two into one card.
+   Guarded so browsers without :has() keep a self-contained title card. */
+@supports selector(:has(+ p)) {
+  .page-content > .wrapper > h1:first-child:has(+ p),
+  .page-content .post-content > h1:first-child:has(+ p),
+  .page-content .home > h1:first-child:has(+ p) {
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .page-content > .wrapper > h1:first-child + p,
+  .page-content .post-content > h1:first-child + p,
+  .page-content .home > h1:first-child + p {
+    margin: 0 0 2.6rem;
+    padding: 0 2rem 2.2rem;
+    font-size: 1.06rem;
+    color: var(--ink);
+    background: linear-gradient(135deg, var(--pastel-a), var(--pastel-b));
+    border: 1px solid var(--line);
+    border-top: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow);
+  }
+}
+
+/* ---- Headings ----------------------------------------------------------- */
+.page-content h2 {
+  position: relative;
+  margin: 2.6rem 0 1rem;
+  padding-bottom: .4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--ink);
+}
+
+.page-content h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 74px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--neon), var(--neon-2));
+}
+
+.page-content h3 {
+  margin: 2rem 0 .6rem;
+  padding-left: .75rem;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-left: 3px solid var(--neon);
+  border-image: linear-gradient(180deg, var(--neon), var(--neon-2)) 1;
+}
+
+.page-content h4 {
+  margin: 1.6rem 0 .4rem;
+  font-size: .98rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ---- Lists -------------------------------------------------------------- */
+.page-content ul { list-style: none; padding-left: 1.35rem; }
+
+.page-content ul > li { position: relative; margin-bottom: .35rem; }
+
+.page-content ul > li::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: .68em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon), var(--neon-2));
+  box-shadow: 0 0 6px rgba(255, 122, 24, .5);
+}
+
+.page-content ol { padding-left: 1.4rem; }
+
+.page-content ol > li::marker { color: var(--accent); font-weight: 700; }
+
+/* ---- Rules, quotes, tables, code ---------------------------------------- */
+.page-content hr {
+  height: 2px;
+  margin: 2.8rem 0;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--neon), var(--neon-2), transparent);
+  opacity: .55;
+}
+
+blockquote {
+  color: var(--ink);
+  font-style: normal;
+  font-size: 1rem;
+  letter-spacing: 0;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow);
+}
+
+blockquote > :last-child { margin-bottom: 0; }
+
+table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  margin: 1.5rem 0;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: var(--shadow);
+}
+
+table th {
+  background: var(--wash-a);
+  color: var(--ink);
+  font-weight: 700;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: .7rem .9rem;
+  text-align: left;
+}
+
+table td {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: .65rem .9rem;
+}
+
+table tr:last-child td { border-bottom: 0; }
+table tr:nth-child(even) td { background: var(--wash-b); }
+
+code {
+  background: var(--wash-b);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: .88em;
+  padding: .1em .38em;
+}
+
+pre {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.15rem;
+}
+
+pre > code {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  padding: 0;
+}
+
+/* Minima ships a lavender panel for Rouge blocks; use the site wash instead. */
+.highlight,
+.highlighter-rouge .highlight,
+figure.highlight {
+  background: var(--wash-b);
+  border-radius: var(--radius);
+}
+
+/* Rouge's token palette is tuned for its own lavender panel. Remap the common
+   tokens onto theme variables so code reads correctly in both themes. */
+.highlight,
+.highlight pre { color: var(--ink); }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp,
+.highlight .kr, .highlight .kt, .highlight .nt { color: var(--accent); }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc,
+.highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx,
+.highlight .m, .highlight .mi, .highlight .mf { color: var(--accent-2); }
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: var(--muted); font-style: italic; }
+.highlight .n, .highlight .na, .highlight .nb, .highlight .nc, .highlight .nf,
+.highlight .nn, .highlight .nv, .highlight .o, .highlight .p { color: var(--ink); }
+
+img { max-width: 100%; border-radius: var(--radius); }
+
+strong { color: var(--ink); font-weight: 700; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 2.2rem 0 2.6rem;
+  border-top: 1px solid var(--line);
+  background: var(--wash-b);
+  color: var(--muted);
+}
+
+.site-footer .footer-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.site-footer a,
+.site-footer a:visited { color: var(--accent); }
+
+.site-footer .contact-list,
+.site-footer .social-media-list { list-style: none; padding-left: 0; }
+
+.site-footer .footer-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem 2rem;
+  margin-top: .8rem;
+  font-size: .92rem;
+}
+
+.site-footer .footer-cols p { margin-bottom: .5rem; }
+.site-footer .footer-name { font-weight: 700; color: var(--ink); }
+
+.site-footer .footer-family {
+  margin: 1.6rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: .86rem;
+}
+
+.site-footer .footer-family span { color: var(--muted); font-weight: 600; }
+
+.site-footer .footer-family a {
+  display: inline-block;
+  margin: .15rem .1rem .15rem .55rem;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Motion preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Small screens
+   ========================================================================== */
+
+@media screen and (max-width: 600px) {
+  body { font-size: 16px; }
+
+  .wrapper { padding-left: 18px; padding-right: 18px; }
+
+  .page-content > .wrapper > h1:first-child,
+  .page-content .post-content > h1:first-child,
+  .page-content .home > h1:first-child {
+    padding: 1.8rem 1.25rem;
+    font-size: 1.8rem;
+  }
+
+  @supports selector(:has(+ p)) {
+    .page-content > .wrapper > h1:first-child:has(+ p),
+    .page-content .post-content > h1:first-child:has(+ p),
+    .page-content .home > h1:first-child:has(+ p) { padding-bottom: 1.1rem; }
+
+    .page-content > .wrapper > h1:first-child + p,
+    .page-content .post-content > h1:first-child + p,
+    .page-content .home > h1:first-child + p { padding: 0 1.25rem 1.6rem; }
+  }
+
+  .page-content h2 { font-size: 1.34rem; }
 }

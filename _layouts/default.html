@@ -15,6 +15,61 @@
 
     {%- include footer.html -%}
 
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var KEY = "culturebot-theme";
+
+        function resolved() {
+          var set = root.getAttribute("data-theme");
+          if (set) { return set; }
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+
+        function label(theme) {
+          return theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+        }
+
+        // Light/dark toggle, added to the site header.
+        var host = document.querySelector(".site-header .wrapper");
+        if (host) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "theme-toggle";
+          btn.textContent = resolved() === "dark" ? "☀" : "☾";
+          btn.setAttribute("aria-label", label(resolved()));
+          btn.title = btn.getAttribute("aria-label");
+
+          btn.addEventListener("click", function () {
+            var next = resolved() === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem(KEY, next); } catch (e) { /* private mode */ }
+            btn.textContent = next === "dark" ? "☀" : "☾";
+            btn.setAttribute("aria-label", label(next));
+            btn.title = btn.getAttribute("aria-label");
+          });
+
+          host.appendChild(btn);
+        }
+
+        // Mark the nav link for the current page — Minima does not do this.
+        var trim = function (p) {
+          p = p.replace(/index\.html$/, "");
+          return p.length > 1 ? p.replace(/\/$/, "") : p;
+        };
+        var here = trim(location.pathname);
+        Array.prototype.forEach.call(
+          document.querySelectorAll(".site-nav .page-link"),
+          function (link) {
+            if (trim(link.pathname) === here) {
+              link.classList.add("current");
+              link.setAttribute("aria-current", "page");
+            }
+          }
+        );
+      })();
+    </script>
+
   </body>
 
 </html>
