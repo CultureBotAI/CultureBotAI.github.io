@@ -15,6 +15,12 @@ permalink: /communitymech/
 
 **The Solution**: CommunityMech provides a structured schema for representing community-level cultivation data, interaction networks, and temporal dynamics. It extends the single-organism focus of [CultureMech](/culturemech/) to multi-species systems, enabling systematic analysis of community cultivation requirements.
 
+### Current Contents
+
+The knowledge base holds **304 curated communities** across **16 categories**, each with evidence-backed interaction networks and **512-dimensional (v3) embeddings** for similarity search.
+
+Browse it through the [record browser](https://culturebotai.github.io/CommunityMech/) or explore the [PaCMAP embedding map](https://culturebotai.github.io/CommunityMech/) of the community space.
+
 ---
 
 ## Key Features

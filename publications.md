@@ -37,17 +37,27 @@ Every publication, preprint, and software record from this work, with resolvable
 
 6. CultureBotAI organization repositories — CultureMech, MediaIngredientMech, CommunityMech, TraitMech, and ProteinTraitsMech. [github.com/CultureBotAI](https://github.com/CultureBotAI). Each repository carries its own citation and license; see [Resources](/resources/).
 
+7. **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences [workflow]. WorkflowHub; v1. [doi:10.48546/workflowhub.workflow.2044.1](https://doi.org/10.48546/workflowhub.workflow.2044.1) · [WorkflowHub 2044](https://workflowhub.eu/workflows/2044)
+
+   The registered knowledge-graph construction workflow. License: BSD-3-Clause.
+
+### Talks and Presentations
+
+8. **Joachimiak MP**. "Knowledge-Graph-driven and LLM-enhanced Microbial…" BOKR COSI, ISMB/ECCB 2025. [Recording (ISCB)](https://www.youtube.com/watch?v=TgSUbOWQHfI)
+
+   The recording is published by ISCB under the title shown, which the uploader truncated.
+
 ### Related Work from the Group
 
 Methods and infrastructure this work builds on, co-authored by Dr. Joachimiak.
 
-7. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
+9. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
 
-8. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
+10. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
 
-9. **Joachimiak MP**, Miller MA, Caufield JH, Ly R, Harris NL, et al. The Artificial Intelligence Ontology: LLM-Assisted Construction of AI Concept Hierarchies. *Applied Ontology*. 2024;19:408–418. [doi:10.1177/15705838241304103](https://doi.org/10.1177/15705838241304103)
+11. **Joachimiak MP**, Miller MA, Caufield JH, Ly R, Harris NL, et al. The Artificial Intelligence Ontology: LLM-Assisted Construction of AI Concept Hierarchies. *Applied Ontology*. 2024;19:408–418. [doi:10.1177/15705838241304103](https://doi.org/10.1177/15705838241304103)
 
-10. Clark T, Caufield H, Parker JA, Al Manir S, Amorim E, et al. (31 authors, incl. **Joachimiak M**). AI-readiness criteria for biomedical data. *bioRxiv*. 2026 (v6; first posted 2024). [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
+12. Clark T, Caufield H, Parker JA, Al Manir S, Amorim E, et al. (31 authors, incl. **Joachimiak M**). AI-readiness criteria for biomedical data. *bioRxiv*. 2026 (v6; first posted 2024). [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
 
 ---
 
