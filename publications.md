@@ -47,7 +47,7 @@ Methods and infrastructure this work builds on, co-authored by Dr. Joachimiak.
 
 9. **Joachimiak MP**, Miller MA, Caufield JH, Ly R, Harris NL, et al. The Artificial Intelligence Ontology: LLM-Assisted Construction of AI Concept Hierarchies. *Applied Ontology*. 2024;19:408–418. [doi:10.1177/15705838241304103](https://doi.org/10.1177/15705838241304103)
 
-10. Clark T, Caufield JH, Parker JA, Al Manir S, Amorim E, et al. (incl. **Joachimiak MP**). AI-readiness Criteria for Biomedical Data. *bioRxiv*. 2024. [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
+10. Clark T, Caufield H, Parker JA, Al Manir S, Amorim E, et al. (31 authors, incl. **Joachimiak M**). AI-readiness criteria for biomedical data. *bioRxiv*. 2026 (v6; first posted 2024). [doi:10.1101/2024.10.23.619844](https://doi.org/10.1101/2024.10.23.619844)
 
 ---
 
