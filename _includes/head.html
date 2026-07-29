@@ -5,6 +5,20 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/custom.css" | relative_url }}">
+  <meta name="theme-color" content="#FFD8B2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111613" media="(prefers-color-scheme: dark)">
+
+  <!-- Apply the saved light/dark preference before first paint. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("culturebot-theme");
+        if (saved === "light" || saved === "dark") {
+          document.documentElement.setAttribute("data-theme", saved);
+        }
+      } catch (e) { /* private mode: fall back to prefers-color-scheme */ }
+    })();
+  </script>
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
@@ -100,13 +114,18 @@
           {"@type": "Person", "name": "Christopher J. Mungall"},
           {"@id": "{{ site.url }}/#marcin"}
         ],
-        "datePublished": "2025-02-24",
+        "datePublished": "2026-07-10",
         "publisher": {
           "@type": "Organization",
-          "name": "bioRxiv"
+          "name": "GigaScience"
         },
-        "url": "https://www.biorxiv.org/content/10.1101/2025.02.24.639989v1",
-        "identifier": "https://doi.org/10.1101/2025.02.24.639989",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "GigaScience",
+          "issn": "2047-217X"
+        },
+        "url": "https://doi.org/10.1093/gigascience/giag077",
+        "identifier": "https://doi.org/10.1093/gigascience/giag077",
         "about": "knowledge graph, microbiology, microbiome, AI, machine learning"
       },
       {
@@ -166,7 +185,7 @@
             "name": "How can I access KG-Microbe?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-microbe under the BSD-3-Clause license. The preprint is available at https://doi.org/10.1101/2025.02.24.639989"
+              "text": "KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-microbe under the BSD-3-Clause license. The publication is available in GigaScience at https://doi.org/10.1093/gigascience/giag077"
             }
           },
           {
