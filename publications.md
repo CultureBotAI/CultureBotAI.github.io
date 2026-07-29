@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Publications"
-description: "Peer-reviewed publications by Dr. Marcin P. Joachimiak on KG-Microbe knowledge graph development and AI applications in microbial cultivation."
+description: "Peer-reviewed publications and preprints by Dr. Marcin P. Joachimiak on KG-Microbe knowledge graph development and AI applications in microbial cultivation."
 permalink: /publications/
 ---
 
