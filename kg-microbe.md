@@ -126,7 +126,7 @@ Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L.
 
 KG-Microbe is the training substrate for several prediction approaches, spanning the interpretability spectrum:
 
-- **Boosted trees** — compared against the approaches below for taxa–media pairing in the [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0); no separate release
+- **Boosted trees** — the tabular approach benchmarked against symbolic rule mining and relational graph deep learning for taxa–media pairing in the [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0); no separate release
 - **[Explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014)** — human-readable association rules predicting cultivation media from microbial traits, (*CSBJ* 2025). The [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0) reports accuracy comparable to state-of-the-art and gives an example of a learned rule: *if β-galactosidase activity and isolated from a marine environment, then 87% likely to grow on Marine Broth*
 - **[KOGUT](/resources/#kogut-transformer)** — relational graph transformer trained on the merged graph (1,379,337 nodes, 2,960,472 edges, 24 Biolink relation types) for growth media link prediction
 - **[MicroGrowAgents](/microgrowagents/)** — multi-agent system that reasons over the graph alongside literature and genome evidence
