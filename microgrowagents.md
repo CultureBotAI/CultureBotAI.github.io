@@ -13,11 +13,13 @@ permalink: /microgrowagents/
 
 **The Challenge**: Designing growth media for novel or fastidious organisms is slow and largely manual. The knowledge needed — cultivation protocols, metabolic capabilities, chemical requirements — is scattered across literature, genomes, and culture collection databases, and no single model captures all of it.
 
-**The Solution**: MicroGrowAgents coordinates a team of specialized agents, each focused on one source of evidence (literature, cross-organism analogy, genome function, media formulation). Their outputs are combined into organism-specific, evidence-based media recommendations grounded in the [kg-microbe knowledge graph](/kg-microbe/).
+**The Solution**: MicroGrowAgents is a hierarchical agentic-AI framework of **100+ specialist agents**. Each is focused on one source of evidence (literature, cross-organism analogy, genome function, media formulation), and their outputs are combined into organism-specific, evidence-based media recommendations grounded in the [kg-microbe knowledge graph](/kg-microbe/). The four principal agent roles below sit at the top of that hierarchy.
 
 ---
 
-## Specialized Agents
+## Principal Agents
+
+The framework organizes its 100+ specialist agents under four principal roles.
 
 ### 📚 LiteratureAgent
 Mines 245+ papers for cultivation protocols, extracting growth conditions and media compositions from the published record.
@@ -104,6 +106,8 @@ MicroGrowAgents is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosys
 - Evidence-based cultivation protocol synthesis from literature
 - Data-driven cultivation optimization
 
+**Applications**: The [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0) reports high-throughput results in which MicroGrowAgents and [KOGUT](/resources/#kogut-transformer) improved growth and rare-earth-element depletion in *Methylorubrum extorquens* AM1.
+
 **Citation**: Naseem, S., Miller, M. A., Martinez-Gomez, N. C., Sun, N., & Joachimiak, M. P. (2026). MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. [10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
 
 See also the [KG-Microbe publication](https://doi.org/10.1093/gigascience/giag077) in *GigaScience* for details on the broader knowledge graph ecosystem.
@@ -127,6 +131,7 @@ For questions about MicroGrowAgents or collaboration opportunities:
 2. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 3. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
+5. **Joachimiak MP**. "RuleML/GOBLIN COST Action Lecture on Data Science: Teaching AI to Teach Humans About Microbiology" [talk]. RuleML / COST GOBLIN Action Seminar; 2026. [Recording](https://youtu.be/p_WiR-5E9x0)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)

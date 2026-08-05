@@ -13,6 +13,8 @@ permalink: /kg-microbe/
 
 KG-Microbe is a comprehensive, modular knowledge graph designed specifically for microbiology and microbiome research. Developed by [Dr. Marcin P. Joachimiak](https://biosciences.lbl.gov/profiles/marcin-p-joachimiak/) at Lawrence Berkeley National Laboratory in Berkeley, California, this innovative resource integrates diverse microbial data sources to enable AI-driven insights for growth preference prediction and culture optimization.
 
+It is an AI-ready knowledge graph of microbial traits, carrying **3,000+ organismal traits** and **30,000+ genomic traits**, organized by the [METPO ontology](https://github.com/berkeleybop/metpo). It is registered in the [KG-Registry](https://kghub.org/kg-registry/resource/kg-microbe/kg-microbe).
+
 ## Key Features
 
 ### 🧬 Modular Architecture
@@ -124,7 +126,8 @@ Santangelo, B. E., Hegde, H., Caufield, J. H., Reese, J., Kliegr, T., Hunter, L.
 
 KG-Microbe is the training substrate for several prediction approaches, spanning the interpretability spectrum:
 
-- **[Explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014)** — human-readable association rules predicting cultivation media from microbial traits (*CSBJ* 2025)
+- **Boosted trees** — gradient-boosted classifiers over trait features, the conventional tabular baseline for taxa–media pairing
+- **[Explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014)** — human-readable association rules predicting cultivation media from microbial traits, with accuracy comparable to state-of-the-art (*CSBJ* 2025). A learned rule reads, for example: *if β-galactosidase activity and isolated from a marine environment, then 87% likely to grow on Marine Broth*
 - **[KOGUT](/resources/#kogut-transformer)** — relational graph transformer trained on the merged graph (1,379,337 nodes, 2,960,472 edges, 24 Biolink relation types) for growth media link prediction
 - **[MicroGrowAgents](/microgrowagents/)** — multi-agent system that reasons over the graph alongside literature and genome evidence
 - **[MicroGrowLink](/resources/#microgrowlink)** — graph and transformer models for media link prediction
@@ -134,6 +137,8 @@ KG-Microbe is the training substrate for several prediction approaches, spanning
 - [CultureBotAI Home](/) - Main project page
 - [Research Areas](/research/) - Detailed research focus
 - [Publications](/publications/) - Complete publication list
+- [KG-Registry entry](https://kghub.org/kg-registry/resource/kg-microbe/kg-microbe) - Registry record for the knowledge graph
+- [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0) - Talk covering the graph, METPO, and the three prediction approaches
 - [About Dr. Joachimiak](/marcin-joachimiak/) - Principal investigator profile
 
 ## Contact
@@ -175,6 +180,7 @@ Cite the GigaScience article: Santangelo, B. E., et al. (2026). KG-Microbe - Bui
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
 5. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
 6. METPO: Microbial Ecophysiological Trait and Phenotype Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/berkeleybop/metpo)
+7. **Joachimiak MP**. "RuleML/GOBLIN COST Action Lecture on Data Science: Teaching AI to Teach Humans About Microbiology" [talk]. RuleML / COST GOBLIN Action Seminar; 2026. [Recording](https://youtu.be/p_WiR-5E9x0)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)
