@@ -13,13 +13,11 @@ permalink: /microgrowagents/
 
 **The Challenge**: Designing growth media for novel or fastidious organisms is slow and largely manual. The knowledge needed — cultivation protocols, metabolic capabilities, chemical requirements — is scattered across literature, genomes, and culture collection databases, and no single model captures all of it.
 
-**The Solution**: MicroGrowAgents is a hierarchical agentic-AI framework of **100+ specialist agents**. Each is focused on one source of evidence (literature, cross-organism analogy, genome function, media formulation), and their outputs are combined into organism-specific, evidence-based media recommendations grounded in the [kg-microbe knowledge graph](/kg-microbe/). The four principal agent roles below sit at the top of that hierarchy.
+**The Solution**: MicroGrowAgents coordinates specialized agents, each focused on one source of evidence (literature, cross-organism analogy, genome function, media formulation). Their outputs are combined into organism-specific, evidence-based media recommendations grounded in the [kg-microbe knowledge graph](/kg-microbe/). The [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0) describes it as a hierarchical agentic-AI framework of 100+ specialist agents; the four agent roles documented below are the ones described in detail.
 
 ---
 
-## Principal Agents
-
-The framework organizes its 100+ specialist agents under four principal roles.
+## Specialized Agents
 
 ### 📚 LiteratureAgent
 Mines 245+ papers for cultivation protocols, extracting growth conditions and media compositions from the published record.
