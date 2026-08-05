@@ -708,6 +708,7 @@ For technical support, collaboration inquiries, or questions about our resources
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
 5. **Joachimiak MP**, Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ. *kg-microbe: modular knowledge graph for microbiome and microbial sciences* [software]. [github.com/Knowledge-Graph-Hub/kg-microbe](https://github.com/Knowledge-Graph-Hub/kg-microbe)
 6. METPO: Microbial Ecophysiological Trait and Phenotype Ontology. [BioPortal](https://bioportal.bioontology.org/ontologies/METPO) · [GitHub](https://github.com/berkeleybop/metpo)
+7. **Joachimiak MP**. "RuleML/GOBLIN COST Action Lecture on Data Science: Teaching AI to Teach Humans About Microbiology" [talk]. RuleML / COST GOBLIN Action Seminar; 2026. [Recording](https://youtu.be/p_WiR-5E9x0)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)

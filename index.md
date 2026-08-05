@@ -43,7 +43,7 @@ Multi-agent AI system for microbial cultivation and growth media design across 8
 Relational graph transformer for link prediction over kg-microbe, trained for growth media prediction on 1.3M nodes and 3.0M edges. Registered as [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162); no public repository yet.
 
 ### 📐 [Explainable Media Prediction](https://doi.org/10.1016/j.csbj.2025.10.014)
-Human-readable rules that predict cultivation media from microbial traits, with accuracy comparable to state-of-the-art — for example, *if β-galactosidase activity and isolated from a marine environment, then 87% likely to grow on Marine Broth*. The interpretable counterpart to our neural models, published in *Computational and Structural Biotechnology Journal*.
+Human-readable rules that predict cultivation media from microbial traits — the interpretable counterpart to our neural models, published in *Computational and Structural Biotechnology Journal*. The [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0) reports accuracy comparable to state-of-the-art, illustrated by a rule of the form *if β-galactosidase activity and isolated from a marine environment, then 87% likely to grow on Marine Broth*.
 
 ### 📊 [METPO Ontology](https://github.com/berkeleybop/metpo)
 The Microbial Ecophysiological Trait and Phenotype Ontology, used to standardize growth preference data and to drive text extraction in kg-microbe. Also on [BioPortal](https://bioportal.bioontology.org/ontologies/METPO).

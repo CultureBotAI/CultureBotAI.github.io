@@ -182,6 +182,7 @@ Current projects include an automated culture monitoring platform using AI and h
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
 5. Caufield JH, Putman T, Schaper K, Unni DR, Hegde H, et al. (incl. **Joachimiak MP**). KG-Hub — building and exchanging biological knowledge graphs. *Bioinformatics*. 2023;39(7):btad418. [doi:10.1093/bioinformatics/btad418](https://doi.org/10.1093/bioinformatics/btad418) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10336030/)
 6. Caufield JH, Hegde H, Emonet V, Harris NL, **Joachimiak MP**, et al. Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning. *Bioinformatics*. 2024;40(3):btae104. [doi:10.1093/bioinformatics/btae104](https://doi.org/10.1093/bioinformatics/btae104) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/)
+7. **Joachimiak MP**. "RuleML/GOBLIN COST Action Lecture on Data Science: Teaching AI to Teach Humans About Microbiology" [talk]. RuleML / COST GOBLIN Action Seminar; 2026. [Recording](https://youtu.be/p_WiR-5E9x0)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)
