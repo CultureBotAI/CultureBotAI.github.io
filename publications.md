@@ -47,8 +47,9 @@ Every publication, preprint, and software record from this work, with resolvable
 
 Newest first. Titles are given as published by the hosting channel; ISCB truncates them with an ellipsis. Entries marked "poster and short talk" were presented as posters at ISMB, which also accepts a recorded short talk alongside the poster — that recording is what is linked.
 
-8. **Joachimiak MP**. RuleML webinar. 2026. *Recording to be linked.*
-   <!-- TODO: replace with the RuleML 2026 webinar recording URL when available -->
+8. **Joachimiak MP**. "RuleML/GOBLIN COST Action Lecture on Data Science: Teaching AI to Teach Humans About Microbiology." RuleML / COST GOBLIN Action Seminar; 5 August 2026. [Recording](https://youtu.be/p_WiR-5E9x0)
+
+   Covers KG-Microbe and METPO, compares boosted trees, symbolic rule mining and relational graph deep learning for predicting taxa–growth-media pairings, and closes with MicroGrowAgents and KOGUT.
 
 9. **Joachimiak MP**. "Knowledge-Graph-driven and LLM-enhanced Microbial…" BOKR COSI, ISMB/ECCB 2025. [Recording (ISCB)](https://www.youtube.com/watch?v=TgSUbOWQHfI)
 

@@ -43,7 +43,7 @@ Multi-agent AI system for microbial cultivation and growth media design across 8
 Relational graph transformer for link prediction over kg-microbe, trained for growth media prediction on 1.3M nodes and 3.0M edges. Registered as [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162); no public repository yet.
 
 ### 📐 [Explainable Media Prediction](https://doi.org/10.1016/j.csbj.2025.10.014)
-Human-readable rules that predict cultivation media from microbial traits — the interpretable counterpart to our neural models, published in *Computational and Structural Biotechnology Journal*.
+Human-readable rules that predict cultivation media from microbial traits, with accuracy comparable to state-of-the-art — for example, *if β-galactosidase activity and isolated from a marine environment, then 87% likely to grow on Marine Broth*. The interpretable counterpart to our neural models, published in *Computational and Structural Biotechnology Journal*.
 
 ### 📊 [METPO Ontology](https://github.com/berkeleybop/metpo)
 The Microbial Ecophysiological Trait and Phenotype Ontology, used to standardize growth preference data and to drive text extraction in kg-microbe. Also on [BioPortal](https://bioportal.bioontology.org/ontologies/METPO).
@@ -104,6 +104,7 @@ KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-m
 2. Máša P, Kliegr T, **Joachimiak MP**. Explainable rule-based prediction of cultivation media for microbes. *Computational and Structural Biotechnology Journal*. 2025;27:5194–5206. [doi:10.1016/j.csbj.2025.10.014](https://doi.org/10.1016/j.csbj.2025.10.014) · [free full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12670597/)
 3. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
 4. **Joachimiak MP**. Knowledge Oriented Graph Unified Transformer (KOGUT) v0.1 [software]. DOE CODE; 2025. [doi:10.11578/dc.20260210.3](https://doi.org/10.11578/dc.20260210.3) · [DOE CODE 175162](https://www.osti.gov/doecode/biblio/175162)
+5. **Joachimiak MP**. "RuleML/GOBLIN COST Action Lecture on Data Science: Teaching AI to Teach Humans About Microbiology" [talk]. RuleML / COST GOBLIN Action Seminar; 2026. [Recording](https://youtu.be/p_WiR-5E9x0)
 {: .bibliography}
 
 [Full publication list →](/publications/#bibliography)

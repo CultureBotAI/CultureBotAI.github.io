@@ -32,6 +32,8 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 
 **📄 [Read the Publication](https://doi.org/10.1093/gigascience/giag077)** - *GigaScience* article detailing kg-microbe development and applications.
 
+**📇 [KG-Registry entry](https://kghub.org/kg-registry/resource/kg-microbe/kg-microbe)** - Registry record with distributions and metadata. The graph carries 3,000+ organismal and 30,000+ genomic traits.
+
 ### 📋 METPO Ontology Integration
 
 The [Microbial Ecophysiological Trait and Phenotype Ontology (METPO)](https://bioportal.bioontology.org/ontologies/METPO) plays a crucial role in kg-microbe by providing standardized terminology for microbial phenotypes and ecological characteristics.
