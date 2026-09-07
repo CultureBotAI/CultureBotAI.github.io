@@ -16,6 +16,7 @@
       --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
       --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
       --fleet-edge: rgba(160, 178, 168, .34);
+      --fleet-heat-hue: 150 14%;
       --voc-chebi: #E8925A; --voc-ncbitaxon: #6FA6F2; --voc-go: #5CC48F; --voc-metpo: #A48CE8;
       --voc-envo: #4FBAD3; --voc-aro: #E86F96; --voc-uniprot: #D9AA3F; --voc-doi: #9AA5B1; --voc-other: #8C8780;
     }
@@ -25,6 +26,7 @@
     --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
     --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
     --fleet-edge: rgba(160, 178, 168, .34);
+    --fleet-heat-hue: 150 14%;
     --voc-chebi: #E8925A; --voc-ncbitaxon: #6FA6F2; --voc-go: #5CC48F; --voc-metpo: #A48CE8;
     --voc-envo: #4FBAD3; --voc-aro: #E86F96; --voc-uniprot: #D9AA3F; --voc-doi: #9AA5B1; --voc-other: #8C8780;
   }
@@ -50,7 +52,7 @@
   .fleet-chip.voc[data-voc="CHEBI"] { --dot: var(--voc-chebi); } .fleet-chip.voc[data-voc="NCBITaxon"] { --dot: var(--voc-ncbitaxon); } .fleet-chip.voc[data-voc="GO"] { --dot: var(--voc-go); }
   .fleet-chip.voc[data-voc="ENVO"] { --dot: var(--voc-envo); } .fleet-chip.voc[data-voc="METPO"] { --dot: var(--voc-metpo); } .fleet-chip.voc[data-voc="ARO"] { --dot: var(--voc-aro); }
   .fleet-chip.voc[data-voc="UniProt"] { --dot: var(--voc-uniprot); } .fleet-chip.voc[data-voc="DOI"] { --dot: var(--voc-doi); }
-  .fleet-chip.voc.other::before { display: none; }
+  .fleet-chip.voc.other[data-voc]::before { display: none; }
   .fleet-chip.voc.other[aria-pressed="true"] { background: var(--accent-2); border-color: var(--accent-2); }
   .fleet-controls .spacer { flex: 1; }
   .fleet-stage { position: relative; }
@@ -70,7 +72,8 @@
   .fleet-stage .node.dim, .fleet-stage .edge.dim { opacity: .18; }
   .fleet-stage .edge { fill: none; stroke: var(--fleet-edge); stroke-linecap: round; cursor: pointer; transition: opacity .2s ease, stroke .2s ease; }
   .fleet-stage .edge.vocab { opacity: .72; }
-  .fleet-stage .edge.vocab.lit { opacity: 1; filter: drop-shadow(0 0 3px currentColor); }
+  .fleet-stage .edge.vocab.lit, .fleet-stage .edge.vocab:focus-visible { opacity: 1; filter: drop-shadow(0 0 3px currentColor); outline: none; }
+  .fleet-stage .edge.xref:focus-visible, .fleet-stage .edge.hub:focus-visible { stroke: var(--ink); stroke-width: 3; outline: none; }
   .fleet-stage .hub.dim, .fleet-stage #fleet-hub.dim { opacity: .35; }
   .fleet-stage .edge.hit { stroke: transparent; stroke-width: 14; }
   .fleet-stage .edge.xref { stroke: var(--accent); stroke-dasharray: 6 5; stroke-width: 1.8; }
@@ -135,6 +138,7 @@
   .mech-card .vocab span { font-size: .72rem; font-weight: 700; padding: .25em .55em; border-radius: 6px; background: var(--wash-b); color: var(--ink); border: 1px solid var(--line); }
   .mech-card .row { display: flex; flex-wrap: wrap; gap: .35rem .5rem; align-items: center; margin-top: auto; padding-top: .3rem; }
   .mech-card .row a { font-size: .8rem; font-weight: 700; padding: .3em .7em; border-radius: 999px; border: 1px solid var(--line); }
+  .page-content .mech-card .row a { background-image: none; }
   .mech-card .row a.primary { background: var(--c); border-color: var(--c); color: var(--card); }
   .mech-card .badge { margin-left: auto; font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
   .mech-card .badge.adj { color: var(--accent); }
@@ -274,6 +278,7 @@
         <marker id="fleet-arrow-hub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrow-hub" d="M0,0 L10,5 L0,10 z"></path></marker>
       </defs>
       <g id="fleet-gov"></g>
+      <g id="fleet-xrefs"></g>
       <g id="fleet-edges"></g>
       <g id="fleet-hubedges"></g>
       <g id="fleet-hub"></g>
@@ -373,7 +378,7 @@
   }
 
   var svg = document.getElementById("fleet-svg");
-  var gGov = document.getElementById("fleet-gov"), gEdges = document.getElementById("fleet-edges"), gHubE = document.getElementById("fleet-hubedges"), gHub = document.getElementById("fleet-hub"), gNodes = document.getElementById("fleet-nodes");
+  var gGov = document.getElementById("fleet-gov"), gEdges = document.getElementById("fleet-edges"), gXrefs = document.getElementById("fleet-xrefs"), gHubE = document.getElementById("fleet-hubedges"), gHub = document.getElementById("fleet-hub"), gNodes = document.getElementById("fleet-nodes");
   var tip = document.getElementById("fleet-tip"), detail = document.getElementById("fleet-detail");
   // Single source of truth for what is drawn and what is selected.
   var state = { layers: { vocab: false, xref: true, hub: true, gov: false }, voc: "", sel: null };
@@ -398,8 +403,9 @@
     vocs.forEach(function (c, k) {
       var spread = (k - (vocs.length - 1) / 2) * 9;
       var d = curve(e.a, e.b, 0.55, spread);
-      var path = el("path", { "class": "edge vocab", d: d }, gEdges);
-      path.style.stroke = vocColor(c.voc);
+      var path = el("path", { "class": "edge vocab", d: d, tabindex: 0, role: "button", "aria-label": e.a + " and " + e.b + " share " + fmt(c.n) + " " + VOC_LABEL[c.voc] + " identifiers" }, gEdges);
+      path.style.stroke = vocColor(c.voc); path.style.color = vocColor(c.voc);
+      path.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectEdge(pair, c.voc); } });
       var hit = el("path", { "class": "edge hit", d: d }, gEdges);
       var chord = { pair: pair, voc: c.voc, n: c.n, path: path, hit: hit };
       [path, hit].forEach(function (h) {
@@ -420,8 +426,9 @@
   var xrefEls = XREFS.map(function (x, i) {
     var reverse = XREFS.some(function (y, j) { return j < i && y.from === x.to && y.to === x.from; });
     var d = curve(x.from, x.to, reverse ? -0.62 : -0.38, 0, radius(x.from) + 3, radius(x.to) + 5);
-    var path = el("path", { "class": "edge xref" + (x.kind === "data" ? "" : " weak"), d: d, "marker-end": "url(#fleet-arrow)" }, gEdges);
-    var hit = el("path", { "class": "edge hit", d: d }, gEdges);
+    var path = el("path", { "class": "edge xref" + (x.kind === "data" ? "" : " weak"), d: d, "marker-end": "url(#fleet-arrow)", tabindex: 0, role: "button", "aria-label": x.from + " to " + x.to + ": " + x.what }, gXrefs);
+    var hit = el("path", { "class": "edge hit", d: d }, gXrefs);
+    path.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectXref(rec); } });
     var rec = { x: x, path: path, hit: hit };
     [path, hit].forEach(function (h) {
       h.addEventListener("mousemove", function (ev) { showTip(ev, xrefTip(x)); path.classList.add("lit"); });
@@ -441,7 +448,9 @@
     var x2 = CX - ux * (hubR + 4) + px, y2 = CY - uy * (hubR + 4) + py;
     var attrs = { "class": "edge hub " + h.dir + (h.kind === "namespace" ? " ns" : ""), "marker-end": "url(#fleet-arrow-hub)" };
     if (h.dir === "out") { attrs.x1 = x1; attrs.y1 = y1; attrs.x2 = x2; attrs.y2 = y2; } else { attrs.x1 = x2; attrs.y1 = y2; attrs.x2 = x1; attrs.y2 = y1; }
+    attrs.tabindex = 0; attrs.role = "button"; attrs["aria-label"] = h.mech + (h.dir === "out" ? " to " : " from ") + "kg-microbe: " + h.what;
     var line = el("line", attrs, gHubE);
+    line.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectHub(); } });
     var hit = el("line", { "class": "edge hit", x1: x1, y1: y1, x2: x2, y2: y2 }, gHubE);
     [line, hit].forEach(function (q) {
       q.addEventListener("mousemove", function (ev) { showTip(ev, "<b>" + esc(h.mech) + (h.dir === "out" ? " → kg-microbe" : " ← kg-microbe") + " · " + esc(h.kind) + "</b>" + esc(h.what)); line.classList.add("lit"); });
@@ -565,6 +574,8 @@
   }
   var FLEET_DATA_URL = "/assets/fleet/";
   var subsetCache = {};
+  var LIVE = location.hostname === "culturebotai.github.io";
+  function loadFailed(extra) { return (LIVE ? 'The record list could not be loaded. Reload the page to try again.' : 'Record lists load on the live site (<a href="https://culturebotai.github.io/mechs/">culturebotai.github.io/mechs</a>); this preview cannot fetch them.') + (extra || ''); }
   function loadJSON(path) {
     if (subsetCache[path]) return subsetCache[path];
     var p = fetch(FLEET_DATA_URL + path).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
@@ -573,7 +584,7 @@
     return p;
   }
   function recLinks(base, refs, more) {
-    var out = refs.map(function (r) { return '<a href="' + base + r[0] + '" title="' + esc(r[1]) + '">' + esc(r[1].length > 38 ? r[1].slice(0, 36) + "…" : r[1]) + '</a>'; }).join(", ");
+    var out = refs.map(function (r) { return '<a href="' + esc(base + r[0]) + '" title="' + esc(r[1]) + '">' + esc(r[1].length > 38 ? r[1].slice(0, 36) + "…" : r[1]) + '</a>'; }).join(", ");
     if (more > refs.length) out += ' <em>+' + fmt(more - refs.length) + ' more</em>';
     return out;
   }
@@ -587,10 +598,10 @@
     more.hidden = terms.length <= shown; more.textContent = "Show " + Math.min(40, terms.length - shown) + " more of " + fmt(terms.length);
     box.querySelector(".count").textContent = fmt(terms.length) + " shared term" + (terms.length === 1 ? "" : "s") + (q ? " matching “" + q + "”" : "") + ", each linked to the records that carry it";
   }
-  function selectEdge(pair, voc) {
+  function selectEdge(pair, voc, keep) {
     state.sel = { type: "edge", pair: pair }; render();
     var e = pair.e, keys = Object.keys(e.by).sort(function (a, b) { return e.by[b] - e.by[a]; });
-    var initial = voc && voc !== "other" ? voc + ":" : "";
+    var initial = keep ? keep.q : (voc && voc !== "other" ? voc + ":" : "");
     detail.innerHTML = '<div><p class="eyebrow">Shared vocabulary</p><h3 style="color:var(--ink)">' + esc(e.a) + ' ↔ ' + esc(e.b) + '</h3><p>' + fmt(e.n) + ' identical ontology identifiers occur in both record corpora, so the two knowledge bases join on them without any mapping step.</p>' +
       '<div class="links"><a class="go" href="' + MECHS[e.a].site + '">Open ' + esc(e.a) + ' ↗</a><a class="go" href="' + MECHS[e.b].site + '">Open ' + esc(e.b) + ' ↗</a></div>' +
       '<dl class="meta" style="margin-top:.8rem">' + keys.map(function (k) { return '<dt><i class="voc-dot" style="background:' + vocColor(k) + '"></i>' + esc(k) + '</dt><dd>' + fmt(e.by[k]) + '</dd>'; }).join("") + '</dl></div>' +
@@ -599,13 +610,13 @@
     loadJSON("edges/" + e.a + "--" + e.b + ".json").then(function (doc) {
       if (!(state.sel && state.sel.type === "edge" && state.sel.pair === pair)) return; // selection moved on
       box.innerHTML = '<p class="eyebrow">The records behind this edge</p><p class="count"></p><input type="search" placeholder="Filter terms, e.g. glucose or CHEBI:17234" aria-label="Filter shared terms"><ol></ol><button type="button" class="fleet-chip more" hidden></button>';
-      box.dataset.shown = 40;
+      box.dataset.shown = keep ? keep.shown : 40;
       var input = box.querySelector("input"); input.value = initial;
       input.addEventListener("input", function () { box.dataset.shown = 40; renderTermList(box, doc); });
       box.querySelector(".more").addEventListener("click", function () { box.dataset.shown = parseInt(box.dataset.shown, 10) + 40; renderTermList(box, doc); });
       renderTermList(box, doc);
     })["catch"](function () {
-      box.querySelector(".count").innerHTML = 'The record list loads on the live site (<a href="https://culturebotai.github.io/mechs/">culturebotai.github.io/mechs</a>).' + (e.ex.length ? ' Examples: ' + esc(e.ex.map(function (t) { return t.label + " (" + t.id + ")"; }).join(", ")) + '.' : '');
+      box.querySelector(".count").innerHTML = loadFailed(e.ex.length ? ' Examples: ' + esc(e.ex.map(function (t) { return t.label + " (" + t.id + ")"; }).join(", ")) + '.' : '');
     });
   }
   function selectXref(rec) {
@@ -625,7 +636,7 @@
     var sel = state.sel;
     if (!sel) overview();
     else if (sel.type === "node") selectNode(sel.m);
-    else if (sel.type === "edge") selectEdge(sel.pair, state.voc);
+    else if (sel.type === "edge") { var old = document.getElementById("fleet-termbox"), inp = old && old.querySelector("input"); selectEdge(sel.pair, state.voc, inp ? { q: inp.value, shown: old.dataset.shown || 40 } : null); }
     else if (sel.type === "xref") selectXref(sel.rec);
     else selectHub();
   }
@@ -667,26 +678,28 @@
     order.forEach(function (m) {
       html += '<tr><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + MECHS[m].site + '" title="Open ' + esc(m) + '">' + esc(m) + "</a></th>";
       VOC.forEach(function (v) {
-        var n = DATA.heat[m][v], l = n ? Math.round(12 + 88 * Math.log10(n) / lmax) : 0, recs = DATA.cells[m + "--" + v] || 0;
-        html += '<td data-voc="' + v + '" data-l="' + l + '" style="--l:' + l + '" title="' + esc(m) + " · " + esc(v) + ": " + fmt(n) + ' occurrences in ' + fmt(recs) + ' records">' + (n ? '<button type="button" data-mech="' + m + '" data-voc="' + v + '" aria-label="' + fmt(recs) + ' records in ' + esc(m) + ' grounded in ' + esc(v) + '">' + short(n) + "</button>" : "&middot;") + "</td>";
+        var n = DATA.heat[m][v], l = n ? Math.round(12 + 88 * Math.log10(n) / lmax) : 0, recs = DATA.cells[m + "--" + v];
+        var cell = !n ? "&middot;" : recs ? '<button type="button" data-mech="' + m + '" data-voc="' + v + '" aria-label="' + fmt(recs) + ' records in ' + esc(m) + ' grounded in ' + esc(v) + '">' + short(n) + "</button>" : '<span>' + short(n) + '</span>';
+        html += '<td data-voc="' + v + '" data-l="' + l + '" style="--l:' + l + '" title="' + esc(m) + " · " + esc(v) + ": " + fmt(n) + ' occurrences' + (recs ? ' in ' + fmt(recs) + ' records' : '') + '">' + cell + "</td>";
       });
       html += "</tr>";
     });
     heat.innerHTML = html + "</tbody>";
     heat.querySelectorAll("thead button").forEach(function (b) { b.addEventListener("click", function () { var v = b.dataset.voc; setVoc(state.voc === v ? "" : v); }); });
-    var cellPanel = document.getElementById("fleet-cell-panel");
+    var cellPanel = document.getElementById("fleet-cell-panel"), cellSel = null;
     heat.querySelectorAll("tbody button").forEach(function (b) {
       b.addEventListener("click", function () {
-        var m = b.dataset.mech, v = b.dataset.voc;
+        var m = b.dataset.mech, v = b.dataset.voc, key = m + "--" + v; cellSel = key;
         heat.querySelectorAll("tbody td").forEach(function (td) { td.classList.toggle("sel", td.contains(b)); });
         cellPanel.hidden = false;
         cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>Loading records…</p>';
-        loadJSON("cells/" + m + "--" + v + ".json").then(function (doc) {
+        loadJSON("cells/" + key + ".json").then(function (doc) {
+          if (cellSel !== key) return; // a later click replaced this one
           var cap = doc.records.length < doc.total;
           cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><h3 style="color:' + color(m) + ';border-image:none;border-color:' + color(m) + '">' + fmt(doc.total) + ' record' + (doc.total === 1 ? '' : 's') + ' in ' + esc(m) + ' cite ' + esc(v) + ' identifiers</h3>' +
             '<p>' + (cap ? 'Showing the first ' + fmt(doc.records.length) + '. ' : '') + 'Each link opens the record' + (m === "CultureMech" || m === "MediaIngredientMech" ? ' source file on GitHub' : ' page') + '.</p>' +
             '<div class="links"><a class="go" href="' + MECHS[m].site + '">Open ' + esc(m) + ' ↗</a></div><p class="reclist">' + recLinks(doc.base, doc.records, doc.records.length) + '</p>';
-        })["catch"](function () { cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>The record list loads on the live site (<a href="https://culturebotai.github.io/mechs/">culturebotai.github.io/mechs</a>).</p>'; });
+        })["catch"](function () { if (cellSel !== key) return; cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>' + loadFailed() + '</p>'; });
       });
     });
   }

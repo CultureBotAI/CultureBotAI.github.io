@@ -25,9 +25,9 @@ MECHS={
  "CultureMech": dict(root=f"{K}/CultureMech", globs=["data/merge_yaml/merged/*.yaml"], base=GH+"CultureMech/blob/main/data/merge_yaml/merged/"),
 }
 ORDER=list(MECHS)
-PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","DOI"]
+PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","RHEA","PDB","BTO","GTDB","DOI"]
 NORM={"UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH"}
-rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
+rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|DOI|doi):([A-Za-z0-9_.\-/()]+)")
 STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
@@ -36,20 +36,29 @@ def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
     return v.replace("''","'")
-hab_pages={}
-for f in glob.glob(f"{O}/HabitatMech/pages/habitats/*.html"):
-    n=os.path.basename(f)[:-5]; hab_pages[n]=n
-def slug_for(m, f, doc_id):
+hab_pages=set(os.path.basename(f)[:-5] for f in glob.glob(f"{O}/HabitatMech/pages/habitats/*.html"))
+hab_by_suffix=collections.defaultdict(list)
+for n in hab_pages:
+    parts=n.split("-")
+    for k in range(1,len(parts)): hab_by_suffix["-".join(parts[k:])].append(n)
+hab_collisions=[]
+def simple_slug(text):
+    return re.sub(r"-+","-",re.sub(r"[^a-z0-9]+","-",text.lower())).strip("-")
+def slug_for(m, f, doc_id, doc_label=""):
     root=MECHS[m]["root"]; rel=os.path.relpath(f, root)
     if m=="HabitatMech":
         if not doc_id: return None
-        flat=re.sub(r"[^a-z0-9]+","-",doc_id.lower()).strip("-")
-        for n in hab_pages:
-            if n.endswith(flat): return n+".html"
-        return None
-    if m=="CommunityMech": return os.path.basename(rel)[:-5]+".html"
-    if m=="TraitMech": return rel[len("data/traits/"):-5]+".html"
-    if m=="CellStructureMech": return rel[len("data/structures/"):-5]+".html"
+        flat=simple_slug(doc_id)
+        cands=[n for n in hab_by_suffix.get(flat,[]) if n.endswith("-"+flat) or n==flat]
+        if len(cands)==1: return urllib.parse.quote(cands[0]+".html")
+        exact=simple_slug(doc_label)+"-"+flat
+        if exact in hab_pages: return urllib.parse.quote(exact+".html")
+        pref=[n for n in cands if n.startswith(simple_slug(doc_label)[:24])]
+        if len(pref)==1: return urllib.parse.quote(pref[0]+".html")
+        hab_collisions.append((doc_id,doc_label,cands)); return None
+    if m=="CommunityMech": return urllib.parse.quote(os.path.basename(rel)[:-5]+".html")
+    if m=="TraitMech": return urllib.parse.quote(rel[len("data/traits/"):-5]+".html")
+    if m=="CellStructureMech": return urllib.parse.quote(rel[len("data/structures/"):-5]+".html")
     if m=="AntibioticMech": return urllib.parse.quote(rel[len("data/antibiotics/"):-5]+".html")
     if m=="ProteinTraitsMech": return urllib.parse.quote(doc_id or "", safe="")
     if m=="MediaIngredientMech": return urllib.parse.quote(rel[len("data/ingredients/"):])
@@ -66,8 +75,9 @@ def scan(m, keep=None, cap_cell=300):
         head=txt[:4000]
         mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M); doc_id=mid.group(1).strip("'\"") if mid else ""
         ml=re.search(r"^(?:label|preferred_term|display_name|title|name)\s*:\s*(.+)$",head,flags=re.M); doc_label=unq(ml.group(1)) if ml else os.path.basename(f)[:-5]
-        slug=slug_for(m,f,doc_id)
+        slug=slug_for(m,f,doc_id,doc_label)
         if slug is None: nolink+=1; continue
+        assert re.fullmatch(r"[A-Za-z0-9_.~%\-/]+",slug), (m,slug)
         found=set()
         for p,i in rx.findall(txt):
             p=NORM.get(p,p)
@@ -147,9 +157,9 @@ for a,b in itertools.combinations(ORDER,2):
     print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
 for m in ORDER:
     for p,(n,refs) in idx[m]["cells"].items():
-        if p=="DOI": continue
+        if p in ("DOI","PMID"): continue
         fn=f"{m}--{p}.json"
         json.dump({"mech":m,"prefix":p,"base":MECHS[m]["base"],"total":n,"records":refs},open(f"{OUT}/cells/{fn}","w"),separators=(",",":"),ensure_ascii=False)
         summary["cells"][f"{m}|{p}"]=n
 json.dump(summary,open(DATA+"/subsets_summary.json","w"),indent=1)
-print("labels resolved",len(labels),"of",len(allterms)); print("done; total size KB:", sum(os.path.getsize(f) for f in glob.glob(f"{OUT}/**/*.json",recursive=True))//1024)
+print("labels resolved",len(labels),"of",len(allterms)); print("habitat pages unresolved (no link emitted):",len(hab_collisions), hab_collisions[:3]); print("done; total size KB:", sum(os.path.getsize(f) for f in glob.glob(f"{OUT}/**/*.json",recursive=True))//1024)
