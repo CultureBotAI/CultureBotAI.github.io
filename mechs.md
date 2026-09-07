@@ -816,11 +816,11 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 
 <div class="fleet-orch">
   <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All eight Mechs are declared; HabitatMech, the last to join, was admitted on 2026-09-07. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
-  <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. Fifteen artifacts, all seven members.</p></div>
+  <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. Fifteen artifacts, all eight members.</p></div>
   <div><h4>Pipelines and skills</h4><p>Three cross-repository pipelines (ingredient curation, unified ingredient mapping, ENVO environment curation) and 24 agent skills. Cross-repo writes resolve exact worktree roots, take a repository lock, default to dry run and validate staged output before replacing source data.</p></div>
 </div>
 
-Which fleet contracts each member has adopted, from the manifest (HabitatMech's disabled entries each record the file-level reason, such as no download.yaml or no source queue yet):
+Which fleet contracts each member has adopted, from the manifest. Every disabled entry records a file-level reason, such as no download.yaml or no source queue yet:
 
 <div class="fleet-caps-wrap">
 <table class="fleet-caps">
