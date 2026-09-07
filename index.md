@@ -33,8 +33,8 @@ The comprehensive modular knowledge graph that powers CultureBotAI, developed by
 ### 📄 [KG-Microbe Publication](https://doi.org/10.1093/gigascience/giag077)
 Read our peer-reviewed *GigaScience* paper by Dr. Marcin P. Joachimiak detailing the development and applications of the KG-Microbe knowledge graph.
 
-### 🤖 [AI Curation Tools — X-Mech Suite](/culturemech/)
-The X-Mech suite ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)) provides AI-powered curation of microbial cultivation records, transforming unstructured literature data into standardized knowledge graphs with 10,000+ media recipes, 477 ecophysiological traits, and 400,000+ protein traits.
+### 🤖 [AI Curation Tools — X-Mech Suite](/mechs/)
+The [X-Mech suite](/mechs/) is a fleet of eight ontology-grounded knowledge bases ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/), [AntibioticMech](https://culturebotai.github.io/AntibioticMech/), [CellStructureMech](https://culturebotai.github.io/CellStructureMech/), [HabitatMech](https://culturebotai.github.io/HabitatMech/)) that describe a microbe from habitat to culture medium, with 6,000+ merged media recipes, 477 ecophysiological traits, 429,000+ protein traits, 2,900 antimicrobial structures and 3,200 habitats, coordinated by the culturebotai-claw orchestrator.
 
 ### 🧠 [MicroGrowAgents](/microgrowagents/)
 Multi-agent AI system for microbial cultivation and growth media design across 864,363 validated species — [GitHub repository](https://github.com/CultureBotAI/MicroGrowAgents) *(private repository — public release planned)* · [bioRxiv preprint](https://doi.org/10.64898/2026.06.04.729985)
@@ -52,7 +52,7 @@ The Microbial Ecophysiological Trait and Phenotype Ontology, used to standardize
 
 CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe):
 
-- **AI curation pipelines** ([X-Mech suite](/culturemech/)) transform unstructured cultivation data into standardized knowledge graphs
+- **AI curation pipelines** ([X-Mech suite](/mechs/)) transform unstructured cultivation data into standardized knowledge graphs
 - **Data processing pipelines** prepare chemical, genomic, and literature data
 - **AI agent systems** combine multiple data sources for intelligent predictions
 - **Prediction models** range from interpretable rule mining to graph transformers ([KOGUT](/resources/#kogut-transformer))
@@ -88,7 +88,7 @@ KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-m
 ## Quick Links
 
 - 🔬 [Research Areas](/research) - Detailed overview of our research focus
-- 🤖 [AI Curation Tools](/culturemech/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech)
+- 🤖 [AI Curation Tools](/mechs/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech)
 - 🧠 [MicroGrowAgents](/microgrowagents/) - Multi-agent AI for media design
 - 📚 [Resources](/resources) - Tools, databases, and knowledge graphs
 - 📄 [Publications](/publications) - Papers, preprints, and presentations

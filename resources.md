@@ -14,7 +14,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
-- [AI Curation Tools](#-ai-curation-tools) - CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech
+- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite: CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents, KOGUT
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **X-Mech Suite** (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech) forms the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs.
+The **[X-Mech Suite](/mechs/)** (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech; see the [suite overview and relationship graph](/mechs/)) forms the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs.
 
 ### Pipeline Overview
 
