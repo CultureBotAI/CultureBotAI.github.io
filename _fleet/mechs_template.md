@@ -21,7 +21,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <p class="tag">Four habitat vocabularies harmonized into ENVO-grounded records that keep every source's attestation.</p>
     <div class="num"><b>3,213</b><span>habitat records · 684 reviewed</span></div>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge adj">not yet in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
@@ -104,12 +104,12 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and the cross-repository pipelines that move curation between Mechs safely.
 
 <div class="fleet-orch">
-  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. Seven Mechs are declared today. HabitatMech follows the same standard and vendors the shared schema module, but has not yet been added to the manifest or pinned to a claw revision; that is the one remaining step to a fully unified fleet. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason, so nothing is silently off.</p></div>
+  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All eight Mechs are declared; HabitatMech, the last to join, was admitted on 2026-09-07. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
   <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. Fifteen artifacts, all seven members.</p></div>
   <div><h4>Pipelines and skills</h4><p>Three cross-repository pipelines (ingredient curation, unified ingredient mapping, ENVO environment curation) and 24 agent skills. Cross-repo writes resolve exact worktree roots, take a repository lock, default to dry run and validate staged output before replacing source data.</p></div>
 </div>
 
-Which fleet contracts each member has adopted, from the manifest:
+Which fleet contracts each member has adopted, from the manifest (HabitatMech's disabled entries each record the file-level reason, such as no download.yaml or no source queue yet):
 
 <div class="fleet-caps-wrap">
 <table class="fleet-caps">
@@ -122,7 +122,7 @@ Which fleet contracts each member has adopted, from the manifest:
     <tr><td>ProteinTraitsMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="d"></i></td></tr>
     <tr><td>AntibioticMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td></tr>
     <tr><td>CellStructureMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="e"></i></td></tr>
-    <tr><td>HabitatMech</td><td colspan="11"><i class="x">not yet a manifest member; vendors mech_shared.yaml without a pinned claw revision</i></td></tr>
+    <tr><td>HabitatMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td></tr>
   </tbody>
 </table>
 </div>
