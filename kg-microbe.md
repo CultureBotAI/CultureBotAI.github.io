@@ -74,14 +74,13 @@ The kg-microbe knowledge graph serves as the foundation for numerous CultureBotA
 
 ### Prediction & Analysis Tools
 - **[MicroGrowAgents](/microgrowagents/)** - Multi-agent system using kg-microbe for evidence-based media design
-- **MicroGrowLink** - Graph transformer models trained on kg-microbe structure *(private repo, public release planned)*
 - **[neurosymbolreason](/resources/#neurosymbolreason---neurosymbolic-analogy-reasoning)** - Neurosymbolic analogy reasoning over kg-microbe embeddings
 - **[microbe-rules](/resources/#microbe-rules-machine-learning-models-for-microbial-data)** - ML model comparison framework
 - **[CommunityMech](/communitymech/)** - Multi-organism community interaction modeling
 - **[PFAS-AI](/resources/#pfas-ai-machine-learning-enabled-pfas-biodegradation-pipeline)** & PFASCommunityAgents - PFAS biodegradation research *(PFASCommunityAgents is private, public release planned)*
 - **CMM-AI** - Lanthanide bioprocessing research leveraging metabolic data *(private repo, public release planned)*
 
-[Explore all projects and their relationships →](/resources/#project-ecosystem--workflows)
+[Explore all projects and their relationships →](/resources/#-project-ecosystem--workflows)
 
 ## Access and Usage
 

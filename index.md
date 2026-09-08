@@ -59,7 +59,7 @@ CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe kn
 - **Specialized applications** target specific research domains (PFAS biodegradation, lanthanide bioprocessing)
 - **Web services** provide API access to prediction models
 
-[Explore the complete project ecosystem →](/resources/#project-ecosystem--workflows)
+[Explore the complete project ecosystem →](/resources/#-project-ecosystem--workflows)
 
 ---
 

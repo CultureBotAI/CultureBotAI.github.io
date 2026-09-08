@@ -11,7 +11,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 
 ## Quick Navigation
 
-**New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#project-ecosystem--workflows) to understand how tools work together.
+**New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#-project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
 - [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite: CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech
