@@ -1,30 +1,37 @@
 """Build the shared-term index per Mech pair and the per-Mech, per-vocabulary record lists (assets/fleet/edges, assets/fleet/cells) plus subsets_summary.json.
 
-Run from the site root: `python3 scripts/fleet/build_subsets.py`. Reads the local Mech
-checkouts named in MECH_ROOTS below (override with environment variables of the
-same names); writes derived data under _fleet/data and assets/fleet. See
+Run from the site root: `python3 scripts/fleet/build_subsets.py`. Reads the Mech
+checkouts through scripts/fleet/roots.py (set MECHS_ROOT to relocate them); writes derived data under _fleet/data and assets/fleet. See
 _fleet/README.md for the whole pipeline.
 """
 import os
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA = os.path.join(REPO, "_fleet", "data")
-import re, glob, json, os, collections, urllib.parse, itertools
-K=os.environ.get("KG_MICROBE_ROOT","/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe"); O=os.environ.get("ONTOLOGY_ROOT","/Users/marcin/Documents/VIMSS/ontology")  # MECH_ROOTS
+import collections
+import glob
+import itertools
+import json
+import re
+import urllib.parse
+
+from roots import ORDER, mech_root, record_paths
+
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
-# root, globs, url builder (returns relative slug), base url
-def gh(repo, root): return lambda f: urllib.parse.quote(os.path.relpath(f, root))
-MECHS={
- "HabitatMech": dict(root=f"{O}/HabitatMech", globs=["data/habitats/**/*.yaml"], base=SITE+"HabitatMech/pages/habitats/"),
- "CommunityMech": dict(root=f"{K}/CommunityMech/CommunityMech", globs=["kb/communities/*.yaml","data/isolates/*.yaml"], base=SITE+"CommunityMech/communities/"),
- "TraitMech": dict(root=f"{K}/TraitMech", globs=["data/traits/**/*.yaml"], base=SITE+"TraitMech/pages/traits/"),
- "CellStructureMech": dict(root=f"{K}/CellStructureMech", globs=["data/structures/**/*.yaml"], base=SITE+"CellStructureMech/pages/structures/"),
- "ProteinTraitsMech": dict(root=f"{O}/ProteinTraitsMech", globs=["data/traits/**/*.yaml"], base=SITE+"proteintraitsmech/browse.html#record="),
- "AntibioticMech": dict(root=f"{K}/AntibioticMech", globs=["data/antibiotics/**/*.yaml"], base=SITE+"AntibioticMech/pages/"),
- "MediaIngredientMech": dict(root=f"{K}/MediaIngredientMech", globs=["data/ingredients/**/*.yaml"], base=GH+"MediaIngredientMech/blob/main/data/ingredients/"),
- "CultureMech": dict(root=f"{K}/CultureMech", globs=["data/merge_yaml/merged/*.yaml"], base=GH+"CultureMech/blob/main/data/merge_yaml/merged/"),
+# Where each Mech publishes one record. Five serve a page per record; the
+# ProteinTraitsMech browser routes by hash; CultureMech and MediaIngredientMech
+# do not deploy per-record pages, so their links open the source file on GitHub.
+SITE_BASE={
+ "HabitatMech": SITE+"HabitatMech/pages/habitats/",
+ "CommunityMech": SITE+"CommunityMech/communities/",
+ "TraitMech": SITE+"TraitMech/pages/traits/",
+ "CellStructureMech": SITE+"CellStructureMech/pages/structures/",
+ "ProteinTraitsMech": SITE+"proteintraitsmech/browse.html#record=",
+ "AntibioticMech": SITE+"AntibioticMech/pages/",
+ "MediaIngredientMech": GH+"MediaIngredientMech/blob/main/data/ingredients/",
+ "CultureMech": GH+"CultureMech/blob/main/data/merge_yaml/merged/",
 }
-ORDER=list(MECHS)
+MECHS={name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER}
 PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","RHEA","PDB","BTO","GTDB","DOI"]
 NORM={"UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH"}
 rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|DOI|doi):([A-Za-z0-9_.\-/()]+)")
@@ -36,7 +43,10 @@ def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
     return v.replace("''","'")
-hab_pages=set(os.path.basename(f)[:-5] for f in glob.glob(f"{O}/HabitatMech/pages/habitats/*.html"))
+# HabitatMech publishes one page per record; the slug is matched against these.
+hab_pages=set(os.path.basename(f)[:-5] for f in glob.glob(os.path.join(mech_root("HabitatMech"),"pages","habitats","*.html")))
+if not hab_pages:
+    raise SystemExit("HabitatMech: no pages under pages/habitats; record links would silently be dropped")
 hab_by_suffix=collections.defaultdict(list)
 for n in hab_pages:
     parts=n.split("-")
@@ -67,8 +77,7 @@ def slug_for(m, f, doc_id, doc_label=""):
 def scan(m, keep=None, cap_cell=300):
     """Return per-mech index: term -> [(slug,label)], prefix -> (count, first refs), term labels votes."""
     cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); nfiles=0; nolink=0
-    files=[f for g in cfg["globs"] for f in glob.glob(os.path.join(root,g),recursive=True)]
-    for f in sorted(files):
+    for f in record_paths(m):
         try: txt=open(f,encoding="utf-8",errors="ignore").read()
         except Exception: continue
         nfiles+=1
