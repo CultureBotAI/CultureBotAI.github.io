@@ -70,23 +70,17 @@ The kg-microbe knowledge graph serves as the foundation for numerous CultureBotA
 - **[CultureMech](/culturemech/) & [MicroMediaParam](/resources/#micromediaparam)** - Integrate chemical compound data with standardized identifiers
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping (ChEBI, PubChem, METPO)
 - **[assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor)** - Add phenotypic assay results from 99K+ BacDive strains
-- **MATE-LLM** - Literature-derived cultivation data extraction *(private repo, public release planned)*
-- **eggnog_runner / eggnogtable** - Genome functional annotation pipeline *(eggnogtable is private, public release planned)*
 - **[auto-term-catalog](/resources/#auto-term-catalog---automated-term-extraction)** - OntoGPT term extraction for ontology grounding
 
 ### Prediction & Analysis Tools
 - **[MicroGrowAgents](/microgrowagents/)** - Multi-agent system using kg-microbe for evidence-based media design
-- **MicroGrowLink** - Graph transformer models trained on kg-microbe structure *(private repo, public release planned)*
 - **[neurosymbolreason](/resources/#neurosymbolreason---neurosymbolic-analogy-reasoning)** - Neurosymbolic analogy reasoning over kg-microbe embeddings
 - **[microbe-rules](/resources/#microbe-rules-machine-learning-models-for-microbial-data)** - ML model comparison framework
 - **[CommunityMech](/communitymech/)** - Multi-organism community interaction modeling
 - **[PFAS-AI](/resources/#pfas-ai-machine-learning-enabled-pfas-biodegradation-pipeline)** & PFASCommunityAgents - PFAS biodegradation research *(PFASCommunityAgents is private, public release planned)*
 - **CMM-AI** - Lanthanide bioprocessing research leveraging metabolic data *(private repo, public release planned)*
 
-### Web Services
-- **[MicroGrowLinkService](/resources/#microgrowlinkservice)** - RESTful API providing programmatic access to predictions
-
-[Explore all projects and their relationships →](/resources/#project-ecosystem--workflows)
+[Explore all projects and their relationships →](/resources/#-project-ecosystem--workflows)
 
 ## Access and Usage
 
@@ -130,7 +124,6 @@ KG-Microbe is the training substrate for several prediction approaches, spanning
 - **[Explainable rule mining](https://doi.org/10.1016/j.csbj.2025.10.014)** — human-readable association rules predicting cultivation media from microbial traits, (*CSBJ* 2025). The [RuleML/GOBLIN lecture](https://youtu.be/p_WiR-5E9x0) reports accuracy comparable to state-of-the-art and gives an example of a learned rule: *if β-galactosidase activity and isolated from a marine environment, then 87% likely to grow on Marine Broth*
 - **[KOGUT](/resources/#kogut-transformer)** — relational graph transformer trained on the merged graph (1,379,337 nodes, 2,960,472 edges, 24 Biolink relation types) for growth media link prediction
 - **[MicroGrowAgents](/microgrowagents/)** — multi-agent system that reasons over the graph alongside literature and genome evidence
-- **[MicroGrowLink](/resources/#microgrowlink)** — graph and transformer models for media link prediction
 
 ## Related Resources
 
@@ -158,7 +151,7 @@ KG-Microbe is a comprehensive, modular knowledge graph for microbiology and micr
 KG-Microbe was developed by Dr. Marcin P. Joachimiak and collaborators including Brook E. Santangelo, Harshad Hegde, J. Harry Caufield, Justin Reese, Tomas Kliegr, Lawrence E. Hunter, Catherine A. Lozupone, and Christopher J. Mungall at Lawrence Berkeley National Laboratory.
 
 ### What is KG-Microbe used for?
-KG-Microbe is used for growth preference prediction, culture optimization, comparative microbiology analysis, ecological modeling, and training AI/ML models for microbial cultivation research.
+KG-Microbe is used for growth preference prediction, culture optimization, comparative microbiology analysis, ecological modeling, and training AI/ML models for many aspects of microbiology, including cultivation.
 
 ### How can I access KG-Microbe?
 KG-Microbe is freely available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-microbe under the BSD-3-Clause license. Comprehensive documentation and examples are included in the repository.
