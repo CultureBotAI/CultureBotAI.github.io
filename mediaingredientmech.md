@@ -340,7 +340,7 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) project at Lawrence
 ## Related Tools
 
 - **[X-Mech Suite overview](/mechs/)** - All eight Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
-- **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (10,000+ recipes)
+- **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (6,286 canonical media)
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits

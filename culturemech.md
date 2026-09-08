@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "CultureMech"
-description: "Comprehensive collection of 10,000+ culture media recipes from major international repositories with LinkML schema, ontology grounding, and browser-based exploration"
+description: "15,877 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding, and browser-based exploration"
 permalink: /culturemech/
 ---
 
@@ -9,7 +9,7 @@ permalink: /culturemech/
 
 ## Overview
 
-**CultureMech** is a comprehensive knowledge graph containing over 10,000 culture media recipes from major international repositories. It transforms unstructured media composition text from literature and laboratory records into standardized, machine-readable data through automated chemical entity extraction and ontology-based grounding.
+**CultureMech** is a knowledge graph of culture media recipes from major international repositories: 15,877 curated records, deduplicated into 6,286 canonical media. The two layers answer different questions. The normalized layer keeps each repository's own formulation, so a medium published twice with different salts stays two records; the merged layer is the canonical set of distinct media. It transforms unstructured media composition text from literature and laboratory records into standardized, machine-readable data through automated chemical entity extraction and ontology-based grounding.
 
 **The Challenge**: Microbial cultivation protocols are scattered across scientific literature, culture collection databases, and laboratory notebooks in unstructured text formats. This makes it difficult to systematically analyze growth requirements, compare media compositions, or leverage this data for AI-driven predictions.
 
@@ -20,7 +20,7 @@ permalink: /culturemech/
 ## Key Features
 
 ### 🧬 Comprehensive Coverage
-- **10,000+ culture media recipes** from major international culture collections
+- **6,286 canonical media** deduplicated from 15,877 curated recipes
 - Coverage spans bacteria, archaea, fungi, and other microorganisms
 - Integration with ATCC, DSMZ, JCM, and other major repositories
 - Historical and contemporary cultivation protocols

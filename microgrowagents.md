@@ -85,7 +85,7 @@ Organism-Specific Media Recommendation
 
 ## Related Tools
 
-- **[CultureMech](/culturemech/)** - Microbial culture media knowledge graph (10,000+ recipes)
+- **[CultureMech](/culturemech/)** - Microbial culture media knowledge graph (6,286 canonical media)
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
