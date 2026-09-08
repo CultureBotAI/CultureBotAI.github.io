@@ -152,7 +152,7 @@ KG-Microbe is a comprehensive, modular knowledge graph for microbiology and micr
 KG-Microbe was developed by Dr. Marcin P. Joachimiak and collaborators including Brook E. Santangelo, Harshad Hegde, J. Harry Caufield, Justin Reese, Tomas Kliegr, Lawrence E. Hunter, Catherine A. Lozupone, and Christopher J. Mungall at Lawrence Berkeley National Laboratory.
 
 ### What is KG-Microbe used for?
-KG-Microbe is used for growth preference prediction, culture optimization, comparative microbiology analysis, ecological modeling, and training AI/ML models for microbial cultivation research.
+KG-Microbe is used for growth preference prediction, culture optimization, comparative microbiology analysis, ecological modeling, and training AI/ML models for many aspects of microbiology, including cultivation.
 
 ### How can I access KG-Microbe?
 KG-Microbe is freely available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-microbe under the BSD-3-Clause license. Comprehensive documentation and examples are included in the repository.
