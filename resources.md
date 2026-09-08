@@ -138,7 +138,7 @@ The **[X-Mech Suite](/mechs/)** (CultureMech, MediaIngredientMech, CommunityMech
 ```
 Raw Cultivation Records (Literature, Lab Protocols)
     ↓
-CultureMech → Chemical Entity Extraction (10,000+ media recipes)
+CultureMech → Chemical Entity Extraction (6,286 canonical media)
     ↓
 MediaIngredientMech → LLM-Assisted Ontology Mapping
     ↓
@@ -152,7 +152,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink)
 ### CultureMech - Microbial Culture Media Knowledge Graph
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-Comprehensive collection of 10,000+ culture media recipes from major international repositories with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
+15,877 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
 
 **What it does**: Extracts chemical entities from unstructured media composition text and grounds them to standard chemical ontologies.
 
@@ -350,7 +350,7 @@ Comprehensive chemical compound knowledge graph mapping pipeline for microbial g
 #### CultureMech
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-Comprehensive collection of 10,000+ culture media recipes with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
+15,877 curated culture media recipes deduplicated into 6,286 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
 
 **→ See the [dedicated CultureMech page](/culturemech/) for full documentation, use cases, and examples.**
 

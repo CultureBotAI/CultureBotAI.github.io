@@ -499,7 +499,7 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosystem at Lawren
 ## Related Tools
 
 - **[X-Mech Suite overview](/mechs/)** - All eight Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
-- **[CultureMech](/culturemech/)** - Single-organism media requirements (10,000+ recipes)
+- **[CultureMech](/culturemech/)** - Single-organism media requirements (6,286 canonical media)
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
