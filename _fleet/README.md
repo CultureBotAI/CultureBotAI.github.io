@@ -8,8 +8,19 @@
   hand-curated at the top of the script.
 - `data/` — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`.
 
-Pipeline (from the site root, with the Mech checkouts available locally; the
-ProteinTraitsMech pass over ~430k records takes several minutes):
+Pipeline (from the site root, with the Mech checkouts available locally):
+
+`scripts/fleet/roots.py` is where the checkouts are found. It expects one
+directory holding every Mech as a direct child; set `MECHS_ROOT` to relocate
+them. A missing checkout or a record glob that matches nothing stops the run,
+because the numbers here become claims on the page and an empty corpus is
+indistinguishable from a shrunken one otherwise. Run it on its own to see what
+it resolves:
+
+```bash
+python3 scripts/fleet/roots.py
+```
+
 
 ```bash
 python3 scripts/fleet/prefix_census.py    # heatmap counts
@@ -17,6 +28,9 @@ python3 scripts/fleet/build_subsets.py    # assets/fleet/{edges,cells}/*.json + 
 python3 scripts/fleet/build_data.py       # _fleet/data/fleet_data.json
 python3 scripts/fleet/assemble_page.py    # mechs.md
 ```
+
+The two scanning passes take about two minutes each, dominated by
+ProteinTraitsMech's ~430k records.
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
