@@ -1,9 +1,9 @@
 """Assemble _fleet/data/fleet_data.json, the compact blob embedded in the page, from subsets_summary.json and prefix_census.json.
 
-Run from the site root: `python3 scripts/fleet/build_data.py`. Reads the local Mech
-checkouts named in MECH_ROOTS below (override with environment variables of the
-same names); writes derived data under _fleet/data and assets/fleet. See
-_fleet/README.md for the whole pipeline.
+Run from the site root: `python3 scripts/fleet/build_data.py`, after the two
+scanning passes. Reads no checkout: its inputs are the JSON those passes wrote
+under _fleet/data, and its output goes back there. See _fleet/README.md for the
+whole pipeline.
 """
 import os
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
