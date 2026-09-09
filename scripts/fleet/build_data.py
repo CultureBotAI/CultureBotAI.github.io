@@ -11,8 +11,8 @@ DATA = os.path.join(REPO, "_fleet", "data")
 import json, os
 S=DATA
 sub=json.load(open(f"{S}/subsets_summary.json")); cen=json.load(open(f"{S}/prefix_census.json"))
-ORDER=["HabitatMech","CommunityMech","TraitMech","CellStructureMech","ProteinTraitsMech","AntibioticMech","MediaIngredientMech","CultureMech"]
-VOC=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","RHEA","PDB","PATO","UBERON","FOODON","BTO","GTDB","KEGG","CAS","PMID","DOI"]
+ORDER=["HabitatMech","CommunityMech","TraitMech","CellStructureMech","ProteinTraitsMech","NaturalProductMech","AntibioticMech","MediaIngredientMech","CultureMech"]
+VOC=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","RHEA","PDB","PATO","UBERON","FOODON","BTO","GTDB","KEGG","CAS","MIBiG","NPAtlas","PMID","DOI"]
 edges=[]
 for k,v in sub["edges"].items():
     a,b=k.split("|")

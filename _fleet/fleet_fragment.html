@@ -4,6 +4,12 @@
   :root {
     --mech-habitatmech: #2b6a4d; --mech-communitymech: #3D7DD6; --mech-traitmech: #C5474B;
     --mech-cellstructuremech: #5257C9; --mech-proteintraitsmech: #2E8B84; --mech-antibioticmech: #85551C;
+    /* NaturalProductMech publishes no site, so it has no accent of its own to
+       borrow. The eight above already fill the hue circle at this lightness --
+       every ninth hue tested collided with one of them for normal vision -- so
+       this one separates by going deeper instead, which clears both the
+       colour-blind and normal-vision floors against all eight. */
+    --mech-naturalproductmech: #6A1B7A;
     --mech-mediaingredientmech: #7E5BC4; --mech-culturemech: #4B9E5F;
     --fleet-edge: rgba(90, 99, 94, .34);
     --fleet-heat-hue: 150 22%;
@@ -14,6 +20,8 @@
     :root:not([data-theme="light"]) {
       --mech-habitatmech: #4fbf85; --mech-communitymech: #5c9cf0; --mech-traitmech: #f0696e;
       --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
+    --mech-naturalproductmech: #A64CA6;
+      --mech-naturalproductmech: #A64CA6;
       --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
       --fleet-edge: rgba(160, 178, 168, .34);
       --fleet-heat-hue: 150 14%;
@@ -146,12 +154,13 @@
   .page-content .mech-card ul > li::before { display: none; }
 
   /* ---- Scale ladder ---- */
-  .fleet-ladder { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 1rem 0 .2rem; }
+  .fleet-ladder { display: grid; grid-template-columns: repeat(9, 1fr); gap: 4px; margin: 1rem 0 .2rem; }
   .page-content .fleet-ladder > a { display: block; padding: .55rem .5rem .5rem; border-radius: 8px; background: var(--wash-b); border-top: 4px solid var(--c); font-size: .74rem; line-height: 1.3; color: var(--ink); background-image: none; transition: transform .15s ease, box-shadow .15s ease; }
   .page-content .fleet-ladder > a:hover, .page-content .fleet-ladder > a:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-lg); background-size: 0; }
   .fleet-ladder b { display: block; font-size: .78rem; color: var(--c); }
   .fleet-ladder span { color: var(--muted); }
-  @media (max-width: 760px) { .fleet-ladder { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 900px) { .fleet-ladder { grid-template-columns: repeat(5, 1fr); } }
+  @media (max-width: 760px) { .fleet-ladder { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 420px) { .fleet-ladder { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---- Heatmap ---- */
@@ -228,9 +237,9 @@
 </style>
 
 <div class="fleet-stats" aria-label="Fleet at a glance">
-  <div><b>8</b><span>Mech knowledge bases</span></div>
-  <div><b>445,478</b><span>curated records</span></div>
-  <div><b>39</b><span>ontologies &amp; databases cited</span></div>
+  <div><b>9</b><span>Mech knowledge bases</span></div>
+  <div><b>448,624</b><span>curated records</span></div>
+  <div><b>43</b><span>ontologies &amp; databases cited</span></div>
   <div><b>1</b><span>orchestrator (claw)</span></div>
 </div>
 
@@ -240,6 +249,7 @@
   <a href="https://culturebotai.github.io/TraitMech/" style="--c: var(--mech-traitmech)" title="Open TraitMech"><b>Traits</b><span>what it does</span></a>
   <a href="https://culturebotai.github.io/CellStructureMech/" style="--c: var(--mech-cellstructuremech)" title="Open CellStructureMech"><b>Cell structures</b><span>what it is built of</span></a>
   <a href="https://culturebotai.github.io/proteintraitsmech/" style="--c: var(--mech-proteintraitsmech)" title="Open ProteinTraitsMech"><b>Proteins</b><span>the machinery</span></a>
+  <a href="https://github.com/CultureBotAI/NaturalProductMech" style="--c: var(--mech-naturalproductmech)" title="Open NaturalProductMech on GitHub"><b>Natural products</b><span>what it makes</span></a>
   <a href="https://culturebotai.github.io/AntibioticMech/" style="--c: var(--mech-antibioticmech)" title="Open AntibioticMech"><b>Antibiotics</b><span>what acts on it</span></a>
   <a href="https://culturebotai.github.io/MediaIngredientMech/" style="--c: var(--mech-mediaingredientmech)" title="Open MediaIngredientMech"><b>Ingredients</b><span>what it is fed</span></a>
   <a href="https://culturebotai.github.io/CultureMech/" style="--c: var(--mech-culturemech)" title="Open CultureMech"><b>Media</b><span>where it is grown</span></a>
@@ -309,6 +319,7 @@
     TraitMech: { key: "traitmech", scale: "Traits", tag: "Microbial ecophysiological trait knowledge base, seeded from METPO, one curated YAML per trait.", records: 477, unit: "trait records", root: "TraitRecord", vocab: ["METPO", "GO", "NCBITaxon", "CHEBI", "UniProt"], github: "https://github.com/CultureBotAI/TraitMech", site: "https://culturebotai.github.io/TraitMech/", page: "", license: "CC0-1.0", sources: "METPO (vendored OWL), GapMind and GTDB genome tables as candidates", member: true, extra: "427 reviewed, 353 carry evidence-backed causal mechanism graphs; METPO term proposals published as SSSOM." },
     CellStructureMech: { key: "cellstructuremech", scale: "Cell structures", tag: "Ontology-grounded microbial cell structures: components, distribution, function and causal mechanism.", records: 39, unit: "structure records", root: "CellStructureRecord", vocab: ["GO", "NCBITaxon", "UniProt", "METPO", "Pfam"], github: "https://github.com/CultureBotAI/CellStructureMech", site: "https://culturebotai.github.io/CellStructureMech/", page: "", license: "CC0-1.0", sources: "GO cellular component, UniProt subcellular location, Complex Portal, EMDB/EMPIAR, PDB, TraitMech", member: true, extra: "Fills the layer between phenotype (TraitMech) and protein (ProteinTraitsMech); 39 causal graphs with 279 evidence-backed edges." },
     ProteinTraitsMech: { key: "proteintraitsmech", scale: "Proteins", tag: "Protein sequence, structure and function trait classes, one curated YAML per trait, evidence-backed.", records: 429271, unit: "protein trait records", root: "ProteinTraitRecord", vocab: ["InterPro", "UniProt", "RHEA", "Pfam", "GO", "CHEBI", "ARO"], github: "https://github.com/CultureBotAI/proteintraitsmech", site: "https://culturebotai.github.io/proteintraitsmech/", page: "", license: "CC0-1.0", sources: "InterPro, Pfam, CATH, SCOPe, ECOD, Rhea, ExPASy ENZYME, CARD/ARO, PROSITE, TCDB, COG, Reactome, METPO", member: true, extra: "Function 163,526 · sequence 147,071 · structure 118,281 · sequence-structure and evolution 393 records; seeds 118 METPO classes with protein-level analogues." },
+    NaturalProductMech: { key: "naturalproductmech", scale: "Natural products", tag: "One record per natural product structure: who makes it, from which gene cluster, and what it does.", records: 3115, unit: "natural product structures", root: "NaturalProductRecord", vocab: ["MIBiG", "NCBITaxon", "ChEBI", "NPAtlas", "PubChem", "UniProt"], github: "https://github.com/CultureBotAI/NaturalProductMech", site: "https://github.com/CultureBotAI/NaturalProductMech", page: "", license: "CC0-1.0 code · CC BY 4.0 data", sources: "ChEBI, MIBiG gene clusters, LOTUS occurrences, CyanoMetDB, NPAtlas, PubChem BioAssay, BindingDB, NCBI Taxonomy", member: false, extra: "Polyketides 869 · amino acids and peptides 655 · alkaloids 509 · terpenoids 213; 362 grounded in ChEBI and 2,744 minted on their InChIKey. Every record names a producer organism and a gene cluster. It vendors claw's governed artifacts and pins the fleet's current revision, but is not yet declared in the manifest." },
     AntibioticMech: { key: "antibioticmech", scale: "Antibiotics", tag: "One record per antimicrobial structure, harmonizing ChEBI and CARD with mechanism and evidence.", records: 2909, unit: "antimicrobial structures", root: "AntibioticRecord", vocab: ["CHEBI", "ARO", "CAS", "NCBITaxon", "PubChem", "DrugBank"], github: "https://github.com/CultureBotAI/AntibioticMech", site: "https://culturebotai.github.io/AntibioticMech/", page: "", license: "CC0-1.0 code · CC BY 4.0 data", sources: "ChEBI 3-star antimicrobial roles, CARD/ARO antibiotic molecules, PubChem structures, PHI-base, MIBiG", member: true, extra: "2,669 ChEBI-grounded, 240 minted; 417 with a mode of action, 245 with a molecular target, 16 with a curated causal graph." },
     MediaIngredientMech: { key: "mediaingredientmech", scale: "Ingredients", tag: "LLM-assisted curation of media-ingredient ontology mappings with full audit trails.", records: 2958, unit: "ingredient records", root: "IngredientRecord", vocab: ["CHEBI", "CAS", "NCIT", "FOODON", "ENVO"], github: "https://github.com/CultureBotAI/MediaIngredientMech", site: "https://culturebotai.github.io/MediaIngredientMech/", page: "/mediaingredientmech/", license: "CC0-1.0", sources: "Ingredient strings aggregated from CultureMech recipes; OAK/OLS term services; ChEBI, FOODON, NCIT, MeSH, METPO", member: true, extra: "2,684 mapped (91%); its published SSSOM is the ingredient-mapping contract consumed by kg-microbe." },
     CultureMech: { key: "culturemech", scale: "Media", tag: "Versioned, ontology-grounded knowledge base of microbial culture-media recipes.", records: 6286, unit: "merged recipes", root: "MediaRecipe", vocab: ["CHEBI", "KEGG", "FOODON", "UBERON", "CAS"], github: "https://github.com/CultureBotAI/CultureMech", site: "https://culturebotai.github.io/CultureMech/", page: "/culturemech/", license: "CC0-1.0", sources: "MediaDive/DSMZ, TogoMedium, KOMODO, ATCC, JCM, BacDive (queued)", member: true, extra: "15,877 normalized recipes deduplicated into 6,286 merged canonical records; exports 11 SSSOM mapping sets." }
@@ -324,6 +335,7 @@
     { from: "CellStructureMech", to: "ProteinTraitsMech", kind: "schema", what: "A single protein is a component, not a record: it grounds to InterPro / UniProtKB and hands off to ProteinTraitsMech.", ev: "CellStructureMech docs/CURATION.md", url: "https://github.com/CultureBotAI/CellStructureMech/blob/main/docs/CURATION.md" },
     { from: "HabitatMech", to: "TraitMech", kind: "schema", what: "Habitat causal graphs use a superset of TraitMech's node vocabulary so graphs stay comparable; a node may be a TraitMech or METPO term.", ev: "HabitatMech schema CausalNode", url: "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/habitatmech.yaml" },
     { from: "HabitatMech", to: "CultureMech", kind: "practice", what: "The one overlapping concept, BTO:0000316 culture medium, is handed to CultureMech rather than curated twice.", ev: "HabitatMech curation/decisions.tsv", url: "https://github.com/CultureBotAI/HabitatMech/blob/main/curation/decisions.tsv" },
+    { from: "AntibioticMech", to: "NaturalProductMech", kind: "data", what: "Antimicrobial classification comes from AntibioticMech: its structures are matched on InChIKey to say which natural products are antimicrobial.", ev: "NaturalProductMech data/raw/antibioticmech_inchikeys.tsv", url: "https://github.com/CultureBotAI/NaturalProductMech/blob/main/PLAN.md" },
     { from: "AntibioticMech", to: "CellStructureMech", kind: "practice", what: "The licensed source-queue curation pattern was written here and adapted by CellStructureMech.", ev: "claw docs/guides/SOURCE_QUEUE.md", url: "https://github.com/CultureBotAI/culturebotai-claw/blob/main/docs/guides/SOURCE_QUEUE.md" },
     { from: "ProteinTraitsMech", to: "TraitMech", kind: "practice", what: "TraitMech adopted ProteinTraitsMech's download.yaml source catalogue shape; a drift audit keeps shared trait tokens aligned.", ev: "TraitMech download.yaml; ProteinTraitsMech justfile", url: "https://github.com/CultureBotAI/TraitMech/blob/main/download.yaml" }
   ];
@@ -340,7 +352,8 @@
     { mech: "CultureMech", dir: "in", kind: "input", what: "grounding checks against kg-microbe entities (match-kg-microbe)" },
     { mech: "AntibioticMech", dir: "out", kind: "namespace", what: "schema minted under the kg-microbe namespace (w3id.org/kg-microbe/antibioticmech); no data release into the graph yet" },
     { mech: "ProteinTraitsMech", dir: "out", kind: "namespace", what: "shares the kg-microbe mech-shared schema modules; no data release into the graph yet" },
-    { mech: "CellStructureMech", dir: "out", kind: "namespace", what: "shares the kg-microbe mech-shared schema modules; no data release into the graph yet" }
+    { mech: "CellStructureMech", dir: "out", kind: "namespace", what: "shares the kg-microbe mech-shared schema modules; no data release into the graph yet" },
+    { mech: "NaturalProductMech", dir: "out", kind: "namespace", what: "schema minted under the kg-microbe namespace (w3id.org/kg-microbe/naturalproductmech); no data release into the graph yet" }
   ];
 
   var order = DATA.order, N = order.length;

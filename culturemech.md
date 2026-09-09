@@ -209,7 +209,7 @@ kg.export(format="json", output="media_data.json")
 
 ## Related Tools
 
-- **[X-Mech Suite overview](/mechs/)** - All eight Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[X-Mech Suite overview](/mechs/)** - All nine Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
