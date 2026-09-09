@@ -35,5 +35,9 @@ ProteinTraitsMech's ~430k records.
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
 CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, ProteinTraitsMech
-hash routes) and to the record's source file on GitHub for CultureMech and
-MediaIngredientMech, whose per-record pages are not deployed.
+hash routes) and to the record's source file on GitHub for CultureMech,
+MediaIngredientMech and NaturalProductMech, whose per-record pages are not
+deployed — NaturalProductMech publishes no site at all yet.
+
+MIBiG and NPAtlas are carried through the whole pipeline alongside the
+ontologies, because they are how NaturalProductMech grounds its corpus.
