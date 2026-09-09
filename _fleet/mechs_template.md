@@ -1,17 +1,17 @@
 ---
 layout: default
 title: "X-Mech Suite"
-description: "Eight ontology-grounded microbial knowledge bases, from habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
+description: "Nine ontology-grounded microbial knowledge bases, from habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
 permalink: /mechs/
 ---
 
-# X-Mech Suite: eight knowledge bases, one standard
+# X-Mech Suite: nine knowledge bases, one standard
 
-The X-Mech suite is a fleet of eight curated, ontology-grounded knowledge bases that together describe a microbe at every scale: the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
+The X-Mech suite is a fleet of nine curated, ontology-grounded knowledge bases that together describe a microbe at every scale: the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
 
 <!--FLEET_FRAGMENT-->
 
-## The eight Mechs
+## The nine Mechs
 
 Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it.
 
@@ -19,14 +19,14 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech)">
     <header><h3>HabitatMech</h3><span class="scale">Habitat</span></header>
     <p class="tag">Four habitat vocabularies harmonized into ENVO-grounded records that keep every source's attestation.</p>
-    <div class="num"><b>3,213</b><span>habitat records · 684 reviewed</span></div>
+    <div class="num"><b>3,208</b><span>habitat records · 684 reviewed</span></div>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
     <p class="tag">Curated knowledge base of microbial communities, their interactions, cultivation conditions and evidence.</p>
-    <div class="num"><b>325</b><span>community records · KGX export</span></div>
+    <div class="num"><b>332</b><span>community records · KGX export</span></div>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
     <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -40,7 +40,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech)">
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
     <p class="tag">Organelles, envelope layers, appendages, microcompartments and complexes: components, distribution, function and causal mechanism.</p>
-    <div class="num"><b>39</b><span>structure records · 279 causal edges</span></div>
+    <div class="num"><b>57</b><span>structure records · evidence-backed causal graphs</span></div>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -51,10 +51,17 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <div class="vocab"><span>InterPro</span><span>UniProt</span><span>Rhea</span><span>Pfam</span><span>GO</span><span>ChEBI</span><span>ARO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
+  <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech)">
+    <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
+    <p class="tag">One record per natural product structure: who makes it, from which gene cluster, what it does, and the evidence for all three.</p>
+    <div class="num"><b>3,115</b><span>structures · every one with a producer</span></div>
+    <div class="vocab"><span>MIBiG</span><span>NCBITaxon</span><span>ChEBI</span><span>NPAtlas</span><span>PubChem</span><span>UniProt</span></div>
+    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge adj">not yet in fleet manifest</span></div>
+  </article>
   <article class="mech-card" data-mech="AntibioticMech" style="--c: var(--mech-antibioticmech)">
     <header><h3>AntibioticMech</h3><span class="scale">Antibiotics</span></header>
     <p class="tag">One record per antimicrobial chemical structure, harmonizing ChEBI and CARD with targets, mode of action, resistance and evidence.</p>
-    <div class="num"><b>2,909</b><span>antimicrobial structures · 92% ChEBI-grounded</span></div>
+    <div class="num"><b>2,920</b><span>antimicrobial structures · 92% ChEBI-grounded</span></div>
     <div class="vocab"><span>ChEBI</span><span>ARO</span><span>CAS</span><span>PubChem</span><span>DrugBank</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -104,8 +111,8 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and the cross-repository pipelines that move curation between Mechs safely.
 
 <div class="fleet-orch">
-  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All eight Mechs are declared; HabitatMech, the last to join, was admitted on 2026-09-07. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
-  <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. Fifteen artifacts, all eight members.</p></div>
+  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. Eight of the nine are declared; HabitatMech, the last to join, was admitted on 2026-09-07, and NaturalProductMech is the one still outside. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
+  <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. Fifteen artifacts. NaturalProductMech already vendors them, one revision behind the eight, which is what a repository does before the manifest declares it.</p></div>
   <div><h4>Pipelines and skills</h4><p>Three cross-repository pipelines (ingredient curation, unified ingredient mapping, ENVO environment curation) and 24 agent skills. Cross-repo writes resolve exact worktree roots, take a repository lock, default to dry run and validate staged output before replacing source data.</p></div>
 </div>
 
@@ -123,6 +130,7 @@ Which fleet contracts each member has adopted, from the manifest. Every disabled
     <tr><td>AntibioticMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td></tr>
     <tr><td>CellStructureMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="e"></i></td></tr>
     <tr><td>HabitatMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td></tr>
+    <tr><td>NaturalProductMech</td><td colspan="11"><i class="x">not yet a manifest member, so it declares no capabilities; it vendors the governed artifacts, pinned one revision behind the eight</i></td></tr>
   </tbody>
 </table>
 </div>

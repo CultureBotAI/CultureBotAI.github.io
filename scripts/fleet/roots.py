@@ -30,6 +30,7 @@ RECORD_GLOBS: dict[str, list[str]] = {
     "TraitMech": ["data/traits/**/*.yaml"],
     "CellStructureMech": ["data/structures/**/*.yaml"],
     "ProteinTraitsMech": ["data/traits/**/*.yaml"],
+    "NaturalProductMech": ["data/natural_products/**/*.yaml"],
     "AntibioticMech": ["data/antibiotics/**/*.yaml"],
     "MediaIngredientMech": ["data/ingredients/**/*.yaml"],
     "CultureMech": ["data/merge_yaml/merged/*.yaml"],

@@ -1,81 +1,48 @@
 {
- "CultureMech": {
-  "files": 6286,
+ "HabitatMech": {
+  "files": 3208,
   "prefixes": {
-   "CHEBI": 160660,
-   "KEGG": 1406,
-   "MICRO": 275,
-   "FOODON": 214,
-   "UBERON": 138,
-   "DOI": 76,
-   "PMID": 68,
-   "NCBITaxon": 63,
-   "ENVO": 13,
-   "DSMZ": 9,
-   "NCIT": 1,
-   "CAS": 1,
-   "BacDive": 1
-  }
- },
- "MediaIngredientMech": {
-  "files": 2958,
-  "prefixes": {
-   "CHEBI": 7497,
-   "CAS": 655,
-   "MICRO": 340,
-   "MESH": 301,
-   "NCIT": 279,
-   "FOODON": 270,
-   "ENVO": 110,
-   "KEGG": 53,
-   "PMID": 29,
-   "UBERON": 22,
-   "DOI": 5,
-   "BTO": 3,
-   "NCBITaxon": 1
+   "NCBITaxon": 13222,
+   "ENVO": 3183,
+   "GOLD": 2562,
+   "BTO": 1353,
+   "UBERON": 1089,
+   "PMID": 513,
+   "FOODON": 194,
+   "BacDive": 167,
+   "PO": 113,
+   "DOI": 112,
+   "MESH": 83,
+   "NCIT": 32,
+   "CHEBI": 18,
+   "PATO": 4,
+   "GO": 2
   }
  },
  "CommunityMech": {
-  "files": 329,
+  "files": 332,
   "prefixes": {
-   "PMID": 4729,
-   "NCBITaxon": 3012,
-   "CHEBI": 2204,
-   "GTDB": 1662,
-   "DOI": 1122,
-   "GO": 850,
-   "ENVO": 362,
+   "PMID": 4812,
+   "NCBITaxon": 3060,
+   "CHEBI": 2221,
+   "GTDB": 1674,
+   "DOI": 1123,
+   "GO": 862,
+   "ENVO": 366,
    "IMG": 28,
    "UBERON": 9,
    "BacDive": 1
   }
  },
- "AntibioticMech": {
-  "files": 2909,
-  "prefixes": {
-   "CHEBI": 22087,
-   "ARO": 16653,
-   "CAS": 1835,
-   "PMID": 952,
-   "NCBITaxon": 590,
-   "PubChem": 572,
-   "DrugBank": 508,
-   "UniProt": 318,
-   "PHIPO": 217,
-   "DOI": 16,
-   "PDB": 3,
-   "GO": 3
-  }
- },
  "TraitMech": {
   "files": 477,
   "prefixes": {
-   "DOI": 5265,
-   "METPO": 3190,
-   "RO": 2259,
+   "DOI": 5319,
+   "METPO": 3195,
+   "RO": 2353,
    "NCBITaxon": 844,
-   "GO": 810,
-   "CHEBI": 667,
+   "GO": 809,
+   "CHEBI": 666,
    "PMID": 412,
    "UniProt": 389,
    "InterPro": 113,
@@ -84,6 +51,27 @@
    "MICRO": 19,
    "BFO": 3,
    "OBI": 2
+  }
+ },
+ "CellStructureMech": {
+  "files": 57,
+  "prefixes": {
+   "DOI": 1343,
+   "GO": 398,
+   "NCBITaxon": 351,
+   "UniProt": 238,
+   "PMID": 205,
+   "ECO": 146,
+   "InterPro": 38,
+   "CHEBI": 18,
+   "Pfam": 17,
+   "METPO": 14,
+   "ComplexPortal": 5,
+   "RO": 4,
+   "PDB": 4,
+   "MICRO": 4,
+   "SO": 4,
+   "BFO": 1
   }
  },
  "ProteinTraitsMech": {
@@ -117,45 +105,69 @@
    "MESH": 1
   }
  },
- "CellStructureMech": {
-  "files": 39,
+ "NaturalProductMech": {
+  "files": 3115,
   "prefixes": {
-   "DOI": 902,
-   "GO": 230,
-   "NCBITaxon": 175,
-   "UniProt": 116,
-   "PMID": 67,
-   "ECO": 37,
-   "CHEBI": 16,
-   "Pfam": 15,
-   "METPO": 14,
-   "ComplexPortal": 5,
-   "RO": 4,
-   "InterPro": 4,
-   "SO": 4,
-   "MICRO": 4,
-   "PDB": 4,
-   "BFO": 1
+   "NCBITaxon": 13718,
+   "MIBiG": 10175,
+   "DOI": 8320,
+   "PMID": 5734,
+   "NPAtlas": 1756,
+   "CHEBI": 1587,
+   "UniProt": 1116
   }
  },
- "HabitatMech": {
-  "files": 3213,
+ "AntibioticMech": {
+  "files": 2920,
   "prefixes": {
-   "NCBITaxon": 13221,
-   "ENVO": 3154,
-   "GOLD": 2562,
-   "BTO": 1353,
-   "UBERON": 1088,
-   "PMID": 513,
-   "FOODON": 190,
-   "BacDive": 167,
-   "DOI": 112,
-   "PO": 111,
-   "MESH": 81,
-   "NCIT": 32,
-   "CHEBI": 18,
-   "PATO": 4,
-   "GO": 2
+   "CHEBI": 22066,
+   "ARO": 16653,
+   "CAS": 1835,
+   "PMID": 1207,
+   "NCBITaxon": 611,
+   "PubChem": 583,
+   "DrugBank": 508,
+   "UniProt": 278,
+   "PHIPO": 217,
+   "DOI": 126,
+   "PDB": 6,
+   "GO": 3
+  }
+ },
+ "MediaIngredientMech": {
+  "files": 2958,
+  "prefixes": {
+   "CHEBI": 7681,
+   "CAS": 661,
+   "MICRO": 340,
+   "MESH": 301,
+   "NCIT": 279,
+   "FOODON": 270,
+   "ENVO": 110,
+   "KEGG": 53,
+   "PMID": 29,
+   "UBERON": 22,
+   "DOI": 5,
+   "BTO": 3,
+   "NCBITaxon": 1
+  }
+ },
+ "CultureMech": {
+  "files": 6286,
+  "prefixes": {
+   "CHEBI": 160660,
+   "KEGG": 1406,
+   "MICRO": 275,
+   "FOODON": 214,
+   "UBERON": 138,
+   "DOI": 76,
+   "PMID": 68,
+   "NCBITaxon": 63,
+   "ENVO": 13,
+   "DSMZ": 9,
+   "BacDive": 1,
+   "NCIT": 1,
+   "CAS": 1
   }
  }
 }

@@ -22,6 +22,8 @@ GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
 # ProteinTraitsMech browser routes by hash; CultureMech and MediaIngredientMech
 # do not deploy per-record pages, so their links open the source file on GitHub.
 SITE_BASE={
+ # NaturalProductMech publishes no site yet, so its records link to the source file.
+ "NaturalProductMech": GH+"NaturalProductMech/blob/main/data/natural_products/",
  "HabitatMech": SITE+"HabitatMech/pages/habitats/",
  "CommunityMech": SITE+"CommunityMech/communities/",
  "TraitMech": SITE+"TraitMech/pages/traits/",
@@ -32,13 +34,13 @@ SITE_BASE={
  "CultureMech": GH+"CultureMech/blob/main/data/merge_yaml/merged/",
 }
 MECHS={name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER}
-PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","RHEA","PDB","BTO","GTDB","DOI"]
-NORM={"UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH"}
-rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|DOI|doi):([A-Za-z0-9_.\-/()]+)")
+PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","RHEA","PDB","BTO","GTDB","MIBiG","NPAtlas","DOI"]
+NORM={"mibig":"MIBiG","npatlas":"NPAtlas","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH"}
+rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|mibig|MIBiG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
 STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
-AUTH={"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
+AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
 def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
@@ -72,6 +74,7 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="AntibioticMech": return urllib.parse.quote(rel[len("data/antibiotics/"):-5]+".html")
     if m=="ProteinTraitsMech": return urllib.parse.quote(doc_id or "", safe="")
     if m=="MediaIngredientMech": return urllib.parse.quote(rel[len("data/ingredients/"):])
+    if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):])
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
     return None
 def scan(m, keep=None, cap_cell=300):
