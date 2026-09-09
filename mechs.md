@@ -854,7 +854,7 @@ Which fleet contracts each member has adopted, from the manifest. Every disabled
     <tr><td>AntibioticMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td></tr>
     <tr><td>CellStructureMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="n"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="e"></i></td></tr>
     <tr><td>HabitatMech</td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="e"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td><td><i class="d"></i></td></tr>
-    <tr><td>NaturalProductMech</td><td colspan="11"><i class="x">not yet a manifest member, so it declares no capabilities; it vendors the governed artifacts and pins the fleet's current revision</i></td></tr>
+    <tr><td>NaturalProductMech</td><td colspan="11"><i class="x">not yet a manifest member, so it declares no capabilities; it vendors the governed artifacts, pinned one revision behind the eight</i></td></tr>
   </tbody>
 </table>
 </div>
