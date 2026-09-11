@@ -167,12 +167,14 @@
   .fleet-heat-wrap { overflow-x: auto; margin: 1rem 0 .4rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
   /* Fixed layout, so 22 vocabulary columns divide the width that is actually
      available instead of each claiming room for its widest number and pushing
-     the table past the page. The declared widths sum to 968px with the
-     border-spacing, which is the floor below which the card scrolls; above it
-     the table fills the card and fixed layout shares out the surplus. Auto
-     layout did the latter: the row header alone took 168px and the table
-     overflowed its container by 19px, which is a horizontal scrollbar on a
-     table that nearly fits. */
+     the table past the page. The declared widths sum to 968px (150 + 22*35 +
+     24 gaps of 2), which is the min-width below; the separate border model
+     then lays the table out at 970px, because it adds the two outer gaps
+     outside the declared width, so the card starts scrolling below 989px of
+     client width. Above that the table fills the card and fixed layout shares
+     out the surplus. Auto layout did the opposite: the row header alone took
+     168px and the table overflowed its container by 19px, which is a
+     horizontal scrollbar on a table that nearly fits. */
   /* display: table overrides the site-wide `table { display: block; overflow-x:
      auto }` responsive rule in custom.css. While that applied, this table was
      its own scroll container and sized its columns from their content, so
