@@ -109,7 +109,23 @@ a {
   padding-bottom: 1px;
 }
 
+/* Minima's `a:hover { color: #111 }` and `a:visited { color: #1756a9 }` both
+   outrank the `a` colour above, so on the dark theme's surfaces a hovered link
+   fell to 1.14:1 and a visited one to 2.32:1 — black, then blue, on near-black.
+   The growing underline is the affordance here, so the colour should hold in
+   every state instead. Links that set their own colour — the nav pills, the
+   filled `.primary` and `.go` buttons — are more specific and keep theirs. */
+a:visited {
+  color: var(--accent);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent);
+}
+
 .page-content a:hover {
+  color: var(--accent);
   background-size: 100% 2px;
   text-decoration: none;
 }
