@@ -83,11 +83,11 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
 
 ## Shared vocabulary
 
-The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Click a Mech name to open it, a cell to list the records behind it, or a column heading to filter the graph to that vocabulary.
+The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Columns run from the most widely shared vocabulary to the least, so the left edge is the fleet's common ground and the right edge is what a single Mech needs alone. Click a Mech name to open it, a cell to list the records behind it, or a column heading to filter the graph to that vocabulary.
 
 <div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of September 2026. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of September 2026. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 ## How the Mechs reference each other
 

@@ -38,6 +38,13 @@ RECORD_GLOBS: dict[str, list[str]] = {
 
 ORDER = list(RECORD_GLOBS)
 
+# Prefixes that identify a piece of literature rather than a concept. Every
+# Mech cites papers, so counting them alongside the ontologies would say only
+# that, which is why build_subsets.py writes no record lists for them and
+# build_data.py keeps them out of the heatmap's ordering. Declared once here
+# because those two decisions have to agree (CultureBotAI.github.io#61).
+CITATION = ["PMID", "DOI"]
+
 
 def mech_root(name: str) -> str:
     """The checkout for one Mech, verified to exist."""
