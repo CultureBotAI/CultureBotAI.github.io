@@ -109,7 +109,19 @@ a {
   padding-bottom: 1px;
 }
 
+/* Minima's own `a:hover { color: #111 }` still wins over the `a` colour above,
+   which on the dark theme's surfaces is black on near-black: measured at 1.14:1
+   against the card, i.e. the link vanishes while the pointer is on it. The
+   growing underline is the hover affordance here, so the colour should hold
+   steady instead. Links that set their own colour — the nav pills, the filled
+   `.primary` and `.go` buttons — are more specific and keep theirs. */
+a:hover,
+a:focus {
+  color: var(--accent);
+}
+
 .page-content a:hover {
+  color: var(--accent);
   background-size: 100% 2px;
   text-decoration: none;
 }
