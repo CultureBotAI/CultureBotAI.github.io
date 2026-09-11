@@ -176,21 +176,38 @@ The X-Mech suite is a fleet of nine curated, ontology-grounded knowledge bases t
 
   /* ---- Heatmap ---- */
   .fleet-heat-wrap { overflow-x: auto; margin: 1rem 0 .4rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-  table.fleet-heat { border-collapse: separate; border-spacing: 3px; margin: .6rem; font-size: .8rem; min-width: 740px; }
-  table.fleet-heat th { font-weight: 700; color: var(--muted); text-align: left; padding: .2rem .4rem; white-space: nowrap; }
+  /* Fixed layout, so 22 vocabulary columns divide the width that is actually
+     available instead of each claiming room for its widest number and pushing
+     the table past the page. Auto layout did the latter: the row header alone
+     took 168px and the table overflowed its container by 19px, which is a
+     horizontal scrollbar on a table that nearly fits. */
+  /* display: table overrides the site-wide `table { display: block; overflow-x:
+     auto }` responsive rule in custom.css. While that applied, this table was
+     its own scroll container and sized its columns from their content, so
+     table-layout and every column width below were inert and 22 vocabularies
+     ran past the card. The wrap keeps overflow-x for genuinely narrow screens. */
+  table.fleet-heat { display: table; overflow: visible; table-layout: fixed; width: calc(100% - 1.2rem); border-collapse: separate; border-spacing: 2px; margin: .6rem; font-size: .8rem; min-width: 880px; }
+  /* Fixed layout only pins a column when that column is given a width, so every
+     header cell gets one; with just the row header set, the rest fell back to
+     their content width and the table ran 275px past the card while
+     scrollWidth still reported no overflow. */
+  table.fleet-heat thead th { width: 36px; padding: .2rem 0; }
+  table.fleet-heat td { padding: 0; }
+  table.fleet-heat thead th:first-child, table.fleet-heat tbody th { width: 156px; }
+  table.fleet-heat th { font-weight: 700; color: var(--muted); text-align: left; padding: .2rem .3rem; white-space: nowrap; }
   table.fleet-heat thead th { vertical-align: bottom; }
-  table.fleet-heat thead th button { font: inherit; font-weight: 700; color: var(--muted); background: none; border: 0; padding: .2rem .25rem; cursor: pointer; border-radius: 6px; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 1; }
+  table.fleet-heat thead th button { font: inherit; font-size: .74rem; font-weight: 700; color: var(--muted); background: none; border: 0; padding: .2rem .15rem; cursor: pointer; border-radius: 6px; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 1; }
   table.fleet-heat thead th button:hover, table.fleet-heat thead th button[aria-pressed="true"] { color: var(--accent); background: var(--wash-a); }
-  table.fleet-heat tbody th { color: var(--ink); }
+  table.fleet-heat tbody th { color: var(--ink); font-size: .72rem; overflow: hidden; text-overflow: ellipsis; }
   table.fleet-heat tbody th i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: .45rem; background: var(--c); vertical-align: -1px; }
-  table.fleet-heat td { width: 40px; height: 30px; border-radius: 5px; text-align: center; font-variant-numeric: tabular-nums; font-size: .68rem; color: var(--ink); background: hsl(var(--fleet-heat-hue) 92% / .35); }
+  table.fleet-heat td { height: 30px; border-radius: 5px; text-align: center; font-variant-numeric: tabular-nums; font-size: .64rem; color: var(--ink); background: hsl(var(--fleet-heat-hue) 92% / .35); overflow: hidden; }
   table.fleet-heat td[data-l] { background: color-mix(in oklab, var(--accent-2) calc(var(--l) * 1%), var(--card)); color: var(--ink); }
   table.fleet-heat td[data-l="0"] { background: var(--wash-b); color: var(--muted); }
   table.fleet-heat td.hi { outline: 2px solid var(--accent); }
   table.fleet-heat td.sel { outline: 2px solid var(--ink); }
   table.fleet-heat tbody th a { color: var(--ink); background-image: none; }
   table.fleet-heat tbody th a:hover { color: var(--accent); }
-  table.fleet-heat td button { font: inherit; font-size: .68rem; color: inherit; background: none; border: 0; width: 100%; height: 100%; padding: 0; cursor: pointer; border-radius: 5px; }
+  table.fleet-heat td button { font: inherit; font-size: .64rem; color: inherit; background: none; border: 0; width: 100%; height: 100%; padding: 0; cursor: pointer; border-radius: 5px; }
   table.fleet-heat td button:hover { outline: 2px solid var(--accent); }
   .fleet-cell-panel { margin: .6rem 0 0; padding: 1rem 1.2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
   .fleet-cell-panel h3 { margin: 0 0 .4rem; padding-left: .6rem; font-size: 1.05rem; }
