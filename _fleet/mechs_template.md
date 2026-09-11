@@ -13,7 +13,7 @@ The X-Mech suite is a fleet of nine curated, ontology-grounded knowledge bases t
 
 ## The nine Mechs
 
-Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it.
+Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; CommunityMech, MediaIngredientMech and CultureMech have no schema field that records review yet, so they show only the pull-request count rather than a zero.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech)">

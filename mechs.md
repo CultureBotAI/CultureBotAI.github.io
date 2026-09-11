@@ -360,7 +360,7 @@ The X-Mech suite is a fleet of nine curated, ontology-grounded knowledge bases t
   </div>
   <div class="fleet-stage">
     <svg id="fleet-svg" viewBox="0 0 900 760" role="group" aria-labelledby="fleet-svg-title fleet-svg-desc">
-      <title id="fleet-svg-title">Relationship graph of the eight Mech knowledge bases</title>
+      <title id="fleet-svg-title">Relationship graph of the nine Mech knowledge bases</title>
       <desc id="fleet-svg-desc">Nodes are Mechs arranged in a ring from habitat to culture medium; chords are shared ontology terms, dashed arcs are direct cross-references, and spokes connect to the central kg-microbe knowledge graph.</desc>
       <defs>
         <marker id="fleet-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrow" d="M0,0 L10,5 L0,10 z"></path></marker>
@@ -822,7 +822,7 @@ The X-Mech suite is a fleet of nine curated, ontology-grounded knowledge bases t
 
 ## The nine Mechs
 
-Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it.
+Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; CommunityMech, MediaIngredientMech and CultureMech have no schema field that records review yet, so they show only the pull-request count rather than a zero.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech)">

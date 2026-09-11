@@ -19,9 +19,10 @@ Two facts per Mech, and they come from different places:
   reviewed one" and "this Mech does not track review" are different claims and
   the page should not make the second look like the first.
 - Merged pull requests are asked of GitHub, since the local checkout knows only
-  the branch it is on. The count is every merged PR in the repository's life,
-  which is the closest thing the fleet has to a measure of how much human review
-  the corpus has passed through.
+  the branch it is on. The count is every merged pull request in the
+  repository's history, curation and automation alike: seeding runs,
+  regeneration and dependency updates land the same way human curation does.
+  It measures development activity on a Mech, not how much of it was human.
 """
 from __future__ import annotations
 
@@ -33,7 +34,13 @@ import re
 import subprocess
 import sys
 
-import yaml
+try:
+    import yaml
+except ModuleNotFoundError:  # the only pipeline script that needs it; see #68
+    raise SystemExit(
+        "mech_stats.py needs PyYAML to read each Mech's schema and find the slot "
+        "that records review. Install it with `pip install pyyaml`."
+    )
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
