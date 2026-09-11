@@ -167,22 +167,34 @@
   .fleet-heat-wrap { overflow-x: auto; margin: 1rem 0 .4rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
   /* Fixed layout, so 22 vocabulary columns divide the width that is actually
      available instead of each claiming room for its widest number and pushing
-     the table past the page. Auto layout did the latter: the row header alone
-     took 168px and the table overflowed its container by 19px, which is a
-     horizontal scrollbar on a table that nearly fits. */
+     the table past the page. The declared widths sum to 968px with the
+     border-spacing, which is the floor below which the card scrolls; above it
+     the table fills the card and fixed layout shares out the surplus. Auto
+     layout did the latter: the row header alone took 168px and the table
+     overflowed its container by 19px, which is a horizontal scrollbar on a
+     table that nearly fits. */
   /* display: table overrides the site-wide `table { display: block; overflow-x:
      auto }` responsive rule in custom.css. While that applied, this table was
      its own scroll container and sized its columns from their content, so
      table-layout and every column width below were inert and 22 vocabularies
      ran past the card. The wrap keeps overflow-x for genuinely narrow screens. */
-  table.fleet-heat { display: table; overflow: visible; table-layout: fixed; width: calc(100% - 1.2rem); border-collapse: separate; border-spacing: 2px; margin: .6rem; font-size: .8rem; min-width: 966px; }
+  table.fleet-heat { display: table; overflow: visible; table-layout: fixed; width: calc(100% - 1.2rem); border-collapse: separate; border-spacing: 2px; margin: .6rem; font-size: .8rem; min-width: 968px; }
   /* Fixed layout only pins a column when that column is given a width, so every
      header cell gets one; with just the row header set, the rest fell back to
      their content width and the table ran 275px past the card while
      scrollWidth still reported no overflow. */
   table.fleet-heat thead th { width: 35px; padding: .2rem 0; text-align: center; }
   table.fleet-heat td { padding: 0; }
-  table.fleet-heat td button:focus-visible { outline: 2px solid var(--neon); outline-offset: -2px; }
+  /* A cell's background sweeps the whole ramp from card to accent-2, so any one
+     ring colour is invisible somewhere along it — a fixed neon ring fell under
+     3:1 on the mid shades. Two bands instead: card then ink, which always
+     contrast with each other whatever the cell underneath is doing. The
+     transparent outline survives forced-colors mode, where shadows are dropped. */
+  table.fleet-heat td button:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    box-shadow: inset 0 0 0 2px var(--card), inset 0 0 0 4px var(--ink);
+  }
   table.fleet-heat thead th:first-child, table.fleet-heat tbody th { width: 150px; text-align: left; }
   table.fleet-heat th { font-weight: 700; color: var(--muted); text-align: left; padding: .2rem .3rem; white-space: nowrap; }
   table.fleet-heat thead th { vertical-align: bottom; }
