@@ -14,7 +14,7 @@ import json
 import re
 import urllib.parse
 
-from roots import ORDER, mech_root, record_paths
+from roots import CITATION, ORDER, mech_root, record_paths
 
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
@@ -169,7 +169,7 @@ for a,b in itertools.combinations(ORDER,2):
     print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
 for m in ORDER:
     for p,(n,refs) in idx[m]["cells"].items():
-        if p in ("DOI","PMID"): continue
+        if p in CITATION: continue
         fn=f"{m}--{p}.json"
         json.dump({"mech":m,"prefix":p,"base":MECHS[m]["base"],"total":n,"records":refs},open(f"{OUT}/cells/{fn}","w"),separators=(",",":"),ensure_ascii=False)
         summary["cells"][f"{m}|{p}"]=n
