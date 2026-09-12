@@ -34,7 +34,7 @@ The comprehensive modular knowledge graph that powers CultureBotAI, developed by
 Read our peer-reviewed *GigaScience* paper by Dr. Marcin P. Joachimiak detailing the development and applications of the KG-Microbe knowledge graph.
 
 ### 🤖 [AI Curation Tools — X-Mech Suite](/mechs/)
-The [X-Mech suite](/mechs/) is a fleet of nine ontology-grounded knowledge bases ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/), [AntibioticMech](https://culturebotai.github.io/AntibioticMech/), [CellStructureMech](https://culturebotai.github.io/CellStructureMech/), [HabitatMech](https://culturebotai.github.io/HabitatMech/), [NaturalProductMech](https://github.com/CultureBotAI/NaturalProductMech)) that describe a microbe from habitat to culture medium, with 6,286 canonical media recipes, 477 ecophysiological traits, 429,000+ protein traits, 3,115 natural product structures, 2,920 antimicrobial structures and 3,208 habitats, coordinated by the culturebotai-claw orchestrator.
+The [X-Mech suite](/mechs/) is a fleet of ten ontology-grounded knowledge bases ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/), [AntibioticMech](https://culturebotai.github.io/AntibioticMech/), [CellStructureMech](https://culturebotai.github.io/CellStructureMech/), [HabitatMech](https://culturebotai.github.io/HabitatMech/), [NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/), [TaxonMech](https://culturebotai.github.io/TaxonMech/)) that describe a microbe from taxon identity and habitat to culture medium, with 6,286 canonical media recipes, 477 ecophysiological traits, 429,000+ protein traits, 3,115 natural product structures, 2,920 antimicrobial structures, 3,208 habitats and 100 taxon records, coordinated by the culturebotai-claw orchestrator.
 
 ### 🧠 [MicroGrowAgents](/microgrowagents/)
 Multi-agent AI system for microbial cultivation and growth media design across 864,363 validated species — [GitHub repository](https://github.com/CultureBotAI/MicroGrowAgents) *(private repository — public release planned)* · [bioRxiv preprint](https://doi.org/10.64898/2026.06.04.729985)
@@ -88,7 +88,7 @@ KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-m
 ## Quick Links
 
 - 🔬 [Research Areas](/research) - Detailed overview of our research focus
-- 🤖 [AI Curation Tools](/mechs/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech)
+- 🤖 [AI Curation Tools](/mechs/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech)
 - 🧠 [MicroGrowAgents](/microgrowagents/) - Multi-agent AI for media design
 - 📚 [Resources](/resources) - Tools, databases, and knowledge graphs
 - 📄 [Publications](/publications) - Papers, preprints, and presentations
