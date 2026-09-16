@@ -42,7 +42,7 @@ python3 scripts/fleet/assemble_page.py --check
 
 Membership updates do not require rescanning the record corpora. The current
 September 2026 vocabulary census covers nine Mechs; TaxonMech is shown in the
-graph and cards with its 100-taxon snapshot, but its vocabulary counts have not
+graph and cards with its published 625,960-taxon total (checked September 15, 2026), but its vocabulary counts have not
 been measured by this pipeline. The heatmap uses the measured `fleet_data.json`
 order, and the page states this limitation. Add TaxonMech to the census roots
 and scanners before publishing measured vocabulary cells or overlap counts for it.
@@ -81,3 +81,12 @@ cards; these links are separate from the historical census's record-link routes.
 
 MIBiG and NPAtlas are carried through the whole pipeline alongside the
 ontologies, because they are how NaturalProductMech grounds its corpus.
+
+## Published-site refresh (September 15, 2026)
+
+Cards and graph details use the live sites linked by each card, following their
+landing-page redirects. MediaIngredientMech counts come from its published
+`data/ingredients.json` (2,951 ingredients, 2,616 MAPPED), as on its landing page.
+CultureMech reports 10,657 published-browser recipes, not the older merged-corpus
+count. The vocabulary census and overlap assets remain their earlier snapshot;
+the page explicitly separates these from the refreshed site totals.
