@@ -100,13 +100,17 @@ def assemble(template, fragment, data, snapshot, stats, census):
         raise ValueError("Every Mech card must carry a record count")
     # The census measures fewer members than the fleet has, so its vocabulary
     # tally is labelled as the dated census on the page rather than as current.
-    as_of = census.pop("_as_of")  # written by prefix_census.py; the rest are Mechs
-    vocabularies = {prefix for mech in census.values() for prefix in mech["prefixes"]}
+    # Keys beginning with an underscore are the scan's own metadata, not Mechs.
+    # Read rather than pop: assemble() is handed a parsed document and must not
+    # consume it, or a second call with the same object fails (#81).
+    as_of = census["_as_of"]
+    measured_mechs = {name: mech for name, mech in census.items() if not name.startswith("_")}
+    vocabularies = {prefix for mech in measured_mechs.values() for prefix in mech["prefixes"]}
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
         "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
-        "<!--FLEET_CENSUS_COUNT-->": str(len(census)),
+        "<!--FLEET_CENSUS_COUNT-->": str(len(measured_mechs)),
         # The scan's own run date, carried in the file it writes. Not the file's
         # mtime: git neither records nor restores those, so a fresh clone would
         # date the census to the day somebody cloned it.

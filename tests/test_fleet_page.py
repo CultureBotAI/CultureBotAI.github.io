@@ -25,6 +25,9 @@ class FleetPageTests(unittest.TestCase):
     def render(self):
         return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census)
 
+    def test_rendering_twice_does_not_consume_the_census(self):
+        self.assertEqual(self.render(), self.render())
+
     def test_records_tile_equals_the_sum_of_the_cards(self):
         page = self.render()
         total = sum(int(n.replace(",", "")) for n in CARD_RECORDS.findall(self.template))
