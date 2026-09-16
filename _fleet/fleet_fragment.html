@@ -300,8 +300,8 @@
 
 <div class="fleet-stats" aria-label="Fleet at a glance">
   <div><b><!--FLEET_COUNT--></b><span>Mech knowledge bases</span></div>
-  <div><b>448,724</b><span>records · September 2026</span></div>
-  <div><b>43</b><span>vocabularies in dated census</span></div>
+  <div><b><!--FLEET_RECORDS_TOTAL--></b><span>records across the fleet</span></div>
+  <div><b><!--FLEET_VOCAB_COUNT--></b><span>vocabularies in dated census</span></div>
   <div><b><!--FLEET_PRS_TOTAL--></b><span>merged PRs</span></div>
   <div><b>1</b><span>orchestrator (claw)</span></div>
 </div>
@@ -325,7 +325,7 @@
 
 <div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This earlier September 2026 vocabulary census was not recomputed with the September 15 site refresh and covers nine Mechs; TaxonMech is a fleet member whose vocabulary census has not yet been measured. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of September 2026. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COUNT--> of the <!--FLEET_COUNT--> Mechs; TaxonMech is a fleet member whose vocabulary has not yet been measured, so it has no row. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">

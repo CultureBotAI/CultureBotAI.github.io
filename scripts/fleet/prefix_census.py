@@ -8,6 +8,7 @@ import os
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA = os.path.join(REPO, "_fleet", "data")
 import collections
+import datetime
 import json
 import re
 
@@ -26,4 +27,8 @@ for m in ORDER:
             for p in rx.findall(txt): pc[norm.get(p,p)]+=1
     out[m]={"files":n,"prefixes":dict(pc.most_common())}
     print(m,n,dict(pc.most_common(14)),flush=True)
+# The run date travels in the file, not on it: git does not preserve mtimes, so
+# a fresh clone would otherwise make the page claim the corpora were counted on
+# the day someone cloned it (CultureBotAI.github.io#74).
+out["_as_of"]=datetime.date.today().isoformat()
 json.dump(out,open(DATA+"/prefix_census.json","w"),indent=1)
