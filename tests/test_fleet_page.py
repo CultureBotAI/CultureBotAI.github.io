@@ -9,7 +9,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from assemble_page import assemble, capability_rows, script_json
+from assemble_page import CARD_RECORDS, assemble, capability_rows, script_json
 from refresh_manifest import ARTIFACT_PATH, MANIFEST_PATH, read_canonical, semantic, validate
 
 
@@ -20,9 +20,20 @@ class FleetPageTests(unittest.TestCase):
         self.fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
         self.data = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
         self.stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
+        self.census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
 
     def render(self):
-        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats)
+        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census)
+
+    def test_records_tile_equals_the_sum_of_the_cards(self):
+        page = self.render()
+        total = sum(int(n.replace(",", "")) for n in CARD_RECORDS.findall(self.template))
+        self.assertIn(f"<div><b>{total:,}</b><span>records across the fleet</span></div>", page)
+
+    def test_a_card_without_a_record_count_cannot_be_left_out_of_the_total(self):
+        self.template = self.template.replace('<div class="num"><b>625,960</b>', '<div class="num"><b>', 1)
+        with self.assertRaisesRegex(ValueError, "record count"):
+            self.render()
 
     def test_card_stats_must_cover_every_fleet_member(self):
         self.stats["mechs"] = [m for m in self.stats["mechs"] if m["mech"] != "TaxonMech"]

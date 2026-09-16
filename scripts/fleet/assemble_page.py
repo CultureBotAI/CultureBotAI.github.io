@@ -1,5 +1,6 @@
 """Assemble mechs.md from the page sources and pinned fleet snapshot."""
 import argparse
+import datetime
 from html import escape
 import json
 from pathlib import Path
@@ -36,7 +37,27 @@ def script_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
 
 
-def assemble(template, fragment, data, snapshot, stats):
+CARD_RECORDS = re.compile(r'<div class="num"><b>([\d,]+)</b>')
+
+
+def fleet_records(template):
+    """What the Mech cards add up to.
+
+    The tile used to carry its own typed figure and drifted away from the
+    cards it was meant to total: it read 448,724 while the ten cards summed to
+    1,059,170, short by roughly the whole of TaxonMech, which was admitted
+    after the tile was last edited (CultureBotAI.github.io#76). Summing the
+    cards keeps the two true to each other by construction, and it is the
+    right source because the cards cite each Mech's published browser, which
+    the record-corpus census does not measure the same way.
+    """
+    counts = [int(n.replace(",", "")) for n in CARD_RECORDS.findall(template)]
+    if not counts:
+        raise ValueError("No Mech card record counts found")
+    return counts
+
+
+def assemble(template, fragment, data, snapshot, stats, census):
     validate(snapshot)
     names = set(snapshot["mechs"])
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
@@ -74,8 +95,22 @@ def assemble(template, fragment, data, snapshot, stats):
     counted = {m["mech"] for m in stats["mechs"]}
     if counted != names:
         raise ValueError("Mech stats must cover canonical fleet membership exactly")
+    counts = fleet_records(template)
+    if len(counts) != len(names):
+        raise ValueError("Every Mech card must carry a record count")
+    # The census measures fewer members than the fleet has, so its vocabulary
+    # tally is labelled as the dated census on the page rather than as current.
+    as_of = census.pop("_as_of")  # written by prefix_census.py; the rest are Mechs
+    vocabularies = {prefix for mech in census.values() for prefix in mech["prefixes"]}
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
+        "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts):,}",
+        "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
+        "<!--FLEET_CENSUS_COUNT-->": str(len(census)),
+        # The scan's own run date, carried in the file it writes. Not the file's
+        # mtime: git neither records nor restores those, so a fresh clone would
+        # date the census to the day somebody cloned it.
+        "<!--FLEET_CENSUS_DATE-->": datetime.date.fromisoformat(as_of).strftime("%-d %B %Y"),
         "<!--FLEET_PRS_TOTAL-->": f"{stats['merged_prs_total']:,}",
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
@@ -108,7 +143,8 @@ def main():
                     (FLEET / "fleet_fragment.html").read_text(),
                     json.loads((FLEET / "data/fleet_data.json").read_text()),
                     json.loads((FLEET / "data/manifest.json").read_text()),
-                    json.loads((FLEET / "data/mech_stats.json").read_text()))
+                    json.loads((FLEET / "data/mech_stats.json").read_text()),
+                    json.loads((FLEET / "data/prefix_census.json").read_text()))
     target = REPO / "mechs.md"
     if args.check:
         if target.read_text() != page:
