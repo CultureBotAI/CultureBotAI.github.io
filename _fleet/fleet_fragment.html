@@ -2,12 +2,28 @@
 <style>
   /* Mech identity colors: each node wears the accent of its own site. */
   :root {
-    --mech-habitatmech: #2b6a4d; --mech-communitymech: #3D7DD6; --mech-traitmech: #C5474B;
-    --mech-cellstructuremech: #5257C9; --mech-proteintraitsmech: #2E8B84; --mech-antibioticmech: #85551C;
-    /* TaxonMech shares CellStructureMech's site accent; names and placement
-       identify the nodes without relying on color alone. */
-    --mech-naturalproductmech: #0b5fa5; --mech-taxonmech: #5257C9;
-    --mech-mediaingredientmech: #7E5BC4; --mech-culturemech: #4B9E5F;
+    --mech-habitatmech: #156f4a; --mech-communitymech: #008bf3; --mech-traitmech: #cc3867;
+    --mech-cellstructuremech: #662cfc; --mech-proteintraitsmech: #109c98; --mech-antibioticmech: #8f4e21;
+    /* Ten identity colours, re-derived together in OKLCH rather than picked one
+       at a time. TaxonMech used to carry CellStructureMech's exact value on this
+       theme, so two Mechs were indistinguishable everywhere the colour appears
+       (#78). The set is validated with the data-viz palette checker over all 45
+       pairs: on light every check passes, and on both themes the worst pair a
+       full-colour reader sees is above the OKLab distance-15 floor, which is
+       what stops any two Mechs reading as the same one.
+
+       Colour-vision separation lands in the 6-8 band rather than above 8. Ten
+       categorical identities is past what hue alone can carry -- forcing every
+       pair above 8 either wrecks the hues or, on the dark theme, has no solution
+       at all. That band is usable only where something other than colour names
+       the mark, which holds here: every node, card and heatmap row is labelled.
+
+       Each Mech keeps one hue across both themes and stays within 55 degrees of
+       the colour it had, so the page still reads as itself. The dark steps sit
+       brighter than the checker's band, as they did before, because the surface
+       is near-black and the alternative is losing separation. */
+    --mech-naturalproductmech: #3559aa; --mech-taxonmech: #82307d;
+    --mech-mediaingredientmech: #9a61cb; --mech-culturemech: #829c00;
     --sphere-hi: .42; --sphere-hi-mid: .12; --sphere-lo-mid: .12; --sphere-lo: .21;
     --fleet-edge: rgba(90, 99, 94, .34);
     --fleet-heat-hue: 150 22%;
@@ -16,10 +32,10 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --mech-habitatmech: #4fbf85; --mech-communitymech: #5c9cf0; --mech-traitmech: #f0696e;
-      --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
-      --mech-naturalproductmech: #79b8f3; --mech-taxonmech: #8b8fe8;
-      --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
+      --mech-habitatmech: #068d5d; --mech-communitymech: #0f95ff; --mech-traitmech: #ec5d85;
+      --mech-cellstructuremech: #7251ff; --mech-proteintraitsmech: #00b9b5; --mech-antibioticmech: #e89e71;
+      --mech-naturalproductmech: #9abbff; --mech-taxonmech: #b22bac;
+      --mech-mediaingredientmech: #a97cd2; --mech-culturemech: #94af31;
       --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
       --fleet-edge: rgba(160, 178, 168, .34);
       --fleet-heat-hue: 150 14%;
@@ -28,10 +44,10 @@
     }
   }
   :root[data-theme="dark"] {
-    --mech-habitatmech: #4fbf85; --mech-communitymech: #5c9cf0; --mech-traitmech: #f0696e;
-    --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
-    --mech-naturalproductmech: #79b8f3; --mech-taxonmech: #8b8fe8;
-    --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
+    --mech-habitatmech: #068d5d; --mech-communitymech: #0f95ff; --mech-traitmech: #ec5d85;
+    --mech-cellstructuremech: #7251ff; --mech-proteintraitsmech: #00b9b5; --mech-antibioticmech: #e89e71;
+    --mech-naturalproductmech: #9abbff; --mech-taxonmech: #b22bac;
+    --mech-mediaingredientmech: #a97cd2; --mech-culturemech: #94af31;
     --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
     --fleet-edge: rgba(160, 178, 168, .34);
     --fleet-heat-hue: 150 14%;
@@ -300,7 +316,7 @@
 
 <div class="fleet-stats" aria-label="Fleet at a glance">
   <div><b><!--FLEET_COUNT--></b><span>Mech knowledge bases</span></div>
-  <div><b><!--FLEET_RECORDS_TOTAL--></b><span>records across the fleet</span></div>
+  <div><b><!--FLEET_RECORDS_TOTAL--></b><span>curated entries across the fleet</span></div>
   <div><b><!--FLEET_VOCAB_COUNT--></b><span>vocabularies in dated census</span></div>
   <div><b><!--FLEET_PRS_TOTAL--></b><span>merged PRs</span></div>
   <div><b>1</b><span>orchestrator (claw)</span></div>
