@@ -19,7 +19,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
        identify the nodes without relying on color alone. */
     --mech-naturalproductmech: #0b5fa5; --mech-taxonmech: #5257C9;
     --mech-mediaingredientmech: #7E5BC4; --mech-culturemech: #4B9E5F;
-    --sphere-hi: .60; --sphere-hi-mid: .17; --sphere-lo-mid: .12; --sphere-lo: .21;
+    --sphere-hi: .42; --sphere-hi-mid: .12; --sphere-lo-mid: .12; --sphere-lo: .21;
     --fleet-edge: rgba(90, 99, 94, .34);
     --fleet-heat-hue: 150 22%;
     --voc-chebi: #D9702F; --voc-ncbitaxon: #3B7DD8; --voc-go: #2FA36B; --voc-metpo: #7A5BC7;
@@ -31,7 +31,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
       --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
       --mech-naturalproductmech: #79b8f3; --mech-taxonmech: #8b8fe8;
       --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
-      --sphere-hi: .52; --sphere-hi-mid: .13; --sphere-lo-mid: .26; --sphere-lo: .44;
+      --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
       --fleet-edge: rgba(160, 178, 168, .34);
       --fleet-heat-hue: 150 14%;
       --voc-chebi: #E8925A; --voc-ncbitaxon: #6FA6F2; --voc-go: #5CC48F; --voc-metpo: #A48CE8;
@@ -43,7 +43,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
     --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
     --mech-naturalproductmech: #79b8f3; --mech-taxonmech: #8b8fe8;
     --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
-    --sphere-hi: .52; --sphere-hi-mid: .13; --sphere-lo-mid: .26; --sphere-lo: .44;
+    --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
     --fleet-edge: rgba(160, 178, 168, .34);
     --fleet-heat-hue: 150 14%;
     --voc-chebi: #E8925A; --voc-ncbitaxon: #6FA6F2; --voc-go: #5CC48F; --voc-metpo: #A48CE8;
@@ -101,7 +101,13 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
      darker than dark-theme ones -- they carry their contrast against white, so
      HabitatMech is #2b6a4d on light against #4fbf85 on dark -- and a limb
      tuned for the dark theme turned them to mud. On light the highlight does
-     most of the modelling; on dark the shadow does. */
+     most of the modelling; on dark the shadow does.
+
+     Both peaks are kept low because the highlight washes every node toward
+     white, which pulls the ten Mech colours toward each other: at .52 the
+     closest dark-theme pair fell to 57% of its flat separation, and the pair
+     it hurt most was the one already too close (#78). At .34 it holds 77%
+     while the limb still models the sphere (#79). */
   #fleet-sheen stop:nth-child(1) { stop-opacity: var(--sphere-hi); }
   #fleet-sheen stop:nth-child(2) { stop-opacity: var(--sphere-hi-mid); }
   #fleet-limb stop:nth-child(2) { stop-opacity: var(--sphere-lo-mid); }
