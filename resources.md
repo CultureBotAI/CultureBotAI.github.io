@@ -187,7 +187,7 @@ LinkML-based modeling of microbial communities with evidence-based ecological in
 ### TraitMech - Microbial Ecophysiological Traits
 **[GitHub Repository](https://github.com/CultureBotAI/TraitMech)** | **[Web Interface](https://culturebotai.github.io/TraitMech/)** | CC0-1.0 License
 
-Microbial ecophysiological trait knowledge base seeded from METPO and curated incrementally — 477 trait records across 9 categories, each with definitions, causal graphs, and kg-microbe matches.
+Microbial ecophysiological trait knowledge base seeded from METPO and curated incrementally — 618 trait records across 10 categories, each with definitions, causal graphs, and kg-microbe matches.
 
 **What it does**: Standardizes the trait vocabulary used to describe microbial growth and ecology, and links each trait to its evidence and to kg-microbe.
 

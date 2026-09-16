@@ -19,7 +19,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech)">
     <header><h3>HabitatMech</h3><span class="scale">Habitat</span></header>
     <p class="tag">Four habitat vocabularies harmonized into ENVO-grounded records that keep every source's attestation.</p>
-    <div class="num"><b>3,208</b><span>habitat records</span></div>
+    <div class="num"><b><!--RECORDS:HabitatMech--></b><span>habitat records</span></div>
     <p class="prov"><!--STATS:HabitatMech--></p>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -27,7 +27,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
     <p class="tag">Curated knowledge base of microbial communities, their interactions, cultivation conditions and evidence.</p>
-    <div class="num"><b>332</b><span>community records · KGX export</span></div>
+    <div class="num"><b><!--RECORDS:CommunityMech--></b><span>community records · KGX export</span></div>
     <p class="prov"><!--STATS:CommunityMech--></p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
     <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -35,7 +35,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="TraitMech" style="--c: var(--mech-traitmech)">
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
     <p class="tag">Microbial ecophysiological trait knowledge base seeded from METPO, one curated YAML per trait, with causal mechanism graphs.</p>
-    <div class="num"><b>477</b><span>trait records · 353 with causal graphs</span></div>
+    <div class="num"><b><!--RECORDS:TraitMech--></b><span>trait records · <!--HIGHLIGHT:TraitMech--></span></div>
     <p class="prov"><!--STATS:TraitMech--></p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -43,7 +43,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech)">
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
     <p class="tag">Organelles, envelope layers, appendages, microcompartments and complexes: components, distribution, function and causal mechanism.</p>
-    <div class="num"><b>57</b><span>structure records · evidence-backed causal graphs</span></div>
+    <div class="num"><b><!--RECORDS:CellStructureMech--></b><span>structure records · evidence-backed causal graphs</span></div>
     <p class="prov"><!--STATS:CellStructureMech--></p>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -51,7 +51,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="ProteinTraitsMech" style="--c: var(--mech-proteintraitsmech)">
     <header><h3>ProteinTraitsMech</h3><span class="scale">Proteins</span></header>
     <p class="tag">Protein sequence, structure and function trait classes seeded from InterPro, Pfam, Rhea, CATH, SCOPe, CARD and more.</p>
-    <div class="num"><b>429,271</b><span>protein trait records</span></div>
+    <div class="num"><b><!--RECORDS:ProteinTraitsMech--></b><span>protein trait records</span></div>
     <p class="prov"><!--STATS:ProteinTraitsMech--></p>
     <div class="vocab"><span>InterPro</span><span>UniProt</span><span>Rhea</span><span>Pfam</span><span>GO</span><span>ChEBI</span><span>ARO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -59,7 +59,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech)">
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
     <p class="tag">One record per natural product structure: who makes it, from which gene cluster, what it does, and the evidence for all three.</p>
-    <div class="num"><b>3,115</b><span>structures · every one with a producer</span></div>
+    <div class="num"><b><!--RECORDS:NaturalProductMech--></b><span>structures · every one with a producer</span></div>
     <p class="prov"><!--STATS:NaturalProductMech--></p>
     <div class="vocab"><span>MIBiG</span><span>NCBITaxon</span><span>ChEBI</span><span>NPAtlas</span><span>PubChem</span><span>UniProt</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/NaturalProductMech/">Browse</a><a href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge adj">not yet in fleet manifest</span></div>
@@ -67,7 +67,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="AntibioticMech" style="--c: var(--mech-antibioticmech)">
     <header><h3>AntibioticMech</h3><span class="scale">Antibiotics</span></header>
     <p class="tag">One record per antimicrobial chemical structure, harmonizing ChEBI and CARD with targets, mode of action, resistance and evidence.</p>
-    <div class="num"><b>2,920</b><span>antimicrobial structures · 92% ChEBI-grounded</span></div>
+    <div class="num"><b><!--RECORDS:AntibioticMech--></b><span>antimicrobial structures · <!--HIGHLIGHT:AntibioticMech--></span></div>
     <p class="prov"><!--STATS:AntibioticMech--></p>
     <div class="vocab"><span>ChEBI</span><span>ARO</span><span>CAS</span><span>PubChem</span><span>DrugBank</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -75,7 +75,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
     <p class="tag">LLM-assisted curation of media-ingredient ontology mappings with full audit trails; owns ingredient identity for the fleet.</p>
-    <div class="num"><b>2,958</b><span>ingredient records · 91% mapped</span></div>
+    <div class="num"><b><!--RECORDS:MediaIngredientMech--></b><span>ingredient records · <!--HIGHLIGHT:MediaIngredientMech--></span></div>
     <p class="prov"><!--STATS:MediaIngredientMech--></p>
     <div class="vocab"><span>ChEBI</span><span>CAS</span><span>NCIT</span><span>FOODON</span><span>ENVO</span><span>MeSH</span></div>
     <div class="row"><a class="primary" href="/mediaingredientmech/">Page</a><a href="https://culturebotai.github.io/MediaIngredientMech/">Browse</a><a href="https://github.com/CultureBotAI/MediaIngredientMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
@@ -83,7 +83,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CultureMech" style="--c: var(--mech-culturemech)">
     <header><h3>CultureMech</h3><span class="scale">Media</span></header>
     <p class="tag">Versioned, ontology-grounded knowledge base of culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.</p>
-    <div class="num"><b>6,286</b><span>merged recipes · 15,877 normalized</span></div>
+    <div class="num"><b><!--RECORDS:CultureMech--></b><span>merged recipes · <!--HIGHLIGHT:CultureMech--></span></div>
     <p class="prov"><!--STATS:CultureMech--></p>
     <div class="vocab"><span>ChEBI</span><span>KEGG</span><span>FOODON</span><span>UBERON</span><span>CAS</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>

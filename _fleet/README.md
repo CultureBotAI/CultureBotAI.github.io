@@ -34,9 +34,16 @@ python3 scripts/fleet/assemble_page.py    # mechs.md
 The two scanning passes take about two minutes each, dominated by
 ProteinTraitsMech's ~430k records.
 
+Every count the page states is substituted at assembly time, not typed into the
+markup: record totals and the "ontologies & databases cited" tile come from
+`prefix_census.json`, the reviewed and merged-PR figures and each card's
+secondary stat from `mech_stats.json`, and the "as of" date from when the
+census file was last written. They were typed once and went stale within days
+(#64), so `assemble_page.py` now fails rather than shipping an unfilled
+placeholder.
+
 `mech_stats.py` counts reviewed records and asks GitHub for merged pull-request
-totals, which `assemble_page.py` then substitutes into the stat strip and the
-Mech cards; the build fails rather than shipping an unfilled placeholder. It
+totals; the build fails rather than shipping an unfilled placeholder. It
 needs `gh` authenticated against the CultureBotAI repositories and PyYAML, which
 it uses to find each Mech's review slot in that Mech's LinkML schema. Pass
 `--no-prs` to recount records while keeping the pull-request numbers on file.

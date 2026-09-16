@@ -59,6 +59,38 @@ GH_REPO = {"ProteinTraitsMech": "proteintraitsmech"}
 # report more reviewed records than a Mech has records.
 STATUS = re.compile(r"^(mapping_status|curation_status)\s*:\s*[\"']?([A-Z_]+)[\"']?\s*$", re.M)
 
+# The second half of each card's headline, for the four Mechs whose curators
+# put a number there. They have to be per-Mech: a percentage grounded in ChEBI
+# means nothing for a Mech that mints its own identifiers, and CultureMech's
+# figure counts a different directory from the one its records live in. Written
+# here so they move with the corpora; they were typed into the markup and went
+# stale within days (CultureBotAI.github.io#64).
+#
+#   pattern -- matched against each record; a file counts once if it matches
+#   glob    -- an alternative corpus, relative to the checkout
+#   text    -- {n} is the count, {pct} that count as a percentage of the corpus
+HIGHLIGHT = {
+    "TraitMech": {"pattern": r"^causal_graph", "text": "{n:,} with causal graphs"},
+    "AntibioticMech": {"pattern": r"^grounding_status:\s*[\"']?EXACT", "text": "{pct}% ChEBI-grounded"},
+    "MediaIngredientMech": {"pattern": r"^mapping_status:\s*[\"']?MAPPED", "text": "{pct}% mapped"},
+    "CultureMech": {"glob": "data/normalized_yaml/**/*.yaml", "text": "{n:,} normalized"},
+}
+
+
+def highlight(mech: str, records: int) -> str | None:
+    spec = HIGHLIGHT.get(mech)
+    if spec is None:
+        return None
+    if "glob" in spec:
+        n = len(glob.glob(os.path.join(mech_root(mech), spec["glob"]), recursive=True))
+        if not n:
+            raise SystemExit(f"{mech}: {spec['glob']} matched no files; the layer moved or is empty.")
+    else:
+        rx = re.compile(spec["pattern"], re.M)
+        n = sum(bool(rx.search(open(p, encoding="utf-8", errors="replace").read()))
+                for p in record_paths(mech))
+    return spec["text"].format(n=n, pct=round(100 * n / records))
+
 
 def review_slot(mech: str) -> str | None:
     """The record field whose schema enum permits REVIEWED, if the Mech has one.
@@ -128,7 +160,8 @@ def main() -> None:
         records, reviewed, field = review_census(name)
         prs = old[name]["merged_prs"] if keep_prs and name in old else merged_prs(name)
         mechs.append({"mech": name, "repo": GH_REPO.get(name, name), "records": records,
-                      "reviewed": reviewed, "status_field": field, "merged_prs": prs})
+                      "reviewed": reviewed, "status_field": field, "merged_prs": prs,
+                      "highlight": highlight(name, records)})
         shown = "not tracked" if reviewed is None else f"{reviewed:,} reviewed"
         print(f"{name:<22} {records:>8,} records  {shown:<16} {prs:>5,} merged PRs")
 
