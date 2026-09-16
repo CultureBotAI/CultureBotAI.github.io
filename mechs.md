@@ -19,6 +19,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
        identify the nodes without relying on color alone. */
     --mech-naturalproductmech: #0b5fa5; --mech-taxonmech: #5257C9;
     --mech-mediaingredientmech: #7E5BC4; --mech-culturemech: #4B9E5F;
+    --sphere-hi: .42; --sphere-hi-mid: .12; --sphere-lo-mid: .12; --sphere-lo: .21;
     --fleet-edge: rgba(90, 99, 94, .34);
     --fleet-heat-hue: 150 22%;
     --voc-chebi: #D9702F; --voc-ncbitaxon: #3B7DD8; --voc-go: #2FA36B; --voc-metpo: #7A5BC7;
@@ -30,6 +31,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
       --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
       --mech-naturalproductmech: #79b8f3; --mech-taxonmech: #8b8fe8;
       --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
+      --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
       --fleet-edge: rgba(160, 178, 168, .34);
       --fleet-heat-hue: 150 14%;
       --voc-chebi: #E8925A; --voc-ncbitaxon: #6FA6F2; --voc-go: #5CC48F; --voc-metpo: #A48CE8;
@@ -41,6 +43,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
     --mech-cellstructuremech: #8a8ef5; --mech-proteintraitsmech: #3dbfb2; --mech-antibioticmech: #d9a94a;
     --mech-naturalproductmech: #79b8f3; --mech-taxonmech: #8b8fe8;
     --mech-mediaingredientmech: #b08cf2; --mech-culturemech: #63c46f;
+    --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
     --fleet-edge: rgba(160, 178, 168, .34);
     --fleet-heat-hue: 150 14%;
     --voc-chebi: #E8925A; --voc-ncbitaxon: #6FA6F2; --voc-go: #5CC48F; --voc-metpo: #A48CE8;
@@ -48,11 +51,16 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
   }
 
   /* ---- Stat strip ---- */
-  .fleet-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; margin: 1.2rem 0 .4rem; }
+  /* Five tiles need explicit breakpoints, not auto-fit. auto-fit picks the most
+     columns that fit, which between roughly 700px and 1010px is four, leaving
+     the fifth tile alone on a row and stretched to the full width. Stepping
+     5 -> 3 -> 2 keeps every row either full or short by one. */
+  .fleet-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin: 1.2rem 0 .4rem; }
+  @media (max-width: 1010px) { .fleet-stats { grid-template-columns: repeat(3, 1fr); } }
   .fleet-stats > div { padding: .9rem 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
   .fleet-stats b { display: block; font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ink); }
-  .fleet-stats span { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-  @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } }
+  .fleet-stats span { display: block; font-size: .72rem; line-height: 1.35; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } .fleet-stats b { font-size: 1.45rem; } }
 
   /* ---- Graph shell ---- */
   .fleet-graph { margin: 1.4rem 0 2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
@@ -83,6 +91,27 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
   .fleet-stage a.node-link { outline: none; }
   .fleet-stage a.node-link:hover .node-label, .fleet-stage a.node-link:focus-visible .node-label { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
   .fleet-stage .node circle { stroke: var(--card); stroke-width: 3; transition: r .2s ease, opacity .2s ease; }
+  /* The shading circles sit on top of the coloured disc and must not eat its
+     pointer events, or hovering a node would hit the overlay and the tooltip
+     would never open. They carry no stroke, so the base circle keeps drawing
+     the single outline. */
+  .fleet-stage .node circle.shade { stroke: none; pointer-events: none; }
+  /* The gradients are shaped once in the defs and weighted here, because the
+     weighting has to change with the theme. Light-theme Mech colours are much
+     darker than dark-theme ones -- they carry their contrast against white, so
+     HabitatMech is #2b6a4d on light against #4fbf85 on dark -- and a limb
+     tuned for the dark theme turned them to mud. On light the highlight does
+     most of the modelling; on dark the shadow does.
+
+     Both peaks are kept low because the highlight washes every node toward
+     white, which pulls the ten Mech colours toward each other: at .52 the
+     closest dark-theme pair fell to 57% of its flat separation, and the pair
+     it hurt most was the one already too close (#78). At .34 it holds 77%
+     while the limb still models the sphere (#79). */
+  #fleet-sheen stop:nth-child(1) { stop-opacity: var(--sphere-hi); }
+  #fleet-sheen stop:nth-child(2) { stop-opacity: var(--sphere-hi-mid); }
+  #fleet-limb stop:nth-child(2) { stop-opacity: var(--sphere-lo-mid); }
+  #fleet-limb stop:nth-child(3) { stop-opacity: var(--sphere-lo); }
   .fleet-stage .node.adjacent circle { stroke-dasharray: 5 4; stroke: var(--muted); }
   .fleet-stage a.node-link:focus-visible circle { stroke: var(--neon); }
   .fleet-stage .node.dim, .fleet-stage .edge.dim { opacity: .18; }
@@ -150,6 +179,10 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
   .mech-card .num { display: flex; align-items: baseline; gap: .45rem; font-variant-numeric: tabular-nums; }
   .mech-card .num b { font-size: 1.45rem; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
   .mech-card .num span { font-size: .82rem; color: var(--muted); }
+  /* Small print under the headline number: what the corpus has been through
+     rather than how big it is. Muted and a size down, so it reads as a footnote
+     to the number above it and not as a second headline. */
+  .mech-card .prov { margin: -.15rem 0 0; font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; }
   .mech-card .vocab { display: flex; flex-wrap: wrap; gap: .3rem; }
   .mech-card .vocab span { font-size: .72rem; font-weight: 700; padding: .25em .55em; border-radius: 6px; background: var(--wash-b); color: var(--ink); border: 1px solid var(--line); }
   .mech-card .row { display: flex; flex-wrap: wrap; gap: .35rem .5rem; align-items: center; margin-top: auto; padding-top: .3rem; }
@@ -280,6 +313,7 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
   <div><b>10</b><span>Mech knowledge bases</span></div>
   <div><b>448,724</b><span>records · September 2026</span></div>
   <div><b>43</b><span>vocabularies in dated census</span></div>
+  <div><b>2,778</b><span>merged PRs</span></div>
   <div><b>1</b><span>orchestrator (claw)</span></div>
 </div>
 
@@ -295,6 +329,14 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
   <a href="https://culturebotai.github.io/MediaIngredientMech/" style="--c: var(--mech-mediaingredientmech)" title="Open MediaIngredientMech"><b>Ingredients</b><span>what it is fed</span></a>
   <a href="https://culturebotai.github.io/CultureMech/" style="--c: var(--mech-culturemech)" title="Open CultureMech"><b>Media</b><span>where it is grown</span></a>
 </div>
+
+<h2 id="shared-vocabulary">Shared vocabulary</h2>
+
+<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Columns run from the most widely shared vocabulary to the least, so the left edge is the fleet's common ground and the right edge is what a single Mech needs alone. Click a Mech name to open it, a cell to list the records behind it, or a column heading to filter the graph to that vocabulary.</p>
+
+<div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
+<div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
+<p class="fleet-heat-note">This earlier September 2026 vocabulary census was not recomputed with the September 15 site refresh and covers nine Mechs; TaxonMech is a fleet member whose vocabulary census has not yet been measured. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of September 2026. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -327,6 +369,21 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
       <defs>
         <marker id="fleet-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrow" d="M0,0 L10,5 L0,10 z"></path></marker>
         <marker id="fleet-arrow-hub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrow-hub" d="M0,0 L10,5 L0,10 z"></path></marker>
+        <!-- One light source for the whole ring, up and to the left, so the
+             nodes read as lit spheres rather than ten differently lit ones.
+             Both gradients are in objectBoundingBox units, so a single pair
+             serves every node whatever its radius, and neither carries a hue:
+             they multiply over whichever Mech colour is underneath. -->
+        <radialGradient id="fleet-sheen" cx="33%" cy="27%" r="70%">
+          <stop offset="0%" stop-color="#fff" stop-opacity=".52"></stop>
+          <stop offset="40%" stop-color="#fff" stop-opacity=".13"></stop>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"></stop>
+        </radialGradient>
+        <radialGradient id="fleet-limb" cx="35%" cy="30%" r="78%">
+          <stop offset="52%" stop-color="#000" stop-opacity="0"></stop>
+          <stop offset="86%" stop-color="#000" stop-opacity=".26"></stop>
+          <stop offset="100%" stop-color="#000" stop-opacity=".44"></stop>
+        </radialGradient>
       </defs>
       <g id="fleet-gov"></g>
       <g id="fleet-xrefs"></g>
@@ -533,6 +590,8 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
     var a = el("a", { "class": "node-link", href: M.site, "aria-label": "Open " + m + ", " + fmt(M.records) + " " + M.unit }, gNodes);
     var g = el("g", { "class": "node" + (M.member ? "" : " adjacent") }, a);
     el("circle", { cx: p.x, cy: p.y, r: r, fill: color(m) }, g);
+    el("circle", { "class": "shade", cx: p.x, cy: p.y, r: r, fill: "url(#fleet-limb)" }, g);
+    el("circle", { "class": "shade", cx: p.x, cy: p.y, r: r, fill: "url(#fleet-sheen)" }, g);
     var anchor = Math.cos(p.a) > 0.2 ? "start" : Math.cos(p.a) < -0.2 ? "end" : "middle";
     var lx = p.x + Math.cos(p.a) * (r + 10), ly = p.y + Math.sin(p.a) * (r + 10);
     var dy = Math.sin(p.a) > 0.6 ? 14 : Math.sin(p.a) < -0.6 ? -10 : 4;
@@ -774,13 +833,14 @@ The X-Mech suite is a fleet of 10 curated, ontology-grounded knowledge bases tha
 
 ## The 10 Mechs
 
-Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. Card and graph totals reflect the published Mech pages checked on September 15, 2026; each Browse link is the source for its card. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <a href="https://github.com/CultureBotAI/culturebotai-claw/blob/683d6b9f45da4515f461b842822c4d0f3201718a/src/kg_microbe_fleet/fleet.yaml">CLAW fleet manifest at 683d6b9</a>.
+Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 15, 2026; each Browse link is the source for its card. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <a href="https://github.com/CultureBotAI/culturebotai-claw/blob/683d6b9f45da4515f461b842822c4d0f3201718a/src/kg_microbe_fleet/fleet.yaml">CLAW fleet manifest at 683d6b9</a>.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech)">
     <header><h3>HabitatMech</h3><span class="scale">Habitat</span></header>
     <p class="tag">Four habitat vocabularies harmonized into ENVO-grounded records that keep every source's attestation.</p>
     <div class="num"><b>3,206</b><span>habitat records · 684 reviewed</span></div>
+    <p class="prov">684 reviewed · 130 merged PRs</p>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -788,6 +848,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
     <p class="tag">Curated knowledge base of microbial communities, their interactions, cultivation conditions and evidence.</p>
     <div class="num"><b>374</b><span>community records · 16 categories</span></div>
+    <p class="prov">528 merged PRs</p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
     <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -795,6 +856,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>TaxonMech</h3><span class="scale">Taxa and strains</span></header>
     <p class="tag">Microbial taxa and strains identified by NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive, with evidence for strain-to-genome links.</p>
     <div class="num"><b>625,960</b><span>taxon records · 100,745 listed strains</span></div>
+    <p class="prov">0 reviewed · 15 merged PRs</p>
     <div class="vocab"><span>NCBITaxon</span><span>GTDB</span><span>LPSN</span><span>BacDive</span><span>NCBI Assembly</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/TaxonMech/">Browse</a><a href="https://github.com/CultureBotAI/TaxonMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -802,6 +864,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
     <p class="tag">Microbial ecophysiological trait knowledge base seeded from METPO, one curated YAML per trait, with causal mechanism graphs.</p>
     <div class="num"><b>630</b><span>trait records · 10 categories</span></div>
+    <p class="prov">427 reviewed · 517 merged PRs</p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -809,6 +872,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
     <p class="tag">Organelles, envelope layers, appendages, microcompartments and complexes: components, distribution, function and causal mechanism.</p>
     <div class="num"><b>360</b><span>structure records · 306 GO-grounded</span></div>
+    <p class="prov">0 reviewed · 425 merged PRs</p>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -816,6 +880,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>ProteinTraitsMech</h3><span class="scale">Proteins</span></header>
     <p class="tag">Protein sequence, structure and function trait classes seeded from InterPro, Pfam, Rhea, CATH, SCOPe, CARD and more.</p>
     <div class="num"><b>408,978</b><span>protein trait records · 29 sources</span></div>
+    <p class="prov">39,591 reviewed · 314 merged PRs</p>
     <div class="vocab"><span>InterPro</span><span>UniProt</span><span>Rhea</span><span>Pfam</span><span>GO</span><span>ChEBI</span><span>ARO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -823,6 +888,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
     <p class="tag">One record per natural product structure: who makes it, from which gene cluster, what it does, and the evidence for all three.</p>
     <div class="num"><b>3,115</b><span>natural product structures · 9 sources</span></div>
+    <p class="prov">0 reviewed · 80 merged PRs</p>
     <div class="vocab"><span>MIBiG</span><span>NCBITaxon</span><span>ChEBI</span><span>NPAtlas</span><span>PubChem</span><span>UniProt</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/NaturalProductMech/">Browse</a><a href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -830,6 +896,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>AntibioticMech</h3><span class="scale">Antibiotics</span></header>
     <p class="tag">One record per antimicrobial chemical structure, harmonizing ChEBI and CARD with targets, mode of action, resistance and evidence.</p>
     <div class="num"><b>2,939</b><span>antimicrobial structures · 2,669 grounded</span></div>
+    <p class="prov">80 reviewed · 160 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>ARO</span><span>CAS</span><span>PubChem</span><span>DrugBank</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -837,6 +904,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
     <p class="tag">LLM-assisted curation of media-ingredient ontology mappings with full audit trails; owns ingredient identity for the fleet.</p>
     <div class="num"><b>2,951</b><span>ingredient records · 2,616 mapped</span></div>
+    <p class="prov">359 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>CAS</span><span>NCIT</span><span>FOODON</span><span>ENVO</span><span>MeSH</span></div>
     <div class="row"><a class="primary" href="/mediaingredientmech/">Page</a><a href="https://culturebotai.github.io/MediaIngredientMech/">Browse</a><a href="https://github.com/CultureBotAI/MediaIngredientMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -844,6 +912,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <header><h3>CultureMech</h3><span class="scale">Media</span></header>
     <p class="tag">Versioned, ontology-grounded knowledge base of culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.</p>
     <div class="num"><b>10,657</b><span>published recipes · 5 categories</span></div>
+    <p class="prov">250 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>KEGG</span><span>FOODON</span><span>UBERON</span><span>CAS</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
@@ -859,13 +928,6 @@ Alongside record browsing, the Mechs publish complementary ways to explore their
 - **Chemical structures:** compare compounds in the [AntibioticMech chemical map](https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html) and the [NaturalProductMech structure map](https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html); NaturalProductMech also offers a [corpus map](https://culturebotai.github.io/NaturalProductMech/pages/map.html).
 - **Habitat meaning:** HabitatMech offers a [semantic text map](https://culturebotai.github.io/HabitatMech/pages/text-map/) alongside its ontology-grounded record browser.
 
-## Shared vocabulary
-
-The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Columns run from the most widely shared vocabulary to the least, so the left edge is the fleet's common ground and the right edge is what a single Mech needs alone. Click a Mech name to open it, a cell to list the records behind it, or a column heading to filter the graph to that vocabulary.
-
-<div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
-<div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This earlier September 2026 vocabulary census was not recomputed with the September 15 site refresh and covers nine Mechs; TaxonMech is a fleet member whose vocabulary census has not yet been measured. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of September 2026. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 ## How the Mechs reference each other
 

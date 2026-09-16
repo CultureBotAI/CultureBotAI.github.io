@@ -19,9 +19,24 @@ class FleetPageTests(unittest.TestCase):
         self.template = (ROOT / "_fleet/mechs_template.md").read_text()
         self.fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
         self.data = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
+        self.stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
 
     def render(self):
-        return assemble(self.template, self.fragment, self.data, self.snapshot)
+        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats)
+
+    def test_card_stats_must_cover_every_fleet_member(self):
+        self.stats["mechs"] = [m for m in self.stats["mechs"] if m["mech"] != "TaxonMech"]
+        with self.assertRaisesRegex(ValueError, "Mech stats"):
+            self.render()
+
+    def test_a_mech_that_cannot_record_review_shows_only_its_pull_requests(self):
+        page = self.render()
+        by_name = {m["mech"]: m for m in self.stats["mechs"]}
+        untracked = next(m for m in by_name.values() if m["reviewed"] is None)
+        tracked = next(m for m in by_name.values() if m["reviewed"] is not None)
+        self.assertIn(f'<p class="prov">{untracked["merged_prs"]:,} merged PRs</p>', page)
+        self.assertIn(f'{tracked["reviewed"]:,} reviewed \u00b7 {tracked["merged_prs"]:,} merged PRs', page)
+        self.assertNotIn("0 reviewed \u00b7 " + f'{untracked["merged_prs"]:,}', page)
 
     def test_published_page_contains_both_new_members_with_distinct_capabilities(self):
         page = self.render()
