@@ -36,7 +36,7 @@ def script_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
 
 
-def assemble(template, fragment, data, snapshot):
+def assemble(template, fragment, data, snapshot, stats):
     validate(snapshot)
     names = set(snapshot["mechs"])
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
@@ -68,13 +68,27 @@ def assemble(template, fragment, data, snapshot):
         raise ValueError("Expected one fleet fragment")
     page = template.replace("<!--FLEET_FRAGMENT-->", fragment)
     source = snapshot["source"]
+    # mech_stats.py follows the same manifest, so every card is covered; an
+    # admission that reached the manifest but not a recount would otherwise
+    # leave a stat line unfilled, which the placeholder sweep below catches.
+    counted = {m["mech"] for m in stats["mechs"]}
+    if counted != names:
+        raise ValueError("Mech stats must cover canonical fleet membership exactly")
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
+        "<!--FLEET_PRS_TOTAL-->": f"{stats['merged_prs_total']:,}",
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
         "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot),
     }
     tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">in fleet manifest</span>' for name in names})
+    for mech in stats["mechs"]:
+        prs = f"{mech['merged_prs']:,} merged PRs"
+        # A null reviewed count means the Mech's schema has no status that can
+        # say REVIEWED, which is not the same as nothing having been reviewed,
+        # so the card says nothing rather than zero. See mech_stats.py.
+        line = prs if mech["reviewed"] is None else f"{mech['reviewed']:,} reviewed \u00b7 {prs}"
+        tokens[f"<!--FLEET_STATS:{mech['mech']}-->"] = line
     for token, value in tokens.items():
         if token not in page:
             raise ValueError(f"Missing source token {token}")
@@ -93,7 +107,8 @@ def main():
     page = assemble((FLEET / "mechs_template.md").read_text(),
                     (FLEET / "fleet_fragment.html").read_text(),
                     json.loads((FLEET / "data/fleet_data.json").read_text()),
-                    json.loads((FLEET / "data/manifest.json").read_text()))
+                    json.loads((FLEET / "data/manifest.json").read_text()),
+                    json.loads((FLEET / "data/mech_stats.json").read_text()))
     target = REPO / "mechs.md"
     if args.check:
         if target.read_text() != page:
