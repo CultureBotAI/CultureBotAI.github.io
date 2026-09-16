@@ -122,9 +122,23 @@ def review_slot(mech: str) -> str | None:
     return None
 
 
+CENSUS = json.load(open(os.path.join(REPO, "_fleet", "data", "prefix_census.json"), encoding="utf-8"))
+
+
 def review_census(mech: str) -> tuple[int, int | None, str | None]:
-    """Records, reviewed records, and the field that said so."""
+    """Records, reviewed records, and the field that said so.
+
+    The record total comes from prefix_census.json rather than from a second
+    count here, so a percentage on a card always has the number printed beside
+    it as its denominator (#74).
+    """
     paths = record_paths(mech)
+    if len(paths) != CENSUS[mech]["files"]:
+        raise SystemExit(
+            f"{mech}: {len(paths):,} record files now, but prefix_census.json has "
+            f"{CENSUS[mech]['files']:,}. The corpus moved between passes; rerun "
+            "prefix_census.py and build_subsets.py before this."
+        )
     field = review_slot(mech)
     if field is None:
         return len(paths), None, None

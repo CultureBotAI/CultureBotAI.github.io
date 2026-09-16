@@ -17,12 +17,12 @@ page = open(os.path.join(F, "mechs_template.md"), encoding="utf-8").read().repla
 # claiming 57 CellStructureMech records against a corpus that had grown to 338
 # (CultureBotAI.github.io#64). A placeholder left unfilled now fails the build
 # instead of shipping.
-census_path = os.path.join(F, "data", "prefix_census.json")
-census = json.load(open(census_path, encoding="utf-8"))
-# The census file's own mtime, not today's date: the page should say when the
-# corpora were counted, which is not necessarily when the page was assembled.
-page = page.replace("<!--AS_OF-->",
-                    datetime.date.fromtimestamp(os.path.getmtime(census_path)).strftime("%-d %B %Y"))
+census = json.load(open(os.path.join(F, "data", "prefix_census.json"), encoding="utf-8"))
+as_of = census.pop("_as_of")  # written by prefix_census.py; the rest are Mechs
+# When the corpora were counted, which is not when the page was assembled and
+# is emphatically not the file's mtime: git does not preserve those, so a fresh
+# clone would date the page to the day it was cloned (#74).
+page = page.replace("<!--AS_OF-->", datetime.date.fromisoformat(as_of).strftime("%-d %B %Y"))
 stats = json.load(open(os.path.join(F, "data", "mech_stats.json"), encoding="utf-8"))
 
 records = {m: c["files"] for m, c in census.items()}
