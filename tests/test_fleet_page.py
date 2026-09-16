@@ -31,7 +31,7 @@ class FleetPageTests(unittest.TestCase):
     def test_records_tile_equals_the_sum_of_the_cards(self):
         page = self.render()
         total = sum(int(n.replace(",", "")) for n in CARD_RECORDS.findall(self.template))
-        self.assertIn(f"<div><b>{total:,}</b><span>records across the fleet</span></div>", page)
+        self.assertIn(f"<div><b>{total:,}</b><span>curated entries across the fleet</span></div>", page)
 
     def test_a_card_without_a_record_count_cannot_be_left_out_of_the_total(self):
         self.template = self.template.replace('<div class="num"><b>625,960</b>', '<div class="num"><b>', 1)
