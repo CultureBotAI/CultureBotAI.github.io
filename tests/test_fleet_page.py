@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
 from assemble_page import CARD_RECORDS, assemble, capability_rows, script_json
 from refresh_manifest import ARTIFACT_PATH, MANIFEST_PATH, read_canonical, semantic, validate
+import roots
 
 
 class FleetPageTests(unittest.TestCase):
@@ -165,6 +166,60 @@ class FleetPageTests(unittest.TestCase):
             self.assertEqual(semantic(result), semantic(self.snapshot))
             self.assertEqual(result['source']['revision'], git('rev-parse', 'HEAD').strip())
 
+
+class RecordPathTests(unittest.TestCase):
+    """record_paths() decides what counts as a record, so the page's numbers start here."""
+
+    def resolve(self, name, layout, excluded=None):
+        """Run record_paths() against a throwaway checkout with the given files."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for relative in layout:
+                target = root / name / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text('id: x\n')
+            patched = {
+                'MECHS_ROOT': str(root),
+                'EXCLUDE_DIRS': dict(roots.EXCLUDE_DIRS if excluded is None else excluded),
+            }
+            original = {key: getattr(roots, key) for key in patched}
+            for key, value in patched.items():
+                setattr(roots, key, value)
+            try:
+                return [str(Path(p).relative_to(root / name)) for p in roots.record_paths(name)]
+            finally:
+                for key, value in original.items():
+                    setattr(roots, key, value)
+
+    def test_backups_are_not_ingredient_records(self):
+        # Six timestamped copies under mapped/backups/ were being counted as
+        # records, and their prefixes double-counted in the heatmap (#88).
+        found = self.resolve('MediaIngredientMech', [
+            'data/ingredients/mapped/glucose.yaml',
+            'data/ingredients/unmapped/peptone.yaml',
+            'data/ingredients/mapped/backups/glucose_20260807_213601.yaml',
+        ])
+        self.assertEqual(found, ['data/ingredients/mapped/glucose.yaml',
+                                 'data/ingredients/unmapped/peptone.yaml'])
+
+    def test_exclusion_matches_a_directory_not_a_name_prefix(self):
+        # "backups/" must not also swallow a sibling called "backups_archive".
+        found = self.resolve('MediaIngredientMech', [
+            'data/ingredients/mapped/glucose.yaml',
+            'data/ingredients/mapped/backups_archive/kept.yaml',
+        ])
+        self.assertIn('data/ingredients/mapped/backups_archive/kept.yaml', found)
+
+    def test_a_corpus_emptied_by_exclusion_is_an_error_not_a_zero(self):
+        # An empty result is indistinguishable from a corpus that vanished, so
+        # record_paths() refuses to return one however it was emptied.
+        with self.assertRaises(SystemExit):
+            self.resolve('MediaIngredientMech',
+                         ['data/ingredients/mapped/backups/only_a_backup.yaml'])
+
+    def test_every_excluded_mech_is_one_the_census_actually_reads(self):
+        # A renamed Mech would leave a dead entry here that silently does nothing.
+        self.assertLessEqual(set(roots.EXCLUDE_DIRS), set(roots.RECORD_GLOBS))
 
 if __name__ == '__main__':
     unittest.main()

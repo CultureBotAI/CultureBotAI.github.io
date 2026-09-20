@@ -102,7 +102,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
 
 Alongside record browsing, the Mechs publish complementary ways to explore their data:
 
-- **Taxa and strains:** TaxonMech links [StrainInfo deposits](https://culturebotai.github.io/TaxonMech/pages/straininfo.html) to taxon identities and genome evidence.
+- **Taxa and strains:** TaxonMech lists the [20,648 taxa with a type strain](https://culturebotai.github.io/TaxonMech/pages/type-strains.html), each naming the BacDive deposit that LPSN records as the type, and states its [sources](https://culturebotai.github.io/TaxonMech/pages/sources.html).
 - **Community, trait and media similarity:** explore [CommunityMech](https://culturebotai.github.io/CommunityMech/community_umap.html), [TraitMech](https://culturebotai.github.io/TraitMech/pages/umap.html), [ingredients](https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html) and [culture media](https://culturebotai.github.io/CultureMech/app/umap.html) through their embedding browsers.
 - **Protein traits and proteins:** ProteinTraitsMech separates its [text-embedding corpus map](https://culturebotai.github.io/proteintraitsmech/map.html) from its [map of 68,657 Swiss-Prot proteins](https://culturebotai.github.io/proteintraitsmech/map.html#proteins).
 - **Chemical structures:** compare compounds in the [AntibioticMech chemical map](https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html) and the [NaturalProductMech structure map](https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html); NaturalProductMech also offers a [corpus map](https://culturebotai.github.io/NaturalProductMech/pages/map.html).
