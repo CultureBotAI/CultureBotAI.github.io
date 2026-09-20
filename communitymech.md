@@ -17,9 +17,9 @@ permalink: /communitymech/
 
 ### Current Contents
 
-The knowledge base holds **304 curated communities** across **16 categories**, each with evidence-backed interaction networks and **512-dimensional (v3) embeddings** for similarity search.
+The knowledge base holds **379 curated communities** across **16 categories**, each with evidence-backed interaction networks and **512-dimensional (v3) embeddings** for similarity search.
 
-Browse it through the [record browser](https://culturebotai.github.io/CommunityMech/) or explore the [PaCMAP embedding map](https://culturebotai.github.io/CommunityMech/) of the community space.
+Browse it through the [record browser](https://culturebotai.github.io/CommunityMech/browser.html) or explore the [PaCMAP embedding map](https://culturebotai.github.io/CommunityMech/community_umap.html) of the community space.
 
 ---
 
@@ -498,11 +498,16 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) ecosystem at Lawren
 
 ## Related Tools
 
-- **[X-Mech Suite overview](/mechs/)** - All nine Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
-- **[CultureMech](/culturemech/)** - Single-organism media requirements (6,286 canonical media)
-- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
+- **[X-Mech Suite overview](/mechs/)** - All ten Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
+- **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ENVO-grounded records
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
+- **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
+- **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
+- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
+- **[CultureMech](/culturemech/)** - Single-organism media requirements (6,286 canonical media)
 - **[PFASCommunityAgents](/resources/#pfascommunityagents)** - AI-driven consortium design for PFAS biodegradation
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph (864K+ species)
 - **[MicroGrowAgents](/microgrowagents/)** - Multi-agent media design system
