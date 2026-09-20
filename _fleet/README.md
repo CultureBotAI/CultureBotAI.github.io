@@ -105,9 +105,11 @@ carries literal ellipsis placeholders filled from `data/ingredients.json`
 (2,951 ingredients, 2,616 MAPPED).
 
 CultureMech is the one card that does not take its Mech's headline tile. That
-tile reads 10,657 "recipes" and has never matched any data layer: when it was
-written on 2026-06-30 the corpus was already 15,878 normalized and 6,103 merged,
-and nothing regenerates it. The card states 6,286 canonical media instead, which
+tile reads 10,657 "recipes", which matches no current data layer: it is the
+March 2026 normalized count, recorded as `input_recipes` in the Mech's tracked
+`data/merge_yaml/merge_stats_2026.json` (2026-03-15), and it was already four
+months stale when the tile was written on 2026-06-30, by which time the corpus
+was 15,878 normalized and 6,103 merged. Nothing regenerates it. The card states 6,286 canonical media instead, which
 is what CultureMech's own `pages/index.html` publishes and what the fleet census
 counts; the merged/normalized split is explained in the card's detail text.
 

@@ -152,7 +152,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink)
 ### CultureMech - Microbial Culture Media Knowledge Graph
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-15,877 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
+15,878 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
 
 **What it does**: Extracts chemical entities from unstructured media composition text and grounds them to standard chemical ontologies.
 
@@ -229,7 +229,7 @@ Knowledge base of protein sequence, structure, and function traits — 429,291 L
 
 2,939 antimicrobial chemical structures, 2,669 ontology-grounded, harmonizing ChEBI's antimicrobial roles with CARD/ARO molecules, targets and resistance determinants.
 
-**What it does**: Records one entry per antimicrobial structure with its mode of action, molecular targets and the evidence for both, and places all 2,939 on a chemical map by molecular fingerprint.
+**What it does**: Records one entry per antimicrobial structure, carrying its mode of action, molecular targets and the evidence for both where curation has supplied them — 454 records have a mode of action and 282 a molecular target so far — and places all 2,939 on a chemical map by molecular fingerprint.
 
 ---
 
@@ -238,7 +238,7 @@ Knowledge base of protein sequence, structure, and function traits — 429,291 L
 
 3,115 natural product structures, one per Standard InChIKey, seeded from nine sources and grounded in ChEBI, MIBiG and NCBI Taxonomy.
 
-**What it does**: Links each structure to its producer organisms, biosynthetic gene clusters, occurrences and bioactivities, with cited evidence for each claim. Records are seeded; curation has not yet started.
+**What it does**: Links every structure to the biosynthetic gene cluster it comes from (3,115 of 3,115) and to its producer organisms (3,076), and carries cited occurrences (2,342) and measured bioactivities (176) where a source reports them. Producer claims are graded: of 3,407, only 805 rest on evidence that addressed the organism. Records are seeded; curation has not yet started.
 
 ---
 
@@ -399,7 +399,7 @@ Comprehensive chemical compound knowledge graph mapping pipeline for microbial g
 #### CultureMech
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-15,877 curated culture media recipes deduplicated into 6,286 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
+15,878 curated culture media recipes deduplicated into 6,286 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
 
 **→ See the [dedicated CultureMech page](/culturemech/) for full documentation, use cases, and examples.**
 
