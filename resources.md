@@ -14,14 +14,14 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#-project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
-- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite: CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech
+- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of ten: CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech ([suite overview](/mechs/))
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents, KOGUT
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
 - [Literature Mining](#ai-agent-systems) - MATE-LLM
 - [Specialized Research](#specialized-research-pipelines) - PFAS, Lanthanide bioprocessing
-- [Advanced Research Tools](#advanced-research-tools) - Neurosymbolic reasoning, term extraction (NEW!)
-- [Developer Resources](#developer-resources) - Claude Code skills, APIs (NEW!)
+- [Advanced Research Tools](#-advanced-research-tools) - Neurosymbolic reasoning, term extraction (NEW!)
+- [Developer Resources](#-developer-resources) - Claude Code skills, APIs (NEW!)
 
 **Want to see workflows?** Jump to [Common Workflows](#common-workflows)
 
@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech; see the [suite overview and relationship graph](/mechs/)) forms the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs.
+The **[X-Mech Suite](/mechs/)** is a fleet of ten ontology-grounded knowledge bases (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech; see the [suite overview and relationship graph](/mechs/)), coordinated by the [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator. Together they form the AI-powered curation pipeline that transforms unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs.
 
 ### Pipeline Overview
 
@@ -152,7 +152,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink)
 ### CultureMech - Microbial Culture Media Knowledge Graph
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-15,877 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
+15,878 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding (ChEBI, PubChem), and browser-based exploration.
 
 **What it does**: Extracts chemical entities from unstructured media composition text and grounds them to standard chemical ontologies.
 
@@ -161,9 +161,9 @@ AI Predictions (MicroGrowAgents, MicroGrowLink)
 ---
 
 ### MediaIngredientMech - LLM-Assisted Ingredient Curation
-**[Dedicated Page](/mediaingredientmech/)** | **[GitHub Repository](https://github.com/CultureBotAI/MediaIngredientMech)** | Python
+**[Dedicated Page](/mediaingredientmech/)** | **[GitHub Repository](https://github.com/CultureBotAI/MediaIngredientMech)** | **[Web Interface](https://culturebotai.github.io/MediaIngredientMech/)** | CC0-1.0 License
 
-Curated media ingredient ontology mappings with LLM-assisted workflows for standardizing microbial cultivation ingredient data. Uses Large Language Models to intelligently map ingredient names to standardized ontology terms.
+2,951 curated ingredient records, 2,616 of them mapped (89% coverage), with LLM-assisted workflows for standardizing microbial cultivation ingredient data. Uses Large Language Models to intelligently map ingredient names to standardized ontology terms.
 
 **What it does**: Leverages LLMs for semantic matching of ambiguous ingredient names to ChEBI, PubChem, and METPO ontologies with human-in-the-loop validation.
 
@@ -174,7 +174,7 @@ Curated media ingredient ontology mappings with LLM-assisted workflows for stand
 ### CommunityMech - Microbial Community Interaction Modeling
 **[Dedicated Page](/communitymech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CommunityMech)** | **[Web Interface](https://culturebotai.github.io/CommunityMech/)** | BSD-3-Clause License
 
-LinkML-based modeling of microbial communities with evidence-based ecological interactions for consortium design and multi-organism cultivation.
+379 curated communities across 16 categories, modeled in LinkML with evidence-based ecological interactions for consortium design and multi-organism cultivation.
 
 **What it does**: Provides structured representation of community composition, syntrophic interactions, and cultivation requirements for multi-species systems.
 
@@ -187,7 +187,7 @@ LinkML-based modeling of microbial communities with evidence-based ecological in
 ### TraitMech - Microbial Ecophysiological Traits
 **[GitHub Repository](https://github.com/CultureBotAI/TraitMech)** | **[Web Interface](https://culturebotai.github.io/TraitMech/)** | CC0-1.0 License
 
-Microbial ecophysiological trait knowledge base seeded from METPO and curated incrementally — 630 trait records across 10 categories, each with definitions, causal graphs, and kg-microbe matches.
+Microbial ecophysiological trait knowledge base seeded from METPO and curated incrementally — 696 trait records across 10 categories, each with definitions, causal graphs, and kg-microbe matches.
 
 **What it does**: Standardizes the trait vocabulary used to describe microbial growth and ecology, and links each trait to its evidence and to kg-microbe.
 
@@ -196,9 +196,58 @@ Microbial ecophysiological trait knowledge base seeded from METPO and curated in
 ### ProteinTraitsMech - Protein Sequence & Structure Traits
 **[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC0-1.0 License
 
-Knowledge base of protein sequence, structure, and function traits — 400,000+ LinkML-validated records from 29 sources, one YAML per trait, with evidence-backed causal graphs.
+Knowledge base of protein sequence, structure, and function traits — 429,291 LinkML-validated records from 34 sources, one YAML per trait, with evidence-backed causal graphs.
 
 **What it does**: Extends trait curation from the organism level to the molecular level, connecting protein features to the phenotypes they help explain.
+
+---
+
+### CellStructureMech - Microbial Cell Structures
+**[GitHub Repository](https://github.com/CultureBotAI/CellStructureMech)** | **[Web Interface](https://culturebotai.github.io/CellStructureMech/)** | CC0-1.0 License (authored content; redistributed UniProt and Complex Portal material is CC BY 4.0)
+
+421 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 367 of them grounded in GO cellular component.
+
+**What it does**: Occupies the layer between traits and proteins, recording what a structure is made of, which organisms have it, what it does, and the causal mechanism by which it does so.
+
+**Related**: Confers phenotypes recorded as [TraitMech](https://culturebotai.github.io/TraitMech/) terms; hands single proteins off to [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/).
+
+---
+
+### HabitatMech - Microbial Habitats
+**[GitHub Repository](https://github.com/CultureBotAI/HabitatMech)** | **[Web Interface](https://culturebotai.github.io/HabitatMech/)** | CC0-1.0 License
+
+3,206 habitat records harmonized from GOLD, BacDive, PREGO and Madin et al., grounded in ENVO, UBERON, FOODON, BTO and PO, with every source's own attestation retained.
+
+**What it does**: Gives the fleet one record per habitat concept, so that isolation sources expressed differently by each upstream database resolve to a single identity.
+
+**Related**: Hands the one overlapping concept, BTO:0000316 culture medium, to [CultureMech](/culturemech/) rather than curating it twice.
+
+---
+
+### AntibioticMech - Antimicrobial Structures
+**[GitHub Repository](https://github.com/CultureBotAI/AntibioticMech)** | **[Web Interface](https://culturebotai.github.io/AntibioticMech/)** | CC0-1.0 License (code and schema) · CC BY 4.0 (record content)
+
+2,939 antimicrobial chemical structures, 2,669 ontology-grounded, harmonizing ChEBI's antimicrobial roles with CARD/ARO molecules, targets and resistance determinants.
+
+**What it does**: Records one entry per antimicrobial structure, carrying its mode of action, molecular targets and the evidence for both where curation has supplied them — 454 records have a mode of action and 282 a molecular target so far — and places all 2,939 on a chemical map by molecular fingerprint.
+
+---
+
+### NaturalProductMech - Natural Product Structures
+**[GitHub Repository](https://github.com/CultureBotAI/NaturalProductMech)** | **[Web Interface](https://culturebotai.github.io/NaturalProductMech/)** | CC0-1.0 License (code and schema) · CC BY 4.0 (record content)
+
+3,115 natural product structures, one per Standard InChIKey, seeded from nine sources and grounded in ChEBI, MIBiG and NCBI Taxonomy.
+
+**What it does**: Links every structure to the biosynthetic gene cluster it comes from (3,115 of 3,115) and to its producer organisms (3,076), and carries cited occurrences (2,342) and measured bioactivities (176) where a source reports them. Producer claims are graded: of 3,407, only 805 rest on evidence that addressed the organism. Records are seeded; curation has not yet started.
+
+---
+
+### TaxonMech - Microbial Taxa and Strains
+**[GitHub Repository](https://github.com/CultureBotAI/TaxonMech)** | **[Web Interface](https://culturebotai.github.io/TaxonMech/)** | CC0-1.0 License (project content; upstream sources retain their own terms)
+
+625,960 taxon records at species level and below, with 100,745 distinct listed strains, resolving NCBI Taxonomy, GTDB, LPSN and BacDive onto one NCBI-grounded identity.
+
+**What it does**: Supplies the taxon identity the rest of the fleet refers to, with evidence for strain-to-genome links. Higher taxa appear only in a record's lineage, never as records of their own.
 
 ---
 
@@ -350,7 +399,7 @@ Comprehensive chemical compound knowledge graph mapping pipeline for microbial g
 #### CultureMech
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC0-1.0 License
 
-15,877 curated culture media recipes deduplicated into 6,286 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
+15,878 curated culture media recipes deduplicated into 6,286 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech AI curation suite.
 
 **→ See the [dedicated CultureMech page](/culturemech/) for full documentation, use cases, and examples.**
 
@@ -570,7 +619,7 @@ Code for extracting AUTO terms from ontoGPT output. Processes ontology-based tex
 
 ---
 
-## 🛠️ Developer Resources
+## 🛠 Developer Resources
 
 #### culturebot-skills - Claude Code Skills
 **[GitHub Repository](https://github.com/CultureBotAI/culturebot-skills)** | Skills/Configuration
