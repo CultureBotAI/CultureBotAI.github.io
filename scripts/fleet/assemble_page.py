@@ -50,6 +50,10 @@ def fleet_records(template):
     cards keeps the two true to each other by construction, and it is the
     right source because the cards cite each Mech's published browser, which
     the record-corpus census does not measure the same way.
+
+    The ten are not ten counts of the same thing: the cards call theirs taxon
+    records, published recipes, natural product structures and so on. The tile
+    says "curated entries" rather than "records" for that reason (#82).
     """
     counts = [int(n.replace(",", "")) for n in CARD_RECORDS.findall(template)]
     if not counts:
