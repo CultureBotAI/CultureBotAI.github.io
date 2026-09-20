@@ -36,6 +36,16 @@ RECORD_GLOBS: dict[str, list[str]] = {
     "CultureMech": ["data/merge_yaml/merged/*.yaml"],
 }
 
+# Paths a record glob sweeps up that are not records. A `**` glob cannot say
+# "but not this subtree", and MediaIngredientMech keeps timestamped copies of
+# edited records under data/ingredients/mapped/backups/. Counting those six made
+# the census report 2,957 ingredient records where the Mech's own site, its
+# published data/ingredients.json and its tracked tree all say 2,951
+# (CultureBotAI.github.io#88). Matched against the path relative to the checkout.
+EXCLUDE_DIRS: dict[str, list[str]] = {
+    "MediaIngredientMech": ["data/ingredients/mapped/backups/"],
+}
+
 ORDER = list(RECORD_GLOBS)
 
 # Prefixes that identify a piece of literature rather than a concept. Every
@@ -63,6 +73,9 @@ def record_paths(name: str) -> list[str]:
     paths: list[str] = []
     for pattern in RECORD_GLOBS[name]:
         paths.extend(glob.glob(os.path.join(root, pattern), recursive=True))
+    for prefix in EXCLUDE_DIRS.get(name, []):
+        excluded = os.path.join(root, prefix)
+        paths = [p for p in paths if not p.startswith(excluded)]
     if not paths:
         raise SystemExit(
             f"{name}: {', '.join(RECORD_GLOBS[name])} matched no files under {root}. "

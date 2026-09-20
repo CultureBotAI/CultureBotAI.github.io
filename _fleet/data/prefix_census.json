@@ -2,21 +2,21 @@
  "HabitatMech": {
   "files": 3206,
   "prefixes": {
-   "NCBITaxon": 13226,
-   "ENVO": 3319,
+   "NCBITaxon": 13227,
+   "ENVO": 3368,
    "GOLD": 2562,
-   "BTO": 1363,
-   "UBERON": 1115,
-   "PMID": 513,
-   "FOODON": 200,
+   "BTO": 1367,
+   "UBERON": 1123,
+   "PMID": 516,
+   "FOODON": 198,
    "BacDive": 167,
    "PO": 117,
-   "DOI": 112,
+   "DOI": 116,
    "MESH": 83,
-   "NCIT": 37,
-   "CHEBI": 22,
-   "PATO": 4,
-   "GO": 2
+   "NCIT": 38,
+   "CHEBI": 24,
+   "GO": 7,
+   "PATO": 4
   }
  },
  "CommunityMech": {
@@ -35,12 +35,12 @@
   }
  },
  "TraitMech": {
-  "files": 618,
+  "files": 694,
   "prefixes": {
-   "DOI": 6088,
-   "METPO": 3453,
-   "RO": 2416,
-   "NCBITaxon": 955,
+   "DOI": 6749,
+   "METPO": 3541,
+   "RO": 2559,
+   "NCBITaxon": 975,
    "GO": 886,
    "CHEBI": 673,
    "PMID": 412,
@@ -54,23 +54,23 @@
   }
  },
  "CellStructureMech": {
-  "files": 338,
+  "files": 421,
   "prefixes": {
-   "GO": 5994,
-   "DOI": 4800,
-   "NCBITaxon": 1040,
+   "GO": 8623,
+   "DOI": 5931,
+   "NCBITaxon": 1211,
+   "PMID": 308,
    "UniProt": 284,
-   "PMID": 274,
    "ECO": 145,
    "PDB": 67,
-   "InterPro": 56,
-   "CHEBI": 45,
+   "InterPro": 58,
+   "CHEBI": 48,
    "Pfam": 22,
+   "ComplexPortal": 16,
    "METPO": 14,
    "RO": 7,
-   "ComplexPortal": 5,
+   "SO": 5,
    "MICRO": 4,
-   "SO": 4,
    "EMDB": 3,
    "BFO": 1
   }
@@ -78,20 +78,20 @@
  "ProteinTraitsMech": {
   "files": 429291,
   "prefixes": {
-   "InterPro": 1478104,
-   "UniProt": 657598,
+   "InterPro": 1558488,
+   "UniProt": 770276,
    "PMID": 657527,
    "RHEA": 613456,
-   "Pfam": 521966,
+   "Pfam": 558504,
    "GO": 421586,
    "ARO": 397717,
    "CHEBI": 374424,
-   "NCBITaxon": 358314,
+   "NCBITaxon": 371580,
    "RO": 278407,
    "PDB": 235957,
    "DOI": 193845,
-   "NCBIfam": 139525,
-   "EC": 119999,
+   "NCBIfam": 141317,
+   "EC": 120016,
    "BFO": 74488,
    "ComplexPortal": 20753,
    "SO": 19302,
@@ -126,7 +126,7 @@
    "ARO": 16653,
    "CAS": 1823,
    "PMID": 1207,
-   "NCBITaxon": 956,
+   "NCBITaxon": 1057,
    "PubChem": 592,
    "DrugBank": 508,
    "UniProt": 278,
@@ -137,10 +137,10 @@
   }
  },
  "MediaIngredientMech": {
-  "files": 2957,
+  "files": 2951,
   "prefixes": {
-   "CHEBI": 7914,
-   "CAS": 692,
+   "CHEBI": 7895,
+   "CAS": 689,
    "MICRO": 345,
    "MESH": 301,
    "NCIT": 287,
@@ -174,5 +174,5 @@
    "CAS": 1
   }
  },
- "_as_of": "2026-09-15"
+ "_as_of": "2026-09-20"
 }

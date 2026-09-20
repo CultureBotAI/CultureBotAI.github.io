@@ -42,7 +42,7 @@ python3 scripts/fleet/assemble_page.py --check
 
 Membership updates do not require rescanning the record corpora. The current
 September 2026 vocabulary census covers nine Mechs; TaxonMech is shown in the
-graph and cards with its published 625,960-taxon total (checked September 15, 2026), but its vocabulary counts have not
+graph and cards with its published 625,960-taxon total (checked September 20, 2026), but its vocabulary counts have not
 been measured by this pipeline. The heatmap uses the measured `fleet_data.json`
 order, and the page states this limitation. Add TaxonMech to the census roots
 and scanners before publishing measured vocabulary cells or overlap counts for it.
@@ -80,13 +80,36 @@ NaturalProductMech and TaxonMech both publish browse sites linked from their
 cards; these links are separate from the historical census's record-link routes.
 
 MIBiG and NPAtlas are carried through the whole pipeline alongside the
-ontologies, because they are how NaturalProductMech grounds its corpus.
+ontologies, because they are how NaturalProductMech cites its corpus. MIBiG is a
+seeded grounding source; NPAtlas is a cross-reference target only, since its
+licence bars ingestion into a CC BY 4.0 corpus.
 
-## Published-site refresh (September 15, 2026)
+`prefix_census.py`'s prefix alternation is a hand-maintained list and is known to
+be incomplete: TOGO, UTEX and CCAP are absent although comparable registries
+(MediaDive, DSMZ, ATCC, GOLD) are present. TOGO is CultureMech's second-largest
+structured namespace at 2,833 occurrences, so the heatmap currently understates
+it. Adding a prefix changes the heatmap's columns, so it needs a full rescan.
+
+## Published-site refresh (September 20, 2026)
 
 Cards and graph details use the live sites linked by each card, following their
-landing-page redirects. MediaIngredientMech counts come from its published
-`data/ingredients.json` (2,951 ingredients, 2,616 MAPPED), as on its landing page.
-CultureMech reports 10,657 published-browser recipes, not the older merged-corpus
-count. The vocabulary census and overlap assets remain their earlier snapshot;
-the page explicitly separates these from the refreshed site totals.
+landing-page redirects. Those redirects are client-side meta refreshes, not HTTP
+3xx, so `curl -L` stops at the 200-response shell and never reaches the real
+browser: fetch the `pages/` (or `app/`) URL directly when checking a card.
+
+Read the number the page *renders*, not the one in its HTML source. Two landing
+pages ship a stale static figure that JavaScript overwrites at runtime from the
+Mech's own index: ProteinTraitsMech's source says 408,978 records and 29 sources
+while `data/facets.json` serves 429,291 and 34, and MediaIngredientMech's source
+carries literal ellipsis placeholders filled from `data/ingredients.json`
+(2,951 ingredients, 2,616 MAPPED).
+
+CultureMech is the one card that does not take its Mech's headline tile. That
+tile reads 10,657 "recipes" and has never matched any data layer: when it was
+written on 2026-06-30 the corpus was already 15,878 normalized and 6,103 merged,
+and nothing regenerates it. The card states 6,286 canonical media instead, which
+is what CultureMech's own `pages/index.html` publishes and what the fleet census
+counts; the merged/normalized split is explained in the card's detail text.
+
+The vocabulary census and overlap assets are a separate, dated snapshot; the page
+explicitly separates these from the site totals.

@@ -13,13 +13,13 @@ The X-Mech suite is a fleet of <!--FLEET_COUNT--> curated, ontology-grounded kno
 
 ## The <!--FLEET_COUNT--> Mechs
 
-Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 15, 2026; each Browse link is the source for its card. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
+Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 20, 2026; each Browse link is the source for its card, except CultureMech, whose landing tile carries a legacy figure matching none of its data layers, so its card states the merged canonical count its own record index publishes. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)">
     <header><h3>HabitatMech</h3><span class="scale">Habitat</span></header>
     <p class="tag">Four habitat vocabularies harmonized into ENVO-grounded records that keep every source's attestation.</p>
-    <div class="num"><b>3,206</b><span>habitat records · 684 reviewed</span></div>
+    <div class="num"><b>3,206</b><span>habitat records · 686 reviewed</span></div>
     <p class="prov"><!--FLEET_STATS:HabitatMech--></p>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:HabitatMech--></div>
@@ -27,7 +27,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
     <p class="tag">Curated knowledge base of microbial communities, their interactions, cultivation conditions and evidence.</p>
-    <div class="num"><b>374</b><span>community records · 16 categories</span></div>
+    <div class="num"><b>379</b><span>community records · 16 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CommunityMech--></p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
     <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CommunityMech--></div>
@@ -43,7 +43,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="TraitMech" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)">
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
     <p class="tag">Microbial ecophysiological trait knowledge base seeded from METPO, one curated YAML per trait, with causal mechanism graphs.</p>
-    <div class="num"><b>630</b><span>trait records · 10 categories</span></div>
+    <div class="num"><b>696</b><span>trait records · 10 categories</span></div>
     <p class="prov"><!--FLEET_STATS:TraitMech--></p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TraitMech--></div>
@@ -51,7 +51,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)">
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
     <p class="tag">Organelles, envelope layers, appendages, microcompartments and complexes: components, distribution, function and causal mechanism.</p>
-    <div class="num"><b>360</b><span>structure records · 306 GO-grounded</span></div>
+    <div class="num"><b>421</b><span>structure records · 367 GO-grounded</span></div>
     <p class="prov"><!--FLEET_STATS:CellStructureMech--></p>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CellStructureMech--></div>
@@ -59,7 +59,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="ProteinTraitsMech" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)">
     <header><h3>ProteinTraitsMech</h3><span class="scale">Proteins</span></header>
     <p class="tag">Protein sequence, structure and function trait classes seeded from InterPro, Pfam, Rhea, CATH, SCOPe, CARD and more.</p>
-    <div class="num"><b>408,978</b><span>protein trait records · 29 sources</span></div>
+    <div class="num"><b>429,291</b><span>protein trait records · 34 sources</span></div>
     <p class="prov"><!--FLEET_STATS:ProteinTraitsMech--></p>
     <div class="vocab"><span>InterPro</span><span>UniProt</span><span>Rhea</span><span>Pfam</span><span>GO</span><span>ChEBI</span><span>ARO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:ProteinTraitsMech--></div>
@@ -91,7 +91,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CultureMech" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)">
     <header><h3>CultureMech</h3><span class="scale">Media</span></header>
     <p class="tag">Versioned, ontology-grounded knowledge base of culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.</p>
-    <div class="num"><b>10,657</b><span>published recipes · 5 categories</span></div>
+    <div class="num"><b>6,286</b><span>canonical media · 5 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CultureMech--></p>
     <div class="vocab"><span>ChEBI</span><span>KEGG</span><span>FOODON</span><span>UBERON</span><span>CAS</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CultureMech--></div>
