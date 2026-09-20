@@ -299,7 +299,7 @@
   .fleet-xrefs .pair { font-weight: 700; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
   .fleet-xrefs .pair i { font-style: normal; color: var(--muted); font-weight: 400; }
   .fleet-xrefs .pair b { color: var(--ci); }
-  .fleet-xrefs .pair b.to { color: var(--c2); }
+  .fleet-xrefs .pair b.to { color: var(--ci2); }
   .fleet-xrefs code { font-size: .8em; }
   .fleet-xrefs small { display: block; color: var(--muted); margin-top: .15rem; }
   @media (max-width: 640px) { .fleet-xrefs > div { grid-template-columns: 1fr; } }
@@ -847,7 +847,7 @@
         loadJSON("cells/" + key + ".json").then(function (doc) {
           if (cellSel !== key) return; // a later click replaced this one
           var cap = doc.records.length < doc.total;
-          cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><h3 style="color:' + color(m) + ';border-image:none;border-color:' + color(m) + '">' + fmt(doc.total) + ' record' + (doc.total === 1 ? '' : 's') + ' in ' + esc(m) + ' cite ' + esc(v) + ' identifiers</h3>' +
+          cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + fmt(doc.total) + ' record' + (doc.total === 1 ? '' : 's') + ' in ' + esc(m) + ' cite ' + esc(v) + ' identifiers</h3>' +
             '<p>' + (cap ? 'Showing the first ' + fmt(doc.records.length) + '. ' : '') + 'Each link opens the record' + (m === "CultureMech" || m === "MediaIngredientMech" ? ' source file on GitHub' : ' page') + '.</p>' +
             '<div class="links"><a class="go" href="' + MECHS[m].site + '">Open ' + esc(m) + ' ↗</a></div><p class="reclist">' + recLinks(doc.base, doc.records, doc.records.length) + '</p>';
         })["catch"](function () { if (cellSel !== key) return; cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>' + loadFailed() + '</p>'; });
