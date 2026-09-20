@@ -20,8 +20,8 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
 - [Literature Mining](#ai-agent-systems) - MATE-LLM
 - [Specialized Research](#specialized-research-pipelines) - PFAS, Lanthanide bioprocessing
-- [Advanced Research Tools](#advanced-research-tools) - Neurosymbolic reasoning, term extraction (NEW!)
-- [Developer Resources](#developer-resources) - Claude Code skills, APIs (NEW!)
+- [Advanced Research Tools](#-advanced-research-tools) - Neurosymbolic reasoning, term extraction (NEW!)
+- [Developer Resources](#-developer-resources) - Claude Code skills, APIs (NEW!)
 
 **Want to see workflows?** Jump to [Common Workflows](#common-workflows)
 
@@ -619,7 +619,7 @@ Code for extracting AUTO terms from ontoGPT output. Processes ontology-based tex
 
 ---
 
-## 🛠️ Developer Resources
+## 🛠 Developer Resources
 
 #### culturebot-skills - Claude Code Skills
 **[GitHub Repository](https://github.com/CultureBotAI/culturebot-skills)** | Skills/Configuration
