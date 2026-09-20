@@ -604,6 +604,11 @@ strong { color: var(--ink); font-weight: 700; }
 
 .site-footer .footer-family span { color: var(--muted); font-weight: 600; }
 
+/* The separator sits between two inline-block anchors whose margins are not
+   symmetric (.55rem leading, .1rem trailing), which pulls the dot onto the
+   link to its left. This restores an even gap on both sides. */
+.site-footer .footer-family .sep { margin-left: .45rem; }
+
 .site-footer .footer-family a {
   display: inline-block;
   margin: .15rem .1rem .15rem .55rem;

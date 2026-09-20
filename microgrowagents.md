@@ -85,11 +85,17 @@ Organism-Specific Media Recommendation
 
 ## Related Tools
 
-- **[CultureMech](/culturemech/)** - Microbial culture media knowledge graph (6,286 canonical media)
-- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
+- **[X-Mech Suite overview](/mechs/)** - All ten Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
+- **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ENVO-grounded records
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
+- **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
+- **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
+- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
+- **[CultureMech](/culturemech/)** - Microbial culture media knowledge graph (6,286 canonical media)
 - **[MicroGrowLink](/resources/#microgrowlink)** - Graph-based growth media prediction
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 

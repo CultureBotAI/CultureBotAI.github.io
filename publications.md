@@ -36,7 +36,7 @@ Every publication, preprint, and software record from this work, with resolvable
 
    License: BSD-3-Clause. See [KG-Microbe](/kg-microbe/).
 
-6. CultureBotAI organization repositories — CultureMech, MediaIngredientMech, CommunityMech, TraitMech, and ProteinTraitsMech. [github.com/CultureBotAI](https://github.com/CultureBotAI). Each repository carries its own citation and license; see [Resources](/resources/).
+6. CultureBotAI organization repositories — the X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech) and the culturebotai-claw orchestrator. [github.com/CultureBotAI](https://github.com/CultureBotAI) · [suite overview](/mechs/). Each repository carries its own citation and license; see [Resources](/resources/).
 
 7. **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences [workflow]. WorkflowHub; v1. [doi:10.48546/workflowhub.workflow.2044.1](https://doi.org/10.48546/workflowhub.workflow.2044.1) · [WorkflowHub 2044](https://workflowhub.eu/workflows/2044)
 
