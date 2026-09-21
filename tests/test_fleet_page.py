@@ -57,7 +57,7 @@ class FleetPageTests(unittest.TestCase):
         page = self.render()
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 10)
-        self.assertIn('Relationship graph of the 10 Mech knowledge bases', page)
+        self.assertIn('Relationship graph of the 10 autonomous knowledge factories', page)
         self.assertNotIn('not yet in fleet manifest', page)
         self.assertNotIn('one revision behind', page)
         caps = self.snapshot['mechs']

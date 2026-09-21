@@ -1,209 +1,88 @@
 ---
 layout: default
 title: "CultureMech"
-description: "15,878 curated culture media recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding, and browser-based exploration"
+description: "Autonomous knowledge factory for microbial culture media: 15,878 curated recipes from major international repositories, deduplicated into 6,286 canonical media, with LinkML schema, ontology grounding, and browser-based exploration"
 permalink: /culturemech/
 ---
 
-# CultureMech: Microbial Culture Media Knowledge Graph
+# CultureMech: Autonomous Knowledge Factory for Culture Media
 
 ## Overview
 
-**CultureMech** is a knowledge graph of culture media recipes from major international repositories: 15,878 curated records, deduplicated into 6,286 canonical media. The two layers answer different questions. The normalized layer keeps each repository's own formulation, so a medium published twice with different salts stays two records; the merged layer is the canonical set of distinct media. It transforms unstructured media composition text from literature and laboratory records into standardized, machine-readable data through automated chemical entity extraction and ontology-based grounding.
+**CultureMech** is an autonomous knowledge factory for microbial culture media, combining ontology grounding, validation, provenance, and recipe deduplication with human oversight. Its current repository holds **15,878 normalized records** and **6,286 merged canonical media**. Normalized records preserve each source's formulation; merged records provide the deduplicated view. [Repository snapshot](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/README.md#corpus-snapshot).
 
-**The Challenge**: Microbial cultivation protocols are scattered across scientific literature, culture collection databases, and laboratory notebooks in unstructured text formats. This makes it difficult to systematically analyze growth requirements, compare media compositions, or leverage this data for AI-driven predictions.
+## Explore the Published Site
 
-**The Solution**: CultureMech automatically extracts chemical entities from text-based media descriptions, parses concentrations, and grounds ingredients to standard chemical ontologies (ChEBI, PubChem), creating a unified knowledge graph that powers downstream AI tools.
+- **[Recipe browser](https://culturebotai.github.io/CultureMech/app/browser.html)** — search source-specific recipes and filter by category, medium type, physical state, target organism, and ingredients.
+- **[Ingredient-derived media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-derived)** — explore media using aggregated ingredient embeddings.
+- **[Direct media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct)** — explore the medium nodes' own KG-Microbe embeddings.
+- **[Graph layout](https://culturebotai.github.io/CultureMech/app/umap_graph.html)** — another view of media similarity.
 
----
+Counts and links were checked on September 20, 2026. The published landing page still displays a legacy recipe total; the counts above come from the current repository's generated corpus inventory.
 
-## Key Features
+## Data Architecture
 
-### 🧬 Comprehensive Coverage
-- **6,286 canonical media** deduplicated from 15,878 curated recipes
-- Coverage spans bacteria, archaea, fungi, and other microorganisms
-- Integration with ATCC, DSMZ, JCM, and other major repositories
-- Historical and contemporary cultivation protocols
+| Layer | Location | Purpose |
+|---|---|---|
+| Raw sources | `data/raw/` | Original source payloads |
+| Raw YAML | `data/raw_yaml/` | Source-shaped conversions |
+| Normalized records | `data/normalized_yaml/` | Authoritative source-specific curation and browser input |
+| Merged records | `data/merge_yaml/merged/` | Reproducible deduplicated media |
 
-### 🔬 Chemical Entity Extraction
-- Automated parsing of media composition text
-- Chemical compound recognition and identification
-- Concentration extraction and normalization
-- Support for complex media formulations
+Source imports include MediaDive/DSMZ, TogoMedium, KOMODO, and collection-specific recipes. The normalized inventory contains 14,305 bacterial, 743 archaeal, 249 algal, 126 fungal, and 455 specialized records. These categories sum to the normalized total, not the canonical total. [Data layers](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/docs/DATA_LAYERS.md).
 
-### 🗂️ Ontology Grounding
-- **ChEBI** (Chemical Entities of Biological Interest) integration
-- **PubChem** compound mapping
-- Standardized chemical identifiers
-- Semantic interoperability with other knowledge graphs
+## Curation and Validation
 
-### 📊 LinkML Schema
-- Structured data model for media compositions
-- Validation and quality control
-- Export to multiple formats (JSON, RDF, TSV)
-- Extensible schema for new data types
+Records carry ingredient amounts, ontology identifiers and labels, source references, and curation history. The LinkML schema separates composition type, nutritional class, and functional role while retaining the compatibility `medium_type` field. Validation checks schema shape, stricter record invariants, and recipe identifiers.
 
-### 🌐 Browser-Based Exploration
-- Interactive web interface: [culturebotai.github.io/CultureMech](https://culturebotai.github.io/CultureMech/)
-- Search and filter media recipes
-- Browse by organism, chemical compound, or media type
-- Download standardized data
+[MediaIngredientMech](/mediaingredientmech/) supplies ingredient identity and mapping artifacts. CultureMech retains recipe-specific composition and provenance. These structured outputs support downstream knowledge-graph integration, comparative media analysis, and cultivation research. [Schema](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/src/culturemech/schema/culturemech.yaml) · [Curation guide](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/docs/CONTRIBUTING.md).
 
----
+## Example: A Tracked Recipe
 
-## Technical Architecture
+The repository's [LB medium record](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/data/normalized_yaml/bacterial/lb_medium.yaml) has the stable identifier `CultureMech:008037` and preserves its TogoMedium/NBRC source. Its sodium-chloride ingredient illustrates the actual nested record format:
 
-### Data Processing Pipeline
-
-```
-Raw Media Text
-    ↓
-Text Parsing & Cleaning
-    ↓
-Chemical Entity Recognition
-    ↓
-Concentration Extraction
-    ↓
-Ontology Mapping (ChEBI/PubChem)
-    ↓
-Structured Media Records
-    ↓
-CultureMech Knowledge Graph
+```yaml
+preferred_term: NaCl
+concentration:
+  value: '5'
+  unit: G_PER_L
+source: NBRC Medium 275
+term:
+  id: CHEBI:26710
+  label: sodium chloride
 ```
 
-### Integration with CultureBotAI Ecosystem
-
-**CultureMech** serves as the foundation of the AI curation pipeline:
-
-- **Input Sources**:
-  - Culture collection databases (ATCC, DSMZ, JCM, NBRC)
-  - Scientific literature
-  - Laboratory cultivation protocols
-  - BacDive phenotypic data
-
-- **Feeds Into**:
-  - [MicroMediaParam](/resources/#micromediaparam) - Chemical compound standardization (78% ChEBI coverage)
-  - [kg-microbe](/kg-microbe/) - Central knowledge graph integration
-  - [MicroGrowAgents](/microgrowagents/) - AI-driven media design
-  - [MicroGrowLink](/resources/#microgrowlink) - Graph-based growth predictions
-
-- **Works With**:
-  - [MediaIngredientMech](/mediaingredientmech/) - LLM-assisted ingredient ontology mapping
-  - [assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor) - Phenotypic assay integration
-
----
-
-## Data Sources
-
-CultureMech aggregates media recipes from:
-
-### Major Culture Collections
-- **ATCC** (American Type Culture Collection)
-- **DSMZ** (German Collection of Microorganisms and Cell Cultures)
-- **JCM** (Japan Collection of Microorganisms)
-- **NBRC** (NITE Biological Resource Center)
-- Additional international repositories
-
-### Scientific Literature
-- Peer-reviewed publications describing novel cultivation protocols
-- Species descriptions with original growth conditions
-- Optimization studies for specific organisms
-
-### Standardized Media
-- Common laboratory media (LB, TSA, PDA, etc.)
-- Defined minimal media
-- Enrichment and selective media
-- Specialized media for extremophiles
-
----
-
-## Use Cases
-
-### 1. Historical Data Mining
-Extract cultivation conditions from decades of scientific literature to identify patterns in growth requirements across the microbial kingdom.
-
-### 2. Media Standardization
-Normalize media recipes from different sources to enable cross-institutional comparisons and meta-analyses.
-
-### 3. AI Model Training
-Provide structured training data for machine learning models that predict optimal growth conditions for novel organisms.
-
-### 4. Comparative Analysis
-Analyze relationships between taxonomic groups and their chemical growth requirements to inform cultivation strategies.
-
-### 5. Novel Organism Cultivation
-Leverage phylogenetic relationships and chemical similarity to recommend starting media for uncultivated organisms.
-
----
-
-## Example: Media Composition Extraction
-
-**Input (Unstructured Text)**:
-```
-"R2A medium containing (per liter): yeast extract (0.5 g),
-proteose peptone (0.5 g), casamino acids (0.5 g),
-glucose (0.5 g), soluble starch (0.5 g), K2HPO4 (0.3 g),
-MgSO4·7H2O (0.05 g), sodium pyruvate (0.3 g), pH 7.2"
-```
-
-**Output (Structured Data)**:
-```json
-{
-  "media_name": "R2A",
-  "components": [
-    {"compound": "yeast extract", "amount": 0.5, "unit": "g/L", "chebi_id": "CHEBI:82594"},
-    {"compound": "proteose peptone", "amount": 0.5, "unit": "g/L"},
-    {"compound": "casamino acids", "amount": 0.5, "unit": "g/L"},
-    {"compound": "glucose", "amount": 0.5, "unit": "g/L", "chebi_id": "CHEBI:17234"},
-    {"compound": "soluble starch", "amount": 0.5, "unit": "g/L", "chebi_id": "CHEBI:28017"},
-    {"compound": "dipotassium phosphate", "amount": 0.3, "unit": "g/L", "chebi_id": "CHEBI:131527"},
-    {"compound": "magnesium sulfate heptahydrate", "amount": 0.05, "unit": "g/L", "chebi_id": "CHEBI:31795"},
-    {"compound": "sodium pyruvate", "amount": 0.3, "unit": "g/L", "chebi_id": "CHEBI:113958"}
-  ],
-  "ph": 7.2
-}
-```
-
----
-
-## Repository & Documentation
-
-- **GitHub**: [github.com/CultureBotAI/CultureMech](https://github.com/CultureBotAI/CultureMech)
-- **Web Interface**: [culturebotai.github.io/CultureMech](https://culturebotai.github.io/CultureMech/)
-- **License**: CC0 1.0 Universal (Public Domain)
-- **Language**: HTML, Python
-
-### Topics
-`growth-media` · `microbes` · `microbial-ecology` · `microbiology` · `cultivation` · `media` · `media-ingredients` · `microbial-growth` · `microbial-culturing`
-
----
+This is an ingredient excerpt; the complete recipe also contains other ingredients, medium classification, source details, and history.
 
 ## Getting Started
 
-### Access the Data
+Development and CI use **Python 3.13**, `uv`, and `just`. The current checkout workflow is:
 
-1. **Browse Online**: Visit the [CultureMech web interface](https://culturebotai.github.io/CultureMech/)
-2. **Download**: Access structured data from the [GitHub repository](https://github.com/CultureBotAI/CultureMech)
-3. **API Integration**: Use with [kg-microbe](/kg-microbe/) for programmatic access
-
-### Integration with Your Workflow
-
-```python
-# Example: Loading CultureMech data
-from culturemech import MediaKG
-
-# Load the knowledge graph
-kg = MediaKG()
-
-# Search for media by organism
-media = kg.search_by_organism("Escherichia coli")
-
-# Get chemical composition
-composition = kg.get_composition("LB medium")
-
-# Export to standard format
-kg.export(format="json", output="media_data.json")
+```bash
+git clone https://github.com/CultureBotAI/CultureMech.git
+cd CultureMech
+uv sync --frozen --extra dev
+just validate-schema data/normalized_yaml/bacterial/lb_medium.yaml
+just test-fast
 ```
+
+To generate local outputs:
+
+```bash
+just build-browser
+just gen-pages
+just gen-media-pages
+just serve-browser
+```
+
+For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml`; the result is written under `pages/single/`. See the [current quick start](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/docs/QUICK_START.md) for the full workflow.
+
+## Repository & Documentation
+
+- **[Repository](https://github.com/CultureBotAI/CultureMech)** and **[published site](https://culturebotai.github.io/CultureMech/)**
+- **[Recipe identifier lifecycle](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/docs/RECIPE_ID_LIFECYCLE.md)**
+- **[Citation metadata](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/CITATION.cff)**
+- **License:** [CC0-1.0](https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/LICENSE)
 
 ---
 
@@ -213,7 +92,7 @@ kg.export(format="json", output="media_data.json")
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
 - **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ENVO-grounded records
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
-- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Autonomous knowledge factory for microbial ecophysiological traits
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters

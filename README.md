@@ -39,6 +39,17 @@ The site will be available at `http://localhost:4000`.
 
 Content is written in Markdown and automatically deployed via GitHub Pages when pushed to the `main` branch.
 
+## X-Mech terminology
+
+Use **autonomous knowledge factory** (plural: **autonomous knowledge factories**)
+as the official label for an X-Mech. Each X-Mech curates, validates, and connects
+scientific evidence to enable discovery, with human oversight. Use **knowledge
+base** for its stored records and **knowledge graph** for graph representations
+or outputs. Preserve publication titles and source quotations.
+
+The X-Mech suite page is generated; edit its sources in `_fleet/` and rebuild
+following [`_fleet/README.md`](_fleet/README.md).
+
 ## Contributing
 
 For content updates or corrections, please:

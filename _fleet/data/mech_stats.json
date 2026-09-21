@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-20",
- "merged_prs_total": 2994,
+ "merged_prs_total": 3082,
  "mechs": [
   {
    "mech": "CultureMech",
@@ -8,7 +8,8 @@
    "records": 6286,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 250
+   "merged_prs": 251,
+   "source_revision": "866b335301a53838c2868515e68ec96a11528f17"
   },
   {
    "mech": "MediaIngredientMech",
@@ -16,23 +17,26 @@
    "records": 2951,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 361
+   "merged_prs": 363,
+   "source_revision": "1f12dd79637f8d518099b31b36fe7482651b8070"
   },
   {
    "mech": "CommunityMech",
    "repo": "CommunityMech",
-   "records": 364,
+   "records": 396,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 534
+   "merged_prs": 548,
+   "source_revision": "f4c11ab38ae39b9a50abe194ef69b1fc4ec007f2"
   },
   {
    "mech": "TraitMech",
    "repo": "TraitMech",
-   "records": 694,
+   "records": 723,
    "reviewed": 427,
    "status_field": "mapping_status",
-   "merged_prs": 585
+   "merged_prs": 615,
+   "source_revision": "d3b9444a799560654160b65b52d1632dd15eccf8"
   },
   {
    "mech": "ProteinTraitsMech",
@@ -40,7 +44,8 @@
    "records": 429291,
    "reviewed": 39591,
    "status_field": "mapping_status",
-   "merged_prs": 316
+   "merged_prs": 319,
+   "source_revision": "700b6f7bcedc4c414b1ba0d8d9e0b66e7236dda8"
   },
   {
    "mech": "AntibioticMech",
@@ -48,7 +53,8 @@
    "records": 2939,
    "reviewed": 80,
    "status_field": "curation_status",
-   "merged_prs": 243
+   "merged_prs": 266,
+   "source_revision": "659cf7fe438425771812ff07b9aa6f8c8d193a46"
   },
   {
    "mech": "CellStructureMech",
@@ -56,7 +62,8 @@
    "records": 421,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 465
+   "merged_prs": 468,
+   "source_revision": "f0d3b345f6700d0182ae512c592642c7a96a92ab"
   },
   {
    "mech": "HabitatMech",
@@ -64,7 +71,8 @@
    "records": 3206,
    "reviewed": 686,
    "status_field": "mapping_status",
-   "merged_prs": 144
+   "merged_prs": 153,
+   "source_revision": "87c2308eac50599820994f0090324ebd7f576351"
   },
   {
    "mech": "NaturalProductMech",
@@ -72,7 +80,8 @@
    "records": 3115,
    "reviewed": 0,
    "status_field": "curation_status",
-   "merged_prs": 80
+   "merged_prs": 82,
+   "source_revision": "d06c8b3ec605bc234c0ea91ee770f791cba05889"
   },
   {
    "mech": "TaxonMech",
@@ -80,7 +89,8 @@
    "records": 625960,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 16
+   "merged_prs": 17,
+   "source_revision": "cfa827a0cfbc9cda1df09fed69595abf947957a2"
   }
  ]
 }

@@ -1,19 +1,21 @@
 ---
 layout: default
 title: "X-Mech Suite"
-description: "<!--FLEET_COUNT--> ontology-grounded microbial knowledge bases, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
+description: "<!--FLEET_COUNT--> ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
 permalink: /mechs/
 ---
 
-# X-Mech Suite: <!--FLEET_COUNT--> knowledge bases, one standard
+# X-Mech Suite: <!--FLEET_COUNT--> autonomous knowledge factories, one shared standard
 
-The X-Mech suite is a fleet of <!--FLEET_COUNT--> curated, ontology-grounded knowledge bases that together describe a microbe at every scale: its taxon and strain identity, the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
+The X-Mech suite is a fleet of <!--FLEET_COUNT--> ontology-grounded autonomous knowledge factories that together describe a microbe at every scale: its taxon and strain identity, the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
+
+Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
 <!--FLEET_FRAGMENT-->
 
 ## The <!--FLEET_COUNT--> Mechs
 
-Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 20, 2026; each Browse link is the source for its card, except CultureMech, whose landing tile carries a legacy figure matching none of its data layers, so its card states the merged canonical count its own record index publishes. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
+Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 20, 2026. Each Browse link is the source for its card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/README.md#corpus-snapshot">current repository inventory</a>; its published landing tile is stale. CommunityMech lists 392 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)">
@@ -26,8 +28,8 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   </article>
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
-    <p class="tag">Curated knowledge base of microbial communities, their interactions, cultivation conditions and evidence.</p>
-    <div class="num"><b>379</b><span>community records · 16 categories</span></div>
+    <p class="tag">Autonomous knowledge factory for microbial communities, their interactions, cultivation conditions and evidence.</p>
+    <div class="num"><b>392</b><span>community records · 16 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CommunityMech--></p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
     <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CommunityMech--></div>
@@ -42,8 +44,8 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   </article>
   <article class="mech-card" data-mech="TraitMech" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)">
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
-    <p class="tag">Microbial ecophysiological trait knowledge base seeded from METPO, one curated YAML per trait, with causal mechanism graphs.</p>
-    <div class="num"><b>696</b><span>trait records · 10 categories</span></div>
+    <p class="tag">Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO, with one curated YAML per trait and causal mechanism graphs.</p>
+    <div class="num"><b>723</b><span>trait records · 10 categories</span></div>
     <p class="prov"><!--FLEET_STATS:TraitMech--></p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TraitMech--></div>
@@ -90,7 +92,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   </article>
   <article class="mech-card" data-mech="CultureMech" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)">
     <header><h3>CultureMech</h3><span class="scale">Media</span></header>
-    <p class="tag">Versioned, ontology-grounded knowledge base of culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.</p>
+    <p class="tag">Autonomous knowledge factory curating versioned, ontology-grounded culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.</p>
     <div class="num"><b>6,286</b><span>canonical media · 5 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CultureMech--></p>
     <div class="vocab"><span>ChEBI</span><span>KEGG</span><span>FOODON</span><span>UBERON</span><span>CAS</span><span>NCBITaxon</span></div>
@@ -102,9 +104,9 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
 
 Alongside record browsing, the Mechs publish complementary ways to explore their data:
 
-- **Taxa and strains:** TaxonMech lists the [20,648 taxa with a type strain](https://culturebotai.github.io/TaxonMech/pages/type-strains.html), each naming the BacDive deposit that LPSN records as the type, and states its [sources](https://culturebotai.github.io/TaxonMech/pages/sources.html).
+- **Taxa and strains:** TaxonMech lists the [20,648 taxa with a type strain](https://culturebotai.github.io/TaxonMech/pages/type-strains.html), each naming the BacDive deposit that LPSN records as the type. Taxon pages carry strain-level NCBI, GTDB, BV-BRC/PATRIC, IMG and AllTheBacteria genome identifiers, plus StrainInfo references and their evidence. The [source catalogue](https://culturebotai.github.io/TaxonMech/pages/sources.html) describes provenance.
 - **Community, trait and media similarity:** explore [CommunityMech](https://culturebotai.github.io/CommunityMech/community_umap.html), [TraitMech](https://culturebotai.github.io/TraitMech/pages/umap.html), [ingredients](https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html) and [culture media](https://culturebotai.github.io/CultureMech/app/umap.html) through their embedding browsers.
-- **Protein traits and proteins:** ProteinTraitsMech separates its [text-embedding corpus map](https://culturebotai.github.io/proteintraitsmech/map.html) from its [map of 68,657 Swiss-Prot proteins](https://culturebotai.github.io/proteintraitsmech/map.html#proteins).
+- **Protein traits, proteins and sequences:** ProteinTraitsMech provides a [text-embedding corpus map](https://culturebotai.github.io/proteintraitsmech/map.html), a [map of 68,657 Swiss-Prot proteins by their traits](https://culturebotai.github.io/proteintraitsmech/map.html#proteins), and an [ESM-2 sequence map](https://culturebotai.github.io/proteintraitsmech/map.html#sequences) of canonical-example proteins.
 - **Chemical structures:** compare compounds in the [AntibioticMech chemical map](https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html) and the [NaturalProductMech structure map](https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html); NaturalProductMech also offers a [corpus map](https://culturebotai.github.io/NaturalProductMech/pages/map.html).
 - **Habitat meaning:** HabitatMech offers a [semantic text map](https://culturebotai.github.io/HabitatMech/pages/text-map/) alongside its ontology-grounded record browser.
 
@@ -114,11 +116,11 @@ Alongside record browsing, the Mechs publish complementary ways to explore their
 Beyond shared vocabulary, Mechs name one another directly, in record fields, in schema slots, and in the curation practices they adopt from each other. Arrows point at the Mech that consumes.
 
 <div class="fleet-xrefs">
-  <div style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink); --ci2: var(--mech-mediaingredientmech-ink)"><div class="pair"><b>CultureMech</b><i>→</i><b class="to">MediaIngredientMech</b></div><div>Unmapped ingredient strings and occurrence counts become MIM's curation backlog; MIM records link back to recipes by stable id with the <code>CultureMechReference</code> class.<small>Record data · claw ingredient_curation_pipeline</small></div></div>
-  <div style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink); --ci2: var(--mech-culturemech-ink)"><div class="pair"><b>MediaIngredientMech</b><i>→</i><b class="to">CultureMech</b></div><div>Curated ChEBI and FOODON mappings sync back to recipes. CultureMech vendors MIM's ingredient-role enums and consumes MIM's immutable label index.<small>Record data · src/culturemech/schema/mim_roles.yaml</small></div></div>
-  <div style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink); --ci2: var(--mech-culturemech-ink)"><div class="pair"><b>CommunityMech</b><i>→</i><b class="to">CultureMech</b></div><div>Community records name the medium they were cultivated in by CultureMech id: 21 records carry 32 <code>culturemech_id</code> links.<small>Record data · docs/cross_repo_linking.md</small></div></div>
-  <div style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink); --ci2: var(--mech-mediaingredientmech-ink)"><div class="pair"><b>CommunityMech</b><i>→</i><b class="to">MediaIngredientMech</b></div><div>The <code>RelatedIngredient.mediaingredientmech_id</code> slot is declared for MIM ingredient ids; no record populates it yet.<small>Schema slot · docs/cross_repo_linking.md</small></div></div>
-  <div style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink); --ci2: var(--mech-traitmech-ink)"><div class="pair"><b>CellStructureMech</b><i>→</i><b class="to">TraitMech</b></div><div>A structure lists the phenotypes it confers as TraitMech or METPO terms (8 trait links today), and its causal-graph node vocabulary is TraitMech's plus a STRUCTURE node type.<small>Record data · schema slot associated_traits</small></div></div>
+  <div style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink); --ci2: var(--mech-mediaingredientmech-ink)"><div class="pair"><b>CultureMech</b><i>→</i><b class="to">MediaIngredientMech</b></div><div>Ingredient strings and occurrence counts inform scoped MIM curation; retired collection writers no longer overwrite MIM-owned records from CultureMech aggregates; MIM records link back to recipes by stable id with the <code>CultureMechReference</code> class.<small>Record data · claw ingredient_curation_pipeline</small></div></div>
+  <div style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink); --ci2: var(--mech-culturemech-ink)"><div class="pair"><b>MediaIngredientMech</b><i>→</i><b class="to">CultureMech</b></div><div>Curated ChEBI and FOODON mapping artifacts support scoped recipe updates. CultureMech vendors MIM's ingredient-role enums and consumes MIM's immutable label index.<small>Record data · src/culturemech/schema/mim_roles.yaml</small></div></div>
+  <div style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink); --ci2: var(--mech-culturemech-ink)"><div class="pair"><b>CommunityMech</b><i>→</i><b class="to">CultureMech</b></div><div>Community records name the medium they were cultivated in through <code>culturemech_id</code> references.<small>Record data · docs/cross_repo_linking.md</small></div></div>
+  <div style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink); --ci2: var(--mech-mediaingredientmech-ink)"><div class="pair"><b>CommunityMech</b><i>→</i><b class="to">MediaIngredientMech</b></div><div>The <code>RelatedIngredient.mediaingredientmech_id</code> slot is declared for MIM ingredient ids.<small>Schema slot · docs/cross_repo_linking.md</small></div></div>
+  <div style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink); --ci2: var(--mech-traitmech-ink)"><div class="pair"><b>CellStructureMech</b><i>→</i><b class="to">TraitMech</b></div><div>A structure lists the phenotypes it confers as TraitMech or METPO terms, and its causal-graph node vocabulary is TraitMech's plus a STRUCTURE node type.<small>Record data · schema slot associated_traits</small></div></div>
   <div style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink); --ci2: var(--mech-proteintraitsmech-ink)"><div class="pair"><b>CellStructureMech</b><i>→</i><b class="to">ProteinTraitsMech</b></div><div>A single protein is a component of a structure, never a record of its own: it grounds to InterPro or UniProtKB and hands off to ProteinTraitsMech.<small>Scope boundary · docs/CURATION.md</small></div></div>
   <div style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink); --ci2: var(--mech-traitmech-ink)"><div class="pair"><b>HabitatMech</b><i>→</i><b class="to">TraitMech</b></div><div>Habitat causal graphs use a superset of TraitMech's node vocabulary so the graphs stay comparable; a node may be a TraitMech or METPO trait.<small>Schema · CausalNode enum</small></div></div>
   <div style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink); --ci2: var(--mech-culturemech-ink)"><div class="pair"><b>HabitatMech</b><i>→</i><b class="to">CultureMech</b></div><div>The single overlapping concept, BTO:0000316 culture medium, is handed to CultureMech rather than curated twice. A culture medium is a synthetic habitat.<small>Curation decision · curation/decisions.tsv</small></div></div>
@@ -128,13 +130,15 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 
 ## Orchestration: culturebotai-claw
 
-[culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and the cross-repository pipelines that move curation between Mechs safely.
+[culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and tooling for cross-repository curation and validation.
 
 <div class="fleet-orch">
   <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All <!--FLEET_COUNT--> Mechs shown here are declared, including NaturalProductMech and TaxonMech. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
   <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. The canonical registry defines <!--FLEET_ARTIFACT_COUNT--> artifacts, with each Mech receiving the contracts that apply to it.</p></div>
-  <div><h4>Pipelines and skills</h4><p>Cross-repository pipelines cover ingredient curation, unified ingredient mapping and ENVO environment curation; shared agent skills support fleet coordination and maintenance. Cross-repo writes resolve exact worktree roots, take a repository lock, default to dry run and validate staged output before replacing source data.</p></div>
+  <div><h4>Pipelines and skills</h4><p>CLAW provides pipeline discovery, repository checks, shared curation tools and validated dry runs. Agent and pipeline execution through <code>openclaw-cli</code> is not implemented; environment-curation and unified ingredient-mapping apply modes are disabled pending transactional writers. Deep-research tooling supports provider triage and dry-run result capture; provider execution is not implemented.</p></div>
 </div>
+
+The <a href="https://github.com/CultureBotAI/culturebotai-claw#current-support-status">current support matrix</a> distinguishes supported tools from planned execution. The autonomous knowledge factory label describes each Mech's curation model with human oversight; it does not imply that every CLAW workflow runs unattended.
 
 Which fleet contracts each member has adopted, from the manifest. Every disabled entry records a file-level reason, such as no download.yaml or no source queue yet:
 
@@ -150,7 +154,7 @@ Which fleet contracts each member has adopted, from the manifest. Every disabled
 
 ## What makes a Mech
 
-The suite is cohesive because every Mech is built the same way. The fleet standard, documented in claw's `MECH_STANDARD.md`, asks for:
+The Mechs share curation conventions, with adoption recorded per capability in the table above. The fleet standard is documented in [CLAW's MECH_STANDARD.md](https://github.com/CultureBotAI/culturebotai-claw/blob/main/docs/guides/MECH_STANDARD.md):
 
 <ul class="fleet-standard">
   <li><b>One YAML record per entity</b>A recipe, an ingredient, a community, a taxon, a trait, a structure, a protein trait, a natural product, an antibiotic, a habitat. The file is the unit of curation, review and history.</li>
@@ -159,8 +163,8 @@ The suite is cohesive because every Mech is built the same way. The fleet standa
   <li><b>The ID–label invariant</b>Every identifier is stored with its label, and CI checks that the pair still agrees with the source ontology.</li>
   <li><b>Evidence and provenance</b>Assertions carry evidence items with PMIDs or DOIs; sources are catalogued with their licences before they are ingested.</li>
   <li><b>Causal mechanism graphs</b>Traits, structures, antibiotics and habitats can carry directed, evidence-backed graphs of mechanism, sharing one node vocabulary so graphs compare across Mechs.</li>
-  <li><b>Append-only curation history</b>Every change is an event in a conflict-free history directory, so agents and people can curate the same corpus concurrently.</li>
-  <li><b>A static browser and an open licence</b>Each Mech publishes a GitHub Pages browser over its records and releases under CC0-1.0 (AntibioticMech data under CC BY 4.0, CommunityMech code under BSD-3-Clause).</li>
+  <li><b>Append-only curation history</b>Mechs adopting the history contract record changes as append-only events, preserving provenance across agent and human curation.</li>
+  <li><b>A static browser and an open licence</b>Each Mech publishes a GitHub Pages browser. Licences vary: project-authored content is commonly CC0-1.0, CommunityMech uses BSD-3-Clause, and AntibioticMech and NaturalProductMech records use CC BY 4.0. Redistributed source material retains its applicable terms.</li>
 </ul>
 
 ## Related resources

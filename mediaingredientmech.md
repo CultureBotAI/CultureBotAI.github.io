@@ -1,339 +1,78 @@
 ---
 layout: default
 title: "MediaIngredientMech"
-description: "Curated media ingredient ontology mappings with LLM-assisted workflows for standardizing microbial cultivation ingredient data"
+description: "Autonomous knowledge factory for media ingredient ontology mappings with LLM-assisted workflows for standardizing microbial cultivation ingredient data"
 permalink: /mediaingredientmech/
 ---
 
-# MediaIngredientMech: LLM-Assisted Media Ingredient Curation
+# MediaIngredientMech: Autonomous Knowledge Factory for Media Ingredients
 
 ## Overview
 
-**MediaIngredientMech** leverages Large Language Models (LLMs) to curate and standardize media ingredient ontology mappings for microbial cultivation research. It addresses the challenge of inconsistent ingredient naming and ambiguous chemical identifiers in cultivation protocols through AI-assisted semantic matching and human-in-the-loop validation workflows.
+**MediaIngredientMech** is an autonomous knowledge factory for culture-media ingredient identity and ontology mappings, with LLM-assisted curation and human oversight. It maintains ingredient records, synonyms, mapping quality, environmental context, and an audit trail for curation decisions. [Repository overview](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md).
 
-**The Challenge**: Media ingredients are described using inconsistent terminology across scientific literature, culture collections, and laboratory protocols. The same chemical compound might be referred to by common names, trade names, systematic IUPAC names, or ambiguous abbreviations, making automated data integration difficult.
+The published browser contains **2,951 ingredients: 2,616 MAPPED, 261 UNMAPPED, and 74 REJECTED**, giving **89% mapped coverage** after rounding. These figures were checked on September 20, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
 
-**The Solution**: MediaIngredientMech uses LLMs to intelligently map ingredient names to standardized ontology terms (ChEBI, PubChem, METPO), with confidence scoring, batch processing capabilities, and curation workflows for ambiguous cases.
+## Explore the Published Site
 
----
+- **[Ingredient browser](https://culturebotai.github.io/MediaIngredientMech/browser.html)** — search names, synonyms, and ontology identifiers; filter by source, mapping status, and mapping quality.
+- **[Mapped ingredients](https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED)** — browse the mapped subset.
+- **[Embedding map](https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html)** and **[graph layout](https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html)** — explore ingredient relationships in KG-Microbe embedding space.
 
-## Key Features
+## What a Record Represents
 
-### 🤖 LLM-Powered Semantic Matching
-- Leverages foundation models for ingredient name normalization
-- Context-aware mapping considering cultivation domain knowledge
-- Handles synonyms, abbreviations, and trade names
-- Multi-ontology alignment (ChEBI, PubChem, custom vocabularies)
+An ingredient record identifies a practical reagent or formulation used in media. Curation distinguishes salts, hydrates, mixtures, and other forms, preserves raw names as synonyms, and records the convention used when sources are ambiguous. Mapping quality and curation status are separate fields. [Mapping semantics](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/MAPPING_SEMANTICS.md).
 
-### 📋 Curation Workflows
-- Automated processing for high-confidence matches
-- Human-in-the-loop validation for ambiguous cases
-- Batch processing of large datasets
-- Quality control and consistency checking
+The current model includes:
 
-### 📊 Quality Metrics
-- Confidence scores for each mapping
-- Provenance tracking for curation decisions
-- Validation status and review history
-- Inter-annotator agreement metrics
+- **Ingredient records** with identifiers, synonyms, mapping status, and curation history.
+- **Ontology mappings** to ChEBI and FOODON, with quality ratings; the browser also exposes NCIT and CAS identifiers.
+- **Environmental context** linked to ENVO terms with relevance qualifiers.
+- **Curation events** that record provenance and LLM assistance.
+- **Component relationships** for ingredients made of other components, with evidence and validation.
 
-### 🔗 Ontology Integration
-- **ChEBI** (Chemical Entities of Biological Interest)
-- **PubChem** compound database
-- **METPO** (Microbial Ecophysiological Trait and Phenotype Ontology)
-- Custom microbial cultivation vocabularies
+See the [schema reference](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/SCHEMA_REFERENCE.md), [environmental-context model](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/schema/environmental_context.md), and [component model](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/stock_components.md).
 
-### 💾 Standardized Outputs
-- Export to JSON, TSV, RDF formats
-- Integration with LinkML schemas
-- Compatible with kg-microbe knowledge graph
-- API-ready structured data
+## Curation Workflow
 
----
+Curators compare upstream recipe changes with the tracked ingredient corpus, make scoped updates with provenance, and validate ontology identifiers and labels through OAK/OLS. Ingredient occurrence counts help prioritize unmapped records. Validated mapping artifacts can then support coordinated downstream updates to [CultureMech](/culturemech/).
 
-## Technical Architecture
-
-### LLM-Assisted Mapping Pipeline
-
-```
-Raw Ingredient Names
-    ↓
-Text Preprocessing & Normalization
-    ↓
-LLM Semantic Analysis
-    ↓
-Ontology Candidate Retrieval
-    ↓
-Confidence Scoring
-    ↓
-├─ High Confidence → Automated Mapping
-└─ Low Confidence → Human Curation Queue
-    ↓
-Validated Mappings
-    ↓
-Export to Knowledge Graph
-```
-
-### Integration with CultureBotAI Ecosystem
-
-**MediaIngredientMech** enhances the AI curation pipeline by providing semantic standardization:
-
-- **Receives Input From**:
-  - [CultureMech](/culturemech/) - Extracted chemical entities from media recipes
-  - Manual curation efforts
-  - Legacy database imports
-  - Literature mining outputs
-
-- **Feeds Into**:
-  - [MicroMediaParam](/resources/#micromediaparam) - Enhanced ingredient standardization
-  - [kg-microbe](/kg-microbe/) - Ontology-grounded knowledge graph
-  - [MicroGrowAgents](/microgrowagents/) - Evidence-based media design
-
-- **Complements**:
-  - [CultureMech](/culturemech/) - Chemical entity extraction
-  - [CommunityMech](/communitymech/) - Community-level curation
-
----
-
-## LLM-Assisted Workflows
-
-### Workflow 1: Automated High-Confidence Mapping
-
-For ingredient names with clear, unambiguous mappings:
-
-```python
-# Example: High-confidence automated mapping
-ingredient = "glucose"
-result = mediaingredient_mech.map(ingredient)
-# → {
-#     "input": "glucose",
-#     "mapped_term": "D-glucose",
-#     "chebi_id": "CHEBI:17234",
-#     "confidence": 0.99,
-#     "status": "automated"
-# }
-```
-
-### Workflow 2: Ambiguous Case Resolution
-
-For ingredients with multiple possible interpretations:
-
-```python
-# Example: Ambiguous ingredient requiring curation
-ingredient = "peptone"
-result = mediaingredient_mech.map(ingredient)
-# → {
-#     "input": "peptone",
-#     "candidates": [
-#         {"term": "peptone", "chebi_id": "CHEBI:8429", "confidence": 0.65},
-#         {"term": "proteose peptone", "source": "common_name", "confidence": 0.55},
-#         {"term": "casein peptone", "source": "common_name", "confidence": 0.50}
-#     ],
-#     "status": "requires_curation",
-#     "rationale": "Multiple peptone types exist; context needed"
-# }
-```
-
-### Workflow 3: Batch Processing
-
-Process large datasets efficiently:
-
-```python
-# Example: Batch processing of ingredients
-ingredients = load_ingredients_from_csv("media_ingredients.csv")
-results = mediaingredient_mech.batch_map(ingredients,
-                                         confidence_threshold=0.8)
-
-# Separate by curation status
-automated = results.filter(status="automated")
-needs_review = results.filter(status="requires_curation")
-
-# Export results
-automated.export("mapped_ingredients.json")
-needs_review.export("curation_queue.json")
-```
-
----
-
-## Use Cases
-
-### 1. Legacy Data Standardization
-Standardize ingredient names from historical culture collection records to enable modern computational analysis.
-
-### 2. Literature Mining Enhancement
-Improve the quality of ingredient extraction from scientific publications by resolving ambiguous names to specific chemical entities.
-
-### 3. Cross-Database Integration
-Harmonize ingredient vocabularies across different culture collections (ATCC, DSMZ, JCM) for unified querying and analysis.
-
-### 4. AI Training Data Preparation
-Create high-quality, ontology-grounded training datasets for machine learning models predicting growth requirements.
-
-### 5. Real-Time Laboratory Support
-Provide ingredient standardization as a service for laboratory information management systems (LIMS) during data entry.
-
----
-
-## Ontology Integration
-
-### ChEBI (Chemical Entities of Biological Interest)
-
-Primary ontology for chemical compound identification:
-- Systematic chemical classification
-- Hierarchical relationships (is_a, has_part)
-- Molecular formulas and structures
-- Cross-references to other databases
-
-### PubChem
-
-Complementary chemical database integration:
-- Compound identifiers (CID)
-- Chemical structure search
-- Bioassay data links
-- Literature references
-
-### METPO (Microbial Ecophysiological Trait and Phenotype Ontology)
-
-Domain-specific ontology for microbial cultivation:
-- Growth condition terms
-- Media component vocabulary
-- Phenotypic trait descriptions
-- Integration with kg-microbe
-
----
-
-## Quality Control Features
-
-### Confidence Scoring
-- **0.90-1.00**: High confidence (automated approval)
-- **0.70-0.89**: Medium confidence (optional review)
-- **0.00-0.69**: Low confidence (requires curation)
-
-### Validation Checks
-- Taxonomic appropriateness (e.g., plant extracts for phototrophs)
-- Chemical compatibility (e.g., pH stability)
-- Concentration reasonableness
-- Cross-reference consistency
-
-### Provenance Tracking
-- Mapping algorithm version
-- LLM model and parameters used
-- Human curator identity (if applicable)
-- Timestamp and review history
-
----
-
-## Example: Ingredient Mapping
-
-### Input Data
-
-```csv
-ingredient_name,source,context
-"NaCl","ATCC Medium 1","Marine bacterium medium"
-"table salt","Lab protocol","General bacteriology"
-"sodium chloride","Literature","Halophile cultivation"
-"salt","DSMZ 514","Seawater-based medium"
-```
-
-### MediaIngredientMech Processing
-
-```json
-{
-  "mappings": [
-    {
-      "input": "NaCl",
-      "standardized_name": "sodium chloride",
-      "chebi_id": "CHEBI:26710",
-      "chebi_name": "sodium chloride",
-      "confidence": 0.99,
-      "status": "automated",
-      "synonyms": ["NaCl", "table salt", "salt", "halite"]
-    },
-    {
-      "input": "table salt",
-      "standardized_name": "sodium chloride",
-      "chebi_id": "CHEBI:26710",
-      "confidence": 0.95,
-      "status": "automated",
-      "note": "Common name mapped to systematic term"
-    },
-    {
-      "input": "salt",
-      "candidates": [
-        {"name": "sodium chloride", "chebi_id": "CHEBI:26710", "confidence": 0.75},
-        {"name": "salts", "chebi_id": "CHEBI:24866", "confidence": 0.65}
-      ],
-      "status": "requires_curation",
-      "rationale": "Ambiguous: could refer to specific salt (NaCl) or general salt category"
-    }
-  ]
-}
-```
-
----
-
-## Repository & Documentation
-
-- **GitHub**: [github.com/CultureBotAI/MediaIngredientMech](https://github.com/CultureBotAI/MediaIngredientMech)
-- **License**: Not yet specified — see repository for updates
-- **Language**: Python
-- **Status**: Public, active development
-
----
+The former CultureMech collection writers are retired because their aggregate projections could overwrite ingredient curation. Current guidance is to review upstream changes and apply scoped updates to MIM-owned records. [Current workflow and migration status](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md#use-the-curated-corpus).
 
 ## Getting Started
 
-### Installation
+Development and CI use **Python 3.13**, `uv`, and `just`:
 
 ```bash
-# Clone the repository
 git clone https://github.com/CultureBotAI/MediaIngredientMech.git
 cd MediaIngredientMech
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure LLM API keys (if using external models)
-export OPENAI_API_KEY="your-api-key"
-# or
-export ANTHROPIC_API_KEY="your-api-key"
+just install
+just gen-schema
+just validate-all
 ```
 
-### Basic Usage
+For an interactive curation session:
 
-```python
-from mediaingredientmech import IngredientMapper
-
-# Initialize mapper
-mapper = IngredientMapper(
-    ontology="chebi",
-    confidence_threshold=0.8
-)
-
-# Map a single ingredient
-result = mapper.map_ingredient("yeast extract")
-print(f"Mapped to: {result.chebi_name} ({result.chebi_id})")
-
-# Batch processing
-ingredients = ["peptone", "glucose", "NaCl", "agar"]
-results = mapper.batch_map(ingredients)
-
-# Export mappings
-results.to_json("ingredient_mappings.json")
+```bash
+just snapshot
+just curate
+just report
 ```
 
----
+These are the repository's documented commands. See the [curation guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/CURATION_GUIDE.md) and [role-curation workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/ROLE_CURATION_WORKFLOW.md) for record editing and validation.
 
-## Research Impact
+## Exports and Integration
 
-MediaIngredientMech improves data quality throughout the CultureBotAI ecosystem by providing:
+The project provides YAML records, browser JSON, generated inventories, and SSSOM mappings. SSSOM predicates preserve distinctions between exact, close, broader, and narrower matches. Registry identity mappings and ontology assertions have different meanings; downstream consumers should follow the [mapping contract](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/MAPPING_SEMANTICS.md).
 
-- **Semantic consistency** across heterogeneous data sources
-- **Reduced manual curation burden** through intelligent automation
-- **Enhanced AI training data** with ontology-grounded ingredient terms
-- **Interoperability** with broader biological knowledge graphs
+Deep-research tools help select providers and prepare ingredient research. Their results remain curation proposals until identity and evidence are validated. [Provider workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md#deep-research-provider-triage).
 
-It is part of the [KG-Microbe knowledge graph](/kg-microbe/) project at Lawrence Berkeley National Laboratory.
+## Repository & Documentation
+
+- **[Repository](https://github.com/CultureBotAI/MediaIngredientMech)** and **[published site](https://culturebotai.github.io/MediaIngredientMech/)**
+- **[Current mapping inventory](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/data/curated/ALL_INGREDIENTS.md)**
+- **[Workflow guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/WORKFLOWS.md)**
+- **License:** CC0-1.0, as stated in the [repository](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md#license)
 
 ---
 
@@ -343,7 +82,7 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) project at Lawrence
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
 - **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ENVO-grounded records
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
-- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Microbial ecophysiological trait knowledge base
+- **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Autonomous knowledge factory for microbial ecophysiological traits
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
@@ -351,24 +90,6 @@ It is part of the [KG-Microbe knowledge graph](/kg-microbe/) project at Lawrence
 - **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (6,286 canonical media)
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization (78% ChEBI coverage)
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
-
----
-
-## Future Directions
-
-### Planned Enhancements
-- Multi-language ingredient name support
-- Integration with additional ontologies (FoodOn, NCIT)
-- Real-time curation web interface
-- Federated learning for cross-institutional curation
-- Active learning to prioritize human curation efforts
-
-### Community Contributions
-We welcome contributions for:
-- Additional ingredient vocabularies
-- Ontology mapping rules
-- Validation datasets
-- Integration with laboratory systems
 
 ---
 
@@ -380,18 +101,6 @@ For questions about MediaIngredientMech or to contribute:
 - **Email**: [mjoachimiak@lbl.gov](mailto:mjoachimiak@lbl.gov)
 - **Organization**: [CultureBotAI](https://github.com/CultureBotAI)
 - **Laboratory**: Environmental Genomics and Systems Biology Division, Lawrence Berkeley National Laboratory
-
----
-
-## Citation
-
-If you use MediaIngredientMech in your research, please cite the [KG-Microbe publication](https://doi.org/10.1093/gigascience/giag077) and reference this tool:
-
-```
-MediaIngredientMech: LLM-Assisted Media Ingredient Curation
-CultureBotAI Organization
-https://github.com/CultureBotAI/MediaIngredientMech
-```
 
 ---
 

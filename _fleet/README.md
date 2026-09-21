@@ -92,26 +92,37 @@ it. Adding a prefix changes the heatmap's columns, so it needs a full rescan.
 
 ## Published-site refresh (September 20, 2026)
 
-Cards and graph details use the live sites linked by each card, following their
-landing-page redirects. Those redirects are client-side meta refreshes, not HTTP
-3xx, so `curl -L` stops at the 200-response shell and never reaches the real
-browser: fetch the `pages/` (or `app/`) URL directly when checking a card.
+`data/site_audit.json` records the checked public repository revisions, resolved
+Pages URLs, response hashes, count sources and merged pull-request totals. The
+three dedicated pages link their descriptions and commands to those immutable
+repository revisions. Refresh the audit when changing current-state claims.
 
-Read the number the page *renders*, not the one in its HTML source. Two landing
-pages ship a stale static figure that JavaScript overwrites at runtime from the
-Mech's own index: ProteinTraitsMech's source says 408,978 records and 29 sources
-while `data/facets.json` serves 429,291 and 34, and MediaIngredientMech's source
-carries literal ellipsis placeholders filled from `data/ingredients.json`
-(2,951 ingredients, 2,616 MAPPED).
+Follow client-side meta refreshes from site roots to `pages/` or `app/`. Read
+JavaScript-backed headline counts from the data files they load: MIM uses
+`data/ingredients.json` (2,951 ingredients; 2,616 MAPPED), and ProteinTraitsMech
+uses `data/facets.json` (429,291 records; 34 source labels). The latter's static
+HTML still has a legacy fallback count.
 
-CultureMech is the one card that does not take its Mech's headline tile. That
-tile reads 10,657 "recipes", which matches no current data layer: it is the
-March 2026 normalized count, recorded as `input_recipes` in the Mech's tracked
-`data/merge_yaml/merge_stats_2026.json` (2026-03-15), and it was already four
-months stale when the tile was written on 2026-06-30, by which time the corpus
-was 15,878 normalized and 6,103 merged. Nothing regenerates it. The card states 6,286 canonical media instead, which
-is what CultureMech's own `pages/index.html` publishes and what the fleet census
-counts; the merged/normalized split is explained in the card's detail text.
+CommunityMech publishes 392 communities; its pinned source tree also contains
+four isolate records, so `mech_stats.json` counts 396 source records. TraitMech
+has 723 records in both its pinned source tree and published landing page.
 
-The vocabulary census and overlap assets are a separate, dated snapshot; the page
-explicitly separates these from the site totals.
+CultureMech's current README inventory reports 15,878 normalized records and
+6,286 merged records. Its landing tile still reads 10,657, and the formerly
+available `/pages/index.html` returned 404 during this refresh. The card uses
+the repository's canonical count and links to the working normalized browser.
+
+Published review counts were checked against the current TraitMech and
+TaxonMech READMEs, ProteinTraitsMech's live facet index, and the AntibioticMech
+and HabitatMech pages. CellStructureMech and NaturalProductMech review counts
+were recounted from clean local checkouts matching the pinned remote revisions.
+Merged PR totals come from GitHub search at the time of the audit.
+
+The CLAW manifest's projected membership and capabilities are unchanged; the
+snapshot now points to the checked main revision. Its README distinguishes
+supported discovery, validation and dry-run tools from unimplemented CLI agent
+execution and disabled cross-repository apply modes. Capability adoption must
+not be described as proof that those workflows execute unattended.
+
+The vocabulary census and overlap assets remain a separate dated snapshot.
+This refresh does not relabel those counts as a new corpus scan.

@@ -33,8 +33,8 @@ The comprehensive modular knowledge graph that powers CultureBotAI, developed by
 ### 📄 [KG-Microbe Publication](https://doi.org/10.1093/gigascience/giag077)
 Read our peer-reviewed *GigaScience* paper by Dr. Marcin P. Joachimiak detailing the development and applications of the KG-Microbe knowledge graph.
 
-### 🤖 [AI Curation Tools — X-Mech Suite](/mechs/)
-The [X-Mech suite](/mechs/) is a fleet of ten ontology-grounded knowledge bases ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/), [AntibioticMech](https://culturebotai.github.io/AntibioticMech/), [CellStructureMech](https://culturebotai.github.io/CellStructureMech/), [HabitatMech](https://culturebotai.github.io/HabitatMech/), [NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/), [TaxonMech](https://culturebotai.github.io/TaxonMech/)) that describe a microbe from taxon identity and habitat to culture medium, with 6,286 canonical media, 2,951 curated ingredients, 379 communities, 696 ecophysiological traits, 421 cell structures, 429,291 protein traits, 3,115 natural product structures, 2,939 antimicrobial structures, 3,206 habitats and 625,960 taxon records, coordinated by the [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator.
+### 🤖 [Autonomous Knowledge Factories — X-Mech Suite](/mechs/)
+The [X-Mech suite](/mechs/) is a fleet of ten ontology-grounded autonomous knowledge factories ([CultureMech](/culturemech/), [MediaIngredientMech](/mediaingredientmech/), [CommunityMech](/communitymech/), [TraitMech](https://culturebotai.github.io/TraitMech/), [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/), [AntibioticMech](https://culturebotai.github.io/AntibioticMech/), [CellStructureMech](https://culturebotai.github.io/CellStructureMech/), [HabitatMech](https://culturebotai.github.io/HabitatMech/), [NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/), [TaxonMech](https://culturebotai.github.io/TaxonMech/)) that describe a microbe from taxon identity and habitat to culture medium, with 6,286 canonical media, 2,951 curated ingredients, 392 communities, 723 ecophysiological traits, 421 cell structures, 429,291 protein traits, 3,115 natural product structures, 2,939 antimicrobial structures, 3,206 habitats and 625,960 taxon records, with shared validation and coordination tooling from [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
 
 ### 🧠 [MicroGrowAgents](/microgrowagents/)
 Multi-agent AI system for microbial cultivation and growth media design across 864,363 validated species — [GitHub repository](https://github.com/CultureBotAI/MicroGrowAgents) *(private repository — public release planned)* · [bioRxiv preprint](https://doi.org/10.64898/2026.06.04.729985)
@@ -52,7 +52,7 @@ The Microbial Ecophysiological Trait and Phenotype Ontology, used to standardize
 
 CultureBotAI's projects form an integrated ecosystem built on the [kg-microbe knowledge graph](https://github.com/Knowledge-Graph-Hub/kg-microbe):
 
-- **AI curation pipelines** ([X-Mech suite](/mechs/)) transform unstructured cultivation data into standardized knowledge graphs
+- **Autonomous knowledge factories** ([X-Mech suite](/mechs/)) transform unstructured cultivation data into standardized knowledge graphs
 - **Data processing pipelines** prepare chemical, genomic, and literature data
 - **AI agent systems** combine multiple data sources for intelligent predictions
 - **Prediction models** range from interpretable rule mining to graph transformers ([KOGUT](/resources/#kogut-transformer))
@@ -88,7 +88,7 @@ KG-Microbe is available on GitHub at https://github.com/Knowledge-Graph-Hub/kg-m
 ## Quick Links
 
 - 🔬 [Research Areas](/research) - Detailed overview of our research focus
-- 🤖 [AI Curation Tools](/mechs/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech)
+- 🤖 [Autonomous Knowledge Factories](/mechs/) - X-Mech suite (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech)
 - 🧠 [MicroGrowAgents](/microgrowagents/) - Multi-agent AI for media design
 - 📚 [Resources](/resources) - Tools, databases, and knowledge graphs
 - 📄 [Publications](/publications) - Papers, preprints, and presentations
