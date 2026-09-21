@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "X-Mech Suite"
-description: "ten ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
+description: "A fleet of ten ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
 permalink: /mechs/
 ---
 

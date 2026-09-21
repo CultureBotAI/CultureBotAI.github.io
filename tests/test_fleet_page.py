@@ -2,6 +2,7 @@
 from copy import deepcopy
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
@@ -77,6 +78,16 @@ class FleetPageTests(unittest.TestCase):
         self.assertIn('census covers nine of the ten Mechs', page)
         self.assertIn('<b>10</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
+
+    def test_the_meta_description_opens_like_a_sentence(self):
+        # It is the snippet search engines show, and every other page's
+        # description starts with a capital. Substituting a spelled-out count
+        # at the front of it would open the snippet in lower case (#93).
+        page = self.render()
+        description = re.search(r'^description: "(.)', page, re.M)
+        self.assertIsNotNone(description, "front matter carries no description")
+        self.assertTrue(description.group(1).isupper(),
+                        f"description opens with {description.group(1)!r}, not a capital")
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
         self.assertEqual(number_word(9), 'nine')
