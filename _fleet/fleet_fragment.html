@@ -365,7 +365,7 @@
 
 <div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COUNT--> of the <!--FLEET_COUNT--> Mechs; TaxonMech is a fleet member whose vocabulary has not yet been measured, so it has no row. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COUNT_WORD--> of the <!--FLEET_COUNT_WORD--> Mechs; TaxonMech is a fleet member whose vocabulary has not yet been measured, so it has no row. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -393,7 +393,7 @@
   </div>
   <div class="fleet-stage">
     <svg id="fleet-svg" viewBox="0 0 900 760" role="group" aria-labelledby="fleet-svg-title fleet-svg-desc">
-      <title id="fleet-svg-title">Relationship graph of the <!--FLEET_COUNT--> autonomous knowledge factories</title>
+      <title id="fleet-svg-title">Relationship graph of the <!--FLEET_COUNT_WORD--> autonomous knowledge factories</title>
       <desc id="fleet-svg-desc">Nodes are Mechs arranged in a ring from habitat to culture medium; chords are shared ontology terms, dashed arcs are direct cross-references, and spokes connect to the central kg-microbe knowledge graph.</desc>
       <defs>
         <marker id="fleet-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrow" d="M0,0 L10,5 L0,10 z"></path></marker>

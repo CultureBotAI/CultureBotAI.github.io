@@ -37,6 +37,19 @@ def script_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
 
 
+# The fleet size reads as prose almost everywhere it appears — a heading, an
+# intro sentence, an SVG title — where the site's other pages write "ten". Only
+# the stat tile wants a numeral, so the count is offered in both forms rather
+# than spelled out at every call site (CultureBotAI.github.io#93).
+WORDS = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+         "nine", "ten", "eleven", "twelve")
+
+
+def number_word(value: int) -> str:
+    """The count as prose. Past the short words a numeral reads better anyway."""
+    return WORDS[value] if 0 <= value < len(WORDS) else f"{value:,}"
+
+
 CARD_RECORDS = re.compile(r'<div class="num"><b>([\d,]+)</b>')
 
 
@@ -112,9 +125,10 @@ def assemble(template, fragment, data, snapshot, stats, census):
     vocabularies = {prefix for mech in measured_mechs.values() for prefix in mech["prefixes"]}
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
+        "<!--FLEET_COUNT_WORD-->": number_word(len(names)),
         "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
-        "<!--FLEET_CENSUS_COUNT-->": str(len(measured_mechs)),
+        "<!--FLEET_CENSUS_COUNT_WORD-->": number_word(len(measured_mechs)),
         # The scan's own run date, carried in the file it writes. Not the file's
         # mtime: git neither records nor restores those, so a fresh clone would
         # date the census to the day somebody cloned it.

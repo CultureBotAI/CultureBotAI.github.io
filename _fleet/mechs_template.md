@@ -1,19 +1,19 @@
 ---
 layout: default
 title: "X-Mech Suite"
-description: "<!--FLEET_COUNT--> ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
+description: "<!--FLEET_COUNT_WORD--> ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
 permalink: /mechs/
 ---
 
-# X-Mech Suite: <!--FLEET_COUNT--> autonomous knowledge factories, one shared standard
+# X-Mech Suite: <!--FLEET_COUNT_WORD--> autonomous knowledge factories, one shared standard
 
-The X-Mech suite is a fleet of <!--FLEET_COUNT--> ontology-grounded autonomous knowledge factories that together describe a microbe at every scale: its taxon and strain identity, the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
+The X-Mech suite is a fleet of <!--FLEET_COUNT_WORD--> ontology-grounded autonomous knowledge factories that together describe a microbe at every scale: its taxon and strain identity, the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
 
 Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
 <!--FLEET_FRAGMENT-->
 
-## The <!--FLEET_COUNT--> Mechs
+## The <!--FLEET_COUNT_WORD--> Mechs
 
 Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 20, 2026. Each Browse link is the source for its card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/README.md#corpus-snapshot">current repository inventory</a>; its published landing tile is stale. CommunityMech lists 392 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
 
@@ -133,7 +133,7 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and tooling for cross-repository curation and validation.
 
 <div class="fleet-orch">
-  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All <!--FLEET_COUNT--> Mechs shown here are declared, including NaturalProductMech and TaxonMech. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
+  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All <!--FLEET_COUNT_WORD--> Mechs shown here are declared, including NaturalProductMech and TaxonMech. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
   <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. The canonical registry defines <!--FLEET_ARTIFACT_COUNT--> artifacts, with each Mech receiving the contracts that apply to it.</p></div>
   <div><h4>Pipelines and skills</h4><p>CLAW provides pipeline discovery, repository checks, shared curation tools and validated dry runs. Agent and pipeline execution through <code>openclaw-cli</code> is not implemented; environment-curation and unified ingredient-mapping apply modes are disabled pending transactional writers. Deep-research tooling supports provider triage and dry-run result capture; provider execution is not implemented.</p></div>
 </div>

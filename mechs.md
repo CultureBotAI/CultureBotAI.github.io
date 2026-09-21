@@ -1,13 +1,13 @@
 ---
 layout: default
 title: "X-Mech Suite"
-description: "10 ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
+description: "ten ontology-grounded autonomous knowledge factories for microbial science, from taxon identity and habitat to culture medium, orchestrated by culturebotai-claw and connected through shared ontology terms and direct cross-references"
 permalink: /mechs/
 ---
 
-# X-Mech Suite: 10 autonomous knowledge factories, one shared standard
+# X-Mech Suite: ten autonomous knowledge factories, one shared standard
 
-The X-Mech suite is a fleet of 10 ontology-grounded autonomous knowledge factories that together describe a microbe at every scale: its taxon and strain identity, the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
+The X-Mech suite is a fleet of ten ontology-grounded autonomous knowledge factories that together describe a microbe at every scale: its taxon and strain identity, the habitat it lives in, the community it belongs to, the traits it expresses, the structures and proteins that implement them, the compounds it makes, the antibiotics that act on it, and the ingredients and media it is grown in. Each Mech follows the same curation model, one validated YAML record per entity with evidence and provenance, and the fleet is coordinated by a single orchestrator, [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw).
 
 Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
@@ -378,7 +378,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 
 <div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers 9 of the 10 Mechs; TaxonMech is a fleet member whose vocabulary has not yet been measured, so it has no row. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of 20 September 2026. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers nine of the ten Mechs; TaxonMech is a fleet member whose vocabulary has not yet been measured, so it has no row. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities for CommunityMech, habitat records for HabitatMech) as of 20 September 2026. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -406,7 +406,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   </div>
   <div class="fleet-stage">
     <svg id="fleet-svg" viewBox="0 0 900 760" role="group" aria-labelledby="fleet-svg-title fleet-svg-desc">
-      <title id="fleet-svg-title">Relationship graph of the 10 autonomous knowledge factories</title>
+      <title id="fleet-svg-title">Relationship graph of the ten autonomous knowledge factories</title>
       <desc id="fleet-svg-desc">Nodes are Mechs arranged in a ring from habitat to culture medium; chords are shared ontology terms, dashed arcs are direct cross-references, and spokes connect to the central kg-microbe knowledge graph.</desc>
       <defs>
         <marker id="fleet-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrow" d="M0,0 L10,5 L0,10 z"></path></marker>
@@ -875,7 +875,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 </script>
 
 
-## The 10 Mechs
+## The ten Mechs
 
 Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 20, 2026. Each Browse link is the source for its card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/866b335301a53838c2868515e68ec96a11528f17/README.md#corpus-snapshot">current repository inventory</a>; its published landing tile is stale. CommunityMech lists 392 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the older record-corpus census below. Fleet membership and capability declarations come from <a href="https://github.com/CultureBotAI/culturebotai-claw/blob/44db08d59226073425b206a36a257b2b6a8900df/src/kg_microbe_fleet/fleet.yaml">CLAW fleet manifest at 44db08d</a>.
 
@@ -995,7 +995,7 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and tooling for cross-repository curation and validation.
 
 <div class="fleet-orch">
-  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All 10 Mechs shown here are declared, including NaturalProductMech and TaxonMech. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
+  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. All ten Mechs shown here are declared, including NaturalProductMech and TaxonMech. Every member declares every capability exactly once as enabled, disabled or not applicable, with a reason that names the files behind it, so nothing is silently off.</p></div>
   <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into each Mech byte-identically, pinned to one immutable claw commit and checked in CI. The canonical registry defines 16 artifacts, with each Mech receiving the contracts that apply to it.</p></div>
   <div><h4>Pipelines and skills</h4><p>CLAW provides pipeline discovery, repository checks, shared curation tools and validated dry runs. Agent and pipeline execution through <code>openclaw-cli</code> is not implemented; environment-curation and unified ingredient-mapping apply modes are disabled pending transactional writers. Deep-research tooling supports provider triage and dry-run result capture; provider execution is not implemented.</p></div>
 </div>

@@ -9,7 +9,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from assemble_page import CARD_RECORDS, assemble, capability_rows, script_json
+from assemble_page import CARD_RECORDS, assemble, capability_rows, number_word, script_json
 from refresh_manifest import ARTIFACT_PATH, MANIFEST_PATH, read_canonical, semantic, validate
 import roots
 
@@ -57,7 +57,7 @@ class FleetPageTests(unittest.TestCase):
         page = self.render()
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 10)
-        self.assertIn('Relationship graph of the 10 autonomous knowledge factories', page)
+        self.assertIn('Relationship graph of the ten autonomous knowledge factories', page)
         self.assertNotIn('not yet in fleet manifest', page)
         self.assertNotIn('one revision behind', page)
         caps = self.snapshot['mechs']
@@ -67,6 +67,24 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(caps['TaxonMech']['capabilities']['curation_history']['status'], 'enabled')
         self.assertIn('<tr><td>NaturalProductMech</td>', capability_rows(self.snapshot))
         self.assertIn('<tr><td>TaxonMech</td>', capability_rows(self.snapshot))
+
+    def test_fleet_size_reads_as_prose_but_the_tile_stays_a_numeral(self):
+        # The heading, intro and SVG title are sentences, and the rest of the
+        # site writes "ten" in prose; only the stat tile wants a figure (#93).
+        page = self.render()
+        self.assertIn('# X-Mech Suite: ten autonomous knowledge factories', page)
+        self.assertIn('## The ten Mechs', page)
+        self.assertIn('census covers nine of the ten Mechs', page)
+        self.assertIn('<b>10</b><span>autonomous knowledge factories</span>', page)
+        self.assertNotIn('The 10 Mechs', page)
+
+    def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
+        self.assertEqual(number_word(9), 'nine')
+        self.assertEqual(number_word(10), 'ten')
+        self.assertEqual(number_word(12), 'twelve')
+        # A fleet that outgrows the table should read as digits, not break.
+        self.assertEqual(number_word(13), '13')
+        self.assertEqual(number_word(1000), '1,000')
 
     def test_new_admission_cannot_silently_omit_card_or_graph_node(self):
         self.snapshot['mechs']['NewMech'] = deepcopy(self.snapshot['mechs']['TaxonMech'])
