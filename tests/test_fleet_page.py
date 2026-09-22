@@ -288,9 +288,28 @@ class PrefixListTests(unittest.TestCase):
         whose value is a plain literal rules both out.
         """
         source = (ROOT / "scripts/fleet" / script).read_text()
-        bindings = [node for node in ast.parse(source).body
-                    if isinstance(node, ast.Assign)
-                    and any(getattr(target, "id", None) == name for target in node.targets)]
+        tree = ast.parse(source)
+        # ast.Assign alone misses `VOC += [...]`, `VOC.append(...)`, `VOC[0] = ...`
+        # and a rebinding nested in an `if` — each leaves this reading a list the
+        # module no longer uses (#99). Walk the whole tree for every shape.
+        bindings, mutations = [], []
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if getattr(target, "id", None) == name:
+                        bindings.append(node)
+                    elif (isinstance(target, ast.Subscript)
+                          and getattr(target.value, "id", None) == name):
+                        mutations.append("subscript assignment")
+            elif isinstance(node, (ast.AugAssign, ast.AnnAssign)):
+                if getattr(node.target, "id", None) == name:
+                    bindings.append(node)
+            elif (isinstance(node, ast.Call)
+                  and isinstance(node.func, ast.Attribute)
+                  and getattr(node.func.value, "id", None) == name):
+                mutations.append(f"{name}.{node.func.attr}()")
+        self.assertEqual(mutations, [], f"{name} is mutated in {script} after it is bound: "
+                                        f"{mutations}; this test reads a single literal")
         self.assertEqual(len(bindings), 1,
                          f"{name} is bound {len(bindings)} times in {script}; "
                          "this test reads a single literal binding")
@@ -316,25 +335,36 @@ class PrefixListTests(unittest.TestCase):
         self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
         self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
 
+
+
+
+class CensusImportGuardTests(unittest.TestCase):
+    """That importing prefix_census does no work (#95).
+
+    Deliberately its own class with no setUp: PrefixListTests imports the
+    module in setUp, and that import is the thing under test here. Sharing it
+    meant the scan ran before the snapshot was taken, so the assertion compared
+    a clobbered file against itself and passed (#98).
+    """
+
     def test_importing_the_census_module_does_not_scan_or_write(self):
-        # Reading P used to cost a four-minute scan and clobber the committed
-        # census, which is why none of the above could be tested (#95).
-        #
-        # This has to import in a FRESH interpreter. Importing here would be a
-        # no-op — setUp already put the module in sys.modules — and reloading
-        # would re-run the scan after the snapshot was taken, so the comparison
-        # would hold even with the guard removed. The first version of this test
-        # did exactly that and passed against the unguarded module.
         census = ROOT / "_fleet/data/prefix_census.json"
         before = census.read_bytes()
-        environment = dict(os.environ, PYTHONPATH=str(ROOT / "scripts/fleet"))
-        # The timeout is the teeth: a real scan takes minutes, so an unguarded
-        # module fails here long before it finishes writing.
-        subprocess.run([sys.executable, "-c", "import prefix_census"],
-                       env=environment, check=True, timeout=60,
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # An empty MECHS_ROOT is what gives this teeth. An unguarded import
+        # reaches roots.mech_root, which exits rather than counting an empty
+        # corpus, so the child fails in milliseconds and check=True raises —
+        # no dependence on the real corpus being slow enough to hit a timeout,
+        # and no unguarded interpreter left writing over a tracked file.
+        with tempfile.TemporaryDirectory() as empty:
+            environment = dict(os.environ,
+                               PYTHONPATH=str(ROOT / "scripts/fleet"),
+                               MECHS_ROOT=empty)
+            done = subprocess.run([sys.executable, "-c", "import prefix_census"],
+                                  env=environment, timeout=60,
+                                  capture_output=True, text=True)
+        self.assertEqual(done.returncode, 0,
+                         f"importing prefix_census did work:\n{done.stderr}")
         self.assertEqual(census.read_bytes(), before)
-
 
 if __name__ == '__main__':
     unittest.main()
