@@ -1,6 +1,5 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
-import ast
 import contextlib
 import json
 import os
@@ -278,12 +277,6 @@ def census_sandbox():
                                PYTHONPATH=str(root / "scripts/fleet"),
                                MECHS_ROOT=str(root / "empty"))
 
-# Methods that change a list in place. A read like VOC.index(v) must not be
-# mistaken for one.
-LIST_MUTATORS = {"append", "extend", "insert", "remove", "pop", "clear",
-                 "sort", "reverse", "__setitem__", "__delitem__"}
-
-
 class PrefixListTests(unittest.TestCase):
     """The pipeline carries three hand-maintained prefix lists that must agree.
 
@@ -313,8 +306,15 @@ class PrefixListTests(unittest.TestCase):
         norm = constants["norm"]
         self.census = {norm.get(literal_prefix(p), literal_prefix(p))
                        for p in constants["P"].split("|")}
-        self.voc = self.literal("build_data.py", "VOC")
-        self.pref = self.literal("build_subsets.py", "PREF")
+        # Imported, not parsed out of the source. Until #97 both modules did
+        # their work at import — build_subsets resolved every checkout and
+        # build_data read and rewrote fleet_data.json — so the lists had to be
+        # recovered from the source text with ast. That could not see a list
+        # rebuilt after its literal, which is what #99 and #101 were about.
+        # Reading the objects the pipeline actually uses retires the whole class.
+        import build_data, build_subsets
+        self.voc = build_data.VOC
+        self.pref = build_subsets.PREF
 
     @staticmethod
     def module_constants():
@@ -329,56 +329,6 @@ class PrefixListTests(unittest.TestCase):
                 "could not read prefix_census's constants; it does work at import "
                 f"(#95):\n{done.stderr}")
         return json.loads(done.stdout)
-
-    def literal(self, script, name):
-        """Read a list literal without importing — both scripts scan on import.
-
-        Parsed with ast rather than matched with a regex. A regex sees only the
-        text it matched, so `VOC = VOC + ["BOGUS"]` on the following line would
-        leave the assertion reading a literal the module no longer uses, and a
-        length check cannot notice. Requiring exactly one module-level binding
-        whose value is a plain literal rules both out.
-        """
-        source = (ROOT / "scripts/fleet" / script).read_text()
-        tree = ast.parse(source)
-        # ast.Assign alone misses `VOC += [...]`, `VOC.append(...)`, `VOC[0] = ...`
-        # and a rebinding nested in an `if` — each leaves this reading a list the
-        # module no longer uses (#99). Walking the tree covers those four.
-        # It does NOT cover tuple-unpack rebinding, `del VOC[0]`, `VOC[0] += x`
-        # or a walrus; those are filed rather than chased (#101).
-        #
-        # Only mutating methods count. Flagging every attribute call would fail
-        # on `VOC.index(v)` — a read, and an idiomatic one in a file that
-        # already sorts VOC — with a message asserting a mutation that never
-        # happened, which is a worse trap than the hole it closes.
-        bindings, mutations = [], []
-        for node in ast.walk(tree):
-            if isinstance(node, ast.Assign):
-                for target in node.targets:
-                    if getattr(target, "id", None) == name:
-                        bindings.append(node)
-                    elif (isinstance(target, ast.Subscript)
-                          and getattr(target.value, "id", None) == name):
-                        mutations.append("subscript assignment")
-            elif isinstance(node, (ast.AugAssign, ast.AnnAssign)):
-                if getattr(node.target, "id", None) == name:
-                    bindings.append(node)
-            elif (isinstance(node, ast.Call)
-                  and isinstance(node.func, ast.Attribute)
-                  and getattr(node.func.value, "id", None) == name
-                  and node.func.attr in LIST_MUTATORS):
-                mutations.append(f"{name}.{node.func.attr}()")
-        self.assertEqual(mutations, [], f"{name} is mutated in {script} after it is bound: "
-                                        f"{mutations}; this test reads a single literal")
-        self.assertEqual(len(bindings), 1,
-                         f"{name} is bound or shadowed {len(bindings)} times in {script} "
-                         f"(lines {[node.lineno for node in bindings]}); "
-                         "this test reads a single literal binding")
-        # literal_eval refuses anything that is not a literal, so a computed
-        # value fails here rather than being silently half-read.
-        value = ast.literal_eval(bindings[0].value)
-        self.assertGreater(len(value), 10, f"{name} parsed as {value!r}, which looks wrong")
-        return value
 
     def test_every_heatmap_column_is_a_vocabulary_the_census_counts(self):
         # A column the census never counts renders as a stripe of zeros.

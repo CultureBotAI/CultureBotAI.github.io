@@ -33,7 +33,10 @@ SITE_BASE={
  "MediaIngredientMech": GH+"MediaIngredientMech/blob/main/data/ingredients/",
  "CultureMech": GH+"CultureMech/blob/main/data/merge_yaml/merged/",
 }
-MECHS={name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER}
+# Filled by prepare(). mech_root() touches the filesystem and exits on a
+# missing checkout, so resolving these at import made the module unimportable
+# and its prefix list unreadable without a scan (#97).
+MECHS={}
 PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","RHEA","PDB","BTO","GTDB","MIBiG","NPAtlas","DOI"]
 NORM={"mibig":"MIBiG","npatlas":"NPAtlas","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH"}
 rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|mibig|MIBiG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
@@ -46,14 +49,25 @@ def unq(v):
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
     return v.replace("''","'")
 # HabitatMech publishes one page per record; the slug is matched against these.
-hab_pages=set(os.path.basename(f)[:-5] for f in glob.glob(os.path.join(mech_root("HabitatMech"),"pages","habitats","*.html")))
-if not hab_pages:
-    raise SystemExit("HabitatMech: no pages under pages/habitats; record links would silently be dropped")
+# Also filled by prepare(), for the same reason as MECHS.
+hab_pages=set()
 hab_by_suffix=collections.defaultdict(list)
-for n in hab_pages:
-    parts=n.split("-")
-    for k in range(1,len(parts)): hab_by_suffix["-".join(parts[k:])].append(n)
 hab_collisions=[]
+
+
+def prepare():
+    """Resolve the checkouts and index HabitatMech's pages.
+
+    Everything here reads the filesystem, which is why it is not at import.
+    """
+    MECHS.update({name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER})
+    hab_pages.update(os.path.basename(f)[:-5]
+                     for f in glob.glob(os.path.join(mech_root("HabitatMech"),"pages","habitats","*.html")))
+    if not hab_pages:
+        raise SystemExit("HabitatMech: no pages under pages/habitats; record links would silently be dropped")
+    for n in hab_pages:
+        parts=n.split("-")
+        for k in range(1,len(parts)): hab_by_suffix["-".join(parts[k:])].append(n)
 def simple_slug(text):
     return re.sub(r"-+","-",re.sub(r"[^a-z0-9]+","-",text.lower())).strip("-")
 def slug_for(m, f, doc_id, doc_label=""):
@@ -131,53 +145,59 @@ def scan(m, keep=None, cap_cell=300):
                                 break
     print(m,"files",nfiles,"unlinked",nolink,"terms",len(terms),flush=True)
     return dict(terms=terms,cells=cells,votes=votes)
-idx={}
-for m in ORDER:
-    if m=="ProteinTraitsMech": continue
-    idx[m]=scan(m)
-union=set().union(*[set(idx[m]["terms"]) for m in idx])
-idx["ProteinTraitsMech"]=scan("ProteinTraitsMech",keep=union)
-# labels
-labels={}
-allterms=set().union(*[set(idx[m]["terms"]) for m in ORDER])
-for t in allterms:
-    p=t.split(":")[0]
-    c=strict.get(t)
-    if c:
-        l,n=c.most_common(1)[0]
-        if n/sum(c.values())>=0.6 and l.count("'")%2==0: labels[t]=l; continue
-    for a in AUTH.get(p,[]):
-        c=idx[a]["votes"].get(t)
+def main():
+    prepare()
+    idx={}
+    for m in ORDER:
+        if m=="ProteinTraitsMech": continue
+        idx[m]=scan(m)
+    union=set().union(*[set(idx[m]["terms"]) for m in idx])
+    idx["ProteinTraitsMech"]=scan("ProteinTraitsMech",keep=union)
+    # labels
+    labels={}
+    allterms=set().union(*[set(idx[m]["terms"]) for m in ORDER])
+    for t in allterms:
+        p=t.split(":")[0]
+        c=strict.get(t)
         if c:
             l,n=c.most_common(1)[0]
-            if n/sum(c.values())>=0.6 and l.count("'")%2==0: labels[t]=l; break
-os.makedirs(f"{OUT}/edges",exist_ok=True); os.makedirs(f"{OUT}/cells",exist_ok=True)
-summary={"edges":{},"cells":{}}
-for a,b in itertools.combinations(ORDER,2):
-    shared=set(idx[a]["terms"])&set(idx[b]["terms"])
-    # An edge counts shared *concepts*, not shared bibliography. roots.CITATION
-    # says why: every Mech cites papers, so counting those "would say only
-    # that". build_data.py already keeps them out of the heatmap ordering and
-    # the cell indexes below already skip them; the edge weight was the one
-    # place that still counted them, because this line read
-    # `!="DOI" or True` and the `or True` made it a no-op (#62).
-    shared={t for t in shared if t.split(":")[0] not in CITATION}
-    if not shared: continue
-    rows=[]
-    for t in shared:
-        ra=idx[a]["terms"][t]; rb=idx[b]["terms"][t]
-        rows.append({"id":t,"l":labels.get(t,""),"na":len(ra),"nb":len(rb),"a":ra[:6],"b":rb[:6]})
-    rows.sort(key=lambda r:(-(min(r["na"],r["nb"])),-(r["na"]+r["nb"]),r["id"]))
-    byp=collections.Counter(t.split(":")[0] for t in shared)
-    doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":dict(byp.most_common()),"terms":rows}
-    fn=f"{a}--{b}.json"; json.dump(doc,open(f"{OUT}/edges/{fn}","w"),separators=(",",":"),ensure_ascii=False)
-    summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":dict(byp.most_common()),"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION][:3]}
-    print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
-for m in ORDER:
-    for p,(n,refs) in idx[m]["cells"].items():
-        if p in CITATION: continue
-        fn=f"{m}--{p}.json"
-        json.dump({"mech":m,"prefix":p,"base":MECHS[m]["base"],"total":n,"records":refs},open(f"{OUT}/cells/{fn}","w"),separators=(",",":"),ensure_ascii=False)
-        summary["cells"][f"{m}|{p}"]=n
-json.dump(summary,open(DATA+"/subsets_summary.json","w"),indent=1)
-print("labels resolved",len(labels),"of",len(allterms)); print("habitat pages unresolved (no link emitted):",len(hab_collisions), hab_collisions[:3]); print("done; total size KB:", sum(os.path.getsize(f) for f in glob.glob(f"{OUT}/**/*.json",recursive=True))//1024)
+            if n/sum(c.values())>=0.6 and l.count("'")%2==0: labels[t]=l; continue
+        for a in AUTH.get(p,[]):
+            c=idx[a]["votes"].get(t)
+            if c:
+                l,n=c.most_common(1)[0]
+                if n/sum(c.values())>=0.6 and l.count("'")%2==0: labels[t]=l; break
+    os.makedirs(f"{OUT}/edges",exist_ok=True); os.makedirs(f"{OUT}/cells",exist_ok=True)
+    summary={"edges":{},"cells":{}}
+    for a,b in itertools.combinations(ORDER,2):
+        shared=set(idx[a]["terms"])&set(idx[b]["terms"])
+        # An edge counts shared *concepts*, not shared bibliography. roots.CITATION
+        # says why: every Mech cites papers, so counting those "would say only
+        # that". build_data.py already keeps them out of the heatmap ordering and
+        # the cell indexes below already skip them; the edge weight was the one
+        # place that still counted them, because this line read
+        # `!="DOI" or True` and the `or True` made it a no-op (#62).
+        shared={t for t in shared if t.split(":")[0] not in CITATION}
+        if not shared: continue
+        rows=[]
+        for t in shared:
+            ra=idx[a]["terms"][t]; rb=idx[b]["terms"][t]
+            rows.append({"id":t,"l":labels.get(t,""),"na":len(ra),"nb":len(rb),"a":ra[:6],"b":rb[:6]})
+        rows.sort(key=lambda r:(-(min(r["na"],r["nb"])),-(r["na"]+r["nb"]),r["id"]))
+        byp=collections.Counter(t.split(":")[0] for t in shared)
+        doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":dict(byp.most_common()),"terms":rows}
+        fn=f"{a}--{b}.json"; json.dump(doc,open(f"{OUT}/edges/{fn}","w"),separators=(",",":"),ensure_ascii=False)
+        summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":dict(byp.most_common()),"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION][:3]}
+        print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
+    for m in ORDER:
+        for p,(n,refs) in idx[m]["cells"].items():
+            if p in CITATION: continue
+            fn=f"{m}--{p}.json"
+            json.dump({"mech":m,"prefix":p,"base":MECHS[m]["base"],"total":n,"records":refs},open(f"{OUT}/cells/{fn}","w"),separators=(",",":"),ensure_ascii=False)
+            summary["cells"][f"{m}|{p}"]=n
+    json.dump(summary,open(DATA+"/subsets_summary.json","w"),indent=1)
+    print("labels resolved",len(labels),"of",len(allterms)); print("habitat pages unresolved (no link emitted):",len(hab_collisions), hab_collisions[:3]); print("done; total size KB:", sum(os.path.getsize(f) for f in glob.glob(f"{OUT}/**/*.json",recursive=True))//1024)
+
+
+if __name__ == "__main__":
+    main()
