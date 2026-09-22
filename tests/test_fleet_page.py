@@ -1,6 +1,7 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -264,9 +265,15 @@ class PrefixListTests(unittest.TestCase):
 
     def setUp(self):
         import prefix_census
-        self.census = set(prefix_census.P.split("|")) | set(prefix_census.norm.values())
-        # The regex escapes dots; the literal prefix is what the other lists name.
-        self.census = {p.replace("\\.", ".") for p in self.census}
+        # What the census can actually EMIT: every alternative in P after norm
+        # is applied. Taking P plus norm's values instead would also accept the
+        # 15 raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
+        # pubchem.compound and the rest — none of which ever appear as a key,
+        # so a column named one of them would pass while rendering as zeros.
+        def literal_prefix(p):
+            return p.replace("\\.", ".")  # the regex escapes dots
+        self.census = {prefix_census.norm.get(literal_prefix(p), literal_prefix(p))
+                       for p in prefix_census.P.split("|")}
         self.voc = self.literal("build_data.py", "VOC")
         self.pref = self.literal("build_subsets.py", "PREF")
 
@@ -298,10 +305,21 @@ class PrefixListTests(unittest.TestCase):
     def test_importing_the_census_module_does_not_scan_or_write(self):
         # Reading P used to cost a four-minute scan and clobber the committed
         # census, which is why none of the above could be tested (#95).
-        before = (ROOT / "_fleet/data/prefix_census.json").read_bytes()
-        import importlib, prefix_census
-        importlib.reload(prefix_census)
-        self.assertEqual((ROOT / "_fleet/data/prefix_census.json").read_bytes(), before)
+        #
+        # This has to import in a FRESH interpreter. Importing here would be a
+        # no-op — setUp already put the module in sys.modules — and reloading
+        # would re-run the scan after the snapshot was taken, so the comparison
+        # would hold even with the guard removed. The first version of this test
+        # did exactly that and passed against the unguarded module.
+        census = ROOT / "_fleet/data/prefix_census.json"
+        before = census.read_bytes()
+        environment = dict(os.environ, PYTHONPATH=str(ROOT / "scripts/fleet"))
+        # The timeout is the teeth: a real scan takes minutes, so an unguarded
+        # module fails here long before it finishes writing.
+        subprocess.run([sys.executable, "-c", "import prefix_census"],
+                       env=environment, check=True, timeout=60,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        self.assertEqual(census.read_bytes(), before)
 
 
 if __name__ == '__main__':
