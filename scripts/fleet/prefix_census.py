@@ -39,7 +39,16 @@ def census():
 
 
 def main():
-    json.dump(census(),open(DATA+"/prefix_census.json","w"),indent=1)
+    # Build the document before opening the file. `json.dump(census(), open(...))`
+    # happens to be safe because arguments evaluate left to right, so a scan that
+    # exits takes the process down before the truncation — but write it the
+    # idiomatic way, with the open first, and a missing checkout leaves the
+    # committed census at zero bytes. census() exits for ordinary reasons:
+    # roots.mech_root when a checkout is absent, record_paths when a glob matches
+    # nothing, both deliberately fail-closed. Also closes the handle (#102).
+    document = census()
+    with open(DATA + "/prefix_census.json", "w") as handle:
+        json.dump(document, handle, indent=1)
 
 
 # Guarded so the module can be imported for P, rx and norm alone. Without this
