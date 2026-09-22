@@ -1,10 +1,12 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
 import ast
+import contextlib
 import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -253,6 +255,35 @@ class RecordPathTests(unittest.TestCase):
         self.assertLessEqual(set(roots.EXCLUDE_DIRS), set(roots.RECORD_GLOBS))
 
 
+
+@contextlib.contextmanager
+def census_sandbox():
+    """A throwaway repo root for importing prefix_census in a child.
+
+    The child derives its own REPO from `__file__`, so pointing it at the real
+    scripts/ would make its DATA the tracked _fleet/data. Nothing is written
+    there today only because `json.dump(census(), open(PATH, "w"))` evaluates
+    census() — which exits — before open() truncates. Rewrite that as the
+    idiomatic `with open(PATH, "w") as fh:` and the order reverses, leaving the
+    tracked census at zero bytes every time the suite runs. Copying the scripts
+    into a temp tree means the guard cannot depend on that accident (#102).
+    """
+    with tempfile.TemporaryDirectory() as box:
+        root = Path(box)
+        shutil.copytree(ROOT / "scripts/fleet", root / "scripts/fleet")
+        data = root / "_fleet/data"
+        data.mkdir(parents=True)
+        (root / "empty").mkdir()
+        yield root, data, dict(os.environ,
+                               PYTHONPATH=str(root / "scripts/fleet"),
+                               MECHS_ROOT=str(root / "empty"))
+
+# Methods that change a list in place. A read like VOC.index(v) must not be
+# mistaken for one.
+LIST_MUTATORS = {"append", "extend", "insert", "remove", "pop", "clear",
+                 "sort", "reverse", "__setitem__", "__delitem__"}
+
+
 class PrefixListTests(unittest.TestCase):
     """The pipeline carries three hand-maintained prefix lists that must agree.
 
@@ -265,7 +296,13 @@ class PrefixListTests(unittest.TestCase):
     """
 
     def setUp(self):
-        import prefix_census
+        # Read P and norm out of a SEPARATE interpreter, never this one. An
+        # in-process import here is what made the old guard test toothless, and
+        # splitting that test out fixed its detection without closing this hole:
+        # against a regressed module, setUp itself still ran the scan and
+        # overwrote the tracked census every time the suite ran (#98). The empty
+        # MECHS_ROOT means a regressed module dies here in milliseconds instead.
+        constants = self.module_constants()
         # What the census can actually EMIT: every alternative in P after norm
         # is applied. Taking P plus norm's values instead would also accept the
         # 15 raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
@@ -273,10 +310,25 @@ class PrefixListTests(unittest.TestCase):
         # so a column named one of them would pass while rendering as zeros.
         def literal_prefix(p):
             return p.replace("\\.", ".")  # the regex escapes dots
-        self.census = {prefix_census.norm.get(literal_prefix(p), literal_prefix(p))
-                       for p in prefix_census.P.split("|")}
+        norm = constants["norm"]
+        self.census = {norm.get(literal_prefix(p), literal_prefix(p))
+                       for p in constants["P"].split("|")}
         self.voc = self.literal("build_data.py", "VOC")
         self.pref = self.literal("build_subsets.py", "PREF")
+
+    @staticmethod
+    def module_constants():
+        """prefix_census's P and norm, fetched without importing it here."""
+        with census_sandbox() as (root, data, environment):
+            done = subprocess.run(
+                [sys.executable, "-c",
+                 "import json, prefix_census as p; print(json.dumps({'P': p.P, 'norm': p.norm}))"],
+                env=environment, timeout=60, capture_output=True, text=True)
+        if done.returncode != 0:
+            raise AssertionError(
+                "could not read prefix_census's constants; it does work at import "
+                f"(#95):\n{done.stderr}")
+        return json.loads(done.stdout)
 
     def literal(self, script, name):
         """Read a list literal without importing — both scripts scan on import.
@@ -288,11 +340,39 @@ class PrefixListTests(unittest.TestCase):
         whose value is a plain literal rules both out.
         """
         source = (ROOT / "scripts/fleet" / script).read_text()
-        bindings = [node for node in ast.parse(source).body
-                    if isinstance(node, ast.Assign)
-                    and any(getattr(target, "id", None) == name for target in node.targets)]
+        tree = ast.parse(source)
+        # ast.Assign alone misses `VOC += [...]`, `VOC.append(...)`, `VOC[0] = ...`
+        # and a rebinding nested in an `if` — each leaves this reading a list the
+        # module no longer uses (#99). Walking the tree covers those four.
+        # It does NOT cover tuple-unpack rebinding, `del VOC[0]`, `VOC[0] += x`
+        # or a walrus; those are filed rather than chased (#101).
+        #
+        # Only mutating methods count. Flagging every attribute call would fail
+        # on `VOC.index(v)` — a read, and an idiomatic one in a file that
+        # already sorts VOC — with a message asserting a mutation that never
+        # happened, which is a worse trap than the hole it closes.
+        bindings, mutations = [], []
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if getattr(target, "id", None) == name:
+                        bindings.append(node)
+                    elif (isinstance(target, ast.Subscript)
+                          and getattr(target.value, "id", None) == name):
+                        mutations.append("subscript assignment")
+            elif isinstance(node, (ast.AugAssign, ast.AnnAssign)):
+                if getattr(node.target, "id", None) == name:
+                    bindings.append(node)
+            elif (isinstance(node, ast.Call)
+                  and isinstance(node.func, ast.Attribute)
+                  and getattr(node.func.value, "id", None) == name
+                  and node.func.attr in LIST_MUTATORS):
+                mutations.append(f"{name}.{node.func.attr}()")
+        self.assertEqual(mutations, [], f"{name} is mutated in {script} after it is bound: "
+                                        f"{mutations}; this test reads a single literal")
         self.assertEqual(len(bindings), 1,
-                         f"{name} is bound {len(bindings)} times in {script}; "
+                         f"{name} is bound or shadowed {len(bindings)} times in {script} "
+                         f"(lines {[node.lineno for node in bindings]}); "
                          "this test reads a single literal binding")
         # literal_eval refuses anything that is not a literal, so a computed
         # value fails here rather than being silently half-read.
@@ -316,25 +396,38 @@ class PrefixListTests(unittest.TestCase):
         self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
         self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
 
-    def test_importing_the_census_module_does_not_scan_or_write(self):
-        # Reading P used to cost a four-minute scan and clobber the committed
-        # census, which is why none of the above could be tested (#95).
-        #
-        # This has to import in a FRESH interpreter. Importing here would be a
-        # no-op — setUp already put the module in sys.modules — and reloading
-        # would re-run the scan after the snapshot was taken, so the comparison
-        # would hold even with the guard removed. The first version of this test
-        # did exactly that and passed against the unguarded module.
-        census = ROOT / "_fleet/data/prefix_census.json"
-        before = census.read_bytes()
-        environment = dict(os.environ, PYTHONPATH=str(ROOT / "scripts/fleet"))
-        # The timeout is the teeth: a real scan takes minutes, so an unguarded
-        # module fails here long before it finishes writing.
-        subprocess.run([sys.executable, "-c", "import prefix_census"],
-                       env=environment, check=True, timeout=60,
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        self.assertEqual(census.read_bytes(), before)
 
+
+
+class CensusImportGuardTests(unittest.TestCase):
+    """That importing prefix_census does no work (#95).
+
+    Deliberately its own class with no setUp: PrefixListTests imports the
+    module in setUp, and that import is the thing under test here. Sharing it
+    meant the scan ran before the snapshot was taken, so the assertion compared
+    a clobbered file against itself and passed (#98).
+    """
+
+    def test_importing_the_census_module_does_not_scan_or_write(self):
+        tracked = ROOT / "_fleet/data/prefix_census.json"
+        before = tracked.read_bytes()
+        # The empty MECHS_ROOT gives this teeth: an unguarded import reaches
+        # roots.mech_root, which exits rather than counting an empty corpus, so
+        # the child dies in milliseconds and the returncode assertion reports
+        # its stderr. No dependence on the real corpus being slow enough to trip
+        # a timeout. The sandbox means the child cannot touch the real tree
+        # whatever it does.
+        with census_sandbox() as (root, data, environment):
+            done = subprocess.run([sys.executable, "-c", "import prefix_census"],
+                                  env=environment, timeout=60,
+                                  capture_output=True, text=True)
+            # Positive evidence, and independent of the exit code: a scan that
+            # ran would have left its census here.
+            written = sorted(path.name for path in data.iterdir())
+        self.assertEqual(done.returncode, 0,
+                         f"importing prefix_census did work:\n{done.stderr}")
+        self.assertEqual(written, [], f"importing prefix_census wrote {written}")
+        self.assertEqual(tracked.read_bytes(), before)
 
 if __name__ == '__main__':
     unittest.main()
