@@ -1,5 +1,6 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
+import ast
 import json
 import os
 from pathlib import Path
@@ -278,11 +279,24 @@ class PrefixListTests(unittest.TestCase):
         self.pref = self.literal("build_subsets.py", "PREF")
 
     def literal(self, script, name):
-        """Read a list literal without importing — both scripts scan on import."""
+        """Read a list literal without importing — both scripts scan on import.
+
+        Parsed with ast rather than matched with a regex. A regex sees only the
+        text it matched, so `VOC = VOC + ["BOGUS"]` on the following line would
+        leave the assertion reading a literal the module no longer uses, and a
+        length check cannot notice. Requiring exactly one module-level binding
+        whose value is a plain literal rules both out.
+        """
         source = (ROOT / "scripts/fleet" / script).read_text()
-        match = re.search(rf'^{name}\s*=\s*(\[[^\]]*\])', source, re.M)
-        self.assertIsNotNone(match, f"{name} not found in {script}; has the format changed?")
-        value = eval(match.group(1))
+        bindings = [node for node in ast.parse(source).body
+                    if isinstance(node, ast.Assign)
+                    and any(getattr(target, "id", None) == name for target in node.targets)]
+        self.assertEqual(len(bindings), 1,
+                         f"{name} is bound {len(bindings)} times in {script}; "
+                         "this test reads a single literal binding")
+        # literal_eval refuses anything that is not a literal, so a computed
+        # value fails here rather than being silently half-read.
+        value = ast.literal_eval(bindings[0].value)
         self.assertGreater(len(value), 10, f"{name} parsed as {value!r}, which looks wrong")
         return value
 
