@@ -265,7 +265,13 @@ class PrefixListTests(unittest.TestCase):
     """
 
     def setUp(self):
-        import prefix_census
+        # Read P and norm out of a SEPARATE interpreter, never this one. An
+        # in-process import here is what made the old guard test toothless, and
+        # splitting that test out fixed its detection without closing this hole:
+        # against a regressed module, setUp itself still ran the scan and
+        # overwrote the tracked census every time the suite ran (#98). The empty
+        # MECHS_ROOT means a regressed module dies here in milliseconds instead.
+        constants = self.module_constants()
         # What the census can actually EMIT: every alternative in P after norm
         # is applied. Taking P plus norm's values instead would also accept the
         # 15 raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
@@ -273,10 +279,28 @@ class PrefixListTests(unittest.TestCase):
         # so a column named one of them would pass while rendering as zeros.
         def literal_prefix(p):
             return p.replace("\\.", ".")  # the regex escapes dots
-        self.census = {prefix_census.norm.get(literal_prefix(p), literal_prefix(p))
-                       for p in prefix_census.P.split("|")}
+        norm = constants["norm"]
+        self.census = {norm.get(literal_prefix(p), literal_prefix(p))
+                       for p in constants["P"].split("|")}
         self.voc = self.literal("build_data.py", "VOC")
         self.pref = self.literal("build_subsets.py", "PREF")
+
+    @staticmethod
+    def module_constants():
+        """prefix_census's P and norm, fetched without importing it here."""
+        with tempfile.TemporaryDirectory() as empty:
+            environment = dict(os.environ,
+                               PYTHONPATH=str(ROOT / "scripts/fleet"),
+                               MECHS_ROOT=empty)
+            done = subprocess.run(
+                [sys.executable, "-c",
+                 "import json, prefix_census as p; print(json.dumps({'P': p.P, 'norm': p.norm}))"],
+                env=environment, timeout=60, capture_output=True, text=True)
+        if done.returncode != 0:
+            raise AssertionError(
+                "could not read prefix_census's constants; it does work at import "
+                f"(#95):\n{done.stderr}")
+        return json.loads(done.stdout)
 
     def literal(self, script, name):
         """Read a list literal without importing — both scripts scan on import.
