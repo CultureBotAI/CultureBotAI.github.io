@@ -379,5 +379,26 @@ class CensusImportGuardTests(unittest.TestCase):
         self.assertEqual(written, [], f"importing prefix_census wrote {written}")
         self.assertEqual(tracked.read_bytes(), before)
 
+
+class CardSourceTests(unittest.TestCase):
+    """Every card must have somewhere to be checked against (#104)."""
+
+    def test_every_card_has_a_published_source(self):
+        # The drift check is only as complete as this table. An eleventh Mech
+        # would otherwise get a card and be silently exempt from checking,
+        # which is the failure this whole issue is about.
+        import check_cards
+        stated = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
+        self.assertEqual(sorted(set(stated) - set(check_cards.SOURCES)), [],
+                         "card with no entry in check_cards.SOURCES")
+        self.assertEqual(sorted(set(check_cards.SOURCES) - set(stated)), [],
+                         "SOURCES entry with no card")
+
+    def test_the_card_parser_reads_every_member(self):
+        snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
+        import check_cards
+        stated = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
+        self.assertEqual(sorted(stated), sorted(snapshot["mechs"]))
+
 if __name__ == '__main__':
     unittest.main()

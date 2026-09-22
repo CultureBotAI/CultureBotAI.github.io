@@ -28,6 +28,22 @@ template/fragment and update the home-page links. The assembler refuses to omit
 a manifest member from the cards or graph. Its capability table and badges must
 never be maintained by hand. The rendered page links to the source revision.
 
+The card headline figures are hand-curated from each Mech's published browser,
+so nothing regenerates them. `scripts/fleet/check_cards.py` compares each card
+against the page it cites and is the one script here that needs the network:
+
+```bash
+python3 scripts/fleet/check_cards.py
+```
+
+It exits 1 on a figure that differs from the site and only warns on a page it
+could not read, and `SOURCES` at its top pins where each Mech publishes its
+count. It runs on the workflow's nightly schedule, not on pull requests, so a
+Mech shipping records overnight does not block an unrelated change; a nightly
+red means the card figures in `mechs_template.md` and the `MECHS` block in
+`fleet_fragment.html` need refreshing together. A new card needs a `SOURCES`
+entry; a test enforces that.
+
 The `Fleet page` workflow checks pull requests, pushes and the live CLAW manifest
 daily. It detects changes to membership, capability declarations (including
 reasons/settings), and artifact count; unrelated CLAW commits do not make the

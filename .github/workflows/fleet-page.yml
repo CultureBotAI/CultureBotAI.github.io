@@ -29,3 +29,9 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python scripts/fleet/refresh_manifest.py --claw-root .claw --check
       - run: python scripts/fleet/assemble_page.py --check
+      # Scheduled only, and deliberately not on pull_request: the card figures
+      # are hand-curated from ten sites that publish on their own cadence, so a
+      # blocking check would make an unrelated docs fix unmergeable whenever a
+      # Mech shipped records overnight. Nightly red is the right signal.
+      - if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python scripts/fleet/check_cards.py
