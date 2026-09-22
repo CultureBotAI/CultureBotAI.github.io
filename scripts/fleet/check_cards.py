@@ -72,13 +72,20 @@ def published(kind: str, body: str, selector: str) -> int | None:
     """The figure the site publishes, or None when the shape has changed."""
     if kind == "json":
         document = json.loads(body)
+        # ingredients.json has shipped as a bare list in some releases. Test the
+        # shape before reaching into it: a list has no .get, and the error that
+        # raises is not a parse error, so it used to escape as a traceback
+        # instead of an "unread" line (#110).
+        if isinstance(document, list):
+            return len(document)
+        if not isinstance(document, dict):
+            return None
         value = document.get(selector)
         if isinstance(value, list):
             return len(value)
-        if isinstance(value, int):
+        if isinstance(value, int) and not isinstance(value, bool):
             return value
-        # ingredients.json is a bare list under its key in some releases
-        return len(document) if isinstance(document, list) else None
+        return None
     if kind == "text":
         # The figure sits in a sentence. Strip tags first so markup between the
         # number and the words it belongs to cannot hide the pairing.
@@ -105,7 +112,9 @@ def main() -> int:
             continue
         try:
             value = published(kind, body, selector)
-        except (ValueError, json.JSONDecodeError) as error:
+        except (ValueError, TypeError, AttributeError) as error:
+            # json.JSONDecodeError is a ValueError. The other two are what a
+            # body of an unexpected type raises when it is walked.
             unreadable.append((mech, f"unparseable: {error}"))
             continue
         if value is None:

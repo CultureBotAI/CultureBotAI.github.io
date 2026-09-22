@@ -200,13 +200,23 @@ Treat as P0 when live and externally consequential:
 
 ### 5. What actually gates a merge
 
-Only `.github/workflows/fleet-page.yml` runs, and it runs exactly three things:
+Only `.github/workflows/fleet-page.yml` runs. Three steps block a merge:
 
 ```bash
 python -m unittest discover -s tests -v
 python scripts/fleet/refresh_manifest.py --claw-root .claw --check
 python scripts/fleet/assemble_page.py --check
 ```
+
+A fourth runs only on the nightly schedule and on manual dispatch, never on a
+pull request, so it can be red without blocking anything:
+
+```bash
+python scripts/fleet/check_cards.py   # card headline figures vs each Mech's site
+```
+
+A drifted card therefore shows up as a failed scheduled run, not a failed PR
+check. Look at the latest scheduled run before crediting the cards as current.
 
 An issue asserting a defect that one of these already blocks is P2 unless it
 shows the gate is porous — and they have been porous: a test can pass because
