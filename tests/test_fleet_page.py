@@ -250,5 +250,59 @@ class RecordPathTests(unittest.TestCase):
         # A renamed Mech would leave a dead entry here that silently does nothing.
         self.assertLessEqual(set(roots.EXCLUDE_DIRS), set(roots.RECORD_GLOBS))
 
+
+class PrefixListTests(unittest.TestCase):
+    """The pipeline carries three hand-maintained prefix lists that must agree.
+
+    `P` in prefix_census.py decides what is counted at all; `VOC` in
+    build_data.py decides which vocabularies become heatmap columns; `PREF` in
+    build_subsets.py decides which cells and edges get clickable record lists.
+    Nothing enforced their relationship, and a mismatch is silent in both
+    directions — a column with no cells renders dead, and a prefix counted but
+    absent from VOC never reaches the page at all (#84, #95).
+    """
+
+    def setUp(self):
+        import prefix_census
+        self.census = set(prefix_census.P.split("|")) | set(prefix_census.norm.values())
+        # The regex escapes dots; the literal prefix is what the other lists name.
+        self.census = {p.replace("\\.", ".") for p in self.census}
+        self.voc = self.literal("build_data.py", "VOC")
+        self.pref = self.literal("build_subsets.py", "PREF")
+
+    def literal(self, script, name):
+        """Read a list literal without importing — both scripts scan on import."""
+        source = (ROOT / "scripts/fleet" / script).read_text()
+        match = re.search(rf'^{name}\s*=\s*(\[[^\]]*\])', source, re.M)
+        self.assertIsNotNone(match, f"{name} not found in {script}; has the format changed?")
+        value = eval(match.group(1))
+        self.assertGreater(len(value), 10, f"{name} parsed as {value!r}, which looks wrong")
+        return value
+
+    def test_every_heatmap_column_is_a_vocabulary_the_census_counts(self):
+        # A column the census never counts renders as a stripe of zeros.
+        self.assertEqual([v for v in self.voc if v not in self.census], [])
+
+    def test_every_clickable_cell_prefix_is_a_vocabulary_the_census_counts(self):
+        self.assertEqual([p for p in self.pref if p not in self.census], [])
+
+    def test_columns_and_clickable_cells_describe_the_same_vocabularies(self):
+        # Citation prefixes are deliberately asymmetric: they get a column but
+        # no record lists, which is what roots.CITATION exists to say.
+        import roots
+        columns = {v for v in self.voc if v not in roots.CITATION}
+        cells = {p for p in self.pref if p not in roots.CITATION}
+        self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
+        self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
+
+    def test_importing_the_census_module_does_not_scan_or_write(self):
+        # Reading P used to cost a four-minute scan and clobber the committed
+        # census, which is why none of the above could be tested (#95).
+        before = (ROOT / "_fleet/data/prefix_census.json").read_bytes()
+        import importlib, prefix_census
+        importlib.reload(prefix_census)
+        self.assertEqual((ROOT / "_fleet/data/prefix_census.json").read_bytes(), before)
+
+
 if __name__ == '__main__':
     unittest.main()
