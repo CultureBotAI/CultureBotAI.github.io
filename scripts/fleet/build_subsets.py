@@ -155,7 +155,13 @@ os.makedirs(f"{OUT}/edges",exist_ok=True); os.makedirs(f"{OUT}/cells",exist_ok=T
 summary={"edges":{},"cells":{}}
 for a,b in itertools.combinations(ORDER,2):
     shared=set(idx[a]["terms"])&set(idx[b]["terms"])
-    shared={t for t in shared if t.split(":")[0]!="DOI" or True}
+    # An edge counts shared *concepts*, not shared bibliography. roots.CITATION
+    # says why: every Mech cites papers, so counting those "would say only
+    # that". build_data.py already keeps them out of the heatmap ordering and
+    # the cell indexes below already skip them; the edge weight was the one
+    # place that still counted them, because this line read
+    # `!="DOI" or True` and the `or True` made it a no-op (#62).
+    shared={t for t in shared if t.split(":")[0] not in CITATION}
     if not shared: continue
     rows=[]
     for t in shared:
@@ -165,7 +171,7 @@ for a,b in itertools.combinations(ORDER,2):
     byp=collections.Counter(t.split(":")[0] for t in shared)
     doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":dict(byp.most_common()),"terms":rows}
     fn=f"{a}--{b}.json"; json.dump(doc,open(f"{OUT}/edges/{fn}","w"),separators=(",",":"),ensure_ascii=False)
-    summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":dict(byp.most_common()),"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0]!="DOI"][:3]}
+    summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":dict(byp.most_common()),"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION][:3]}
     print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
 for m in ORDER:
     for p,(n,refs) in idx[m]["cells"].items():
