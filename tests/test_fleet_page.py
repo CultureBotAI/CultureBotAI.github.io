@@ -1,6 +1,8 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
+import ast
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -249,6 +251,90 @@ class RecordPathTests(unittest.TestCase):
     def test_every_excluded_mech_is_one_the_census_actually_reads(self):
         # A renamed Mech would leave a dead entry here that silently does nothing.
         self.assertLessEqual(set(roots.EXCLUDE_DIRS), set(roots.RECORD_GLOBS))
+
+
+class PrefixListTests(unittest.TestCase):
+    """The pipeline carries three hand-maintained prefix lists that must agree.
+
+    `P` in prefix_census.py decides what is counted at all; `VOC` in
+    build_data.py decides which vocabularies become heatmap columns; `PREF` in
+    build_subsets.py decides which cells and edges get clickable record lists.
+    Nothing enforced their relationship, and a mismatch is silent in both
+    directions — a column with no cells renders dead, and a prefix counted but
+    absent from VOC never reaches the page at all (#84, #95).
+    """
+
+    def setUp(self):
+        import prefix_census
+        # What the census can actually EMIT: every alternative in P after norm
+        # is applied. Taking P plus norm's values instead would also accept the
+        # 15 raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
+        # pubchem.compound and the rest — none of which ever appear as a key,
+        # so a column named one of them would pass while rendering as zeros.
+        def literal_prefix(p):
+            return p.replace("\\.", ".")  # the regex escapes dots
+        self.census = {prefix_census.norm.get(literal_prefix(p), literal_prefix(p))
+                       for p in prefix_census.P.split("|")}
+        self.voc = self.literal("build_data.py", "VOC")
+        self.pref = self.literal("build_subsets.py", "PREF")
+
+    def literal(self, script, name):
+        """Read a list literal without importing — both scripts scan on import.
+
+        Parsed with ast rather than matched with a regex. A regex sees only the
+        text it matched, so `VOC = VOC + ["BOGUS"]` on the following line would
+        leave the assertion reading a literal the module no longer uses, and a
+        length check cannot notice. Requiring exactly one module-level binding
+        whose value is a plain literal rules both out.
+        """
+        source = (ROOT / "scripts/fleet" / script).read_text()
+        bindings = [node for node in ast.parse(source).body
+                    if isinstance(node, ast.Assign)
+                    and any(getattr(target, "id", None) == name for target in node.targets)]
+        self.assertEqual(len(bindings), 1,
+                         f"{name} is bound {len(bindings)} times in {script}; "
+                         "this test reads a single literal binding")
+        # literal_eval refuses anything that is not a literal, so a computed
+        # value fails here rather than being silently half-read.
+        value = ast.literal_eval(bindings[0].value)
+        self.assertGreater(len(value), 10, f"{name} parsed as {value!r}, which looks wrong")
+        return value
+
+    def test_every_heatmap_column_is_a_vocabulary_the_census_counts(self):
+        # A column the census never counts renders as a stripe of zeros.
+        self.assertEqual([v for v in self.voc if v not in self.census], [])
+
+    def test_every_clickable_cell_prefix_is_a_vocabulary_the_census_counts(self):
+        self.assertEqual([p for p in self.pref if p not in self.census], [])
+
+    def test_columns_and_clickable_cells_describe_the_same_vocabularies(self):
+        # Citation prefixes are deliberately asymmetric: they get a column but
+        # no record lists, which is what roots.CITATION exists to say.
+        import roots
+        columns = {v for v in self.voc if v not in roots.CITATION}
+        cells = {p for p in self.pref if p not in roots.CITATION}
+        self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
+        self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
+
+    def test_importing_the_census_module_does_not_scan_or_write(self):
+        # Reading P used to cost a four-minute scan and clobber the committed
+        # census, which is why none of the above could be tested (#95).
+        #
+        # This has to import in a FRESH interpreter. Importing here would be a
+        # no-op — setUp already put the module in sys.modules — and reloading
+        # would re-run the scan after the snapshot was taken, so the comparison
+        # would hold even with the guard removed. The first version of this test
+        # did exactly that and passed against the unguarded module.
+        census = ROOT / "_fleet/data/prefix_census.json"
+        before = census.read_bytes()
+        environment = dict(os.environ, PYTHONPATH=str(ROOT / "scripts/fleet"))
+        # The timeout is the teeth: a real scan takes minutes, so an unguarded
+        # module fails here long before it finishes writing.
+        subprocess.run([sys.executable, "-c", "import prefix_census"],
+                       env=environment, check=True, timeout=60,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        self.assertEqual(census.read_bytes(), before)
+
 
 if __name__ == '__main__':
     unittest.main()
