@@ -1,5 +1,5 @@
 {
- "checked_at_utc": "2026-09-25T05:58:30+00:00",
+ "checked_at_utc": "2026-09-25T18:27:30+00:00",
  "local_date": "2026-09-24",
  "pinned_at_utc": "2026-09-25T02:06:03+00:00",
  "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses; the vocabulary census, subsets and card stats were regenerated at the same pins.",
@@ -24,10 +24,10 @@
    "card_records": 542,
    "merged_prs": 611,
    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
-   "site_html_sha256": "46582d729ff175f3e5cda8fd6040d73492aeb3debacaaeffbf228a0277f69d10",
+   "site_html_sha256": "30ce6df279536883e8f65b2091a25e36ca0093864aba4a65996e424ff841363c",
    "site_html_sha256_at_pin": "55909b291392a027c58b9206fd49ea13d67b83165a593920fdb65a62ef0bac66",
-   "notes": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 548 when this audit was written; the card keeps the pinned figure, 542.",
-   "site_figure_at_check": 548
+   "notes": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 575 when this audit was written; the card keeps the pinned figure, 542.",
+   "site_figure_at_check": 575
   },
   {
    "repo": "CommunityMech",
@@ -55,9 +55,10 @@
    "readme_url": "https://github.com/CultureBotAI/CultureMech/blob/faaf033b8c5386aaf2cb6f28fc527678d00cf83b/README.md",
    "card_records": 6288,
    "merged_prs": 253,
-   "site": "https://culturebotai.github.io/CultureMech/pages/",
-   "site_html_sha256": "253608644e3542df93206f8480a1d5d39aafe43456aaabcd9d4d3141befb794a",
-   "notes": "pages/ states 6,288 media records, equal to data/merge_yaml/merged at the pin and to the README corpus snapshot (15,878 normalized, 6,288 merged). The app/ landing tile still reads 10,657, a legacy figure that matches no data layer. The served file is built in CI rather than committed, so there is no copy at the pin to compare."
+   "site": "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md",
+   "site_html_sha256": "9bc06d232a67fa55cdef539fec2f52fa2644f7cf50e2820e223cc26106ee6f51",
+   "site_html_sha256_at_pin": "9bc06d232a67fa55cdef539fec2f52fa2644f7cf50e2820e223cc26106ee6f51",
+   "notes": "The committed README's corpus snapshot states 15,878 normalized and 6,288 merged records, equal to data/merge_yaml/merged at the pin; no published page states the canonical count. The app/ landing tile still reads 10,657, a legacy figure that matches no data layer, and the pages/ media index, untracked upstream, was removed by the 2026-09-25 Pages rebuild (#175). The live README.md is byte-identical to README.md at the pin."
   },
   {
    "repo": "HabitatMech",
@@ -130,10 +131,10 @@
    "card_records": 763,
    "merged_prs": 656,
    "site": "https://culturebotai.github.io/TraitMech/pages/index.html",
-   "site_html_sha256": "643c043069d913f8f2ea4dfec41c4faefdcd1ce569a2b45e87e16b3e4b154597",
+   "site_html_sha256": "21fd928ae51ddaca7a9f1e5cafce81a37b055c97ab8a83442ba19021acc2daeb",
    "site_html_sha256_at_pin": "e36417a4650c1e05cdee1bcc750082c1541c57530c5bb60d795a6c3eb061120b",
-   "notes": "763 data/traits records at the pin (427 REVIEWED, 248 PROPOSED, 50 DEPRECATED, 38 SEEDED; 519 with causal graphs), equal to the landing page, which shows 62.5% embedded (477 of 763). The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 767 when this audit was written; the card keeps the pinned figure, 763.",
-   "site_figure_at_check": 767
+   "notes": "763 data/traits records at the pin (427 REVIEWED, 248 PROPOSED, 50 DEPRECATED, 38 SEEDED; 519 with causal graphs), equal to the landing page, which shows 62.5% embedded (477 of 763). The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 768 when this audit was written; the card keeps the pinned figure, 763.",
+   "site_figure_at_check": 768
   }
  ]
 }

@@ -18,7 +18,7 @@ permalink: /culturemech/
 - **[Direct media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct)** — explore the medium nodes' own KG-Microbe embeddings.
 - **[Graph layout](https://culturebotai.github.io/CultureMech/app/umap_graph.html)** — another view of media similarity.
 
-Counts and links were checked on September 24, 2026. The published landing page still displays a legacy recipe total; the counts above come from the current repository's generated corpus inventory, and the published [media index](https://culturebotai.github.io/CultureMech/pages/) lists the same 6,288 merged records.
+Counts and links were checked on September 24, 2026. The published landing page still displays a legacy recipe total; the counts above come from the current repository's generated corpus inventory.
 
 ## Data Architecture
 

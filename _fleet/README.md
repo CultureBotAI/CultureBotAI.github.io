@@ -130,8 +130,8 @@ Record links resolve to each Mech's published page where one exists (TraitMech,
 CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, TaxonMech's
 taxon.html route, ProteinTraitsMech hash routes) and to the record's source file on GitHub for CultureMech,
 MediaIngredientMech and NaturalProductMech in the existing census indexes,
-although CultureMech (`pages/media/`) and NaturalProductMech (`pages/<class>/`)
-now publish per-record pages. CommunityMech's four `data/isolates` records have no
+although NaturalProductMech now publishes per-record pages (`pages/<class>/`);
+CultureMech's `pages/media/` pages come and go with its untracked `pages/` (#175). CommunityMech's four `data/isolates` records have no
 published page, so they get no record link and are left out of the record lists
 and overlaps; the census still counts them.
 TaxonMech's record links open its taxon pages. NaturalProductMech's browse site
@@ -182,10 +182,13 @@ changed after the pins without changing their figures; the audit records each
 live hash beside the hash of the committed copy at the pin.
 
 CultureMech's README inventory at the pinned revision reports 15,878 normalized
-records and 6,288 merged records. `/pages/` is live again and lists the same
-6,288 merged media records, so the card links there and `check_cards.py` reads
-it. The `app/` landing tile, which the site root redirects to, still reads
-10,657; the `app/` browser itself serves the 15,878 normalized records.
+records and 6,288 merged records, and the card cites it: no published page states
+the canonical count. The `app/` landing tile, which the site root redirects to,
+still reads 10,657; the `app/` browser itself serves the 15,878 normalized
+records. Its `/pages/` media index was live on September 24 and gone again on
+September 25: `pages/index.html` has been untracked since CultureMech #320, so it
+survives only in stale deployments (#175). `check_cards.py` therefore reads the
+committed README.
 
 Reviewed-record counts come from `mech_stats.py`, which counts a record as
 reviewed only where the Mech's schema has a status that can say REVIEWED; the

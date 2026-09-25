@@ -39,7 +39,7 @@ SITE = "https://culturebotai.github.io/"
 #         and only the data file has the number (#86)
 #
 # Several repo roots are client-side meta-refresh shells that return 200, so
-# these are the pages/ or app/ URLs, never the root.
+# these are the pages/ or app/ URLs, never the root. CultureMech's is its README.
 SOURCES: dict[str, tuple[str, str, str]] = {
     "HabitatMech":         ("html", "HabitatMech/pages/index.html", "habitat records"),
     "CommunityMech":       ("html", "CommunityMech/", "communities"),
@@ -48,9 +48,11 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "CellStructureMech":   ("html", "CellStructureMech/pages/index.html", "structure records"),
     "AntibioticMech":      ("html", "AntibioticMech/pages/index.html", "compound records"),
     "NaturalProductMech":  ("text", "NaturalProductMech/pages/index.html", "natural product structures"),
-    # Not the app/ landing tile, which is a legacy hand-typed figure matching no
-    # data layer; pages/ is the merged canonical count the card states (#86).
-    "CultureMech":         ("text", "CultureMech/pages/", "media records"),
+    # CultureMech publishes no page carrying its canonical count: the app/ landing
+    # tile is a legacy hand-typed figure (#86), and its pages/ media index is
+    # untracked, so it comes and goes with stale deployments (#175). The committed
+    # README's corpus snapshot states it ("6,288 merged records").
+    "CultureMech":         ("text", "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md", "merged records"),
     "ProteinTraitsMech":   ("json", "proteintraitsmech/data/facets.json", "total"),
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
 }
@@ -106,7 +108,7 @@ def main() -> int:
             unreadable.append((mech, "no card in the template"))
             continue
         try:
-            body = fetch(SITE + path)
+            body = fetch(path if path.startswith("https://") else SITE + path)
         except (urllib.error.URLError, TimeoutError, OSError) as error:
             unreadable.append((mech, f"fetch failed: {error}"))
             continue
