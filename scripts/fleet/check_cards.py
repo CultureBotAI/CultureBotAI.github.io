@@ -366,8 +366,9 @@ def main() -> int:
               "assemble_page.py. WRONG: correct the card and every other occurrence of its "
               "figure, found by grepping the tree for it as update-xmech-page step 6 does (the MECHS "
               "records: and extra: text in _fleet/fleet_fragment.html, cross-references, card_records "
-              "in site_audit.json, the pages that repeat it), or the audit's figure_at_pin if that is "
-              "what was mistyped, then rerun assemble_page.py; no re-pin. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
+              "in site_audit.json, the pages that repeat it), then rerun assemble_page.py; no re-pin. "
+              "If figure_at_pin itself is wrong, re-derive it with build_site_audit.py against a "
+              "snapshot at the audit's pins (update-xmech-page step 11); never edit it by hand. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
               "UNCARDED: fix the card or its SOURCES entry. AUDIT: fix site_audit.json. "
               "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1

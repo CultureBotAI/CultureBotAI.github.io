@@ -63,8 +63,10 @@ remedy for each failing verdict (#235):
   and every other occurrence of its figure, found by grepping the tree for it as
   step 6 of the update skill does: the MECHS `records:` and `extra:` text in
   `fleet_fragment.html`, cross-references, `card_records` in `site_audit.json`
-  and the pages that repeat it. Or correct `figure_at_pin` if that is what was
-  wrong. Then rerun `assemble_page.py`; no re-pin (#248, #258). The unit tests catch this on the
+  and the pages that repeat it. Then rerun `assemble_page.py`; no re-pin (#248,
+  #258). If `figure_at_pin` itself is wrong, re-derive it with
+  `build_site_audit.py` against a snapshot at the audit's pins (update skill
+  step 11); it is derived, never typed (#268). The unit tests catch this on the
   PR and in the nightly, which still runs the card check after a failed test
   step so its report prints (#239, #240).
 - GONE or CHANGED: a `SOURCES` entry needs repointing.

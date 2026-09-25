@@ -864,6 +864,62 @@ class SiteAuditBuilderTests(unittest.TestCase):
         self.assertEqual(entry["data_sha256"], entry["data_sha256_at_pin"])
         self.assertEqual(entry["figure_at_pin"], 3)
 
+    def whole_build(self, notes=None, pinned_at="2026-09-25T02:06:03+00:00", now=None):
+        """build() over two fake Mechs, one of them with no committed copy."""
+        from unittest import mock
+        sources = {"HabitatMech": ("html", "HabitatMech/pages/index.html", "habitat records"),
+                   "ProteinTraitsMech": ("json", "proteintraitsmech/data/facets.json", "total")}
+        pins = {"pinned_at_utc": pinned_at, "claw": "c" * 40, "mechs": {
+            "HabitatMech": {"repo": "HabitatMech", "sha": "a" * 40, "commit_date": "2026-09-25T03:40:32+02:00"},
+            "ProteinTraitsMech": {"repo": "proteintraitsmech", "sha": "b" * 40, "commit_date": "2026-09-25T01:36:06Z"}}}
+        stats = {"mechs": [
+            {"mech": "HabitatMech", "repo": "HabitatMech", "source_revision": "a" * 40, "merged_prs": 7},
+            {"mech": "ProteinTraitsMech", "repo": "proteintraitsmech", "source_revision": "b" * 40, "merged_prs": 9}]}
+        template = ('<article data-mech="HabitatMech"><div class="num"><b>3,206</b></div></article>'
+                    '<article data-mech="ProteinTraitsMech"><div class="num"><b>5</b></div></article>')
+        notes = notes or {"scope": "Scope.", "notes": {"HabitatMech": "H.", "ProteinTraitsMech": "P.",
+                                                         "culturebotai-claw": "C."}}
+        def fetch(url):
+            return b'{"total": 5}' if url.endswith(".json") else self.PAGE
+        def shower(mech, sha):
+            return lambda path: self.PAGE if (mech, path) == ("HabitatMech", "pages/index.html") else None
+        now = now or datetime.datetime(2026, 9, 25, 19, 0, tzinfo=datetime.timezone.utc)
+        with mock.patch.dict(self.b.check_cards.SOURCES, sources, clear=True):
+            return self.b.build(pins, notes, template, stats, fetch, shower, "2026-09-22T07:18:11Z", now,
+                                "notes.json")
+
+    def test_the_whole_audit_is_derived_in_order(self):
+        # #266: build() itself, not just build_entry().
+        audit = self.whole_build()
+        self.assertEqual(list(audit), ["checked_at_utc", "local_date", "pinned_at_utc", "scope", "repositories"])
+        self.assertEqual(audit["checked_at_utc"], "2026-09-25T19:00:00+00:00")
+        self.assertEqual((audit["pinned_at_utc"], audit["scope"]), ("2026-09-25T02:06:03+00:00", "Scope."))
+        repos = audit["repositories"]
+        self.assertEqual([r["repo"] for r in repos], ["culturebotai-claw", "HabitatMech", "proteintraitsmech"])
+        claw, habitat, proteins = repos
+        self.assertEqual(claw, {"repo": "culturebotai-claw", "sha": "c" * 40, "commit_date": "2026-09-22T07:18:11Z",
+                                "readme_url": f"https://github.com/CultureBotAI/culturebotai-claw/blob/{'c' * 40}/README.md",
+                                "notes": "C."})
+        self.assertEqual(habitat["commit_date"], "2026-09-25T01:40:32Z")  # +02:00 read as UTC
+        self.assertEqual(habitat["figure_at_pin"], 3206)
+        self.assertNotIn("figure_at_pin", proteins)
+        self.assertIn("built in CI", proteins["notes"])
+
+    def test_missing_notes_or_a_bad_pin_time_are_refused(self):
+        # #267: name only what is missing, and the file that was read.
+        notes = {"scope": "S.", "notes": {"ProteinTraitsMech": "P.", "culturebotai-claw": "C."}}
+        with self.assertRaises(SystemExit) as caught:
+            self.whole_build(notes=notes)
+        self.assertEqual(str(caught.exception), "notes.json has no notes for: HabitatMech")
+        notes = {"scope": "S.", "notes": {"HabitatMech": "H.", "ProteinTraitsMech": "P."}}
+        with self.assertRaisesRegex(SystemExit, "no notes for: culturebotai-claw$"):
+            self.whole_build(notes=notes)
+        # #269: a pin time the nightly would report as AUDIT is refused here.
+        with self.assertRaisesRegex(SystemExit, "revisions.json"):
+            self.whole_build(pinned_at="25 September 2026")
+        with self.assertRaisesRegex(SystemExit, "in the future"):
+            self.whole_build(pinned_at="2026-09-26T02:06:03+00:00")
+
     def test_the_committed_audit_notes_come_from_the_notes_file(self):
         # The builder appends one sentence per source; everything before it is
         # the audited text in _fleet/audit_notes.json, which must stay in step.

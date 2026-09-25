@@ -100,8 +100,18 @@ Then, for each Mech in the refreshed `_fleet/data/manifest.json`:
 `git -C "$SRC/<Mech>" fetch -q origin`, take `origin/main`, and cross-check it
 against `gh api repos/CultureBotAI/<repo>/commits/main --jq .sha`. The
 repository name is not always the Mech name (`proteintraitsmech`). Write the
-pins and CLAW's to `$SNAP/revisions.json` with the pin time. Corpora move within
-minutes, so pin once and do not re-pin mid-run.
+pins and CLAW's to `$SNAP/revisions.json` with the pin time, in the layout
+`build_site_audit.py` reads in step 7 (#269):
+
+```json
+{"pinned_at_utc": "2026-09-25T02:06:03+00:00",
+ "mechs": {"<Mech name>": {"repo": "<repository>", "sha": "<40-hex sha>", "commit_date": "<ISO>"}},
+ "claw": "<40-hex sha>"}
+```
+
+`pinned_at_utc` is an ISO time with its offset; the nightly card check reads it
+from the audit and fails on one it cannot read. Corpora move within minutes, so
+pin once and do not re-pin mid-run.
 
 ### 2. Snapshot at the pins
 

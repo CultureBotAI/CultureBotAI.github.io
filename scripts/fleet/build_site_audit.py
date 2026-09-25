@@ -151,13 +151,20 @@ def utc(iso: str) -> str:
 
 
 def build(pins: dict, notes: dict, template: str, stats: dict, fetch, shower, claw_date: str,
-          now: datetime.datetime) -> dict:
+          now: datetime.datetime, notes_path: str = "_fleet/audit_notes.json") -> dict:
     """The whole audit. shower(mech, sha) returns that Mech's show(path)."""
     cards = card_figures(template)
     by_mech = {m["mech"]: m for m in stats["mechs"]}
-    missing = sorted(set(check_cards.SOURCES) - set(notes["notes"]))
-    if missing or CLAW not in notes["notes"]:
-        raise SystemExit(f"_fleet/audit_notes.json has no notes for: {', '.join(missing + [CLAW])}")
+    missing = sorted((set(check_cards.SOURCES) | {CLAW}) - set(notes["notes"]))
+    if missing:
+        raise SystemExit(f"{notes_path} has no notes for: {', '.join(missing)}")  # #267
+    # The nightly reads this pin time; refuse one it would report as AUDIT (#269).
+    try:
+        pinned = check_cards.pin_time(pins)
+    except ValueError as error:
+        raise SystemExit(f"revisions.json: {error}")
+    if pinned > now:
+        raise SystemExit(f"revisions.json: pinned_at_utc {pins['pinned_at_utc']} is in the future")
     repositories = []
     for mech, source in sorted(check_cards.SOURCES.items()):
         pin = dict(pins["mechs"][mech], commit_date=utc(pins["mechs"][mech]["commit_date"]))
@@ -194,7 +201,7 @@ def main() -> int:
         text=True).strip()
     audit = build(pins, json.loads(Path(args.notes).read_text()), (REPO / "_fleet/mechs_template.md").read_text(),
                   json.loads(STATS.read_text()), fetch_bytes, lambda mech, sha: git_show(snap / "mechs" / mech, sha),
-                  claw_date, datetime.datetime.now(datetime.timezone.utc))
+                  claw_date, datetime.datetime.now(datetime.timezone.utc), args.notes)
     AUDIT.write_text(json.dumps(audit, indent=1, ensure_ascii=False) + "\n")
     print(f"Wrote {AUDIT.relative_to(REPO)} ({len(audit['repositories'])} repositories)")
     return 0
