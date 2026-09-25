@@ -224,9 +224,9 @@ type "byte-identical" into a note: sites publish during the run, and a
 hand-written claim of identity went stale for four Mechs in the first run (#155). The provenance tests require its SHAs to equal the
 stats' `source_revision`.
 
-`../CLAUDE.md` is untracked and above the repository, but it records when the
-page was last computed. Update that sentence so the next session is not misled,
-and say in the PR that it was changed outside the diff.
+`CLAUDE.md` at the repository root records when the page was last refreshed.
+Update its "Last refreshed" sentence in the same PR, so the guidance and the
+page never disagree (#173, #196).
 
 ### 8. Assemble and gate
 

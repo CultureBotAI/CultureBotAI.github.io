@@ -61,10 +61,9 @@ Check these before trusting an issue title or an old note:
   an invariant is or is not enforced;
 - `.github/workflows/fleet-page.yml` — the only CI, and therefore the only thing
   that blocks a merge;
-- **`../CLAUDE.md`** — the repository guidance, which sits *one directory above
-  the git root and is untracked*. It never appears in a diff, a PR, or a fresh
-  clone. Treat it as this machine's notes, not as a shared contract, and do not
-  cite it as evidence that something is agreed;
+- **`CLAUDE.md`** — the repository's agent guidance, tracked at the repository
+  root and changed through pull requests since #173. The untracked file one
+  directory above the git root is only a pointer to it;
 - each Mech's **own published site and README** — the authority for anything the
   cards claim about that Mech.
 
