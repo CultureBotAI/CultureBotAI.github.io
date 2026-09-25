@@ -46,6 +46,14 @@ class FleetPageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "record count"):
             self.render()
 
+    def test_a_figure_outside_every_card_cannot_join_the_total(self):
+        # #218, #234: a stray figure used to be ignored, and a second one in a
+        # card used to replace its headline in the total.
+        stray = self.template.replace("<!--FLEET_FRAGMENT-->", '<div class="num"><b>7</b></div><!--FLEET_FRAGMENT-->', 1)
+        self.template = stray
+        with self.assertRaisesRegex(ValueError, "outside any card"):
+            self.render()
+
     def test_card_stats_must_cover_every_fleet_member(self):
         self.stats["mechs"] = [m for m in self.stats["mechs"] if m["mech"] != "TaxonMech"]
         with self.assertRaisesRegex(ValueError, "Mech stats"):
@@ -465,8 +473,8 @@ class CardCheckTests(unittest.TestCase):
         self.site = {m: 1000 for m in self.NAMES}
         self.pinned_at = datetime.datetime(2026, 9, 25, 2, 0, tzinfo=datetime.timezone.utc)
         self.now = self.pinned_at + datetime.timedelta(hours=18)
-        # By default each source has moved since its pin, so a lead reads as growth.
-        self.pinned = {m: "0" * 64 for m in self.NAMES}
+        # The figure each source stated at the pin, as the audit records it.
+        self.at_pin = {m: 1000 for m in self.NAMES}
 
     def body(self, mech, value):
         return f"<div><b>{value:,}</b><span>{mech[0].lower()} records</span></div>"
@@ -484,9 +492,7 @@ class CardCheckTests(unittest.TestCase):
 
     def audit(self):
         return {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": [
-            {"repo": m, "site": self.check_cards.source_url(self.check_cards.SOURCES[m][1]),
-             "site_html_sha256_at_pin": self.pinned[m]}
-            for m in self.check_cards.SOURCES]}
+            {"repo": m, "figure_at_pin": self.at_pin[m]} for m in self.check_cards.SOURCES if m in self.at_pin]}
 
     def rows(self, template=None):
         return self.check_cards.check(template or self.template(), self.fetch, self.audit(), self.now)
@@ -526,14 +532,34 @@ class CardCheckTests(unittest.TestCase):
         rows = self.check_cards.check(self.template(), self.fetch, None, self.now)
         self.assertIn(("STALE", "AMech"), [(s, m) for s, m, _ in rows])
 
-    def test_a_mistyped_card_fails_when_the_site_has_not_moved(self):
-        # #217: 3,026 typed for 3,206 used to pass as "grew".
-        import hashlib
+    def test_a_mistyped_card_fails_however_the_site_has_moved(self):
+        # #217, #231: 3,026 typed for 3,206 used to pass as "grew", and a hash
+        # comparison caught it only while the source was unchanged since the pin.
         self.cards["AMech"] = 3026
-        self.site["AMech"] = 3206
-        self.pinned["AMech"] = hashlib.sha256(self.body("AMech", 3206).encode()).hexdigest()
-        self.assertEqual(self.statuses()["AMech"], "WRONG")
-        self.assertEqual(self.failed(), ["WRONG"])
+        self.at_pin["AMech"] = 3206
+        for live in (3206, 3300):
+            self.site["AMech"] = live
+            self.assertEqual(self.statuses()["AMech"], "WRONG", live)
+            self.assertEqual(self.failed(), ["WRONG"])
+
+    def test_a_source_with_no_figure_at_the_pin_is_checked_against_the_site_only(self):
+        # ProteinTraitsMech's data file is built in CI, so the audit has no copy.
+        del self.at_pin["AMech"]
+        self.site["AMech"] = 1100
+        self.assertEqual(self.statuses()["AMech"], "grew")
+
+    def test_a_pin_time_without_an_offset_is_utc_and_an_unreadable_one_fails(self):
+        # #232: both used to end the run with a traceback before any row printed.
+        audit = self.audit()
+        audit["pinned_at_utc"] = self.pinned_at.replace(tzinfo=None).isoformat()
+        self.site["AMech"] = 1100
+        rows = self.check_cards.check(self.template(), self.fetch, audit, self.now)
+        self.assertIn(("grew", "AMech"), [(s, m) for s, m, _ in rows])
+        audit["pinned_at_utc"] = "25 September 2026"
+        rows = self.check_cards.check(self.template(), self.fetch, audit, self.now)
+        statuses = [s for s, _, _ in rows]
+        self.assertIn("AUDIT", statuses)
+        self.assertIn(("STALE", "AMech"), [(s, m) for s, m, _ in rows])
 
     def test_a_site_behind_its_card_fails(self):
         self.site["AMech"] = 999
@@ -551,6 +577,9 @@ class CardCheckTests(unittest.TestCase):
         for code in (408, 425, 503):
             self.site["BMech"] = urllib.error.HTTPError("u", code, "x", {}, None)
             self.assertEqual(self.statuses()["BMech"], "unread", code)
+        for code in (403, 410):  # #234: any other 4xx
+            self.site["AMech"] = urllib.error.HTTPError("u", code, "x", {}, None)
+            self.assertEqual(self.statuses()["AMech"], "GONE", code)
 
     def test_a_body_cut_short_is_unread_not_a_traceback(self):
         # #220
@@ -578,7 +607,7 @@ class CardCheckTests(unittest.TestCase):
         self.check_cards.SOURCES.update({m: ("html", f"{m}/pages/index.html", "m records") for m in names})
         self.cards = {m: 1000 for m in names}
         self.site = {m: 1000 for m in names}
-        self.pinned = {m: "0" * 64 for m in names}
+        self.at_pin = {m: 1000 for m in names}
         for m in names[:5]:
             self.site[m] = urllib.error.URLError("no route")
         self.assertEqual(self.failed(), [])
@@ -634,6 +663,17 @@ class CardCheckTests(unittest.TestCase):
                 self.assertEqual(self.check_cards.main(), 0)
                 self.site["AMech"] = 900
                 self.assertEqual(self.check_cards.main(), 1)
+                # #234: every failing verdict fails the run, not just SHRANK.
+                self.site["AMech"] = 1600                                   # STALE
+                self.assertEqual(self.check_cards.main(), 1)
+                self.site["AMech"] = 1000
+                self.at_pin["AMech"] = 1001                                 # WRONG
+                audit.write_text(json.dumps(self.audit()))
+                self.assertEqual(self.check_cards.main(), 1)
+                self.at_pin["AMech"] = 1000
+                audit.write_text(json.dumps(self.audit()))
+                self.site["AMech"] = self.site["CMech"] = TimeoutError("t")  # UNCHECKED
+                self.assertEqual(self.check_cards.main(), 1)
 
 
 class RefreshProvenanceTests(unittest.TestCase):
@@ -678,6 +718,25 @@ class RefreshProvenanceTests(unittest.TestCase):
             with self.subTest(mech=mech):
                 self.assertIn(entry["repo"], self.audit, "Mech missing from site_audit.json")
                 self.assertEqual(self.audit[entry["repo"]]["sha"], entry["source_revision"])
+
+    def test_every_card_equals_the_figure_its_source_stated_at_the_pin(self):
+        # #231: the audit builder read card_records from the template, so the
+        # audit could only repeat a mistyped card. figure_at_pin is read from the
+        # source's committed copy at the pin with check_cards.figure(), and the
+        # nightly's WRONG verdict depends on it being there.
+        import check_cards
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        check_cards.pin_time(audit)  # #232: must parse
+        entries = {r["repo"].lower(): r for r in audit["repositories"]}
+        cards = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
+        for mech in check_cards.SOURCES:
+            with self.subTest(mech=mech):
+                entry = entries[mech.lower()]
+                if mech == "ProteinTraitsMech":
+                    # Built in CI, so there is no committed copy at the pin.
+                    self.assertNotIn("figure_at_pin", entry)
+                    continue
+                self.assertEqual(entry.get("figure_at_pin"), cards[mech])
 
     def test_the_audit_records_this_refresh_and_nothing_else(self):
         # The audit's other fields had no gate at all (#128): its merged PRs,
