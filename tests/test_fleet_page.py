@@ -708,8 +708,11 @@ class CardCheckTests(unittest.TestCase):
         self.assertEqual(self.failed(stray), ["MARKUP"])
         # #261: an unreadable figure is MARKUP, not int("") ending the run, and
         # a malformed second tile, in a card or outside one, still counts.
-        comma = template.replace("<b>1,000</b>", "<b>,</b>", 1)
-        self.assertEqual(self.failed(comma), ["MARKUP"])
+        for bad in ("<b>,</b>", "<b>10,00</b>", "<b>1000,</b>", "<b>1,0000</b>"):  # #261, #264
+            self.assertEqual(self.failed(template.replace("<b>1,000</b>", bad, 1)), ["MARKUP"], bad)
+        from card_markup import card_figures as figures
+        for good, value in (("<b>1000</b>", 1000), ("<b>625,960</b>", 625960), ("<b>7</b>", 7)):
+            self.assertEqual(figures(template.replace("<b>1,000</b>", good, 1))["AMech"], value, good)
         spaced = template.replace('<article data-mech="BMech">',
                                   '<article data-mech="BMech"><div class="num"><b>7 </b></div>', 1)
         self.assertEqual(self.failed(spaced), ["MARKUP"])

@@ -14,9 +14,10 @@ ARTICLE = re.compile(r'<article\b[^>]*\bdata-mech="([^"]+)"[^>]*>(.*?)</article>
 # A card's headline tile, counted whatever it holds, so a malformed second tile
 # cannot slip past the one-per-card rule (#261).
 TILE = re.compile(r'<div class="num">')
-# The figure in a tile: digits with thousands commas, starting with a digit, so
-# "<b>,</b>" is unreadable rather than int("") (#261).
-FIGURE = re.compile(r'<div class="num"><b>(\d[\d,]*)</b>')
+# The figure in a tile: plain digits, or digits grouped in threes by commas, so
+# "<b>,</b>" is unreadable rather than int("") (#261) and "32,06" is unreadable
+# rather than 3206 (#264).
+FIGURE = re.compile(r'<div class="num"><b>(\d{1,3}(?:,\d{3})+|\d+)</b>')
 
 
 def card_names(template: str) -> list[str]:
