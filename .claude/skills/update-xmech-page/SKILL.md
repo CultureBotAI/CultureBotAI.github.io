@@ -140,7 +140,7 @@ and verify its output before starting the next. The first stage is the canary:
 
 ```bash
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~8 min
-MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # longer than the census
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~6 min
 python3 scripts/fleet/build_data.py
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/mech_stats.py      # needs gh
 ```
@@ -308,7 +308,9 @@ sessions use. Removing the shared clones is safe for `$SRC`, because a
 `--shared` clone borrows the source's object store and the source knows nothing
 about it; the reverse, pruning or deleting `$SRC` while a clone exists, is what
 would break a clone. A second refresh in the same session builds a fresh
-snapshot at its own pins, so nothing is lost by removing the first (#174).
+snapshot at its own pins, and a later PR that must rerun at these pins can
+rebuild this one with step 2 from the pins in `_fleet/data/site_audit.json`, so
+nothing is lost by removing it (#174).
 
 ## Related
 
