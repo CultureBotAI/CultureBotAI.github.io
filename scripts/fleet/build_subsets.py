@@ -19,10 +19,10 @@ from roots import CITATION, ORDER, mech_root, read_record, record_paths, revisio
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
 # Where each Mech publishes one record. Six serve a page per record; the
-# ProteinTraitsMech browser routes by hash; CultureMech and MediaIngredientMech
-# do not reliably deploy per-record pages, so their links open the source file on
-# GitHub. CultureMech's pages/media/ pages come and go with its Actions
-# deployment (#175), so they are not a link base yet.
+# ProteinTraitsMech browser routes by hash; TaxonMech's by query. The other two
+# link the source file on GitHub: MediaIngredientMech publishes no per-record
+# pages, only a single browser, and CultureMech's pages/media/ pages come and go
+# with its Actions deployment (#175, #223), so they are not a link base yet (#229).
 SITE_BASE={
  # One committed page per record, pages/<class>/<slug>.html mirroring
  # data/natural_products/<class>/<slug>.yaml, served by the branch build (#149).
