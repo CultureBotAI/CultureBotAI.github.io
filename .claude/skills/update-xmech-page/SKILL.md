@@ -54,8 +54,18 @@ moves for two reasons at once.
 
 ## Procedure
 
-Work from the site root. Put the snapshot and logs in the session scratchpad,
-here `$SNAP`.
+Work from the site root. The snapshot and logs go in a directory of their own
+inside the session scratchpad, never the scratchpad itself, which also holds
+other work (worktrees of open PRs, among other things). Create it fresh:
+
+```bash
+SNAP=<session scratchpad>/xmech-refresh-$(date +%Y%m%d)
+mkdir "$SNAP" || exit 1       # refuse to reuse a directory that already exists
+```
+
+Shell variables do not survive between tool calls, so write the absolute path
+down: it goes in the PR body and the report (step 10), and step 11 needs it
+after the merge, which may come in another session (#227, #228).
 
 ### 1. Branch, locate the checkouts, pin CLAW and refresh the manifest
 
@@ -129,8 +139,8 @@ Run each stage the same way, in the same environment and from the same launcher,
 and verify its output before starting the next. The first stage is the canary:
 
 ```bash
-MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~2-4 min
-MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~2-4 min
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~8 min
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # longer than the census
 python3 scripts/fleet/build_data.py
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/mech_stats.py      # needs gh
 ```
@@ -265,8 +275,9 @@ against its evidence. An unexplained change is a finding, not noise.
 ### 10. PR, review, issues
 
 Open the PR with the pins, what changed and why, the canary result, what was
-left out and why (methodology issues stay open), and the evidence table for
-hand-curated edits. Then review it adversarially as a separate read-only pass,
+left out and why (methodology issues stay open), the evidence table for
+hand-curated edits, and the snapshot's absolute path and size ("Snapshot:
+`<path>`, 5.7 GB, remove after merge"). Then review it adversarially as a separate read-only pass,
 file every finding as an issue, fix the ones that belong in this PR, and leave
 the rest filed with a reason. Report and stop: **do not merge without the user's
 explicit go-ahead in the current conversation.** After a merge, delete the branch
@@ -276,17 +287,23 @@ auto-close. GitHub honours only the first number after a closing keyword.
 ### 11. Remove the snapshot
 
 After the merge and the branch deletion, and not before: until then a review fix
-means a rerun at the same pins, which needs the snapshot. Remove `$SNAP` whole,
-the Mech clones, the CLAW clone, `revisions.json`, the scan logs and any
-before/after copies of the derived data:
+means a rerun at the same pins, which needs the snapshot. Take the path from the
+PR body, not from a shell variable, and remove that directory whole: the Mech
+clones, the CLAW clone, `revisions.json`, the scan logs and any before/after
+copies of the derived data. Remove it only if it is recognizably a snapshot:
 
 ```bash
-du -sh "${SNAP:?}"            # about 6 GB; say it in the report
-rm -rf "${SNAP:?}"
+SNAP=<path from the PR body>
+test -f "${SNAP:?}/revisions.json" && test -d "$SNAP/mechs" && test -d "$SNAP/claw" \
+  || { echo "not a refresh snapshot: $SNAP"; exit 1; }
+du -sh "$SNAP"                # about 6 GB; say it in the report
+rm -rf "$SNAP"
 ```
 
-`${SNAP:?}` stops the command if `SNAP` is unset rather than expanding to a bare
-`rm -rf`. Only `$SNAP` goes. Never `$SRC`: those are the shared checkouts other
+`${SNAP:?}` stops the command if `SNAP` is unset, and the three tests stop it if
+the path is the scratchpad or anything else that is not a snapshot. If the
+directory is already gone, say so rather than searching for another. Only
+`$SNAP` goes. Never `$SRC`: those are the shared checkouts other
 sessions use. Removing the shared clones is safe for `$SRC`, because a
 `--shared` clone borrows the source's object store and the source knows nothing
 about it; the reverse, pruning or deleting `$SRC` while a clone exists, is what
