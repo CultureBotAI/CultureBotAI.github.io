@@ -301,7 +301,13 @@ it is recognizably a snapshot and holds nothing else:
 SNAP=<path from the PR body>
 test -f "${SNAP:?}/revisions.json" && test -d "$SNAP/mechs" && test -d "$SNAP/claw" \
   || { echo "not a refresh snapshot: $SNAP"; exit 1; }
-extra=$(ls -A "$SNAP" | grep -v -x -e revisions.json -e mechs -e claw -e '.*\.log')
+extra=$(ls -A "$SNAP" | while IFS= read -r name; do
+  case "$name" in
+    (revisions.json|mechs|claw) ;;
+    (*.log) [ -f "$SNAP/$name" ] || printf '%s\n' "$name" ;;
+    (*) printf '%s\n' "$name" ;;
+  esac
+done)
 [ -z "$extra" ] || { printf 'not snapshot data; move it out or decide first:\n%s\n' "$extra"; exit 1; }
 du -sh "$SNAP"                # about 6 GB; say it in the report
 rm -rf "$SNAP"
@@ -310,7 +316,11 @@ rm -rf "$SNAP"
 `${SNAP:?}` stops the command if `SNAP` is unset, and the three tests stop it if
 the path is the scratchpad or anything else that is not a snapshot. The listing
 stops it if the directory holds anything but the clones, `revisions.json` and
-logs: a script or record left there cannot be rebuilt from the pins (#237). If
+logs: a script or record left there cannot be rebuilt from the pins (#237). It
+compares names literally and accepts a `*.log` only if it is a regular file, and
+finding nothing extra exits 0, so the snippet also runs under `set -e`; the
+`(pattern)` form keeps macOS's bash 3.2 from misreading a `case` inside `$( )`
+(#252, #253). If
 the directory is already gone, say so rather than searching for another. Only
 `$SNAP` goes. Never `$SRC`: those are the shared checkouts other
 sessions use. Removing the shared clones is safe for `$SRC`, because a
