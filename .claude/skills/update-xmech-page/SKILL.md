@@ -102,8 +102,10 @@ git -C "$SNAP/mechs/$m" checkout -q --detach "$sha"
 The directories each Mech needs are its `roots.RECORD_GLOBS` directories (plus
 `mech_stats.EXTRA_GLOBS` for Mechs outside the census), `src` for the schema that
 `mech_stats.py` reads, and HabitatMech's `pages/habitats`, which
-`build_subsets.py` matches record links against. About 3 GB and a million
-files; TaxonMech and ProteinTraitsMech are most of it. The detached checkout
+`build_subsets.py` matches record links against. About 6 GB and a million
+files (5.7 GB at the 2026-09-24 refresh); TaxonMech (3.2 GB) and
+ProteinTraitsMech (2.3 GB) are most of it. Keep it until the PR merges, because
+reruns after review fixes go against the same pins; step 11 removes it. The detached checkout
 works although the pin exists only in the source's remote-tracking refs,
 because a shared clone borrows the source's whole object store.
 
@@ -270,6 +272,26 @@ the rest filed with a reason. Report and stop: **do not merge without the user's
 explicit go-ahead in the current conversation.** After a merge, delete the branch
 locally and remotely, and close issues the PR resolved that GitHub did not
 auto-close. GitHub honours only the first number after a closing keyword.
+
+### 11. Remove the snapshot
+
+After the merge and the branch deletion, and not before: until then a review fix
+means a rerun at the same pins, which needs the snapshot. Remove `$SNAP` whole,
+the Mech clones, the CLAW clone, `revisions.json`, the scan logs and any
+before/after copies of the derived data:
+
+```bash
+du -sh "${SNAP:?}"            # about 6 GB; say it in the report
+rm -rf "${SNAP:?}"
+```
+
+`${SNAP:?}` stops the command if `SNAP` is unset rather than expanding to a bare
+`rm -rf`. Only `$SNAP` goes. Never `$SRC`: those are the shared checkouts other
+sessions use. Removing the shared clones is safe for `$SRC`, because a
+`--shared` clone borrows the source's object store and the source knows nothing
+about it; the reverse, pruning or deleting `$SRC` while a clone exists, is what
+would break a clone. A second refresh in the same session builds a fresh
+snapshot at its own pins, so nothing is lost by removing the first (#174).
 
 ## Related
 
