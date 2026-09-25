@@ -683,10 +683,11 @@
    ]
   },
   "ProteinTraitsMech|AntibioticMech": {
-   "n": 2435,
+   "n": 2575,
    "by": {
     "ARO": 1740,
     "CHEBI": 594,
+    "PDB": 140,
     "NCBITaxon": 79,
     "UniProt": 20,
     "GO": 2
@@ -853,9 +854,10 @@
    ]
   },
   "AntibioticMech|MediaIngredientMech": {
-   "n": 324,
+   "n": 345,
    "by": {
-    "CHEBI": 324
+    "CHEBI": 324,
+    "CAS": 21
    },
    "ex": [
     {
@@ -988,7 +990,7 @@
   "CellStructureMech|NCBITaxon": 531,
   "CellStructureMech|PDB": 20,
   "CellStructureMech|Pfam": 8,
-  "CellStructureMech|UniProt": 65,
+  "CellStructureMech|UniProt": 184,
   "ProteinTraitsMech|ARO": 7452,
   "ProteinTraitsMech|CHEBI": 30290,
   "ProteinTraitsMech|GO": 110744,
@@ -997,11 +999,11 @@
   "ProteinTraitsMech|METPO": 119,
   "ProteinTraitsMech|NCBITaxon": 98699,
   "ProteinTraitsMech|PATO": 81,
-  "ProteinTraitsMech|PDB": 51728,
+  "ProteinTraitsMech|PDB": 52174,
   "ProteinTraitsMech|Pfam": 107455,
   "ProteinTraitsMech|RHEA": 29550,
   "ProteinTraitsMech|UBERON": 43,
-  "ProteinTraitsMech|UniProt": 159606,
+  "ProteinTraitsMech|UniProt": 160190,
   "NaturalProductMech|CHEBI": 405,
   "NaturalProductMech|MIBiG": 3115,
   "NaturalProductMech|NCBITaxon": 3115,
@@ -1014,10 +1016,10 @@
   "AntibioticMech|GO": 3,
   "AntibioticMech|KEGG": 1154,
   "AntibioticMech|NCBITaxon": 163,
-  "AntibioticMech|PDB": 5,
+  "AntibioticMech|PDB": 331,
   "AntibioticMech|UniProt": 47,
   "MediaIngredientMech|BTO": 1,
-  "MediaIngredientMech|CAS": 287,
+  "MediaIngredientMech|CAS": 739,
   "MediaIngredientMech|CHEBI": 2232,
   "MediaIngredientMech|ENVO": 26,
   "MediaIngredientMech|FOODON": 99,
@@ -1031,7 +1033,7 @@
   "CultureMech|KEGG": 329,
   "CultureMech|NCBITaxon": 30,
   "CultureMech|UBERON": 72,
-  "TaxonMech|GTDB": 118801,
+  "TaxonMech|GTDB": 119248,
   "TaxonMech|NCBITaxon": 625960
  }
 }

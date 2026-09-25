@@ -188,13 +188,20 @@ seeded grounding source; NPAtlas is a cross-reference target only, since its
 licence bars ingestion into a CC BY 4.0 corpus.
 
 `prefix_census.py`'s prefix alternation is a hand-maintained list. Its `norm`
-table folds each spelling of a registry found in the records into one name
-(measured by scanning every record at the #120 pins; a spelling adopted later
-is missed until someone looks again): TaxonMech writes
-lowercase bioregistry prefixes (`gold:`, `bacdive:`, `img.taxon:`), other Mechs
-the upper-case forms, and some qualify a registry by entity (`kegg.compound:`,
-`mediadive.medium:`). Until #84's fold (#244, #255) those spellings went uncounted, 1.49
-million GOLD and 556,160 BacDive identifiers in TaxonMech among them. Which
+table folds every namespace named for or qualified by a counted registry into
+that registry: case and alternate names (`gold:` and `GOLD:`, `SwissProt:` and
+`UniProt:`, `TAXON:` and `NCBITaxon:`, `CAS-RN:` and `CAS:`), and entity-qualified
+namespaces (`kegg.compound:`, `mediadive.medium:`, `gtdb.genome:`,
+`uniprot.location:`, `RHEA-COMP:`), as `gold.ecosystem` and `pubchem.compound`
+always did (#271). TaxonMech writes lowercase bioregistry prefixes and the other
+Mechs upper-case forms. The list was measured by scanning every record at the
+#120 pins with a pattern allowing dots, underscores and hyphens; a spelling a
+Mech adopts later is missed until someone scans again. Until #84's fold (#244,
+#255, #270) those spellings went uncounted, 1.49 million GOLD and 556,160 BacDive
+identifiers in TaxonMech among them. `build_subsets.py` folds the same spellings
+for heatmap columns, but a namespace whose ids share values with its column's own
+ids (Rhea compounds, PDB ligand codes) keeps its own term key, so an overlap never
+pairs a compound with a reaction. Which
 namespaces to count at all is still open on #84, which has the measured
 inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred
 more are cited but not counted. Adding a prefix to the census does not add a

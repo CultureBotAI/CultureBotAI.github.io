@@ -46,9 +46,16 @@ MECHS={}
 PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","PATO","UBERON","FOODON","KEGG","CAS","RHEA","PDB","BTO","GTDB","MIBiG","NPAtlas","DOI"]
 # Spellings of a column's registry, folded as prefix_census.norm folds them, so a
 # kegg.compound: record shares KEGG terms with a KEGG: one (#84).
-NORM={"mibig":"MIBiG","npatlas":"NPAtlas","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH","KEGG_REACTION":"KEGG","kegg.compound":"KEGG","kegg.drug":"KEGG","RCSB_PDB":"PDB","ChEBI":"CHEBI","SwissProt":"UniProt","swissprot":"UniProt","Swissprot":"UniProt","UNIPROT":"UniProt","TAXON":"NCBITaxon","PDBe":"PDB","pdbe":"PDB","interpro":"InterPro","KEGG_PATHWAY":"KEGG","kegg.module":"KEGG","kegg.glycan":"KEGG"}
-rx=re.compile(r"\b(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|mibig|MIBiG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
-STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
+NORM={"mibig":"MIBiG","npatlas":"NPAtlas","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH","KEGG_REACTION":"KEGG","kegg.compound":"KEGG","kegg.drug":"KEGG","RCSB_PDB":"PDB","ChEBI":"CHEBI","SwissProt":"UniProt","swissprot":"UniProt","Swissprot":"UniProt","UNIPROT":"UniProt","TAXON":"NCBITaxon","PDBe":"PDB","pdbe":"PDB","interpro":"InterPro","KEGG_PATHWAY":"KEGG","kegg.module":"KEGG","kegg.glycan":"KEGG","gtdb.genome":"GTDB","pdb.ligand":"PDB","pdb-ccd":"PDB","RHEA-COMP":"RHEA","CAS-RN":"CAS","uniprot.location":"UniProt","uniprot.ptm":"UniProt","UniProtKB-KW":"UniProt","Swiss":"UniProt"}
+# A folded namespace whose ids share values with its column's own ids keeps its
+# own term key, so RHEA-COMP:9671 (a compound) is never taken for RHEA:9671 (a
+# reaction), nor a ligand code for a PDB entry, in an overlap. It still counts
+# toward the column's cells and the edge's vocabulary breakdown (#271).
+TERM_SPACE={"RHEA-COMP":"RHEA-COMP","pdb.ligand":"PDB-CCD","pdb-ccd":"PDB-CCD"}
+COLUMN_OF={"RHEA-COMP":"RHEA","PDB-CCD":"PDB"}
+def column(term): p=term.split(":")[0]; return COLUMN_OF.get(p,p)
+rx=re.compile(r"\b(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|mibig|MIBiG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
+STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
 AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
@@ -123,14 +130,14 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
         if slug is None: nolink+=1; continue
         assert re.fullmatch(r"[A-Za-z0-9_.~%\-/]+",slug), (m,slug)
         found=set()
-        for p,i in rx.findall(txt):
-            p=NORM.get(p,p)
+        for raw,i in rx.findall(txt):
+            p=NORM.get(raw,raw)
             if p not in PREF: continue
-            found.add(p+":"+i)
-        if keep is not None: found_terms={t for t in found if t in keep or t.split(":")[0] in keep_prefixes}
+            found.add(TERM_SPACE.get(raw,p)+":"+i)
+        if keep is not None: found_terms={t for t in found if t in keep or column(t) in keep_prefixes}
         else: found_terms=found
         for t in found_terms: terms[t].append((slug,doc_label))
-        for p in {t.split(":")[0] for t in found}:
+        for p in {column(t) for t in found}:
             c=cells[p]; c[0]+=1
             if len(c[1])<cap_cell: c[1].append((slug,doc_label))
         # label votes: strict structural form from every Mech, relaxed form from authoritative Mechs
@@ -138,7 +145,7 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
         for j,l in enumerate(lines):
             ms=STRICT.match(l)
             if ms:
-                p,i=ms.group(1),ms.group(2); p=NORM.get(p,p); t=p+":"+i
+                raw,i=ms.group(1),ms.group(2); t=TERM_SPACE.get(raw,NORM.get(raw,raw))+":"+i
                 for k in (j+1,j+2):
                     if k<len(lines):
                         ml2=LAB.match(lines[k])
@@ -148,10 +155,10 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
                             break
         if any(m in AUTH.get(p,[]) for p in PREF):
             for j,l in enumerate(lines):
-                for p,i in rx.findall(l):
-                    p=NORM.get(p,p)
+                for raw,i in rx.findall(l):
+                    p=NORM.get(raw,raw)
                     if m not in AUTH.get(p,[]): continue
-                    t=p+":"+i
+                    t=TERM_SPACE.get(raw,p)+":"+i
                     mm=re.search(re.escape(t)+r"\s*\((.+?)\)",l)
                     if mm: votes[t][mm.group(1).strip()]+=1; continue
                     for k in (j,j+1):
@@ -217,7 +224,7 @@ def main():
             ra=idx[a]["terms"][t]; rb=idx[b]["terms"][t]
             rows.append({"id":t,"l":labels.get(t,""),"na":len(ra),"nb":len(rb),"a":ra[:6],"b":rb[:6]})
         rows.sort(key=lambda r:(-(min(r["na"],r["nb"])),-(r["na"]+r["nb"]),r["id"]))
-        byp=collections.Counter(t.split(":")[0] for t in shared)
+        byp=collections.Counter(column(t) for t in shared)
         # Counter.most_common() breaks ties by insertion order, which here is
         # the iteration order of a set of strings and so changes with every
         # process's hash seed. Ties go by name instead, so two runs over the
