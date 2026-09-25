@@ -4,7 +4,8 @@ Run from the site root: `python3 scripts/fleet/check_cards.py`. Read-only, and
 the only script here that needs the network.
 
 The card numbers in _fleet/mechs_template.md are hand-curated from each Mech's
-published browser, so nothing regenerates them and nothing noticed when they
+published browser (CultureMech's from its committed README; see SOURCES), so
+nothing regenerates them and nothing noticed when they
 went stale — two of six had drifted within two days of a refresh
 (CultureBotAI.github.io#104). This reports that, and is meant to run on the
 nightly schedule rather than on a pull request: the corpora move fast enough

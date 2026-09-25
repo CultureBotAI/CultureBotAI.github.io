@@ -61,7 +61,8 @@ def fleet_records(template):
     1,059,170, short by roughly the whole of TaxonMech, which was admitted
     after the tile was last edited (CultureBotAI.github.io#76). Summing the
     cards keeps the two true to each other by construction, and it is the
-    right source because the cards cite each Mech's published browser, which
+    right source because the cards cite each Mech's published browser (or, for
+    CultureMech, its committed README), which
     the record-corpus census does not measure the same way.
 
     The ten are not ten counts of the same thing: the cards call theirs taxon

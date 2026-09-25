@@ -172,8 +172,8 @@ JavaScript-backed headline counts from the data files they load: MIM uses
 uses `data/facets.json` (429,293 records; 34 source labels). The latter's static
 HTML still has a legacy fallback count.
 
-Card figures follow the published sites, and the census follows the pinned
-repositories. At this refresh they agree for every Mech except CommunityMech:
+Card figures follow the published sites, CultureMech's its committed README
+instead, and the census follows the pinned repositories. At this refresh they agree for every Mech except CommunityMech:
 its site lists 422 communities, while its record glob also takes four isolate
 records, so the census and `mech_stats.json` count 426. CellStructureMech and
 TraitMech published new records after the pins were taken; their cards keep the
