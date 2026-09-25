@@ -217,9 +217,9 @@ python scripts/fleet/check_cards.py   # card headline figures vs each Mech's sit
 ```
 
 A stale card therefore shows up as a failed scheduled run, not a failed PR
-check. A card a little behind a fast Mech only warns ("grew", within 10%), so a
-green run does not mean every card equals its site: read the run's log, not
-just its colour, before crediting the cards as current.
+check. A card behind a fast Mech only warns ("grew") for 14 days after the
+refresh's pins, so a green run does not mean every card equals its site: read
+the run's log, not just its colour, before crediting the cards as current.
 
 An issue asserting a defect that one of these already blocks is P2 unless it
 shows the gate is porous — and they have been porous: a test can pass because

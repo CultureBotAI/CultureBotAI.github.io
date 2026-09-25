@@ -12,30 +12,40 @@ nightly schedule rather than on a pull request: the corpora move fast enough
 that a blocking check would make an unrelated docs fix unmergeable because some
 Mech published records overnight.
 
-What fails and what only warns (#148, #115, #176):
+What fails and what only warns (#148, #115, #176, #217):
 
   ok       the site states the card's figure.
-  grew     the site is ahead of the card by at most GROWTH_TOLERANCE. A warning:
-           the page is a snapshot at a refresh's pins and fast Mechs publish
-           within hours of them, so a small lead is the expected state, not a
-           wrong card. site_audit.json records the lead the refresh saw.
-  STALE    the site is further ahead than that. The card no longer describes the
-           Mech; refresh it.
+  grew     the site is ahead of the card, the refresh that pinned the card is
+           at most GRACE_DAYS old, and the site is at most MAX_LEAD ahead. A
+           warning: the page is a snapshot at the refresh's pins, and fast
+           Mechs publish within hours of them.
+  STALE    the site is ahead and the refresh is older than that, or the card
+           understates the site by more than MAX_LEAD. Refresh the page.
+  WRONG    the source is byte-identical to its copy at the pin, which the
+           audit recorded, yet states a different figure. The site has not
+           moved, so the card was never right (#217).
   SHRANK   the site states fewer than the card. Records are not normally
            withdrawn in bulk, so either the card is wrong or the site regressed.
-  GONE     the source answered 4xx. The page the card cites has moved or been
-           deleted, which is how #175 began; an outage does not look like this.
+  GONE     the source answered a 4xx other than a throttle. The page the card
+           cites has moved or been deleted, which is how #175 began.
   CHANGED  the source arrived but no figure could be read from it: the markup or
            the wording moved, and the card is no longer being checked at all.
-  unread   the fetch did not arrive (DNS, timeout, 5xx). A warning, because the
-           network is not the site's fault, unless more than half the sources
-           are unread, when the run has verified too little to call itself a
-           pass and fails as UNCHECKED.
+  MARKUP   a card in the template does not carry exactly one headline figure.
+  UNCARDED a card with no SOURCES entry, or an entry with no card.
+  unread   the fetch did not arrive: DNS, timeout, a dropped connection, a
+           5xx, or a 408, 425 or 429 throttle. A warning, because the network is
+           not the site's fault, unless more than half the sources are unread,
+           when the run has verified too little to call itself a pass and fails
+           as UNCHECKED.
 
-A card with no SOURCES entry, or an entry with no card, also fails.
+The pins, the pin time and the hash of each source at its pin come from
+_fleet/data/site_audit.json, which the refresh writes (update-xmech-page, step 7).
 """
 from __future__ import annotations
 
+import datetime
+import hashlib
+import http.client
 import json
 import re
 import sys
@@ -43,10 +53,11 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from card_markup import card_figures
+from card_markup import card_figures, card_names, markup_problems
 
 REPO = Path(__file__).resolve().parents[2]
 TEMPLATE = REPO / "_fleet/mechs_template.md"
+AUDIT = REPO / "_fleet/data/site_audit.json"
 SITE = "https://culturebotai.github.io/"
 
 # Where each card's headline actually comes from. Pinned here rather than
@@ -87,11 +98,19 @@ REGIONS: dict[str, tuple[str, str]] = {
     "CultureMech": ("<!-- BEGIN GENERATED CORPUS STATS -->", "<!-- END GENERATED CORPUS STATS -->"),
 }
 
-# How far a site may be ahead of its card before the card counts as stale. At
-# the 2026-09-24 refresh the two fastest Mechs were 0.7% and 6.5% ahead of their
-# pins when its audit was written; a mistyped or misattributed card is rarely
-# that close (#148).
-GROWTH_TOLERANCE = 0.10
+# How long a card may trail a growing site before the page counts as stale, and
+# how far it may trail within that time. A fixed percentage alone did not hold:
+# CellStructureMech adds about two records an hour, 9% a day on a card of 542,
+# so a 10% allowance went red a day after every refresh (#217). The time limit
+# asks for a refresh a fortnight after the pins while any Mech grows; the lead
+# limit asks sooner once a site is more than half as large again as its card
+# (the card then understates it by over a third), which CellStructureMech
+# reaches in under a week.
+GRACE_DAYS = 14
+MAX_LEAD = 0.5
+
+# 4xx answers that mean "not now" rather than "not here" (#219).
+THROTTLES = (408, 425, 429)
 
 
 def source_url(path: str) -> str:
@@ -147,67 +166,110 @@ def published(kind: str, body: str, selector: str) -> int | None:
     return int(hit.group(1).replace(",", "")) if hit else None
 
 
-def classify(card: int, site: int) -> str:
-    """How a published figure relates to the card that states it."""
-    if site == card:
-        return "ok"
-    if site < card:
-        return "SHRANK"
-    return "grew" if site - card <= card * GROWTH_TOLERANCE else "STALE"
+def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) -> tuple[str, int | str, str | None]:
+    """The figure a source publishes, or why there is none, and the source's hash.
 
-
-def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) -> tuple[str, int | str]:
-    """The figure a source publishes, or why there is none.
-
-    Returns ("value", N), or a status and the reason: "GONE" for a 4xx, "unread"
-    for a fetch that did not arrive, "CHANGED" for a body with no figure in it.
+    Returns ("value", N, sha256 of the body), or a status, the reason and None:
+    "GONE" for a 4xx other than a throttle, "unread" for a fetch that did not
+    arrive, "CHANGED" for a body with no figure in it.
     """
     fetcher = fetcher or fetch
     try:
         body = fetcher(source_url(path))
     except urllib.error.HTTPError as error:
         # HTTPError is a URLError, so it is caught first. A 4xx is the source
-        # telling us it is not there; a 5xx is the host having a bad night.
-        status = "GONE" if 400 <= error.code < 500 else "unread"
-        return status, f"fetch failed: {error}"
-    except (urllib.error.URLError, TimeoutError, OSError) as error:
-        return "unread", f"fetch failed: {error}"
+        # telling us it is not there, unless it is asking us to come back later.
+        gone = 400 <= error.code < 500 and error.code not in THROTTLES
+        return ("GONE" if gone else "unread"), f"fetch failed: {error}", None
+    except (urllib.error.URLError, http.client.HTTPException, TimeoutError, OSError) as error:
+        # HTTPException covers a body cut short (IncompleteRead) and a garbled
+        # status line, which used to end the run with a traceback (#220).
+        return "unread", f"fetch failed: {error}", None
+    digest = hashlib.sha256(body.encode("utf-8")).hexdigest()
     if mech in REGIONS:
         body = region(body, REGIONS[mech])
         if body is None:
-            return "CHANGED", "the generated block that states the figure is gone"
+            return "CHANGED", "the generated block that states the figure is gone", digest
     try:
         value = published(kind, body, selector)
     except (ValueError, TypeError, AttributeError) as error:
         # json.JSONDecodeError is a ValueError. The other two are what a
         # body of an unexpected type raises when it is walked.
-        return "CHANGED", f"unparseable: {error}"
+        return "CHANGED", f"unparseable: {error}", digest
     if value is None:
-        return "CHANGED", f"{kind} shape changed; no {selector!r} found"
-    return "value", value
+        return "CHANGED", f"{kind} shape changed; no {selector!r} found", digest
+    return "value", value, digest
 
 
-FAILURES = ("STALE", "SHRANK", "GONE", "CHANGED", "UNCARDED", "UNCHECKED")
+def pinned_hash(entry: dict, url: str) -> str | None:
+    """The audit's hash of this source at the pin, when the audit has one.
+
+    ProteinTraitsMech's data file is built in CI rather than committed, so there
+    is no copy at the pin to hash, and its card cannot be shown WRONG this way.
+    """
+    if entry.get("data_url") == url:
+        return entry.get("data_sha256_at_pin")
+    if entry.get("site") == url:
+        return entry.get("site_html_sha256_at_pin")
+    return None
 
 
-def check(stated: dict[str, int], fetcher=None) -> list[tuple[str, str, str]]:
-    """One (status, mech, detail) row per source, plus the run-level verdicts."""
-    rows = []
-    for mech in sorted(set(stated) - set(SOURCES)):
+def classify(card: int, site: int, digest: str | None, pinned: str | None,
+             age: datetime.timedelta | None) -> str:
+    """How a published figure relates to the card that states it."""
+    if site == card:
+        return "ok"
+    if digest and pinned and digest == pinned:
+        return "WRONG"
+    if site < card:
+        return "SHRANK"
+    if age is None or age > datetime.timedelta(days=GRACE_DAYS):
+        return "STALE"
+    return "grew" if site - card <= card * MAX_LEAD else "STALE"
+
+
+def span(age: datetime.timedelta) -> str:
+    """A pin's age in the unit a reader wants: hours on the first day, then days."""
+    if age.days >= 1:
+        return f"{age.days} day{'s' if age.days != 1 else ''}"
+    hours = int(age.total_seconds() // 3600)
+    return f"{hours} hour{'s' if hours != 1 else ''}"
+
+
+FAILURES = ("STALE", "WRONG", "SHRANK", "GONE", "CHANGED", "MARKUP", "UNCARDED", "UNCHECKED")
+
+
+def check(template: str, fetcher=None, audit: dict | None = None,
+          now: datetime.datetime | None = None) -> list[tuple[str, str, str]]:
+    """One (status, mech, detail) row per card problem and per source, plus the run-level verdict."""
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    audit = audit or {}
+    entries = {row["repo"].lower(): row for row in audit.get("repositories", [])}
+    pinned_at = audit.get("pinned_at_utc")
+    age = now - datetime.datetime.fromisoformat(pinned_at) if pinned_at else None
+    stated = card_figures(template)
+    names = set(card_names(template))
+    rows = [("MARKUP", mech, why) for mech, why in markup_problems(template)]
+    for mech in sorted(names - set(SOURCES)):
         rows.append(("UNCARDED", mech, "card with no entry in SOURCES"))
     for mech, (kind, path, selector) in sorted(SOURCES.items()):
-        if mech not in stated:
+        if mech not in names:
             rows.append(("UNCARDED", mech, "SOURCES entry with no card in the template"))
             continue
-        status, result = read_source(mech, kind, path, selector, fetcher)
+        if mech not in stated:
+            continue  # its card's markup is already reported above
+        status, result, digest = read_source(mech, kind, path, selector, fetcher)
         if status != "value":
             rows.append((status, mech, result))
             continue
         card = stated[mech]
-        verdict = classify(card, result)
+        pinned = pinned_hash(entries.get(mech.lower(), {}), source_url(path))
+        verdict = classify(card, result, digest, pinned, age)
         detail = f"{card:>9,}" if verdict == "ok" else f"card {card:,}, site {result:,}"
-        if verdict == "grew":
-            detail += f" (+{(result - card) / card:.1%}, within {GROWTH_TOLERANCE:.0%})"
+        if verdict == "WRONG":
+            detail += ", and the source is unchanged since the pin"
+        elif verdict in ("grew", "STALE") and age is not None:
+            detail += f" (+{result - card:,} in the {span(age)} since the pins)"
         rows.append((verdict, mech, detail))
     unread = sum(1 for status, _, _ in rows if status == "unread")
     if unread * 2 > len(SOURCES):
@@ -218,24 +280,25 @@ def check(stated: dict[str, int], fetcher=None) -> list[tuple[str, str, str]]:
 
 
 def main() -> int:
-    rows = check(card_figures(TEMPLATE.read_text()))
+    audit = json.loads(AUDIT.read_text()) if AUDIT.exists() else None
+    rows = check(TEMPLATE.read_text(), audit=audit)
     for status, mech, detail in rows:
         print(f"  {status:<9} {mech:<20} {detail}")
     tally: dict[str, int] = {}
     for status, _, _ in rows:
         tally[status] = tally.get(status, 0) + 1
     print("\n" + ", ".join(f"{count} {status.lower()}" for status, count in sorted(tally.items())) + ".")
-    failed = [status for status, _, _ in rows if status in FAILURES]
-    if failed:
-        print("Failing. STALE or SHRANK: refresh the card figures in _fleet/mechs_template.md "
-              "and the MECHS block in _fleet/fleet_fragment.html, then rerun assemble_page.py. "
-              "GONE or CHANGED: repoint that Mech's SOURCES entry. UNCARDED: add the missing "
-              "card or SOURCES entry. UNCHECKED: the run could not reach most sites.")
+    if any(status in FAILURES for status, _, _ in rows):
+        print("Failing. STALE, WRONG or SHRANK: refresh the card figures in _fleet/mechs_template.md "
+              "and the MECHS block in _fleet/fleet_fragment.html (update-xmech-page), then rerun "
+              "assemble_page.py. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
+              "UNCARDED: fix the card or its SOURCES entry. UNCHECKED: the run could not reach "
+              "most sites.")
         return 1
     if any(status in ("grew", "unread") for status, _, _ in rows):
-        # A site a little ahead of its pinned card, or one that could not be
-        # reached, is not a wrong number, and a nightly red for either teaches
-        # people to ignore it.
+        # A site a little ahead of a recently pinned card, or one that could not
+        # be reached, is not a wrong number, and a nightly red for either
+        # teaches people to ignore it.
         print("Passing with warnings; see above.")
     return 0
 

@@ -233,7 +233,7 @@ test compares a value with itself, #125) and its commit date, the URL each card 
 sha256 of the fetched HTML and of any data file, merged PRs, and short notes on
 how the site figure relates to the repo count. Set `checked_at_utc`,
 `local_date`, `pinned_at_utc` and `scope`. Derive the mechanical fields rather
-than typing them: the figure through `check_cards.published()`, merged PRs from
+than typing them: the figure through `check_cards.read_source()`, which applies `REGIONS`, merged PRs from
 `mech_stats.json`, SHAs and commit dates from the pins, and assert that the
 pins equal the stats' `source_revision` before writing. Hash the served page as
 committed at the pin too (`git show <sha>:pages/index.html`, or `docs/`), record
@@ -265,8 +265,12 @@ overlaps are computed across Mechs, so a single re-pin is a partial rerun, and a
 fast Mech moves again before the rerun finishes. Keep the page a consistent
 snapshot at the pins, record the live figure as `site_figure_at_check` in that
 Mech's `site_audit.json` entry, and say in the PR which cards the check reports
-as grown. Within `GROWTH_TOLERANCE` (10%) that is a warning; past it the check
-reports STALE and fails, and the refresh should re-pin everything.
+as grown. That stays a warning for `GRACE_DAYS` (14) after `pinned_at_utc` while
+the site is at most half as large again as the card; past either limit the
+check reports STALE and fails, and the page is due a full refresh. The check
+also reads each `*_sha256_at_pin` in the audit, so record them for every source
+the check reads: a card that differs from a source still byte-identical to its
+pin fails as WRONG.
 
 Emoji headings render with a leading hyphen in their id on GitHub Pages. Verify
 anchors against the deployed HTML, not a local kramdown.

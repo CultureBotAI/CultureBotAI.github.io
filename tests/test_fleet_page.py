@@ -1,6 +1,7 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
 import contextlib
+import datetime
 import io
 import json
 import os
@@ -448,110 +449,192 @@ class CardSourceTests(unittest.TestCase):
 class CardCheckTests(unittest.TestCase):
     """What the nightly card check fails on and what it only warns about."""
 
+    NAMES = ("AMech", "BMech", "CMech")
+
     def setUp(self):
         import check_cards
         from unittest import mock
         self.check_cards = check_cards
         self.real_sources = dict(check_cards.SOURCES)
         self.sources = mock.patch.dict(check_cards.SOURCES, {
-            "AMech": ("html", "AMech/pages/index.html", "a records"),
-            "BMech": ("html", "BMech/pages/index.html", "b records"),
-            "CMech": ("html", "CMech/pages/index.html", "c records"),
+            m: ("html", f"{m}/pages/index.html", f"{m[0].lower()} records") for m in self.NAMES
         }, clear=True)
         self.sources.start()
         self.addCleanup(self.sources.stop)
-        self.cards = {"AMech": 1000, "BMech": 1000, "CMech": 1000}
-        self.site = {"AMech": 1000, "BMech": 1000, "CMech": 1000}
+        self.cards = {m: 1000 for m in self.NAMES}
+        self.site = {m: 1000 for m in self.NAMES}
+        self.pinned_at = datetime.datetime(2026, 9, 25, 2, 0, tzinfo=datetime.timezone.utc)
+        self.now = self.pinned_at + datetime.timedelta(hours=18)
+        # By default each source has moved since its pin, so a lead reads as growth.
+        self.pinned = {m: "0" * 64 for m in self.NAMES}
+
+    def body(self, mech, value):
+        return f"<div><b>{value:,}</b><span>{mech[0].lower()} records</span></div>"
 
     def fetch(self, url):
         mech = url.split("/")[3]
         value = self.site[mech]
-        if isinstance(value, int):
-            return f"<div><b>{value:,}</b><span>{mech[0].lower()} records</span></div>"
         if isinstance(value, Exception):
             raise value
-        return value
+        return self.body(mech, value) if isinstance(value, int) else value
+
+    def template(self):
+        return "".join(f'<article data-mech="{m}"><div class="num"><b>{n:,}</b></div></article>'
+                       for m, n in self.cards.items())
+
+    def audit(self):
+        return {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": [
+            {"repo": m, "site": self.check_cards.source_url(self.check_cards.SOURCES[m][1]),
+             "site_html_sha256_at_pin": self.pinned[m]}
+            for m in self.check_cards.SOURCES]}
+
+    def rows(self, template=None):
+        return self.check_cards.check(template or self.template(), self.fetch, self.audit(), self.now)
 
     def statuses(self):
-        return {mech: status for status, mech, _ in self.check_cards.check(self.cards, self.fetch)}
+        return {mech: status for status, mech, _ in self.rows()}
 
-    def failed(self):
-        return [status for status, _, _ in self.check_cards.check(self.cards, self.fetch)
-                if status in self.check_cards.FAILURES]
+    def failed(self, template=None):
+        return sorted(status for status, _, _ in self.rows(template) if status in self.check_cards.FAILURES)
 
     def test_matching_figures_pass(self):
         self.assertEqual(set(self.statuses().values()), {"ok"})
         self.assertEqual(self.failed(), [])
 
-    def test_a_site_a_little_ahead_of_its_pinned_card_only_warns(self):
-        # #148: fast Mechs publish within hours of a refresh's pins.
-        self.site["AMech"] = 1100
+    def test_a_site_ahead_of_a_recent_pin_only_warns(self):
+        # #148, #217: CellStructureMech adds about 9% a day; within the grace
+        # period that is growth, not a wrong card.
+        self.site["AMech"] = 1400
         self.assertEqual(self.statuses()["AMech"], "grew")
         self.assertEqual(self.failed(), [])
 
-    def test_a_site_far_ahead_of_its_card_fails(self):
-        self.site["AMech"] = 1101
-        self.assertEqual(self.statuses()["AMech"], "STALE")
+    def test_growth_past_the_grace_period_fails(self):
+        self.site["AMech"] = 1001
+        self.now = self.pinned_at + datetime.timedelta(days=self.check_cards.GRACE_DAYS, hours=1)
         self.assertEqual(self.failed(), ["STALE"])
+        self.now = self.pinned_at + datetime.timedelta(days=self.check_cards.GRACE_DAYS)
+        self.assertEqual(self.failed(), [])
+
+    def test_a_card_that_understates_its_site_by_more_than_the_lead_fails_early(self):
+        self.site["AMech"] = 1500
+        self.assertEqual(self.failed(), [])
+        self.site["AMech"] = 1501
+        self.assertEqual(self.failed(), ["STALE"])
+
+    def test_growth_without_an_audit_fails(self):
+        self.site["AMech"] = 1001
+        rows = self.check_cards.check(self.template(), self.fetch, None, self.now)
+        self.assertIn(("STALE", "AMech"), [(s, m) for s, m, _ in rows])
+
+    def test_a_mistyped_card_fails_when_the_site_has_not_moved(self):
+        # #217: 3,026 typed for 3,206 used to pass as "grew".
+        import hashlib
+        self.cards["AMech"] = 3026
+        self.site["AMech"] = 3206
+        self.pinned["AMech"] = hashlib.sha256(self.body("AMech", 3206).encode()).hexdigest()
+        self.assertEqual(self.statuses()["AMech"], "WRONG")
+        self.assertEqual(self.failed(), ["WRONG"])
 
     def test_a_site_behind_its_card_fails(self):
         self.site["AMech"] = 999
         self.assertEqual(self.failed(), ["SHRANK"])
 
-    def test_a_missing_page_fails_but_an_outage_only_warns(self):
-        # #176: a 404 is the cited page gone, which is how #175 began.
+    def test_a_missing_page_fails_but_an_outage_or_throttle_only_warns(self):
+        # #176: a 404 is the cited page gone, which is how #175 began. #219: a
+        # 429 is the host asking us to come back later.
         import urllib.error
         self.site["AMech"] = urllib.error.HTTPError("u", 404, "Not Found", {}, None)
-        self.site["BMech"] = urllib.error.HTTPError("u", 503, "Unavailable", {}, None)
+        self.site["BMech"] = urllib.error.HTTPError("u", 429, "Too Many Requests", {}, None)
         statuses = self.statuses()
         self.assertEqual((statuses["AMech"], statuses["BMech"]), ("GONE", "unread"))
         self.assertEqual(self.failed(), ["GONE"])
+        for code in (408, 425, 503):
+            self.site["BMech"] = urllib.error.HTTPError("u", code, "x", {}, None)
+            self.assertEqual(self.statuses()["BMech"], "unread", code)
+
+    def test_a_body_cut_short_is_unread_not_a_traceback(self):
+        # #220
+        import http.client
+        self.site["AMech"] = http.client.IncompleteRead(b"<div>", 500)
+        self.assertEqual(self.statuses()["AMech"], "unread")
+        self.assertEqual(self.failed(), [])
 
     def test_a_page_with_no_figure_fails(self):
         self.site["AMech"] = "<div><b>1,000</b><span>entries</span></div>"
         self.assertEqual(self.failed(), ["CHANGED"])
 
-    def test_one_unreachable_site_warns_but_most_unreachable_fails(self):
-        # #115: a run that read nothing used to exit 0.
+    def test_a_json_source_that_is_not_json_fails(self):
+        # #222: an HTML shell served with 200 where the data file used to be.
+        self.check_cards.SOURCES["AMech"] = ("json", "AMech/data/ingredients.json", "ingredients")
+        self.site["AMech"] = "<html><meta http-equiv='refresh' content='0; url=app/'></html>"
+        self.assertEqual(self.statuses()["AMech"], "CHANGED")
+
+    def test_more_than_half_unread_fails_and_half_does_not(self):
+        # #115: a run that read nothing used to exit 0. #222: ten sources, so
+        # "more than half" can be told from "at least half".
         import urllib.error
-        self.site["AMech"] = urllib.error.URLError("no route")
+        names = [f"M{i}Mech" for i in range(10)]
+        self.check_cards.SOURCES.clear()
+        self.check_cards.SOURCES.update({m: ("html", f"{m}/pages/index.html", "m records") for m in names})
+        self.cards = {m: 1000 for m in names}
+        self.site = {m: 1000 for m in names}
+        self.pinned = {m: "0" * 64 for m in names}
+        for m in names[:5]:
+            self.site[m] = urllib.error.URLError("no route")
         self.assertEqual(self.failed(), [])
-        self.site["BMech"] = TimeoutError("timed out")
+        self.site[names[5]] = TimeoutError("timed out")
         self.assertEqual(self.failed(), ["UNCHECKED"])
 
     def test_a_card_and_its_source_must_both_exist(self):
         del self.cards["CMech"]
         self.cards["DMech"] = 5
-        self.assertEqual(sorted(self.failed()), ["UNCARDED", "UNCARDED"])
+        self.assertEqual(self.failed(), ["UNCARDED", "UNCARDED"])
+
+    def test_a_card_without_exactly_one_figure_is_reported_as_markup(self):
+        # #218: not as a missing card, and a second figure is not silently dropped.
+        template = self.template()
+        unreadable = template.replace('<div class="num"><b>1,000</b></div></article><article data-mech="BMech">',
+                                      '<div class="num"><b>1,000 </b></div></article><article data-mech="BMech">', 1)
+        rows = self.rows(unreadable)
+        self.assertIn(("MARKUP", "AMech"), [(s, m) for s, m, _ in rows])
+        self.assertNotIn("UNCARDED", [s for s, _, _ in rows])
+        doubled = template.replace('<article data-mech="BMech">',
+                                   '<article data-mech="BMech"><div class="num"><b>7</b></div>', 1)
+        self.assertEqual(self.failed(doubled), ["MARKUP"])
+        stray = template + '<div class="num"><b>7</b></div>'
+        self.assertEqual(self.failed(stray), ["MARKUP"])
 
     def test_the_culturemech_figure_is_read_only_from_its_generated_block(self):
         # #176: the regex takes the first match, and the README's prose could
         # state an older "N merged records" above the generated block.
         kind, path, selector = self.real_sources["CultureMech"]
         begin, end = self.check_cards.REGIONS["CultureMech"]
-        readme = ("Release 2 added 1,024 merged records.\n" + begin +
-                  "\nThe tracked corpus currently contains **15,878 normalized records** and "
-                  "**6,288 merged records**.\n" + end + "\n")
+        line = ("The tracked corpus currently contains **15,878 normalized records** and "
+                "**6,288 merged records**.")
+        readme = "Release 2 added 1,024 merged records.\n" + begin + "\n" + line + "\n" + end + "\n"
         read = self.check_cards.read_source
-        self.assertEqual(read("CultureMech", kind, path, selector, lambda url: readme), ("value", 6288))
-        status, _ = read("CultureMech", kind, path, selector,
-                         lambda url: "The corpus has 6,288 merged records.")
-        self.assertEqual(status, "CHANGED")
+        self.assertEqual(read("CultureMech", kind, path, selector, lambda url: readme)[:2], ("value", 6288))
+        for broken in ("The corpus has 6,288 merged records.", begin + "\n" + line + "\n"):
+            self.assertEqual(read("CultureMech", kind, path, selector, lambda url: broken)[0], "CHANGED")
 
     def test_main_exits_by_the_same_rule(self):
         from unittest import mock
-        template = "".join(f'<article data-mech="{m}"><div class="num"><b>{n:,}</b></div></article>'
-                           for m, n in self.cards.items())
+        import urllib.error
         with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "mechs_template.md"
-            path.write_text(template)
-            with mock.patch.object(self.check_cards, "TEMPLATE", path), \
+            template, audit = Path(tmp) / "mechs_template.md", Path(tmp) / "site_audit.json"
+            template.write_text(self.template())
+            self.pinned_at = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=1)
+            audit.write_text(json.dumps(self.audit()))
+            with mock.patch.object(self.check_cards, "TEMPLATE", template), \
+                 mock.patch.object(self.check_cards, "AUDIT", audit), \
                  mock.patch.object(self.check_cards, "fetch", self.fetch), \
                  contextlib.redirect_stdout(io.StringIO()):
                 self.site["AMech"] = 1050
+                self.site["BMech"] = urllib.error.URLError("no route")
                 self.assertEqual(self.check_cards.main(), 0)
-                self.site["AMech"] = 1500
+                self.site["AMech"] = 900
                 self.assertEqual(self.check_cards.main(), 1)
+
 
 class RefreshProvenanceTests(unittest.TestCase):
     """The derived numbers must all come from one set of checkouts (#85).

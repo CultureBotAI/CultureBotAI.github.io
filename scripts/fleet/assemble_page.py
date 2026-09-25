@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import re
 
-from card_markup import card_figures, card_names
+from card_markup import card_figures, card_names, markup_problems
 from refresh_manifest import validate
 
 REPO = Path(__file__).resolve().parents[2]
@@ -71,6 +71,12 @@ def fleet_records(template):
     check_cards.py also uses, so the total and the nightly check cannot read the
     markup differently (#114).
     """
+    # Exactly one figure per card, and none outside the cards: a second stat
+    # tile used to replace a card's headline in the total without failing (#218).
+    problems = markup_problems(template)
+    if problems:
+        raise ValueError("Every Mech card must carry a record count, exactly once: "
+                         + "; ".join(f"{mech}: {why}" for mech, why in problems))
     figures = card_figures(template)
     if not figures:
         raise ValueError("No Mech card record counts found")

@@ -18,15 +18,36 @@ def card_names(template: str) -> list[str]:
     return [mech for mech, _ in ARTICLE.findall(template)]
 
 
+def markup_problems(template: str) -> list[tuple[str, str]]:
+    """(Mech, what is wrong) for every card that does not state exactly one figure.
+
+    A card with two figures used to be read as its first, and a figure outside
+    every card was ignored, so a second stat tile changed the fleet total without
+    failing anything (#218). "-" stands for a figure that belongs to no card.
+    """
+    problems = []
+    for mech, body in ARTICLE.findall(template):
+        count = len(FIGURE.findall(body))
+        if count == 0:
+            problems.append((mech, "card has no readable headline figure"))
+        elif count > 1:
+            problems.append((mech, f"card has {count} headline figures; it must have exactly one"))
+    outside = len(FIGURE.findall(ARTICLE.sub("", template)))
+    if outside:
+        problems.append(("-", f"{outside} headline figure(s) outside any card"))
+    return problems
+
+
 def card_figures(template: str) -> dict[str, int]:
     """Each card's headline figure, keyed by Mech.
 
     Read inside the card's own <article>, so a card without a figure is absent
-    rather than borrowing the next card's.
+    rather than borrowing the next card's. A card with more than one figure is
+    absent too; markup_problems() says which cards those are.
     """
     figures: dict[str, int] = {}
     for mech, body in ARTICLE.findall(template):
-        hit = FIGURE.search(body)
-        if hit:
-            figures[mech] = int(hit.group(1).replace(",", ""))
+        hits = FIGURE.findall(body)
+        if len(hits) == 1:
+            figures[mech] = int(hits[0].replace(",", ""))
     return figures

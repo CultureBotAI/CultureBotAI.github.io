@@ -40,18 +40,24 @@ python3 scripts/fleet/check_cards.py
 `SOURCES` at its top pins where each Mech publishes its count, and `REGIONS`
 restricts a source to the part that states it where the same words appear
 elsewhere (CultureMech's generated README block). The page is a snapshot at a
-refresh's pins, so a site up to 10% ahead of its card (`GROWTH_TOLERANCE`) only
-warns. It fails when a site is further ahead than that or behind its card, when
-a source answers 4xx or no longer states a figure the parser can read, when a
-card and a `SOURCES` entry do not pair up, and when more than half the sources
-could not be fetched at all. One site's outage only warns (#148, #115, #176).
-It runs on the workflow's nightly schedule, not on pull requests, so a Mech
-shipping records overnight does not block an unrelated change; a nightly red
-means either the card figures in `mechs_template.md` and the `MECHS` block in
-`fleet_fragment.html` need refreshing together, or a `SOURCES` entry needs
+refresh's pins, so a site ahead of its card only warns ("grew") for
+`GRACE_DAYS` (14) after the pins in `site_audit.json`, and only while the site is
+at most `MAX_LEAD` (50%) ahead. Past either limit it fails as STALE. It also
+fails when a source is byte-identical to its copy at the pin but states a
+different figure (the card was never right), when a site is behind its card,
+when a source answers a 4xx other than a throttle or no longer states a figure
+the parser can read, when a card lacks exactly one headline figure or has no
+`SOURCES` entry, and when more than half the sources could not be fetched. One
+site's outage or throttle only warns (#148, #115, #176, #217-#220). It runs on
+the workflow's nightly schedule, not on pull requests, so a Mech shipping
+records overnight does not block an unrelated change. A nightly red means one
+of three things: the card figures in `mechs_template.md` and the `MECHS` block
+in `fleet_fragment.html` need refreshing together (a full refresh, since the
+page is a snapshot), a card figure is wrong, or a `SOURCES` entry needs
 repointing. A new card needs a `SOURCES` entry; a test enforces that. The cards
 are read by `scripts/fleet/card_markup.py`, the one parser the assembler, this
-check and the tests share (#114).
+check and the tests share, and the assembler refuses a card without exactly one
+headline figure (#114, #218).
 
 The `Fleet page` workflow checks pull requests, pushes and the live CLAW manifest
 daily. It detects changes to membership, capability declarations (including
@@ -188,7 +194,10 @@ its site lists 422 communities, while its record glob also takes four isolate
 records, so the census and `mech_stats.json` count 426. CellStructureMech and
 TraitMech published new records after the pins were taken; their cards keep the
 pinned figures, and `site_audit.json` records what the two sites showed when it
-was written. `check_cards.py` reports both as grown, a warning, until the next refresh.
+was written. `check_cards.py` reports both as grown, a warning, until 14 days
+after the pins or until a site is half as large again as its card, whichever
+comes first; CellStructureMech, adding about two records an hour, reaches the
+second within a week.
 NaturalProductMech's landing page and MediaIngredientMech's data file also
 changed after the pins without changing their figures; the audit records each
 live hash beside the hash of the committed copy at the pin.
