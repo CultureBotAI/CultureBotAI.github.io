@@ -107,7 +107,7 @@ Our research goals are enabled by a suite of interconnected software tools:
 - [MATE-LLM](/resources/#mate-llm) - Literature protocol extraction with LLMs *(private repo, public release planned)*
 
 ### For Culture Optimization
-- [CultureMech](/culturemech/) - Microbial culture media knowledge graph, 6,286 canonical media from 15,878 curated recipes
+- [CultureMech](/culturemech/) - Microbial culture media knowledge graph, 6,288 canonical media from 15,878 curated recipes
 - [MediaIngredientMech](/mediaingredientmech/) - LLM-assisted ingredient curation and ontology mapping
 - [MicroMediaParam](/resources/#micromediaparam) - Media composition analysis and mapping
 - [microbe-rules](/resources/#microbe-rules-machine-learning-models-for-microbial-data) - ML model optimization and comparison

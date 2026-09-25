@@ -400,5 +400,49 @@ class CardSourceTests(unittest.TestCase):
         stated = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
         self.assertEqual(sorted(stated), sorted(snapshot["mechs"]))
 
+class RefreshProvenanceTests(unittest.TestCase):
+    """The derived numbers must all come from one set of checkouts (#85).
+
+    The census, the card stats and the site audit are written by different
+    scripts on what should be the same run. Before any of them recorded a
+    revision, a partial refresh left the census at 364 CommunityMech records
+    and the stats at 396, and nothing noticed. Each now names the commit it
+    read, so a partial rerun shows up here as a disagreement.
+    """
+
+    def setUp(self):
+        self.census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
+        stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
+        self.stats = {m["mech"]: m for m in stats["mechs"]}
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        self.audit = {r["repo"]: r for r in audit["repositories"]}
+
+    def test_every_count_names_a_clean_revision(self):
+        for mech, entry in self.stats.items():
+            with self.subTest(mech=mech):
+                revision = entry.get("source_revision")
+                self.assertRegex(revision or "", r"^[0-9a-f]{40}$",
+                                 "missing, or read from a checkout with uncommitted changes")
+
+    def test_census_and_stats_read_the_same_revisions(self):
+        revisions = self.census.get("_revisions", {})
+        for mech in roots.ORDER:
+            with self.subTest(mech=mech):
+                self.assertEqual(revisions.get(mech), self.stats[mech]["source_revision"])
+
+    def test_census_and_stats_count_the_same_records(self):
+        # Same globs, same revision, so the same files. A difference means one
+        # of the two was rerun without the other.
+        for mech in roots.ORDER:
+            with self.subTest(mech=mech):
+                self.assertEqual(self.census[mech]["files"], self.stats[mech]["records"])
+
+    def test_the_audit_pins_the_revisions_the_stats_counted(self):
+        for mech, entry in self.stats.items():
+            with self.subTest(mech=mech):
+                self.assertIn(entry["repo"], self.audit, "Mech missing from site_audit.json")
+                self.assertEqual(self.audit[entry["repo"]]["sha"], entry["source_revision"])
+
+
 if __name__ == '__main__':
     unittest.main()

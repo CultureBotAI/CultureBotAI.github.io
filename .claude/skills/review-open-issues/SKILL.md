@@ -83,7 +83,7 @@ Before quoting any figure, say which it is:
 | **local-checkout count** | `record_paths()` over `MECHS_ROOT` | `prefix_census.py` / `mech_stats.py` |
 | **census/heatmap count** | `_fleet/data/prefix_census.json` | the full pipeline |
 
-They legitimately disagree. CultureMech publishes 6,286 merged canonical media
+They legitimately disagree. CultureMech publishes 6,288 merged canonical media
 and serves 15,878 normalized records from the same site. CommunityMech's hero
 counts `kb/communities` only while the fleet glob also takes `data/isolates`, so
 the site is permanently four below the fleet number. A local checkout can be
@@ -93,7 +93,7 @@ Two traps specifically:
 
 - **A landing page can contradict its own data.** ProteinTraitsMech ships
   `408,978 records` as static HTML and overwrites it at runtime from
-  `data/facets.json`, which serves 429,291. A scraper and a visitor see different
+  `data/facets.json`, which serves 429,293. A scraper and a visitor see different
   numbers. Read the number the page *renders*.
 - **A published tile can match nothing at all.** CultureMech's `10,657` is a
   hand-typed figure from a March 2026 merge input; nothing regenerates it.

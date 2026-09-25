@@ -9,9 +9,9 @@ permalink: /mediaingredientmech/
 
 ## Overview
 
-**MediaIngredientMech** is an autonomous knowledge factory for culture-media ingredient identity and ontology mappings, with LLM-assisted curation and human oversight. It maintains ingredient records, synonyms, mapping quality, environmental context, and an audit trail for curation decisions. [Repository overview](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md).
+**MediaIngredientMech** is an autonomous knowledge factory for culture-media ingredient identity and ontology mappings, with LLM-assisted curation and human oversight. It maintains ingredient records, synonyms, mapping quality, environmental context, and an audit trail for curation decisions. [Repository overview](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/README.md).
 
-The published browser contains **2,951 ingredients: 2,616 MAPPED, 261 UNMAPPED, and 74 REJECTED**, giving **89% mapped coverage** after rounding. These figures were checked on September 20, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
+The published browser contains **2,953 ingredients: 2,611 MAPPED, 261 UNMAPPED, 80 REJECTED, and 1 AMBIGUOUS**, giving **88% mapped coverage** after rounding. These figures were checked on September 24, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
 
 ## Explore the Published Site
 
@@ -21,7 +21,7 @@ The published browser contains **2,951 ingredients: 2,616 MAPPED, 261 UNMAPPED, 
 
 ## What a Record Represents
 
-An ingredient record identifies a practical reagent or formulation used in media. Curation distinguishes salts, hydrates, mixtures, and other forms, preserves raw names as synonyms, and records the convention used when sources are ambiguous. Mapping quality and curation status are separate fields. [Mapping semantics](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/MAPPING_SEMANTICS.md).
+An ingredient record identifies a practical reagent or formulation used in media. Curation distinguishes salts, hydrates, mixtures, and other forms, preserves raw names as synonyms, and records the convention used when sources are ambiguous. Mapping quality and curation status are separate fields. [Mapping semantics](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/MAPPING_SEMANTICS.md).
 
 The current model includes:
 
@@ -31,13 +31,13 @@ The current model includes:
 - **Curation events** that record provenance and LLM assistance.
 - **Component relationships** for ingredients made of other components, with evidence and validation.
 
-See the [schema reference](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/SCHEMA_REFERENCE.md), [environmental-context model](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/schema/environmental_context.md), and [component model](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/stock_components.md).
+See the [schema reference](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/SCHEMA_REFERENCE.md), [environmental-context model](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/schema/environmental_context.md), and [component model](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/stock_components.md).
 
 ## Curation Workflow
 
 Curators compare upstream recipe changes with the tracked ingredient corpus, make scoped updates with provenance, and validate ontology identifiers and labels through OAK/OLS. Ingredient occurrence counts help prioritize unmapped records. Validated mapping artifacts can then support coordinated downstream updates to [CultureMech](/culturemech/).
 
-The former CultureMech collection writers are retired because their aggregate projections could overwrite ingredient curation. Current guidance is to review upstream changes and apply scoped updates to MIM-owned records. [Current workflow and migration status](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md#use-the-curated-corpus).
+The former CultureMech collection writers are retired because their aggregate projections could overwrite ingredient curation. Current guidance is to review upstream changes and apply scoped updates to MIM-owned records. [Current workflow and migration status](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/README.md#use-the-curated-corpus).
 
 ## Getting Started
 
@@ -59,20 +59,20 @@ just curate
 just report
 ```
 
-These are the repository's documented commands. See the [curation guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/CURATION_GUIDE.md) and [role-curation workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/ROLE_CURATION_WORKFLOW.md) for record editing and validation.
+These are the repository's documented commands. See the [curation guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/CURATION_GUIDE.md) and [role-curation workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/ROLE_CURATION_WORKFLOW.md) for record editing and validation.
 
 ## Exports and Integration
 
-The project provides YAML records, browser JSON, generated inventories, and SSSOM mappings. SSSOM predicates preserve distinctions between exact, close, broader, and narrower matches. Registry identity mappings and ontology assertions have different meanings; downstream consumers should follow the [mapping contract](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/MAPPING_SEMANTICS.md).
+The project provides YAML records, browser JSON, generated inventories, SSSOM mappings, and a [standalone KGX ingredient graph](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/KGX_EXPORT.md). The [reviewed SSSOM release](https://github.com/CultureBotAI/MediaIngredientMech/releases/tag/mim-sssom-2026-09-21) holds 1,763 supported mappings. It keeps the 1,255 withheld mappings in a separate file. An [earlier release](https://github.com/CultureBotAI/MediaIngredientMech/releases/tag/mim-supported-2026-09-21) carries a KGX snapshot limited to supported assertions. SSSOM predicates preserve distinctions between exact, close, broader, and narrower matches. Registry identity mappings and ontology assertions have different meanings; downstream consumers should follow the [mapping contract](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/MAPPING_SEMANTICS.md).
 
-Deep-research tools help select providers and prepare ingredient research. Their results remain curation proposals until identity and evidence are validated. [Provider workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md#deep-research-provider-triage).
+Deep-research tools help select providers and prepare ingredient research. Their results remain curation proposals until identity and evidence are validated. [Provider workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/README.md#deep-research-provider-triage).
 
 ## Repository & Documentation
 
 - **[Repository](https://github.com/CultureBotAI/MediaIngredientMech)** and **[published site](https://culturebotai.github.io/MediaIngredientMech/)**
-- **[Current mapping inventory](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/data/curated/ALL_INGREDIENTS.md)**
-- **[Workflow guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/docs/WORKFLOWS.md)**
-- **License:** CC0-1.0, as stated in the [repository](https://github.com/CultureBotAI/MediaIngredientMech/blob/1f12dd79637f8d518099b31b36fe7482651b8070/README.md#license)
+- **[Current mapping inventory](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/data/curated/ALL_INGREDIENTS.md)**
+- **[Workflow guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/docs/WORKFLOWS.md)**
+- **License:** CC0-1.0, as stated in the [repository](https://github.com/CultureBotAI/MediaIngredientMech/blob/dfce1c9342ca7aec41b50d0f6db8adb950bb72fe/README.md#license)
 
 ---
 
@@ -80,14 +80,14 @@ Deep-research tools help select providers and prepare ingredient research. Their
 
 - **[X-Mech Suite overview](/mechs/)** - All ten Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
-- **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ENVO-grounded records
+- **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Autonomous knowledge factory for microbial ecophysiological traits
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
-- **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (6,286 canonical media)
+- **[CultureMech](/culturemech/)** - Chemical entity extraction from media recipes (6,288 canonical media)
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization (78% ChEBI coverage)
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
