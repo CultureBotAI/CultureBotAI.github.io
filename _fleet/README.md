@@ -9,7 +9,7 @@
   hand-curated at the top of the script.
 - `data/manifest.json` — membership and all capability declarations from a pinned
   commit of CLAW's canonical manifest, plus the canonical artifact count.
-- Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the hand-written provenance record.
+- Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the provenance record, written by `scripts/fleet/build_site_audit.py` from the snapshot, the live sites and the audited notes in `_fleet/audit_notes.json`.
 
 ## Membership and capability updates
 
@@ -59,16 +59,27 @@ remedy for each failing verdict (#235):
 
 - STALE or SHRANK: the card figures in `mechs_template.md` and the `MECHS` block
   in `fleet_fragment.html` need a full refresh, since the page is a snapshot.
-- WRONG: a card, or the audit's `figure_at_pin`, was mistyped. Correct the card
+- WRONG: a card differs from the figure its source stated at the pin. Correct the card
   and every other occurrence of its figure, found by grepping the tree for it as
   step 6 of the update skill does: the MECHS `records:` and `extra:` text in
-  `fleet_fragment.html`, cross-references, `card_records` in `site_audit.json`
-  and the pages that repeat it. Or correct `figure_at_pin` if that is what was
-  wrong. Then rerun `assemble_page.py`; no re-pin (#248, #258). The unit tests catch this on the
+  `fleet_fragment.html`, cross-references and the pages that repeat it, and
+  `card_records` in `site_audit.json`, the one audit field a WRONG fix edits, to
+  match the corrected card (a test requires the two to agree; #277). Then rerun `assemble_page.py`; no re-pin (#248,
+  #258). If `figure_at_pin` itself is wrong, re-derive it with
+  `build_site_audit.py` against a snapshot at the audit's pins (update skill
+  step 11); it is derived, never typed (#268). The unit tests catch this on the
   PR and in the nightly, which still runs the card check after a failed test
   step so its report prints (#239, #240).
 - GONE or CHANGED: a `SOURCES` entry needs repointing.
-- MARKUP, UNCARDED or AUDIT: fix the card markup, `SOURCES` or `site_audit.json`.
+- MARKUP or UNCARDED: fix the card markup or `SOURCES`.
+- AUDIT: never edit `site_audit.json` by hand, apart from `card_records` under
+  WRONG (#273, #276, #277). A missing or
+  non-integer `figure_at_pin`: regenerate it with `build_site_audit.py` against a
+  snapshot at its pins (update skill steps 7 and 11). A bad pin time, or a missing
+  or malformed audit: the builder copies the pin time from `revisions.json`, so
+  take the pins and pin time from the last audit the builder wrote (`git log -p --
+  _fleet/data/site_audit.json`), then regenerate. A Mech
+  with no entry, such as a new member, needs a full refresh with new pins.
 - UNCHECKED: most sites could not be reached; rerun before changing anything.
 
 A new card needs a `SOURCES` entry; a test enforces that. The cards
@@ -195,8 +206,12 @@ procedure.
 
 `data/site_audit.json` records, per repository, the pinned revision, the URL each
 card figure is read from (a Pages URL, except CultureMech's committed README on
-`main`), the figure, response hashes and merged
-pull-request totals. The three dedicated pages link their descriptions and
+`main`), the figure, the figure its source stated at the pin (`figure_at_pin`),
+response hashes and merged pull-request totals. `scripts/fleet/build_site_audit.py
+--snapshot "$SNAP"` writes it: every mechanical field is derived, and only the
+notes on how each site's figure relates to its records, kept in
+`_fleet/audit_notes.json`, are written by hand. It refuses a card that differs
+from its figure at the pin or exceeds its site (#238). The three dedicated pages link their descriptions and
 commands to those same revisions.
 
 Follow client-side meta refreshes from site roots to `pages/` or `app/`. Read

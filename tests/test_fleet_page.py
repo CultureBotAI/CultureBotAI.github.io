@@ -792,6 +792,181 @@ class CardCheckTests(unittest.TestCase):
                 self.assertEqual(self.check_cards.main(), 1)
 
 
+class SiteAuditBuilderTests(unittest.TestCase):
+    """The committed audit builder derives every mechanical field (#238)."""
+
+    PAGE = b'<div><b>3,206</b><span>habitat records</span></div>\n'
+
+    def setUp(self):
+        import build_site_audit
+        self.b = build_site_audit
+        self.stats = {"repo": "HabitatMech", "source_revision": "a" * 40, "merged_prs": 7}
+        self.pin = {"sha": "a" * 40, "commit_date": "2026-09-25T01:40:32Z"}
+        self.source = ("html", "HabitatMech/pages/index.html", "habitat records")
+
+    def entry(self, live=PAGE, pinned=PAGE, card=3206, mech="HabitatMech", source=None):
+        return self.b.build_entry(mech, source or self.source, self.pin, self.stats, card, "Audited.",
+                                  lambda url: live, lambda path: pinned if path == "pages/index.html" else None)
+
+    def test_committed_copies_are_looked_for_where_pages_sites_publish(self):
+        candidates = self.b.committed_candidates
+        self.assertEqual(candidates("HabitatMech/pages/index.html"), ["pages/index.html", "docs/pages/index.html"])
+        self.assertEqual(candidates("CommunityMech/"), ["index.html", "docs/index.html"])
+        self.assertEqual(candidates("MediaIngredientMech/data/ingredients.json"),
+                         ["data/ingredients.json", "docs/data/ingredients.json"])
+        self.assertEqual(candidates("https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md"),
+                         ["README.md"])
+
+    def test_an_unchanged_source_records_its_figure_at_the_pin(self):
+        entry = self.entry()
+        self.assertEqual(entry["figure_at_pin"], 3206)
+        self.assertEqual(entry["site_html_sha256"], entry["site_html_sha256_at_pin"])
+        self.assertTrue(entry["notes"].endswith("The live index.html is byte-identical to pages/index.html at the pin."))
+        self.assertNotIn("site_figure_at_check", entry)
+
+    def test_a_site_that_grew_keeps_the_pinned_card_and_says_so(self):
+        import hashlib
+        live = self.PAGE.replace(b"3,206", b"3,300")
+        entry = self.entry(live=live)
+        self.assertEqual((entry["figure_at_pin"], entry["site_figure_at_check"]), (3206, 3300))
+        # #275: each hash is of its own copy, and the other fields come from the pin.
+        self.assertEqual(entry["site_html_sha256"], hashlib.sha256(live).hexdigest())
+        self.assertEqual(entry["site_html_sha256_at_pin"], hashlib.sha256(self.PAGE).hexdigest())
+        self.assertEqual(entry["readme_url"], f"https://github.com/CultureBotAI/HabitatMech/blob/{'a' * 40}/README.md")
+        self.assertEqual(entry["merged_prs"], 7)
+        self.assertIn("had moved past the pin", entry["notes"])
+        self.assertIn("showed 3,300", entry["notes"])
+
+    def test_a_card_that_differs_from_its_pin_or_exceeds_its_site_is_refused(self):
+        # #231: the old builder read the card from the template and passed a typo.
+        with self.assertRaisesRegex(SystemExit, "stated 3,206 at the pin"):
+            self.entry(card=3026, live=self.PAGE.replace(b"3,206", b"3,300"))
+        with self.assertRaisesRegex(SystemExit, "not growth"):
+            self.entry(live=self.PAGE.replace(b"3,206", b"3,100"))
+        with self.assertRaisesRegex(SystemExit, "no figure"):
+            self.entry(live=b"<div>nothing</div>")
+
+    def test_a_source_with_no_committed_copy_must_be_declared(self):
+        with self.assertRaisesRegex(SystemExit, "NO_PIN_COPY"):
+            self.entry(pinned=None)
+        from unittest import mock
+        with mock.patch.object(self.b.check_cards, "NO_PIN_COPY", ("HabitatMech",)):
+            entry = self.entry(pinned=None)
+        self.assertNotIn("figure_at_pin", entry)
+        self.assertIn("built in CI", entry["notes"])
+
+    def test_a_count_from_another_revision_is_refused(self):
+        self.stats["source_revision"] = "b" * 40
+        with self.assertRaisesRegex(SystemExit, "not counted at the pin"):
+            self.entry()
+
+    def test_a_data_source_hashes_both_the_page_and_the_data(self):
+        body = b'{"ingredients": [1, 2, 3]}'
+        source = ("json", "MediaIngredientMech/data/ingredients.json", "ingredients")
+        entry = self.b.build_entry("MediaIngredientMech", source, self.pin, self.stats, 3, "Audited.",
+                                   lambda url: body if url.endswith(".json") else b"<html></html>",
+                                   lambda path: body if path == "docs/data/ingredients.json" else None)
+        self.assertEqual(entry["site"], "https://culturebotai.github.io/MediaIngredientMech/")
+        import hashlib  # #275: the page is hashed as the page, the data as the data
+        self.assertEqual(entry["site_html_sha256"], hashlib.sha256(b"<html></html>").hexdigest())
+        self.assertEqual(entry["data_sha256"], hashlib.sha256(body).hexdigest())
+        self.assertEqual(entry["data_url"], "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json")
+        self.assertEqual(entry["data_sha256"], entry["data_sha256_at_pin"])
+        self.assertEqual(entry["figure_at_pin"], 3)
+
+    def whole_build(self, notes=None, pinned_at="2026-09-25T02:06:03+00:00", now=None):
+        """build() over two fake Mechs, one of them with no committed copy."""
+        from unittest import mock
+        sources = {"HabitatMech": ("html", "HabitatMech/pages/index.html", "habitat records"),
+                   "ProteinTraitsMech": ("json", "proteintraitsmech/data/facets.json", "total")}
+        pins = {"pinned_at_utc": pinned_at, "claw": "c" * 40, "mechs": {
+            "HabitatMech": {"repo": "HabitatMech", "sha": "a" * 40, "commit_date": "2026-09-25T03:40:32+02:00"},
+            "ProteinTraitsMech": {"repo": "proteintraitsmech", "sha": "b" * 40, "commit_date": "2026-09-25T01:36:06Z"}}}
+        stats = {"mechs": [
+            {"mech": "HabitatMech", "repo": "HabitatMech", "source_revision": "a" * 40, "merged_prs": 7},
+            {"mech": "ProteinTraitsMech", "repo": "proteintraitsmech", "source_revision": "b" * 40, "merged_prs": 9}]}
+        template = ('<article data-mech="HabitatMech"><div class="num"><b>3,206</b></div></article>'
+                    '<article data-mech="ProteinTraitsMech"><div class="num"><b>5</b></div></article>')
+        notes = notes or {"scope": "Scope.", "notes": {"HabitatMech": "H.", "ProteinTraitsMech": "P.",
+                                                         "culturebotai-claw": "C."}}
+        def fetch(url):
+            return b'{"total": 5}' if url.endswith(".json") else self.PAGE
+        def shower(mech, sha):
+            return lambda path: self.PAGE if (mech, path) == ("HabitatMech", "pages/index.html") else None
+        now = now or datetime.datetime(2026, 9, 25, 19, 0, tzinfo=datetime.timezone.utc)
+        with mock.patch.dict(self.b.check_cards.SOURCES, sources, clear=True):
+            return self.b.build(pins, notes, template, stats, fetch, shower, "2026-09-22T07:18:11Z", now,
+                                "notes.json")
+
+    def test_the_whole_audit_is_derived_in_order(self):
+        # #266: build() itself, not just build_entry().
+        audit = self.whole_build()
+        self.assertEqual(list(audit), ["checked_at_utc", "local_date", "pinned_at_utc", "scope", "repositories"])
+        self.assertEqual(audit["checked_at_utc"], "2026-09-25T19:00:00+00:00")
+        self.assertEqual((audit["pinned_at_utc"], audit["scope"]), ("2026-09-25T02:06:03+00:00", "Scope."))
+        repos = audit["repositories"]
+        self.assertEqual([r["repo"] for r in repos], ["culturebotai-claw", "HabitatMech", "proteintraitsmech"])
+        claw, habitat, proteins = repos
+        self.assertEqual(claw, {"repo": "culturebotai-claw", "sha": "c" * 40, "commit_date": "2026-09-22T07:18:11Z",
+                                "readme_url": f"https://github.com/CultureBotAI/culturebotai-claw/blob/{'c' * 40}/README.md",
+                                "notes": "C."})
+        self.assertEqual(habitat["commit_date"], "2026-09-25T01:40:32Z")  # +02:00 read as UTC
+        self.assertEqual(habitat["figure_at_pin"], 3206)
+        self.assertNotIn("figure_at_pin", proteins)
+        self.assertIn("built in CI", proteins["notes"])
+
+    def test_local_date_is_the_machine_date_of_the_check(self):
+        # #275, #178: 03:00 UTC on the 26th is still the 25th in Los Angeles.
+        import time
+        saved = os.environ.get("TZ")
+        os.environ["TZ"] = "America/Los_Angeles"
+        time.tzset()
+        try:
+            audit = self.whole_build(now=datetime.datetime(2026, 9, 26, 3, 0, 5, 123456,
+                                                           tzinfo=datetime.timezone.utc))
+        finally:
+            if saved is None:
+                os.environ.pop("TZ", None)
+            else:
+                os.environ["TZ"] = saved
+            time.tzset()
+        self.assertEqual(audit["local_date"], "2026-09-25")
+        self.assertEqual(audit["checked_at_utc"], "2026-09-26T03:00:05+00:00")
+
+    def test_a_commit_date_without_an_offset_is_refused(self):
+        # #274: read as local time it would shift by the machine's zone.
+        self.assertEqual(self.b.utc("2026-09-25T03:40:32+02:00"), "2026-09-25T01:40:32Z")
+        with self.assertRaisesRegex(SystemExit, "no offset"):
+            self.b.utc("2026-09-25T03:40:32")
+
+    def test_missing_notes_or_a_bad_pin_time_are_refused(self):
+        # #267: name only what is missing, and the file that was read.
+        notes = {"scope": "S.", "notes": {"ProteinTraitsMech": "P.", "culturebotai-claw": "C."}}
+        with self.assertRaises(SystemExit) as caught:
+            self.whole_build(notes=notes)
+        self.assertEqual(str(caught.exception), "notes.json has no notes for: HabitatMech")
+        notes = {"scope": "S.", "notes": {"HabitatMech": "H.", "ProteinTraitsMech": "P."}}
+        with self.assertRaisesRegex(SystemExit, "no notes for: culturebotai-claw$"):
+            self.whole_build(notes=notes)
+        # #269: a pin time the nightly would report as AUDIT is refused here.
+        with self.assertRaisesRegex(SystemExit, "revisions.json"):
+            self.whole_build(pinned_at="25 September 2026")
+        with self.assertRaisesRegex(SystemExit, "in the future"):
+            self.whole_build(pinned_at="2026-09-26T02:06:03+00:00")
+
+    def test_the_committed_audit_notes_come_from_the_notes_file(self):
+        # The builder appends one sentence per source; everything before it is
+        # the audited text in _fleet/audit_notes.json, which must stay in step.
+        notes = json.loads((ROOT / "_fleet/audit_notes.json").read_text())
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        self.assertEqual(audit["scope"], notes["scope"])
+        by_repo = {r["repo"].lower(): r for r in audit["repositories"]}
+        self.assertEqual(set(by_repo), {k.lower() for k in notes["notes"]})
+        for name, text in notes["notes"].items():
+            with self.subTest(name=name):
+                self.assertTrue(by_repo[name.lower()]["notes"].startswith(text))
+
+
 class RefreshProvenanceTests(unittest.TestCase):
     """The derived numbers must all come from one set of checkouts (#85).
 
@@ -844,8 +1019,8 @@ class RefreshProvenanceTests(unittest.TestCase):
         self.assertEqual(panels, card_figures((ROOT / "_fleet/mechs_template.md").read_text()))
 
     def test_every_card_equals_the_figure_its_source_stated_at_the_pin(self):
-        # #231: the audit builder read card_records from the template, so the
-        # audit could only repeat a mistyped card. figure_at_pin is read from the
+        # #231: the old scratchpad audit builder read card_records from the
+        # template, so the audit could only repeat a mistyped card. figure_at_pin is read from the
         # source's committed copy at the pin with check_cards.figure(), and the
         # nightly's WRONG verdict depends on it being there.
         import check_cards

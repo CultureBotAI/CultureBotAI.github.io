@@ -100,8 +100,19 @@ Then, for each Mech in the refreshed `_fleet/data/manifest.json`:
 `git -C "$SRC/<Mech>" fetch -q origin`, take `origin/main`, and cross-check it
 against `gh api repos/CultureBotAI/<repo>/commits/main --jq .sha`. The
 repository name is not always the Mech name (`proteintraitsmech`). Write the
-pins and CLAW's to `$SNAP/revisions.json` with the pin time. Corpora move within
-minutes, so pin once and do not re-pin mid-run.
+pins and CLAW's to `$SNAP/revisions.json` with the pin time, in the layout
+`build_site_audit.py` reads in step 7 (#269):
+
+```json
+{"pinned_at_utc": "2026-09-25T02:06:03+00:00",
+ "mechs": {"<Mech name>": {"repo": "<repository>", "sha": "<40-hex sha>",
+                           "commit_date": "<committer date with offset: git log -1 --format=%cI <sha>>"}},
+ "claw": "<40-hex sha>"}
+```
+
+`pinned_at_utc` is an ISO time with its offset; the nightly card check reads it
+from the audit and fails on one it cannot read. Corpora move within minutes, so
+pin once and do not re-pin mid-run.
 
 ### 2. Snapshot at the pins
 
@@ -227,26 +238,29 @@ either being stale alone.
 
 ### 7. Provenance
 
-Rewrite `_fleet/data/site_audit.json` for the run: per repository the pinned
-`sha` from `$SNAP/revisions.json` (not from `mech_stats.json`, or the audit-pin
-test compares a value with itself, #125) and its commit date, the URL each card figure is read from, the figure, the
-sha256 of the fetched HTML and of any data file, merged PRs, and short notes on
-how the site figure relates to the repo count. Set `checked_at_utc`,
-`local_date`, `pinned_at_utc` (ISO, with its offset) and `scope`. Record
-`figure_at_pin` for every source with a committed copy: read the copy at the pin
-with `check_cards.figure()`, the nightly's own parser with `REGIONS` applied,
-never from the template. The provenance tests require it to equal each card, so
-a mistyped card fails on the PR, and the nightly reports WRONG from it (#231).
-ProteinTraitsMech's data file is built in CI and has none. Derive the other
-mechanical fields rather than typing them: the live figure through
-`check_cards.read_source()`, merged PRs from
-`mech_stats.json`, SHAs and commit dates from the pins, and assert that the
-pins equal the stats' `source_revision` before writing. Hash the served page as
-committed at the pin too (`git show <sha>:pages/index.html`, or `docs/`), record
-it beside the live hash, and let the builder say whether the two match. Never
-type "byte-identical" into a note: sites publish during the run, and a
-hand-written claim of identity went stale for four Mechs in the first run (#155). The provenance tests require its SHAs to equal the
-stats' `source_revision`.
+Update the audited notes in `_fleet/audit_notes.json`, one per Mech plus CLAW
+and the `scope`: how each site's figure relates to its records at the pin, as
+re-checked in step 5. Then write the audit:
+
+```bash
+python3 scripts/fleet/build_site_audit.py --snapshot "$SNAP"
+```
+
+The builder derives every mechanical field (#238): the pinned `sha` and commit
+date from `$SNAP/revisions.json` (not from `mech_stats.json`, or the audit-pin
+test compares a value with itself, #125), merged PRs from `mech_stats.json`
+after checking it was counted at the pins, the live figure and `figure_at_pin`
+through `check_cards.figure()` on the served file and on its committed copy at
+the pin, and the sha256 of both. It appends one sentence to each note saying
+whether the live copy still matches the pin, so never type "byte-identical" into
+a note: sites publish during the run, and a hand-written claim went stale for
+four Mechs in the first run (#155). It refuses to write when a card differs from
+its figure at the pin (a typo, #231) or when a site states fewer than its card,
+and it records a site that grew as `site_figure_at_check`. A source with no
+committed copy must be listed in `check_cards.NO_PIN_COPY` (ProteinTraitsMech,
+built in CI). The provenance tests then require the audit's SHAs to equal the
+stats' `source_revision`, each `figure_at_pin` to equal its card, and each note
+to start with its text in `_fleet/audit_notes.json`.
 
 `CLAUDE.md` at the repository root records when the page was last refreshed.
 Update its "Last refreshed" sentence in the same PR, so the guidance and the
@@ -269,9 +283,9 @@ live site, so it is the only gate that sees that.
 When a site has moved past its pin, do not re-pin that one Mech: the census and
 overlaps are computed across Mechs, so a single re-pin is a partial rerun, and a
 fast Mech moves again before the rerun finishes. Keep the page a consistent
-snapshot at the pins, record the live figure as `site_figure_at_check` in that
-Mech's `site_audit.json` entry, and say in the PR which cards the check reports
-as grown. That stays a warning for `GRACE_DAYS` (14) after `pinned_at_utc` while
+snapshot at the pins (the builder records the live figure as
+`site_figure_at_check` in that Mech's `site_audit.json` entry), and say in the PR
+which cards the check reports as grown. That stays a warning for `GRACE_DAYS` (14) after `pinned_at_utc` while
 the site is at most half as large again as the card; past either limit the
 check reports STALE and fails, and the page is due a full refresh. A card that
 differs from its audit's `figure_at_pin` fails as WRONG however far the site has
