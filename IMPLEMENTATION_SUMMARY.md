@@ -13,7 +13,7 @@
 2. **mediaingredientmech.md** - MediaIngredientMech: LLM-Assisted Ingredient Curation
    - LLM-powered semantic matching
    - Curation workflows documentation
-   - Ontology integration (ChEBI, PubChem, METPO); corrected 2026-09-25 (#150, #190): records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO; where no term exists, about 175 carry kg-microbe registry ids and about 85 CAS numbers, and about 55 carry placeholders pending curation; none map to PubChem or METPO
+   - Ontology integration (ChEBI, PubChem, METPO); corrected 2026-09-25 (#150, #190, #215): records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO; where curation found no term, about 175 carry kg-microbe registry ids and about 85 CAS numbers, and about 55 carry placeholders pending curation; none map to PubChem or METPO
    - Code examples and getting started guide
 
 3. **communitymech.md** - CommunityMech: Microbial Community Mechanisms
