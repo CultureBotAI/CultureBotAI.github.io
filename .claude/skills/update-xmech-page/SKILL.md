@@ -253,7 +253,7 @@ python3 scripts/fleet/assemble_page.py
 python3 -m unittest discover -s tests -v
 python3 scripts/fleet/assemble_page.py --check
 python3 scripts/fleet/refresh_manifest.py --claw-root "$SNAP/claw" --check
-python3 scripts/fleet/check_cards.py        # 0 drifted, except sites that moved past their pin (below)
+python3 scripts/fleet/check_cards.py        # exit 0; "grew" lines are sites that moved past their pin (below)
 ```
 
 Rerun `check_cards.py` immediately before opening the PR and again before any
@@ -264,8 +264,9 @@ When a site has moved past its pin, do not re-pin that one Mech: the census and
 overlaps are computed across Mechs, so a single re-pin is a partial rerun, and a
 fast Mech moves again before the rerun finishes. Keep the page a consistent
 snapshot at the pins, record the live figure as `site_figure_at_check` in that
-Mech's `site_audit.json` entry, and say in the PR which cards will show as
-drifted. Re-pin everything only if the drift is large enough to mislead.
+Mech's `site_audit.json` entry, and say in the PR which cards the check reports
+as grown. Within `GROWTH_TOLERANCE` (10%) that is a warning; past it the check
+reports STALE and fails, and the refresh should re-pin everything.
 
 Emoji headings render with a leading hyphen in their id on GitHub Pages. Verify
 anchors against the deployed HTML, not a local kramdown.

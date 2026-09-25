@@ -12,10 +12,27 @@ nightly schedule rather than on a pull request: the corpora move fast enough
 that a blocking check would make an unrelated docs fix unmergeable because some
 Mech published records overnight.
 
-Two failure kinds, kept apart on purpose. A fetch that does not arrive is a
-warning, because the network is not the site's fault. A fetch that arrives and
-does not match is a failure, because either the number moved or the markup did,
-and both need a person.
+What fails and what only warns (#148, #115, #176):
+
+  ok       the site states the card's figure.
+  grew     the site is ahead of the card by at most GROWTH_TOLERANCE. A warning:
+           the page is a snapshot at a refresh's pins and fast Mechs publish
+           within hours of them, so a small lead is the expected state, not a
+           wrong card. site_audit.json records the lead the refresh saw.
+  STALE    the site is further ahead than that. The card no longer describes the
+           Mech; refresh it.
+  SHRANK   the site states fewer than the card. Records are not normally
+           withdrawn in bulk, so either the card is wrong or the site regressed.
+  GONE     the source answered 4xx. The page the card cites has moved or been
+           deleted, which is how #175 began; an outage does not look like this.
+  CHANGED  the source arrived but no figure could be read from it: the markup or
+           the wording moved, and the card is no longer being checked at all.
+  unread   the fetch did not arrive (DNS, timeout, 5xx). A warning, because the
+           network is not the site's fault, unless more than half the sources
+           are unread, when the run has verified too little to call itself a
+           pass and fails as UNCHECKED.
+
+A card with no SOURCES entry, or an entry with no card, also fails.
 """
 from __future__ import annotations
 
@@ -25,6 +42,8 @@ import sys
 import urllib.error
 import urllib.request
 from pathlib import Path
+
+from card_markup import card_figures
 
 REPO = Path(__file__).resolve().parents[2]
 TEMPLATE = REPO / "_fleet/mechs_template.md"
@@ -60,12 +79,19 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
 }
 
-CARD = re.compile(r'data-mech="([A-Za-z]+)".*?<div class="num"><b>([\d,]+)</b>', re.S)
+# Where inside a source the figure must be read, when the source states the same
+# label elsewhere too. CultureMech's README says "merged records" in its prose;
+# only the block its generator writes, and its CI keeps in sync with the data,
+# is the figure (#176). Markers missing is a shape change, not a pass.
+REGIONS: dict[str, tuple[str, str]] = {
+    "CultureMech": ("<!-- BEGIN GENERATED CORPUS STATS -->", "<!-- END GENERATED CORPUS STATS -->"),
+}
 
-
-def cards(template: str) -> dict[str, int]:
-    """The headline figure each card states, keyed by Mech."""
-    return {m.group(1): int(m.group(2).replace(",", "")) for m in CARD.finditer(template)}
+# How far a site may be ahead of its card before the card counts as stale. At
+# the 2026-09-24 refresh the two fastest Mechs were 0.7% and 6.5% ahead of their
+# pins when its audit was written; a mistyped or misattributed card is rarely
+# that close (#148).
+GROWTH_TOLERANCE = 0.10
 
 
 def source_url(path: str) -> str:
@@ -76,6 +102,16 @@ def source_url(path: str) -> str:
 def fetch(url: str, timeout: int = 30) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": "culturebotai-card-check"})
     return urllib.request.urlopen(request, timeout=timeout).read().decode("utf-8", "replace")
+
+
+def region(body: str, markers: tuple[str, str]) -> str | None:
+    """The text between two markers, or None when either is missing."""
+    start, end = markers
+    _, found, rest = body.partition(start)
+    if not found:
+        return None
+    inside, found, _ = rest.partition(end)
+    return inside if found else None
 
 
 def published(kind: str, body: str, selector: str) -> int | None:
@@ -111,52 +147,96 @@ def published(kind: str, body: str, selector: str) -> int | None:
     return int(hit.group(1).replace(",", "")) if hit else None
 
 
-def main() -> int:
-    stated = cards(TEMPLATE.read_text())
-    missing = sorted(set(stated) - set(SOURCES))
-    drifted, unreadable, matched = [], [], []
+def classify(card: int, site: int) -> str:
+    """How a published figure relates to the card that states it."""
+    if site == card:
+        return "ok"
+    if site < card:
+        return "SHRANK"
+    return "grew" if site - card <= card * GROWTH_TOLERANCE else "STALE"
 
+
+def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) -> tuple[str, int | str]:
+    """The figure a source publishes, or why there is none.
+
+    Returns ("value", N), or a status and the reason: "GONE" for a 4xx, "unread"
+    for a fetch that did not arrive, "CHANGED" for a body with no figure in it.
+    """
+    fetcher = fetcher or fetch
+    try:
+        body = fetcher(source_url(path))
+    except urllib.error.HTTPError as error:
+        # HTTPError is a URLError, so it is caught first. A 4xx is the source
+        # telling us it is not there; a 5xx is the host having a bad night.
+        status = "GONE" if 400 <= error.code < 500 else "unread"
+        return status, f"fetch failed: {error}"
+    except (urllib.error.URLError, TimeoutError, OSError) as error:
+        return "unread", f"fetch failed: {error}"
+    if mech in REGIONS:
+        body = region(body, REGIONS[mech])
+        if body is None:
+            return "CHANGED", "the generated block that states the figure is gone"
+    try:
+        value = published(kind, body, selector)
+    except (ValueError, TypeError, AttributeError) as error:
+        # json.JSONDecodeError is a ValueError. The other two are what a
+        # body of an unexpected type raises when it is walked.
+        return "CHANGED", f"unparseable: {error}"
+    if value is None:
+        return "CHANGED", f"{kind} shape changed; no {selector!r} found"
+    return "value", value
+
+
+FAILURES = ("STALE", "SHRANK", "GONE", "CHANGED", "UNCARDED", "UNCHECKED")
+
+
+def check(stated: dict[str, int], fetcher=None) -> list[tuple[str, str, str]]:
+    """One (status, mech, detail) row per source, plus the run-level verdicts."""
+    rows = []
+    for mech in sorted(set(stated) - set(SOURCES)):
+        rows.append(("UNCARDED", mech, "card with no entry in SOURCES"))
     for mech, (kind, path, selector) in sorted(SOURCES.items()):
         if mech not in stated:
-            unreadable.append((mech, "no card in the template"))
+            rows.append(("UNCARDED", mech, "SOURCES entry with no card in the template"))
             continue
-        try:
-            body = fetch(source_url(path))
-        except (urllib.error.URLError, TimeoutError, OSError) as error:
-            unreadable.append((mech, f"fetch failed: {error}"))
+        status, result = read_source(mech, kind, path, selector, fetcher)
+        if status != "value":
+            rows.append((status, mech, result))
             continue
-        try:
-            value = published(kind, body, selector)
-        except (ValueError, TypeError, AttributeError) as error:
-            # json.JSONDecodeError is a ValueError. The other two are what a
-            # body of an unexpected type raises when it is walked.
-            unreadable.append((mech, f"unparseable: {error}"))
-            continue
-        if value is None:
-            unreadable.append((mech, f"{kind} shape changed; no {selector!r} found"))
-        elif value != stated[mech]:
-            drifted.append((mech, stated[mech], value))
-        else:
-            matched.append(mech)
+        card = stated[mech]
+        verdict = classify(card, result)
+        detail = f"{card:>9,}" if verdict == "ok" else f"card {card:,}, site {result:,}"
+        if verdict == "grew":
+            detail += f" (+{(result - card) / card:.1%}, within {GROWTH_TOLERANCE:.0%})"
+        rows.append((verdict, mech, detail))
+    unread = sum(1 for status, _, _ in rows if status == "unread")
+    if unread * 2 > len(SOURCES):
+        # One site down is someone else's outage. Most of them down is this run
+        # having checked nothing, which must not read as a pass (#115).
+        rows.append(("UNCHECKED", "-", f"{unread} of {len(SOURCES)} sources could not be read"))
+    return rows
 
-    for mech in matched:
-        print(f"  ok       {mech:<20} {stated[mech]:>9,}")
-    for mech, card, site in drifted:
-        print(f"  DRIFTED  {mech:<20} card {card:,}, site {site:,}")
-    for mech, why in unreadable:
-        print(f"  unread   {mech:<20} {why}")
-    if missing:
-        print(f"  MISSING  cards with no entry in SOURCES: {', '.join(missing)}")
 
-    print(f"\n{len(matched)} match, {len(drifted)} drifted, {len(unreadable)} unreadable.")
-    if drifted or missing:
-        print("Refresh the card figures in _fleet/mechs_template.md and the MECHS block "
-              "in _fleet/fleet_fragment.html, then rerun assemble_page.py.")
+def main() -> int:
+    rows = check(card_figures(TEMPLATE.read_text()))
+    for status, mech, detail in rows:
+        print(f"  {status:<9} {mech:<20} {detail}")
+    tally: dict[str, int] = {}
+    for status, _, _ in rows:
+        tally[status] = tally.get(status, 0) + 1
+    print("\n" + ", ".join(f"{count} {status.lower()}" for status, count in sorted(tally.items())) + ".")
+    failed = [status for status, _, _ in rows if status in FAILURES]
+    if failed:
+        print("Failing. STALE or SHRANK: refresh the card figures in _fleet/mechs_template.md "
+              "and the MECHS block in _fleet/fleet_fragment.html, then rerun assemble_page.py. "
+              "GONE or CHANGED: repoint that Mech's SOURCES entry. UNCARDED: add the missing "
+              "card or SOURCES entry. UNCHECKED: the run could not reach most sites.")
         return 1
-    if unreadable:
-        # A site that cannot be reached is not the same as a wrong number, and a
-        # nightly red for someone else's outage teaches people to ignore it.
-        print("Nothing drifted, but some sites could not be read; see above.")
+    if any(status in ("grew", "unread") for status, _, _ in rows):
+        # A site a little ahead of its pinned card, or one that could not be
+        # reached, is not a wrong number, and a nightly red for either teaches
+        # people to ignore it.
+        print("Passing with warnings; see above.")
     return 0
 
 

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 
+from card_markup import card_figures, card_names
 from refresh_manifest import validate
 
 REPO = Path(__file__).resolve().parents[2]
@@ -50,11 +51,8 @@ def number_word(value: int) -> str:
     return WORDS[value] if 0 <= value < len(WORDS) else f"{value:,}"
 
 
-CARD_RECORDS = re.compile(r'<div class="num"><b>([\d,]+)</b>')
-
-
 def fleet_records(template):
-    """What the Mech cards add up to.
+    """What the Mech cards add up to, one figure per card.
 
     The tile used to carry its own typed figure and drifted away from the
     cards it was meant to total: it read 448,724 while the ten cards summed to
@@ -68,11 +66,15 @@ def fleet_records(template):
     The ten are not ten counts of the same thing: the cards call theirs taxon
     records, published recipes, natural product structures and so on. The tile
     says "curated entries" rather than "records" for that reason (#82).
+
+    Keyed by Mech and read card by card through card_markup, the parser
+    check_cards.py also uses, so the total and the nightly check cannot read the
+    markup differently (#114).
     """
-    counts = [int(n.replace(",", "")) for n in CARD_RECORDS.findall(template)]
-    if not counts:
+    figures = card_figures(template)
+    if not figures:
         raise ValueError("No Mech card record counts found")
-    return counts
+    return figures
 
 
 def assemble(template, fragment, data, snapshot, stats, census):
@@ -81,7 +83,7 @@ def assemble(template, fragment, data, snapshot, stats, census):
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
     if len(badges) != len(names) or set(badges) != names:
         raise ValueError("Mech cards must match canonical fleet membership exactly")
-    cards = re.findall(r'<article\b[^>]*\bdata-mech="([^"]+)"', template)
+    cards = card_names(template)
     if len(cards) != len(names) or set(cards) != names:
         raise ValueError("Actual Mech cards must match canonical fleet membership exactly")
     metadata = fragment.split("var MECHS = {", 1)[1].split("\n  };", 1)[0]
@@ -114,7 +116,7 @@ def assemble(template, fragment, data, snapshot, stats, census):
     if counted != names:
         raise ValueError("Mech stats must cover canonical fleet membership exactly")
     counts = fleet_records(template)
-    if len(counts) != len(names):
+    if set(counts) != names:
         raise ValueError("Every Mech card must carry a record count")
     # The census is a dated scan, so its vocabulary tally is labelled with its own
     # run date rather than as current, and its coverage is stated below.
@@ -127,7 +129,7 @@ def assemble(template, fragment, data, snapshot, stats, census):
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
         "<!--FLEET_COUNT_WORD-->": number_word(len(names)),
-        "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts):,}",
+        "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts.values()):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
         # "all ten Mechs" once the census reaches every member, which it has
         # since TaxonMech was added (#87); "nine of the ten Mechs" otherwise.

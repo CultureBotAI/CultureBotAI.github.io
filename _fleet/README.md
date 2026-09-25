@@ -37,13 +37,21 @@ against the page it cites and is the one script here that needs the network:
 python3 scripts/fleet/check_cards.py
 ```
 
-It exits 1 on a figure that differs from the site and only warns on a page it
-could not read, and `SOURCES` at its top pins where each Mech publishes its
-count. It runs on the workflow's nightly schedule, not on pull requests, so a
-Mech shipping records overnight does not block an unrelated change; a nightly
-red means the card figures in `mechs_template.md` and the `MECHS` block in
-`fleet_fragment.html` need refreshing together. A new card needs a `SOURCES`
-entry; a test enforces that.
+`SOURCES` at its top pins where each Mech publishes its count, and `REGIONS`
+restricts a source to the part that states it where the same words appear
+elsewhere (CultureMech's generated README block). The page is a snapshot at a
+refresh's pins, so a site up to 10% ahead of its card (`GROWTH_TOLERANCE`) only
+warns. It fails when a site is further ahead than that or behind its card, when
+a source answers 4xx or no longer states a figure the parser can read, when a
+card and a `SOURCES` entry do not pair up, and when more than half the sources
+could not be fetched at all. One site's outage only warns (#148, #115, #176).
+It runs on the workflow's nightly schedule, not on pull requests, so a Mech
+shipping records overnight does not block an unrelated change; a nightly red
+means either the card figures in `mechs_template.md` and the `MECHS` block in
+`fleet_fragment.html` need refreshing together, or a `SOURCES` entry needs
+repointing. A new card needs a `SOURCES` entry; a test enforces that. The cards
+are read by `scripts/fleet/card_markup.py`, the one parser the assembler, this
+check and the tests share (#114).
 
 The `Fleet page` workflow checks pull requests, pushes and the live CLAW manifest
 daily. It detects changes to membership, capability declarations (including
@@ -180,7 +188,7 @@ its site lists 422 communities, while its record glob also takes four isolate
 records, so the census and `mech_stats.json` count 426. CellStructureMech and
 TraitMech published new records after the pins were taken; their cards keep the
 pinned figures, and `site_audit.json` records what the two sites showed when it
-was written. `check_cards.py` will report both as drifted until the next refresh.
+was written. `check_cards.py` reports both as grown, a warning, until the next refresh.
 NaturalProductMech's landing page and MediaIngredientMech's data file also
 changed after the pins without changing their figures; the audit records each
 live hash beside the hash of the committed copy at the pin.

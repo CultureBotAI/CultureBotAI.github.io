@@ -1,6 +1,7 @@
 """Regression coverage for fleet admission, capability drift and generated output."""
 from copy import deepcopy
 import contextlib
+import io
 import json
 import os
 from pathlib import Path
@@ -13,7 +14,8 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from assemble_page import CARD_RECORDS, assemble, capability_rows, number_word, script_json
+from assemble_page import assemble, capability_rows, number_word, script_json
+from card_markup import card_figures, card_names
 from refresh_manifest import ARTIFACT_PATH, MANIFEST_PATH, read_canonical, semantic, validate
 import roots
 
@@ -35,7 +37,7 @@ class FleetPageTests(unittest.TestCase):
 
     def test_records_tile_equals_the_sum_of_the_cards(self):
         page = self.render()
-        total = sum(int(n.replace(",", "")) for n in CARD_RECORDS.findall(self.template))
+        total = sum(card_figures(self.template).values())
         self.assertIn(f"<div><b>{total:,}</b><span>curated entries across the fleet</span></div>", page)
 
     def test_a_card_without_a_record_count_cannot_be_left_out_of_the_total(self):
@@ -400,7 +402,7 @@ class CardSourceTests(unittest.TestCase):
         # would otherwise get a card and be silently exempt from checking,
         # which is the failure this whole issue is about.
         import check_cards
-        stated = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
+        stated = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
         self.assertEqual(sorted(set(stated) - set(check_cards.SOURCES)), [],
                          "card with no entry in check_cards.SOURCES")
         self.assertEqual(sorted(set(check_cards.SOURCES) - set(stated)), [],
@@ -430,9 +432,126 @@ class CardSourceTests(unittest.TestCase):
 
     def test_the_card_parser_reads_every_member(self):
         snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
+        template = (ROOT / "_fleet/mechs_template.md").read_text()
+        self.assertEqual(sorted(card_figures(template)), sorted(snapshot["mechs"]))
+        self.assertEqual(sorted(card_names(template)), sorted(snapshot["mechs"]))
+
+    def test_a_card_without_a_figure_does_not_borrow_its_neighbours(self):
+        # The old check_cards regex paired a name with the next figure in the
+        # file, so the first card here would have been read as 20 (#114).
+        template = ('<article class="card" data-mech="AMech"><h3>A</h3></article>\n'
+                    '<article class="card" data-mech="BMech"><div class="num"><b>20</b></div></article>')
+        self.assertEqual(card_figures(template), {"BMech": 20})
+        self.assertEqual(card_names(template), ["AMech", "BMech"])
+
+
+class CardCheckTests(unittest.TestCase):
+    """What the nightly card check fails on and what it only warns about."""
+
+    def setUp(self):
         import check_cards
-        stated = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
-        self.assertEqual(sorted(stated), sorted(snapshot["mechs"]))
+        from unittest import mock
+        self.check_cards = check_cards
+        self.real_sources = dict(check_cards.SOURCES)
+        self.sources = mock.patch.dict(check_cards.SOURCES, {
+            "AMech": ("html", "AMech/pages/index.html", "a records"),
+            "BMech": ("html", "BMech/pages/index.html", "b records"),
+            "CMech": ("html", "CMech/pages/index.html", "c records"),
+        }, clear=True)
+        self.sources.start()
+        self.addCleanup(self.sources.stop)
+        self.cards = {"AMech": 1000, "BMech": 1000, "CMech": 1000}
+        self.site = {"AMech": 1000, "BMech": 1000, "CMech": 1000}
+
+    def fetch(self, url):
+        mech = url.split("/")[3]
+        value = self.site[mech]
+        if isinstance(value, int):
+            return f"<div><b>{value:,}</b><span>{mech[0].lower()} records</span></div>"
+        if isinstance(value, Exception):
+            raise value
+        return value
+
+    def statuses(self):
+        return {mech: status for status, mech, _ in self.check_cards.check(self.cards, self.fetch)}
+
+    def failed(self):
+        return [status for status, _, _ in self.check_cards.check(self.cards, self.fetch)
+                if status in self.check_cards.FAILURES]
+
+    def test_matching_figures_pass(self):
+        self.assertEqual(set(self.statuses().values()), {"ok"})
+        self.assertEqual(self.failed(), [])
+
+    def test_a_site_a_little_ahead_of_its_pinned_card_only_warns(self):
+        # #148: fast Mechs publish within hours of a refresh's pins.
+        self.site["AMech"] = 1100
+        self.assertEqual(self.statuses()["AMech"], "grew")
+        self.assertEqual(self.failed(), [])
+
+    def test_a_site_far_ahead_of_its_card_fails(self):
+        self.site["AMech"] = 1101
+        self.assertEqual(self.statuses()["AMech"], "STALE")
+        self.assertEqual(self.failed(), ["STALE"])
+
+    def test_a_site_behind_its_card_fails(self):
+        self.site["AMech"] = 999
+        self.assertEqual(self.failed(), ["SHRANK"])
+
+    def test_a_missing_page_fails_but_an_outage_only_warns(self):
+        # #176: a 404 is the cited page gone, which is how #175 began.
+        import urllib.error
+        self.site["AMech"] = urllib.error.HTTPError("u", 404, "Not Found", {}, None)
+        self.site["BMech"] = urllib.error.HTTPError("u", 503, "Unavailable", {}, None)
+        statuses = self.statuses()
+        self.assertEqual((statuses["AMech"], statuses["BMech"]), ("GONE", "unread"))
+        self.assertEqual(self.failed(), ["GONE"])
+
+    def test_a_page_with_no_figure_fails(self):
+        self.site["AMech"] = "<div><b>1,000</b><span>entries</span></div>"
+        self.assertEqual(self.failed(), ["CHANGED"])
+
+    def test_one_unreachable_site_warns_but_most_unreachable_fails(self):
+        # #115: a run that read nothing used to exit 0.
+        import urllib.error
+        self.site["AMech"] = urllib.error.URLError("no route")
+        self.assertEqual(self.failed(), [])
+        self.site["BMech"] = TimeoutError("timed out")
+        self.assertEqual(self.failed(), ["UNCHECKED"])
+
+    def test_a_card_and_its_source_must_both_exist(self):
+        del self.cards["CMech"]
+        self.cards["DMech"] = 5
+        self.assertEqual(sorted(self.failed()), ["UNCARDED", "UNCARDED"])
+
+    def test_the_culturemech_figure_is_read_only_from_its_generated_block(self):
+        # #176: the regex takes the first match, and the README's prose could
+        # state an older "N merged records" above the generated block.
+        kind, path, selector = self.real_sources["CultureMech"]
+        begin, end = self.check_cards.REGIONS["CultureMech"]
+        readme = ("Release 2 added 1,024 merged records.\n" + begin +
+                  "\nThe tracked corpus currently contains **15,878 normalized records** and "
+                  "**6,288 merged records**.\n" + end + "\n")
+        read = self.check_cards.read_source
+        self.assertEqual(read("CultureMech", kind, path, selector, lambda url: readme), ("value", 6288))
+        status, _ = read("CultureMech", kind, path, selector,
+                         lambda url: "The corpus has 6,288 merged records.")
+        self.assertEqual(status, "CHANGED")
+
+    def test_main_exits_by_the_same_rule(self):
+        from unittest import mock
+        template = "".join(f'<article data-mech="{m}"><div class="num"><b>{n:,}</b></div></article>'
+                           for m, n in self.cards.items())
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "mechs_template.md"
+            path.write_text(template)
+            with mock.patch.object(self.check_cards, "TEMPLATE", path), \
+                 mock.patch.object(self.check_cards, "fetch", self.fetch), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                self.site["AMech"] = 1050
+                self.assertEqual(self.check_cards.main(), 0)
+                self.site["AMech"] = 1500
+                self.assertEqual(self.check_cards.main(), 1)
 
 class RefreshProvenanceTests(unittest.TestCase):
     """The derived numbers must all come from one set of checkouts (#85).
@@ -480,8 +599,7 @@ class RefreshProvenanceTests(unittest.TestCase):
     def test_the_audit_records_this_refresh_and_nothing_else(self):
         # The audit's other fields had no gate at all (#128): its merged PRs,
         # the card figure it read, the CLAW pin, and which repositories it lists.
-        import check_cards
-        cards = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
+        cards = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
         manifest = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
         self.assertEqual(set(self.audit), {m["repo"] for m in self.stats.values()} | {"culturebotai-claw"})
         self.assertEqual(self.audit["culturebotai-claw"]["sha"], manifest["source"]["revision"])
