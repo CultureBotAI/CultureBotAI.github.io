@@ -68,7 +68,7 @@ The kg-microbe knowledge graph serves as the foundation for numerous CultureBotA
 
 ### Data Integration Projects
 - **[CultureMech](/culturemech/) & [MicroMediaParam](/resources/#micromediaparam)** - Integrate chemical compound data with standardized identifiers
-- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping (ChEBI, PubChem, METPO)
+- **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping, mostly to ChEBI, with MeSH, CAS, NCIT, MicrO and FOODON for the rest
 - **[assay-metadata](/resources/#assay-metadata-bacdive-api-assay-metadata-extractor)** - Add phenotypic assay results from 99K+ BacDive strains
 - **[auto-term-catalog](/resources/#auto-term-catalog---automated-term-extraction)** - OntoGPT term extraction for ontology grounding
 
