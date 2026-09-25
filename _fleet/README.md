@@ -47,8 +47,10 @@ fails when a card differs from `figure_at_pin`, the figure `site_audit.json`
 records its source stating at the pin (the card was never right), when a site is
 behind its card, when a source answers a 4xx other than a throttle or no longer
 states a figure the parser can read, when a card lacks exactly one headline
-figure or has no `SOURCES` entry, when the audit is missing or malformed or
-its pin time is missing, unreadable or in the future, and
+figure or has no `SOURCES` entry, when the audit is missing or malformed, its
+pin time is missing, unreadable or in the future, or a source lacks a
+whole-number `figure_at_pin` (all but ProteinTraitsMech, whose file is built in
+CI), and
 when more than half the sources could not be fetched. One site's outage or
 throttle only warns (#148, #115, #176, #217-#220, #231, #232). It runs on the
 workflow's nightly schedule, not on pull requests, so a Mech shipping records

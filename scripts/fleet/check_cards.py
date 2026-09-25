@@ -33,8 +33,9 @@ What fails and what only warns (#148, #115, #176, #217):
            the wording moved, and the card is no longer being checked at all.
   MARKUP   a card in the template does not carry exactly one headline figure.
   UNCARDED a card with no SOURCES entry, or an entry with no card.
-  AUDIT    site_audit.json is missing or malformed, or its pinned_at_utc is
-           missing, cannot be read as a time, or is in the future.
+  AUDIT    site_audit.json is missing or malformed, its pinned_at_utc is
+           missing, cannot be read as a time, or is in the future, or a
+           source's figure_at_pin is missing or not a whole number.
   unread   the fetch did not arrive: DNS, timeout, a dropped connection, a
            5xx, or a 408, 425 or 429 throttle. A warning, because the network is
            not the site's fault, unless more than half the sources are unread,
@@ -112,6 +113,10 @@ REGIONS: dict[str, tuple[str, str]] = {
 # reaches in under a week.
 GRACE_DAYS = 14
 MAX_LEAD = 0.5
+
+# Sources with no committed copy at the pin, so no figure_at_pin: the served
+# file is built in CI. Every other source must have one, or WRONG is off (#260).
+NO_PIN_COPY = ("ProteinTraitsMech",)
 
 # 4xx answers that mean "not now" rather than "not here" (#219).
 THROTTLES = (408, 425, 429)
@@ -303,8 +308,19 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
         if mech not in stated:
             continue  # its card's markup is already reported above
         card = stated[mech]
-        at_pin = entries.get(mech.lower(), {}).get("figure_at_pin")
-        if isinstance(at_pin, int) and not isinstance(at_pin, bool) and at_pin != card:
+        entry = entries.get(mech.lower())
+        at_pin = entry.get("figure_at_pin") if entry else None
+        whole = isinstance(at_pin, int) and not isinstance(at_pin, bool)
+        if audit is not None:
+            # A missing or mistyped figure_at_pin would switch WRONG off without
+            # a word (#260).
+            if entry is None:
+                rows.append(("AUDIT", mech, "no entry in site_audit.json"))
+            elif at_pin is None and mech not in NO_PIN_COPY:
+                rows.append(("AUDIT", mech, "site_audit.json has no figure_at_pin for it"))
+            elif at_pin is not None and not whole:
+                rows.append(("AUDIT", mech, f"figure_at_pin is {at_pin!r}, not a whole number"))
+        if whole and at_pin != card:
             rows.append(("WRONG", mech, f"card {card:,}, but the source stated {at_pin:,} at the pin"))
             continue
         status, result = read_source(mech, kind, path, selector, fetcher)

@@ -491,8 +491,14 @@ class CardCheckTests(unittest.TestCase):
                        for m, n in self.cards.items())
 
     def audit(self):
-        return {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": [
-            {"repo": m, "figure_at_pin": self.at_pin[m]} for m in self.check_cards.SOURCES if m in self.at_pin]}
+        entries = []
+        for m in self.check_cards.SOURCES:
+            if m in self.at_pin:
+                entry = {"repo": m}
+                if self.at_pin[m] is not None:
+                    entry["figure_at_pin"] = self.at_pin[m]
+                entries.append(entry)
+        return {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": entries}
 
     def rows(self, template=None):
         return self.check_cards.check(template or self.template(), self.fetch, self.audit(), self.now)
@@ -549,9 +555,23 @@ class CardCheckTests(unittest.TestCase):
 
     def test_a_source_with_no_figure_at_the_pin_is_checked_against_the_site_only(self):
         # ProteinTraitsMech's data file is built in CI, so the audit has no copy.
-        del self.at_pin["AMech"]
+        from unittest import mock
+        self.at_pin["AMech"] = None
         self.site["AMech"] = 1100
-        self.assertEqual(self.statuses()["AMech"], "grew")
+        with mock.patch.object(self.check_cards, "NO_PIN_COPY", ("AMech",)):
+            self.assertEqual(self.statuses()["AMech"], "grew")
+            self.assertEqual(self.failed(), [])
+
+    def test_a_missing_or_mistyped_figure_at_the_pin_is_an_audit_failure(self):
+        # #260: each of these used to switch WRONG off without a word, so a
+        # mistyped card passed as "grew".
+        self.cards["AMech"] = 3026
+        self.site["AMech"] = 3206
+        for at_pin in ("3206", 3206.0, True, None):
+            self.at_pin["AMech"] = at_pin
+            rows = self.rows()
+            self.assertIn(("AUDIT", "AMech"), [(s, m) for s, m, _ in rows], at_pin)
+            self.assertIn("AUDIT", self.failed(), at_pin)
 
     def test_a_pin_time_without_an_offset_is_utc_and_an_unreadable_one_fails(self):
         # #232: both used to end the run with a traceback before any row printed.
@@ -686,6 +706,17 @@ class CardCheckTests(unittest.TestCase):
         self.assertEqual(self.failed(doubled), ["MARKUP"])
         stray = template + '<div class="num"><b>7</b></div>'
         self.assertEqual(self.failed(stray), ["MARKUP"])
+        # #261: an unreadable figure is MARKUP, not int("") ending the run, and
+        # a malformed second tile, in a card or outside one, still counts.
+        comma = template.replace("<b>1,000</b>", "<b>,</b>", 1)
+        self.assertEqual(self.failed(comma), ["MARKUP"])
+        spaced = template.replace('<article data-mech="BMech">',
+                                  '<article data-mech="BMech"><div class="num"><b>7 </b></div>', 1)
+        self.assertEqual(self.failed(spaced), ["MARKUP"])
+        self.assertEqual(self.failed(template + '<div class="num"><b>7 </b></div>'), ["MARKUP"])
+        # #262: a second card for one Mech would have been checked instead of the first.
+        twice = '<article data-mech="AMech"><div class="num"><b>3,026</b></div></article>' + template
+        self.assertEqual(self.failed(twice), ["MARKUP"])
 
     def test_the_culturemech_figure_is_read_only_from_its_generated_block(self):
         # #176: the regex takes the first match, and the README's prose could
@@ -828,11 +859,12 @@ class RefreshProvenanceTests(unittest.TestCase):
         for mech in check_cards.SOURCES:
             with self.subTest(mech=mech):
                 entry = entries[mech.lower()]
-                if mech == "ProteinTraitsMech":
+                if mech in check_cards.NO_PIN_COPY:
                     # Built in CI, so there is no committed copy at the pin.
                     self.assertNotIn("figure_at_pin", entry)
                     continue
-                self.assertEqual(entry.get("figure_at_pin"), cards[mech])
+                self.assertIs(type(entry.get("figure_at_pin")), int)  # #260: not 3206.0
+                self.assertEqual(entry["figure_at_pin"], cards[mech])
 
     def test_the_audit_records_this_refresh_and_nothing_else(self):
         # The audit's other fields had no gate at all (#128): its merged PRs,
