@@ -128,15 +128,16 @@ TaxonMech's ~626k and ProteinTraitsMech's ~430k records.
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
-CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, TaxonMech's
-taxon.html route, ProteinTraitsMech hash routes) and to the record's source file on GitHub for CultureMech,
-MediaIngredientMech and NaturalProductMech in the existing census indexes,
-although NaturalProductMech now publishes per-record pages (`pages/<class>/`);
-CultureMech's `pages/media/` pages come and go with its `pages/` deployment (#175). CommunityMech's four `data/isolates` records have no
-published page, so they get no record link and are left out of the record lists
-and overlaps; the census still counts them.
-TaxonMech's record links open its taxon pages. NaturalProductMech's browse site
-is linked from its card; the census still links its records to GitHub (#149).
+CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, NaturalProductMech,
+TaxonMech's taxon.html route, ProteinTraitsMech hash routes) and to the record's
+source file on GitHub for CultureMech and MediaIngredientMech.
+NaturalProductMech's pages are committed under `pages/<class>/<slug>.html`, one per
+record, and served by its branch build (#149). CultureMech's `pages/media/` pages
+come and go with its Actions deployment (#175), so its links stay on GitHub until
+that deployment is stable (#223).
+CommunityMech's four `data/isolates` records have no published page, so they get
+no record link and are left out of the record lists and overlaps; the census
+still counts them. TaxonMech's record links open its taxon pages.
 
 MIBiG and NPAtlas are carried through the whole pipeline alongside the
 ontologies, because they are how NaturalProductMech cites its corpus. MIBiG is a
