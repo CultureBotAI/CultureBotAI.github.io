@@ -65,7 +65,10 @@ mkdir "$SNAP" || exit 1       # refuse to reuse a directory that already exists
 
 Shell variables do not survive between tool calls, so write the absolute path
 down: it goes in the PR body and the report (step 10), and step 11 needs it
-after the merge, which may come in another session (#227, #228).
+after the merge, which may come in another session (#227, #228). Keep only the
+snapshot and its logs in `$SNAP`; working files such as drafts, review records
+and helper scripts go elsewhere in the scratchpad, because step 11 removes the
+directory whole (#237).
 
 ### 1. Branch, locate the checkouts, pin CLAW and refresh the manifest
 
@@ -296,21 +299,30 @@ copies of the derived data. Remove it only if it is recognizably a snapshot:
 SNAP=<path from the PR body>
 test -f "${SNAP:?}/revisions.json" && test -d "$SNAP/mechs" && test -d "$SNAP/claw" \
   || { echo "not a refresh snapshot: $SNAP"; exit 1; }
+extra=$(ls -A "$SNAP" | grep -v -x -e revisions.json -e mechs -e claw -e '.*\.log')
+[ -z "$extra" ] || { printf 'not snapshot data; move it out or decide first:\n%s\n' "$extra"; exit 1; }
 du -sh "$SNAP"                # about 6 GB; say it in the report
 rm -rf "$SNAP"
 ```
 
 `${SNAP:?}` stops the command if `SNAP` is unset, and the three tests stop it if
-the path is the scratchpad or anything else that is not a snapshot. If the
-directory is already gone, say so rather than searching for another. Only
+the path is the scratchpad or anything else that is not a snapshot. The listing
+stops it if the directory holds anything but the clones, `revisions.json` and
+logs: a script or record left there cannot be rebuilt from the pins (#237). If
+the directory is already gone, say so rather than searching for another. Only
 `$SNAP` goes. Never `$SRC`: those are the shared checkouts other
 sessions use. Removing the shared clones is safe for `$SRC`, because a
 `--shared` clone borrows the source's object store and the source knows nothing
 about it; the reverse, pruning or deleting `$SRC` while a clone exists, is what
-would break a clone. A second refresh in the same session builds a fresh
-snapshot at its own pins, and a later PR that must rerun at these pins can
-rebuild this one with step 2 from the pins in `_fleet/data/site_audit.json`, so
-nothing is lost by removing it (#174).
+would break a clone. A second refresh builds a fresh snapshot at its own pins
+(#174). A later PR that must rerun at these same pins builds one too, from the
+pins committed in `_fleet/data/site_audit.json`: create `$SNAP` as above, clone
+CLAW with step 1's three `git` commands but at the audit's `culturebotai-claw`
+sha rather than `main`, and run `refresh_manifest.py` only with `--check`, so the
+committed manifest stays at its pin. Write `$SNAP/revisions.json` from the
+audit's shas, commit dates and `pinned_at_utc`, keyed by Mech name, not repository name
+(ProteinTraitsMech's repository is `proteintraitsmech`). Then run step 2 for
+each Mech (#236).
 
 ## Related
 
