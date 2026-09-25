@@ -792,6 +792,91 @@ class CardCheckTests(unittest.TestCase):
                 self.assertEqual(self.check_cards.main(), 1)
 
 
+class SiteAuditBuilderTests(unittest.TestCase):
+    """The committed audit builder derives every mechanical field (#238)."""
+
+    PAGE = b'<div><b>3,206</b><span>habitat records</span></div>\n'
+
+    def setUp(self):
+        import build_site_audit
+        self.b = build_site_audit
+        self.stats = {"repo": "HabitatMech", "source_revision": "a" * 40, "merged_prs": 7}
+        self.pin = {"sha": "a" * 40, "commit_date": "2026-09-25T01:40:32Z"}
+        self.source = ("html", "HabitatMech/pages/index.html", "habitat records")
+
+    def entry(self, live=PAGE, pinned=PAGE, card=3206, mech="HabitatMech", source=None):
+        return self.b.build_entry(mech, source or self.source, self.pin, self.stats, card, "Audited.",
+                                  lambda url: live, lambda path: pinned if path == "pages/index.html" else None)
+
+    def test_committed_copies_are_looked_for_where_pages_sites_publish(self):
+        candidates = self.b.committed_candidates
+        self.assertEqual(candidates("HabitatMech/pages/index.html"), ["pages/index.html", "docs/pages/index.html"])
+        self.assertEqual(candidates("CommunityMech/"), ["index.html", "docs/index.html"])
+        self.assertEqual(candidates("MediaIngredientMech/data/ingredients.json"),
+                         ["data/ingredients.json", "docs/data/ingredients.json"])
+        self.assertEqual(candidates("https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md"),
+                         ["README.md"])
+
+    def test_an_unchanged_source_records_its_figure_at_the_pin(self):
+        entry = self.entry()
+        self.assertEqual(entry["figure_at_pin"], 3206)
+        self.assertEqual(entry["site_html_sha256"], entry["site_html_sha256_at_pin"])
+        self.assertTrue(entry["notes"].endswith("The live index.html is byte-identical to pages/index.html at the pin."))
+        self.assertNotIn("site_figure_at_check", entry)
+
+    def test_a_site_that_grew_keeps_the_pinned_card_and_says_so(self):
+        entry = self.entry(live=self.PAGE.replace(b"3,206", b"3,300"))
+        self.assertEqual((entry["figure_at_pin"], entry["site_figure_at_check"]), (3206, 3300))
+        self.assertIn("had moved past the pin", entry["notes"])
+        self.assertIn("showed 3,300", entry["notes"])
+
+    def test_a_card_that_differs_from_its_pin_or_exceeds_its_site_is_refused(self):
+        # #231: the old builder read the card from the template and passed a typo.
+        with self.assertRaisesRegex(SystemExit, "stated 3,206 at the pin"):
+            self.entry(card=3026, live=self.PAGE.replace(b"3,206", b"3,300"))
+        with self.assertRaisesRegex(SystemExit, "not growth"):
+            self.entry(live=self.PAGE.replace(b"3,206", b"3,100"))
+        with self.assertRaisesRegex(SystemExit, "no figure"):
+            self.entry(live=b"<div>nothing</div>")
+
+    def test_a_source_with_no_committed_copy_must_be_declared(self):
+        with self.assertRaisesRegex(SystemExit, "NO_PIN_COPY"):
+            self.entry(pinned=None)
+        from unittest import mock
+        with mock.patch.object(self.b.check_cards, "NO_PIN_COPY", ("HabitatMech",)):
+            entry = self.entry(pinned=None)
+        self.assertNotIn("figure_at_pin", entry)
+        self.assertIn("built in CI", entry["notes"])
+
+    def test_a_count_from_another_revision_is_refused(self):
+        self.stats["source_revision"] = "b" * 40
+        with self.assertRaisesRegex(SystemExit, "not counted at the pin"):
+            self.entry()
+
+    def test_a_data_source_hashes_both_the_page_and_the_data(self):
+        body = b'{"ingredients": [1, 2, 3]}'
+        source = ("json", "MediaIngredientMech/data/ingredients.json", "ingredients")
+        entry = self.b.build_entry("MediaIngredientMech", source, self.pin, self.stats, 3, "Audited.",
+                                   lambda url: body if url.endswith(".json") else b"<html></html>",
+                                   lambda path: body if path == "docs/data/ingredients.json" else None)
+        self.assertEqual(entry["site"], "https://culturebotai.github.io/MediaIngredientMech/")
+        self.assertEqual(entry["data_url"], "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json")
+        self.assertEqual(entry["data_sha256"], entry["data_sha256_at_pin"])
+        self.assertEqual(entry["figure_at_pin"], 3)
+
+    def test_the_committed_audit_notes_come_from_the_notes_file(self):
+        # The builder appends one sentence per source; everything before it is
+        # the audited text in _fleet/audit_notes.json, which must stay in step.
+        notes = json.loads((ROOT / "_fleet/audit_notes.json").read_text())
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        self.assertEqual(audit["scope"], notes["scope"])
+        by_repo = {r["repo"].lower(): r for r in audit["repositories"]}
+        self.assertEqual(set(by_repo), {k.lower() for k in notes["notes"]})
+        for name, text in notes["notes"].items():
+            with self.subTest(name=name):
+                self.assertTrue(by_repo[name.lower()]["notes"].startswith(text))
+
+
 class RefreshProvenanceTests(unittest.TestCase):
     """The derived numbers must all come from one set of checkouts (#85).
 
@@ -844,8 +929,8 @@ class RefreshProvenanceTests(unittest.TestCase):
         self.assertEqual(panels, card_figures((ROOT / "_fleet/mechs_template.md").read_text()))
 
     def test_every_card_equals_the_figure_its_source_stated_at_the_pin(self):
-        # #231: the audit builder read card_records from the template, so the
-        # audit could only repeat a mistyped card. figure_at_pin is read from the
+        # #231: the old scratchpad audit builder read card_records from the
+        # template, so the audit could only repeat a mistyped card. figure_at_pin is read from the
         # source's committed copy at the pin with check_cards.figure(), and the
         # nightly's WRONG verdict depends on it being there.
         import check_cards

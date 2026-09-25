@@ -9,7 +9,7 @@
   hand-curated at the top of the script.
 - `data/manifest.json` — membership and all capability declarations from a pinned
   commit of CLAW's canonical manifest, plus the canonical artifact count.
-- Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the hand-written provenance record.
+- Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the provenance record, written by `scripts/fleet/build_site_audit.py` from the snapshot, the live sites and the audited notes in `_fleet/audit_notes.json`.
 
 ## Membership and capability updates
 
@@ -195,8 +195,12 @@ procedure.
 
 `data/site_audit.json` records, per repository, the pinned revision, the URL each
 card figure is read from (a Pages URL, except CultureMech's committed README on
-`main`), the figure, response hashes and merged
-pull-request totals. The three dedicated pages link their descriptions and
+`main`), the figure, the figure its source stated at the pin (`figure_at_pin`),
+response hashes and merged pull-request totals. `scripts/fleet/build_site_audit.py
+--snapshot "$SNAP"` writes it: every mechanical field is derived, and only the
+notes on how each site's figure relates to its records, kept in
+`_fleet/audit_notes.json`, are written by hand. It refuses a card that differs
+from its figure at the pin or exceeds its site (#238). The three dedicated pages link their descriptions and
 commands to those same revisions.
 
 Follow client-side meta refreshes from site roots to `pages/` or `app/`. Read

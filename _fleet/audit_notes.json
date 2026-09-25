@@ -1,0 +1,16 @@
+{
+ "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses, except CultureMech, whose figure is read from its committed README on main because no page it reliably serves states the count; the vocabulary census, subsets and card stats were regenerated at the same pins.",
+ "notes": {
+  "AntibioticMech": "2,939 data/antibiotics records at the pin (2,669 ontology-grounded, 270 minted; 80 REVIEWED, 30 PROPOSED, 2,829 SEEDED), equal to the stat tile.",
+  "CellStructureMech": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed.",
+  "CommunityMech": "The landing tile counts 422 kb/communities records, equal to the pin. data/isolates adds four more, so the census and mech_stats.json count 426. The landing's '16 categories' tile is hard-coded upstream; the schema enum, the records and the browser facet all have 15. No GitHub release has been published.",
+  "CultureMech": "The committed README's corpus snapshot states 15,878 normalized and 6,288 merged records, equal to data/merge_yaml/merged at the pin; no page CultureMech reliably serves states the canonical count. The app/ landing tile still reads 10,657, a legacy figure that matches no data layer. The pages/ media index is deployed by CultureMech's generate-pages workflow and replaced by the branch-based Pages build on other pushes to main, so it was live on 2026-09-24 and gone on 2026-09-25 (#175).",
+  "HabitatMech": "3,206 data/habitats records at the pin (686 REVIEWED, 2,520 SEEDED), equal to the stat tile. The 263 commits since the previous audit add only record-review reports.",
+  "MediaIngredientMech": "The landing tiles are computed from data/ingredients.json: 2,953 ingredients, 2,611 MAPPED (88%), 261 UNMAPPED, 80 REJECTED, 1 AMBIGUOUS. browser.html reads directory counts instead (2,680 under mapped/).",
+  "NaturalProductMech": "The landing prose states 3,115 natural product structures, equal to data/natural_products at the pin; all are SEEDED.",
+  "ProteinTraitsMech": "429,293 records and 34 source labels, computed at runtime from data/facets.json and equal to data/traits at the pin. The static HTML still carries a legacy fallback of 408,978 / 29.",
+  "TaxonMech": "625,960 data/taxa records at the pin, equal to the stat tile and including 14 retained DEPRECATED records; none is REVIEWED.",
+  "TraitMech": "763 data/traits records at the pin (427 REVIEWED, 248 PROPOSED, 50 DEPRECATED, 38 SEEDED; 519 with causal graphs), equal to the landing page, which shows 62.5% embedded (477 of 763).",
+  "culturebotai-claw": "10 fleet members and 16 governed artifacts. Projected membership and capabilities are unchanged from the previous snapshot; provenance advanced to the pinned main revision. Every Mech vendors claw at 44db08d, and fleet.yaml, README.md and vendored_artifacts.json are identical between 44db08d and this pin."
+ }
+}
