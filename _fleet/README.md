@@ -9,7 +9,7 @@
   hand-curated at the top of the script.
 - `data/manifest.json` — membership and all capability declarations from a pinned
   commit of CLAW's canonical manifest, plus the canonical artifact count.
-- Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`.
+- Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the hand-written provenance record.
 
 ## Membership and capability updates
 
@@ -29,7 +29,8 @@ a manifest member from the cards or graph. Its capability table and badges must
 never be maintained by hand. The rendered page links to the source revision.
 
 The card headline figures are hand-curated from each Mech's published browser,
-so nothing regenerates them. `scripts/fleet/check_cards.py` compares each card
+except CultureMech's, which comes from its committed README (see below), so
+nothing regenerates them. `scripts/fleet/check_cards.py` compares each card
 against the page it cites and is the one script here that needs the network:
 
 ```bash
@@ -54,14 +55,51 @@ python3 scripts/fleet/refresh_manifest.py --claw-root /path/to/culturebotai-claw
 python3 scripts/fleet/assemble_page.py --check
 ```
 
+## Cross-reference arrows
+
+`XREFS` in `fleet_fragment.html` and the "How the Mechs reference each other" list
+in `mechs_template.md` hold the same entries, one per ordered pair, and the graph
+draws each as an arrow pointing at the Mech that consumes, or at the one a scope
+decision defers to. An arrow needs an implemented, committed reference: a record
+field or id in the other Mech's namespace, a schema slot, enum or prefix naming it,
+a vendored snapshot of its data or vocabulary, code that reads its repository,
+data or site, a scope rule in its docs handing a concept over, or a practice
+credited to it in the file that implements it. Rules that have come up:
+
+- Shared ontology identifiers are the vocabulary layer, not arrows; that is how
+  taxa tie TaxonMech to the fleet.
+- Family navigation, sibling lists, and files vendored from culturebotai-claw into
+  every Mech do not count. Neither does a fleet contract rolled out from claw,
+  even where a Mech's copy names the others as prior art (#157).
+- A credit that exists only in a changelog, a commit message or a plan does not
+  count (#161).
+- Code ported along a chain gets an arrow from the immediate source, judged by
+  the code rather than an inherited docstring: AntibioticMech's helpers say
+  "Ported from TraitMech's" but match HabitatMech's copies, so the credit sits on
+  HabitatMech to AntibioticMech (#159).
+
+The last full sweep, over records, schemas, scripts, config, vendored data,
+curation decisions, docs and site generators in all ten repositories at the
+pins, found 30 arrows.
+
 ## Vocabulary census updates
 
-Membership updates do not require rescanning the record corpora. The current
-September 2026 vocabulary census covers nine Mechs; TaxonMech is shown in the
-graph and cards with its published 625,960-taxon total (checked September 20, 2026), but its vocabulary counts have not
-been measured by this pipeline. The heatmap uses the measured `fleet_data.json`
-order, and the page states this limitation. Add TaxonMech to the census roots
-and scanners before publishing measured vocabulary cells or overlap counts for it.
+Membership updates do not require rescanning the record corpora. The September
+2026 vocabulary census covers all ten Mechs. TaxonMech joined it in #87: its
+625,960 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
+id, each carrying its lineage, so a higher taxon is counted once per record
+under it and TaxonMech's NCBITaxon cell dwarfs everyone else's. Its overlaps are
+what tie taxa to the rest of the fleet: most taxa that ProteinTraitsMech,
+HabitatMech, NaturalProductMech, CommunityMech, TraitMech, AntibioticMech,
+CellStructureMech and CultureMech cite are TaxonMech records. A new member
+needs a record glob in `roots.py` and a link route in `build_subsets.py` before
+its vocabulary can be measured.
+
+`build_subsets.py` scans ProteinTraitsMech and TaxonMech last and keeps only
+terms another Mech also cites, which is all an overlap needs. The proteins also
+keep every taxon they cite, so their overlap with TaxonMech is exact. TaxonMech
+record links use `pages/taxon.html?id=<identifier>`, which renders every taxon;
+the files under `pages/taxa/` are redirects kept for old URLs.
 
 Pipeline (from the site root, with the Mech checkouts available locally):
 
@@ -81,19 +119,24 @@ python3 scripts/fleet/roots.py
 python3 scripts/fleet/prefix_census.py    # heatmap counts
 python3 scripts/fleet/build_subsets.py    # assets/fleet/{edges,cells}/*.json + subsets_summary.json
 python3 scripts/fleet/build_data.py       # _fleet/data/fleet_data.json
+python3 scripts/fleet/mech_stats.py       # _fleet/data/mech_stats.json (needs gh)
 python3 scripts/fleet/assemble_page.py    # mechs.md
 ```
 
-The two scanning passes take about two minutes each, dominated by
-ProteinTraitsMech's ~430k records.
+The census takes about eight minutes and `build_subsets.py` longer, dominated by
+TaxonMech's ~626k and ProteinTraitsMech's ~430k records.
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
-CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, ProteinTraitsMech
-hash routes) and to the record's source file on GitHub for CultureMech,
-MediaIngredientMech and NaturalProductMech in the existing census indexes.
-NaturalProductMech and TaxonMech both publish browse sites linked from their
-cards; these links are separate from the historical census's record-link routes.
+CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, TaxonMech's
+taxon.html route, ProteinTraitsMech hash routes) and to the record's source file on GitHub for CultureMech,
+MediaIngredientMech and NaturalProductMech in the existing census indexes,
+although NaturalProductMech now publishes per-record pages (`pages/<class>/`);
+CultureMech's `pages/media/` pages come and go with its `pages/` deployment (#175). CommunityMech's four `data/isolates` records have no
+published page, so they get no record link and are left out of the record lists
+and overlaps; the census still counts them.
+TaxonMech's record links open its taxon pages. NaturalProductMech's browse site
+is linked from its card; the census still links its records to GitHub (#149).
 
 MIBiG and NPAtlas are carried through the whole pipeline alongside the
 ontologies, because they are how NaturalProductMech cites its corpus. MIBiG is a
@@ -106,39 +149,68 @@ be incomplete: TOGO, UTEX and CCAP are absent although comparable registries
 structured namespace at 2,833 occurrences, so the heatmap currently understates
 it. Adding a prefix changes the heatmap's columns, so it needs a full rescan.
 
-## Published-site refresh (September 20, 2026)
+## Published-site refresh (September 24, 2026)
 
-`data/site_audit.json` records the checked public repository revisions, resolved
-Pages URLs, response hashes, count sources and merged pull-request totals. The
-three dedicated pages link their descriptions and commands to those immutable
-repository revisions. Refresh the audit when changing current-state claims.
+Every number on the page was re-derived from one set of pinned revisions: each
+Mech's GitHub `main` and CLAW's, fetched once at the start of the run. The
+census, the card stats and `data/site_audit.json` each record the revision they
+read, and `RefreshProvenanceTests` fails if they disagree. The corpora were read
+from sparse clones of the shared checkouts at those commits, never from the
+checkouts' working trees, several of which lagged their remotes by dozens of
+commits or carried uncommitted files. `.claude/skills/update-xmech-page/` is the
+procedure.
+
+`data/site_audit.json` records, per repository, the pinned revision, the URL each
+card figure is read from (a Pages URL, except CultureMech's committed README on
+`main`), the figure, response hashes and merged
+pull-request totals. The three dedicated pages link their descriptions and
+commands to those same revisions.
 
 Follow client-side meta refreshes from site roots to `pages/` or `app/`. Read
 JavaScript-backed headline counts from the data files they load: MIM uses
-`data/ingredients.json` (2,951 ingredients; 2,616 MAPPED), and ProteinTraitsMech
-uses `data/facets.json` (429,291 records; 34 source labels). The latter's static
+`data/ingredients.json` (2,953 ingredients; 2,611 MAPPED), and ProteinTraitsMech
+uses `data/facets.json` (429,293 records; 34 source labels). The latter's static
 HTML still has a legacy fallback count.
 
-CommunityMech publishes 392 communities; its pinned source tree also contains
-four isolate records, so `mech_stats.json` counts 396 source records. TraitMech
-has 723 records in both its pinned source tree and published landing page.
+Card figures follow the published sites, CultureMech's its committed README
+instead, and the census follows the pinned repositories. At this refresh they agree for every Mech except CommunityMech:
+its site lists 422 communities, while its record glob also takes four isolate
+records, so the census and `mech_stats.json` count 426. CellStructureMech and
+TraitMech published new records after the pins were taken; their cards keep the
+pinned figures, and `site_audit.json` records what the two sites showed when it
+was written. `check_cards.py` will report both as drifted until the next refresh.
+NaturalProductMech's landing page and MediaIngredientMech's data file also
+changed after the pins without changing their figures; the audit records each
+live hash beside the hash of the committed copy at the pin.
 
-CultureMech's current README inventory reports 15,878 normalized records and
-6,286 merged records. Its landing tile still reads 10,657, and the formerly
-available `/pages/index.html` returned 404 during this refresh. The card uses
-the repository's canonical count and links to the working normalized browser.
+CultureMech's README inventory at the pinned revision reports 15,878 normalized
+records and 6,288 merged records, and the card cites it: no page CultureMech
+reliably serves states the canonical count. The `app/` landing tile, which the
+site root redirects to, still reads 10,657. The `app/` browser's data
+(`app/data.js`), the `/pages/` media index and the dashboard are all built and
+deployed by CultureMech's generate-pages workflow through GitHub Actions, while
+the site's Pages source is set to branch builds; a push to `main` outside the
+workflow's paths triggers a branch build that replaces the deployment. So all
+three appear and disappear: live on September 24, gone on September 25, when the
+browser never finished loading (#175, #182, #204). The fix is upstream, setting the
+Pages source to GitHub Actions (#172). `check_cards.py` therefore reads the
+committed README on `main`.
 
-Published review counts were checked against the current TraitMech and
-TaxonMech READMEs, ProteinTraitsMech's live facet index, and the AntibioticMech
-and HabitatMech pages. CellStructureMech and NaturalProductMech review counts
-were recounted from clean local checkouts matching the pinned remote revisions.
-Merged PR totals come from GitHub search at the time of the audit.
+Reviewed-record counts come from `mech_stats.py`, which counts a record as
+reviewed only where the Mech's schema has a status that can say REVIEWED; the
+card secondary figures were checked against each live site. Merged pull-request
+totals come from GitHub search at run time and were cross-checked against the
+GraphQL `pullRequests(states: MERGED)` count for every repository.
 
 The CLAW manifest's projected membership and capabilities are unchanged; the
-snapshot now points to the checked main revision. Its README distinguishes
+snapshot now points to the pinned main revision. Its README distinguishes
 supported discovery, validation and dry-run tools from unimplemented CLI agent
 execution and disabled cross-repository apply modes. Capability adoption must
 not be described as proof that those workflows execute unattended.
 
-The vocabulary census and overlap assets remain a separate dated snapshot.
-This refresh does not relabel those counts as a new corpus scan.
+The vocabulary census and overlap assets were rescanned at the same pinned
+revisions, and TaxonMech was added to it (#87).
+The previous census's ProteinTraitsMech counts had been read from a checkout
+with uncommitted files: it reported 770,276 UniProt references where the
+revision the September 20 audit pinned (`700b6f7`) holds 657,598. The rescan's
+lower figures are a correction, not a loss of data.

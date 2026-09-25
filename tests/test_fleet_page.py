@@ -78,7 +78,7 @@ class FleetPageTests(unittest.TestCase):
         page = self.render()
         self.assertIn('# X-Mech Suite: ten autonomous knowledge factories', page)
         self.assertIn('## The ten Mechs', page)
-        self.assertIn('census covers nine of the ten Mechs', page)
+        self.assertIn('census covers all ten Mechs', page)
         self.assertIn('<b>10</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
@@ -91,6 +91,18 @@ class FleetPageTests(unittest.TestCase):
         self.assertIsNotNone(description, "front matter carries no description")
         self.assertTrue(description.group(1).isupper(),
                         f"description opens with {description.group(1)!r}, not a capital")
+
+    def test_census_coverage_reads_as_a_fraction_while_a_member_is_unmeasured(self):
+        # The page said "nine of the ten Mechs" until TaxonMech was measured (#87);
+        # the same wording has to come back if a member ever drops out (#171).
+        self.census.pop("TaxonMech")
+        self.data["order"].remove("TaxonMech")
+        self.data["heat"].pop("TaxonMech")
+        self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
+        self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
+        page = self.render()
+        self.assertIn("census covers nine of the ten Mechs", page)
+        self.assertNotIn("all ten Mechs", page)
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
         self.assertEqual(number_word(9), 'nine')
@@ -120,7 +132,7 @@ class FleetPageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Census order'):
             self.render()
         self.data['order'].pop()
-        self.data['vocab_edges'][0]['a'] = 'TaxonMech'
+        self.data['vocab_edges'][0]['a'] = 'GhostMech'
         with self.assertRaisesRegex(ValueError, 'Census edges'):
             self.render()
 
@@ -394,11 +406,227 @@ class CardSourceTests(unittest.TestCase):
         self.assertEqual(sorted(set(check_cards.SOURCES) - set(stated)), [],
                          "SOURCES entry with no card")
 
+    def test_culturemech_is_read_from_its_committed_readme(self):
+        # CultureMech's figure comes from its README, not a Pages URL (#175). The
+        # test reads the SOURCES entry itself, so a mistyped URL or selector fails
+        # here rather than turning into a silent "unread" at night (#177, #183).
+        import check_cards
+        kind, path, selector = check_cards.SOURCES["CultureMech"]
+        # The whole URL, not a prefix: a typo in the branch or file name also 404s (#189).
+        self.assertEqual(path, "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md")
+        self.assertEqual(check_cards.source_url(path), path)
+        line = "The tracked corpus currently contains **15,878 normalized records** and **6,288 merged records**."
+        self.assertEqual(check_cards.published(kind, line, selector), 6288)
+        # The number alone in bold, or the line wrapped, must still read.
+        self.assertEqual(check_cards.published(kind, "and **6,288** merged records.", selector), 6288)
+        self.assertEqual(check_cards.published(kind, "and 6,288\nmerged records.", selector), 6288)
+        # A wrap inside the label too (#207).
+        self.assertEqual(check_cards.published(kind, "and 6,288 merged\n  records.", selector), 6288)
+
+    def test_a_relative_source_is_read_from_the_pages_host(self):
+        import check_cards
+        self.assertEqual(check_cards.source_url("TraitMech/pages/index.html"),
+                         "https://culturebotai.github.io/TraitMech/pages/index.html")
+
     def test_the_card_parser_reads_every_member(self):
         snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
         import check_cards
         stated = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
         self.assertEqual(sorted(stated), sorted(snapshot["mechs"]))
+
+class RefreshProvenanceTests(unittest.TestCase):
+    """The derived numbers must all come from one set of checkouts (#85).
+
+    The census, the card stats and the site audit are written by different
+    scripts on what should be the same run. Before any of them recorded a
+    revision, a partial refresh left the census at 364 CommunityMech records
+    and the stats at 396, and nothing noticed. Each now names the commit it
+    read, so a partial rerun shows up here as a disagreement.
+    """
+
+    def setUp(self):
+        self.census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
+        stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
+        self.stats = {m["mech"]: m for m in stats["mechs"]}
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        self.audit = {r["repo"]: r for r in audit["repositories"]}
+
+    def test_every_count_names_a_clean_revision(self):
+        for mech, entry in self.stats.items():
+            with self.subTest(mech=mech):
+                revision = entry.get("source_revision")
+                self.assertRegex(revision or "", r"^[0-9a-f]{40}$",
+                                 "missing, or read from a checkout with uncommitted changes")
+
+    def test_census_and_stats_read_the_same_revisions(self):
+        revisions = self.census.get("_revisions", {})
+        for mech in roots.ORDER:
+            with self.subTest(mech=mech):
+                self.assertEqual(revisions.get(mech), self.stats[mech]["source_revision"])
+
+    def test_census_and_stats_count_the_same_records(self):
+        # Same globs, same revision, so the same files. A difference means one
+        # of the two was rerun without the other.
+        for mech in roots.ORDER:
+            with self.subTest(mech=mech):
+                self.assertEqual(self.census[mech]["files"], self.stats[mech]["records"])
+
+    def test_the_audit_pins_the_revisions_the_stats_counted(self):
+        for mech, entry in self.stats.items():
+            with self.subTest(mech=mech):
+                self.assertIn(entry["repo"], self.audit, "Mech missing from site_audit.json")
+                self.assertEqual(self.audit[entry["repo"]]["sha"], entry["source_revision"])
+
+    def test_the_audit_records_this_refresh_and_nothing_else(self):
+        # The audit's other fields had no gate at all (#128): its merged PRs,
+        # the card figure it read, the CLAW pin, and which repositories it lists.
+        import check_cards
+        cards = check_cards.cards((ROOT / "_fleet/mechs_template.md").read_text())
+        manifest = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
+        self.assertEqual(set(self.audit), {m["repo"] for m in self.stats.values()} | {"culturebotai-claw"})
+        self.assertEqual(self.audit["culturebotai-claw"]["sha"], manifest["source"]["revision"])
+        for mech, entry in self.stats.items():
+            with self.subTest(mech=mech):
+                row = self.audit[entry["repo"]]
+                self.assertEqual(row["merged_prs"], entry["merged_prs"])
+                self.assertEqual(row["card_records"], cards[mech])
+
+    def test_the_subsets_read_the_same_revisions_as_the_census(self):
+        # build_subsets.py is the other scanning pass; a rerun of it alone, or of
+        # the census alone, would otherwise go unnoticed (#126).
+        subsets = json.loads((ROOT / "_fleet/data/subsets_summary.json").read_text())
+        self.assertEqual(subsets.get("_revisions"), self.census.get("_revisions"))
+
+    def test_fleet_data_is_built_from_the_committed_inputs(self):
+        # fleet_data.json is what the page embeds. A skipped build_data.py leaves
+        # it describing older subsets and census files (#126).
+        import build_data
+        subsets = json.loads((ROOT / "_fleet/data/subsets_summary.json").read_text())
+        with contextlib.redirect_stdout(open(os.devnull, "w")):
+            expected = build_data.build(subsets, self.census)
+        committed = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
+        self.assertEqual(committed, json.loads(json.dumps(expected)))
+
+
+class RevisionTests(unittest.TestCase):
+    """roots.revision() must say whether the counted records are the commit's (#121)."""
+
+    MECH = "TraitMech"   # any name in RECORD_GLOBS; its glob is data/traits/**/*.yaml
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.saved = roots.MECHS_ROOT
+        self.addCleanup(setattr, roots, "MECHS_ROOT", self.saved)
+        roots.MECHS_ROOT = str(self.tmp)
+        self.repo = self.tmp / self.MECH
+        (self.repo / "data/traits/a").mkdir(parents=True)
+        (self.repo / "data/traits/b").mkdir()
+        (self.repo / "src").mkdir()
+        (self.repo / "data/traits/a/one.yaml").write_text("id: METPO:1\n")
+        (self.repo / "data/traits/b/two.yaml").write_text("id: METPO:2\n")
+        (self.repo / "src/schema.yaml").write_text("id: s\n")
+        self.git("init", "-q")
+        self.git("add", ".")
+        self.git("commit", "-q", "-m", "records")
+        self.sha = self.git("rev-parse", "HEAD").strip()
+
+    def git(self, *args):
+        return subprocess.run(["git", "-c", "user.name=test", "-c", "user.email=test",
+                               "-c", "commit.gpgsign=false", "-C", str(self.repo), *args],
+                              capture_output=True, text=True, check=True).stdout
+
+    def test_a_clean_checkout_names_its_commit(self):
+        self.assertEqual(roots.revision(self.MECH), self.sha)
+
+    def test_a_modified_record_is_dirty(self):
+        (self.repo / "data/traits/b/two.yaml").write_text("id: METPO:3\n")
+        self.assertEqual(roots.revision(self.MECH), self.sha + "+dirty")
+
+    def test_an_untracked_record_is_dirty_even_when_status_hides_it(self):
+        self.git("config", "status.showUntrackedFiles", "no")
+        (self.repo / "data/traits/three.yaml").write_text("id: METPO:4\n")
+        self.assertEqual(roots.revision(self.MECH), self.sha + "+dirty")
+
+    def test_an_ignored_record_is_dirty(self):
+        # record_paths() counts it and git status never lists it: the #88 shape.
+        (self.repo / ".gitignore").write_text("backups/\n")
+        self.git("add", ".gitignore"); self.git("commit", "-q", "-m", "ignore")
+        sha = self.git("rev-parse", "HEAD").strip()
+        (self.repo / "data/traits/backups").mkdir()
+        (self.repo / "data/traits/backups/copy.yaml").write_text("id: METPO:1\n")
+        self.assertEqual(roots.revision(self.MECH), sha + "+dirty")
+
+    def test_records_a_sparse_checkout_leaves_out_are_dirty(self):
+        # Cone mode keeps files directly in ancestor directories, so the left-out
+        # record sits in a sibling subdirectory.
+        self.git("sparse-checkout", "set", "--cone", "data/traits/a", "src")
+        self.assertFalse((self.repo / "data/traits/b/two.yaml").exists())
+        self.assertEqual(roots.revision(self.MECH), self.sha + "+dirty")
+
+    def test_an_unrelated_scratch_file_does_not_make_it_dirty(self):
+        (self.repo / "notes.txt").write_text("scratch\n")
+        self.assertEqual(roots.revision(self.MECH), self.sha)
+
+    def test_a_directory_inside_another_repository_is_not_that_repository(self):
+        # rev-parse walks up; the enclosing repository's HEAD is not this Mech's (#124).
+        outer = self.tmp / "outer"
+        inner = outer / self.MECH
+        (inner / "data/traits").mkdir(parents=True)
+        (inner / "data/traits/x.yaml").write_text("id: METPO:9\n")
+        subprocess.run(["git", "-C", str(outer), "init", "-q"], check=True)
+        roots.MECHS_ROOT = str(outer)
+        self.assertIsNone(roots.revision(self.MECH))
+
+
+class SubsetDeterminismTests(unittest.TestCase):
+    """Two build_subsets.py runs over the same records write the same bytes (#107, #129)."""
+
+    # Every Mech gets one record citing the same five shared terms, so every
+    # edge has five prefixes tied at one: the case Counter.most_common() orders
+    # by set iteration, which follows the per-process hash seed.
+    SHARED = "CHEBI:1 GO:2 ENVO:3 NCBITaxon:4 METPO:5 UniProt:P6 PATO:7 UBERON:8"
+
+    def build_fixture(self, root):
+        for mech, patterns in roots.RECORD_GLOBS.items():
+            base = roots._record_dirs(mech)[0]
+            folder = root / mech / base
+            folder.mkdir(parents=True, exist_ok=True)
+            ident = {"HabitatMech": "habitatmech:0001", "ProteinTraitsMech": "PTM:1"}.get(mech, f"{mech}:1")
+            (folder / "rec.yaml").write_text(f"id: {ident}\nlabel: record\nterms: {self.SHARED}\n")
+        pages = root / "HabitatMech/pages/habitats"
+        pages.mkdir(parents=True)
+        (pages / "record-habitatmech-0001.html").write_text("<html></html>")
+
+    def run_once(self, fixture, out, seed):
+        driver = ("import build_subsets as b, os; b.OUT=os.environ['OUT']; b.DATA=os.environ['DATA']; "
+                  "os.makedirs(b.DATA, exist_ok=True); b.main()")
+        env = dict(os.environ, MECHS_ROOT=str(fixture), PYTHONPATH=str(ROOT / "scripts/fleet"),
+                   PYTHONHASHSEED=str(seed), OUT=str(out / "fleet"), DATA=str(out / "data"))
+        done = subprocess.run([sys.executable, "-c", driver], env=env, capture_output=True, text=True, timeout=120)
+        self.assertEqual(done.returncode, 0, done.stderr[-2000:])
+        return {str(p.relative_to(out)): p.read_bytes() for p in sorted(out.rglob("*.json"))}
+
+    def test_a_folded_label_is_read_whole(self):
+        # YAML folds a long label onto indented continuation lines; the record
+        # link used to carry only the first line (#165).
+        tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        self.build_fixture(tmp / "mechs")
+        folder = tmp / "mechs" / "TaxonMech" / roots._record_dirs("TaxonMech")[0]
+        (folder / "folded.yaml").write_text("identifier: NCBITaxon:4\nlabel: Bacterium with a name long enough\n  to fold onto a second line\nterms: " + self.SHARED + "\n")
+        run = self.run_once(tmp / "mechs", tmp / "run", 1)
+        cells = run["fleet/cells/TaxonMech--NCBITaxon.json"].decode()
+        self.assertIn("Bacterium with a name long enough to fold onto a second line", cells)
+
+    def test_output_does_not_depend_on_the_hash_seed(self):
+        tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        self.build_fixture(tmp / "mechs")
+        runs = [self.run_once(tmp / "mechs", tmp / f"run{seed}", seed) for seed in (1, 2, 3, 4)]
+        self.assertTrue(runs[0], "the fixture produced no output")
+        self.assertTrue(any('"edges"' in k or k.startswith("fleet/edges") for k in runs[0]))
+        for seed, run in zip((2, 3, 4), runs[1:]):
+            self.assertEqual(run, runs[0], f"output under PYTHONHASHSEED={seed} differs from seed 1")
+
 
 if __name__ == '__main__':
     unittest.main()

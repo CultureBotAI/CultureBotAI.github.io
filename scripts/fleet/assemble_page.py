@@ -61,7 +61,8 @@ def fleet_records(template):
     1,059,170, short by roughly the whole of TaxonMech, which was admitted
     after the tile was last edited (CultureBotAI.github.io#76). Summing the
     cards keeps the two true to each other by construction, and it is the
-    right source because the cards cite each Mech's published browser, which
+    right source because the cards cite each Mech's published browser (or, for
+    CultureMech, its committed README), which
     the record-corpus census does not measure the same way.
 
     The ten are not ten counts of the same thing: the cards call theirs taxon
@@ -115,8 +116,8 @@ def assemble(template, fragment, data, snapshot, stats, census):
     counts = fleet_records(template)
     if len(counts) != len(names):
         raise ValueError("Every Mech card must carry a record count")
-    # The census measures fewer members than the fleet has, so its vocabulary
-    # tally is labelled as the dated census on the page rather than as current.
+    # The census is a dated scan, so its vocabulary tally is labelled with its own
+    # run date rather than as current, and its coverage is stated below.
     # Keys beginning with an underscore are the scan's own metadata, not Mechs.
     # Read rather than pop: assemble() is handed a parsed document and must not
     # consume it, or a second call with the same object fails (#81).
@@ -128,7 +129,10 @@ def assemble(template, fragment, data, snapshot, stats, census):
         "<!--FLEET_COUNT_WORD-->": number_word(len(names)),
         "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
-        "<!--FLEET_CENSUS_COUNT_WORD-->": number_word(len(measured_mechs)),
+        # "all ten Mechs" once the census reaches every member, which it has
+        # since TaxonMech was added (#87); "nine of the ten Mechs" otherwise.
+        "<!--FLEET_CENSUS_COVERAGE-->": (f"all {number_word(len(names))} Mechs" if len(measured_mechs) == len(names)
+                                         else f"{number_word(len(measured_mechs))} of the {number_word(len(names))} Mechs"),
         # The scan's own run date, carried in the file it writes. Not the file's
         # mtime: git neither records nor restores those, so a fresh clone would
         # date the census to the day somebody cloned it.

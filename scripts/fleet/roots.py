@@ -17,6 +17,8 @@ from __future__ import annotations
 
 import glob
 import os
+import subprocess
+import unicodedata
 
 MECHS_ROOT = os.environ.get(
     "MECHS_ROOT", "/Users/marcin/Documents/VIMSS/ontology/Mechs"
@@ -34,6 +36,10 @@ RECORD_GLOBS: dict[str, list[str]] = {
     "AntibioticMech": ["data/antibiotics/**/*.yaml"],
     "MediaIngredientMech": ["data/ingredients/**/*.yaml"],
     "CultureMech": ["data/merge_yaml/merged/*.yaml"],
+    # Species-level and infraspecific taxon records, keyed by NCBI Taxonomy id;
+    # each carries its lineage, so higher taxa are counted once per record under
+    # them. Measured since #87; before that only mech_stats.py read it.
+    "TaxonMech": ["data/taxa/**/*.yaml"],
 }
 
 # Paths a record glob sweeps up that are not records. A `**` glob cannot say
@@ -83,6 +89,106 @@ def record_paths(name: str) -> list[str]:
             "before the page states a number derived from it."
         )
     return sorted(paths)
+
+
+def _git(root: str, *args: str) -> str:
+    # --no-optional-locks: plain `git status` takes index.lock and may rewrite
+    # the index, and the default checkouts are shared with other work (#123).
+    return subprocess.run(["git", "--no-optional-locks", "-C", root, *args],
+                          capture_output=True, text=True, check=True).stdout
+
+
+def _record_dirs(name: str) -> list[str]:
+    """The fixed directory prefix of each record glob, e.g. data/traits."""
+    dirs = []
+    for pattern in RECORD_GLOBS[name]:
+        parts = []
+        for part in pattern.split("/"):
+            if any(ch in part for ch in "*?["):
+                break
+            parts.append(part)
+        dirs.append("/".join(parts))
+    return dirs
+
+
+def head(name: str) -> str | None:
+    """The checkout's HEAD commit, or None if the directory is not a repository.
+
+    A directory that is not itself a repository's top level returns None rather
+    than the HEAD of whatever repository encloses it (#124).
+    """
+    root = mech_root(name)
+    try:
+        top = _git(root, "rev-parse", "--show-toplevel").strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+    if os.path.realpath(top) != os.path.realpath(root):
+        return None
+    return _git(root, "rev-parse", "HEAD").strip()
+
+
+def revision(name: str, paths: list[str] | None = None) -> str | None:
+    """The commit a checkout's records are, or None outside git.
+
+    Recorded by prefix_census.py, build_subsets.py and mech_stats.py so the
+    committed outputs say which revision each number came from, and a test can
+    check they were taken from the same one. The census and the stats had
+    drifted to different checkouts before anything recorded that: 364
+    CommunityMech records in one and 396 in the other (#85).
+
+    "+dirty" is appended unless the records counted are exactly that commit's.
+    `git status` alone cannot say so: it never lists ignored files, hides
+    untracked ones under status.showUntrackedFiles=no, and says nothing about
+    paths a sparse checkout leaves out, while record_paths() globs the disk. So
+    the counted paths are compared with the files git tracks under the same
+    globs, and status is consulted only for modified tracked files, scoped to
+    the record directories and src/ (the schemas mech_stats.py reads), so an
+    unrelated scratch file does not mark a checkout dirty (#121).
+
+    Pass `paths` when record_paths(name) is already in hand.
+    """
+    sha = head(name)
+    if sha is None:
+        return None
+    root = mech_root(name)
+    if paths is None:
+        paths = record_paths(name)
+    counted = {unicodedata.normalize("NFC", os.path.relpath(p, root)) for p in paths}
+    specs = [f":(glob){pattern}" for pattern in RECORD_GLOBS[name]]
+    tracked = {unicodedata.normalize("NFC", p)
+               for p in _git(root, "ls-files", "-z", "--", *specs).split("\0") if p}
+    # Match glob.glob's semantics, which skip hidden files and directories.
+    tracked = {p for p in tracked if not any(part.startswith(".") for part in p.split("/"))}
+    for prefix in EXCLUDE_DIRS.get(name, []):
+        tracked = {p for p in tracked if not p.startswith(prefix)}
+    scope = [d for d in _record_dirs(name) + ["src"] if os.path.exists(os.path.join(root, d))]
+    modified = _git(root, "status", "--porcelain", "--untracked-files=all", "--", *scope).strip()
+    return sha + ("+dirty" if counted != tracked or modified else "")
+
+
+def read_record(path: str, errors: str = "ignore") -> str:
+    """One record's text. An unreadable record stops the run.
+
+    The scans used to skip a file they could not open and still report the full
+    glob count, so a partial read looked like a complete one (#127). The handle
+    is closed, too: a bare open().read() per record left ~450,000 handles to the
+    garbage collector, and each one warns under -W error::ResourceWarning (#135).
+    """
+    try:
+        with open(path, encoding="utf-8", errors=errors) as handle:
+            return handle.read()
+    except OSError as error:
+        raise SystemExit(f"could not read record {path}: {error}")
+
+
+def unchanged(name: str, before: str | None) -> None:
+    """Stop if a checkout's HEAD moved while its records were being read (#122)."""
+    if before is None:
+        return
+    now = head(name)
+    if now != before.split("+", 1)[0]:
+        raise SystemExit(f"{name}: HEAD moved from {before[:12]} to {str(now)[:12]} during the scan; "
+                         "rerun against a checkout nothing is updating, such as a pinned snapshot.")
 
 
 def summary() -> str:
