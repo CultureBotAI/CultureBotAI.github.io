@@ -369,9 +369,12 @@ def main() -> int:
               "in site_audit.json, the pages that repeat it), then rerun assemble_page.py; no re-pin. "
               "If figure_at_pin itself is wrong, re-derive it with build_site_audit.py against a "
               "snapshot at the audit's pins (update-xmech-page step 11); never edit it by hand. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
-              "UNCARDED: fix the card or its SOURCES entry. AUDIT: regenerate site_audit.json with "
-              "build_site_audit.py against a snapshot at its pins (update-xmech-page steps 7 and "
-              "11), never by hand: its figure_at_pin and pin time are derived. "
+              "UNCARDED: fix the card or its SOURCES entry. AUDIT: never edit site_audit.json by hand. "
+              "A missing or non-integer figure_at_pin: regenerate it with build_site_audit.py "
+              "against a snapshot at its pins (update-xmech-page steps 7 and 11). A bad pin time "
+              "or a missing audit: take the pins and pin time from the last audit the builder "
+              "wrote (git log -p _fleet/data/site_audit.json) or the refresh PR body, then "
+              "regenerate. A Mech with no entry: a full refresh with new pins. "
               "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1
     if any(status in ("grew", "unread") for status, _, _ in rows):

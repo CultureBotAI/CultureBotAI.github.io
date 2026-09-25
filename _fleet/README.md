@@ -71,9 +71,13 @@ remedy for each failing verdict (#235):
   step so its report prints (#239, #240).
 - GONE or CHANGED: a `SOURCES` entry needs repointing.
 - MARKUP or UNCARDED: fix the card markup or `SOURCES`.
-- AUDIT: regenerate `site_audit.json` with `build_site_audit.py` against a
-  snapshot at its pins (update skill steps 7 and 11); never edit it by hand, since
-  `figure_at_pin` and the pin time are derived (#273).
+- AUDIT: never edit `site_audit.json` by hand (#273, #276). A missing or
+  non-integer `figure_at_pin`: regenerate it with `build_site_audit.py` against a
+  snapshot at its pins (update skill steps 7 and 11). A bad pin time or a missing
+  audit: the builder copies the pin time from `revisions.json`, so take the pins
+  and pin time from the last audit the builder wrote (`git log -p
+  _fleet/data/site_audit.json`) or the refresh PR body, then regenerate. A Mech
+  with no entry, such as a new member, needs a full refresh with new pins.
 - UNCHECKED: most sites could not be reached; rerun before changing anything.
 
 A new card needs a `SOURCES` entry; a test enforces that. The cards
