@@ -190,18 +190,21 @@ licence bars ingestion into a CC BY 4.0 corpus.
 `prefix_census.py`'s prefix alternation is a hand-maintained list. Its `norm`
 table folds every namespace named for or qualified by a counted registry into
 that registry: case and alternate names (`gold:` and `GOLD:`, `SwissProt:` and
-`UniProt:`, `TAXON:` and `NCBITaxon:`, `CAS-RN:` and `CAS:`), and entity-qualified
+`UniProt:`, `TAXON:` and `NCBITaxon:`, `CAS-RN:` and `CAS:`, `TC:` and `TCDB:`), and entity-qualified
 namespaces (`kegg.compound:`, `mediadive.medium:`, `gtdb.genome:`,
 `uniprot.location:`, `RHEA-COMP:`), as `gold.ecosystem` and `pubchem.compound`
-always did (#271). TaxonMech writes lowercase bioregistry prefixes and the other
-Mechs upper-case forms. The list was measured by scanning every record at the
+always did (#271). Reference and curator collections named for a registry
+(`GO_REF:`, `PO_REF:`, `GOC:`) are not its terms and stay out; #84 classes them
+with literature. Mechs mix lowercase bioregistry spellings with upper-case ones,
+TaxonMech most heavily (#279). The list was measured by scanning every record at the
 #120 pins with a pattern allowing dots, underscores and hyphens; a spelling a
 Mech adopts later is missed until someone scans again. Until #84's fold (#244,
 #255, #270) those spellings went uncounted, 1.49 million GOLD and 556,160 BacDive
 identifiers in TaxonMech among them. `build_subsets.py` folds the same spellings
-for heatmap columns, but a namespace whose ids share values with its column's own
-ids (Rhea compounds, PDB ligand codes) keeps its own term key, so an overlap never
-pairs a compound with a reaction. Which
+for heatmap columns. Rhea compounds, whose ids share values with Rhea reactions,
+and PDB ligand codes, a different kind of identifier from entries, keep their own
+term keys, so an overlap never pairs a compound with a reaction or shows a
+ligand as an entry. Which
 namespaces to count at all is still open on #84, which has the measured
 inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred
 more are cited but not counted. Adding a prefix to the census does not add a

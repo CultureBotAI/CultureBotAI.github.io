@@ -325,10 +325,13 @@ class PrefixListTests(unittest.TestCase):
         # pubchem.compound and the rest — none of which ever appear as a key,
         # so a column named one of them would pass while rendering as zeros.
         def literal_prefix(p):
-            return p.replace("\\.", ".")  # the regex escapes dots
+            # The regex escapes dots and hyphens; a leftover backslash would
+            # name a prefix the census can never emit and skip norm (#280).
+            return re.sub(r"\\(.)", r"\1", p)
         norm = constants["norm"]
-        self.census = {norm.get(literal_prefix(p), literal_prefix(p))
-                       for p in constants["P"].split("|")}
+        self.alternatives = [literal_prefix(p) for p in constants["P"].split("|")]
+        self.norm = norm
+        self.census = {norm.get(p, p) for p in self.alternatives}
         # Imported, not parsed out of the source. Until #97 both modules did
         # their work at import — build_subsets resolved every checkout and
         # build_data read and rewrote fleet_data.json — so the lists had to be
@@ -352,6 +355,12 @@ class PrefixListTests(unittest.TestCase):
                 "could not read prefix_census's constants; it does work at import "
                 f"(#95):\n{done.stderr}")
         return json.loads(done.stdout)
+
+    def test_every_prefix_alternative_is_literal_and_every_fold_is_reachable(self):
+        # #280: no alternative keeps a regex escape, and every norm key is a
+        # spelling the census actually matches, so no fold is dead.
+        self.assertEqual([p for p in self.alternatives if "\\" in p], [])
+        self.assertEqual(sorted(set(self.norm) - set(self.alternatives)), [])
 
     def test_every_heatmap_column_is_a_vocabulary_the_census_counts(self):
         # A column the census never counts renders as a stripe of zeros.

@@ -47,10 +47,13 @@ PREF=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam",
 # Spellings of a column's registry, folded as prefix_census.norm folds them, so a
 # kegg.compound: record shares KEGG terms with a KEGG: one (#84).
 NORM={"mibig":"MIBiG","npatlas":"NPAtlas","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","cas":"CAS","doi":"DOI","MeSH":"MESH","KEGG_REACTION":"KEGG","kegg.compound":"KEGG","kegg.drug":"KEGG","RCSB_PDB":"PDB","ChEBI":"CHEBI","SwissProt":"UniProt","swissprot":"UniProt","Swissprot":"UniProt","UNIPROT":"UniProt","TAXON":"NCBITaxon","PDBe":"PDB","pdbe":"PDB","interpro":"InterPro","KEGG_PATHWAY":"KEGG","kegg.module":"KEGG","kegg.glycan":"KEGG","gtdb.genome":"GTDB","pdb.ligand":"PDB","pdb-ccd":"PDB","RHEA-COMP":"RHEA","CAS-RN":"CAS","uniprot.location":"UniProt","uniprot.ptm":"UniProt","UniProtKB-KW":"UniProt","Swiss":"UniProt"}
-# A folded namespace whose ids share values with its column's own ids keeps its
-# own term key, so RHEA-COMP:9671 (a compound) is never taken for RHEA:9671 (a
-# reaction), nor a ligand code for a PDB entry, in an overlap. It still counts
-# toward the column's cells and the edge's vocabulary breakdown (#271).
+# Some folded namespaces keep their own term key while counting toward their
+# column's cells and the edge's vocabulary breakdown (#271, #279). Rhea compound
+# ids share values with Rhea reaction ids (966 of 2,243 at the #120 pins), so
+# RHEA-COMP:9671, a compound, must never be taken for RHEA:9671, a reaction. PDB
+# ligand codes cannot collide with 4-character entry ids, but they name a
+# different kind of thing, so they keep a key of their own too and an overlap
+# never shows a ligand as an entry.
 TERM_SPACE={"RHEA-COMP":"RHEA-COMP","pdb.ligand":"PDB-CCD","pdb-ccd":"PDB-CCD"}
 COLUMN_OF={"RHEA-COMP":"RHEA","PDB-CCD":"PDB"}
 def column(term): p=term.split(":")[0]; return COLUMN_OF.get(p,p)
