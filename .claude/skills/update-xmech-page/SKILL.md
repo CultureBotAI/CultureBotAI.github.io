@@ -54,8 +54,22 @@ moves for two reasons at once.
 
 ## Procedure
 
-Work from the site root. Put the snapshot and logs in the session scratchpad,
-here `$SNAP`.
+Work from the site root. The snapshot and logs go in a directory of their own
+inside the session scratchpad, never the scratchpad itself, which also holds
+other work (worktrees of open PRs, among other things). Create it fresh:
+
+```bash
+SNAP=<session scratchpad>/xmech-refresh-$(date +%Y%m%d)
+mkdir "$SNAP" || exit 1       # refuse to reuse a directory that already exists
+```
+
+Shell variables do not survive between tool calls, so write the absolute path
+down: it goes in the PR body and the report (step 10), and step 11 needs it
+after the merge, which may come in another session (#227, #228). Keep only the
+snapshot and its logs, each named `<stage>.log`, in `$SNAP`; working files, including before/after copies
+of the derived data for step 9, drafts, review records and helper scripts, go
+elsewhere in the scratchpad, because step 11 removes the directory whole and
+stops if it finds anything else there (#237, #245).
 
 ### 1. Branch, locate the checkouts, pin CLAW and refresh the manifest
 
@@ -102,8 +116,10 @@ git -C "$SNAP/mechs/$m" checkout -q --detach "$sha"
 The directories each Mech needs are its `roots.RECORD_GLOBS` directories (plus
 `mech_stats.EXTRA_GLOBS` for Mechs outside the census), `src` for the schema that
 `mech_stats.py` reads, and HabitatMech's `pages/habitats`, which
-`build_subsets.py` matches record links against. About 3 GB and a million
-files; TaxonMech and ProteinTraitsMech are most of it. The detached checkout
+`build_subsets.py` matches record links against. About 6 GB and a million
+files (5.7 GB at the 2026-09-24 refresh); TaxonMech (3.2 GB) and
+ProteinTraitsMech (2.3 GB) are most of it. Keep it until the PR merges, because
+reruns after review fixes go against the same pins; step 11 removes it. The detached checkout
 works although the pin exists only in the source's remote-tracking refs,
 because a shared clone borrows the source's whole object store.
 
@@ -127,8 +143,8 @@ Run each stage the same way, in the same environment and from the same launcher,
 and verify its output before starting the next. The first stage is the canary:
 
 ```bash
-MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~2-4 min
-MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~2-4 min
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~8 min
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~6 min
 python3 scripts/fleet/build_data.py
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/mech_stats.py      # needs gh
 ```
@@ -144,7 +160,8 @@ byte-identical; `SubsetDeterminismTests` checks that on a fixture.
 
 Long scripts piped to `tail` print nothing until they exit. Check the process,
 not the empty log. Exit codes through pipes are the last command's, so use
-`${PIPESTATUS[0]}` or write to a log file.
+`${PIPESTATUS[0]}` or write to a log file: `$SNAP/<stage>.log`, since step 11
+removes only logs with that suffix (#251).
 
 ### 5. Re-check the hand-curated layer
 
@@ -263,13 +280,69 @@ against its evidence. An unexplained change is a finding, not noise.
 ### 10. PR, review, issues
 
 Open the PR with the pins, what changed and why, the canary result, what was
-left out and why (methodology issues stay open), and the evidence table for
-hand-curated edits. Then review it adversarially as a separate read-only pass,
+left out and why (methodology issues stay open), the evidence table for
+hand-curated edits, and the snapshot's absolute path and size ("Snapshot:
+`<path>`, 5.7 GB, remove after merge"). Then review it adversarially as a separate read-only pass,
 file every finding as an issue, fix the ones that belong in this PR, and leave
 the rest filed with a reason. Report and stop: **do not merge without the user's
 explicit go-ahead in the current conversation.** After a merge, delete the branch
 locally and remotely, and close issues the PR resolved that GitHub did not
 auto-close. GitHub honours only the first number after a closing keyword.
+
+### 11. Remove the snapshot
+
+After the merge and the branch deletion, and not before: until then a review fix
+means a rerun at the same pins, which needs the snapshot. Take the path from the
+PR body, not from a shell variable, and remove that directory whole: the Mech
+clones, the CLAW clone, `revisions.json` and the scan logs. Remove it only if
+it is recognizably a snapshot and holds nothing else:
+
+```bash
+SNAP=<path from the PR body>
+test -f "${SNAP:?}/revisions.json" && test -d "$SNAP/mechs" && test -d "$SNAP/claw" \
+  || { echo "not a refresh snapshot: $SNAP"; exit 1; }
+extra=$(ls -A "$SNAP" | while IFS= read -r name; do
+  case "$name" in
+    (revisions.json|mechs|claw) ;;
+    (*.log) [ -f "$SNAP/$name" ] || printf '%s\n' "$name" ;;
+    (*) printf '%s\n' "$name" ;;
+  esac
+done)
+[ -z "$extra" ] || { printf 'not snapshot data; move it out or decide first:\n%s\n' "$extra"; exit 1; }
+du -sh "$SNAP"                # about 6 GB; say it in the report
+rm -rf "$SNAP"
+```
+
+`${SNAP:?}` stops the command if `SNAP` is unset, and the three tests stop it if
+the path is the scratchpad or anything else that is not a snapshot. The listing
+stops it if the directory holds anything but the clones, `revisions.json` and
+logs: a script or record left there cannot be rebuilt from the pins (#237). It
+compares names literally and accepts a `*.log` only if it is a regular file, and
+finding nothing extra exits 0, so the snippet also runs under `set -e`; the
+`(pattern)` form keeps macOS's bash 3.2 from misreading a `case` inside `$( )`
+(#252, #253). If
+the directory is already gone, say so rather than searching for another. Only
+`$SNAP` goes. Never `$SRC`: those are the shared checkouts other
+sessions use. Removing the shared clones is safe for `$SRC`, because a
+`--shared` clone borrows the source's object store and the source knows nothing
+about it; the reverse, pruning or deleting `$SRC` while a clone exists, is what
+would break a clone. A second refresh builds a fresh snapshot at its own pins
+(#174). A later PR that must rerun at these same pins builds one too, from the
+pins committed in `_fleet/data/site_audit.json`: create `$SNAP` as above, clone
+CLAW with step 1's three `git` commands but at the audit's `culturebotai-claw`
+sha rather than `main`, and run `refresh_manifest.py` only with `--check`, so the
+committed manifest stays at its pin. Write `$SNAP/revisions.json` from the
+audit, in the shape step 1 writes and step 7 reads:
+
+```json
+{"pinned_at_utc": "<the audit's pinned_at_utc>",
+ "mechs": {"<Mech name>": {"repo": "<repository>", "sha": "<sha>", "commit_date": "<commit_date>"}},
+ "claw": "<the audit's culturebotai-claw sha>"}
+```
+
+keyed by Mech name, not repository name (ProteinTraitsMech's repository is
+`proteintraitsmech`). Then set `SRC` as in step 1 and run step 2 for each Mech
+(#236, #246).
 
 ## Related
 

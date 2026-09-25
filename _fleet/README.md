@@ -123,8 +123,9 @@ python3 scripts/fleet/mech_stats.py       # _fleet/data/mech_stats.json (needs g
 python3 scripts/fleet/assemble_page.py    # mechs.md
 ```
 
-The census takes about eight minutes and `build_subsets.py` longer, dominated by
-TaxonMech's ~626k and ProteinTraitsMech's ~430k records.
+The census takes about eight minutes and `build_subsets.py` about six over the
+ten-Mech snapshot, both dominated by TaxonMech's ~626k and ProteinTraitsMech's
+~430k records (#230).
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
