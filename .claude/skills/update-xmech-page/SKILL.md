@@ -56,25 +56,44 @@ moves for two reasons at once.
 Work from the site root. Put the snapshot and logs in the session scratchpad,
 here `$SNAP`.
 
-### 1. Branch and pin
+### 1. Branch, locate the checkouts, pin CLAW and refresh the manifest
 
 ```bash
 git switch -c update/xmech-refresh-$(date +%Y%m%d) main
+SRC=$(python3 -c 'import sys; sys.path.insert(0, "scripts/fleet"); import roots; print(roots.MECHS_ROOT)')
 ```
 
-For each Mech in `_fleet/data/manifest.json` plus `culturebotai-claw`:
-`git -C "$MECHS_ROOT/<Mech>" fetch -q origin`, take `origin/main`, and
-cross-check it against `gh api repos/CultureBotAI/<repo>/commits/main --jq .sha`.
-The repository name is not always the Mech name (`proteintraitsmech`). Write the
-pins to `$SNAP/revisions.json` with the pin time. Corpora move within minutes, so
-pin once and do not re-pin mid-run.
+`SRC` is where the shared Mech checkouts live; `roots.py` holds the default and
+`MECHS_ROOT` overrides it. Keep the two names apart: from step 3 on,
+`MECHS_ROOT=$SNAP/mechs` is set per command so the scripts read the snapshot,
+and it must never leak into the commands that read `SRC` (#133).
+
+CLAW comes first, because its manifest decides which Mechs to pin and
+`mech_stats.py` reads that list on import (#138). CLAW is not under `SRC` and any
+local copy may be shallow, so clone it from GitHub at its pin (#130):
+
+```bash
+claw=$(gh api repos/CultureBotAI/culturebotai-claw/commits/main --jq .sha)
+git init -q "$SNAP/claw"
+git -C "$SNAP/claw" fetch -q --depth 1 https://github.com/CultureBotAI/culturebotai-claw.git "$claw"
+git -C "$SNAP/claw" -c advice.detachedHead=false checkout -q FETCH_HEAD
+python3 scripts/fleet/refresh_manifest.py --claw-root "$SNAP/claw" --check   # say what changed
+python3 scripts/fleet/refresh_manifest.py --claw-root "$SNAP/claw"
+```
+
+Then, for each Mech in the refreshed `_fleet/data/manifest.json`:
+`git -C "$SRC/<Mech>" fetch -q origin`, take `origin/main`, and cross-check it
+against `gh api repos/CultureBotAI/<repo>/commits/main --jq .sha`. The
+repository name is not always the Mech name (`proteintraitsmech`). Write the
+pins and CLAW's to `$SNAP/revisions.json` with the pin time. Corpora move within
+minutes, so pin once and do not re-pin mid-run.
 
 ### 2. Snapshot at the pins
 
 A sparse, shared clone per Mech, checked out detached at its pin:
 
 ```bash
-git clone -q --shared --no-checkout "$MECHS_ROOT/$m" "$SNAP/mechs/$m"
+git clone -q --shared --no-checkout "$SRC/$m" "$SNAP/mechs/$m"
 git -C "$SNAP/mechs/$m" sparse-checkout set --cone <record dirs> src
 git -C "$SNAP/mechs/$m" checkout -q --detach "$sha"
 ```
@@ -83,23 +102,23 @@ The directories each Mech needs are its `roots.RECORD_GLOBS` directories (plus
 `mech_stats.EXTRA_GLOBS` for Mechs outside the census), `src` for the schema that
 `mech_stats.py` reads, and HabitatMech's `pages/habitats`, which
 `build_subsets.py` matches record links against. About 3 GB and a million
-files; TaxonMech and ProteinTraitsMech are most of it.
+files; TaxonMech and ProteinTraitsMech are most of it. The detached checkout
+works although the pin exists only in the source's remote-tracking refs,
+because a shared clone borrows the source's whole object store.
 
 macOS ships bash 3.2: no associative arrays, so write the per-Mech directory map
 as a `case`, not `declare -A`.
 
 ### 3. Free checks before any scan
 
-With `MECHS_ROOT=$SNAP/mechs`:
-
-- `roots.revision(m)` equals the pin and is not `+dirty`, for every Mech;
-- every path `roots.record_paths(m)` returns is a file git tracks at the pin.
-  Compare against `git ls-tree -r -z --name-only <sha>` and NFC-normalize both
-  sides. **Without `-z`, git quotes non-ASCII paths** and every `α` or `ß` in a
-  filename reads as a mismatch.
-
-These catch a wrong pin, a sparse set missing a directory, and a glob sweeping
-up files that are not records, before four minutes of scanning.
+With `MECHS_ROOT=$SNAP/mechs`, `roots.revision(m)` must equal the pin with no
+`+dirty`, for every Mech. It compares the records the globs find with the files
+git tracks at HEAD under the same globs, so it fails on a wrong pin, on a sparse
+set that left out a record directory, and on untracked or ignored files the
+globs would count (#121). If you compare paths by hand, use
+`git ls-tree -r -z --name-only <sha>` and NFC-normalize both sides: **without
+`-z`, git quotes non-ASCII paths** and every `α` or `ß` in a filename reads as a
+mismatch.
 
 ### 4. Pipeline, canary first
 
@@ -111,23 +130,20 @@ MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~2-4 min
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~2-4 min
 python3 scripts/fleet/build_data.py
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/mech_stats.py      # needs gh
-python3 scripts/fleet/refresh_manifest.py --claw-root "$SNAP/claw"   # CLAW cloned at its pin
 ```
 
 After each, check the side effects, not the exit code: the file changed, it
-parses, every census Mech has a row, `_revisions` equals the pins, `files` per
-Mech equals the step 3 count, `mech_stats.json` names the same revisions and
-counts. Run `build_subsets.py` twice and compare bytes; since #107 two runs over
-the same snapshot must be identical, and a difference means a new ordering leak.
+parses, every census Mech has a row, `_revisions` equals the pins in both the
+census and `subsets_summary.json`, `files` per Mech equals the record count at
+the pin, and `mech_stats.json` names the same revisions and counts. Each scan
+records its revision before reading and stops if HEAD moves during the read
+(#122), and stops on an unreadable record rather than skipping it (#127).
+Since #107, two `build_subsets.py` runs over the same snapshot must be
+byte-identical; `SubsetDeterminismTests` checks that on a fixture.
 
 Long scripts piped to `tail` print nothing until they exit. Check the process,
 not the empty log. Exit codes through pipes are the last command's, so use
 `${PIPESTATUS[0]}` or write to a log file.
-
-Do not run the scans with `-W error::ResourceWarning`. The census opens every
-record without closing it (#118), so each of ~450,000 files prints a traceback:
-tens of megabytes of log and a much slower scan. The census writes only after
-the scan finishes, so killing such a run leaves the committed file untouched.
 
 ### 5. Re-check the hand-curated layer
 
@@ -139,6 +155,13 @@ auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
 refute it. Apply only changes that survive, with one editor making all the edits
 so shared files do not conflict.
+
+Canary this fan-out too (#136). Run one auditor and its skeptic on one small
+Mech first, and check that the claims come back with verbatim, unique locators,
+evidence as a URL or `path@sha` plus an excerpt, and replacements that read
+correctly in place. Then fan out. Findings the skeptics raise that the auditors
+missed have been verified by nobody; give them their own verification round
+before editing anything on their strength.
 
 Traps that have produced wrong figures here:
 
@@ -187,12 +210,14 @@ either being stale alone.
 ### 7. Provenance
 
 Rewrite `_fleet/data/site_audit.json` for the run: per repository the pinned
-`sha` and its commit date, the URL each card figure is read from, the figure, the
+`sha` from `$SNAP/revisions.json` (not from `mech_stats.json`, or the audit-pin
+test compares a value with itself, #125) and its commit date, the URL each card figure is read from, the figure, the
 sha256 of the fetched HTML and of any data file, merged PRs, and short notes on
 how the site figure relates to the repo count. Set `checked_at_utc`,
 `local_date`, `pinned_at_utc` and `scope`. Derive the mechanical fields rather
-than typing them: the figure through `check_cards.published()`, merged PRs and
-revisions from `mech_stats.json`, commit dates from the pins. The provenance tests require its SHAs to equal the
+than typing them: the figure through `check_cards.published()`, merged PRs from
+`mech_stats.json`, SHAs and commit dates from the pins, and assert that the
+pins equal the stats' `source_revision` before writing. The provenance tests require its SHAs to equal the
 stats' `source_revision`.
 
 `../CLAUDE.md` is untracked and above the repository, but it records when the
@@ -206,7 +231,7 @@ python3 scripts/fleet/assemble_page.py
 python3 -m unittest discover -s tests -v
 python3 scripts/fleet/assemble_page.py --check
 python3 scripts/fleet/refresh_manifest.py --claw-root "$SNAP/claw" --check
-python3 scripts/fleet/check_cards.py        # must report 0 drifted
+python3 scripts/fleet/check_cards.py        # 0 drifted, except sites that moved past their pin (below)
 ```
 
 Rerun `check_cards.py` immediately before opening the PR and again before any

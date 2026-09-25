@@ -138,15 +138,13 @@ The **[X-Mech Suite](/mechs/)** is a fleet of ten ontology-grounded autonomous k
 ```
 Raw Cultivation Records (Literature, Lab Protocols)
     ↓
-CultureMech ↔ MediaIngredientMech
-Recipes       Ingredient identity and mappings
-    ↓
-CommunityMech + other domain-specific Mechs
+CultureMech ↔ MediaIngredientMech ── ingredient mappings ──→ KG-Microbe Knowledge Graph
+Recipes       Ingredient identity                                  │
+    ↓                                                              │ ontologies, mappings,
+CommunityMech + other domain-specific Mechs  ←─────────────────────┘ embeddings
 Community, trait, taxon, habitat and molecular evidence
     ↓
-KG-Microbe Knowledge Graph
-    ↓
-AI Predictions (MicroGrowAgents, MicroGrowLink)
+AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Microbe
 ```
 
 ### CultureMech - Autonomous Knowledge Factory for Culture Media

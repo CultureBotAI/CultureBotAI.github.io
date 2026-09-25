@@ -94,7 +94,9 @@ CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, ProteinTraitsMech
 hash routes) and to the record's source file on GitHub for CultureMech,
 MediaIngredientMech and NaturalProductMech in the existing census indexes,
 although CultureMech (`pages/media/`) and NaturalProductMech (`pages/<class>/`)
-now publish per-record pages.
+now publish per-record pages. CommunityMech's four `data/isolates` records have no
+published page, so they get no record link and are left out of the record lists
+and overlaps; the census still counts them.
 NaturalProductMech and TaxonMech both publish browse sites linked from their
 cards; these links are separate from the historical census's record-link routes.
 

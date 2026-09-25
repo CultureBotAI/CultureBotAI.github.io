@@ -14,7 +14,7 @@ import json
 import re
 import urllib.parse
 
-from roots import CITATION, ORDER, mech_root, record_paths
+from roots import CITATION, ORDER, mech_root, read_record, record_paths, revision, unchanged
 
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
@@ -82,7 +82,12 @@ def slug_for(m, f, doc_id, doc_label=""):
         pref=[n for n in cands if n.startswith(simple_slug(doc_label)[:24])]
         if len(pref)==1: return urllib.parse.quote(pref[0]+".html")
         hab_collisions.append((doc_id,doc_label,cands)); return None
-    if m=="CommunityMech": return urllib.parse.quote(os.path.basename(rel)[:-5]+".html")
+    if m=="CommunityMech":
+        # The census also counts four data/isolates records, but the site
+        # publishes pages only for kb/communities, so an isolate gets no link
+        # rather than one that returns 404 (#139).
+        if not rel.startswith("kb/communities/"): return None
+        return urllib.parse.quote(os.path.basename(rel)[:-5]+".html")
     if m=="TraitMech": return urllib.parse.quote(rel[len("data/traits/"):-5]+".html")
     if m=="CellStructureMech": return urllib.parse.quote(rel[len("data/structures/"):-5]+".html")
     if m=="AntibioticMech": return urllib.parse.quote(rel[len("data/antibiotics/"):-5]+".html")
@@ -95,8 +100,7 @@ def scan(m, keep=None, cap_cell=300):
     """Return per-mech index: term -> [(slug,label)], prefix -> (count, first refs), term labels votes."""
     cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); nfiles=0; nolink=0
     for f in record_paths(m):
-        try: txt=open(f,encoding="utf-8",errors="ignore").read()
-        except Exception: continue
+        txt=read_record(f)
         nfiles+=1
         head=txt[:4000]
         mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M); doc_id=mid.group(1).strip("'\"") if mid else ""
@@ -147,12 +151,16 @@ def scan(m, keep=None, cap_cell=300):
     return dict(terms=terms,cells=cells,votes=votes)
 def main():
     prepare()
+    # Recorded like the census's, so a test can check both passes read the same
+    # commits (#126); taken before the scans and checked after (#122).
+    revisions={m: revision(m) for m in ORDER}
     idx={}
     for m in ORDER:
         if m=="ProteinTraitsMech": continue
         idx[m]=scan(m)
     union=set().union(*[set(idx[m]["terms"]) for m in idx])
     idx["ProteinTraitsMech"]=scan("ProteinTraitsMech",keep=union)
+    for m in ORDER: unchanged(m, revisions[m])
     # labels
     labels={}
     allterms=set().union(*[set(idx[m]["terms"]) for m in ORDER])
@@ -168,7 +176,7 @@ def main():
                 l,n=c.most_common(1)[0]
                 if n/sum(c.values())>=0.6 and l.count("'")%2==0: labels[t]=l; break
     os.makedirs(f"{OUT}/edges",exist_ok=True); os.makedirs(f"{OUT}/cells",exist_ok=True)
-    summary={"edges":{},"cells":{}}
+    summary={"_revisions":revisions,"edges":{},"cells":{}}
     for a,b in itertools.combinations(ORDER,2):
         shared=set(idx[a]["terms"])&set(idx[b]["terms"])
         # An edge counts shared *concepts*, not shared bibliography. roots.CITATION

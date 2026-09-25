@@ -12,7 +12,7 @@ import datetime
 import json
 import re
 
-from roots import ORDER, record_paths, revision
+from roots import ORDER, read_record, record_paths, revision, unchanged
 
 P="CHEBI|pubchem\\.compound|PubChem|METPO|ENVO|NCBITaxon|GO|PR|UniProtKB|UniProt|cas|CAS|MESH|mesh|OBI|PATO|UBERON|FOODON|MICRO|MicrO|OMP|ECO|RO|BFO|IAO|ARO|NCIT|RHEA|KEGG|EC|Pfam|PFAM|InterPro|IPR|MediaDive|mediadive\\.compound|KOMODO|BacDive|GTDB|IMG|GOLD|DSMZ|ATCC|drugbank|DrugBank|PDB|TCDB|SO|CL|GAZ|PO|BTO|EMDB|CHEMBL\\.COMPOUND|PMID|DOI|doi|PHIPO|NCBIfam|ComplexPortal|SNOMED|gold\\.ecosystem|bacdive\\.isolation_source|mibig|MIBiG|npatlas|NPAtlas"
 rx=re.compile(r"\b("+P+r"):[A-Za-z0-9_.\-]+")
@@ -21,23 +21,25 @@ norm={"pubchem.compound":"PubChem","mesh":"MESH","UniProtKB":"UniProt","PFAM":"P
 
 def census():
     """Count prefix occurrences per Mech. Minutes of I/O over every record."""
-    out={}
+    out={}; revisions={}
     for m in ORDER:
-        pc=collections.Counter(); n=0
-        for f in record_paths(m):
-            n+=1
-            try: txt=open(f,encoding="utf-8",errors="ignore").read()
-            except Exception: continue
-            for p in rx.findall(txt): pc[norm.get(p,p)]+=1
-        out[m]={"files":n,"prefixes":dict(pc.most_common())}
-        print(m,n,dict(pc.most_common(14)),flush=True)
+        pc=collections.Counter()
+        paths=record_paths(m)
+        # The revision is taken before the records are read and checked after,
+        # so it names the tree that was actually counted (#122).
+        revisions[m]=revision(m, paths)
+        for f in paths:
+            for p in rx.findall(read_record(f)): pc[norm.get(p,p)]+=1
+        unchanged(m, revisions[m])
+        out[m]={"files":len(paths),"prefixes":dict(pc.most_common())}
+        print(m,len(paths),dict(pc.most_common(14)),flush=True)
     # The run date travels in the file, not on it: git does not preserve mtimes,
     # so a fresh clone would otherwise make the page claim the corpora were
     # counted on the day someone cloned it (CultureBotAI.github.io#74).
     out["_as_of"]=datetime.date.today().isoformat()
     # And the revision each corpus was read at, so the census can be checked
     # against mech_stats.json, which counts the same files (#85).
-    out["_revisions"]={m: revision(m) for m in ORDER}
+    out["_revisions"]=revisions
     return out
 
 

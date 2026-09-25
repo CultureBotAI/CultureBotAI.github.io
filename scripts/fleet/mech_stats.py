@@ -44,7 +44,7 @@ except ModuleNotFoundError:  # the only pipeline script that needs it; see #68
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from roots import RECORD_GLOBS, mech_root, record_paths, revision
+from roots import RECORD_GLOBS, mech_root, read_record, record_paths, revision, unchanged
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
@@ -103,19 +103,23 @@ def review_slot(mech: str) -> str | None:
     return None
 
 
-def review_census(mech: str) -> tuple[int, int | None, str | None]:
-    """Records, reviewed records, and the field that said so."""
+def review_census(mech: str) -> tuple[int, int | None, str | None, str | None]:
+    """Records, reviewed records, the field that said so, and the revision read."""
     paths = record_paths(mech)
+    # Taken before the reads and checked after, as in prefix_census.py (#122).
+    rev = revision(mech, paths)
     field = review_slot(mech)
     if field is None:
-        return len(paths), None, None
+        unchanged(mech, rev)
+        return len(paths), None, None, rev
     reviewed = 0
     for path in paths:
-        for key, value in STATUS.findall(open(path, encoding="utf-8", errors="replace").read()):
+        for key, value in STATUS.findall(read_record(path, errors="replace")):
             if key == field:
                 reviewed += value == "REVIEWED"
                 break
-    return len(paths), reviewed, field
+    unchanged(mech, rev)
+    return len(paths), reviewed, field, rev
 
 
 def merged_prs(mech: str) -> int:
@@ -138,14 +142,14 @@ def main() -> None:
 
     mechs = []
     for name in MEMBERS:
-        records, reviewed, field = review_census(name)
+        records, reviewed, field, rev = review_census(name)
         prs = old[name]["merged_prs"] if keep_prs and name in old else merged_prs(name)
         # The revision is derived here rather than typed into the output: the
         # previous refresh added source_revision by hand, so rerunning this
         # script would have silently dropped it.
         mechs.append({"mech": name, "repo": GH_REPO.get(name, name), "records": records,
                       "reviewed": reviewed, "status_field": field, "merged_prs": prs,
-                      "source_revision": revision(name)})
+                      "source_revision": rev})
         shown = "not tracked" if reviewed is None else f"{reviewed:,} reviewed"
         print(f"{name:<22} {records:>8,} records  {shown:<16} {prs:>5,} merged PRs")
 
