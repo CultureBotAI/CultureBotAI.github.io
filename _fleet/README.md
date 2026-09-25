@@ -29,7 +29,8 @@ a manifest member from the cards or graph. Its capability table and badges must
 never be maintained by hand. The rendered page links to the source revision.
 
 The card headline figures are hand-curated from each Mech's published browser,
-so nothing regenerates them. `scripts/fleet/check_cards.py` compares each card
+except CultureMech's, which comes from its committed README (see below), so
+nothing regenerates them. `scripts/fleet/check_cards.py` compares each card
 against the page it cites and is the one script here that needs the network:
 
 ```bash

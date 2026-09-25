@@ -137,7 +137,8 @@ Mech checkouts (MECHS_ROOT)  +  CLAW fleet manifest
 
 Alongside it runs a **hand-curated layer**: the card headline numbers in
 `_fleet/mechs_template.md` and the `MECHS` / `XREFS` / `HUB` blocks in
-`_fleet/fleet_fragment.html`, each taken from a Mech's published site. The
+`_fleet/fleet_fragment.html`, each taken from a Mech's published site (CultureMech's
+card figure from its committed README instead, #175). The
 records tile sums the cards by construction. A fault in the hand-curated layer
 is invisible to the pipeline and vice versa; say which layer an issue is in.
 

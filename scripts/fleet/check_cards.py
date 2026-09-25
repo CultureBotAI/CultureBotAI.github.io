@@ -100,7 +100,11 @@ def published(kind: str, body: str, selector: str) -> int | None:
         # number and the words it belongs to cannot hide the pairing.
         # Markdown emphasis goes too: a README may bold the number alone.
         prose = re.sub(r"[*_]", "", re.sub(r"<[^>]+>", " ", body))
-        hit = re.search(r"([\d,]+)\s+" + re.escape(selector), prose)
+        # Whitespace runs collapse, so a line wrapped inside the label still
+        # matches (#207).
+        prose = re.sub(r"\s+", " ", prose)
+        label = re.escape(" ".join(selector.split())).replace(r"\ ", " ")
+        hit = re.search(r"([\d,]+) " + label, prose)
         return int(hit.group(1).replace(",", "")) if hit else None
     hit = re.search(r"<b>([\d,]+)</b>\s*<span>\s*" + re.escape(selector), body)
     return int(hit.group(1).replace(",", "")) if hit else None

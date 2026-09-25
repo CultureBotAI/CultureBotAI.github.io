@@ -420,6 +420,8 @@ class CardSourceTests(unittest.TestCase):
         # The number alone in bold, or the line wrapped, must still read.
         self.assertEqual(check_cards.published(kind, "and **6,288** merged records.", selector), 6288)
         self.assertEqual(check_cards.published(kind, "and 6,288\nmerged records.", selector), 6288)
+        # A wrap inside the label too (#207).
+        self.assertEqual(check_cards.published(kind, "and 6,288 merged\n  records.", selector), 6288)
 
     def test_a_relative_source_is_read_from_the_pages_host(self):
         import check_cards
