@@ -124,6 +124,11 @@ Long scripts piped to `tail` print nothing until they exit. Check the process,
 not the empty log. Exit codes through pipes are the last command's, so use
 `${PIPESTATUS[0]}` or write to a log file.
 
+Do not run the scans with `-W error::ResourceWarning`. The census opens every
+record without closing it (#118), so each of ~450,000 files prints a traceback:
+tens of megabytes of log and a much slower scan. The census writes only after
+the scan finishes, so killing such a run leaves the committed file untouched.
+
 ### 5. Re-check the hand-curated layer
 
 Every hand-curated claim, for every Mech, against its live site and its repo at
@@ -152,7 +157,14 @@ Traps that have produced wrong figures here:
 - **Schema, not records, says what a record is.** Check a `MECHS` entry's `root`
   against the schema's `tree_root`, and its licence against the LICENSE files.
 - The two cross-reference lists, `XREFS` in the fragment and the template's list,
-  must describe the same references.
+  must describe the same references, and each arrow points at the Mech that
+  consumes. Check direction as well as existence: three entries once pointed
+  the wrong way.
+- `HUB` entries render after a prefix ("Exports ", "Receives ", "Namespace: "),
+  so write each `what` to read correctly after it. A Mech with an exporter but no
+  published release is a namespace tie, not an export.
+- `git grep -E` has no `\b`; a pattern using it matches nothing and reads as a
+  zero count.
 
 ### 6. Propagate
 
@@ -178,7 +190,9 @@ Rewrite `_fleet/data/site_audit.json` for the run: per repository the pinned
 `sha` and its commit date, the URL each card figure is read from, the figure, the
 sha256 of the fetched HTML and of any data file, merged PRs, and short notes on
 how the site figure relates to the repo count. Set `checked_at_utc`,
-`local_date` and `scope`. The provenance tests require its SHAs to equal the
+`local_date`, `pinned_at_utc` and `scope`. Derive the mechanical fields rather
+than typing them: the figure through `check_cards.published()`, merged PRs and
+revisions from `mech_stats.json`, commit dates from the pins. The provenance tests require its SHAs to equal the
 stats' `source_revision`.
 
 `../CLAUDE.md` is untracked and above the repository, but it records when the
@@ -198,6 +212,13 @@ python3 scripts/fleet/check_cards.py        # must report 0 drifted
 Rerun `check_cards.py` immediately before opening the PR and again before any
 merge. A Mech can publish between the audit and the merge; the check reads the
 live site, so it is the only gate that sees that.
+
+When a site has moved past its pin, do not re-pin that one Mech: the census and
+overlaps are computed across Mechs, so a single re-pin is a partial rerun, and a
+fast Mech moves again before the rerun finishes. Keep the page a consistent
+snapshot at the pins, record the live figure as `site_figure_at_check` in that
+Mech's `site_audit.json` entry, and say in the PR which cards will show as
+drifted. Re-pin everything only if the drift is large enough to mislead.
 
 Emoji headings render with a leading hyphen in their id on GitHub Pages. Verify
 anchors against the deployed HTML, not a local kramdown.
