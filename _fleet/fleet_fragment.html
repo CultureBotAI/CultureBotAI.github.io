@@ -933,7 +933,7 @@
           if (cellSel !== key) return; // a later click replaced this one
           var cap = doc.records.length < doc.total;
           cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + fmt(doc.total) + ' record' + (doc.total === 1 ? '' : 's') + ' in ' + esc(m) + ' cite ' + esc(v) + ' identifiers</h3>' +
-            '<p>' + (cap ? 'Showing the first ' + fmt(doc.records.length) + '. ' : '') + 'Each link opens the record' + (m === "CultureMech" || m === "MediaIngredientMech" || m === "NaturalProductMech" ? ' source file on GitHub' : ' page') + '.</p>' +
+            '<p>' + (cap ? 'Showing the first ' + fmt(doc.records.length) + '. ' : '') + 'Each link opens the record' + (m === "CultureMech" || m === "MediaIngredientMech" ? ' source file on GitHub' : ' page') + '.</p>' +
             '<div class="links"><a class="go" href="' + MECHS[m].site + '">Open ' + esc(m) + ' ↗</a></div><p class="reclist">' + recLinks(doc.base, doc.records, doc.records.length) + '</p>';
         })["catch"](function () { if (cellSel !== key) return; cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>' + loadFailed() + '</p>'; });
       });

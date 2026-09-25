@@ -18,12 +18,15 @@ from roots import CITATION, ORDER, mech_root, read_record, record_paths, revisio
 
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
-# Where each Mech publishes one record. Five serve a page per record; the
-# ProteinTraitsMech browser routes by hash; CultureMech and MediaIngredientMech
-# do not deploy per-record pages, so their links open the source file on GitHub.
+# Where each Mech publishes one record. Six serve a page per record; the
+# ProteinTraitsMech browser routes by hash; TaxonMech's by query. The other two
+# link the source file on GitHub: MediaIngredientMech publishes no per-record
+# pages, only a single browser, and CultureMech's pages/media/ pages come and go
+# with its Actions deployment (#175, #223), so they are not a link base yet (#229).
 SITE_BASE={
- # NaturalProductMech publishes no site yet, so its records link to the source file.
- "NaturalProductMech": GH+"NaturalProductMech/blob/main/data/natural_products/",
+ # One committed page per record, pages/<class>/<slug>.html mirroring
+ # data/natural_products/<class>/<slug>.yaml, served by the branch build (#149).
+ "NaturalProductMech": SITE+"NaturalProductMech/pages/",
  "HabitatMech": SITE+"HabitatMech/pages/habitats/",
  "CommunityMech": SITE+"CommunityMech/communities/",
  "TraitMech": SITE+"TraitMech/pages/traits/",
@@ -96,7 +99,7 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="AntibioticMech": return urllib.parse.quote(rel[len("data/antibiotics/"):-5]+".html")
     if m=="ProteinTraitsMech": return urllib.parse.quote(doc_id or "", safe="")
     if m=="MediaIngredientMech": return urllib.parse.quote(rel[len("data/ingredients/"):])
-    if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):])
+    if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):-5]+".html")
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
     if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
     return None
