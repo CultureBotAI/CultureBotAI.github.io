@@ -107,8 +107,10 @@ Three sources, refreshed differently:
   repository at the pin. The stat strip's records tile is the sum of the card
   figures, so it moves only when the cards do, not when the pipeline reruns; it
   differs from the census total wherever a card and the census count different
-  things (#214). `scripts/fleet/check_cards.py` compares the card figures with
-  the live sites nightly.
+  things (#214). `scripts/fleet/check_cards.py` compares each card figure
+  nightly with the source it cites: a Pages URL, or for CultureMech its
+  committed README on main, since no page it reliably serves states the count
+  (see `SOURCES`; #226).
 
 Last refreshed on 2026-09-24 (#120). The corpora move fast: TraitMech went
 477, 618, 694, 763 records and CellStructureMech 57, 338, 421, 542 over successive

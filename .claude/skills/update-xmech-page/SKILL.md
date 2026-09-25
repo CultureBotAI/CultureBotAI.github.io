@@ -13,12 +13,13 @@ Refresh `/mechs/` so every claim on it is true of the Mechs **as they are now**:
 each Mech's `main` on GitHub and its live GitHub Pages browser. A refresh keeps
 the page's methodology fixed and changes only the facts.
 
-The page has two layers, and a refresh must redo both from one moment in time:
+The page has three sources, and a refresh must redo all three from one moment in time:
 
-| layer | what | refreshed by |
+| source | what | refreshed by |
 |---|---|---|
-| **derived** | census heatmap, overlap chords, `assets/fleet/`, reviewed and merged-PR counts, the stat strip, capability table | the pipeline in `scripts/fleet/`, run over pinned checkouts |
-| **hand-curated** | card headline figures and their secondary figure, tag lines, vocab chips, graph panels (`MECHS`), cross-references (`XREFS` and the template list), kg-microbe ties (`HUB`), Explore links | a person or agent, re-checked claim by claim against the live sites and the pinned repos |
+| **manifest** | membership badges, capability table, the stat strip's Mech count | `refresh_manifest.py` from CLAW at its pin (step 1) |
+| **derived** | census heatmap, overlap chords, `assets/fleet/`, reviewed and merged-PR counts, the stat strip's vocabulary and merged-PR tiles | the pipeline in `scripts/fleet/`, run over pinned checkouts |
+| **hand-curated** | card headline figures and their secondary figure, tag lines, vocab chips, graph panels (`MECHS`), cross-references (`XREFS` and the template list), kg-microbe ties (`HUB`), Explore links; the stat strip's records tile sums the card figures, so it moves only when they do (#225) | a person or agent, re-checked claim by claim against the live sites and the pinned repos |
 
 Read `_fleet/README.md` first. It is the pipeline reference; this skill is the
 procedure around it.
