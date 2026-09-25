@@ -66,9 +66,10 @@ mkdir "$SNAP" || exit 1       # refuse to reuse a directory that already exists
 Shell variables do not survive between tool calls, so write the absolute path
 down: it goes in the PR body and the report (step 10), and step 11 needs it
 after the merge, which may come in another session (#227, #228). Keep only the
-snapshot and its logs in `$SNAP`; working files such as drafts, review records
-and helper scripts go elsewhere in the scratchpad, because step 11 removes the
-directory whole (#237).
+snapshot and its logs in `$SNAP`; working files, including before/after copies
+of the derived data for step 9, drafts, review records and helper scripts, go
+elsewhere in the scratchpad, because step 11 removes the directory whole and
+stops if it finds anything else there (#237, #245).
 
 ### 1. Branch, locate the checkouts, pin CLAW and refresh the manifest
 
@@ -292,8 +293,8 @@ auto-close. GitHub honours only the first number after a closing keyword.
 After the merge and the branch deletion, and not before: until then a review fix
 means a rerun at the same pins, which needs the snapshot. Take the path from the
 PR body, not from a shell variable, and remove that directory whole: the Mech
-clones, the CLAW clone, `revisions.json`, the scan logs and any before/after
-copies of the derived data. Remove it only if it is recognizably a snapshot:
+clones, the CLAW clone, `revisions.json` and the scan logs. Remove it only if
+it is recognizably a snapshot and holds nothing else:
 
 ```bash
 SNAP=<path from the PR body>
@@ -320,9 +321,17 @@ pins committed in `_fleet/data/site_audit.json`: create `$SNAP` as above, clone
 CLAW with step 1's three `git` commands but at the audit's `culturebotai-claw`
 sha rather than `main`, and run `refresh_manifest.py` only with `--check`, so the
 committed manifest stays at its pin. Write `$SNAP/revisions.json` from the
-audit's shas, commit dates and `pinned_at_utc`, keyed by Mech name, not repository name
-(ProteinTraitsMech's repository is `proteintraitsmech`). Then run step 2 for
-each Mech (#236).
+audit, in the shape step 1 writes and step 7 reads:
+
+```json
+{"pinned_at_utc": "<the audit's pinned_at_utc>",
+ "mechs": {"<Mech name>": {"repo": "<repository>", "sha": "<sha>", "commit_date": "<commit_date>"}},
+ "claw": "<the audit's culturebotai-claw sha>"}
+```
+
+keyed by Mech name, not repository name (ProteinTraitsMech's repository is
+`proteintraitsmech`). Then set `SRC` as in step 1 and run step 2 for each Mech
+(#236, #246).
 
 ## Related
 
