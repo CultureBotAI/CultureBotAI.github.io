@@ -13,7 +13,7 @@ permalink: /culturemech/
 
 ## Explore the Published Site
 
-- **[Recipe browser](https://culturebotai.github.io/CultureMech/app/browser.html)** — search source-specific recipes and filter by category, medium type, physical state, target organism, and ingredients. It loads its records from a data file that CultureMech's Pages deployment does not always carry, so at times it opens empty.
+- **[Recipe browser](https://culturebotai.github.io/CultureMech/app/browser.html)** — search source-specific recipes and filter by category, medium type, physical state, target organism, and ingredients. It loads its records from a data file that CultureMech's Pages deployment does not always carry, so at times it never finishes loading and shows no recipes.
 - **[Ingredient-derived media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-derived)** — explore media using aggregated ingredient embeddings.
 - **[Direct media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct)** — explore the medium nodes' own KG-Microbe embeddings.
 - **[Graph layout](https://culturebotai.github.io/CultureMech/app/umap_graph.html)** — another view of media similarity.
