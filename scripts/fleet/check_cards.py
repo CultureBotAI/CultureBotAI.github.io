@@ -48,10 +48,12 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "CellStructureMech":   ("html", "CellStructureMech/pages/index.html", "structure records"),
     "AntibioticMech":      ("html", "AntibioticMech/pages/index.html", "compound records"),
     "NaturalProductMech":  ("text", "NaturalProductMech/pages/index.html", "natural product structures"),
-    # CultureMech publishes no page carrying its canonical count: the app/ landing
-    # tile is a legacy hand-typed figure (#86), and its pages/ media index is
-    # untracked, so it comes and goes with stale deployments (#175). The committed
-    # README's corpus snapshot states it ("6,288 merged records").
+    # No page CultureMech reliably serves states its canonical count. The app/
+    # landing tile is a legacy hand-typed figure (#86). Its pages/ media index is
+    # built and deployed by the generate-pages workflow, and the branch-based
+    # Pages build replaces that deployment on other pushes to main, so the index
+    # appears and disappears (#175, #180). The README on main is committed and
+    # states the count in its generated corpus snapshot ("6,288 merged records").
     "CultureMech":         ("text", "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md", "merged records"),
     "ProteinTraitsMech":   ("json", "proteintraitsmech/data/facets.json", "total"),
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
@@ -63,6 +65,11 @@ CARD = re.compile(r'data-mech="([A-Za-z]+)".*?<div class="num"><b>([\d,]+)</b>',
 def cards(template: str) -> dict[str, int]:
     """The headline figure each card states, keyed by Mech."""
     return {m.group(1): int(m.group(2).replace(",", "")) for m in CARD.finditer(template)}
+
+
+def source_url(path: str) -> str:
+    """A SOURCES path relative to the Pages host, or an absolute https URL."""
+    return path if path.startswith("https://") else SITE + path
 
 
 def fetch(url: str, timeout: int = 30) -> str:
@@ -91,7 +98,8 @@ def published(kind: str, body: str, selector: str) -> int | None:
     if kind == "text":
         # The figure sits in a sentence. Strip tags first so markup between the
         # number and the words it belongs to cannot hide the pairing.
-        prose = re.sub(r"<[^>]+>", " ", body)
+        # Markdown emphasis goes too: a README may bold the number alone.
+        prose = re.sub(r"[*_]", "", re.sub(r"<[^>]+>", " ", body))
         hit = re.search(r"([\d,]+)\s+" + re.escape(selector), prose)
         return int(hit.group(1).replace(",", "")) if hit else None
     hit = re.search(r"<b>([\d,]+)</b>\s*<span>\s*" + re.escape(selector), body)
@@ -108,7 +116,7 @@ def main() -> int:
             unreadable.append((mech, "no card in the template"))
             continue
         try:
-            body = fetch(path if path.startswith("https://") else SITE + path)
+            body = fetch(source_url(path))
         except (urllib.error.URLError, TimeoutError, OSError) as error:
             unreadable.append((mech, f"fetch failed: {error}"))
             continue

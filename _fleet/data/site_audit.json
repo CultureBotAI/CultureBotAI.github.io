@@ -1,6 +1,6 @@
 {
- "checked_at_utc": "2026-09-25T18:27:30+00:00",
- "local_date": "2026-09-24",
+ "checked_at_utc": "2026-09-25T18:42:21+00:00",
+ "local_date": "2026-09-25",
  "pinned_at_utc": "2026-09-25T02:06:03+00:00",
  "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses; the vocabulary census, subsets and card stats were regenerated at the same pins.",
  "repositories": [
@@ -24,10 +24,10 @@
    "card_records": 542,
    "merged_prs": 611,
    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
-   "site_html_sha256": "30ce6df279536883e8f65b2091a25e36ca0093864aba4a65996e424ff841363c",
+   "site_html_sha256": "372625d73788a9629f4365a74fffa042c1ef8d9ddbfa42db23799fe20ec7b2d1",
    "site_html_sha256_at_pin": "55909b291392a027c58b9206fd49ea13d67b83165a593920fdb65a62ef0bac66",
-   "notes": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 575 when this audit was written; the card keeps the pinned figure, 542.",
-   "site_figure_at_check": 575
+   "notes": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 576 when this audit was written; the card keeps the pinned figure, 542.",
+   "site_figure_at_check": 576
   },
   {
    "repo": "CommunityMech",
@@ -58,7 +58,7 @@
    "site": "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md",
    "site_html_sha256": "9bc06d232a67fa55cdef539fec2f52fa2644f7cf50e2820e223cc26106ee6f51",
    "site_html_sha256_at_pin": "9bc06d232a67fa55cdef539fec2f52fa2644f7cf50e2820e223cc26106ee6f51",
-   "notes": "The committed README's corpus snapshot states 15,878 normalized and 6,288 merged records, equal to data/merge_yaml/merged at the pin; no published page states the canonical count. The app/ landing tile still reads 10,657, a legacy figure that matches no data layer, and the pages/ media index, untracked upstream, was removed by the 2026-09-25 Pages rebuild (#175). The live README.md is byte-identical to README.md at the pin."
+   "notes": "The committed README's corpus snapshot states 15,878 normalized and 6,288 merged records, equal to data/merge_yaml/merged at the pin; no page CultureMech reliably serves states the canonical count. The app/ landing tile still reads 10,657, a legacy figure that matches no data layer. The pages/ media index is deployed by CultureMech's generate-pages workflow and replaced by the branch-based Pages build on other pushes to main, so it was live on 2026-09-24 and gone on 2026-09-25 (#175). The live README.md is byte-identical to README.md at the pin."
   },
   {
    "repo": "HabitatMech",

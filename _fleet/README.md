@@ -131,7 +131,7 @@ CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, TaxonMech's
 taxon.html route, ProteinTraitsMech hash routes) and to the record's source file on GitHub for CultureMech,
 MediaIngredientMech and NaturalProductMech in the existing census indexes,
 although NaturalProductMech now publishes per-record pages (`pages/<class>/`);
-CultureMech's `pages/media/` pages come and go with its untracked `pages/` (#175). CommunityMech's four `data/isolates` records have no
+CultureMech's `pages/media/` pages come and go with its `pages/` deployment (#175). CommunityMech's four `data/isolates` records have no
 published page, so they get no record link and are left out of the record lists
 and overlaps; the census still counts them.
 TaxonMech's record links open its taxon pages. NaturalProductMech's browse site
@@ -159,8 +159,9 @@ checkouts' working trees, several of which lagged their remotes by dozens of
 commits or carried uncommitted files. `.claude/skills/update-xmech-page/` is the
 procedure.
 
-`data/site_audit.json` records, per repository, the pinned revision, the Pages
-URL each card figure is read from, the figure, response hashes and merged
+`data/site_audit.json` records, per repository, the pinned revision, the URL each
+card figure is read from (a Pages URL, except CultureMech's committed README on
+`main`), the figure, response hashes and merged
 pull-request totals. The three dedicated pages link their descriptions and
 commands to those same revisions.
 
@@ -185,10 +186,11 @@ CultureMech's README inventory at the pinned revision reports 15,878 normalized
 records and 6,288 merged records, and the card cites it: no published page states
 the canonical count. The `app/` landing tile, which the site root redirects to,
 still reads 10,657; the `app/` browser itself serves the 15,878 normalized
-records. Its `/pages/` media index was live on September 24 and gone again on
-September 25: `pages/index.html` has been untracked since CultureMech #320, so it
-survives only in stale deployments (#175). `check_cards.py` therefore reads the
-committed README.
+records. Its `/pages/` media index is built and deployed by CultureMech's
+generate-pages workflow, and the branch-based Pages build replaces that
+deployment on other pushes to `main`, so the index appears and disappears: live
+on September 24, gone on September 25 (#175). `check_cards.py` therefore reads
+the committed README on `main`.
 
 Reviewed-record counts come from `mech_stats.py`, which counts a record as
 reviewed only where the Mech's schema has a status that can say REVIEWED; the

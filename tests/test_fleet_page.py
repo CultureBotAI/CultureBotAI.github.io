@@ -406,6 +406,22 @@ class CardSourceTests(unittest.TestCase):
         self.assertEqual(sorted(set(check_cards.SOURCES) - set(stated)), [],
                          "SOURCES entry with no card")
 
+    def test_a_source_is_relative_to_the_pages_host_unless_absolute(self):
+        # CultureMech's figure is read from its committed README, not a Pages URL (#175, #177).
+        import check_cards
+        self.assertEqual(check_cards.source_url("TraitMech/pages/index.html"),
+                         "https://culturebotai.github.io/TraitMech/pages/index.html")
+        readme = "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md"
+        self.assertEqual(check_cards.source_url(readme), readme)
+
+    def test_the_text_parser_reads_the_culturemech_readme_line(self):
+        import check_cards
+        line = "The tracked corpus currently contains **15,878 normalized records** and **6,288 merged records**."
+        self.assertEqual(check_cards.published("text", line, "merged records"), 6288)
+        # The number alone in bold, or the line wrapped, must still read.
+        self.assertEqual(check_cards.published("text", "and **6,288** merged records.", "merged records"), 6288)
+        self.assertEqual(check_cards.published("text", "and 6,288\nmerged records.", "merged records"), 6288)
+
     def test_the_card_parser_reads_every_member(self):
         snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
         import check_cards
