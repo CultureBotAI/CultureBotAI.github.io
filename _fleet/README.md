@@ -140,6 +140,9 @@ records, so the census and `mech_stats.json` count 426. CellStructureMech and
 TraitMech published new records after the pins were taken; their cards keep the
 pinned figures, and `site_audit.json` records what the two sites showed when it
 was written. `check_cards.py` will report both as drifted until the next refresh.
+NaturalProductMech's landing page and MediaIngredientMech's data file also
+changed after the pins without changing their figures; the audit records each
+live hash beside the hash of the committed copy at the pin.
 
 CultureMech's README inventory at the pinned revision reports 15,878 normalized
 records and 6,288 merged records. `/pages/` is live again and lists the same

@@ -217,7 +217,11 @@ how the site figure relates to the repo count. Set `checked_at_utc`,
 `local_date`, `pinned_at_utc` and `scope`. Derive the mechanical fields rather
 than typing them: the figure through `check_cards.published()`, merged PRs from
 `mech_stats.json`, SHAs and commit dates from the pins, and assert that the
-pins equal the stats' `source_revision` before writing. The provenance tests require its SHAs to equal the
+pins equal the stats' `source_revision` before writing. Hash the served page as
+committed at the pin too (`git show <sha>:pages/index.html`, or `docs/`), record
+it beside the live hash, and let the builder say whether the two match. Never
+type "byte-identical" into a note: sites publish during the run, and a
+hand-written claim of identity went stale for four Mechs in the first run (#155). The provenance tests require its SHAs to equal the
 stats' `source_revision`.
 
 `../CLAUDE.md` is untracked and above the repository, but it records when the
