@@ -183,14 +183,17 @@ changed after the pins without changing their figures; the audit records each
 live hash beside the hash of the committed copy at the pin.
 
 CultureMech's README inventory at the pinned revision reports 15,878 normalized
-records and 6,288 merged records, and the card cites it: no published page states
-the canonical count. The `app/` landing tile, which the site root redirects to,
-still reads 10,657; the `app/` browser itself serves the 15,878 normalized
-records. Its `/pages/` media index is built and deployed by CultureMech's
-generate-pages workflow, and the branch-based Pages build replaces that
-deployment on other pushes to `main`, so the index appears and disappears: live
-on September 24, gone on September 25 (#175). `check_cards.py` therefore reads
-the committed README on `main`.
+records and 6,288 merged records, and the card cites it: no page CultureMech
+reliably serves states the canonical count. The `app/` landing tile, which the
+site root redirects to, still reads 10,657. The `app/` browser's data
+(`app/data.js`), the `/pages/` media index and the dashboard are all built and
+deployed by CultureMech's generate-pages workflow through GitHub Actions, while
+the site's Pages source is set to branch builds; a push to `main` outside the
+workflow's paths triggers a branch build that replaces the deployment. So all
+three appear and disappear: live on September 24, gone on September 25, when the
+browser loaded with no records (#175, #182). The fix is upstream, setting the
+Pages source to GitHub Actions (#172). `check_cards.py` therefore reads the
+committed README on `main`.
 
 Reviewed-record counts come from `mech_stats.py`, which counts a record as
 reviewed only where the Mech's schema has a status that can say REVIEWED; the

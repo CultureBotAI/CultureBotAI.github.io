@@ -1,8 +1,8 @@
 {
- "checked_at_utc": "2026-09-25T18:42:21+00:00",
+ "checked_at_utc": "2026-09-25T18:56:26+00:00",
  "local_date": "2026-09-25",
  "pinned_at_utc": "2026-09-25T02:06:03+00:00",
- "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses; the vocabulary census, subsets and card stats were regenerated at the same pins.",
+ "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses, except CultureMech, whose figure is read from its committed README on main because no page it reliably serves states the count; the vocabulary census, subsets and card stats were regenerated at the same pins.",
  "repositories": [
   {
    "repo": "AntibioticMech",
@@ -24,10 +24,10 @@
    "card_records": 542,
    "merged_prs": 611,
    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
-   "site_html_sha256": "372625d73788a9629f4365a74fffa042c1ef8d9ddbfa42db23799fe20ec7b2d1",
+   "site_html_sha256": "aa3a2b8d51d6cd1bbac33c472b0b40279538779c514f384437f818b3c665d679",
    "site_html_sha256_at_pin": "55909b291392a027c58b9206fd49ea13d67b83165a593920fdb65a62ef0bac66",
-   "notes": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 576 when this audit was written; the card keeps the pinned figure, 542.",
-   "site_figure_at_check": 576
+   "notes": "542 data/structures records at the pin, equal to the stat tile (13 categories, 475 GO-grounded, 196 membrane organelles). All 542 are PROPOSED, so none is reviewed. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 577 when this audit was written; the card keeps the pinned figure, 542.",
+   "site_figure_at_check": 577
   },
   {
    "repo": "CommunityMech",
