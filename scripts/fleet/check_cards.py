@@ -33,8 +33,8 @@ What fails and what only warns (#148, #115, #176, #217):
            the wording moved, and the card is no longer being checked at all.
   MARKUP   a card in the template does not carry exactly one headline figure.
   UNCARDED a card with no SOURCES entry, or an entry with no card.
-  AUDIT    site_audit.json's pinned_at_utc is missing, cannot be read as a time,
-           or is in the future.
+  AUDIT    site_audit.json is missing or malformed, or its pinned_at_utc is
+           missing, cannot be read as a time, or is in the future.
   unread   the fetch did not arrive: DNS, timeout, a dropped connection, a
            5xx, or a 408, 425 or 429 throttle. A warning, because the network is
            not the site's fault, unless more than half the sources are unread,
@@ -210,8 +210,10 @@ def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) ->
         # body of an unexpected type raises when it is walked.
         return "CHANGED", f"unparseable: {error}"
     if value is None:
-        where = "the generated block that states it" if mech in REGIONS else f"no {selector!r}"
-        return "CHANGED", f"{kind} shape changed; {where} found"
+        # #247: this used to say the missing block was "found".
+        where = ("the generated block is missing or states no figure" if mech in REGIONS
+                 else f"no {selector!r} found")
+        return "CHANGED", f"{kind} shape changed; {where}"
     return "value", value
 
 
@@ -249,13 +251,32 @@ def span(age: datetime.timedelta) -> str:
 FAILURES = ("STALE", "WRONG", "SHRANK", "GONE", "CHANGED", "MARKUP", "UNCARDED", "AUDIT", "UNCHECKED")
 
 
-def check(template: str, fetcher=None, audit: dict | None = None,
-          now: datetime.datetime | None = None) -> list[tuple[str, str, str]]:
-    """One (status, mech, detail) row per card problem and per source, plus the run-level verdicts."""
+def audit_entries(audit) -> tuple[dict, str | None]:
+    """The audit's repositories keyed by lower-cased name, or why they cannot be read."""
+    if not isinstance(audit, dict):
+        return {}, f"site_audit.json holds a {type(audit).__name__}, not an object"
+    repositories = audit.get("repositories", [])
+    if not isinstance(repositories, list) or not all(
+            isinstance(row, dict) and isinstance(row.get("repo"), str) for row in repositories):
+        return {}, "site_audit.json: repositories must be a list of objects, each with a repo name"
+    return {row["repo"].lower(): row for row in repositories}, None
+
+
+def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None = None,
+          audit_error: str | None = None) -> list[tuple[str, str, str]]:
+    """One (status, mech, detail) row per card problem and per source, plus the run-level verdicts.
+
+    A malformed audit is an AUDIT row, not an exception, so the other rows still
+    print (#250); audit_error carries a problem found while reading the file.
+    """
     now = now or datetime.datetime.now(datetime.timezone.utc)
-    audit = audit or {}
-    entries = {row["repo"].lower(): row for row in audit.get("repositories", [])}
     rows = [("MARKUP", mech, why) for mech, why in markup_problems(template)]
+    if audit_error:
+        rows.append(("AUDIT", "-", audit_error))
+    entries, problem = audit_entries(audit) if audit is not None else ({}, None)
+    if problem:
+        rows.append(("AUDIT", "-", problem))
+        audit = None
     age = None
     if audit:
         try:
@@ -302,8 +323,14 @@ def check(template: str, fetcher=None, audit: dict | None = None,
 
 
 def main() -> int:
-    audit = json.loads(AUDIT.read_text()) if AUDIT.exists() else None
-    rows = check(TEMPLATE.read_text(), audit=audit)
+    audit, audit_error = None, None
+    try:
+        audit = json.loads(AUDIT.read_text())
+    except FileNotFoundError:
+        audit_error = "site_audit.json is missing"
+    except (OSError, ValueError) as error:
+        audit_error = f"site_audit.json cannot be read: {error}"
+    rows = check(TEMPLATE.read_text(), audit=audit, audit_error=audit_error)
     for status, mech, detail in rows:
         print(f"  {status:<9} {mech:<20} {detail}")
     tally: dict[str, int] = {}
@@ -313,8 +340,10 @@ def main() -> int:
     if any(status in FAILURES for status, _, _ in rows):
         print("Failing. STALE or SHRANK: refresh the card figures in _fleet/mechs_template.md "
               "and the MECHS block in _fleet/fleet_fragment.html (update-xmech-page), then rerun "
-              "assemble_page.py. WRONG: correct the card, or the audit's figure_at_pin if that is "
-              "what was mistyped, so both agree with the pinned source; no refresh. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
+              "assemble_page.py. WRONG: correct the card and every copy of its figure (the MECHS "
+              "records in _fleet/fleet_fragment.html, card_records in site_audit.json and the pages "
+              "update-xmech-page step 6 lists), or the audit's figure_at_pin if that is what was "
+              "mistyped, then rerun assemble_page.py; no re-pin. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
               "UNCARDED: fix the card or its SOURCES entry. AUDIT: fix site_audit.json. "
               "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1

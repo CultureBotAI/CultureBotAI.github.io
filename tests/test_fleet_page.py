@@ -542,6 +542,10 @@ class CardCheckTests(unittest.TestCase):
             self.site["AMech"] = live
             self.assertEqual(self.statuses()["AMech"], "WRONG", live)
             self.assertEqual(self.failed(), ["WRONG"])
+        # #249: overstated too, with the site ahead of both.
+        self.cards["AMech"] = 3260
+        self.site["AMech"] = 3300
+        self.assertEqual(self.statuses()["AMech"], "WRONG")
 
     def test_a_source_with_no_figure_at_the_pin_is_checked_against_the_site_only(self):
         # ProteinTraitsMech's data file is built in CI, so the audit has no copy.
@@ -573,11 +577,23 @@ class CardCheckTests(unittest.TestCase):
         self.assertEqual(self.audit_failures(audit), ["AUDIT"])
         audit["pinned_at_utc"] = "not a time"
         self.assertEqual(self.audit_failures(audit), ["AUDIT"])
-        audit["pinned_at_utc"] = (self.now + datetime.timedelta(days=365)).isoformat()
-        self.assertEqual(self.audit_failures(audit), ["AUDIT"])
+        for ahead in (datetime.timedelta(minutes=1), datetime.timedelta(days=365)):  # #249
+            audit["pinned_at_utc"] = (self.now + ahead).isoformat()
+            self.assertEqual(self.audit_failures(audit), ["AUDIT"], ahead)
         # And a future pin must not hold off the grace limit for a grown card.
         self.site["AMech"] = 1001
         self.assertIn("STALE", self.audit_failures(audit))
+
+    def test_a_malformed_audit_is_an_audit_row_not_a_traceback(self):
+        # #250: the other rows must still print.
+        for audit in ([], {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": [{"figure_at_pin": 1}]},
+                      {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": "x"}):
+            rows = self.check_cards.check(self.template(), self.fetch, audit, self.now)
+            self.assertIn("AUDIT", [s for s, _, _ in rows], audit)
+            self.assertEqual(sorted(m for s, m, _ in rows if s == "ok"), list(self.NAMES), audit)
+        rows = self.check_cards.check(self.template(), self.fetch, None, self.now,
+                                      audit_error="site_audit.json is missing")
+        self.assertEqual(sorted(s for s, _, _ in rows if s in self.check_cards.FAILURES), ["AUDIT"])
 
     def test_a_pin_time_without_an_offset_is_read_as_utc_not_local_time(self):
         # #243: in a UTC runner, local time and UTC agree, so pin a zone that differs.
@@ -678,8 +694,12 @@ class CardCheckTests(unittest.TestCase):
         readme = "Release 2 added 1,024 merged records.\n" + begin + "\n" + line + "\n" + end + "\n"
         read = self.check_cards.read_source
         self.assertEqual(read("CultureMech", kind, path, selector, lambda url: readme)[:2], ("value", 6288))
-        for broken in ("The corpus has 6,288 merged records.", begin + "\n" + line + "\n"):
-            self.assertEqual(read("CultureMech", kind, path, selector, lambda url: broken)[0], "CHANGED")
+        for broken in ("The corpus has 6,288 merged records.", begin + "\n" + line + "\n",
+                       begin + "\nno figure here\n" + end):
+            status, detail = read("CultureMech", kind, path, selector, lambda url: broken)
+            self.assertEqual(status, "CHANGED")
+            # #247: it used to say the missing block was "found".
+            self.assertIn("missing or states no figure", detail)
 
     def test_main_exits_by_the_same_rule(self):
         from unittest import mock
@@ -708,6 +728,23 @@ class CardCheckTests(unittest.TestCase):
                 self.at_pin["AMech"] = 1000
                 audit.write_text(json.dumps(self.audit()))
                 self.site["AMech"] = self.site["CMech"] = TimeoutError("t")  # UNCHECKED
+                self.assertEqual(self.check_cards.main(), 1)
+                self.site = {m: 1000 for m in self.NAMES}
+                # #249: the remedy WRONG prints is a correction, not a refresh.
+                self.at_pin["AMech"] = 1001
+                audit.write_text(json.dumps(self.audit()))
+                out = io.StringIO()
+                with contextlib.redirect_stdout(out):
+                    self.assertEqual(self.check_cards.main(), 1)
+                remedy = out.getvalue().split("WRONG:", 1)[1].split(" GONE or CHANGED:", 1)[0]
+                self.assertIn("every copy", remedy)
+                self.assertIn("no re-pin", remedy)
+                self.assertNotIn("update-xmech-page)", remedy)
+                self.at_pin["AMech"] = 1000
+                # AUDIT alone fails the run, and an unreadable file is AUDIT, not a traceback (#250).
+                audit.write_text("{not json")
+                self.assertEqual(self.check_cards.main(), 1)
+                audit.unlink()
                 self.assertEqual(self.check_cards.main(), 1)
 
 
@@ -753,6 +790,14 @@ class RefreshProvenanceTests(unittest.TestCase):
             with self.subTest(mech=mech):
                 self.assertIn(entry["repo"], self.audit, "Mech missing from site_audit.json")
                 self.assertEqual(self.audit[entry["repo"]]["sha"], entry["source_revision"])
+
+    def test_every_graph_panel_states_its_card_figure(self):
+        # #248: the MECHS block repeats each card's figure as records:, and a
+        # correction to one used to leave the other behind unnoticed.
+        fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
+        metadata = fragment.split("var MECHS = {", 1)[1].split("\n  };", 1)[0]
+        panels = {m: int(n) for m, n in re.findall(r"^\s+([A-Za-z]+Mech):\s*\{.*?\brecords:\s*(\d+)", metadata, re.M)}
+        self.assertEqual(panels, card_figures((ROOT / "_fleet/mechs_template.md").read_text()))
 
     def test_every_card_equals_the_figure_its_source_stated_at_the_pin(self):
         # #231: the audit builder read card_records from the template, so the
