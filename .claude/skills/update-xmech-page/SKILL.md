@@ -66,7 +66,7 @@ mkdir "$SNAP" || exit 1       # refuse to reuse a directory that already exists
 Shell variables do not survive between tool calls, so write the absolute path
 down: it goes in the PR body and the report (step 10), and step 11 needs it
 after the merge, which may come in another session (#227, #228). Keep only the
-snapshot and its logs in `$SNAP`; working files, including before/after copies
+snapshot and its logs, each named `<stage>.log`, in `$SNAP`; working files, including before/after copies
 of the derived data for step 9, drafts, review records and helper scripts, go
 elsewhere in the scratchpad, because step 11 removes the directory whole and
 stops if it finds anything else there (#237, #245).
@@ -160,7 +160,8 @@ byte-identical; `SubsetDeterminismTests` checks that on a fixture.
 
 Long scripts piped to `tail` print nothing until they exit. Check the process,
 not the empty log. Exit codes through pipes are the last command's, so use
-`${PIPESTATUS[0]}` or write to a log file.
+`${PIPESTATUS[0]}` or write to a log file: `$SNAP/<stage>.log`, since step 11
+removes only logs with that suffix (#251).
 
 ### 5. Re-check the hand-curated layer
 
