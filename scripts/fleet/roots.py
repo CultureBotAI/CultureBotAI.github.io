@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import glob
 import os
+import subprocess
 
 MECHS_ROOT = os.environ.get(
     "MECHS_ROOT", "/Users/marcin/Documents/VIMSS/ontology/Mechs"
@@ -83,6 +84,27 @@ def record_paths(name: str) -> list[str]:
             "before the page states a number derived from it."
         )
     return sorted(paths)
+
+
+def revision(name: str) -> str | None:
+    """The commit a checkout's records were read at, or None outside git.
+
+    Recorded by both prefix_census.py and mech_stats.py so the committed
+    outputs say which revision each number came from, and a test can check the
+    two were taken from the same one. The census and the stats had drifted to
+    different checkouts before anything recorded that: 364 CommunityMech
+    records in one and 396 in the other (CultureBotAI.github.io#85). A checkout
+    with uncommitted changes is marked, since its records are not that commit's.
+    """
+    root = mech_root(name)
+    def git(*args: str) -> str:
+        return subprocess.run(["git", "-C", root, *args], capture_output=True,
+                              text=True, check=True).stdout.strip()
+    try:
+        sha = git("rev-parse", "HEAD")
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+    return sha + ("+dirty" if git("status", "--porcelain") else "")
 
 
 def summary() -> str:

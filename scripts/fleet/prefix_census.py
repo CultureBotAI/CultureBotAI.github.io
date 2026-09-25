@@ -12,7 +12,7 @@ import datetime
 import json
 import re
 
-from roots import ORDER, record_paths
+from roots import ORDER, record_paths, revision
 
 P="CHEBI|pubchem\\.compound|PubChem|METPO|ENVO|NCBITaxon|GO|PR|UniProtKB|UniProt|cas|CAS|MESH|mesh|OBI|PATO|UBERON|FOODON|MICRO|MicrO|OMP|ECO|RO|BFO|IAO|ARO|NCIT|RHEA|KEGG|EC|Pfam|PFAM|InterPro|IPR|MediaDive|mediadive\\.compound|KOMODO|BacDive|GTDB|IMG|GOLD|DSMZ|ATCC|drugbank|DrugBank|PDB|TCDB|SO|CL|GAZ|PO|BTO|EMDB|CHEMBL\\.COMPOUND|PMID|DOI|doi|PHIPO|NCBIfam|ComplexPortal|SNOMED|gold\\.ecosystem|bacdive\\.isolation_source|mibig|MIBiG|npatlas|NPAtlas"
 rx=re.compile(r"\b("+P+r"):[A-Za-z0-9_.\-]+")
@@ -35,6 +35,9 @@ def census():
     # so a fresh clone would otherwise make the page claim the corpora were
     # counted on the day someone cloned it (CultureBotAI.github.io#74).
     out["_as_of"]=datetime.date.today().isoformat()
+    # And the revision each corpus was read at, so the census can be checked
+    # against mech_stats.json, which counts the same files (#85).
+    out["_revisions"]={m: revision(m) for m in ORDER}
     return out
 
 

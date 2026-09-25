@@ -44,7 +44,7 @@ except ModuleNotFoundError:  # the only pipeline script that needs it; see #68
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from roots import RECORD_GLOBS, mech_root, record_paths
+from roots import RECORD_GLOBS, mech_root, record_paths, revision
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
@@ -140,8 +140,12 @@ def main() -> None:
     for name in MEMBERS:
         records, reviewed, field = review_census(name)
         prs = old[name]["merged_prs"] if keep_prs and name in old else merged_prs(name)
+        # The revision is derived here rather than typed into the output: the
+        # previous refresh added source_revision by hand, so rerunning this
+        # script would have silently dropped it.
         mechs.append({"mech": name, "repo": GH_REPO.get(name, name), "records": records,
-                      "reviewed": reviewed, "status_field": field, "merged_prs": prs})
+                      "reviewed": reviewed, "status_field": field, "merged_prs": prs,
+                      "source_revision": revision(name)})
         shown = "not tracked" if reviewed is None else f"{reviewed:,} reviewed"
         print(f"{name:<22} {records:>8,} records  {shown:<16} {prs:>5,} merged PRs")
 

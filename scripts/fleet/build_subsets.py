@@ -185,12 +185,20 @@ def main():
             rows.append({"id":t,"l":labels.get(t,""),"na":len(ra),"nb":len(rb),"a":ra[:6],"b":rb[:6]})
         rows.sort(key=lambda r:(-(min(r["na"],r["nb"])),-(r["na"]+r["nb"]),r["id"]))
         byp=collections.Counter(t.split(":")[0] for t in shared)
-        doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":dict(byp.most_common()),"terms":rows}
+        # Counter.most_common() breaks ties by insertion order, which here is
+        # the iteration order of a set of strings and so changes with every
+        # process's hash seed. Ties go by name instead, so two runs over the
+        # same checkouts write the same bytes (#107).
+        by=dict(sorted(byp.items(), key=lambda kv:(-kv[1], kv[0])))
+        doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":by,"terms":rows}
         fn=f"{a}--{b}.json"; json.dump(doc,open(f"{OUT}/edges/{fn}","w"),separators=(",",":"),ensure_ascii=False)
-        summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":dict(byp.most_common()),"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION][:3]}
+        summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":by,"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION][:3]}
         print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
     for m in ORDER:
-        for p,(n,refs) in idx[m]["cells"].items():
+        # Sorted for the same reason: cells are keyed in the order a set of
+        # prefixes happened to iterate, and that order reaches
+        # subsets_summary.json and the page's embedded data (#107).
+        for p,(n,refs) in sorted(idx[m]["cells"].items()):
             if p in CITATION: continue
             fn=f"{m}--{p}.json"
             json.dump({"mech":m,"prefix":p,"base":MECHS[m]["base"],"total":n,"records":refs},open(f"{OUT}/cells/{fn}","w"),separators=(",",":"),ensure_ascii=False)
