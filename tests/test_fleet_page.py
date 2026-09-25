@@ -515,6 +515,7 @@ class CardCheckTests(unittest.TestCase):
         self.assertEqual(self.failed(), [])
 
     def test_growth_past_the_grace_period_fails(self):
+        self.assertEqual(self.check_cards.GRACE_DAYS, 14)  # #243: the documented figure
         self.site["AMech"] = 1001
         self.now = self.pinned_at + datetime.timedelta(days=self.check_cards.GRACE_DAYS, hours=1)
         self.assertEqual(self.failed(), ["STALE"])
@@ -561,6 +562,40 @@ class CardCheckTests(unittest.TestCase):
         self.assertIn("AUDIT", statuses)
         self.assertIn(("STALE", "AMech"), [(s, m) for s, m, _ in rows])
 
+    def audit_failures(self, audit):
+        return sorted(s for s, _, _ in self.check_cards.check(self.template(), self.fetch, audit, self.now)
+                      if s in self.check_cards.FAILURES)
+
+    def test_a_missing_future_or_unreadable_pin_time_fails_on_its_own(self):
+        # #242, #243: with every card equal to its site, the audit alone fails.
+        audit = self.audit()
+        del audit["pinned_at_utc"]
+        self.assertEqual(self.audit_failures(audit), ["AUDIT"])
+        audit["pinned_at_utc"] = "not a time"
+        self.assertEqual(self.audit_failures(audit), ["AUDIT"])
+        audit["pinned_at_utc"] = (self.now + datetime.timedelta(days=365)).isoformat()
+        self.assertEqual(self.audit_failures(audit), ["AUDIT"])
+        # And a future pin must not hold off the grace limit for a grown card.
+        self.site["AMech"] = 1001
+        self.assertIn("STALE", self.audit_failures(audit))
+
+    def test_a_pin_time_without_an_offset_is_read_as_utc_not_local_time(self):
+        # #243: in a UTC runner, local time and UTC agree, so pin a zone that differs.
+        import time
+        saved = os.environ.get("TZ")
+        os.environ["TZ"] = "America/Los_Angeles"
+        time.tzset()
+        try:
+            moment = self.check_cards.pin_time({"pinned_at_utc": "2026-09-25T02:06:03"})
+        finally:
+            if saved is None:
+                os.environ.pop("TZ", None)
+            else:
+                os.environ["TZ"] = saved
+            time.tzset()
+        self.assertEqual(moment, datetime.datetime(2026, 9, 25, 2, 6, 3, tzinfo=datetime.timezone.utc))
+        self.assertEqual(moment.utcoffset(), datetime.timedelta(0))
+
     def test_a_site_behind_its_card_fails(self):
         self.site["AMech"] = 999
         self.assertEqual(self.failed(), ["SHRANK"])
@@ -574,10 +609,10 @@ class CardCheckTests(unittest.TestCase):
         statuses = self.statuses()
         self.assertEqual((statuses["AMech"], statuses["BMech"]), ("GONE", "unread"))
         self.assertEqual(self.failed(), ["GONE"])
-        for code in (408, 425, 503):
+        for code in (408, 425, 500, 503):
             self.site["BMech"] = urllib.error.HTTPError("u", code, "x", {}, None)
             self.assertEqual(self.statuses()["BMech"], "unread", code)
-        for code in (403, 410):  # #234: any other 4xx
+        for code in (400, 403, 410, 499):  # #234, #243: any other 4xx
             self.site["AMech"] = urllib.error.HTTPError("u", code, "x", {}, None)
             self.assertEqual(self.statuses()["AMech"], "GONE", code)
 
@@ -726,7 +761,13 @@ class RefreshProvenanceTests(unittest.TestCase):
         # nightly's WRONG verdict depends on it being there.
         import check_cards
         audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
-        check_cards.pin_time(audit)  # #232: must parse
+        pinned = check_cards.pin_time(audit)  # #232: must parse
+        # #242: and must fall between the newest pinned commit and the check.
+        newest = max(datetime.datetime.fromisoformat(r["commit_date"].replace("Z", "+00:00"))
+                     for r in audit["repositories"])
+        checked = datetime.datetime.fromisoformat(audit["checked_at_utc"])
+        self.assertLessEqual(newest, pinned)
+        self.assertLessEqual(pinned, checked)
         entries = {r["repo"].lower(): r for r in audit["repositories"]}
         cards = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
         for mech in check_cards.SOURCES:

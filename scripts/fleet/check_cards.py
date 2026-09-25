@@ -33,7 +33,8 @@ What fails and what only warns (#148, #115, #176, #217):
            the wording moved, and the card is no longer being checked at all.
   MARKUP   a card in the template does not carry exactly one headline figure.
   UNCARDED a card with no SOURCES entry, or an entry with no card.
-  AUDIT    site_audit.json's pinned_at_utc cannot be read as a time.
+  AUDIT    site_audit.json's pinned_at_utc is missing, cannot be read as a time,
+           or is in the future.
   unread   the fetch did not arrive: DNS, timeout, a dropped connection, a
            5xx, or a 408, 425 or 429 throttle. A warning, because the network is
            not the site's fault, unless more than half the sources are unread,
@@ -262,6 +263,12 @@ def check(template: str, fetcher=None, audit: dict | None = None,
         except ValueError as error:
             # Growth then counts as STALE, which fails anyway; say why.
             rows.append(("AUDIT", "-", f"site_audit.json: {error}"))
+        else:
+            if age < datetime.timedelta(0):
+                # A pin in the future would hold off the grace limit until the
+                # clock caught up with it (#242).
+                rows.append(("AUDIT", "-", f"site_audit.json: pinned_at_utc {audit['pinned_at_utc']} is in the future"))
+                age = None
     stated = card_figures(template)
     names = set(card_names(template))
     for mech in sorted(names - set(SOURCES)):
@@ -304,9 +311,10 @@ def main() -> int:
         tally[status] = tally.get(status, 0) + 1
     print("\n" + ", ".join(f"{count} {status.lower()}" for status, count in sorted(tally.items())) + ".")
     if any(status in FAILURES for status, _, _ in rows):
-        print("Failing. STALE, WRONG or SHRANK: refresh the card figures in _fleet/mechs_template.md "
+        print("Failing. STALE or SHRANK: refresh the card figures in _fleet/mechs_template.md "
               "and the MECHS block in _fleet/fleet_fragment.html (update-xmech-page), then rerun "
-              "assemble_page.py. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
+              "assemble_page.py. WRONG: correct the card, or the audit's figure_at_pin if that is "
+              "what was mistyped, so both agree with the pinned source; no refresh. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
               "UNCARDED: fix the card or its SOURCES entry. AUDIT: fix site_audit.json. "
               "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1

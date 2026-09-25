@@ -47,7 +47,8 @@ fails when a card differs from `figure_at_pin`, the figure `site_audit.json`
 records its source stating at the pin (the card was never right), when a site is
 behind its card, when a source answers a 4xx other than a throttle or no longer
 states a figure the parser can read, when a card lacks exactly one headline
-figure or has no `SOURCES` entry, when the audit's pin time is unreadable, and
+figure or has no `SOURCES` entry, when the audit's pin time is missing,
+unreadable or in the future, and
 when more than half the sources could not be fetched. One site's outage or
 throttle only warns (#148, #115, #176, #217-#220, #231, #232). It runs on the
 workflow's nightly schedule, not on pull requests, so a Mech shipping records
@@ -56,10 +57,15 @@ remedy for each failing verdict (#235):
 
 - STALE or SHRANK: the card figures in `mechs_template.md` and the `MECHS` block
   in `fleet_fragment.html` need a full refresh, since the page is a snapshot.
-- WRONG: a card figure was mistyped; the unit tests also catch this on the PR.
+- WRONG: a card, or the audit's `figure_at_pin`, was mistyped; correct it so both
+  agree with the pinned source, with no refresh. The unit tests catch this on the
+  PR and in the nightly, which still runs the card check after a failed test
+  step so its report prints (#239, #240).
 - GONE or CHANGED: a `SOURCES` entry needs repointing.
 - MARKUP, UNCARDED or AUDIT: fix the card markup, `SOURCES` or `site_audit.json`.
-- UNCHECKED: most sites could not be reached; rerun before changing anything. A new card needs a `SOURCES` entry; a test enforces that. The cards
+- UNCHECKED: most sites could not be reached; rerun before changing anything.
+
+A new card needs a `SOURCES` entry; a test enforces that. The cards
 are read by `scripts/fleet/card_markup.py`, the one parser the assembler, this
 check and the tests share, and the assembler refuses a card without exactly one
 headline figure (#114, #218).
