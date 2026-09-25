@@ -14,9 +14,17 @@ import re
 
 from roots import ORDER, read_record, record_paths, revision, unchanged
 
-P="CHEBI|pubchem\\.compound|PubChem|METPO|ENVO|NCBITaxon|GO|PR|UniProtKB|UniProt|cas|CAS|MESH|mesh|OBI|PATO|UBERON|FOODON|MICRO|MicrO|OMP|ECO|RO|BFO|IAO|ARO|NCIT|RHEA|KEGG|EC|Pfam|PFAM|InterPro|IPR|MediaDive|mediadive\\.compound|KOMODO|BacDive|GTDB|IMG|GOLD|DSMZ|ATCC|drugbank|DrugBank|PDB|TCDB|SO|CL|GAZ|PO|BTO|EMDB|CHEMBL\\.COMPOUND|PMID|DOI|doi|PHIPO|NCBIfam|ComplexPortal|SNOMED|gold\\.ecosystem|bacdive\\.isolation_source|mibig|MIBiG|npatlas|NPAtlas"
+# The same registry is written several ways across the fleet: TaxonMech uses
+# lowercase bioregistry-style prefixes (gold:, bacdive:, img.taxon:), others the
+# upper-case forms, and a few Mechs qualify a registry by entity (kegg.compound:,
+# mediadive.medium:). Each spelling folds into one name here, so a registry is
+# not counted under one spelling and dropped under another. The spellings added
+# for #84 were all missed before: 1.49 million GOLD and 556,160 BacDive
+# identifiers in TaxonMech alone. Which new registries to count at all is a
+# separate decision, still open on #84.
+P="CHEBI|pubchem\\.compound|PubChem|METPO|ENVO|NCBITaxon|GO|PR|UniProtKB|UniProt|cas|CAS|MESH|mesh|OBI|PATO|UBERON|FOODON|MICRO|MicrO|OMP|ECO|RO|BFO|IAO|ARO|NCIT|RHEA|KEGG|EC|Pfam|PFAM|InterPro|IPR|MediaDive|mediadive\\.compound|KOMODO|BacDive|GTDB|IMG|GOLD|DSMZ|ATCC|drugbank|DrugBank|PDB|TCDB|SO|CL|GAZ|PO|BTO|EMDB|CHEMBL\\.COMPOUND|PMID|DOI|doi|PHIPO|NCBIfam|ComplexPortal|SNOMED|gold\\.ecosystem|bacdive\\.isolation_source|mibig|MIBiG|npatlas|NPAtlas|gold|bacdive|img\\.taxon|DSM|mediadive\\.medium|mediadive\\.solution|mediadive\\.ingredient|komodo\\.medium|pubchem\\.aid|pubchem|KEGG_REACTION|kegg\\.compound|kegg\\.drug|chembl|ec|ChEBI|RCSB_PDB|PubMed|PUBMED"
 rx=re.compile(r"\b("+P+r"):[A-Za-z0-9_.\-]+")
-norm={"pubchem.compound":"PubChem","mesh":"MESH","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","mediadive.compound":"MediaDive","MicrO":"MICRO","cas":"CAS","drugbank":"DrugBank","doi":"DOI","CHEMBL.COMPOUND":"ChEMBL","gold.ecosystem":"GOLD","mibig":"MIBiG","npatlas":"NPAtlas","bacdive.isolation_source":"BacDive"}
+norm={"pubchem.compound":"PubChem","mesh":"MESH","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","mediadive.compound":"MediaDive","MicrO":"MICRO","cas":"CAS","drugbank":"DrugBank","doi":"DOI","CHEMBL.COMPOUND":"ChEMBL","gold.ecosystem":"GOLD","mibig":"MIBiG","npatlas":"NPAtlas","bacdive.isolation_source":"BacDive","gold":"GOLD","bacdive":"BacDive","img.taxon":"IMG","DSM":"DSMZ","mediadive.medium":"MediaDive","mediadive.solution":"MediaDive","mediadive.ingredient":"MediaDive","komodo.medium":"KOMODO","pubchem.aid":"PubChem","pubchem":"PubChem","KEGG_REACTION":"KEGG","kegg.compound":"KEGG","kegg.drug":"KEGG","chembl":"ChEMBL","ec":"EC","ChEBI":"CHEBI","RCSB_PDB":"PDB","PubMed":"PMID","PUBMED":"PMID"}
 
 
 def census():

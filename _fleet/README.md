@@ -187,11 +187,17 @@ ontologies, because they are how NaturalProductMech cites its corpus. MIBiG is a
 seeded grounding source; NPAtlas is a cross-reference target only, since its
 licence bars ingestion into a CC BY 4.0 corpus.
 
-`prefix_census.py`'s prefix alternation is a hand-maintained list and is known to
-be incomplete: TOGO, UTEX and CCAP are absent although comparable registries
-(MediaDive, DSMZ, ATCC, GOLD) are present. TOGO is CultureMech's second-largest
-structured namespace at 2,833 occurrences, so the heatmap currently understates
-it. Adding a prefix changes the heatmap's columns, so it needs a full rescan.
+`prefix_census.py`'s prefix alternation is a hand-maintained list. Its `norm`
+table folds each spelling of a registry into one name: TaxonMech writes
+lowercase bioregistry prefixes (`gold:`, `bacdive:`, `img.taxon:`), other Mechs
+the upper-case forms, and some qualify a registry by entity (`kegg.compound:`,
+`mediadive.medium:`). Until #84's fold those spellings went uncounted, 1.49
+million GOLD and 556,160 BacDive identifiers in TaxonMech among them. Which
+namespaces to count at all is still open on #84, which has the measured
+inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred
+more are cited but not counted. Adding a prefix to the census does not add a
+heatmap column (`build_data.VOC` decides those, and `PrefixListTests` keeps the
+lists consistent), but it changes the vocabulary tile and needs a full rescan.
 
 ## Published-site refresh (September 24, 2026)
 
