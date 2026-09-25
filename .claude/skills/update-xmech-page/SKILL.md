@@ -232,8 +232,14 @@ Rewrite `_fleet/data/site_audit.json` for the run: per repository the pinned
 test compares a value with itself, #125) and its commit date, the URL each card figure is read from, the figure, the
 sha256 of the fetched HTML and of any data file, merged PRs, and short notes on
 how the site figure relates to the repo count. Set `checked_at_utc`,
-`local_date`, `pinned_at_utc` and `scope`. Derive the mechanical fields rather
-than typing them: the figure through `check_cards.published()`, merged PRs from
+`local_date`, `pinned_at_utc` (ISO, with its offset) and `scope`. Record
+`figure_at_pin` for every source with a committed copy: read the copy at the pin
+with `check_cards.figure()`, the nightly's own parser with `REGIONS` applied,
+never from the template. The provenance tests require it to equal each card, so
+a mistyped card fails on the PR, and the nightly reports WRONG from it (#231).
+ProteinTraitsMech's data file is built in CI and has none. Derive the other
+mechanical fields rather than typing them: the live figure through
+`check_cards.read_source()`, merged PRs from
 `mech_stats.json`, SHAs and commit dates from the pins, and assert that the
 pins equal the stats' `source_revision` before writing. Hash the served page as
 committed at the pin too (`git show <sha>:pages/index.html`, or `docs/`), record
@@ -253,7 +259,7 @@ python3 scripts/fleet/assemble_page.py
 python3 -m unittest discover -s tests -v
 python3 scripts/fleet/assemble_page.py --check
 python3 scripts/fleet/refresh_manifest.py --claw-root "$SNAP/claw" --check
-python3 scripts/fleet/check_cards.py        # 0 drifted, except sites that moved past their pin (below)
+python3 scripts/fleet/check_cards.py        # exit 0; "grew" lines are sites that moved past their pin (below)
 ```
 
 Rerun `check_cards.py` immediately before opening the PR and again before any
@@ -264,8 +270,12 @@ When a site has moved past its pin, do not re-pin that one Mech: the census and
 overlaps are computed across Mechs, so a single re-pin is a partial rerun, and a
 fast Mech moves again before the rerun finishes. Keep the page a consistent
 snapshot at the pins, record the live figure as `site_figure_at_check` in that
-Mech's `site_audit.json` entry, and say in the PR which cards will show as
-drifted. Re-pin everything only if the drift is large enough to mislead.
+Mech's `site_audit.json` entry, and say in the PR which cards the check reports
+as grown. That stays a warning for `GRACE_DAYS` (14) after `pinned_at_utc` while
+the site is at most half as large again as the card; past either limit the
+check reports STALE and fails, and the page is due a full refresh. A card that
+differs from its audit's `figure_at_pin` fails as WRONG however far the site has
+moved (step 7).
 
 Emoji headings render with a leading hyphen in their id on GitHub Pages. Verify
 anchors against the deployed HTML, not a local kramdown.

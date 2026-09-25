@@ -12,13 +12,45 @@ nightly schedule rather than on a pull request: the corpora move fast enough
 that a blocking check would make an unrelated docs fix unmergeable because some
 Mech published records overnight.
 
-Two failure kinds, kept apart on purpose. A fetch that does not arrive is a
-warning, because the network is not the site's fault. A fetch that arrives and
-does not match is a failure, because either the number moved or the markup did,
-and both need a person.
+What fails and what only warns (#148, #115, #176, #217):
+
+  ok       the site states the card's figure.
+  grew     the site is ahead of the card, the refresh that pinned the card is
+           at most GRACE_DAYS old, and the site is at most MAX_LEAD ahead. A
+           warning: the page is a snapshot at the refresh's pins, and fast
+           Mechs publish within hours of them.
+  STALE    the site is ahead and the refresh is older than that, or the site
+           leads the card by more than MAX_LEAD of the card (the card then
+           understates it by over a third). Refresh the page.
+  WRONG    the card differs from figure_at_pin, the figure the audit read from
+           the source's own committed copy at the pin with figure() below. The
+           card was never right, however the site has moved since (#217, #231).
+  SHRANK   the site states fewer than the card. Records are not normally
+           withdrawn in bulk, so either the card is wrong or the site regressed.
+  GONE     the source answered a 4xx other than a throttle. The page the card
+           cites has moved or been deleted, which is how #175 began.
+  CHANGED  the source arrived but no figure could be read from it: the markup or
+           the wording moved, and the card is no longer being checked at all.
+  MARKUP   a card in the template does not carry exactly one headline figure.
+  UNCARDED a card with no SOURCES entry, or an entry with no card.
+  AUDIT    site_audit.json is missing or malformed, its pinned_at_utc is
+           missing, cannot be read as a time, or is in the future, or a
+           source's figure_at_pin is missing or not a whole number.
+  unread   the fetch did not arrive: DNS, timeout, a dropped connection, a
+           5xx, or a 408, 425 or 429 throttle. A warning, because the network is
+           not the site's fault, unless more than half the sources are unread,
+           when the run has verified too little to call itself a pass and fails
+           as UNCHECKED.
+
+The pin time and each source's figure at the pin come from
+_fleet/data/site_audit.json, which the refresh writes (update-xmech-page, step 7).
+ProteinTraitsMech's data file is built in CI rather than committed, so it has no
+copy at the pin and no figure_at_pin; its card is checked only against the site.
 """
 from __future__ import annotations
 
+import datetime
+import http.client
 import json
 import re
 import sys
@@ -26,8 +58,11 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+from card_markup import card_figures, card_names, markup_problems
+
 REPO = Path(__file__).resolve().parents[2]
 TEMPLATE = REPO / "_fleet/mechs_template.md"
+AUDIT = REPO / "_fleet/data/site_audit.json"
 SITE = "https://culturebotai.github.io/"
 
 # Where each card's headline actually comes from. Pinned here rather than
@@ -60,12 +95,31 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
 }
 
-CARD = re.compile(r'data-mech="([A-Za-z]+)".*?<div class="num"><b>([\d,]+)</b>', re.S)
+# Where inside a source the figure must be read, when the source states the same
+# label elsewhere too. CultureMech's README says "merged records" in its prose;
+# only the block its generator writes, and its CI keeps in sync with the data,
+# is the figure (#176). Markers missing is a shape change, not a pass.
+REGIONS: dict[str, tuple[str, str]] = {
+    "CultureMech": ("<!-- BEGIN GENERATED CORPUS STATS -->", "<!-- END GENERATED CORPUS STATS -->"),
+}
 
+# How long a card may trail a growing site before the page counts as stale, and
+# how far it may trail within that time. A fixed percentage alone did not hold:
+# CellStructureMech adds about two records an hour, 9% a day on a card of 542,
+# so a 10% allowance went red a day after every refresh (#217). The time limit
+# asks for a refresh a fortnight after the pins while any Mech grows; the lead
+# limit asks sooner once a site is more than half as large again as its card
+# (the card then understates it by over a third), which CellStructureMech
+# reaches in under a week.
+GRACE_DAYS = 14
+MAX_LEAD = 0.5
 
-def cards(template: str) -> dict[str, int]:
-    """The headline figure each card states, keyed by Mech."""
-    return {m.group(1): int(m.group(2).replace(",", "")) for m in CARD.finditer(template)}
+# Sources with no committed copy at the pin, so no figure_at_pin: the served
+# file is built in CI. Every other source must have one, or WRONG is off (#260).
+NO_PIN_COPY = ("ProteinTraitsMech",)
+
+# 4xx answers that mean "not now" rather than "not here" (#219).
+THROTTLES = (408, 425, 429)
 
 
 def source_url(path: str) -> str:
@@ -76,6 +130,16 @@ def source_url(path: str) -> str:
 def fetch(url: str, timeout: int = 30) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": "culturebotai-card-check"})
     return urllib.request.urlopen(request, timeout=timeout).read().decode("utf-8", "replace")
+
+
+def region(body: str, markers: tuple[str, str]) -> str | None:
+    """The text between two markers, or None when either is missing."""
+    start, end = markers
+    _, found, rest = body.partition(start)
+    if not found:
+        return None
+    inside, found, _ = rest.partition(end)
+    return inside if found else None
 
 
 def published(kind: str, body: str, selector: str) -> int | None:
@@ -111,52 +175,207 @@ def published(kind: str, body: str, selector: str) -> int | None:
     return int(hit.group(1).replace(",", "")) if hit else None
 
 
-def main() -> int:
-    stated = cards(TEMPLATE.read_text())
-    missing = sorted(set(stated) - set(SOURCES))
-    drifted, unreadable, matched = [], [], []
+def figure(mech: str, kind: str, body: str, selector: str) -> int | None:
+    """The figure a source's body states, read the way the nightly reads it.
 
-    for mech, (kind, path, selector) in sorted(SOURCES.items()):
-        if mech not in stated:
-            unreadable.append((mech, "no card in the template"))
-            continue
+    Applies the Mech's REGIONS first, so the refresh can read the committed copy
+    at the pin with exactly the rules used on the live site (#221). None when no
+    figure can be read; a body of the wrong type raises, as published() does.
+    """
+    if mech in REGIONS:
+        body = region(body, REGIONS[mech])
+        if body is None:
+            return None
+    return published(kind, body, selector)
+
+
+def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) -> tuple[str, int | str]:
+    """The figure a source publishes, or why there is none.
+
+    Returns ("value", N), or a status and the reason: "GONE" for a 4xx other
+    than a throttle, "unread" for a fetch that did not arrive, "CHANGED" for a
+    body with no figure in it.
+    """
+    fetcher = fetcher or fetch
+    try:
+        body = fetcher(source_url(path))
+    except urllib.error.HTTPError as error:
+        # HTTPError is a URLError, so it is caught first. A 4xx is the source
+        # telling us it is not there, unless it is asking us to come back later.
+        gone = 400 <= error.code < 500 and error.code not in THROTTLES
+        return ("GONE" if gone else "unread"), f"fetch failed: {error}"
+    except (urllib.error.URLError, http.client.HTTPException, TimeoutError, OSError) as error:
+        # HTTPException covers a body cut short (IncompleteRead) and a garbled
+        # status line, which used to end the run with a traceback (#220).
+        return "unread", f"fetch failed: {error}"
+    try:
+        value = figure(mech, kind, body, selector)
+    except (ValueError, TypeError, AttributeError) as error:
+        # json.JSONDecodeError is a ValueError. The other two are what a
+        # body of an unexpected type raises when it is walked.
+        return "CHANGED", f"unparseable: {error}"
+    if value is None:
+        # #247: this used to say the missing block was "found".
+        where = ("the generated block is missing or states no figure" if mech in REGIONS
+                 else f"no {selector!r} found")
+        return "CHANGED", f"{kind} shape changed; {where}"
+    return "value", value
+
+
+def pin_time(audit: dict) -> datetime.datetime:
+    """The audit's pin time as an aware datetime; a time with no offset is UTC.
+
+    Raises ValueError when the field is missing or is not an ISO time (#232).
+    """
+    value = audit.get("pinned_at_utc")
+    if not isinstance(value, str):
+        raise ValueError(f"pinned_at_utc is {value!r}")
+    moment = datetime.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return moment if moment.tzinfo else moment.replace(tzinfo=datetime.timezone.utc)
+
+
+def classify(card: int, site: int, age: datetime.timedelta | None) -> str:
+    """How a published figure relates to the card that states it."""
+    if site == card:
+        return "ok"
+    if site < card:
+        return "SHRANK"
+    if age is None or age > datetime.timedelta(days=GRACE_DAYS):
+        return "STALE"
+    return "grew" if site - card <= card * MAX_LEAD else "STALE"
+
+
+def span(age: datetime.timedelta) -> str:
+    """A pin's age in the unit a reader wants: hours on the first day, then days."""
+    if age.days >= 1:
+        return f"{age.days} day{'s' if age.days != 1 else ''}"
+    hours = int(age.total_seconds() // 3600)
+    return f"{hours} hour{'s' if hours != 1 else ''}"
+
+
+FAILURES = ("STALE", "WRONG", "SHRANK", "GONE", "CHANGED", "MARKUP", "UNCARDED", "AUDIT", "UNCHECKED")
+
+
+def audit_entries(audit) -> tuple[dict, str | None]:
+    """The audit's repositories keyed by lower-cased name, or why they cannot be read."""
+    if not isinstance(audit, dict):
+        return {}, f"site_audit.json holds a {type(audit).__name__}, not an object"
+    if "repositories" not in audit:
+        return {}, "site_audit.json has no repositories list"  # #257
+    repositories = audit["repositories"]
+    if not isinstance(repositories, list) or not all(
+            isinstance(row, dict) and isinstance(row.get("repo"), str) for row in repositories):
+        return {}, "site_audit.json: repositories must be a list of objects, each with a repo name"
+    return {row["repo"].lower(): row for row in repositories}, None
+
+
+def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None = None,
+          audit_error: str | None = None) -> list[tuple[str, str, str]]:
+    """One (status, mech, detail) row per card problem and per source, plus the run-level verdicts.
+
+    A malformed audit is an AUDIT row, not an exception, so the other rows still
+    print (#250); audit_error carries a problem found while reading the file.
+    """
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    rows = [("MARKUP", mech, why) for mech, why in markup_problems(template)]
+    if audit_error:
+        rows.append(("AUDIT", "-", audit_error))
+    entries, problem = audit_entries(audit) if audit is not None else ({}, None)
+    if problem:
+        rows.append(("AUDIT", "-", problem))
+        audit = None
+    age = None
+    if audit is not None:  # {} too, so a missing pin time is reported (#257)
         try:
-            body = fetch(source_url(path))
-        except (urllib.error.URLError, TimeoutError, OSError) as error:
-            unreadable.append((mech, f"fetch failed: {error}"))
-            continue
-        try:
-            value = published(kind, body, selector)
-        except (ValueError, TypeError, AttributeError) as error:
-            # json.JSONDecodeError is a ValueError. The other two are what a
-            # body of an unexpected type raises when it is walked.
-            unreadable.append((mech, f"unparseable: {error}"))
-            continue
-        if value is None:
-            unreadable.append((mech, f"{kind} shape changed; no {selector!r} found"))
-        elif value != stated[mech]:
-            drifted.append((mech, stated[mech], value))
+            age = now - pin_time(audit)
+        except ValueError as error:
+            # Growth then counts as STALE, which fails anyway; say why.
+            rows.append(("AUDIT", "-", f"site_audit.json: {error}"))
         else:
-            matched.append(mech)
+            if age < datetime.timedelta(0):
+                # A pin in the future would hold off the grace limit until the
+                # clock caught up with it (#242).
+                rows.append(("AUDIT", "-", f"site_audit.json: pinned_at_utc {audit['pinned_at_utc']} is in the future"))
+                age = None
+    stated = card_figures(template)
+    names = set(card_names(template))
+    for mech in sorted(names - set(SOURCES)):
+        rows.append(("UNCARDED", mech, "card with no entry in SOURCES"))
+    for mech, (kind, path, selector) in sorted(SOURCES.items()):
+        if mech not in names:
+            rows.append(("UNCARDED", mech, "SOURCES entry with no card in the template"))
+            continue
+        if mech not in stated:
+            continue  # its card's markup is already reported above
+        card = stated[mech]
+        entry = entries.get(mech.lower())
+        at_pin = entry.get("figure_at_pin") if entry else None
+        whole = isinstance(at_pin, int) and not isinstance(at_pin, bool)
+        if audit is not None:
+            # A missing or mistyped figure_at_pin would switch WRONG off without
+            # a word (#260).
+            if entry is None:
+                rows.append(("AUDIT", mech, "no entry in site_audit.json"))
+            elif at_pin is None and mech not in NO_PIN_COPY:
+                rows.append(("AUDIT", mech, "site_audit.json has no figure_at_pin for it"))
+            elif at_pin is not None and not whole:
+                rows.append(("AUDIT", mech, f"figure_at_pin is {at_pin!r}, not a whole number"))
+        if whole and at_pin != card:
+            rows.append(("WRONG", mech, f"card {card:,}, but the source stated {at_pin:,} at the pin"))
+            continue
+        status, result = read_source(mech, kind, path, selector, fetcher)
+        if status != "value":
+            rows.append((status, mech, result))
+            continue
+        verdict = classify(card, result, age)
+        detail = f"{card:>9,}" if verdict == "ok" else f"card {card:,}, site {result:,}"
+        if verdict in ("grew", "STALE") and age is not None:
+            detail += f" (+{result - card:,} in the {span(age)} since the pins)"
+        rows.append((verdict, mech, detail))
+    unread = sum(1 for status, _, _ in rows if status == "unread")
+    if unread * 2 > len(SOURCES):
+        # One site down is someone else's outage. Most of them down is this run
+        # having checked nothing, which must not read as a pass (#115).
+        rows.append(("UNCHECKED", "-", f"{unread} of {len(SOURCES)} sources could not be read"))
+    return rows
 
-    for mech in matched:
-        print(f"  ok       {mech:<20} {stated[mech]:>9,}")
-    for mech, card, site in drifted:
-        print(f"  DRIFTED  {mech:<20} card {card:,}, site {site:,}")
-    for mech, why in unreadable:
-        print(f"  unread   {mech:<20} {why}")
-    if missing:
-        print(f"  MISSING  cards with no entry in SOURCES: {', '.join(missing)}")
 
-    print(f"\n{len(matched)} match, {len(drifted)} drifted, {len(unreadable)} unreadable.")
-    if drifted or missing:
-        print("Refresh the card figures in _fleet/mechs_template.md and the MECHS block "
-              "in _fleet/fleet_fragment.html, then rerun assemble_page.py.")
+def main() -> int:
+    audit, audit_error = None, None
+    try:
+        audit = json.loads(AUDIT.read_text())
+        if not isinstance(audit, dict):
+            # check() reads None as "no audit supplied", so a null file would
+            # otherwise pass silently (#257).
+            audit_error = f"site_audit.json holds {type(audit).__name__}, not an object"
+            audit = None
+    except FileNotFoundError:
+        audit_error = "site_audit.json is missing"
+    except (OSError, ValueError) as error:
+        audit_error = f"site_audit.json cannot be read: {error}"
+    rows = check(TEMPLATE.read_text(), audit=audit, audit_error=audit_error)
+    for status, mech, detail in rows:
+        print(f"  {status:<9} {mech:<20} {detail}")
+    tally: dict[str, int] = {}
+    for status, _, _ in rows:
+        tally[status] = tally.get(status, 0) + 1
+    print("\n" + ", ".join(f"{count} {status.lower()}" for status, count in sorted(tally.items())) + ".")
+    if any(status in FAILURES for status, _, _ in rows):
+        print("Failing. STALE or SHRANK: refresh the card figures in _fleet/mechs_template.md "
+              "and the MECHS block in _fleet/fleet_fragment.html (update-xmech-page), then rerun "
+              "assemble_page.py. WRONG: correct the card and every other occurrence of its "
+              "figure, found by grepping the tree for it as update-xmech-page step 6 does (the MECHS "
+              "records: and extra: text in _fleet/fleet_fragment.html, cross-references, card_records "
+              "in site_audit.json, the pages that repeat it), or the audit's figure_at_pin if that is "
+              "what was mistyped, then rerun assemble_page.py; no re-pin. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
+              "UNCARDED: fix the card or its SOURCES entry. AUDIT: fix site_audit.json. "
+              "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1
-    if unreadable:
-        # A site that cannot be reached is not the same as a wrong number, and a
-        # nightly red for someone else's outage teaches people to ignore it.
-        print("Nothing drifted, but some sites could not be read; see above.")
+    if any(status in ("grew", "unread") for status, _, _ in rows):
+        # A site a little ahead of a recently pinned card, or one that could not
+        # be reached, is not a wrong number, and a nightly red for either
+        # teaches people to ignore it.
+        print("Passing with warnings; see above.")
     return 0
 
 
