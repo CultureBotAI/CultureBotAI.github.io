@@ -36,6 +36,10 @@ RECORD_GLOBS: dict[str, list[str]] = {
     "AntibioticMech": ["data/antibiotics/**/*.yaml"],
     "MediaIngredientMech": ["data/ingredients/**/*.yaml"],
     "CultureMech": ["data/merge_yaml/merged/*.yaml"],
+    # Species-level and infraspecific taxon records, keyed by NCBI Taxonomy id;
+    # each carries its lineage, so higher taxa are counted once per record under
+    # them. Measured since #87; before that only mech_stats.py read it.
+    "TaxonMech": ["data/taxa/**/*.yaml"],
 }
 
 # Paths a record glob sweeps up that are not records. A `**` glob cannot say

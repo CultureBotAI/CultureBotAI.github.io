@@ -64,7 +64,7 @@ MEMBERS = list(MANIFEST["mechs"])
 # Record globs for members the census has not reached yet. Counting reviewed
 # records needs only a corpus, not a vocabulary scan, so these can be reported
 # before prefix_census.py and build_subsets.py are rerun to include them.
-EXTRA_GLOBS = {"TaxonMech": ["data/taxa/**/*.yaml"]}
+EXTRA_GLOBS: dict[str, list[str]] = {}  # TaxonMech moved into roots.RECORD_GLOBS (#87)
 RECORD_GLOBS.update({m: g for m, g in EXTRA_GLOBS.items() if m not in RECORD_GLOBS})
 
 # Top-level only. A nested entry_status or a reviewed: true deeper in the file

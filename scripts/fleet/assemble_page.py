@@ -128,7 +128,10 @@ def assemble(template, fragment, data, snapshot, stats, census):
         "<!--FLEET_COUNT_WORD-->": number_word(len(names)),
         "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
-        "<!--FLEET_CENSUS_COUNT_WORD-->": number_word(len(measured_mechs)),
+        # "all ten Mechs" once the census reaches every member, which it has
+        # since TaxonMech was added (#87); "nine of the ten Mechs" otherwise.
+        "<!--FLEET_CENSUS_COVERAGE-->": (f"all {number_word(len(names))} Mechs" if len(measured_mechs) == len(names)
+                                         else f"{number_word(len(measured_mechs))} of the {number_word(len(names))} Mechs"),
         # The scan's own run date, carried in the file it writes. Not the file's
         # mtime: git neither records nor restores those, so a fresh clone would
         # date the census to the day somebody cloned it.

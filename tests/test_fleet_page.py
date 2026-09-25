@@ -78,7 +78,7 @@ class FleetPageTests(unittest.TestCase):
         page = self.render()
         self.assertIn('# X-Mech Suite: ten autonomous knowledge factories', page)
         self.assertIn('## The ten Mechs', page)
-        self.assertIn('census covers nine of the ten Mechs', page)
+        self.assertIn('census covers all ten Mechs', page)
         self.assertIn('<b>10</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
@@ -120,7 +120,7 @@ class FleetPageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Census order'):
             self.render()
         self.data['order'].pop()
-        self.data['vocab_edges'][0]['a'] = 'TaxonMech'
+        self.data['vocab_edges'][0]['a'] = 'GhostMech'
         with self.assertRaisesRegex(ValueError, 'Census edges'):
             self.render()
 

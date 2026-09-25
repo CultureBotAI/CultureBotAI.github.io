@@ -32,6 +32,9 @@ SITE_BASE={
  "AntibioticMech": SITE+"AntibioticMech/pages/",
  "MediaIngredientMech": GH+"MediaIngredientMech/blob/main/data/ingredients/",
  "CultureMech": GH+"CultureMech/blob/main/data/merge_yaml/merged/",
+ # Every taxon renders at taxon.html?id=<identifier>; the files under
+ # pages/taxa/ are redirects kept for old URLs.
+ "TaxonMech": SITE+"TaxonMech/pages/taxon.html?id=",
 }
 # Filled by prepare(). mech_root() touches the filesystem and exits on a
 # missing checkout, so resolving these at import made the module unimportable
@@ -95,8 +98,9 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="MediaIngredientMech": return urllib.parse.quote(rel[len("data/ingredients/"):])
     if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):])
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
+    if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
     return None
-def scan(m, keep=None, cap_cell=300):
+def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
     """Return per-mech index: term -> [(slug,label)], prefix -> (count, first refs), term labels votes."""
     cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); nfiles=0; nolink=0
     for f in record_paths(m):
@@ -113,7 +117,7 @@ def scan(m, keep=None, cap_cell=300):
             p=NORM.get(p,p)
             if p not in PREF: continue
             found.add(p+":"+i)
-        if keep is not None: found_terms=found & keep
+        if keep is not None: found_terms={t for t in found if t in keep or t.split(":")[0] in keep_prefixes}
         else: found_terms=found
         for t in found_terms: terms[t].append((slug,doc_label))
         for p in {t.split(":")[0] for t in found}:
@@ -155,11 +159,18 @@ def main():
     # commits (#126); taken before the scans and checked after (#122).
     revisions={m: revision(m) for m in ORDER}
     idx={}
+    # ProteinTraitsMech and TaxonMech are the two largest corpora, so each keeps
+    # only terms another Mech also cites; overlaps need nothing else. The
+    # proteins also keep every taxon they cite, so their overlap with TaxonMech
+    # is exact rather than limited to taxa a third Mech happens to share (#87).
+    LATE=("ProteinTraitsMech","TaxonMech")
     for m in ORDER:
-        if m=="ProteinTraitsMech": continue
+        if m in LATE: continue
         idx[m]=scan(m)
     union=set().union(*[set(idx[m]["terms"]) for m in idx])
-    idx["ProteinTraitsMech"]=scan("ProteinTraitsMech",keep=union)
+    idx["ProteinTraitsMech"]=scan("ProteinTraitsMech",keep=union,keep_prefixes=("NCBITaxon","GTDB"))
+    union|=set(idx["ProteinTraitsMech"]["terms"])
+    idx["TaxonMech"]=scan("TaxonMech",keep=union)
     for m in ORDER: unchanged(m, revisions[m])
     # labels
     labels={}

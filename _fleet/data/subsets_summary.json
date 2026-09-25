@@ -8,7 +8,8 @@
   "NaturalProductMech": "36662aa8fcdcac9d3ddf4acba0f430e39bc2da2e",
   "AntibioticMech": "66d68c2a8d99230ab729267e6cd8ae1051b85225",
   "MediaIngredientMech": "dfce1c9342ca7aec41b50d0f6db8adb950bb72fe",
-  "CultureMech": "faaf033b8c5386aaf2cb6f28fc527678d00cf83b"
+  "CultureMech": "faaf033b8c5386aaf2cb6f28fc527678d00cf83b",
+  "TaxonMech": "972fbd7b85a052c6b95bf1437f672168bd6d8970"
  },
  "edges": {
   "HabitatMech|CommunityMech": {
@@ -185,6 +186,26 @@
     }
    ]
   },
+  "HabitatMech|TaxonMech": {
+   "n": 6423,
+   "by": {
+    "NCBITaxon": 6423
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:2",
+     "label": "Bacteria"
+    },
+    {
+     "id": "NCBITaxon:1280",
+     "label": "Staphylococcus aureus"
+    },
+    {
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
+    }
+   ]
+  },
   "CommunityMech|TraitMech": {
    "n": 157,
    "by": {
@@ -337,6 +358,27 @@
     }
    ]
   },
+  "CommunityMech|TaxonMech": {
+   "n": 1167,
+   "by": {
+    "NCBITaxon": 784,
+    "GTDB": 383
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:2",
+     "label": "Bacteria"
+    },
+    {
+     "id": "NCBITaxon:286",
+     "label": "Pseudomonas"
+    },
+    {
+     "id": "NCBITaxon:1386",
+     "label": "Bacillus"
+    }
+   ]
+  },
   "TraitMech|CellStructureMech": {
    "n": 114,
    "by": {
@@ -470,6 +512,26 @@
     }
    ]
   },
+  "TraitMech|TaxonMech": {
+   "n": 274,
+   "by": {
+    "NCBITaxon": 274
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
+    },
+    {
+     "id": "NCBITaxon:83333",
+     "label": "Escherichia coli (strain K12)"
+    },
+    {
+     "id": "NCBITaxon:1358",
+     "label": "Lactococcus lactis"
+    }
+   ]
+  },
   "CellStructureMech|ProteinTraitsMech": {
    "n": 1058,
    "by": {
@@ -577,6 +639,26 @@
     }
    ]
   },
+  "CellStructureMech|TaxonMech": {
+   "n": 124,
+   "by": {
+    "NCBITaxon": 124
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:2",
+     "label": "Bacteria"
+    },
+    {
+     "id": "NCBITaxon:2759",
+     "label": "Eukaryota"
+    },
+    {
+     "id": "NCBITaxon:2157",
+     "label": "Archaea"
+    }
+   ]
+  },
   "ProteinTraitsMech|NaturalProductMech": {
    "n": 794,
    "by": {
@@ -667,6 +749,26 @@
     }
    ]
   },
+  "ProteinTraitsMech|TaxonMech": {
+   "n": 7444,
+   "by": {
+    "NCBITaxon": 7444
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
+    },
+    {
+     "id": "NCBITaxon:83334",
+     "label": "Escherichia coli O157:H7"
+    },
+    {
+     "id": "NCBITaxon:623",
+     "label": "Shigella flexneri"
+    }
+   ]
+  },
   "NaturalProductMech|AntibioticMech": {
    "n": 278,
    "by": {
@@ -730,6 +832,26 @@
     }
    ]
   },
+  "NaturalProductMech|TaxonMech": {
+   "n": 1708,
+   "by": {
+    "NCBITaxon": 1708
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:1883",
+     "label": "Streptomyces"
+    },
+    {
+     "id": "NCBITaxon:1873",
+     "label": "Micromonospora"
+    },
+    {
+     "id": "NCBITaxon:286",
+     "label": "Pseudomonas"
+    }
+   ]
+  },
   "AntibioticMech|MediaIngredientMech": {
    "n": 324,
    "by": {
@@ -770,6 +892,26 @@
     }
    ]
   },
+  "AntibioticMech|TaxonMech": {
+   "n": 109,
+   "by": {
+    "NCBITaxon": 109
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
+    },
+    {
+     "id": "NCBITaxon:573",
+     "label": "Klebsiella pneumoniae"
+    },
+    {
+     "id": "NCBITaxon:470",
+     "label": "Acinetobacter baumannii"
+    }
+   ]
+  },
   "MediaIngredientMech|CultureMech": {
    "n": 612,
    "by": {
@@ -792,6 +934,26 @@
     {
      "id": "CHEBI:2509",
      "label": "agar"
+    }
+   ]
+  },
+  "CultureMech|TaxonMech": {
+   "n": 54,
+   "by": {
+    "NCBITaxon": 54
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:210",
+     "label": "Helicobacter pylori"
+    },
+    {
+     "id": "NCBITaxon:823",
+     "label": "Parabacteroides distasonis"
+    },
+    {
+     "id": "NCBITaxon:851",
+     "label": "Fusobacterium nucleatum"
     }
    ]
   }
@@ -867,6 +1029,8 @@
   "CultureMech|FOODON": 203,
   "CultureMech|KEGG": 329,
   "CultureMech|NCBITaxon": 30,
-  "CultureMech|UBERON": 72
+  "CultureMech|UBERON": 72,
+  "TaxonMech|GTDB": 118801,
+  "TaxonMech|NCBITaxon": 625960
  }
 }

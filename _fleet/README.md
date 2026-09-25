@@ -56,12 +56,22 @@ python3 scripts/fleet/assemble_page.py --check
 
 ## Vocabulary census updates
 
-Membership updates do not require rescanning the record corpora. The current
-September 2026 vocabulary census covers nine Mechs; TaxonMech is shown in the
-graph and cards with its published 625,960-taxon total (checked September 24, 2026), but its vocabulary counts have not
-been measured by this pipeline. The heatmap uses the measured `fleet_data.json`
-order, and the page states this limitation. Add TaxonMech to the census roots
-and scanners before publishing measured vocabulary cells or overlap counts for it.
+Membership updates do not require rescanning the record corpora. The September
+2026 vocabulary census covers all ten Mechs. TaxonMech joined it in #87: its
+625,960 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
+id, each carrying its lineage, so a higher taxon is counted once per record
+under it and TaxonMech's NCBITaxon cell dwarfs everyone else's. Its overlaps are
+what tie taxa to the rest of the fleet: most taxa that ProteinTraitsMech,
+HabitatMech, NaturalProductMech, CommunityMech, TraitMech, AntibioticMech,
+CellStructureMech and CultureMech cite are TaxonMech records. A new member
+needs a record glob in `roots.py` and a link route in `build_subsets.py` before
+its vocabulary can be measured.
+
+`build_subsets.py` scans ProteinTraitsMech and TaxonMech last and keeps only
+terms another Mech also cites, which is all an overlap needs. The proteins also
+keep every taxon they cite, so their overlap with TaxonMech is exact. TaxonMech
+record links use `pages/taxon.html?id=<identifier>`, which renders every taxon;
+the files under `pages/taxa/` are redirects kept for old URLs.
 
 Pipeline (from the site root, with the Mech checkouts available locally):
 
@@ -85,20 +95,20 @@ python3 scripts/fleet/mech_stats.py       # _fleet/data/mech_stats.json (needs g
 python3 scripts/fleet/assemble_page.py    # mechs.md
 ```
 
-The two scanning passes take about two minutes each, dominated by
-ProteinTraitsMech's ~430k records.
+The census takes about eight minutes and `build_subsets.py` longer, dominated by
+TaxonMech's ~626k and ProteinTraitsMech's ~430k records.
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
-CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, ProteinTraitsMech
-hash routes) and to the record's source file on GitHub for CultureMech,
+CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, TaxonMech's
+taxon.html route, ProteinTraitsMech hash routes) and to the record's source file on GitHub for CultureMech,
 MediaIngredientMech and NaturalProductMech in the existing census indexes,
 although CultureMech (`pages/media/`) and NaturalProductMech (`pages/<class>/`)
 now publish per-record pages. CommunityMech's four `data/isolates` records have no
 published page, so they get no record link and are left out of the record lists
 and overlaps; the census still counts them.
-NaturalProductMech and TaxonMech both publish browse sites linked from their
-cards; these links are separate from the historical census's record-link routes.
+TaxonMech's record links open its taxon pages. NaturalProductMech's browse site
+is linked from its card; the census still links its records to GitHub (#149).
 
 MIBiG and NPAtlas are carried through the whole pipeline alongside the
 ontologies, because they are how NaturalProductMech cites its corpus. MIBiG is a
@@ -163,7 +173,7 @@ execution and disabled cross-repository apply modes. Capability adoption must
 not be described as proof that those workflows execute unattended.
 
 The vocabulary census and overlap assets were rescanned at the same pinned
-revisions for the nine measured Mechs; TaxonMech remains outside the census.
+revisions, and TaxonMech was added to it (#87).
 The previous census's ProteinTraitsMech counts had been read from a checkout
 with uncommitted files: it reported 770,276 UniProt references where the
 revision the September 20 audit pinned (`700b6f7`) holds 657,598. The rescan's
