@@ -191,7 +191,7 @@ deployed by CultureMech's generate-pages workflow through GitHub Actions, while
 the site's Pages source is set to branch builds; a push to `main` outside the
 workflow's paths triggers a branch build that replaces the deployment. So all
 three appear and disappear: live on September 24, gone on September 25, when the
-browser loaded with no records (#175, #182). The fix is upstream, setting the
+browser never finished loading (#175, #182, #204). The fix is upstream, setting the
 Pages source to GitHub Actions (#172). `check_cards.py` therefore reads the
 committed README on `main`.
 
