@@ -188,10 +188,12 @@ seeded grounding source; NPAtlas is a cross-reference target only, since its
 licence bars ingestion into a CC BY 4.0 corpus.
 
 `prefix_census.py`'s prefix alternation is a hand-maintained list. Its `norm`
-table folds each spelling of a registry into one name: TaxonMech writes
+table folds each spelling of a registry found in the records into one name
+(measured by scanning every record at the #120 pins; a spelling adopted later
+is missed until someone looks again): TaxonMech writes
 lowercase bioregistry prefixes (`gold:`, `bacdive:`, `img.taxon:`), other Mechs
 the upper-case forms, and some qualify a registry by entity (`kegg.compound:`,
-`mediadive.medium:`). Until #84's fold those spellings went uncounted, 1.49
+`mediadive.medium:`). Until #84's fold (#244, #255) those spellings went uncounted, 1.49
 million GOLD and 556,160 BacDive identifiers in TaxonMech among them. Which
 namespaces to count at all is still open on #84, which has the measured
 inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred

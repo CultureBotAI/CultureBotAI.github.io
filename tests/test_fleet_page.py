@@ -321,7 +321,7 @@ class PrefixListTests(unittest.TestCase):
         constants = self.module_constants()
         # What the census can actually EMIT: every alternative in P after norm
         # is applied. Taking P plus norm's values instead would also accept the
-        # 15 raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
+        # raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
         # pubchem.compound and the rest — none of which ever appear as a key,
         # so a column named one of them would pass while rendering as zeros.
         def literal_prefix(p):
