@@ -369,7 +369,9 @@ def main() -> int:
               "in site_audit.json, the pages that repeat it), then rerun assemble_page.py; no re-pin. "
               "If figure_at_pin itself is wrong, re-derive it with build_site_audit.py against a "
               "snapshot at the audit's pins (update-xmech-page step 11); never edit it by hand. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
-              "UNCARDED: fix the card or its SOURCES entry. AUDIT: fix site_audit.json. "
+              "UNCARDED: fix the card or its SOURCES entry. AUDIT: regenerate site_audit.json with "
+              "build_site_audit.py against a snapshot at its pins (update-xmech-page steps 7 and "
+              "11), never by hand: its figure_at_pin and pin time are derived. "
               "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1
     if any(status in ("grew", "unread") for status, _, _ in rows):

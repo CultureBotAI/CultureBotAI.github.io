@@ -105,7 +105,8 @@ pins and CLAW's to `$SNAP/revisions.json` with the pin time, in the layout
 
 ```json
 {"pinned_at_utc": "2026-09-25T02:06:03+00:00",
- "mechs": {"<Mech name>": {"repo": "<repository>", "sha": "<40-hex sha>", "commit_date": "<ISO>"}},
+ "mechs": {"<Mech name>": {"repo": "<repository>", "sha": "<40-hex sha>",
+                           "commit_date": "<committer date with offset: git log -1 --format=%cI <sha>>"}},
  "claw": "<40-hex sha>"}
 ```
 

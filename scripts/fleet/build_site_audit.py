@@ -146,7 +146,11 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
 
 
 def utc(iso: str) -> str:
+    """A commit date with its offset, as UTC. One with no offset is refused: read
+    as local time it would shift by the machine's zone without a word (#274)."""
     moment = datetime.datetime.fromisoformat(iso.replace("Z", "+00:00"))
+    if moment.tzinfo is None:
+        raise SystemExit(f"revisions.json: commit_date {iso} has no offset")
     return moment.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 

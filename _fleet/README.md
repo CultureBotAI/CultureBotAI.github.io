@@ -59,7 +59,7 @@ remedy for each failing verdict (#235):
 
 - STALE or SHRANK: the card figures in `mechs_template.md` and the `MECHS` block
   in `fleet_fragment.html` need a full refresh, since the page is a snapshot.
-- WRONG: a card, or the audit's `figure_at_pin`, was mistyped. Correct the card
+- WRONG: a card differs from the figure its source stated at the pin. Correct the card
   and every other occurrence of its figure, found by grepping the tree for it as
   step 6 of the update skill does: the MECHS `records:` and `extra:` text in
   `fleet_fragment.html`, cross-references, `card_records` in `site_audit.json`
@@ -70,7 +70,10 @@ remedy for each failing verdict (#235):
   PR and in the nightly, which still runs the card check after a failed test
   step so its report prints (#239, #240).
 - GONE or CHANGED: a `SOURCES` entry needs repointing.
-- MARKUP, UNCARDED or AUDIT: fix the card markup, `SOURCES` or `site_audit.json`.
+- MARKUP or UNCARDED: fix the card markup or `SOURCES`.
+- AUDIT: regenerate `site_audit.json` with `build_site_audit.py` against a
+  snapshot at its pins (update skill steps 7 and 11); never edit it by hand, since
+  `figure_at_pin` and the pin time are derived (#273).
 - UNCHECKED: most sites could not be reached; rerun before changing anything.
 
 A new card needs a `SOURCES` entry; a test enforces that. The cards

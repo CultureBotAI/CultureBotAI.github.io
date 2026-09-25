@@ -825,8 +825,15 @@ class SiteAuditBuilderTests(unittest.TestCase):
         self.assertNotIn("site_figure_at_check", entry)
 
     def test_a_site_that_grew_keeps_the_pinned_card_and_says_so(self):
-        entry = self.entry(live=self.PAGE.replace(b"3,206", b"3,300"))
+        import hashlib
+        live = self.PAGE.replace(b"3,206", b"3,300")
+        entry = self.entry(live=live)
         self.assertEqual((entry["figure_at_pin"], entry["site_figure_at_check"]), (3206, 3300))
+        # #275: each hash is of its own copy, and the other fields come from the pin.
+        self.assertEqual(entry["site_html_sha256"], hashlib.sha256(live).hexdigest())
+        self.assertEqual(entry["site_html_sha256_at_pin"], hashlib.sha256(self.PAGE).hexdigest())
+        self.assertEqual(entry["readme_url"], f"https://github.com/CultureBotAI/HabitatMech/blob/{'a' * 40}/README.md")
+        self.assertEqual(entry["merged_prs"], 7)
         self.assertIn("had moved past the pin", entry["notes"])
         self.assertIn("showed 3,300", entry["notes"])
 
@@ -860,6 +867,9 @@ class SiteAuditBuilderTests(unittest.TestCase):
                                    lambda url: body if url.endswith(".json") else b"<html></html>",
                                    lambda path: body if path == "docs/data/ingredients.json" else None)
         self.assertEqual(entry["site"], "https://culturebotai.github.io/MediaIngredientMech/")
+        import hashlib  # #275: the page is hashed as the page, the data as the data
+        self.assertEqual(entry["site_html_sha256"], hashlib.sha256(b"<html></html>").hexdigest())
+        self.assertEqual(entry["data_sha256"], hashlib.sha256(body).hexdigest())
         self.assertEqual(entry["data_url"], "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json")
         self.assertEqual(entry["data_sha256"], entry["data_sha256_at_pin"])
         self.assertEqual(entry["figure_at_pin"], 3)
@@ -904,6 +914,30 @@ class SiteAuditBuilderTests(unittest.TestCase):
         self.assertEqual(habitat["figure_at_pin"], 3206)
         self.assertNotIn("figure_at_pin", proteins)
         self.assertIn("built in CI", proteins["notes"])
+
+    def test_local_date_is_the_machine_date_of_the_check(self):
+        # #275, #178: 03:00 UTC on the 26th is still the 25th in Los Angeles.
+        import time
+        saved = os.environ.get("TZ")
+        os.environ["TZ"] = "America/Los_Angeles"
+        time.tzset()
+        try:
+            audit = self.whole_build(now=datetime.datetime(2026, 9, 26, 3, 0, 5, 123456,
+                                                           tzinfo=datetime.timezone.utc))
+        finally:
+            if saved is None:
+                os.environ.pop("TZ", None)
+            else:
+                os.environ["TZ"] = saved
+            time.tzset()
+        self.assertEqual(audit["local_date"], "2026-09-25")
+        self.assertEqual(audit["checked_at_utc"], "2026-09-26T03:00:05+00:00")
+
+    def test_a_commit_date_without_an_offset_is_refused(self):
+        # #274: read as local time it would shift by the machine's zone.
+        self.assertEqual(self.b.utc("2026-09-25T03:40:32+02:00"), "2026-09-25T01:40:32Z")
+        with self.assertRaisesRegex(SystemExit, "no offset"):
+            self.b.utc("2026-09-25T03:40:32")
 
     def test_missing_notes_or_a_bad_pin_time_are_refused(self):
         # #267: name only what is missing, and the file that was read.
