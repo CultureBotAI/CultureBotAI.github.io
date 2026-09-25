@@ -586,8 +586,11 @@ class CardCheckTests(unittest.TestCase):
 
     def test_a_malformed_audit_is_an_audit_row_not_a_traceback(self):
         # #250: the other rows must still print.
-        for audit in ([], {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": [{"figure_at_pin": 1}]},
-                      {"pinned_at_utc": self.pinned_at.isoformat(), "repositories": "x"}):
+        pinned = self.pinned_at.isoformat()
+        for audit in ([], [1], {}, {"pinned_at_utc": pinned},  # #257, #259
+                      {"pinned_at_utc": pinned, "repositories": [{"figure_at_pin": 1}]},
+                      {"pinned_at_utc": pinned, "repositories": "x"},
+                      {"pinned_at_utc": pinned, "repositories": 5}):
             rows = self.check_cards.check(self.template(), self.fetch, audit, self.now)
             self.assertIn("AUDIT", [s for s, _, _ in rows], audit)
             self.assertEqual(sorted(m for s, m, _ in rows if s == "ok"), list(self.NAMES), audit)
@@ -737,13 +740,20 @@ class CardCheckTests(unittest.TestCase):
                 with contextlib.redirect_stdout(out):
                     self.assertEqual(self.check_cards.main(), 1)
                 remedy = out.getvalue().split("WRONG:", 1)[1].split(" GONE or CHANGED:", 1)[0]
-                self.assertIn("every copy", remedy)
-                self.assertIn("no re-pin", remedy)
+                for named in ("every other occurrence", "grepping the tree", "fleet_fragment.html",
+                              "extra:", "card_records", "no re-pin"):  # #248, #258, #259
+                    self.assertIn(named, remedy)
                 self.assertNotIn("update-xmech-page)", remedy)
                 self.at_pin["AMech"] = 1000
                 # AUDIT alone fails the run, and an unreadable file is AUDIT, not a traceback (#250).
                 audit.write_text("{not json")
                 self.assertEqual(self.check_cards.main(), 1)
+                for body in ("null", "{}", "[1]"):  # #257: none may pass as "no audit"
+                    audit.write_text(body)
+                    out = io.StringIO()
+                    with contextlib.redirect_stdout(out):
+                        self.assertEqual(self.check_cards.main(), 1, body)
+                    self.assertIn("AUDIT", out.getvalue(), body)
                 audit.unlink()
                 self.assertEqual(self.check_cards.main(), 1)
 

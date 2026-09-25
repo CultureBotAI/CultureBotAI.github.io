@@ -255,7 +255,9 @@ def audit_entries(audit) -> tuple[dict, str | None]:
     """The audit's repositories keyed by lower-cased name, or why they cannot be read."""
     if not isinstance(audit, dict):
         return {}, f"site_audit.json holds a {type(audit).__name__}, not an object"
-    repositories = audit.get("repositories", [])
+    if "repositories" not in audit:
+        return {}, "site_audit.json has no repositories list"  # #257
+    repositories = audit["repositories"]
     if not isinstance(repositories, list) or not all(
             isinstance(row, dict) and isinstance(row.get("repo"), str) for row in repositories):
         return {}, "site_audit.json: repositories must be a list of objects, each with a repo name"
@@ -278,7 +280,7 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
         rows.append(("AUDIT", "-", problem))
         audit = None
     age = None
-    if audit:
+    if audit is not None:  # {} too, so a missing pin time is reported (#257)
         try:
             age = now - pin_time(audit)
         except ValueError as error:
@@ -326,6 +328,11 @@ def main() -> int:
     audit, audit_error = None, None
     try:
         audit = json.loads(AUDIT.read_text())
+        if not isinstance(audit, dict):
+            # check() reads None as "no audit supplied", so a null file would
+            # otherwise pass silently (#257).
+            audit_error = f"site_audit.json holds {type(audit).__name__}, not an object"
+            audit = None
     except FileNotFoundError:
         audit_error = "site_audit.json is missing"
     except (OSError, ValueError) as error:
@@ -340,10 +347,11 @@ def main() -> int:
     if any(status in FAILURES for status, _, _ in rows):
         print("Failing. STALE or SHRANK: refresh the card figures in _fleet/mechs_template.md "
               "and the MECHS block in _fleet/fleet_fragment.html (update-xmech-page), then rerun "
-              "assemble_page.py. WRONG: correct the card and every copy of its figure (the MECHS "
-              "records in _fleet/fleet_fragment.html, card_records in site_audit.json and the pages "
-              "update-xmech-page step 6 lists), or the audit's figure_at_pin if that is what was "
-              "mistyped, then rerun assemble_page.py; no re-pin. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
+              "assemble_page.py. WRONG: correct the card and every other occurrence of its "
+              "figure, found by grepping the tree for it as update-xmech-page step 6 does (the MECHS "
+              "records: and extra: text in _fleet/fleet_fragment.html, cross-references, card_records "
+              "in site_audit.json, the pages that repeat it), or the audit's figure_at_pin if that is "
+              "what was mistyped, then rerun assemble_page.py; no re-pin. GONE or CHANGED: repoint that Mech's SOURCES entry. MARKUP or "
               "UNCARDED: fix the card or its SOURCES entry. AUDIT: fix site_audit.json. "
               "UNCHECKED: the run could not reach most sites; rerun before changing anything.")
         return 1
