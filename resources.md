@@ -165,7 +165,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink)
 
 2,951 curated ingredient records, 2,616 of them mapped (89% coverage), with LLM-assisted workflows for standardizing microbial cultivation ingredient data. Uses Large Language Models to intelligently map ingredient names to standardized ontology terms.
 
-**What it does**: Curates ingredient identity, ChEBI/FOODON mappings, ENVO environmental context, and provenance through validated workflows with human oversight. Scoped updates preserve MIM-owned curation; see the dedicated page for supported commands.
+**What it does**: Curates ingredient identity, ontology mappings (mostly ChEBI, then MeSH, CAS, NCIT, MicrO and FOODON), ENVO environmental context, and provenance through validated workflows with human oversight. Scoped updates preserve MIM-owned curation; see the dedicated page for supported commands.
 
 **→ [Learn more on the dedicated MediaIngredientMech page](/mediaingredientmech/)**
 

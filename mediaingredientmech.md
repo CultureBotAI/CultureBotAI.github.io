@@ -26,7 +26,7 @@ An ingredient record identifies a practical reagent or formulation used in media
 The current model includes:
 
 - **Ingredient records** with identifiers, synonyms, mapping status, and curation history.
-- **Ontology mappings** to ChEBI and FOODON, with quality ratings; the browser also exposes NCIT and CAS identifiers.
+- **Ontology mappings**, mostly to ChEBI, then MeSH, CAS, NCIT, MicrO, FOODON and ENVO, with quality ratings; about 230 mapped ingredients still carry kg-microbe placeholder ids awaiting promotion to an ontology term.
 - **Environmental context** linked to ENVO terms with relevance qualifiers.
 - **Curation events** that record provenance and LLM assistance.
 - **Component relationships** for ingredients made of other components, with evidence and validation.
