@@ -116,6 +116,8 @@
   .fleet-stage .hub-sub { font-size: 9px; fill: var(--muted); }
   .fleet-stage .node-label { font-size: 13px; font-weight: 700; }
   .fleet-stage .node-sub { font-size: 10.5px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+  /* A halo in the card colour keeps labels readable where cross-reference arcs pass behind them. */
+  .fleet-stage .node-label, .fleet-stage .node-sub { paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round; }
   .fleet-stage .node { cursor: pointer; }
   .fleet-stage a.node-link { outline: none; }
   .fleet-stage a.node-link:hover .node-label, .fleet-stage a.node-link:focus-visible .node-label { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
@@ -192,6 +194,7 @@
   .fleet-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; padding: .55rem 1rem; font-size: .78rem; color: var(--muted); border-top: 1px solid var(--line); }
   .fleet-legend i { display: inline-block; width: 26px; height: 0; margin-right: .4rem; vertical-align: middle; border-top: 3px solid var(--fleet-edge); }
   .fleet-legend i.x { border-top: 2px dashed var(--accent); }
+  .fleet-legend i.xw { border-top: 2px dotted var(--accent); opacity: .8; }
   .fleet-legend i.h { border-top: 2px solid var(--accent-2); }
   .fleet-legend i.g { border-top: 1.5px dashed var(--muted); }
 
@@ -365,7 +368,7 @@
 
 <div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -426,7 +429,8 @@
   <div class="fleet-legend">
     <span>shared identifiers, one chord per vocabulary (width = how many):</span>
     <span><i style="border-color:var(--voc-chebi)"></i>ChEBI</span><span><i style="border-color:var(--voc-ncbitaxon)"></i>NCBITaxon</span><span><i style="border-color:var(--voc-go)"></i>GO</span><span><i style="border-color:var(--voc-metpo)"></i>METPO</span><span><i style="border-color:var(--voc-envo)"></i>ENVO</span><span><i style="border-color:var(--voc-aro)"></i>ARO</span><span><i style="border-color:var(--voc-uniprot)"></i>UniProt</span><span><i style="border-color:var(--voc-doi)"></i>citations</span><span><i style="border-color:var(--voc-other)"></i>other</span>
-    <span><i class="x"></i>direct cross-reference (arrow = who consumes or is deferred to)</span>
+    <span><i class="x"></i>direct cross-reference in record data</span>
+    <span><i class="xw"></i>in a schema or curation practice (arrow = who consumes or is deferred to)</span>
     <span><i class="h"></i>export to / input from kg-microbe (dotted = namespace only)</span>
     <span><i class="g"></i>fleet manifest membership</span>
   </div>
@@ -458,9 +462,9 @@
   var XREFS = [
     { from: "HabitatMech", to: "TaxonMech", kind: "schema", what: "TaxonMech's causal-graph node types are the same 16 as HabitatMech's. A habitat node may be a HabitatMech or ENVO term, the schema declares the habitatmech: prefix, and TaxonMech's curation-event helper and closed-schema write gate are ported from HabitatMech's and CellStructureMech's; no TaxonMech record has a causal graph yet.", ev: "TaxonMech schema CausalNodeTypeEnum and prefixes; src/taxonmech/curate/curation_event.py, src/taxonmech/validation/write_validated.py", url: "https://github.com/CultureBotAI/TaxonMech/blob/main/src/taxonmech/schema/taxonmech.yaml" },
     { from: "HabitatMech", to: "CellStructureMech", kind: "practice", what: "CellStructureMech's curation-event helper and closed-schema write gate are ported from HabitatMech's modules of the same names, which HabitatMech had itself ported from TraitMech. 17 of CellStructureMech's writer scripts use both.", ev: "CellStructureMech src/cellstructuremech/curate/curation_event.py; validation/write_validated.py", url: "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/curate/curation_event.py" },
-    { from: "HabitatMech", to: "AntibioticMech", kind: "practice", what: "AntibioticMech's static-site generator is ported from HabitatMech's render_pages.py, including its paged category pages that filter through a JSON index, and its stylesheet is ported from HabitatMech's. Together they render AntibioticMech's whole browser.", ev: "AntibioticMech scripts/render_pages.py; src/antibioticmech/templates/style.css", url: "https://github.com/CultureBotAI/AntibioticMech/blob/main/scripts/render_pages.py" },
+    { from: "HabitatMech", to: "AntibioticMech", kind: "practice", what: "AntibioticMech's static-site generator is ported from HabitatMech's render_pages.py, including its paged category pages that filter through a JSON index, and its stylesheet is ported from HabitatMech's. Together they render AntibioticMech's whole browser. Its curation-event helper and closed-schema write gate are HabitatMech's copies as well; their docstrings still credit TraitMech, which HabitatMech ported them from.", ev: "AntibioticMech scripts/render_pages.py; src/antibioticmech/templates/style.css; src/antibioticmech/curate/curation_event.py", url: "https://github.com/CultureBotAI/AntibioticMech/blob/main/scripts/render_pages.py" },
     { from: "CommunityMech", to: "TraitMech", kind: "practice", what: "TraitMech's Edison deep-research runner and skill are ports of CommunityMech's research_community_edison.py and deep-research-community skill. Its METPO proposal skill takes CommunityMech's v1 proposal cohort as the worked example to follow, and keeps TraitMech's placeholder ID blocks clear of that cohort's.", ev: "TraitMech scripts/research_trait_edison.py; .claude/skills/deep-research-trait and metpo-proposal", url: "https://github.com/CultureBotAI/TraitMech/blob/main/scripts/research_trait_edison.py" },
-    { from: "CommunityMech", to: "MediaIngredientMech", kind: "data", what: "MediaIngredientMech imported 17 growth-media ingredient names that CommunityMech could not match to an existing ingredient. Each record keeps the name as a synonym from communitymech-unmapped and cites its CommunityMech source id (communitymech.ingredient:name). 10 records are still live; the other 7 were merged into existing records.", ev: "MIM data/ingredients (source communitymech-unmapped); CommunityMech reports/ingredient_mapping.csv", url: "https://github.com/CultureBotAI/MediaIngredientMech/blob/main/data/ingredients/mapped/Trace_Element_Solution_SL-10.yaml" },
+    { from: "CommunityMech", to: "MediaIngredientMech", kind: "data", what: "MediaIngredientMech imported 17 growth-media ingredient names that CommunityMech could not match to an existing ingredient. Each record keeps the name as a synonym from communitymech-unmapped and cites its CommunityMech source id (communitymech.ingredient:name). 10 records are still live; the other 7 were merged into existing records.", ev: "MIM data/ingredients (synonym source communitymech-unmapped)", url: "https://github.com/CultureBotAI/MediaIngredientMech/blob/main/data/ingredients/mapped/Trace_Element_Solution_SL-10.yaml" },
     { from: "CommunityMech", to: "CultureMech", kind: "data", what: "CultureMech turned CommunityMech growth media into recipes that keep their CommunityMech ids as provenance. It also backfilled recipe source environments from the ENVO terms of CommunityMech records that point at those recipes.", ev: "CultureMech scripts/import_from_communitymech.py, scripts/backfill_source_environment.py; schema SourceData.community_ids", url: "https://github.com/CultureBotAI/CultureMech/blob/main/scripts/import_from_communitymech.py" },
     { from: "TaxonMech", to: "HabitatMech", kind: "practice", what: "TaxonMech's curation rules leave a taxon's habitats and its strains' isolation sources to HabitatMech. A TaxonMech record keeps only source attestation counts, and none of its records carries habitat data.", ev: "TaxonMech docs/CURATION.md (record-scope table, Strains); README Known limitations", url: "https://github.com/CultureBotAI/TaxonMech/blob/main/docs/CURATION.md" },
     { from: "TaxonMech", to: "TraitMech", kind: "practice", what: "TaxonMech's curation rules leave the traits and phenotypes of a taxon or strain to TraitMech, so they are never TaxonMech records. A TaxonMech record keeps only a count of the Madin and BactoTraits trait assertions about the taxon, never the trait values.", ev: "TaxonMech docs/CURATION.md record table; README Known limitations", url: "https://github.com/CultureBotAI/TaxonMech/blob/main/docs/CURATION.md" },
@@ -472,16 +476,17 @@
     { from: "TraitMech", to: "ProteinTraitsMech", kind: "schema", what: "ProteinTraitsMech keeps a reviewed snapshot of TraitMech's TraitCategoryEnum. A CI audit that also fetches TraitMech's live schema reports a notice, never a failure, when the snapshot goes stale or when UPPER or OTHER, the only tokens both vocabularies use, is described differently (UPPER currently is). Its fallback history-record scaffolder is adapted from TraitMech's new_history_record.py.", ev: "ProteinTraitsMech conf/traitmech_category_vocabulary.yaml; scripts/audit_cross_mech_categories.py; scripts/new_history_record.py", url: "https://github.com/CultureBotAI/proteintraitsmech/blob/main/conf/traitmech_category_vocabulary.yaml" },
     { from: "TraitMech", to: "MediaIngredientMech", kind: "practice", what: "TraitMech leaves chemicals to MediaIngredientMech: its METPO seeder skips the material-entity subtree, which its docs say belongs in MIM rather than TraitMech. MIM's /ground-or-propose-ingredient curation command is ported from TraitMech's /ground-or-propose-metpo, re-aimed at chemical identity instead of phenotype.", ev: "TraitMech docs/SCHEMA.md, README.md, scripts/seed_from_metpo.py; MIM .claude/commands/ground-or-propose-ingredient.md (MIM#92)", url: "https://github.com/CultureBotAI/MediaIngredientMech/blob/main/.claude/commands/ground-or-propose-ingredient.md" },
     { from: "CellStructureMech", to: "TaxonMech", kind: "practice", what: "TaxonMech's closed-schema write gate and its curation-history helper are ported from CellStructureMech's modules, which the code credits jointly to HabitatMech and CellStructureMech. Every TaxonMech record is written through them.", ev: "TaxonMech src/taxonmech/validation/write_validated.py; src/taxonmech/curate/curation_event.py", url: "https://github.com/CultureBotAI/TaxonMech/blob/main/src/taxonmech/validation/write_validated.py" },
+    { from: "CellStructureMech", to: "TraitMech", kind: "practice", what: "CellStructureMech's scope rule leaves the phenotypes a structure confers, such as motile, flagellated or Gram-negative, to TraitMech. They are never CellStructureMech records, only associated_traits links to TraitMech or METPO terms.", ev: "CellStructureMech docs/CURATION.md (record-scope table); schema description", url: "https://github.com/CultureBotAI/CellStructureMech/blob/main/docs/CURATION.md" },
     { from: "CellStructureMech", to: "ProteinTraitsMech", kind: "practice", what: "CellStructureMech's scope rule makes a single protein or protein family a component of a structure, never a record of its own: it grounds to InterPro, Pfam or UniProtKB and is left to ProteinTraitsMech. The schema also declares a proteintraitsmech: prefix, but no record uses it.", ev: "CellStructureMech docs/CURATION.md; schema components slot", url: "https://github.com/CultureBotAI/CellStructureMech/blob/main/docs/CURATION.md" },
     { from: "ProteinTraitsMech", to: "TraitMech", kind: "practice", what: "TraitMech's download.yaml source catalogue follows the shape of ProteinTraitsMech's, and its check_sources.py validator is adapted from ProteinTraitsMech's. Unlike the original, it fails a source that records no licence.", ev: "TraitMech download.yaml; scripts/check_sources.py; justfile sources-check", url: "https://github.com/CultureBotAI/TraitMech/blob/main/download.yaml" },
     { from: "NaturalProductMech", to: "AntibioticMech", kind: "practice", what: "NaturalProductMech leaves antimicrobial mechanism to AntibioticMech. For the 205 compounds that share a structure with an AntibioticMech record, it links to that record and does not copy its targets, resistance determinants or MIC data.", ev: "NaturalProductMech schema molecular_targets; CLAUDE.md; docs/HARMONIZATION.md", url: "https://github.com/CultureBotAI/NaturalProductMech/blob/main/src/naturalproductmech/schema/naturalproductmech.yaml" },
     { from: "AntibioticMech", to: "CellStructureMech", kind: "practice", what: "CellStructureMech's source-queue skill, which ranks the sources in its curation/source_queue.tsv, is adapted from AntibioticMech's skill and keeps its ranking rule and adoption gate. Its stylesheet contract test is ported from AntibioticMech's.", ev: "CellStructureMech .claude/skills/source-queue/SKILL.md; tests/test_stylesheet_contract.py", url: "https://github.com/CultureBotAI/CellStructureMech/blob/main/.claude/skills/source-queue/SKILL.md" },
-    { from: "AntibioticMech", to: "NaturalProductMech", kind: "data", what: "NaturalProductMech pins AntibioticMech's structures in an InChIKey inventory. A natural product that shares an InChIKey with an AntibioticMech record links to it and takes its antimicrobial class, but not its targets or resistance data. NaturalProductMech also used AntibioticMech as its template: its source-queue, add-record, curate-record and review-issues skills are adapted from AntibioticMech's.", ev: "NaturalProductMech scripts/extract_antibioticmech.py; data/raw/antibioticmech_inchikeys.tsv; .claude/skills", url: "https://github.com/CultureBotAI/NaturalProductMech/blob/main/data/raw/antibioticmech_inchikeys.tsv" },
+    { from: "AntibioticMech", to: "NaturalProductMech", kind: "data", what: "NaturalProductMech pins AntibioticMech's structures in an InChIKey inventory. A natural product that shares an InChIKey with an AntibioticMech record links to it and takes its antimicrobial class, but not its targets or resistance data. NaturalProductMech also used AntibioticMech as its template: its source-queue, add-natural-product (from add-antibiotic), curate-yaml-record and review-open-issues skills, its curation-event helper and its closed-schema write gate are adapted from AntibioticMech's.", ev: "NaturalProductMech scripts/extract_antibioticmech.py; data/raw/antibioticmech_inchikeys.tsv; .claude/skills", url: "https://github.com/CultureBotAI/NaturalProductMech/blob/main/data/raw/antibioticmech_inchikeys.tsv" },
     { from: "MediaIngredientMech", to: "HabitatMech", kind: "practice", what: "HabitatMech's seeder checks the label claimed by each upstream kg-microbe isolation-source mapping and, following MediaIngredientMech's SSSOM Rule B4, accepts an exact ontology synonym as well as the canonical label. Per the code, the rule changes no current record.", ev: "HabitatMech src/habitatmech/seed.py verified_mapping_target; tests/test_seed_harmonization.py", url: "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/seed.py" },
     { from: "MediaIngredientMech", to: "CommunityMech", kind: "data", what: "CommunityMech growth-media components cite MIM ingredients by id (media_ingredient_mech_id), but they use MIM's retired MediaIngredientMech:NNNNNN scheme, so the ids no longer resolve. Its environment-matching tools read MIM's ingredient records and SSSOM mappings. They join on the exactMatch CHEBI term, which is what MIM's CURIE standard recommends; MIM wrote that standard for CommunityMech (MIM#119).", ev: "CommunityMech schema GrowthMediaComponent, src/communitymech/cross_repo_environment.py; MIM docs/CURIE_STANDARD.md", url: "https://github.com/CultureBotAI/CommunityMech/blob/main/src/communitymech/cross_repo_environment.py" },
     { from: "MediaIngredientMech", to: "TraitMech", kind: "practice", what: "TraitMech ported its write-time validation gate and curation-event helper from CultureMech by way of MediaIngredientMech's versions, and its composite qc target mirrors MIM's. Its FAPROTAX synonym script follows MIM's rule: correct the label and keep the raw string.", ev: "TraitMech src/traitmech/validation/write_validated.py; src/traitmech/curate/curation_event.py; justfile qc; scripts/add_faprotax_synonyms.py", url: "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/validation/write_validated.py" },
     { from: "MediaIngredientMech", to: "ProteinTraitsMech", kind: "practice", what: "ProteinTraitsMech's trait-merge rules, where only an exact identity match is merged and a similar name is only flagged for review, are adapted from MediaIngredientMech's same-ChEBI merge rule. Its oaklib version-pin test is ported from MediaIngredientMech's test of the same name.", ev: "ProteinTraitsMech .claude/skills/merge-traits/SKILL.md (just analyze-merges); tests/test_oaklib_semsql_pin.py", url: "https://github.com/CultureBotAI/proteintraitsmech/blob/main/.claude/skills/merge-traits/SKILL.md" },
-    { from: "MediaIngredientMech", to: "CultureMech", kind: "data", what: "About two-thirds of CultureMech recipes link each ingredient to its curated MIM record through mediaingredientmech_chebi_term, and older records keep legacy MediaIngredientMech:NNNNNN ids. CultureMech also resolves ingredient labels against a pinned copy of MIM's label index, types its role slots with MIM's vendored role enums and took over stock solutions from MIM's complex-media list, while MIM's schema leaves recipe bodies to CultureMech.", ev: "CultureMech schema mediaingredientmech_chebi_term, mim_roles.yaml; src/culturemech/ingredients/mim_label_index.py", url: "https://github.com/CultureBotAI/CultureMech/blob/main/src/culturemech/schema/culturemech.yaml" },
+    { from: "MediaIngredientMech", to: "CultureMech", kind: "data", what: "5,696 of CultureMech's 6,288 canonical media link ingredients to their curated MIM records through mediaingredientmech_chebi_term, about 70% of all ingredient rows, and older records keep legacy MediaIngredientMech:NNNNNN ids. CultureMech also resolves ingredient labels against a pinned copy of MIM's label index, types its role slots with MIM's vendored role enums and took over stock solutions from MIM's complex-media list, while MIM's schema leaves recipe bodies to CultureMech.", ev: "CultureMech schema mediaingredientmech_chebi_term, mim_roles.yaml; src/culturemech/ingredients/mim_label_index.py", url: "https://github.com/CultureBotAI/CultureMech/blob/main/src/culturemech/schema/culturemech.yaml" },
     { from: "CultureMech", to: "CommunityMech", kind: "data", what: "Community records name the CultureMech medium they were grown in, or an environment-matched one, by culturemech_id, and CommunityMech's media linker copies CultureMech recipe components into them. CommunityMech also ported CultureMech's schema-validated writer and its Edison deep-research runner.", ev: "CommunityMech schema GrowthMedia/RelatedMedia culturemech_id; scripts/link_growth_media.py; src/communitymech/validation/write_validated.py", url: "https://github.com/CultureBotAI/CommunityMech/blob/main/src/communitymech/schema/communitymech.yaml" },
     { from: "CultureMech", to: "TraitMech", kind: "practice", what: "TraitMech's curation-history helper and its schema-validated YAML writer are ports of CultureMech's, by way of MediaIngredientMech's versions, and nearly every TraitMech write script goes through them. TraitMech's qc recipe also mirrors CultureMech's.", ev: "TraitMech src/traitmech/curate/curation_event.py; src/traitmech/validation/write_validated.py", url: "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/curate/curation_event.py" },
     { from: "CultureMech", to: "MediaIngredientMech", kind: "data", what: "MIM reads CultureMech's ingredient-occurrence table to set each record's occurrence counts, to publish a recipe-membership edge list keyed on CultureMech:NNNNNN ids, and to turn labels it cannot resolve into new records and synonyms. CultureMech leaves questions about an ingredient's chemical form to MIM, and MIM's validated record writer and curation-event helper are ported from CultureMech.", ev: "MIM mappings/culturemech_recipe_membership.tsv, scripts/refresh_occurrence_statistics.py; CultureMech docs/DATA_LAYERS.md", url: "https://github.com/CultureBotAI/MediaIngredientMech/blob/main/scripts/build_culturemech_membership.py" }
@@ -513,6 +518,7 @@
   var VOCS = ["CHEBI", "NCBITaxon", "GO", "METPO", "ENVO", "ARO", "UniProt", "DOI"];
   var VOC_LABEL = { CHEBI: "ChEBI", NCBITaxon: "NCBITaxon", GO: "GO", METPO: "METPO", ENVO: "ENVO", ARO: "ARO", UniProt: "UniProt", DOI: "citations", other: "other vocabularies" };
   var W = 900, H = 760, CX = 450, CY = 372, R = 262;
+  var HUB_R = 46;   // declared here because the cross-reference arcs are routed before the hub is drawn
   var pos = {};
   order.forEach(function (m, i) {
     var a = -Math.PI / 2 + i * (2 * Math.PI / N);
@@ -541,6 +547,67 @@
     function tow(fx, fy, tx, ty, r) { var ddx = tx - fx, ddy = ty - fy, dd = Math.hypot(ddx, ddy); return [fx + ddx / dd * r, fy + ddy / dd * r]; }
     var s = tow(p.x, p.y, cx, cy, ra || 0), e = tow(q.x, q.y, cx, cy, rb || 0);
     return "M" + s[0] + "," + s[1] + " Q" + cx + "," + cy + " " + e[0] + "," + e[1];
+  }
+
+  // Cross-reference arcs. Pulling the control point away from the chord midpoint
+  // (curve() above) fails for opposite nodes, whose midpoint is the hub, and lets
+  // short arcs dip under their neighbours. So an arc first tries to run outside the
+  // ring: its control point sits on the bisector of the two node angles, the shorter
+  // way round, and moves outward until the curve clears every other node, but no
+  // further than the canvas allows. If that fails, as it always does for opposite
+  // nodes, the arc bows sideways through the interior, around the hub. The second
+  // arrow of a reverse pair starts one lane wider, or takes the other side inside.
+  function arcPath(p, q, c, ra, rb) {
+    function tow(fx, fy, tx, ty, r) { var ddx = tx - fx, ddy = ty - fy, dd = Math.hypot(ddx, ddy); return [fx + ddx / dd * r, fy + ddy / dd * r]; }
+    var s0 = tow(p.x, p.y, c[0], c[1], ra), e0 = tow(q.x, q.y, c[0], c[1], rb);
+    return "M" + s0[0] + "," + s0[1] + " Q" + c[0] + "," + c[1] + " " + e0[0] + "," + e0[1];
+  }
+  function arcClears(a, b, c, inside) {
+    var p = pos[a], q = pos[b];
+    for (var t = 0.04; t < 0.97; t += 0.03) {
+      var u = 1 - t, x = u * u * p.x + 2 * u * t * c[0] + t * t * q.x, y = u * u * p.y + 2 * u * t * c[1] + t * t * q.y;
+      if (x < 8 || x > W - 8 || y < 8 || y > H - 8) return false;
+      var fromHub = Math.hypot(x - CX, y - CY);
+      if (inside ? fromHub < HUB_R + 22 : fromHub < R - 30) return false;
+      for (var i = 0; i < order.length; i++) {
+        var o = order[i];
+        if (o !== a && o !== b && Math.hypot(x - pos[o].x, y - pos[o].y) < radius(o) + 10) return false;
+      }
+    }
+    return true;
+  }
+  function arcControl(a, b, lane, laneBase) {
+    var p = pos[a], q = pos[b], diff = q.a - p.a;
+    while (diff > Math.PI) diff -= 2 * Math.PI;
+    while (diff < -Math.PI) diff += 2 * Math.PI;
+    var mid = p.a + diff / 2, half = Math.abs(diff) / 2;
+    if (Math.abs(half - Math.PI / 2) > 1e-6) {
+      for (var m = laneBase; m <= 84; m += 6) {
+        var rc = 2 * (R + m) - R * Math.cos(half);     // puts the curve's apex at R + m
+        var c = [CX + rc * Math.cos(mid), CY + rc * Math.sin(mid)];
+        if (arcClears(a, b, c, false)) return { c: c, m: m };
+      }
+    }
+    // Interior route: bow sideways from the chord, on the lane's side, clear of the hub.
+    var mx = (p.x + q.x) / 2, my = (p.y + q.y) / 2, dx = q.x - p.x, dy = q.y - p.y, d = Math.hypot(dx, dy);
+    // The normal is taken from the pair in a fixed order, so swapping the ends of a
+    // reverse pair does not flip it and the two arrows really take opposite sides.
+    var flip = a < b ? 1 : -1, nx = -dy / d * flip, ny = dx / d * flip, side = lane ? -1 : 1;
+    for (var k = 140; k <= 420; k += 20) {
+      for (var sgn = 0; sgn < 2; sgn++) {
+        var sd = sgn ? -side : side, c2 = [mx + nx * k * sd, my + ny * k * sd];
+        if (arcClears(a, b, c2, true)) return { c: c2, m: null };
+      }
+    }
+    return { c: [mx + nx * 180 * side, my + ny * 180 * side], m: null };
+  }
+  var arcLanes = {};
+  function arcOut(a, b, lane, ra, rb) {
+    var key = [a, b].sort().join("|"), prior = arcLanes[key];
+    var base = lane && prior && prior.m !== null ? prior.m + 20 : 18;
+    var got = arcControl(a, b, lane, base);
+    if (!lane) arcLanes[key] = got;
+    return arcPath(pos[a], pos[b], got.c, ra, rb);
   }
 
   var svg = document.getElementById("fleet-svg");
@@ -591,7 +658,7 @@
   // ---- Cross-reference arcs ----
   var xrefEls = XREFS.map(function (x, i) {
     var reverse = XREFS.some(function (y, j) { return j < i && y.from === x.to && y.to === x.from; });
-    var d = curve(x.from, x.to, reverse ? -0.62 : -0.38, 0, radius(x.from) + 3, radius(x.to) + 5);
+    var d = arcOut(x.from, x.to, reverse ? 1 : 0, radius(x.from) + 3, radius(x.to) + 5);
     var path = el("path", { "class": "edge xref" + (x.kind === "data" ? "" : " weak"), d: d, "marker-end": "url(#fleet-arrow)", tabindex: 0, role: "button", "aria-label": x.from + " to " + x.to + ": " + x.what }, gXrefs);
     var hit = el("path", { "class": "edge hit", d: d }, gXrefs);
     path.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectXref(rec); } });
@@ -605,7 +672,7 @@
   });
 
   // ---- Hub and spokes ----
-  var hubR = 46;
+  var hubR = HUB_R;
   var hubEls = HUB.map(function (h) {
     var p = pos[h.mech], dx = CX - p.x, dy = CY - p.y, d = Math.hypot(dx, dy);
     var ux = dx / d, uy = dy / d, off = h.dir === "out" ? 6 : -6;
@@ -721,7 +788,7 @@
     detail.innerHTML =
       '<div><p class="eyebrow">Reading the graph</p><h3 style="color:var(--ink)">' + N + ' views of one microbe</h3>' +
       '<p>Clockwise from the top the ring walks from the environment a microbe lives in to the medium it is grown in: habitat, community, taxon identity, traits, cell structures, proteins, natural products, antibiotics, ingredients, media. A culture medium is a synthetic habitat, so the ring closes.</p>' +
-      '<p>Dashed arcs outside the ring are direct cross-references, where one Mech\'s records, schema or curation practice name another; spokes tie each Mech to the central kg-microbe graph. Turn on the shared-vocabulary layer to see one colored chord per ontology that two measured Mechs both cite. The September 2026 census covers <!--FLEET_CENSUS_COVERAGE-->; TaxonMech shares taxon identifiers with most of the others. Hover a node for its detail and click it to open that Mech; click a chord, arc or spoke to see what it carries and to jump to the matching records.</p></div>' +
+      '<p>Arcs outside the ring are direct cross-references, where one Mech\'s records, schema or curation practice name another, dashed for record data and dotted for schema or practice; spokes tie each Mech to the central kg-microbe graph. Turn on the shared-vocabulary layer to see one colored chord per ontology that two measured Mechs both cite. The September 2026 census covers <!--FLEET_CENSUS_COVERAGE-->; TaxonMech shares taxon identifiers with most of the others. Hover a node for its detail and click it to open that Mech; click a chord, arc or spoke to see what it carries and to jump to the matching records.</p></div>' +
       '<div><p class="eyebrow">Strongest shared vocabulary' + (state.voc ? ' (' + esc(state.voc) + ')' : '') + '</p>' + strongest() + '</div>';
   }
   function selectNode(m) {

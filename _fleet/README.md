@@ -54,6 +54,33 @@ python3 scripts/fleet/refresh_manifest.py --claw-root /path/to/culturebotai-claw
 python3 scripts/fleet/assemble_page.py --check
 ```
 
+## Cross-reference arrows
+
+`XREFS` in `fleet_fragment.html` and the "How the Mechs reference each other" list
+in `mechs_template.md` hold the same entries, one per ordered pair, and the graph
+draws each as an arrow pointing at the Mech that consumes, or at the one a scope
+decision defers to. An arrow needs an implemented, committed reference: a record
+field or id in the other Mech's namespace, a schema slot, enum or prefix naming it,
+a vendored snapshot of its data or vocabulary, code that reads its repository,
+data or site, a scope rule in its docs handing a concept over, or a practice
+credited to it in the file that implements it. Rules that have come up:
+
+- Shared ontology identifiers are the vocabulary layer, not arrows; that is how
+  taxa tie TaxonMech to the fleet.
+- Family navigation, sibling lists, and files vendored from culturebotai-claw into
+  every Mech do not count. Neither does a fleet contract rolled out from claw,
+  even where a Mech's copy names the others as prior art (#157).
+- A credit that exists only in a changelog, a commit message or a plan does not
+  count (#161).
+- Code ported along a chain gets an arrow from the immediate source, judged by
+  the code rather than an inherited docstring: AntibioticMech's helpers say
+  "Ported from TraitMech's" but match HabitatMech's copies, so the credit sits on
+  HabitatMech to AntibioticMech (#159).
+
+The last full sweep, over records, schemas, scripts, config, vendored data,
+curation decisions, docs and site generators in all ten repositories at the
+pins, found 30 arrows.
+
 ## Vocabulary census updates
 
 Membership updates do not require rescanning the record corpora. The September

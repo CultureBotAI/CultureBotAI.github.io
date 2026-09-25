@@ -92,6 +92,18 @@ class FleetPageTests(unittest.TestCase):
         self.assertTrue(description.group(1).isupper(),
                         f"description opens with {description.group(1)!r}, not a capital")
 
+    def test_census_coverage_reads_as_a_fraction_while_a_member_is_unmeasured(self):
+        # The page said "nine of the ten Mechs" until TaxonMech was measured (#87);
+        # the same wording has to come back if a member ever drops out (#171).
+        self.census.pop("TaxonMech")
+        self.data["order"].remove("TaxonMech")
+        self.data["heat"].pop("TaxonMech")
+        self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
+        self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
+        page = self.render()
+        self.assertIn("census covers nine of the ten Mechs", page)
+        self.assertNotIn("all ten Mechs", page)
+
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
         self.assertEqual(number_word(9), 'nine')
         self.assertEqual(number_word(10), 'ten')
@@ -572,6 +584,17 @@ class SubsetDeterminismTests(unittest.TestCase):
         done = subprocess.run([sys.executable, "-c", driver], env=env, capture_output=True, text=True, timeout=120)
         self.assertEqual(done.returncode, 0, done.stderr[-2000:])
         return {str(p.relative_to(out)): p.read_bytes() for p in sorted(out.rglob("*.json"))}
+
+    def test_a_folded_label_is_read_whole(self):
+        # YAML folds a long label onto indented continuation lines; the record
+        # link used to carry only the first line (#165).
+        tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        self.build_fixture(tmp / "mechs")
+        folder = tmp / "mechs" / "TaxonMech" / roots._record_dirs("TaxonMech")[0]
+        (folder / "folded.yaml").write_text("identifier: NCBITaxon:4\nlabel: Bacterium with a name long enough\n  to fold onto a second line\nterms: " + self.SHARED + "\n")
+        run = self.run_once(tmp / "mechs", tmp / "run", 1)
+        cells = run["fleet/cells/TaxonMech--NCBITaxon.json"].decode()
+        self.assertIn("Bacterium with a name long enough to fold onto a second line", cells)
 
     def test_output_does_not_depend_on_the_hash_seed(self):
         tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)

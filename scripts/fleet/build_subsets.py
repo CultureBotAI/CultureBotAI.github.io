@@ -46,7 +46,7 @@ rx=re.compile(r"\b(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|
 STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
-AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
+AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
 def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
@@ -102,13 +102,18 @@ def slug_for(m, f, doc_id, doc_label=""):
     return None
 def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
     """Return per-mech index: term -> [(slug,label)], prefix -> (count, first refs), term labels votes."""
-    cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); nfiles=0; nolink=0
+    cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); own={}; nfiles=0; nolink=0
     for f in record_paths(m):
         txt=read_record(f)
         nfiles+=1
         head=txt[:4000]
         mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M); doc_id=mid.group(1).strip("'\"") if mid else ""
-        ml=re.search(r"^(?:label|preferred_term|display_name|title|name)\s*:\s*(.+)$",head,flags=re.M); doc_label=unq(ml.group(1)) if ml else os.path.basename(f)[:-5]
+        # A long label can be folded onto indented continuation lines; read them all
+        # rather than stopping at the first line (#165).
+        ml=re.search(r"^(?:label|preferred_term|display_name|title|name)\s*:\s*(.+(?:\n[ \t]+(?![\w-]+\s*:)(?!-\s)\S.*)*)$",head,flags=re.M)
+        doc_label=unq(" ".join(part.strip() for part in ml.group(1).split("\n"))) if ml else os.path.basename(f)[:-5]
+        # A TaxonMech record's own label names the taxon it is keyed by (#163).
+        if m=="TaxonMech" and doc_id and ml: own[doc_id]=doc_label
         slug=slug_for(m,f,doc_id,doc_label)
         if slug is None: nolink+=1; continue
         assert re.fullmatch(r"[A-Za-z0-9_.~%\-/]+",slug), (m,slug)
@@ -152,7 +157,7 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
                                 if v and not v.startswith("http") and "#" not in v: votes[t][v]+=1
                                 break
     print(m,"files",nfiles,"unlinked",nolink,"terms",len(terms),flush=True)
-    return dict(terms=terms,cells=cells,votes=votes)
+    return dict(terms=terms,cells=cells,votes=votes,own=own)
 def main():
     prepare()
     # Recorded like the census's, so a test can check both passes read the same
@@ -175,8 +180,12 @@ def main():
     # labels
     labels={}
     allterms=set().union(*[set(idx[m]["terms"]) for m in ORDER])
+    taxon_own=idx["TaxonMech"]["own"]
     for t in allterms:
         p=t.split(":")[0]
+        # A taxon TaxonMech keys a record by takes that record's label: other Mechs
+        # spell taxa variously, and a split vote otherwise left the term unnamed (#163).
+        if t in taxon_own: labels[t]=taxon_own[t]; continue
         c=strict.get(t)
         if c:
             l,n=c.most_common(1)[0]
@@ -211,7 +220,11 @@ def main():
         by=dict(sorted(byp.items(), key=lambda kv:(-kv[1], kv[0])))
         doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":by,"terms":rows}
         fn=f"{a}--{b}.json"; json.dump(doc,open(f"{OUT}/edges/{fn}","w"),separators=(",",":"),ensure_ascii=False)
-        summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":by,"ex":[{"id":r["id"],"label":r["l"]} for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION][:3]}
+        ex=[r for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION]
+        # A TaxonMech overlap also holds higher taxa that appear only in lineages, and
+        # they sort first by record count. Show taxa TaxonMech has records for (#164).
+        if "TaxonMech" in (a,b): ex.sort(key=lambda r: r["id"] not in taxon_own)
+        summary["edges"][f"{a}|{b}"]={"n":len(shared),"by":by,"ex":[{"id":r["id"],"label":r["l"]} for r in ex][:3]}
         print("edge",a,b,len(shared),os.path.getsize(f"{OUT}/edges/{fn}")//1024,"KB")
     for m in ORDER:
         # Sorted for the same reason: cells are keyed in the order a set of

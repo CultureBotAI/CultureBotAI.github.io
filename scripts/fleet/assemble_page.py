@@ -115,8 +115,8 @@ def assemble(template, fragment, data, snapshot, stats, census):
     counts = fleet_records(template)
     if len(counts) != len(names):
         raise ValueError("Every Mech card must carry a record count")
-    # The census measures fewer members than the fleet has, so its vocabulary
-    # tally is labelled as the dated census on the page rather than as current.
+    # The census is a dated scan, so its vocabulary tally is labelled with its own
+    # run date rather than as current, and its coverage is stated below.
     # Keys beginning with an underscore are the scan's own metadata, not Mechs.
     # Read rather than pop: assemble() is handed a parsed document and must not
     # consume it, or a second call with the same object fails (#81).

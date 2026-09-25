@@ -218,7 +218,7 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 
 **What it does**: Gives the fleet one record per habitat concept, so that isolation sources expressed differently by each upstream database resolve to a single identity.
 
-**Related**: Grounds GOLD's culture-media habitat to BTO:0000316 culture medium and points to [CultureMech](/culturemech/) for related curation.
+**Related**: Its causal graphs reuse most of [TraitMech](https://culturebotai.github.io/TraitMech/)'s node types; TaxonMech leaves a taxon's habitats and isolation sources to it; its site generator became AntibioticMech's. See the [relationship graph](/mechs/#fleet-graph).
 
 ---
 
@@ -246,6 +246,8 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 625,960 taxon records at species level and below, with 100,745 distinct listed strains, resolving NCBI Taxonomy, GTDB, LPSN and BacDive onto one NCBI-grounded identity.
 
 **What it does**: Serves as the taxonomic counterpart of the other Mechs. Its 21,071 listed strains with genome links carry NCBI, GTDB, BV-BRC/PATRIC, IMG or AllTheBacteria identifiers; taxon pages also show StrainInfo references and the supporting evidence. Higher taxa appear only in a record's lineage, never as records of their own.
+
+**Related**: Leaves a taxon's traits to [TraitMech](https://culturebotai.github.io/TraitMech/), its habitats to [HabitatMech](https://culturebotai.github.io/HabitatMech/) and its growth media to [CultureMech](/culturemech/), keeping only attestation counts. Most taxa the other Mechs cite are TaxonMech records, which the [relationship graph](/mechs/#fleet-graph) shows as shared NCBI Taxonomy identifiers.
 
 ---
 
