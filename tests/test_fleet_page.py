@@ -412,8 +412,9 @@ class CardSourceTests(unittest.TestCase):
         # here rather than turning into a silent "unread" at night (#177, #183).
         import check_cards
         kind, path, selector = check_cards.SOURCES["CultureMech"]
+        # The whole URL, not a prefix: a typo in the branch or file name also 404s (#189).
+        self.assertEqual(path, "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md")
         self.assertEqual(check_cards.source_url(path), path)
-        self.assertTrue(path.startswith("https://raw.githubusercontent.com/CultureBotAI/CultureMech/"), path)
         line = "The tracked corpus currently contains **15,878 normalized records** and **6,288 merged records**."
         self.assertEqual(check_cards.published(kind, line, selector), 6288)
         # The number alone in bold, or the line wrapped, must still read.

@@ -83,8 +83,9 @@ Before quoting any figure, say which it is:
 | **local-checkout count** | `record_paths()` over `MECHS_ROOT` | `prefix_census.py` / `mech_stats.py` |
 | **census/heatmap count** | `_fleet/data/prefix_census.json` | the full pipeline |
 
-They legitimately disagree. CultureMech publishes 6,288 merged canonical media
-and serves 15,878 normalized records from the same site. CommunityMech's hero
+They legitimately disagree. CultureMech's README reports 6,288 merged canonical media
+and 15,878 normalized records; its browser serves the normalized ones only while
+its Actions deployment is live (#175). CommunityMech's hero
 counts `kb/communities` only while the fleet glob also takes `data/isolates`, so
 the site is permanently four below the fleet number. A local checkout can be
 twenty commits behind its remote.
