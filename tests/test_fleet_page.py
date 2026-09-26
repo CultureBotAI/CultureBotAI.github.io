@@ -321,14 +321,17 @@ class PrefixListTests(unittest.TestCase):
         constants = self.module_constants()
         # What the census can actually EMIT: every alternative in P after norm
         # is applied. Taking P plus norm's values instead would also accept the
-        # 15 raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
+        # raw spellings norm exists to fold away — UniProtKB, IPR, mesh,
         # pubchem.compound and the rest — none of which ever appear as a key,
         # so a column named one of them would pass while rendering as zeros.
         def literal_prefix(p):
-            return p.replace("\\.", ".")  # the regex escapes dots
+            # The regex escapes dots and hyphens; a leftover backslash would
+            # name a prefix the census can never emit and skip norm (#280).
+            return re.sub(r"\\(.)", r"\1", p)
         norm = constants["norm"]
-        self.census = {norm.get(literal_prefix(p), literal_prefix(p))
-                       for p in constants["P"].split("|")}
+        self.alternatives = [literal_prefix(p) for p in constants["P"].split("|")]
+        self.norm = norm
+        self.census = {norm.get(p, p) for p in self.alternatives}
         # Imported, not parsed out of the source. Until #97 both modules did
         # their work at import — build_subsets resolved every checkout and
         # build_data read and rewrote fleet_data.json — so the lists had to be
@@ -352,6 +355,21 @@ class PrefixListTests(unittest.TestCase):
                 "could not read prefix_census's constants; it does work at import "
                 f"(#95):\n{done.stderr}")
         return json.loads(done.stdout)
+
+    def test_the_page_filter_knows_every_term_space_the_subsets_write(self):
+        # #284: a column filter such as "PDB:" must find PDB-CCD terms, so the
+        # page's TERM_COLUMN has to match build_subsets.COLUMN_OF.
+        import build_subsets
+        fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
+        page = dict(re.findall(r'"([A-Z-]+)":\s*"([A-Za-z]+)"', fragment.split("var TERM_COLUMN = {", 1)[1].split("}", 1)[0]))
+        self.assertEqual(page, build_subsets.COLUMN_OF)
+        self.assertEqual(set(build_subsets.TERM_SPACE.values()), set(build_subsets.COLUMN_OF))
+
+    def test_every_prefix_alternative_is_literal_and_every_fold_is_reachable(self):
+        # #280: no alternative keeps a regex escape, and every norm key is a
+        # spelling the census actually matches, so no fold is dead.
+        self.assertEqual([p for p in self.alternatives if "\\" in p], [])
+        self.assertEqual(sorted(set(self.norm) - set(self.alternatives)), [])
 
     def test_every_heatmap_column_is_a_vocabulary_the_census_counts(self):
         # A column the census never counts renders as a stripe of zeros.

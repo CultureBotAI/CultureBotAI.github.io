@@ -187,11 +187,30 @@ ontologies, because they are how NaturalProductMech cites its corpus. MIBiG is a
 seeded grounding source; NPAtlas is a cross-reference target only, since its
 licence bars ingestion into a CC BY 4.0 corpus.
 
-`prefix_census.py`'s prefix alternation is a hand-maintained list and is known to
-be incomplete: TOGO, UTEX and CCAP are absent although comparable registries
-(MediaDive, DSMZ, ATCC, GOLD) are present. TOGO is CultureMech's second-largest
-structured namespace at 2,833 occurrences, so the heatmap currently understates
-it. Adding a prefix changes the heatmap's columns, so it needs a full rescan.
+`prefix_census.py`'s prefix alternation is a hand-maintained list. Its `norm`
+table folds every namespace named for or qualified by a counted registry into
+that registry: case and alternate names (`gold:` and `GOLD:`, `SwissProt:` and
+`UniProt:`, `TAXON:` and `NCBITaxon:`, `CAS-RN:` and `CAS:`, `TC:` and `TCDB:`), and entity-qualified
+namespaces (`kegg.compound:`, `mediadive.medium:`, `gtdb.genome:`,
+`uniprot.location:`, `RHEA-COMP:`), as `gold.ecosystem` and `pubchem.compound`
+always did (#271). Reference and curator collections named for a registry are
+not its terms and stay out: `GO_REF:` and `PO_REF:` are literature-like (#84
+lists GO_REF as a CITATION candidate), and `GOC:` is curator attribution, which
+#84 proposes never to count (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
+TaxonMech most heavily (#279). The list was measured by scanning every record at the
+#120 pins with a pattern allowing dots, underscores and hyphens; a spelling a
+Mech adopts later is missed until someone scans again. Until #84's fold (#244,
+#255, #270) those spellings went uncounted, 1.49 million GOLD and 556,160 BacDive
+identifiers in TaxonMech among them. `build_subsets.py` folds the same spellings
+for heatmap columns. Rhea compounds, whose ids share values with Rhea reactions,
+and PDB ligand codes, a different kind of identifier from entries, keep their own
+term keys, so an overlap never pairs a compound with a reaction or shows a
+ligand as an entry. Which
+namespaces to count at all is still open on #84, which has the measured
+inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred
+more are cited but not counted. Adding a prefix to the census does not add a
+heatmap column (`build_data.VOC` decides those, and `PrefixListTests` keeps the
+lists consistent), but it changes the vocabulary tile and needs a full rescan.
 
 ## Published-site refresh (September 24, 2026)
 
