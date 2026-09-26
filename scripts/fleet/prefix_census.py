@@ -19,9 +19,10 @@ from roots import ORDER, read_record, record_paths, revision, unchanged
 # SwissProt:, UniProt:; TAXON:, NCBITaxon:; CAS-RN:, CAS:; TC:, TCDB:) and
 # entity-qualified namespaces (kegg.compound:, gold.ecosystem:, gtdb.genome:,
 # uniprot.location:, RHEA-COMP:), as gold.ecosystem and pubchem.compound always
-# did. Reference and curator collections named for a registry (GO_REF:, PO_REF:,
-# GOC:) are not the registry's terms and stay out; #84 classes them with
-# literature. Mechs mix lowercase bioregistry spellings with upper-case ones,
+# did. Reference and curator collections named for a registry are not its terms
+# and stay out: GO_REF: and PO_REF: are literature-like (#84 lists GO_REF as a
+# CITATION candidate), and GOC: is curator attribution, which #84 proposes never
+# to count (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
 # TaxonMech most heavily, so a registry was counted under one spelling and
 # dropped under another (#279). The
 # spellings here were measured by scanning every record at the #120 pins with a

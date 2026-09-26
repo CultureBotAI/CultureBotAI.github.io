@@ -193,9 +193,10 @@ that registry: case and alternate names (`gold:` and `GOLD:`, `SwissProt:` and
 `UniProt:`, `TAXON:` and `NCBITaxon:`, `CAS-RN:` and `CAS:`, `TC:` and `TCDB:`), and entity-qualified
 namespaces (`kegg.compound:`, `mediadive.medium:`, `gtdb.genome:`,
 `uniprot.location:`, `RHEA-COMP:`), as `gold.ecosystem` and `pubchem.compound`
-always did (#271). Reference and curator collections named for a registry
-(`GO_REF:`, `PO_REF:`, `GOC:`) are not its terms and stay out; #84 classes them
-with literature. Mechs mix lowercase bioregistry spellings with upper-case ones,
+always did (#271). Reference and curator collections named for a registry are
+not its terms and stay out: `GO_REF:` and `PO_REF:` are literature-like (#84
+lists GO_REF as a CITATION candidate), and `GOC:` is curator attribution, which
+#84 proposes never to count (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
 TaxonMech most heavily (#279). The list was measured by scanning every record at the
 #120 pins with a pattern allowing dots, underscores and hyphens; a spelling a
 Mech adopts later is missed until someone scans again. Until #84's fold (#244,
