@@ -55,6 +55,7 @@ NORM={"mibig":"MIBiG","npatlas":"NPAtlas","UniProtKB":"UniProt","PFAM":"Pfam","I
 # different kind of thing, so they keep a key of their own too and an overlap
 # never shows a ligand as an entry.
 TERM_SPACE={"RHEA-COMP":"RHEA-COMP","pdb.ligand":"PDB-CCD","pdb-ccd":"PDB-CCD"}
+# _fleet/fleet_fragment.html repeats this map as TERM_COLUMN for its term filter (#284).
 COLUMN_OF={"RHEA-COMP":"RHEA","PDB-CCD":"PDB"}
 def column(term): p=term.split(":")[0]; return COLUMN_OF.get(p,p)
 rx=re.compile(r"\b(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|PDB|BTO|GTDB|mibig|MIBiG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")

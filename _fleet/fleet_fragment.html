@@ -824,9 +824,16 @@
     if (more > refs.length) out += ' <em>+' + fmt(more - refs.length) + ' more</em>';
     return out;
   }
+  // Term keys that count toward another column (build_subsets TERM_SPACE): a
+  // column filter such as "PDB:" must still find PDB-CCD ligand codes (#284).
+  var TERM_COLUMN = { "PDB-CCD": "PDB", "RHEA-COMP": "RHEA" };
+  function termText(t) {
+    var column = TERM_COLUMN[t.id.split(":")[0]];
+    return (t.id + " " + t.l + (column ? " " + column + ":" : "")).toLowerCase();
+  }
   function renderTermList(box, doc) {
     var q = (box.querySelector("input") || {}).value || "", shown = parseInt(box.dataset.shown || "40", 10);
-    var terms = doc.terms.filter(function (t) { return !q || (t.id + " " + t.l).toLowerCase().indexOf(q.toLowerCase()) >= 0; });
+    var terms = doc.terms.filter(function (t) { return !q || termText(t).indexOf(q.toLowerCase()) >= 0; });
     box.querySelector("ol").innerHTML = terms.slice(0, shown).map(function (t) {
       return '<li><b>' + esc(t.l || t.id) + '</b> <code>' + esc(t.id) + '</code><div class="in"><span>' + esc(doc.a) + ' (' + fmt(t.na) + '):</span> ' + recLinks(doc.base[doc.a], t.a, t.na) + '</div><div class="in"><span>' + esc(doc.b) + ' (' + fmt(t.nb) + '):</span> ' + recLinks(doc.base[doc.b], t.b, t.nb) + '</div></li>';
     }).join("") || '<li><em>No terms match.</em></li>';

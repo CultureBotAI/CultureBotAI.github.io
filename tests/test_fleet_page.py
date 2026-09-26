@@ -356,6 +356,15 @@ class PrefixListTests(unittest.TestCase):
                 f"(#95):\n{done.stderr}")
         return json.loads(done.stdout)
 
+    def test_the_page_filter_knows_every_term_space_the_subsets_write(self):
+        # #284: a column filter such as "PDB:" must find PDB-CCD terms, so the
+        # page's TERM_COLUMN has to match build_subsets.COLUMN_OF.
+        import build_subsets
+        fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
+        page = dict(re.findall(r'"([A-Z-]+)":\s*"([A-Za-z]+)"', fragment.split("var TERM_COLUMN = {", 1)[1].split("}", 1)[0]))
+        self.assertEqual(page, build_subsets.COLUMN_OF)
+        self.assertEqual(set(build_subsets.TERM_SPACE.values()), set(build_subsets.COLUMN_OF))
+
     def test_every_prefix_alternative_is_literal_and_every_fold_is_reachable(self):
         # #280: no alternative keeps a regex escape, and every norm key is a
         # spelling the census actually matches, so no fold is dead.
