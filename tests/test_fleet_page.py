@@ -985,6 +985,62 @@ class SiteAuditBuilderTests(unittest.TestCase):
                 self.assertTrue(by_repo[name.lower()]["notes"].startswith(text))
 
 
+class UpdateCheckTests(unittest.TestCase):
+    """check_updates.py sorts changes since the pins by what they would move."""
+
+    def setUp(self):
+        import check_updates
+        self.c = check_updates
+
+    def test_changed_files_are_sorted_into_records_claims_and_other(self):
+        files = [{"filename": "data/traits/a/new.yaml", "status": "added"},
+                 {"filename": "data/traits/b/old.yaml", "status": "removed"},
+                 {"filename": "data/traits/c.yaml", "status": "modified"},
+                 {"filename": "README.md", "status": "modified"},
+                 {"filename": "src/traitmech/schema/traitmech.yaml", "status": "modified"},
+                 {"filename": "scripts/cited.py", "status": "modified"},
+                 {"filename": "reports/review/x.md", "status": "added"}]
+        out = self.c.classify("TraitMech", files, {"scripts/cited.py"})
+        self.assertEqual((out["added"], out["removed"], len(out["records"])), (2 - 1, 1, 3))
+        self.assertEqual(sorted(out["claims"]), ["README.md", "scripts/cited.py", "src/traitmech/schema/traitmech.yaml"])
+        self.assertEqual(out["other"], ["reports/review/x.md"])
+
+    def test_a_repository_that_moved_only_in_unused_files_needs_nothing(self):
+        compare = {"ahead_by": 98, "commits": [{"sha": "b" * 40}],
+                   "files": [{"filename": "reports/review/x.md", "status": "added"}]}
+        row = self.c.drift({"repo": "HabitatMech", "sha": "a" * 40}, "HabitatMech", set(), api=lambda path: compare)
+        self.assertEqual(self.c.verdict(row), "moved, nothing the page uses")
+        self.assertEqual((row["pin"], row["main"]), ("a" * 7, "b" * 7))
+
+    def test_a_capped_file_list_is_reported_as_a_floor(self):
+        files = [{"filename": f"data/traits/x{i}.yaml", "status": "added"} for i in range(self.c.FILE_CAP)]
+        row = self.c.drift({"repo": "TraitMech", "sha": "a" * 40}, "TraitMech", set(),
+                           api=lambda path: {"ahead_by": 400, "commits": [{"sha": "b" * 40}], "files": files})
+        self.assertTrue(row["truncated"])
+        self.assertIn("floors", self.c.verdict(row))
+        at_pin = self.c.drift({"repo": "TaxonMech", "sha": "a" * 40}, "TaxonMech", set(),
+                              api=lambda path: {"ahead_by": 0, "files": []})
+        self.assertEqual(self.c.verdict(at_pin), "at pin")
+
+    def test_every_xrefs_evidence_file_is_watched(self):
+        fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
+        cited = self.c.evidence_paths(fragment)
+        urls = self.c.evidence_urls(fragment)
+        self.assertEqual(len(urls), len(set(urls)))
+        self.assertEqual(sum(len(v) for v in cited.values()),
+                         len({u.split("/blob/", 1)[0].lower() + "/" + u.split("/blob/", 1)[1].split("/", 1)[1].split("#")[0]
+                              for u in urls if "/blob/" in u}))
+        self.assertIn("src/taxonmech/schema/taxonmech.yaml", cited["taxonmech"])
+
+    def test_the_check_writes_nothing(self):
+        # Read-only by design: no open() for writing and no pipeline stage import.
+        source = (ROOT / "scripts/fleet/check_updates.py").read_text()
+        self.assertNotRegex(source, r"open\([^)]*[\"'][wa]")
+        self.assertNotRegex(source, r"write_text|write_bytes|json\.dump\(")
+        for stage in ("prefix_census", "build_subsets", "build_data", "mech_stats", "assemble_page"):
+            self.assertNotIn(f"import {stage}", source)
+
+
 class RefreshProvenanceTests(unittest.TestCase):
     """The derived numbers must all come from one set of checkouts (#85).
 

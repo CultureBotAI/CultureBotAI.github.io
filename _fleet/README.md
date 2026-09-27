@@ -37,6 +37,12 @@ against the page it cites and is the one script here that needs the network:
 python3 scripts/fleet/check_cards.py
 ```
 
+`scripts/fleet/check_updates.py` goes further, read-only: it compares each
+repository's main with its pin through the GitHub API and sorts the changed
+files into census records, files the hand-curated layer cites, and the rest,
+alongside the card check and a manifest check against CLAW's main. The
+`check-xmech-updates` skill runs it and reads the flagged files.
+
 `SOURCES` at its top pins where each Mech publishes its count, and `REGIONS`
 restricts a source to the part that states it where the same words appear
 elsewhere (CultureMech's generated README block). The page is a snapshot at a
