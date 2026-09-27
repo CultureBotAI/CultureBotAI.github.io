@@ -35,11 +35,15 @@ Use a Python with `scripts/fleet/requirements.txt` installed (3.12 is what CI
 uses); without PyYAML the membership line says NOT CHECKED. The script prints:
 
 - per repository, commits since its pin and what the changed files touch:
-  `records` (census record globs), `claims` (README, schema, landing page, and
-  every file an XREFS arrow cites), or nothing the page uses;
+  `records` (census record globs, read as `glob.glob` and the census read them),
+  `claims` (README, schema, licence and citation files, landing page, every file
+  the fleet page or a content page links on GitHub, and CLAW's `fleet.yaml`,
+  `vendored_artifacts.json` and Mech standard), or nothing the page uses; a
+  repository the API could not answer for is UNCHECKED;
 - the card check (`check_cards.check`), with the grace and lead limits applied;
 - `refresh_manifest --check` against CLAW's current main;
-- dead XREFS evidence links.
+- dead XREFS evidence links, and links that could not be checked;
+- a closing line naming everything a refresh would change, and what was not checked.
 
 The compare API lists at most 300 files per repository. Where the report says the
 list is capped, its record counts are floors: take the live totals from the card
@@ -66,9 +70,14 @@ Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;
 say so.
 
-For a capped file list, page through the commits instead
-(`gh api repos/CultureBotAI/<repo>/commits?sha=main&since=<pinned_at_utc>`) and
-look for changes to the claim files by name.
+For a capped file list, ask per claim file whether it changed since the pin (the
+list-commits endpoint carries no file list, so filter by path):
+
+```bash
+gh api --paginate "repos/CultureBotAI/<repo>/commits?sha=main&path=<file>&since=<pin commit_date>" --jq '.[].sha'
+```
+
+and read those commits' diffs (`gh api repos/CultureBotAI/<repo>/commits/<sha>`).
 
 ### 3. Membership and capabilities
 

@@ -1022,15 +1022,78 @@ class UpdateCheckTests(unittest.TestCase):
                               api=lambda path: {"ahead_by": 0, "files": []})
         self.assertEqual(self.c.verdict(at_pin), "at pin")
 
-    def test_every_xrefs_evidence_file_is_watched(self):
-        fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
-        cited = self.c.evidence_paths(fragment)
-        urls = self.c.evidence_urls(fragment)
-        self.assertEqual(len(urls), len(set(urls)))
-        self.assertEqual(sum(len(v) for v in cited.values()),
-                         len({u.split("/blob/", 1)[0].lower() + "/" + u.split("/blob/", 1)[1].split("/", 1)[1].split("#")[0]
-                              for u in urls if "/blob/" in u}))
+    def test_every_file_the_site_links_is_watched(self):
+        # #287: XREFS evidence, and the files the content pages cite at a pin.
+        cited = self.c.cited_paths(*self.c.site_sources())
         self.assertIn("src/taxonmech/schema/taxonmech.yaml", cited["taxonmech"])
+        self.assertIn("MAPPING_SEMANTICS.md", cited["mediaingredientmech"])
+        for url in self.c.evidence_urls((ROOT / "_fleet/fleet_fragment.html").read_text()):
+            repo, path = re.match(r"https://github.com/CultureBotAI/([^/]+)/blob/[^/]+/([^#?]+)", url).groups()
+            self.assertIn(path, cited[repo.lower()], url)
+        out = self.c.classify("MediaIngredientMech", [{"filename": "MAPPING_SEMANTICS.md", "status": "modified"}],
+                              cited["mediaingredientmech"])
+        self.assertEqual(out["claims"], ["MAPPING_SEMANTICS.md"])
+
+    def test_record_globs_read_as_the_census_reads_them(self):
+        # #292: * stays in one segment, **/ spans directories, EXCLUDE_DIRS applies.
+        self.assertTrue(self.c.is_record("CommunityMech", "kb/communities/x.yaml"))
+        self.assertFalse(self.c.is_record("CommunityMech", "kb/communities/sub/x.yaml"))
+        self.assertTrue(self.c.is_record("TraitMech", "data/traits/x.yaml"))
+        self.assertTrue(self.c.is_record("TraitMech", "data/traits/a/b/x.yaml"))
+        self.assertFalse(self.c.is_record("TraitMech", "data/traitsX/x.yaml"))
+        self.assertFalse(self.c.is_record("MediaIngredientMech", "data/ingredients/mapped/backups/x.yaml"))
+        self.assertFalse(self.c.is_record(None, "data/traits/x.yaml"))
+
+    def test_main_is_the_last_commit_and_a_failed_call_is_unchecked(self):
+        # #293, #289
+        row = self.c.drift({"repo": "TraitMech", "sha": "a" * 40}, "TraitMech", set(),
+                           api=lambda path: {"ahead_by": 2, "commits": [{"sha": "b" * 40}, {"sha": "c" * 40}],
+                                             "files": []})
+        self.assertEqual(row["main"], "c" * 7)
+        def fail(path):
+            raise self.c.Unchecked("Not Found (HTTP 404)")
+        row = self.c.drift({"repo": "TraitMech", "sha": "0" * 40}, "TraitMech", set(), api=fail)
+        self.assertTrue(self.c.verdict(row).startswith("UNCHECKED"))
+
+    def test_links_that_were_not_checked_are_not_counted_as_resolving(self):
+        # #290, #293
+        import urllib.error
+        codes = {"https://x/404": 404, "https://x/429": 429, "https://x/408": 408}
+        def opener(request, timeout):
+            url = request.full_url
+            if url in codes:
+                raise urllib.error.HTTPError(url, codes[url], "x", {}, None)
+            if url == "https://x/down":
+                raise urllib.error.URLError("no route")
+        dead, unchecked = self.c.dead_links(sorted(codes) + ["https://x/down", "https://x/ok"], opener)
+        self.assertEqual(dead, ["https://x/404 (404)"])
+        self.assertEqual(len(unchecked), 3)
+
+    def test_the_summary_names_every_section(self):
+        # #288: a stale manifest or grown card is a change even when no repository moved.
+        quiet = [{"repo": "HabitatMech", "records": [], "claims": [], "unchecked": None}]
+        line = self.c.summary(quiet, [("grew", "TraitMech", "x"), ("ok", "HabitatMech", "x")],
+                              "Fleet snapshot is stale; refresh", [], ["https://x (timed out)"])
+        self.assertIn("TraitMech (grew)", line)
+        self.assertIn("CLAW manifest", line)
+        self.assertIn("Not checked", line)
+        self.assertIn("nothing found", self.c.summary(quiet, [("ok", "HabitatMech", "x")], "matches", [], []))
+
+    def test_the_claw_clone_goes_to_a_temporary_directory(self):
+        # #293: read-only means the clone never lands in the repository, and a
+        # missing requirement is reported, not raised.
+        from unittest import mock
+        calls = []
+        def run(cmd, **kw):
+            calls.append(cmd)
+            if cmd[0] == "git":
+                return mock.Mock(returncode=0, stdout="", stderr="")
+            return mock.Mock(returncode=1, stdout="", stderr="ModuleNotFoundError: No module named 'yaml'")
+        with mock.patch.object(self.c.subprocess, "run", run):
+            out = self.c.manifest_check()
+        target = Path(calls[0][-1])
+        self.assertFalse(str(target).startswith(str(ROOT)))
+        self.assertTrue(out.startswith("NOT CHECKED"))
 
     def test_the_check_writes_nothing(self):
         # Read-only by design: no open() for writing and no pipeline stage import.
