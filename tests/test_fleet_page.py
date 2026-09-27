@@ -33,6 +33,15 @@ class FleetPageTests(unittest.TestCase):
     def render(self):
         return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census)
 
+    def test_the_capability_table_header_matches_its_columns(self):
+        # #305: one header cell per column plus the Mech column, and every
+        # column a capability CLAW's catalogue declares.
+        from assemble_page import COLUMNS
+        head = re.search(r"<thead><tr>(.*?)</tr></thead>", self.template.split("<!--FLEET_CAPABILITIES-->")[0].rsplit("<table", 1)[1]).group(1)
+        self.assertEqual(head.count("<th>"), len(COLUMNS) + 1)
+        self.assertEqual([c for c in COLUMNS if c not in self.snapshot["capability_catalogue"]], [])
+        self.assertIn("causal_graph_coverage", COLUMNS)
+
     def test_rendering_twice_does_not_consume_the_census(self):
         self.assertEqual(self.render(), self.render())
 
@@ -1216,6 +1225,11 @@ class RefreshProvenanceTests(unittest.TestCase):
         checked = datetime.datetime.fromisoformat(audit["checked_at_utc"])
         self.assertLessEqual(newest, pinned)
         self.assertLessEqual(pinned, checked)
+        # CLAW's pin is refreshed on its own, but it still cannot postdate now (#306).
+        claw = next(r for r in audit["repositories"] if r["repo"] == "culturebotai-claw")
+        claw_date = datetime.datetime.fromisoformat(claw["commit_date"].replace("Z", "+00:00"))
+        self.assertLessEqual(claw_date, datetime.datetime.now(datetime.timezone.utc))
+        self.assertGreaterEqual(claw_date, newest - datetime.timedelta(days=365))
         entries = {r["repo"].lower(): r for r in audit["repositories"]}
         cards = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
         for mech in check_cards.SOURCES:
