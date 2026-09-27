@@ -15,9 +15,13 @@ FLEET = REPO / "_fleet"
 ACRONYMS = {"id": "ID", "kgx": "KGX", "sssom": "SSSOM", "metpo": "METPO"}
 
 
+# Compound modifiers the page has always hyphenated (#318).
+HYPHENATED = {"knowledge_gap_scan": "knowledge-gap scan", "causal_graph_coverage": "causal-graph coverage"}
+
+
 def capability_label(key):
     """A capability key as a column heading: kgx_export -> KGX export."""
-    words = [ACRONYMS.get(word, word) for word in key.split("_")]
+    words = [ACRONYMS.get(word, word) for word in HYPHENATED.get(key, key).replace(" ", "_").split("_")]
     return " ".join([words[0][:1].upper() + words[0][1:]] + words[1:])
 
 

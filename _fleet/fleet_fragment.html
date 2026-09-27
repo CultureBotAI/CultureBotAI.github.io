@@ -314,23 +314,28 @@
   .fleet-orch h4 { margin: 0 0 .4rem; }
   .fleet-orch p { margin: 0; font-size: .92rem; }
   .fleet-orch code { font-size: .8em; }
-  .fleet-caps-wrap { overflow-x: auto; margin: 1rem 0 .3rem; }
+  /* The wrap carries the frame, as .fleet-heat-wrap does, so it clips the cells
+     to its rounded corners and stays put while the table scrolls inside (#315). */
+  .fleet-caps-wrap { overflow-x: auto; margin: 1rem 0 .3rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .fleet-caps-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   /* display: table undoes the site-wide `table { display: block; overflow-x: auto }`,
      so the wrap is the only scroller: the sticky Mech column sticks to it, and
      width: 100% fills the card again (#311, #313), as table.fleet-heat does. */
-  table.fleet-caps { display: table; overflow: visible; border-collapse: separate; border-spacing: 0; font-size: .82rem; min-width: 700px; width: 100%; }
+  table.fleet-caps { display: table; overflow: visible; border-collapse: separate; border-spacing: 0; border: 0; border-radius: 0; box-shadow: none; margin: 0; font-size: .82rem; min-width: 700px; width: 100%; }
   /* All of CLAW's capabilities, one column each (#310): headings run upward so
      26 columns fit, and the Mech column stays in view while the table scrolls. */
   table.fleet-caps thead th:not(:first-child) { vertical-align: bottom; padding: .5rem .15rem; }
   table.fleet-caps thead th:not(:first-child) span { display: inline-block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }
-  table.fleet-caps th:first-child, table.fleet-caps td:first-child { position: sticky; left: 0; z-index: 1; }
+  /* A hairline on the sticky edge, so icons sliding under it end at a rule (#318). */
+  table.fleet-caps th:first-child { position: sticky; left: 0; z-index: 1; box-shadow: 1px 0 0 var(--line); }
+  table.fleet-caps tbody tr:last-child th { border-bottom: 0; }  /* as the site does for td (#316) */
   /* Opaque, and matching the row it sits in, so scrolled cells never show through
      and the header tint and even-row stripe carry across it (#312). */
   table.fleet-caps thead th:first-child { background: var(--wash-a); }
   table.fleet-caps tbody th { background: var(--card); font-weight: 400; text-transform: none; letter-spacing: 0; color: inherit; font-size: inherit; }
   table.fleet-caps tbody tr:nth-child(even) th { background: var(--wash-b); }
   table.fleet-caps th, table.fleet-caps td { padding: .4rem .5rem; border-bottom: 1px solid var(--line); text-align: center; }
-  table.fleet-caps th:first-child, table.fleet-caps td:first-child { text-align: left; white-space: nowrap; }
+  table.fleet-caps th:first-child { text-align: left; white-space: nowrap; }
   table.fleet-caps thead th { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; vertical-align: bottom; }
   table.fleet-caps td i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -1px; }
   table.fleet-caps td i.e { background: var(--accent-2); }
