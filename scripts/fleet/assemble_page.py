@@ -13,7 +13,7 @@ REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
 COLUMNS = ("curation_history", "strict_validation", "vendored_sync", "deep_research",
            "knowledge_gap_scan", "environment_coverage", "sssom_export", "kgx_export",
-           "source_queue", "source_catalogue", "site_contract")
+           "source_queue", "source_catalogue", "site_contract", "causal_graph_coverage")
 
 
 def capability_rows(snapshot):

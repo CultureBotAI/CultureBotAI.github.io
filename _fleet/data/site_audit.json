@@ -46,10 +46,10 @@
   },
   {
    "repo": "culturebotai-claw",
-   "sha": "2637172e6fdbfacf163f0b12d289a9828dda2f30",
-   "commit_date": "2026-09-22T07:18:11Z",
-   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/2637172e6fdbfacf163f0b12d289a9828dda2f30/README.md",
-   "notes": "10 fleet members and 16 governed artifacts. Projected membership and capabilities are unchanged from the previous snapshot; provenance advanced to the pinned main revision. Every Mech vendors claw at 44db08d, and fleet.yaml, README.md and vendored_artifacts.json are identical between 44db08d and this pin."
+   "sha": "baa792dacc1f5a8a65b44972009af9099c2c5028",
+   "commit_date": "2026-09-26T09:17:28Z",
+   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/baa792dacc1f5a8a65b44972009af9099c2c5028/README.md",
+   "notes": "10 fleet members and 16 governed artifacts. Against the previous snapshot (2637172) one capability was added, causal_graph_coverage (claw#485): enabled for eight Mechs, disabled for MediaIngredientMech and not applicable to CultureMech; membership and the other 25 capabilities are unchanged. The manifest was refreshed on its own on 2026-09-26, after the Mech pins, so this CLAW pin is newer than pinned_at_utc (CultureBotAI.github.io#303)."
   },
   {
    "repo": "CultureMech",

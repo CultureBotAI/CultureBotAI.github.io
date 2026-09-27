@@ -33,7 +33,12 @@ moves for two reasons at once.
 ## Ground rules
 
 - **One set of revisions for everything.** Pin every Mech and CLAW once, at the
-  start, and derive every number from those commits. The census, the stats and
+  start, and derive every number from those commits. The one exception is a
+  manifest-only refresh between full refreshes, when CLAW changes membership or
+  capabilities: rerun `refresh_manifest.py` at CLAW's new main, move the audit's
+  CLAW entry and its note in `_fleet/audit_notes.json` to that pin, and leave the
+  Mech pins, census and cards alone. CLAW's pin may then be newer than
+  `pinned_at_utc`, which bounds the Mech pins only (#304, #308). The census, the stats and
   the site audit each record the revision they read, and
   `RefreshProvenanceTests` fails if they disagree. A partial rerun is the failure
   this exists to catch: a census from one checkout and stats from another put 364
