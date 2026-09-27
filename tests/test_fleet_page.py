@@ -1209,8 +1209,10 @@ class RefreshProvenanceTests(unittest.TestCase):
         audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
         pinned = check_cards.pin_time(audit)  # #232: must parse
         # #242: and must fall between the newest pinned commit and the check.
+        # The Mech pins only: CLAW's manifest is refreshed on its own, so its
+        # pin can be newer than the Mechs' (#303).
         newest = max(datetime.datetime.fromisoformat(r["commit_date"].replace("Z", "+00:00"))
-                     for r in audit["repositories"])
+                     for r in audit["repositories"] if r["repo"] != "culturebotai-claw")
         checked = datetime.datetime.fromisoformat(audit["checked_at_utc"])
         self.assertLessEqual(newest, pinned)
         self.assertLessEqual(pinned, checked)

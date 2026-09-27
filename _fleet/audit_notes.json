@@ -11,6 +11,6 @@
   "ProteinTraitsMech": "429,293 records and 34 source labels, computed at runtime from data/facets.json and equal to data/traits at the pin. The static HTML still carries a legacy fallback of 408,978 / 29.",
   "TaxonMech": "625,960 data/taxa records at the pin, equal to the stat tile and including 14 retained DEPRECATED records; none is REVIEWED.",
   "TraitMech": "763 data/traits records at the pin (427 REVIEWED, 248 PROPOSED, 50 DEPRECATED, 38 SEEDED; 519 with causal graphs), equal to the landing page, which shows 62.5% embedded (477 of 763).",
-  "culturebotai-claw": "10 fleet members and 16 governed artifacts. Projected membership and capabilities are unchanged from the previous snapshot; provenance advanced to the pinned main revision. Every Mech vendors claw at 44db08d, and fleet.yaml, README.md and vendored_artifacts.json are identical between 44db08d and this pin."
+  "culturebotai-claw": "10 fleet members and 16 governed artifacts. Against the previous snapshot (2637172) one capability was added, causal_graph_coverage (claw#485): enabled for eight Mechs, disabled for MediaIngredientMech and not applicable to CultureMech; membership and the other 25 capabilities are unchanged. The manifest was refreshed on its own on 2026-09-26, after the Mech pins, so this CLAW pin is newer than pinned_at_utc (CultureBotAI.github.io#303)."
  }
 }

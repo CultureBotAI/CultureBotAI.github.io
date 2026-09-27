@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "2637172e6fdbfacf163f0b12d289a9828dda2f30",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/2637172e6fdbfacf163f0b12d289a9828dda2f30/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "baa792dacc1f5a8a65b44972009af9099c2c5028",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/baa792dacc1f5a8a65b44972009af9099c2c5028/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -43,6 +43,71 @@
         "fields": {
           "type": "string_list",
           "required_when_enabled": true
+        }
+      }
+    },
+    "causal_graph_coverage": {
+      "settings": {
+        "graph_shape": {
+          "type": "string",
+          "required_when_enabled": true
+        },
+        "graphs_field": {
+          "type": "string"
+        },
+        "graph_id_field": {
+          "type": "string"
+        },
+        "nodes_field": {
+          "type": "string"
+        },
+        "edges_field": {
+          "type": "string"
+        },
+        "node_id_field": {
+          "type": "string"
+        },
+        "node_type_field": {
+          "type": "string"
+        },
+        "node_grounding_field": {
+          "type": "string"
+        },
+        "edge_subject_field": {
+          "type": "string"
+        },
+        "edge_object_field": {
+          "type": "string"
+        },
+        "edge_predicate_field": {
+          "type": "string"
+        },
+        "edge_evidence_field": {
+          "type": "string"
+        },
+        "record_id_field": {
+          "type": "string"
+        },
+        "scope_field": {
+          "type": "string"
+        },
+        "mechanistic_scopes": {
+          "type": "string_list"
+        },
+        "graph_facets": {
+          "type": "string_list"
+        },
+        "anchor_node_types": {
+          "type": "string_list"
+        },
+        "duplicate_grounding_check": {
+          "type": "boolean"
+        },
+        "exempt_when": {
+          "type": "string_list"
+        },
+        "strata": {
+          "type": "string_list"
         }
       }
     },
@@ -211,6 +276,10 @@
             ]
           }
         },
+        "causal_graph_coverage": {
+          "status": "not_applicable",
+          "reason": "MediaRecipe records are compositions. The schema has no causal-graph slot and no record carries graph-shaped content; what CultureMech's own tooling calls causal-graph coverage (#468) is its review-need score over recipe grounding, not a graph."
+        },
         "page_budgets": {
           "status": "disabled",
           "reason": "Generates a site through .github/workflows/generate-pages.yaml but declares no size or file-count budgets, so nothing watches it grow. Adopting them applies here; the limits are the repository's to set.",
@@ -368,6 +437,15 @@
             ]
           }
         },
+        "causal_graph_coverage": {
+          "status": "disabled",
+          "reason": "IngredientRecord has no causal-graph slot. Its role facets and components are typed assertions around one ingredient, a star with nothing to connect, and scripts/score_causal_graph_readiness.py ranks their readiness to seed a graph. Enable once records carry graphs.",
+          "reason_claims": {
+            "present": [
+              "scripts/score_causal_graph_readiness.py"
+            ]
+          }
+        },
         "page_budgets": {
           "status": "disabled",
           "reason": "Generates a site through .github/workflows/generate-pages.yaml but declares no size or file-count budgets, so nothing watches it grow. Adopting them applies here; the limits are the repository's to set.",
@@ -508,6 +586,21 @@
             ]
           }
         },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "node_nested_edges",
+            "nodes_field": "ecological_interactions",
+            "node_id_field": "name",
+            "node_type_field": "interaction_type",
+            "edges_field": "downstream",
+            "edge_object_field": "target",
+            "strata": [
+              "community_origin",
+              "@directory"
+            ]
+          }
+        },
         "page_budgets": {
           "status": "disabled",
           "reason": "Generates a site through .github/workflows/generate-pages.yaml but declares no size or file-count budgets, so nothing watches it grow. Adopting them applies here; the limits are the repository's to set.",
@@ -639,6 +732,30 @@
           "status": "enabled",
           "settings": {
             "fields": [
+              "mapping_status",
+              "trait_category"
+            ]
+          }
+        },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "scope_field": "scope_status",
+            "mechanistic_scopes": [
+              "MECHANISTIC"
+            ],
+            "anchor_node_types": [
+              "TRAIT"
+            ],
+            "duplicate_grounding_check": true,
+            "exempt_when": [
+              "mapping_status=DEPRECATED",
+              "term_kind=OBJECT_PROPERTY|DATATYPE_PROPERTY",
+              "trait_category=UPPER"
+            ],
+            "strata": [
               "mapping_status",
               "trait_category"
             ]
@@ -784,6 +901,21 @@
             "fields": [
               "trait_axis",
               "mapping_status"
+            ]
+          }
+        },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "exempt_when": [
+              "mapping_status=DEPRECATED",
+              "path:data/traits/function/enzymatic_activity/metpo/*.yaml"
+            ],
+            "strata": [
+              "trait_axis",
+              "@directory"
             ]
           }
         },
@@ -936,6 +1068,28 @@
             "site_path": "pages"
           }
         },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "scope_field": "scope_status",
+            "mechanistic_scopes": [
+              "MECHANISTIC"
+            ],
+            "anchor_node_types": [
+              "COMPOUND"
+            ],
+            "duplicate_grounding_check": true,
+            "exempt_when": [
+              "curation_status=DEPRECATED"
+            ],
+            "strata": [
+              "antimicrobial_class",
+              "curation_status"
+            ]
+          }
+        },
         "page_budgets": {
           "status": "disabled",
           "reason": "Serves tracked pages under pages/ from main via GitHub Pages and declares no size or file-count budgets, so nothing watches them grow -- 2,956 files and 30.1 MB measured at admission (#230). Adopting them applies here; the limits are this repository's to set.",
@@ -1037,6 +1191,30 @@
             "fields": [
               "structure_category",
               "mapping_status"
+            ]
+          }
+        },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "scope_field": "scope_status",
+            "mechanistic_scopes": [
+              "MECHANISTIC"
+            ],
+            "graph_facets": [
+              "graph_kind"
+            ],
+            "anchor_node_types": [
+              "STRUCTURE"
+            ],
+            "exempt_when": [
+              "mapping_status=DEPRECATED"
+            ],
+            "strata": [
+              "structure_category",
+              "structure_kind"
             ]
           }
         },
@@ -1197,6 +1375,25 @@
               "habitat_category",
               "grounding_status",
               "mapping_status"
+            ]
+          }
+        },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "anchor_node_types": [
+              "HABITAT"
+            ],
+            "duplicate_grounding_check": true,
+            "exempt_when": [
+              "grounding_status=NOT_APPLICABLE",
+              "mapping_status=DEPRECATED"
+            ],
+            "strata": [
+              "grounding_status",
+              "habitat_category"
             ]
           }
         },
@@ -1369,6 +1566,27 @@
             ]
           }
         },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "node_grounding_field": "identifier",
+            "graph_facets": [
+              "scope"
+            ],
+            "anchor_node_types": [
+              "COMPOUND"
+            ],
+            "duplicate_grounding_check": true,
+            "exempt_when": [
+              "curation_status=DEPRECATED"
+            ],
+            "strata": [
+              "np_pathway"
+            ]
+          }
+        },
         "page_budgets": {
           "status": "disabled",
           "reason": "Serves tracked pages under pages/ straight from main via GitHub Pages and declares no size or file-count budgets, so no conf/pages_budgets.json exists for the audit to read.",
@@ -1509,6 +1727,25 @@
               "rank",
               "grounding_status",
               "mapping_status"
+            ]
+          }
+        },
+        "causal_graph_coverage": {
+          "status": "enabled",
+          "settings": {
+            "graph_shape": "graph_list",
+            "record_id_field": "identifier",
+            "anchor_node_types": [
+              "TAXON"
+            ],
+            "duplicate_grounding_check": true,
+            "exempt_when": [
+              "mapping_status=DEPRECATED",
+              "grounding_status=NOT_APPLICABLE"
+            ],
+            "strata": [
+              "rank",
+              "taxon_domain"
             ]
           }
         },
