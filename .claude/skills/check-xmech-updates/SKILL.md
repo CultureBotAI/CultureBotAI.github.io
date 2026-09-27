@@ -37,7 +37,8 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
 - per repository, commits since its pin and what the changed files touch:
   `records` (census record globs, read as `glob.glob` and the census read them),
   `claims` (README, schema, licence and citation files, landing page, every file
-  the fleet page or a content page links on GitHub, and CLAW's `fleet.yaml`,
+  the fleet page or a content page links on GitHub or through a Pages URL, each
+  audited data file, and CLAW's `fleet.yaml`,
   `vendored_artifacts.json` and Mech standard), or nothing the page uses; a
   repository the API could not answer for is UNCHECKED;
 - the card check (`check_cards.check`), with the grace and lead limits applied;
@@ -70,14 +71,16 @@ Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;
 say so.
 
-For a capped file list, ask per claim file whether it changed since the pin (the
-list-commits endpoint carries no file list, so filter by path):
+For a capped file list, compare each claim file's contents at the pin and at
+main directly; a commit query filtered by date would miss branch commits
+authored before the pin and merged after it (#302):
 
 ```bash
-gh api --paginate "repos/CultureBotAI/<repo>/commits?sha=main&path=<file>&since=<pin commit_date>" --jq '.[].sha'
+gh api "repos/CultureBotAI/<repo>/contents/<path>?ref=<pin sha>" --jq .sha
+gh api "repos/CultureBotAI/<repo>/contents/<path>?ref=main" --jq .sha
 ```
 
-and read those commits' diffs (`gh api repos/CultureBotAI/<repo>/commits/<sha>`).
+Different blob shas mean the file changed; read both versions.
 
 ### 3. Membership and capabilities
 

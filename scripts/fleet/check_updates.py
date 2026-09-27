@@ -31,6 +31,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -49,7 +50,11 @@ CLAIM_PATTERNS = ["README.md", "LICENSE*", "CITATION.cff", "src/**/schema/*.yaml
 # The files in CLAW that decide membership, capabilities and the vendored
 # standard; site_audit.json's CLAW note names the same ones (#288).
 CLAW_CLAIMS = ["src/kg_microbe_fleet/fleet.yaml", "vendored_artifacts.json", "docs/guides/MECH_STANDARD.md"]
-BLOB = re.compile(r'https://github\.com/CultureBotAI/([^/\s"\')]+)/blob/[^/\s"\')]+/([^\s"\')#?]+)')
+# Path characters stop at anything Markdown or HTML wraps a link in (#299).
+_PATH = r'([^\s"\'()<>|\]`&#?]+)'
+BLOB = re.compile(r'https://github\.com/CultureBotAI/([^/\s"\'()<>|\]`&]+)/blob/[^/\s"\'()<>|\]`&]+/' + _PATH)
+# A file cited through its Pages URL is served from the repository root or docs/ (#298).
+PAGES = re.compile(r'https://culturebotai\.github\.io/([A-Za-z]+)/' + _PATH)
 
 
 class Unchecked(Exception):
@@ -88,10 +93,27 @@ def cited_paths(*texts: str) -> dict[str, set[str]]:
     """Repository (lower-cased) -> file paths linked on GitHub anywhere in the
     given sources: XREFS evidence, card and page links, pinned blob links (#287)."""
     paths: dict[str, set[str]] = {}
+    def add(repo: str, path: str) -> None:
+        path = urllib.parse.unquote(path).rstrip(".,;:")
+        if path and not path.endswith("/"):
+            paths.setdefault(repo.lower(), set()).add(path)
     for text in texts:
         for repo, path in BLOB.findall(text):
-            paths.setdefault(repo.lower(), set()).add(path.rstrip(".,;:"))
+            add(repo, path)
+        for repo, path in PAGES.findall(text):
+            add(repo, path)
+            add(repo, "docs/" + path)
     return paths
+
+
+def watched(audit: dict, sources: list[str]) -> dict[str, set[str]]:
+    """Every file the page's claims rest on, per repository (lower-cased):
+    GitHub and Pages links in the sources, each audited data file as served and
+    under docs/, and CLAW's membership files (#287, #288, #298)."""
+    urls = [row.get("data_url", "") for row in audit.get("repositories", [])]
+    cited = cited_paths(*sources, "\n".join(urls))
+    cited.setdefault(CLAW, set()).update(CLAW_CLAIMS)
+    return cited
 
 
 def site_sources() -> list[str]:
@@ -136,7 +158,9 @@ def drift(entry: dict, mech: str | None, cited: set[str], api=gh) -> dict:
     # is main's head even past the cap.
     row = {"repo": repo, "mech": mech, "pin": pin[:7], "ahead": compare.get("ahead_by", 0),
            "main": (compare.get("commits") or [{"sha": pin}])[-1]["sha"][:7],
-           "truncated": len(files) >= FILE_CAP, "unchecked": None}
+           "truncated": len(files) >= FILE_CAP, "unchecked": None,
+           # "behind" or "diverged" means main lost commits the pin had (#300).
+           "status": compare.get("status", "ahead"), "behind": compare.get("behind_by", 0)}
     row.update(classify(mech, files, cited))
     return row
 
@@ -144,6 +168,9 @@ def drift(entry: dict, mech: str | None, cited: set[str], api=gh) -> dict:
 def verdict(row: dict) -> str:
     if row.get("unchecked"):
         return f"UNCHECKED: {row['unchecked']}"
+    if row.get("status") in ("behind", "diverged"):
+        return (f"main is {row['status']} ({row.get('behind', 0)} commits the pin had are gone); "
+                "check by hand")
     if row["ahead"] == 0:
         return "at pin"
     if row["records"] or row["claims"]:
@@ -171,11 +198,15 @@ def manifest_check() -> str:
             return f"NOT CHECKED: could not clone {CLAW} ({cloned.stderr.strip()})"
         done = subprocess.run([sys.executable, str(REPO / "scripts/fleet/refresh_manifest.py"),
                                "--claw-root", str(clone), "--check"], capture_output=True, text=True, cwd=REPO)
+    out = (done.stdout + done.stderr).strip()
     if "No module named" in done.stderr:
         return (f"NOT CHECKED: {sys.executable} lacks a requirement "
                 f"({done.stderr.strip().splitlines()[-1]}); run with python3.12, "
                 "which CI uses, or install scripts/fleet/requirements.txt")
-    return (done.stdout + done.stderr).strip() or f"exit {done.returncode}"
+    if done.returncode != 0 and "stale" not in out.lower():
+        # Any other failure (a moved fleet.yaml, a validation error) checked nothing (#295).
+        return f"NOT CHECKED: refresh_manifest --check failed ({(out.splitlines() or ['exit ' + str(done.returncode)])[-1]})"
+    return out or f"exit {done.returncode}"
 
 
 def dead_links(urls: list[str], opener=urllib.request.urlopen) -> tuple[list[str], list[str]]:
@@ -203,7 +234,9 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
     moved = [r["repo"] for r in rows if r["records"] or r["claims"]]
     if moved:
         parts.append("repositories: " + ", ".join(moved))
-    behind = [f"{m} ({s})" for s, m, _ in cards if s not in ("ok", "unread")]
+    # Only these say a card no longer matches its site; the rest say it could
+    # not be checked (#296).
+    behind = [f"{m} ({s})" for s, m, _ in cards if s in ("grew", "STALE", "SHRANK", "WRONG")]
     if behind:
         parts.append("cards: " + ", ".join(behind))
     if "stale" in manifest.lower():
@@ -211,6 +244,11 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
     if dead:
         parts.append(f"{len(dead)} dead evidence link(s)")
     not_checked = [r["repo"] for r in rows if r.get("unchecked")]
+    not_checked += [f"{r['repo']} (past the 300-file cap)" for r in rows  # #297
+                    if r.get("truncated") and not r["records"] and not r["claims"]]
+    not_checked += [f"{r['repo']} (main {r['status']})" for r in rows if r.get("status") in ("behind", "diverged")]
+    not_checked += [f"card {m} ({s})" if m != "-" else f"cards ({d})" for s, m, d in cards
+                    if s not in ("ok", "grew", "STALE", "SHRANK", "WRONG")]
     if manifest.startswith("NOT CHECKED"):
         not_checked.append("CLAW manifest")
     if unchecked_links:
@@ -224,8 +262,7 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
 def main() -> int:
     audit = json.loads(AUDIT.read_text())
     fragment = FRAGMENT.read_text()
-    cited = cited_paths(*site_sources())
-    cited.setdefault(CLAW, set()).update(CLAW_CLAIMS)
+    cited = watched(audit, site_sources())
     mech_of = {m.lower(): m for m in RECORD_GLOBS} | {"proteintraitsmech": "ProteinTraitsMech"}
     print(f"# X-Mech update check against the pins of {audit['pinned_at_utc']}\n")
     print("## Repositories since their pins\n")

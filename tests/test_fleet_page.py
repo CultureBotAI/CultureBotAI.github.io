@@ -1079,6 +1079,51 @@ class UpdateCheckTests(unittest.TestCase):
         self.assertIn("Not checked", line)
         self.assertIn("nothing found", self.c.summary(quiet, [("ok", "HabitatMech", "x")], "matches", [], []))
 
+    def test_the_watched_set_covers_claw_pages_urls_and_audited_data(self):
+        # #288, #298, #301
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        cited = self.c.watched(audit, self.c.site_sources())
+        self.assertTrue(set(self.c.CLAW_CLAIMS) <= cited["culturebotai-claw"])
+        self.assertIn("docs/data/ingredients.json", cited["mediaingredientmech"])
+        self.assertEqual(self.c.cited_paths("<https://github.com/CultureBotAI/X/blob/main/a%20b.md>|")["x"], {"a b.md"})
+
+    def test_the_summary_sorts_every_status_it_is_given(self):
+        # #296, #297, #301: changes, and everything that was not checked.
+        rows = [{"repo": "A", "records": [], "claims": [], "unchecked": "HTTP 404"},
+                {"repo": "CultureMech", "records": [], "claims": [], "unchecked": None, "truncated": True},
+                {"repo": "B", "records": [], "claims": [], "unchecked": None, "status": "diverged"}]
+        cards = [("grew", "T", "x"), ("unread", "H", "timed out"), ("CHANGED", "M", "x"),
+                 ("UNCHECKED", "-", "6 of 10")]
+        line = self.c.summary(rows, cards, "NOT CHECKED: failed", [], [])
+        change, missed = line.split("**Not checked:**")
+        self.assertIn("T (grew)", change)
+        self.assertNotIn("H", change)
+        self.assertNotIn("(UNCHECKED)", change)
+        for name in ("A", "CultureMech (past the 300-file cap)", "B (main diverged)", "card H (unread)",
+                     "card M (CHANGED)", "cards (6 of 10)", "CLAW manifest"):
+            self.assertIn(name, missed)
+
+    def test_a_main_behind_or_diverged_from_its_pin_is_not_at_pin(self):
+        # #300
+        row = self.c.drift({"repo": "T", "sha": "a" * 40}, "TraitMech", set(),
+                           api=lambda path: {"ahead_by": 0, "behind_by": 3, "status": "behind", "files": []})
+        self.assertIn("behind", self.c.verdict(row))
+
+    def test_a_failed_manifest_check_or_clone_is_not_checked(self):
+        # #295, #301
+        from unittest import mock
+        def runner(clone_rc, check_rc, check_out):
+            def run(cmd, **kw):
+                if cmd[0] == "git":
+                    return mock.Mock(returncode=clone_rc, stdout="", stderr="fatal: no route")
+                return mock.Mock(returncode=check_rc, stdout=check_out, stderr="")
+            return run
+        for clone_rc, check_rc, out, expect in ((128, 0, "", "NOT CHECKED: could not clone"),
+                                                (0, 1, "CalledProcessError: exit 128", "NOT CHECKED: refresh_manifest"),
+                                                (0, 1, "Fleet snapshot is stale; refresh", "Fleet snapshot is stale")):
+            with mock.patch.object(self.c.subprocess, "run", runner(clone_rc, check_rc, out)):
+                self.assertTrue(self.c.manifest_check().startswith(expect), expect)
+
     def test_the_claw_clone_goes_to_a_temporary_directory(self):
         # #293: read-only means the clone never lands in the repository, and a
         # missing requirement is reported, not raised.
