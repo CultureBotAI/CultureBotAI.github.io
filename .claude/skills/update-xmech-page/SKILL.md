@@ -374,3 +374,5 @@ keyed by Mech name, not repository name (ProteinTraitsMech's repository is
 - `review-open-issues` — read-only triage of the backlog; its "three numbers" and
   measurement-discipline sections apply here too.
 - `scripts/fleet/check_cards.py` — card-vs-site drift check, nightly in CI.
+- `check-xmech-updates` — the read-only check of what this refresh would change;
+  run it first to decide whether a refresh is due.

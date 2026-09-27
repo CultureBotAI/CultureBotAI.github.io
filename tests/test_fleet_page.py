@@ -985,6 +985,170 @@ class SiteAuditBuilderTests(unittest.TestCase):
                 self.assertTrue(by_repo[name.lower()]["notes"].startswith(text))
 
 
+class UpdateCheckTests(unittest.TestCase):
+    """check_updates.py sorts changes since the pins by what they would move."""
+
+    def setUp(self):
+        import check_updates
+        self.c = check_updates
+
+    def test_changed_files_are_sorted_into_records_claims_and_other(self):
+        files = [{"filename": "data/traits/a/new.yaml", "status": "added"},
+                 {"filename": "data/traits/b/old.yaml", "status": "removed"},
+                 {"filename": "data/traits/c.yaml", "status": "modified"},
+                 {"filename": "README.md", "status": "modified"},
+                 {"filename": "src/traitmech/schema/traitmech.yaml", "status": "modified"},
+                 {"filename": "scripts/cited.py", "status": "modified"},
+                 {"filename": "reports/review/x.md", "status": "added"}]
+        out = self.c.classify("TraitMech", files, {"scripts/cited.py"})
+        self.assertEqual((out["added"], out["removed"], len(out["records"])), (2 - 1, 1, 3))
+        self.assertEqual(sorted(out["claims"]), ["README.md", "scripts/cited.py", "src/traitmech/schema/traitmech.yaml"])
+        self.assertEqual(out["other"], ["reports/review/x.md"])
+
+    def test_a_repository_that_moved_only_in_unused_files_needs_nothing(self):
+        compare = {"ahead_by": 98, "commits": [{"sha": "b" * 40}],
+                   "files": [{"filename": "reports/review/x.md", "status": "added"}]}
+        row = self.c.drift({"repo": "HabitatMech", "sha": "a" * 40}, "HabitatMech", set(), api=lambda path: compare)
+        self.assertEqual(self.c.verdict(row), "moved, nothing the page uses")
+        self.assertEqual((row["pin"], row["main"]), ("a" * 7, "b" * 7))
+
+    def test_a_capped_file_list_is_reported_as_a_floor(self):
+        files = [{"filename": f"data/traits/x{i}.yaml", "status": "added"} for i in range(self.c.FILE_CAP)]
+        row = self.c.drift({"repo": "TraitMech", "sha": "a" * 40}, "TraitMech", set(),
+                           api=lambda path: {"ahead_by": 400, "commits": [{"sha": "b" * 40}], "files": files})
+        self.assertTrue(row["truncated"])
+        self.assertIn("floors", self.c.verdict(row))
+        at_pin = self.c.drift({"repo": "TaxonMech", "sha": "a" * 40}, "TaxonMech", set(),
+                              api=lambda path: {"ahead_by": 0, "files": []})
+        self.assertEqual(self.c.verdict(at_pin), "at pin")
+
+    def test_every_file_the_site_links_is_watched(self):
+        # #287: XREFS evidence, and the files the content pages cite at a pin.
+        cited = self.c.cited_paths(*self.c.site_sources())
+        self.assertIn("src/taxonmech/schema/taxonmech.yaml", cited["taxonmech"])
+        self.assertIn("MAPPING_SEMANTICS.md", cited["mediaingredientmech"])
+        for url in self.c.evidence_urls((ROOT / "_fleet/fleet_fragment.html").read_text()):
+            repo, path = re.match(r"https://github.com/CultureBotAI/([^/]+)/blob/[^/]+/([^#?]+)", url).groups()
+            self.assertIn(path, cited[repo.lower()], url)
+        out = self.c.classify("MediaIngredientMech", [{"filename": "MAPPING_SEMANTICS.md", "status": "modified"}],
+                              cited["mediaingredientmech"])
+        self.assertEqual(out["claims"], ["MAPPING_SEMANTICS.md"])
+
+    def test_record_globs_read_as_the_census_reads_them(self):
+        # #292: * stays in one segment, **/ spans directories, EXCLUDE_DIRS applies.
+        self.assertTrue(self.c.is_record("CommunityMech", "kb/communities/x.yaml"))
+        self.assertFalse(self.c.is_record("CommunityMech", "kb/communities/sub/x.yaml"))
+        self.assertTrue(self.c.is_record("TraitMech", "data/traits/x.yaml"))
+        self.assertTrue(self.c.is_record("TraitMech", "data/traits/a/b/x.yaml"))
+        self.assertFalse(self.c.is_record("TraitMech", "data/traitsX/x.yaml"))
+        self.assertFalse(self.c.is_record("MediaIngredientMech", "data/ingredients/mapped/backups/x.yaml"))
+        self.assertFalse(self.c.is_record(None, "data/traits/x.yaml"))
+
+    def test_main_is_the_last_commit_and_a_failed_call_is_unchecked(self):
+        # #293, #289
+        row = self.c.drift({"repo": "TraitMech", "sha": "a" * 40}, "TraitMech", set(),
+                           api=lambda path: {"ahead_by": 2, "commits": [{"sha": "b" * 40}, {"sha": "c" * 40}],
+                                             "files": []})
+        self.assertEqual(row["main"], "c" * 7)
+        def fail(path):
+            raise self.c.Unchecked("Not Found (HTTP 404)")
+        row = self.c.drift({"repo": "TraitMech", "sha": "0" * 40}, "TraitMech", set(), api=fail)
+        self.assertTrue(self.c.verdict(row).startswith("UNCHECKED"))
+
+    def test_links_that_were_not_checked_are_not_counted_as_resolving(self):
+        # #290, #293
+        import urllib.error
+        codes = {"https://x/404": 404, "https://x/429": 429, "https://x/408": 408}
+        def opener(request, timeout):
+            url = request.full_url
+            if url in codes:
+                raise urllib.error.HTTPError(url, codes[url], "x", {}, None)
+            if url == "https://x/down":
+                raise urllib.error.URLError("no route")
+        dead, unchecked = self.c.dead_links(sorted(codes) + ["https://x/down", "https://x/ok"], opener)
+        self.assertEqual(dead, ["https://x/404 (404)"])
+        self.assertEqual(len(unchecked), 3)
+
+    def test_the_summary_names_every_section(self):
+        # #288: a stale manifest or grown card is a change even when no repository moved.
+        quiet = [{"repo": "HabitatMech", "records": [], "claims": [], "unchecked": None}]
+        line = self.c.summary(quiet, [("grew", "TraitMech", "x"), ("ok", "HabitatMech", "x")],
+                              "Fleet snapshot is stale; refresh", [], ["https://x (timed out)"])
+        self.assertIn("TraitMech (grew)", line)
+        self.assertIn("CLAW manifest", line)
+        self.assertIn("Not checked", line)
+        self.assertIn("nothing found", self.c.summary(quiet, [("ok", "HabitatMech", "x")], "matches", [], []))
+
+    def test_the_watched_set_covers_claw_pages_urls_and_audited_data(self):
+        # #288, #298, #301
+        audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
+        cited = self.c.watched(audit, self.c.site_sources())
+        self.assertTrue(set(self.c.CLAW_CLAIMS) <= cited["culturebotai-claw"])
+        self.assertIn("docs/data/ingredients.json", cited["mediaingredientmech"])
+        self.assertEqual(self.c.cited_paths("<https://github.com/CultureBotAI/X/blob/main/a%20b.md>|")["x"], {"a b.md"})
+
+    def test_the_summary_sorts_every_status_it_is_given(self):
+        # #296, #297, #301: changes, and everything that was not checked.
+        rows = [{"repo": "A", "records": [], "claims": [], "unchecked": "HTTP 404"},
+                {"repo": "CultureMech", "records": [], "claims": [], "unchecked": None, "truncated": True},
+                {"repo": "B", "records": [], "claims": [], "unchecked": None, "status": "diverged"}]
+        cards = [("grew", "T", "x"), ("unread", "H", "timed out"), ("CHANGED", "M", "x"),
+                 ("UNCHECKED", "-", "6 of 10")]
+        line = self.c.summary(rows, cards, "NOT CHECKED: failed", [], [])
+        change, missed = line.split("**Not checked:**")
+        self.assertIn("T (grew)", change)
+        self.assertNotIn("H", change)
+        self.assertNotIn("(UNCHECKED)", change)
+        for name in ("A", "CultureMech (past the 300-file cap)", "B (main diverged)", "card H (unread)",
+                     "card M (CHANGED)", "cards (6 of 10)", "CLAW manifest"):
+            self.assertIn(name, missed)
+
+    def test_a_main_behind_or_diverged_from_its_pin_is_not_at_pin(self):
+        # #300
+        row = self.c.drift({"repo": "T", "sha": "a" * 40}, "TraitMech", set(),
+                           api=lambda path: {"ahead_by": 0, "behind_by": 3, "status": "behind", "files": []})
+        self.assertIn("behind", self.c.verdict(row))
+
+    def test_a_failed_manifest_check_or_clone_is_not_checked(self):
+        # #295, #301
+        from unittest import mock
+        def runner(clone_rc, check_rc, check_out):
+            def run(cmd, **kw):
+                if cmd[0] == "git":
+                    return mock.Mock(returncode=clone_rc, stdout="", stderr="fatal: no route")
+                return mock.Mock(returncode=check_rc, stdout=check_out, stderr="")
+            return run
+        for clone_rc, check_rc, out, expect in ((128, 0, "", "NOT CHECKED: could not clone"),
+                                                (0, 1, "CalledProcessError: exit 128", "NOT CHECKED: refresh_manifest"),
+                                                (0, 1, "Fleet snapshot is stale; refresh", "Fleet snapshot is stale")):
+            with mock.patch.object(self.c.subprocess, "run", runner(clone_rc, check_rc, out)):
+                self.assertTrue(self.c.manifest_check().startswith(expect), expect)
+
+    def test_the_claw_clone_goes_to_a_temporary_directory(self):
+        # #293: read-only means the clone never lands in the repository, and a
+        # missing requirement is reported, not raised.
+        from unittest import mock
+        calls = []
+        def run(cmd, **kw):
+            calls.append(cmd)
+            if cmd[0] == "git":
+                return mock.Mock(returncode=0, stdout="", stderr="")
+            return mock.Mock(returncode=1, stdout="", stderr="ModuleNotFoundError: No module named 'yaml'")
+        with mock.patch.object(self.c.subprocess, "run", run):
+            out = self.c.manifest_check()
+        target = Path(calls[0][-1])
+        self.assertFalse(str(target).startswith(str(ROOT)))
+        self.assertTrue(out.startswith("NOT CHECKED"))
+
+    def test_the_check_writes_nothing(self):
+        # Read-only by design: no open() for writing and no pipeline stage import.
+        source = (ROOT / "scripts/fleet/check_updates.py").read_text()
+        self.assertNotRegex(source, r"open\([^)]*[\"'][wa]")
+        self.assertNotRegex(source, r"write_text|write_bytes|json\.dump\(")
+        for stage in ("prefix_census", "build_subsets", "build_data", "mech_stats", "assemble_page"):
+            self.assertNotIn(f"import {stage}", source)
+
+
 class RefreshProvenanceTests(unittest.TestCase):
     """The derived numbers must all come from one set of checkouts (#85).
 
