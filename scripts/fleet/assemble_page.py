@@ -29,20 +29,20 @@ def capability_columns(snapshot):
 
 
 def capability_head(snapshot):
-    cells = ["<th>Mech</th>"] + [f'<th scope="col"><span>{escape(capability_label(key))}</span></th>'
-                                  for key in capability_columns(snapshot)]
+    cells = ['<th scope="col">Mech</th>'] + [f'<th scope="col"><span>{escape(capability_label(key))}</span></th>'
+                                             for key in capability_columns(snapshot)]
     return "<tr>" + "".join(cells) + "</tr>"
 
 
 def capability_rows(snapshot):
     rows = []
     for name, mech in snapshot["mechs"].items():
-        cells = [f"<td>{escape(name)}</td>"]
+        cells = [f'<th scope="row">{escape(name)}</th>']  # #314
         for key in capability_columns(snapshot):
             declaration = mech["capabilities"][key]
             status = declaration["status"]
             css = {"enabled": "e", "disabled": "d", "not_applicable": "n"}[status]
-            label = f"{key}: {status.replace('_', ' ')}"
+            label = f"{capability_label(key)}: {status.replace('_', ' ')}"  # #314
             if declaration.get("reason"):
                 label += ". " + declaration["reason"].strip()
             label = escape(label, quote=True)

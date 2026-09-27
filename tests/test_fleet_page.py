@@ -43,7 +43,8 @@ class FleetPageTests(unittest.TestCase):
         rows = re.findall(r"<tr>(.*?)</tr>", table[table.index("<tbody>"):], re.S)
         self.assertEqual(len(rows), len(self.snapshot["mechs"]))
         for row in rows:
-            self.assertEqual(len(re.findall(r"<td[ >]", row)), len(catalogue) + 1)
+            self.assertEqual(len(re.findall(r"<td[ >]", row)), len(catalogue))
+            self.assertTrue(row.startswith('<th scope="row">'))  # #314
         from assemble_page import capability_label
         self.assertEqual(capability_label("kgx_export"), "KGX export")
         self.assertEqual(capability_label("id_label_validation"), "ID label validation")
@@ -95,8 +96,8 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(caps['NaturalProductMech']['capabilities']['curation_history']['status'], 'disabled')
         self.assertEqual(caps['TaxonMech']['capabilities']['source_queue']['status'], 'disabled')
         self.assertEqual(caps['TaxonMech']['capabilities']['curation_history']['status'], 'enabled')
-        self.assertIn('<tr><td>NaturalProductMech</td>', capability_rows(self.snapshot))
-        self.assertIn('<tr><td>TaxonMech</td>', capability_rows(self.snapshot))
+        self.assertIn('<tr><th scope="row">NaturalProductMech</th>', capability_rows(self.snapshot))
+        self.assertIn('<tr><th scope="row">TaxonMech</th>', capability_rows(self.snapshot))
 
     def test_fleet_size_reads_as_prose_but_the_tile_stays_a_numeral(self):
         # The heading, intro and SVG title are sentences, and the rest of the
