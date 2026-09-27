@@ -316,6 +316,11 @@
   .fleet-orch code { font-size: .8em; }
   .fleet-caps-wrap { overflow-x: auto; margin: 1rem 0 .3rem; }
   table.fleet-caps { border-collapse: collapse; font-size: .82rem; min-width: 700px; width: 100%; }
+  /* All of CLAW's capabilities, one column each (#310): headings run upward so
+     26 columns fit, and the Mech column stays in view while the table scrolls. */
+  table.fleet-caps thead th[scope="col"] { vertical-align: bottom; padding: .5rem .15rem; }
+  table.fleet-caps thead th[scope="col"] span { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }
+  table.fleet-caps th:first-child, table.fleet-caps td:first-child { position: sticky; left: 0; background: var(--card); z-index: 1; }
   table.fleet-caps th, table.fleet-caps td { padding: .4rem .5rem; border-bottom: 1px solid var(--line); text-align: center; }
   table.fleet-caps th:first-child, table.fleet-caps td:first-child { text-align: left; white-space: nowrap; }
   table.fleet-caps thead th { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; vertical-align: bottom; }
