@@ -218,7 +218,7 @@ more are cited but not counted. Adding a prefix to the census does not add a
 heatmap column (`build_data.VOC` decides those, and `PrefixListTests` keeps the
 lists consistent), but it changes the vocabulary tile and needs a full rescan.
 
-## Published-site refresh (September 24, 2026)
+## Published-site refresh (September 28, 2026)
 
 Every number on the page was re-derived from one set of pinned revisions: each
 Mech's GitHub `main` and CLAW's, fetched once at the start of the run. The
@@ -247,17 +247,17 @@ HTML still has a legacy fallback count.
 
 Card figures follow the published sites, CultureMech's its committed README
 instead, and the census follows the pinned repositories. At this refresh they agree for every Mech except CommunityMech:
-its site lists 422 communities, while its record glob also takes four isolate
-records, so the census and `mech_stats.json` count 426. CellStructureMech and
+its site lists 455 communities, while its record glob also takes four isolate
+records, so the census and `mech_stats.json` count 459. CellStructureMech and
 TraitMech published new records after the pins were taken; their cards keep the
 pinned figures, and `site_audit.json` records what the two sites showed when it
 was written. `check_cards.py` reports both as grown, a warning, until 14 days
 after the pins or until a site is half as large again as its card, whichever
-comes first; CellStructureMech, adding about two records an hour, reaches the
-second within a week.
-NaturalProductMech's landing page and MediaIngredientMech's data file also
-changed after the pins without changing their figures; the audit records each
-live hash beside the hash of the committed copy at the pin.
+comes first; CellStructureMech, adding about one and a half records an hour, reaches the
+second in about nine days.
+The other sources that have a committed copy matched it byte for byte when read
+on September 28 (ProteinTraitsMech's data file is built in CI and has none); the
+audit records each live hash beside the hash of the committed copy at the pin.
 
 CultureMech's README inventory at the pinned revision reports 15,878 normalized
 records and 6,288 merged records, and the card cites it: no page CultureMech
@@ -268,7 +268,7 @@ deployed by CultureMech's generate-pages workflow through GitHub Actions, while
 the site's Pages source is set to branch builds; a push to `main` outside the
 workflow's paths triggers a branch build that replaces the deployment. So all
 three appear and disappear: live on September 24, gone on September 25, when the
-browser never finished loading (#175, #182, #204). The fix is upstream, setting the
+browser never finished loading, and still gone on September 28 (#175, #182, #204). The fix is upstream, setting the
 Pages source to GitHub Actions (#172). `check_cards.py` therefore reads the
 committed README on `main`.
 
@@ -278,9 +278,10 @@ card secondary figures were checked against each live site. Merged pull-request
 totals come from GitHub search at run time and were cross-checked against the
 GraphQL `pullRequests(states: MERGED)` count for every repository.
 
-The CLAW manifest's projected membership is unchanged. On 2026-09-26 the
-manifest alone was refreshed to CLAW baa792d, which adds a 26th capability,
-`causal_graph_coverage` (#303, #304). The capability table shows every capability
+The CLAW manifest's projected membership and capabilities are unchanged from
+baa792d, to which the manifest alone was refreshed on 2026-09-26 to add a 26th
+capability, `causal_graph_coverage` (#303, #304); this refresh advances its
+provenance to CLAW 1edb949. The capability table shows every capability
 in CLAW's catalogue, in its order, so one CLAW adds appears on the next manifest
 refresh (#310). CLAW's README distinguishes
 supported discovery, validation and dry-run tools from unimplemented CLI agent
@@ -288,8 +289,8 @@ execution and disabled cross-repository apply modes. Capability adoption must
 not be described as proof that those workflows execute unattended.
 
 The vocabulary census and overlap assets were rescanned at the same pinned
-revisions, and TaxonMech was added to it (#87).
-The previous census's ProteinTraitsMech counts had been read from a checkout
+revisions. TaxonMech was added to the census at the September 24 refresh (#87).
+The census before that refresh had read ProteinTraitsMech's counts from a checkout
 with uncommitted files: it reported 770,276 UniProt references where the
-revision the September 20 audit pinned (`700b6f7`) holds 657,598. The rescan's
-lower figures are a correction, not a loss of data.
+revision the September 20 audit pinned (`700b6f7`) holds 657,598. That rescan's
+lower figures were a correction, not a loss of data.

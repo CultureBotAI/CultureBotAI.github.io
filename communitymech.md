@@ -9,9 +9,9 @@ permalink: /communitymech/
 
 ## Overview
 
-**CommunityMech** is an autonomous knowledge factory for microbial community composition, ecological interactions, cultivation conditions, environments, and supporting evidence, with human oversight. Canonical YAML records feed schema validation, static browsing, and graph exports. [Repository overview](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/README.md).
+**CommunityMech** is an autonomous knowledge factory for microbial community composition, ecological interactions, cultivation conditions, environments, and supporting evidence, with human oversight. Canonical YAML records feed schema validation, static browsing, and graph exports. [Repository overview](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/README.md).
 
-The repository contains **422 community records** and **four additional isolate records**. The published browser lists **422 communities across 15 categories**; the landing page's category tile still reads 16, checked on September 24, 2026. Its landing page also advertises **512-dimensional v3 embeddings**; the embedding views are separate derived artifacts and can cover a different set of records from the current browser. [Published site](https://culturebotai.github.io/CommunityMech/).
+The repository contains **455 community records** and **four additional isolate records**. The published browser lists **455 communities across 15 categories**; the landing page's category tile still reads 16, checked on September 28, 2026. Its landing page also advertises **512-dimensional v3 embeddings**; the embedding views are separate derived artifacts and can cover a different set of records from the current browser. [Published site](https://culturebotai.github.io/CommunityMech/).
 
 ## Explore the Published Site
 
@@ -30,13 +30,13 @@ The repository contains **422 community records** and **four additional isolate 
 | `history/` | Append-only curation provenance |
 | `docs/` | Published HTML and maintainer documentation |
 
-A community record can describe taxonomic membership, functional roles, environmental context, cultivation conditions, and directed ecological interactions. Ontology identifiers are paired with labels, and evidence is attached to the assertions it supports. Schema validation checks structure; literature validation separately checks evidence against source text. [Validation and evidence workflow](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/README.md#validate-records).
+A community record can describe taxonomic membership, functional roles, environmental context, cultivation conditions, and directed ecological interactions. Ontology identifiers are paired with labels, and evidence is attached to the assertions it supports. Schema validation checks structure; literature validation separately checks evidence against source text. [Validation and evidence workflow](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/README.md#validate-records).
 
 ## Example: A Curated Community
 
-The [Yogurt Two-Species Starter Culture record](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml), `CommunityMech:000164`, documents *Streptococcus thermophilus* and *Lactobacillus delbrueckii* subsp. *bulgaricus*. It records cross-feeding interactions with taxon and metabolite identifiers and supporting literature.
+The [Yogurt Two-Species Starter Culture record](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml), `CommunityMech:000164`, documents *Streptococcus thermophilus* and *Lactobacillus delbrueckii* subsp. *bulgaricus*. It records cross-feeding interactions with taxon and metabolite identifiers and supporting literature.
 
-The [README's schema-validated example](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/README.md#schema-valid-example) shows how that record represents membership, formate exchange, and evidence. Use the linked YAML for the complete current record.
+The [README's schema-validated example](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/README.md#schema-valid-example) shows how that record represents membership, formate exchange, and evidence. Use the linked YAML for the complete current record.
 
 ## Getting Started
 
@@ -66,7 +66,7 @@ Evidence checking is a separate step and may use network access:
 just validate-references-explained "$community_record"
 ```
 
-The repository documents a corpus-wide evidence-repair backlog. A structurally valid record does not by itself establish that all of its scientific assertions have been verified. [Current validation status](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/README.md#validate-records).
+The repository documents a corpus-wide evidence-repair backlog. A structurally valid record does not by itself establish that all of its scientific assertions have been verified. [Current validation status](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/README.md#validate-records).
 
 ## Generate Pages and Graph Exports
 
@@ -78,9 +78,9 @@ just kgx-export
 just kgx-validate
 ```
 
-GitHub Pages serves the committed `docs/` tree. Update community YAML or rendering templates before regenerating derived HTML. Embedding-map generation additionally needs the local embedding artifact described in the [visualization guide](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/docs/UMAP_VISUALIZATION.md).
+GitHub Pages serves the committed `docs/` tree. Update community YAML or rendering templates before regenerating derived HTML. Embedding-map generation additionally needs the local embedding artifact described in the [visualization guide](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/docs/UMAP_VISUALIZATION.md).
 
-The KGX exporter writes `nodes.tsv`, `edges.tsv`, and `manifest.json` under `output/kgx/`; its release workflow compresses the two TSV files, although no release has been published yet. Edges carry deterministic identifiers, relation predicates, source attribution, and available publication/supporting-text evidence. These exports support downstream graph integration and community analysis. [KGX contract](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/README.md#kgx-downstream-contract).
+The KGX exporter writes `nodes.tsv`, `edges.tsv`, and `manifest.json` under `output/kgx/`; its release workflow compresses the two TSV files, although no release has been published yet. Edges carry deterministic identifiers, relation predicates, source attribution, and available publication/supporting-text evidence. These exports support downstream graph integration and community analysis. [KGX contract](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/README.md#kgx-downstream-contract).
 
 ## Integration with the X-Mech Suite
 
@@ -89,9 +89,9 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 ## Repository & Documentation
 
 - **[Repository](https://github.com/CultureBotAI/CommunityMech)** and **[published site](https://culturebotai.github.io/CommunityMech/)**
-- **[Schema](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/src/communitymech/schema/communitymech.yaml)**
-- **[Curation workflow](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/README.md#curation-workflow)**
-- **License:** [BSD-3-Clause](https://github.com/CultureBotAI/CommunityMech/blob/8505a56d644b02fe87f776be9d667db4cf3f5c5d/LICENSE)
+- **[Schema](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/src/communitymech/schema/communitymech.yaml)**
+- **[Curation workflow](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/README.md#curation-workflow)**
+- **License:** [BSD-3-Clause](https://github.com/CultureBotAI/CommunityMech/blob/0c00a4273525d20682c26319e5ed7aa3c9713757/LICENSE)
 
 ---
 

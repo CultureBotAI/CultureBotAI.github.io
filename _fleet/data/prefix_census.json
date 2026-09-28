@@ -20,32 +20,32 @@
   }
  },
  "CommunityMech": {
-  "files": 426,
+  "files": 459,
   "prefixes": {
-   "PMID": 7320,
-   "NCBITaxon": 4253,
-   "CHEBI": 2971,
-   "GTDB": 2037,
-   "GO": 1537,
-   "DOI": 1223,
-   "ENVO": 538,
+   "PMID": 7862,
+   "NCBITaxon": 4484,
+   "CHEBI": 3023,
+   "GTDB": 2078,
+   "GO": 1575,
+   "DOI": 1320,
+   "ENVO": 591,
    "IMG": 28,
    "UBERON": 10,
    "BacDive": 1
   }
  },
  "TraitMech": {
-  "files": 763,
+  "files": 834,
   "prefixes": {
-   "DOI": 7190,
-   "METPO": 3617,
-   "RO": 2678,
-   "NCBITaxon": 996,
-   "GO": 886,
+   "DOI": 7739,
+   "METPO": 3693,
+   "RO": 2764,
+   "NCBITaxon": 1004,
+   "GO": 887,
    "CHEBI": 673,
-   "PMID": 621,
-   "UniProt": 399,
-   "InterPro": 115,
+   "PMID": 636,
+   "UniProt": 403,
+   "InterPro": 123,
    "PATO": 99,
    "ENVO": 22,
    "MICRO": 20,
@@ -54,17 +54,17 @@
   }
  },
  "CellStructureMech": {
-  "files": 542,
+  "files": 672,
   "prefixes": {
-   "GO": 11688,
-   "DOI": 6636,
-   "NCBITaxon": 1438,
-   "UniProt": 993,
-   "PMID": 698,
+   "GO": 16211,
+   "DOI": 7820,
+   "NCBITaxon": 1640,
+   "PMID": 1082,
+   "UniProt": 1044,
    "PDB": 280,
    "InterPro": 206,
    "ECO": 145,
-   "SO": 69,
+   "SO": 139,
    "CHEBI": 66,
    "Pfam": 22,
    "ComplexPortal": 16,
@@ -79,19 +79,19 @@
  "ProteinTraitsMech": {
   "files": 429293,
   "prefixes": {
-   "InterPro": 1480046,
-   "UniProt": 659208,
+   "InterPro": 1481458,
+   "UniProt": 686051,
    "PMID": 657552,
    "RHEA": 624625,
-   "Pfam": 521966,
+   "Pfam": 523828,
    "GO": 421586,
    "ARO": 397717,
    "CHEBI": 374596,
-   "NCBITaxon": 358325,
+   "NCBITaxon": 368235,
    "RO": 278407,
    "PDB": 250830,
    "DOI": 193845,
-   "NCBIfam": 139525,
+   "NCBIfam": 144499,
    "EC": 120213,
    "BFO": 74488,
    "ComplexPortal": 20753,
@@ -111,16 +111,18 @@
  "NaturalProductMech": {
   "files": 3115,
   "prefixes": {
-   "NCBITaxon": 13960,
-   "MIBiG": 10133,
-   "DOI": 8437,
-   "PMID": 5703,
+   "NCBITaxon": 13929,
+   "MIBiG": 10150,
+   "DOI": 9020,
+   "PMID": 5681,
    "PubChem": 3290,
+   "CHEBI": 1898,
    "NPAtlas": 1756,
-   "CHEBI": 1659,
-   "UniProt": 613,
+   "UniProt": 1326,
+   "RHEA": 184,
    "ChEMBL": 41,
-   "RHEA": 14
+   "EC": 12,
+   "ComplexPortal": 6
   }
  },
  "AntibioticMech": {
@@ -128,6 +130,7 @@
   "prefixes": {
    "CHEBI": 22104,
    "ARO": 16653,
+   "DOI": 4228,
    "CAS": 1823,
    "KEGG": 1461,
    "PMID": 1207,
@@ -138,24 +141,23 @@
    "PDB": 339,
    "UniProt": 278,
    "PHIPO": 217,
-   "DOI": 216,
    "GO": 3
   }
  },
  "MediaIngredientMech": {
   "files": 2953,
   "prefixes": {
-   "CHEBI": 8224,
-   "CAS": 1463,
+   "CHEBI": 8247,
+   "CAS": 1451,
    "MediaDive": 538,
-   "MICRO": 351,
+   "MICRO": 368,
    "MESH": 328,
-   "NCIT": 306,
-   "FOODON": 273,
+   "NCIT": 316,
+   "FOODON": 277,
    "ENVO": 110,
    "KEGG": 61,
    "PMID": 29,
-   "UBERON": 23,
+   "UBERON": 22,
    "DOI": 9,
    "BTO": 3,
    "NCBITaxon": 1
@@ -195,17 +197,17 @@
    "ATCC": 8870
   }
  },
- "_as_of": "2026-09-25",
+ "_as_of": "2026-09-28",
  "_revisions": {
-  "HabitatMech": "b16e3099478a7ea55b82142836e9a118ae062cf6",
-  "CommunityMech": "8505a56d644b02fe87f776be9d667db4cf3f5c5d",
-  "TraitMech": "a21c5aa34a876c43ea1e8053a58bc63d53be30a1",
-  "CellStructureMech": "42cc23b90b6c48c49efd94b7ee6efb808dded7e6",
-  "ProteinTraitsMech": "5f05fca10a59867751877d1f566fad30e238b28c",
-  "NaturalProductMech": "36662aa8fcdcac9d3ddf4acba0f430e39bc2da2e",
-  "AntibioticMech": "66d68c2a8d99230ab729267e6cd8ae1051b85225",
-  "MediaIngredientMech": "dfce1c9342ca7aec41b50d0f6db8adb950bb72fe",
-  "CultureMech": "faaf033b8c5386aaf2cb6f28fc527678d00cf83b",
-  "TaxonMech": "972fbd7b85a052c6b95bf1437f672168bd6d8970"
+  "HabitatMech": "030ff845555d4bec6f722c51a60b293350ee56a2",
+  "CommunityMech": "0c00a4273525d20682c26319e5ed7aa3c9713757",
+  "TraitMech": "8e238aa4e395d14f2ec30d4c23469cd721cb6b66",
+  "CellStructureMech": "b9c169046be7491e99a3d1ee589788f9415e5958",
+  "ProteinTraitsMech": "84e41623291352111a11dc8b0323646ba3b46ff8",
+  "NaturalProductMech": "747436f36ca330d568f66cc616dece3449174afe",
+  "AntibioticMech": "be396cf02d1f340edbe9d0f8bef93c2dca80277c",
+  "MediaIngredientMech": "daef1acbeb8fb35637d053b88cf5717cc3cd7822",
+  "CultureMech": "a22955418afa9e44183256bfb207f4fbefb09367",
+  "TaxonMech": "b6a6508faca1388b88feb5740b1095e9f64cfdb8"
  }
 }
