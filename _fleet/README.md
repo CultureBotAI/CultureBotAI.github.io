@@ -248,16 +248,16 @@ HTML still has a legacy fallback count.
 Card figures follow the published sites, CultureMech's its committed README
 instead, and the census follows the pinned repositories. At this refresh they agree for every Mech except CommunityMech:
 its site lists 455 communities, while its record glob also takes four isolate
-records, so the census and `mech_stats.json` count 459. CellStructureMech and
-TraitMech published new records after the pins were taken; their cards keep the
-pinned figures, and `site_audit.json` records what the two sites showed when it
-was written. `check_cards.py` reports both as grown, a warning, until 14 days
-after the pins or until a site is half as large again as its card, whichever
-comes first; CellStructureMech, adding about one and a half records an hour, reaches the
-second in about nine days.
-The other sources that have a committed copy matched it byte for byte when read
-on September 28 (ProteinTraitsMech's data file is built in CI and has none); the
-audit records each live hash beside the hash of the committed copy at the pin.
+records, so the census and `mech_stats.json` count 459. CellStructureMech,
+CommunityMech and TraitMech published new records after the pins were taken;
+their cards keep the pinned figures, and `site_audit.json` records what the three
+sites showed when it was written. `check_cards.py` reports all three as grown, a
+warning, until 14 days after the pins or until a site is half as large again as
+its card, whichever comes first; CellStructureMech, adding about one and a half
+records an hour, reaches the second in about nine days. For every source with a
+committed copy, the audit records the live hash beside the hash of the committed
+copy at the pin, and its notes say which matched when it was written
+(ProteinTraitsMech's data file is built in CI and has no committed copy).
 
 CultureMech's README inventory at the pinned revision reports 15,878 normalized
 records and 6,288 merged records, and the card cites it: no page CultureMech
