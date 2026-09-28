@@ -162,9 +162,9 @@ The <a href="https://github.com/CultureBotAI/culturebotai-claw#current-support-s
 
 Which fleet contracts each member has adopted, from the manifest. Every disabled entry records a reason, such as no download.yaml or no source queue yet:
 
-<div class="fleet-caps-wrap">
+<div class="fleet-caps-wrap" tabindex="0" role="region" aria-label="Fleet capability adoption, one column per capability">
 <table class="fleet-caps">
-  <thead><tr><th>Mech</th><th>Curation history</th><th>Strict validation</th><th>Vendored sync</th><th>Deep research</th><th>Knowledge-gap scan</th><th>Environment coverage</th><th>SSSOM export</th><th>KGX export</th><th>Source queue</th><th>Source catalogue</th><th>Site contract</th><th>Causal-graph coverage</th></tr></thead>
+  <thead><!--FLEET_CAPABILITY_HEAD--></thead>
   <tbody>
 <!--FLEET_CAPABILITIES-->
   </tbody>

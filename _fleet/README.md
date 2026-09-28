@@ -280,8 +280,9 @@ GraphQL `pullRequests(states: MERGED)` count for every repository.
 
 The CLAW manifest's projected membership is unchanged. On 2026-09-26 the
 manifest alone was refreshed to CLAW baa792d, which adds a 26th capability,
-`causal_graph_coverage` (#303, #304); the capability table shows it beside the
-other eleven it displays. Its README distinguishes
+`causal_graph_coverage` (#303, #304). The capability table shows every capability
+in CLAW's catalogue, in its order, so one CLAW adds appears on the next manifest
+refresh (#310). CLAW's README distinguishes
 supported discovery, validation and dry-run tools from unimplemented CLI agent
 execution and disabled cross-repository apply modes. Capability adoption must
 not be described as proof that those workflows execute unattended.

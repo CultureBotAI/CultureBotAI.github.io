@@ -11,20 +11,42 @@ from refresh_manifest import validate
 
 REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
-COLUMNS = ("curation_history", "strict_validation", "vendored_sync", "deep_research",
-           "knowledge_gap_scan", "environment_coverage", "sssom_export", "kgx_export",
-           "source_queue", "source_catalogue", "site_contract", "causal_graph_coverage")
+# Words the capability keys abbreviate, spelled as the fleet writes them.
+ACRONYMS = {"id": "ID", "kgx": "KGX", "sssom": "SSSOM", "metpo": "METPO"}
+
+
+# Compound modifiers the page has always hyphenated (#318).
+HYPHENATED = {"knowledge_gap_scan": "knowledge-gap scan", "causal_graph_coverage": "causal-graph coverage"}
+
+
+def capability_label(key):
+    """A capability key as a column heading: kgx_export -> KGX export."""
+    words = [ACRONYMS.get(word, word) for word in HYPHENATED.get(key, key).replace(" ", "_").split("_")]
+    return " ".join([words[0][:1].upper() + words[0][1:]] + words[1:])
+
+
+def capability_columns(snapshot):
+    """Every capability CLAW's catalogue declares, in its order. The table used
+    to show a hand-picked eleven, so a capability CLAW added never appeared
+    (#305); it now shows the whole catalogue (#310)."""
+    return list(snapshot["capability_catalogue"])
+
+
+def capability_head(snapshot):
+    cells = ['<th scope="col">Mech</th>'] + [f'<th scope="col"><span>{escape(capability_label(key))}</span></th>'
+                                             for key in capability_columns(snapshot)]
+    return "<tr>" + "".join(cells) + "</tr>"
 
 
 def capability_rows(snapshot):
     rows = []
     for name, mech in snapshot["mechs"].items():
-        cells = [f"<td>{escape(name)}</td>"]
-        for key in COLUMNS:
+        cells = [f'<th scope="row">{escape(name)}</th>']  # #314
+        for key in capability_columns(snapshot):
             declaration = mech["capabilities"][key]
             status = declaration["status"]
             css = {"enabled": "e", "disabled": "d", "not_applicable": "n"}[status]
-            label = f"{key}: {status.replace('_', ' ')}"
+            label = f"{capability_label(key)}: {status.replace('_', ' ')}"  # #314
             if declaration.get("reason"):
                 label += ". " + declaration["reason"].strip()
             label = escape(label, quote=True)
@@ -149,6 +171,7 @@ def assemble(template, fragment, data, snapshot, stats, census):
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
         "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot),
+        "<!--FLEET_CAPABILITY_HEAD-->": capability_head(snapshot),
     }
     tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">in fleet manifest</span>' for name in names})
     for mech in stats["mechs"]:
