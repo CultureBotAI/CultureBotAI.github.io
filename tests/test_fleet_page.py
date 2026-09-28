@@ -1381,6 +1381,24 @@ class ProseFieldTests(unittest.TestCase):
         self.assertEqual(cited, {"InterPro:IPR045187", "DOI:10.1/x"})
         self.assertEqual(found, cited | {"InterPro:IPR000001", "GO:0000002"})
 
+    def test_a_discussion_prompt_is_prose(self):
+        # NaturalProductMech's prompts say which taxon it declines (#327).
+        import build_subsets
+        text = ("discussions:\n- discussion_id: unnamed-producer\n"
+                "  prompt: 'No producer claim is written from BGC0001335, which gives\n"
+                "    NCBITaxon:77133 (uncultured bacterium).'\n  status: OPEN\n")
+        self.assertEqual(build_subsets.mentions_and_citations(text)[1], set())
+
+    def test_a_structured_cas_rn_is_a_cas_citation(self):
+        # MIM's cas_rn field is unprefixed; outside prose it cites CAS (#328).
+        import build_subsets
+        text = ("chemical_properties:\n  cas_rn: 64-19-7\n"
+                "curation_history:\n- changes: Added CAS-RN:50-00-0 from PubChem\n"
+                "  cas_rn: 7732-18-5\n")
+        found, cited = build_subsets.mentions_and_citations(text)
+        self.assertEqual(cited, {"CAS:64-19-7"})
+        self.assertEqual(found, {"CAS:50-00-0"})
+
     def test_a_key_that_only_starts_like_a_prose_key_is_kept(self):
         import build_subsets
         text = "notes_url: CHEBI:1\ntextual_id: CHEBI:2\ndescription_id: CHEBI:3\n"
@@ -1439,12 +1457,16 @@ class SubsetDeterminismTests(unittest.TestCase):
                 f"id: {mech}:2\nlabel: prose\ngrounding: CHEBI:900\n"
                 "notes: the old CAS number was CHEBI:901, cleared\n"
                 "changes:\n- field: grounding\n  previous: CHEBI:902\n"
-                "evidence_notes: |\n  see CHEBI:903\n")
+                "evidence_notes: |\n  see CHEBI:903\n"
+                "description: a KEGG:C00031 mention, the record's only KEGG id\n")
         run = self.run_once(tmp / "mechs", tmp / "run", 1)
         edge = json.loads(run["fleet/edges/TraitMech--CellStructureMech.json"])
         ids = {row["id"] for row in edge["terms"]}
         self.assertIn("CHEBI:900", ids)
-        self.assertFalse(ids & {"CHEBI:901", "CHEBI:902", "CHEBI:903"}, ids)
+        self.assertFalse(ids & {"CHEBI:901", "CHEBI:902", "CHEBI:903", "KEGG:C00031"}, ids)
+        # Cells still count every mention, as the census does (#329).
+        cell = json.loads(run["fleet/cells/TraitMech--KEGG.json"])
+        self.assertEqual(cell["total"], 1)
 
     def test_output_does_not_depend_on_the_hash_seed(self):
         tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)

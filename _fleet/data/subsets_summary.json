@@ -658,9 +658,9 @@
    ]
   },
   "ProteinTraitsMech|NaturalProductMech": {
-   "n": 892,
+   "n": 891,
    "by": {
-    "NCBITaxon": 485,
+    "NCBITaxon": 484,
     "CHEBI": 192,
     "UniProt": 179,
     "RHEA": 36
@@ -832,9 +832,9 @@
    ]
   },
   "NaturalProductMech|TaxonMech": {
-   "n": 1700,
+   "n": 1697,
    "by": {
-    "NCBITaxon": 1700
+    "NCBITaxon": 1697
    },
    "ex": [
     {
@@ -852,9 +852,10 @@
    ]
   },
   "AntibioticMech|MediaIngredientMech": {
-   "n": 314,
+   "n": 461,
    "by": {
-    "CHEBI": 314
+    "CHEBI": 314,
+    "CAS": 147
    },
    "ex": [
     {

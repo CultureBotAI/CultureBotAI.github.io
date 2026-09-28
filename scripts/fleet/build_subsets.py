@@ -66,16 +66,18 @@ AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["
 # Fields whose values are prose. A note that rejects a term, a change log naming
 # the grounding it replaced, a definition citing a neighbouring concept or a
 # quoted source snippet mentions an identifier without the record citing it, so
-# overlap terms skip these (#254). Measured over every record at the 2026-09-28
-# refresh's pins: these are the keys that hold identifiers in running text.
+# overlap terms skip these (#254). An inventory of every record at the 2026-09-28
+# refresh's pins found these keys holding identifiers in running text; `prompt`
+# was added after review (#327).
 # `evidence` is not one: in most Mechs it is a list of structured references,
 # whose own notes and snippets are skipped by name. curation_history is skipped
 # whole, as the history of a record rather than what it cites. Structured
 # fields, including definition_source and reference lists, are read wherever
 # they sit. The heatmap cells keep counting every mention, as the census they
-# explain does.
+# explain does. `prompt` is the shared Discussion slot beside `discussed` and
+# `rationale`; NaturalProductMech's prompts say which taxon it declines (#327).
 PROSE=("notes","note","changes","description","definition","rationale","explanation",
-       "discussed","text","reference_text","synonym_text","snippet","data_source",
+       "discussed","prompt","text","reference_text","synonym_text","snippet","data_source",
        "curation_history")
 _PROSE_KEY=re.compile(r"^( *)(- +)?(?:"+"|".join(PROSE)+r"|[A-Za-z_][\w.-]*_notes?)[ \t]*:(?=[ \t]|$)(.*)$",re.M)
 _BLOCK_START=("","|",">","|-",">-","|+",">+")
@@ -108,10 +110,17 @@ def structured_text(txt):
     for a,b in prose_spans(txt): out.append(txt[keep:a]); keep=b
     out.append(txt[keep:])
     return "".join(out)
+# MediaIngredientMech records a CAS Registry Number as a bare `cas_rn: 64-19-7`,
+# which the identifier pattern cannot see; its only prefixed copy sits in the
+# curation history. Read the structured field as CAS:<number> for overlap terms,
+# so skipping prose does not drop the CAS identities it shares (#328). Cells
+# still count only prefixed mentions, as the census does.
+CAS_FIELD=re.compile(r"^[ \t]*(?:-[ \t]+)?cas_rn[ \t]*:[ \t]*['\"]?(\d{2,7}-\d{2}-\d)['\"]?[ \t]*$",re.M)
 def mentions_and_citations(txt):
     """Every identifier the record mentions, and those it cites outside prose
     fields (#254)."""
-    return terms_in(txt), terms_in(structured_text(txt))
+    structured=structured_text(txt)
+    return terms_in(txt), terms_in(structured)|{"CAS:"+n for n in CAS_FIELD.findall(structured)}
 def terms_in(txt):
     """Identifiers in the overlap prefixes, in their term space: 'CHEBI:15377'."""
     found=set()
