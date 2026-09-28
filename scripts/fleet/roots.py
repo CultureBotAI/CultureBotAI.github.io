@@ -68,7 +68,8 @@ ORDER = list(RECORD_GLOBS)
 # out of the heatmap's ordering. Declared once here because those two decisions
 # have to agree (CultureBotAI.github.io#61).
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
-            "GO_REF", "PO_REF", "WB_REF", "Wikipedia", "Zenodo", "GitHub", "PNNLDH"]
+            "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
+            "PNNLDH"]
 
 
 def mech_root(name: str) -> str:

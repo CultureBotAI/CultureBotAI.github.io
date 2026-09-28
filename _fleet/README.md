@@ -207,9 +207,9 @@ that registry: case and alternate names (`gold:` and `GOLD:`, `SwissProt:` and
 namespaces (`kegg.compound:`, `mediadive.medium:`, `gtdb.genome:`,
 `uniprot.location:`, `RHEA-COMP:`), as `gold.ecosystem` and `pubchem.compound`
 always did (#271). Reference and curator collections named for a registry are
-not its terms and stay out: `GO_REF:` and `PO_REF:` are literature-like (#84
-lists GO_REF as a CITATION candidate), and `GOC:` is curator attribution, which
-#84 proposes never to count (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
+not its terms and do not fold into it: `GO_REF:` and `PO_REF:` are literature,
+counted on their own and listed in `roots.CITATION`, and `GOC:` is curator
+attribution, which the #84 rule never counts (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
 TaxonMech most heavily (#279). The list was measured by scanning every record at the
 #120 pins with a pattern allowing dots, underscores and hyphens; a spelling a
 Mech adopts later is missed until someone scans again. Until #84's fold (#244,
@@ -234,16 +234,22 @@ heatmap and its cell lists still count every mention, as the census does.
 Which namespaces to count is the inclusion rule in `roots.py` (#84): every
 external identifier namespace a record cites, whether ontology, database or
 registry, folded to one name per registry. Every culture collection counts as a
-single entry, `CultureCollection`: ATCC and DSMZ, counted separately before, and
-the forty-odd collections TaxonMech cites in `source_strain_identifiers`.
+single entry, `CultureCollection`, whether an id names a strain or a medium in
+the collection's catalogue: ATCC and DSMZ, counted separately before, the
+forty-odd collections TaxonMech cites in `source_strain_identifiers`, and the
+collection media CultureMech cites (CCAP, UTEX, JCM's medium list).
 Literature and other citable works (ISBN, GO_REF, patents, Wikipedia, Zenodo
 and the rest) are counted and listed in `roots.CITATION` beside PMID and DOI. A
 Mech's own ids, other Mechs' ids, kg-microbe's ids, metamodel prefixes (skos,
 biolink, rdf), curator attribution (GOC) and provenance are never counted.
-`prefix_census.ADDED` lists what the rule brought in, classified from every
-CURIE-shaped token at the 2026-09-28 pins with sample ids read for each;
-everything else that scan finds is chemical names, serotypes and strain
-designations that only look like prefixes. The largest additions are
+`prefix_census.ADDED` lists what the rule brought in. At the 2026-09-28 pins,
+every prefix with 20 or more occurrences, and every prefix at any count that
+appears in a structured position (a list item or a whole field value), was
+classified with sample ids read for each (#333). What the rule leaves out is
+own, cross-Mech and kg-microbe ids, metamodel, attribution and provenance
+prefixes, dictionaries cited without ids, and tokens that only look like
+prefixes: chemical names, serotypes, strain designations, mass-shift notation.
+Prefixes seen only in running text fewer than 20 times were not each checked. The largest additions are
 ProteinTraitsMech's domain and structure resources (CATH, CDD, PROSITE, ECOD) and
 TaxonMech's strain and genome registries (StrainInfo, NCBI Assembly, PATRIC,
 BioSample). Adding a prefix to the census does not add a heatmap column

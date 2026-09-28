@@ -403,6 +403,22 @@ class PrefixListTests(unittest.TestCase):
         self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
         self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
 
+    def test_every_census_spelling_of_an_overlap_column_is_folded_by_the_subsets(self):
+        # build_subsets folds a column's spellings as prefix_census.norm does. A
+        # spelling only the census folds into an overlap column is counted in the
+        # heatmap but never shared, with nothing to say so (#337).
+        import build_subsets
+        subsets = set(build_subsets.rx.pattern.split("(", 1)[1].split(")", 1)[0].replace("\\", "").split("|"))
+        missing = [a for a in self.alternatives if self.norm.get(a, a) in self.pref and a not in subsets]
+        self.assertEqual(missing, [])
+        # ...and to the same column.
+        def column(a):
+            p = build_subsets.NORM.get(a, a)
+            if p not in build_subsets.PREF: return None  # terms_in drops it
+            return build_subsets.COLUMN_OF.get(build_subsets.TERM_SPACE.get(a, p), p)
+        differ = [a for a in self.alternatives if self.norm.get(a, a) in self.pref and column(a) != self.norm.get(a, a)]
+        self.assertEqual(differ, [])
+
     def test_no_alternative_is_longer_than_the_census_lookahead(self):
         # prefix_census.rx skips positions with no colon within LOOKAHEAD
         # characters; a longer alternative would silently never match.
