@@ -38,7 +38,10 @@ moves for two reasons at once.
   capabilities: rerun `refresh_manifest.py` at CLAW's new main, move the audit's
   CLAW entry and its note in `_fleet/audit_notes.json` to that pin, and leave the
   Mech pins, census and cards alone. CLAW's pin may then be newer than
-  `pinned_at_utc`, which bounds the Mech pins only (#304, #308). The census, the stats and
+  `pinned_at_utc`, which bounds the Mech pins only (#304, #308). CI checks the
+  manifest against CLAW's live `main` only nightly (#319), so the PR's checks do
+  not cover it; run the check locally, or dispatch the workflow on the branch
+  (`gh workflow run fleet-page.yml --ref <branch>`). The census, the stats and
   the site audit each record the revision they read, and
   `RefreshProvenanceTests` fails if they disagree. A partial rerun is the failure
   this exists to catch: a census from one checkout and stats from another put 364
