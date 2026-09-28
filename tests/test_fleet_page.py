@@ -403,6 +403,33 @@ class PrefixListTests(unittest.TestCase):
         self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
         self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
 
+    def test_no_alternative_is_longer_than_the_census_lookahead(self):
+        # prefix_census.rx skips positions with no colon within LOOKAHEAD
+        # characters; a longer alternative would silently never match.
+        import prefix_census
+        self.assertEqual([p for p in self.alternatives if len(p) >= prefix_census.LOOKAHEAD], [])
+
+    def test_every_citation_prefix_is_a_name_the_census_emits(self):
+        # roots.CITATION names what the census counts as literature (#84); a
+        # name it can never emit would exempt nothing.
+        import roots
+        self.assertEqual([c for c in roots.CITATION if c not in self.census], [])
+
+    def test_every_culture_collection_counts_as_one_entry(self):
+        # #84: the forty-odd collections, ATCC and DSMZ included, are one entry.
+        for spelling in ("ATCC", "DSMZ", "DSM", "JCM", "NBRC", "CCUG", "jcm.grmd", "CCAP"):
+            self.assertIn(spelling, self.alternatives)
+            self.assertEqual(self.norm.get(spelling), "CultureCollection", spelling)
+        self.assertFalse({"ATCC", "DSMZ", "DSM", "JCM"} & self.census)
+
+    def test_the_classes_the_rule_excludes_are_never_counted(self):
+        # #84: own and cross-Mech ids, kg-microbe ids, metamodel prefixes,
+        # curator attribution and provenance are not vocabularies.
+        excluded = {"proteintraitsmech", "CultureMech", "MediaIngredientMech", "habitatmech",
+                    "kgmicrobe.strain", "kgmicrobe.compound", "skos", "biolink", "rdf",
+                    "rdfs", "xref", "GOC", "POC", "sqlite", "sha256", "url", "NCBI"}
+        self.assertEqual(sorted(excluded & set(self.alternatives)), [])
+
 
 
 

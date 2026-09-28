@@ -229,12 +229,27 @@ it. The field list comes from an inventory of the keys holding identifiers at th
 2026-09-28 pins, with `prompt` added after review (#327). MediaIngredientMech's
 bare `cas_rn: 64-19-7` field is read as CAS:64-19-7, so its CAS identities stay
 shared although their only prefixed copy is in the curation history (#328). The
-heatmap and its cell lists still count every mention, as the census does. Which
-namespaces to count at all is still open on #84, which has the measured
-inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred
-more are cited but not counted. Adding a prefix to the census does not add a
-heatmap column (`build_data.VOC` decides those, and `PrefixListTests` keeps the
-lists consistent), but it changes the vocabulary tile and needs a full rescan.
+heatmap and its cell lists still count every mention, as the census does.
+
+Which namespaces to count is the inclusion rule in `roots.py` (#84): every
+external identifier namespace a record cites, whether ontology, database or
+registry, folded to one name per registry. Every culture collection counts as a
+single entry, `CultureCollection`: ATCC and DSMZ, counted separately before, and
+the forty-odd collections TaxonMech cites in `source_strain_identifiers`.
+Literature and other citable works (ISBN, GO_REF, patents, Wikipedia, Zenodo
+and the rest) are counted and listed in `roots.CITATION` beside PMID and DOI. A
+Mech's own ids, other Mechs' ids, kg-microbe's ids, metamodel prefixes (skos,
+biolink, rdf), curator attribution (GOC) and provenance are never counted.
+`prefix_census.ADDED` lists what the rule brought in, classified from every
+CURIE-shaped token at the 2026-09-28 pins with sample ids read for each;
+everything else that scan finds is chemical names, serotypes and strain
+designations that only look like prefixes. The largest additions are
+ProteinTraitsMech's domain and structure resources (CATH, CDD, PROSITE, ECOD) and
+TaxonMech's strain and genome registries (StrainInfo, NCBI Assembly, PATRIC,
+BioSample). Adding a prefix to the census does not add a heatmap column
+(`build_data.VOC` decides those, and `PrefixListTests` keeps the lists
+consistent), but it changes the vocabulary tile and needs a full rescan. Which
+of the new namespaces deserve columns is a layout decision (#55, #58).
 
 ## Published-site refresh (September 28, 2026)
 
