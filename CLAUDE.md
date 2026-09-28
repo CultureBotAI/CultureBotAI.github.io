@@ -112,7 +112,7 @@ Three sources, refreshed differently:
   committed README on main, since no page it reliably serves states the count
   (see `SOURCES`; #226).
 
-Last refreshed on 2026-09-28; the previous refresh was #120 on 2026-09-24. The
+Last refreshed on 2026-09-28 (#321); the previous refresh was #120 on 2026-09-24. The
 corpora move fast: TraitMech went 477, 618, 694, 763, 834 records and
 CellStructureMech 57, 338, 421, 542, 672 over successive runs, and both moved
 again during that run. The census covers all ten Mechs since
