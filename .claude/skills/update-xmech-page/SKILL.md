@@ -163,7 +163,7 @@ and verify its output before starting the next. The first stage is the canary:
 
 ```bash
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~8 min
-MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~6 min
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~14 min
 python3 scripts/fleet/build_data.py
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/mech_stats.py      # needs gh
 ```

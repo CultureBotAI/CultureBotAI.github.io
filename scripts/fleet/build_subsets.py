@@ -63,6 +63,62 @@ STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
 AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
+# Fields whose values are prose. A note that rejects a term, a change log naming
+# the grounding it replaced, a definition citing a neighbouring concept or a
+# quoted source snippet mentions an identifier without the record citing it, so
+# overlap terms skip these (#254). Measured over every record at the 2026-09-28
+# refresh's pins: these are the keys that hold identifiers in running text.
+# `evidence` is not one: in most Mechs it is a list of structured references,
+# whose own notes and snippets are skipped by name. curation_history is skipped
+# whole, as the history of a record rather than what it cites. Structured
+# fields, including definition_source and reference lists, are read wherever
+# they sit. The heatmap cells keep counting every mention, as the census they
+# explain does.
+PROSE=("notes","note","changes","description","definition","rationale","explanation",
+       "discussed","text","reference_text","synonym_text","snippet","data_source",
+       "curation_history")
+_PROSE_KEY=re.compile(r"^( *)(- +)?(?:"+"|".join(PROSE)+r"|[A-Za-z_][\w.-]*_notes?)[ \t]*:(?=[ \t]|$)(.*)$",re.M)
+_BLOCK_START=("","|",">","|-",">-","|+",">+")
+def is_prose(key): return key in PROSE or key.endswith(("_note","_notes"))
+def prose_spans(txt):
+    """Where the values of prose fields sit in the record text, as (start, end).
+
+    A prose field's value is the rest of its key line and every following line
+    indented deeper than the key, or, for a block sequence written at the key's
+    own indentation, the '- ' items there. Reads YAML's layout rather than parsing
+    it, and walks only the lines inside prose fields, so a million records stay a
+    fast scan.
+    """
+    spans=[]; keep=0; n=len(txt)
+    for m in _PROSE_KEY.finditer(txt):
+        if m.start()<keep: continue  # a prose key nested inside a skipped block
+        col=len(m.group(1))+len(m.group(2) or ""); rest=m.group(3).strip()
+        empty=rest in _BLOCK_START or rest.startswith("#")
+        pos=m.end()
+        while pos<n:
+            nxt=txt.find("\n",pos+1); nxt=n if nxt<0 else nxt
+            line=txt[pos+1:nxt]; stripped=line.lstrip(" "); ind=len(line)-len(stripped)
+            if stripped and not (ind>col or (empty and ind==col and stripped.startswith("- "))): break
+            pos=nxt
+        spans.append((m.start(3),pos)); keep=pos
+    return spans
+def structured_text(txt):
+    """The record text without the values of prose fields."""
+    out=[]; keep=0
+    for a,b in prose_spans(txt): out.append(txt[keep:a]); keep=b
+    out.append(txt[keep:])
+    return "".join(out)
+def mentions_and_citations(txt):
+    """Every identifier the record mentions, and those it cites outside prose
+    fields (#254)."""
+    return terms_in(txt), terms_in(structured_text(txt))
+def terms_in(txt):
+    """Identifiers in the overlap prefixes, in their term space: 'CHEBI:15377'."""
+    found=set()
+    for raw,i in rx.findall(txt):
+        p=NORM.get(raw,raw)
+        if p in PREF: found.add(TERM_SPACE.get(raw,p)+":"+i)
+    return found
 def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
@@ -133,13 +189,11 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
         slug=slug_for(m,f,doc_id,doc_label)
         if slug is None: nolink+=1; continue
         assert re.fullmatch(r"[A-Za-z0-9_.~%\-/]+",slug), (m,slug)
-        found=set()
-        for raw,i in rx.findall(txt):
-            p=NORM.get(raw,raw)
-            if p not in PREF: continue
-            found.add(TERM_SPACE.get(raw,p)+":"+i)
-        if keep is not None: found_terms={t for t in found if t in keep or column(t) in keep_prefixes}
-        else: found_terms=found
+        # Cells count every mention, like the census; overlap terms only what the
+        # record cites outside prose fields (#254).
+        found,cited=mentions_and_citations(txt)
+        if keep is not None: found_terms={t for t in cited if t in keep or column(t) in keep_prefixes}
+        else: found_terms=cited
         for t in found_terms: terms[t].append((slug,doc_label))
         for p in {column(t) for t in found}:
             c=cells[p]; c[0]+=1

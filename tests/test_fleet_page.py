@@ -1350,6 +1350,44 @@ class RevisionTests(unittest.TestCase):
         self.assertIsNone(roots.revision(self.MECH))
 
 
+class ProseFieldTests(unittest.TestCase):
+    """build_subsets.structured_text drops the values of prose fields (#254)."""
+
+    def test_prose_values_go_and_structured_ids_stay(self):
+        import build_subsets
+        text = (
+            "id: X:1\n"
+            "notes: \"belonged to ChEBI:15982, cleared\"\n"
+            "ontology_id: CHEBI:30411\n"
+            "description: >-\n  folded CHEBI:4\n  more CHEBI:5\n"
+            "changes:\n- field: ontology_id\n  old: CHEBI:15982\n- field: x\n"
+            "components:\n  - id: CHEBI:6\n    grounding_notes: |\n      CHEBI:7\n    label: water\n"
+            "  - notes: CHEBI:9\n    id: CHEBI:8\n"
+            "curation_history:\n  - changes: CHEBI:2\n    previous: CHEBI:3\n"
+            "definition_source: DOI:10.1/x\n"
+        )
+        self.assertEqual(build_subsets.terms_in(build_subsets.structured_text(text)),
+                         {"CHEBI:30411", "CHEBI:6", "CHEBI:8", "DOI:10.1/x"})
+        # Every mention still counts for the cells, as the census counts it.
+        self.assertIn("CHEBI:15982", build_subsets.terms_in(text))
+
+    def test_an_evidence_list_keeps_its_references(self):
+        # evidence is a list of structured references in most Mechs; only the
+        # notes and snippets inside it are prose.
+        import build_subsets
+        text = ("evidence:\n- reference: InterPro:IPR045187\n  notes: see InterPro:IPR000001\n"
+                "  snippet: quoting GO:0000002\n- reference: DOI:10.1/x\n")
+        found, cited = build_subsets.mentions_and_citations(text)
+        self.assertEqual(cited, {"InterPro:IPR045187", "DOI:10.1/x"})
+        self.assertEqual(found, cited | {"InterPro:IPR000001", "GO:0000002"})
+
+    def test_a_key_that_only_starts_like_a_prose_key_is_kept(self):
+        import build_subsets
+        text = "notes_url: CHEBI:1\ntextual_id: CHEBI:2\ndescription_id: CHEBI:3\n"
+        self.assertEqual(build_subsets.terms_in(build_subsets.structured_text(text)),
+                         {"CHEBI:1", "CHEBI:2", "CHEBI:3"})
+
+
 class SubsetDeterminismTests(unittest.TestCase):
     """Two build_subsets.py runs over the same records write the same bytes (#107, #129)."""
 
@@ -1388,6 +1426,25 @@ class SubsetDeterminismTests(unittest.TestCase):
         run = self.run_once(tmp / "mechs", tmp / "run", 1)
         cells = run["fleet/cells/TaxonMech--NCBITaxon.json"].decode()
         self.assertIn("Bacterium with a name long enough to fold onto a second line", cells)
+
+    def test_a_term_named_only_in_prose_is_not_shared(self):
+        # A note rejecting CHEBI:15982 made it an overlap term (#254). Two Mechs
+        # that both name a term only in prose fields share nothing through it;
+        # a term both cite in a structured field is still shared.
+        tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        self.build_fixture(tmp / "mechs")
+        for mech in ("TraitMech", "CellStructureMech"):
+            folder = tmp / "mechs" / mech / roots._record_dirs(mech)[0]
+            (folder / "prose.yaml").write_text(
+                f"id: {mech}:2\nlabel: prose\ngrounding: CHEBI:900\n"
+                "notes: the old CAS number was CHEBI:901, cleared\n"
+                "changes:\n- field: grounding\n  previous: CHEBI:902\n"
+                "evidence_notes: |\n  see CHEBI:903\n")
+        run = self.run_once(tmp / "mechs", tmp / "run", 1)
+        edge = json.loads(run["fleet/edges/TraitMech--CellStructureMech.json"])
+        ids = {row["id"] for row in edge["terms"]}
+        self.assertIn("CHEBI:900", ids)
+        self.assertFalse(ids & {"CHEBI:901", "CHEBI:902", "CHEBI:903"}, ids)
 
     def test_output_does_not_depend_on_the_hash_seed(self):
         tmp = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
