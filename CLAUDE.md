@@ -60,7 +60,7 @@ merge only with the maintainer's go-ahead. Changes merged to `main` deploy.
 - `assets/custom.css` - the site palette and styles (`--ink`, `--muted`, `--accent`, `--card` and the rest), which the fleet page also uses; the ten Mech identity colours (`--mech-<name>` and their `-ink` variants) are defined in `_fleet/fleet_fragment.html`
 
 ### Other
-- `.github/workflows/fleet-page.yml` - the only CI; runs the tests and the fleet page checks, and the card check nightly
+- `.github/workflows/fleet-page.yml` - the only CI; runs the tests and the fleet page checks, and nightly the checks against CLAW's live manifest and the Mech sites
 - `.claude/skills/` - `update-xmech-page` (the refresh procedure), `check-xmech-updates` (a read-only check of what a refresh would change, using `scripts/fleet/check_updates.py`) and `review-open-issues` (backlog triage)
 - `robots.txt`, `README.md`
 - The organization profile README lives in the separate `CultureBotAI/.github`
