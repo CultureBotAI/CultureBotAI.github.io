@@ -176,8 +176,6 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 
 **What it does**: Provides structured representation of community composition, syntrophic interactions, and cultivation requirements for multi-species systems.
 
-**Related**: Provides community evidence for [PFASCommunityAgents](#pfascommunityagents) consortium research.
-
 **→ [Learn more on the dedicated CommunityMech page](/communitymech/)**
 
 ---
