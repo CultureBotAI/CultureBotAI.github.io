@@ -112,9 +112,10 @@ Three sources, refreshed differently:
   committed README on main, since no page it reliably serves states the count
   (see `SOURCES`; #226).
 
-Last refreshed on 2026-09-24 (#120). The corpora move fast: TraitMech went
-477, 618, 694, 763 records and CellStructureMech 57, 338, 421, 542 over successive
-runs, and both moved again during that run. The census covers all ten Mechs since
+Last refreshed on 2026-09-28 (#321); the previous refresh was #120 on 2026-09-24. The
+corpora move fast: TraitMech went 477, 618, 694, 763, 834 records and
+CellStructureMech 57, 338, 421, 542, 672 over successive runs, and both moved
+again during that run. The census covers all ten Mechs since
 TaxonMech was added (#87). Taxa tie TaxonMech to the fleet through shared NCBI
 Taxonomy identifiers, drawn as vocabulary chords; the arrows are direct
 references only, and `_fleet/README.md` states what counts as one.
@@ -127,7 +128,7 @@ references only, and `_fleet/README.md` states what counts as one.
 - **ProteinTraitsMech** (https://culturebotai.github.io/proteintraitsmech/) - protein sequence, structure and function trait classes.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
 - **CellStructureMech** (https://culturebotai.github.io/CellStructureMech/) - microbial cell structures, between the trait and protein layers.
-- **HabitatMech** (https://culturebotai.github.io/HabitatMech/) - habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records (ENVO, UBERON, FOODON, BTO).
+- **HabitatMech** (https://culturebotai.github.io/HabitatMech/) - habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records (ENVO, UBERON, FOODON, BTO, PO).
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **TaxonMech** (https://culturebotai.github.io/TaxonMech/) - taxa and strains at species level and below, resolving NCBI Taxonomy, GTDB, LPSN and BacDive onto one NCBI-grounded identity.
 

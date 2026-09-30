@@ -548,7 +548,7 @@ class CardCheckTests(unittest.TestCase):
         self.assertEqual(self.failed(), [])
 
     def test_a_site_ahead_of_a_recent_pin_only_warns(self):
-        # #148, #217: CellStructureMech adds about 9% a day; within the grace
+        # #148, #217: CellStructureMech adds about 5% a day; within the grace
         # period that is growth, not a wrong card.
         self.site["AMech"] = 1400
         self.assertEqual(self.statuses()["AMech"], "grew")

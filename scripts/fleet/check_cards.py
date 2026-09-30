@@ -105,12 +105,12 @@ REGIONS: dict[str, tuple[str, str]] = {
 
 # How long a card may trail a growing site before the page counts as stale, and
 # how far it may trail within that time. A fixed percentage alone did not hold:
-# CellStructureMech adds about two records an hour, 9% a day on a card of 542,
+# CellStructureMech added about two records an hour, 9% a day on a card of 542,
 # so a 10% allowance went red a day after every refresh (#217). The time limit
 # asks for a refresh a fortnight after the pins while any Mech grows; the lead
 # limit asks sooner once a site is more than half as large again as its card
 # (the card then understates it by over a third), which CellStructureMech
-# reaches in under a week.
+# reaches in about nine days.
 GRACE_DAYS = 14
 MAX_LEAD = 0.5
 

@@ -15,7 +15,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 
 ## The <!--FLEET_COUNT_WORD--> Mechs
 
-Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 24, 2026. Each Browse link is the source for its card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/faaf033b8c5386aaf2cb6f28fc527678d00cf83b/README.md#corpus-snapshot">repository's corpus snapshot</a>: its published landing tile is stale, and its media index is only intermittently published. CommunityMech lists 422 communities online and keeps four additional isolate records in its repository; its landing page's category tile reads 16, while its schema, records and browser facet have 15. These published-browser totals may differ from the record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
+Each card carries its Mech's own site color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Card and graph totals reflect the published Mech pages checked on September 28, 2026. Each Browse link is the source for its card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/a22955418afa9e44183256bfb207f4fbefb09367/README.md#corpus-snapshot">repository's corpus snapshot</a>: its published landing tile is stale, and its media index is only intermittently published. CommunityMech lists 455 communities online and keeps four additional isolate records in its repository; its landing page's category tile reads 16, while its schema, records and browser facet have 15. These published-browser totals may differ from the record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)">
@@ -29,7 +29,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
     <p class="tag">Autonomous knowledge factory for microbial communities, their interactions, cultivation conditions and evidence.</p>
-    <div class="num"><b>422</b><span>community records · 15 categories</span></div>
+    <div class="num"><b>455</b><span>community records · 15 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CommunityMech--></p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
     <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CommunityMech--></div>
@@ -45,7 +45,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="TraitMech" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)">
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
     <p class="tag">Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO, with one curated YAML per trait and causal mechanism graphs.</p>
-    <div class="num"><b>763</b><span>trait records · 10 categories</span></div>
+    <div class="num"><b>834</b><span>trait records · 10 categories</span></div>
     <p class="prov"><!--FLEET_STATS:TraitMech--></p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TraitMech--></div>
@@ -53,7 +53,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
   <article class="mech-card" data-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)">
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
     <p class="tag">Organelles, envelope layers, appendages, microcompartments and complexes: components, distribution, function and causal mechanism.</p>
-    <div class="num"><b>542</b><span>structure records · 475 GO-grounded</span></div>
+    <div class="num"><b>672</b><span>structure records · 605 GO-grounded</span></div>
     <p class="prov"><!--FLEET_STATS:CellStructureMech--></p>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CellStructureMech--></div>
@@ -182,7 +182,7 @@ The Mechs share curation conventions, with adoption recorded per capability in t
   <li><b>Ontology-grounded identity</b>Records are keyed by a public CURIE (ChEBI, GO, METPO, ENVO, NCBITaxon) where one exists, otherwise by a local identifier whose form varies by Mech.</li>
   <li><b>The ID–label invariant</b>Where a record stores an identifier with its label, most Mechs check in CI that the pair still agrees with the source ontology.</li>
   <li><b>Evidence and provenance</b>Evidence cites its source, such as a publication (PMID or DOI), a database record or a web page, as each Mech's schema allows. Mechs that adopt the source-catalogue or source-queue contract record each source's licence before ingesting it.</li>
-  <li><b>Causal mechanism graphs</b>Traits, protein traits, structures, natural products, antibiotics and habitats can carry directed, evidence-backed graphs of mechanism. Each of these Mechs defines its own node types; most share a core set, such as chemical, pathway and biological process.</li>
+  <li><b>Causal mechanism graphs</b>Traits, protein traits, structures, natural products, antibiotics, habitats and taxa can carry directed, evidence-backed graphs of mechanism, and community records chain their ecological interactions into causal interaction graphs. Each of these Mechs defines its own node types; most share a core set, such as chemical, pathway and biological process.</li>
   <li><b>Append-only curation history</b>Mechs adopting the history contract record changes as append-only events, preserving provenance across agent and human curation.</li>
   <li><b>A static browser and an open licence</b>Each Mech publishes a GitHub Pages browser. Licences vary: project-authored content is commonly CC0-1.0, CommunityMech uses BSD-3-Clause, and AntibioticMech and NaturalProductMech records use CC BY 4.0. Redistributed source material retains its applicable terms.</li>
 </ul>

@@ -172,7 +172,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 ### CommunityMech - Microbial Community Interaction Modeling
 **[Dedicated Page](/communitymech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CommunityMech)** | **[Web Interface](https://culturebotai.github.io/CommunityMech/)** | BSD-3-Clause License
 
-422 curated communities across 15 categories, modeled in LinkML with evidence-based ecological interactions for consortium design and multi-organism cultivation.
+455 curated communities across 15 categories, modeled in LinkML with evidence-based ecological interactions for consortium design and multi-organism cultivation.
 
 **What it does**: Provides structured representation of community composition, syntrophic interactions, and cultivation requirements for multi-species systems.
 
@@ -185,14 +185,14 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 ### TraitMech - Microbial Ecophysiological Traits
 **[GitHub Repository](https://github.com/CultureBotAI/TraitMech)** | **[Web Interface](https://culturebotai.github.io/TraitMech/)** | CC0-1.0 License
 
-Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO and curated incrementally — 763 trait records across 10 categories; 427 are marked REVIEWED and 519 carry causal graphs.
+Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO and curated incrementally — 834 trait records across 10 categories; 427 are marked REVIEWED and 590 carry causal graphs.
 
 **What it does**: Standardizes the trait vocabulary used to describe microbial growth and ecology, and links traits to their evidence and, where a match exists, to kg-microbe.
 
 ---
 
 ### ProteinTraitsMech - Protein Sequence & Structure Traits
-**[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC0-1.0 License
+**[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC0-1.0 License (project content; upstream sources retain their own terms)
 
 Autonomous knowledge factory for protein sequence, structure, and function traits — 429,293 LinkML-validated records from 34 sources, one YAML per trait. Most are imported from those sources and not yet reviewed. Reviewed records carry evidence-backed causal graphs.
 
@@ -203,7 +203,7 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 ### CellStructureMech - Microbial Cell Structures
 **[GitHub Repository](https://github.com/CultureBotAI/CellStructureMech)** | **[Web Interface](https://culturebotai.github.io/CellStructureMech/)** | CC0-1.0 License (authored content; redistributed UniProt and Complex Portal material is CC BY 4.0)
 
-542 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 475 of them grounded in GO cellular component.
+672 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 605 of them grounded in GO cellular component.
 
 **What it does**: Occupies the layer between traits and proteins, recording what a structure is made of, which organisms have it, what it does, and the causal mechanism by which it does so.
 
