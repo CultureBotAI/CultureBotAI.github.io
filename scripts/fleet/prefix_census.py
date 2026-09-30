@@ -20,19 +20,106 @@ from roots import ORDER, read_record, record_paths, revision, unchanged
 # entity-qualified namespaces (kegg.compound:, gold.ecosystem:, gtdb.genome:,
 # uniprot.location:, RHEA-COMP:), as gold.ecosystem and pubchem.compound always
 # did. Reference and curator collections named for a registry are not its terms
-# and stay out: GO_REF: and PO_REF: are literature-like (#84 lists GO_REF as a
-# CITATION candidate), and GOC: is curator attribution, which #84 proposes never
-# to count (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
+# and do not fold into it: GO_REF: and PO_REF: are literature, counted on their
+# own under roots.CITATION (see ADDED), and GOC: is curator attribution, which
+# the #84 rule never counts (#282). Mechs mix lowercase bioregistry spellings with upper-case ones,
 # TaxonMech most heavily, so a registry was counted under one spelling and
 # dropped under another (#279). The
 # spellings here were measured by scanning every record at the #120 pins with a
 # pattern that allows dots, underscores and hyphens (#255, #270); 1.49 million
 # GOLD and 556,160 BacDive identifiers in TaxonMech were among those missed. A
 # spelling a Mech adopts later is not caught until someone scans again. Which
-# new registries to count at all is a separate decision, still open on #84.
-P="CHEBI|pubchem\\.compound|PubChem|METPO|ENVO|NCBITaxon|GO|PR|UniProtKB|UniProt|cas|CAS|MESH|mesh|OBI|PATO|UBERON|FOODON|MICRO|MicrO|OMP|ECO|RO|BFO|IAO|ARO|NCIT|RHEA|KEGG|EC|Pfam|PFAM|InterPro|IPR|MediaDive|mediadive\\.compound|KOMODO|BacDive|GTDB|IMG|GOLD|DSMZ|ATCC|drugbank|DrugBank|PDB|TCDB|SO|CL|GAZ|PO|BTO|EMDB|CHEMBL\\.COMPOUND|PMID|DOI|doi|PHIPO|NCBIfam|ComplexPortal|SNOMED|gold\\.ecosystem|bacdive\\.isolation_source|mibig|MIBiG|npatlas|NPAtlas|gold|bacdive|img\\.taxon|DSM|mediadive\\.medium|mediadive\\.solution|mediadive\\.ingredient|komodo\\.medium|pubchem\\.aid|pubchem|KEGG_REACTION|kegg\\.compound|kegg\\.drug|chembl|ec|ChEBI|RCSB_PDB|PubMed|PUBMED|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\\.module|kegg\\.glycan|MeSH|PubChem_Compound|gtdb\\.genome|pdb\\.ligand|pdb\\-ccd|RHEA\\-COMP|CAS\\-RN|uniprot\\.location|uniprot\\.ptm|UniProtKB\\-KW|Swiss|TC|MSH"
-rx=re.compile(r"\b("+P+r"):[A-Za-z0-9_.\-]+")
-norm={"pubchem.compound":"PubChem","mesh":"MESH","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","mediadive.compound":"MediaDive","MicrO":"MICRO","cas":"CAS","drugbank":"DrugBank","doi":"DOI","CHEMBL.COMPOUND":"ChEMBL","gold.ecosystem":"GOLD","mibig":"MIBiG","npatlas":"NPAtlas","bacdive.isolation_source":"BacDive","gold":"GOLD","bacdive":"BacDive","img.taxon":"IMG","DSM":"DSMZ","mediadive.medium":"MediaDive","mediadive.solution":"MediaDive","mediadive.ingredient":"MediaDive","komodo.medium":"KOMODO","pubchem.aid":"PubChem","pubchem":"PubChem","KEGG_REACTION":"KEGG","kegg.compound":"KEGG","kegg.drug":"KEGG","chembl":"ChEMBL","ec":"EC","ChEBI":"CHEBI","RCSB_PDB":"PDB","PubMed":"PMID","PUBMED":"PMID","SwissProt":"UniProt","swissprot":"UniProt","Swissprot":"UniProt","UNIPROT":"UniProt","TAXON":"NCBITaxon","PDBe":"PDB","pdbe":"PDB","interpro":"InterPro","KEGG_PATHWAY":"KEGG","kegg.module":"KEGG","kegg.glycan":"KEGG","MeSH":"MESH","PubChem_Compound":"PubChem","gtdb.genome":"GTDB","pdb.ligand":"PDB","pdb-ccd":"PDB","RHEA-COMP":"RHEA","CAS-RN":"CAS","uniprot.location":"UniProt","uniprot.ptm":"UniProt","UniProtKB-KW":"UniProt","Swiss":"UniProt","TC":"TCDB","MSH":"MESH"}
+# registries to count at all is the inclusion rule below (#84).
+P="CHEBI|pubchem\\.compound|PubChem|METPO|ENVO|NCBITaxon|GO|PR|UniProtKB|UniProt|cas|CAS|MESH|mesh|OBI|PATO|UBERON|FOODON|MICRO|MicrO|OMP|ECO|RO|BFO|IAO|ARO|NCIT|RHEA|KEGG|EC|Pfam|PFAM|InterPro|IPR|MediaDive|mediadive\\.compound|KOMODO|BacDive|GTDB|IMG|GOLD|DSMZ|ATCC|drugbank|DrugBank|PDB|TCDB|SO|CL|GAZ|PO|BTO|EMDB|CHEMBL\\.COMPOUND|PMID|DOI|doi|PHIPO|NCBIfam|ComplexPortal|SNOMED|gold\\.ecosystem|bacdive\\.isolation_source|mibig|MIBiG|MIBIG|npatlas|NPAtlas|gold|bacdive|img\\.taxon|DSM|mediadive\\.medium|mediadive\\.solution|mediadive\\.ingredient|komodo\\.medium|pubchem\\.aid|pubchem|KEGG_REACTION|kegg\\.compound|kegg\\.drug|chembl|ec|ChEBI|RCSB_PDB|PubMed|PUBMED|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\\.module|kegg\\.glycan|MeSH|PubChem_Compound|gtdb\\.genome|pdb\\.ligand|pdb\\-ccd|RHEA\\-COMP|CAS\\-RN|uniprot\\.location|uniprot\\.ptm|UniProtKB\\-KW|Swiss|TC|MSH"
+norm={"pubchem.compound":"PubChem","mesh":"MESH","UniProtKB":"UniProt","PFAM":"Pfam","IPR":"InterPro","mediadive.compound":"MediaDive","MicrO":"MICRO","cas":"CAS","drugbank":"DrugBank","doi":"DOI","CHEMBL.COMPOUND":"ChEMBL","gold.ecosystem":"GOLD","mibig":"MIBiG","MIBIG":"MIBiG","npatlas":"NPAtlas","bacdive.isolation_source":"BacDive","gold":"GOLD","bacdive":"BacDive","img.taxon":"IMG","DSM":"DSMZ","mediadive.medium":"MediaDive","mediadive.solution":"MediaDive","mediadive.ingredient":"MediaDive","komodo.medium":"KOMODO","pubchem.aid":"PubChem","pubchem":"PubChem","KEGG_REACTION":"KEGG","kegg.compound":"KEGG","kegg.drug":"KEGG","chembl":"ChEMBL","ec":"EC","ChEBI":"CHEBI","RCSB_PDB":"PDB","PubMed":"PMID","PUBMED":"PMID","SwissProt":"UniProt","swissprot":"UniProt","Swissprot":"UniProt","UNIPROT":"UniProt","TAXON":"NCBITaxon","PDBe":"PDB","pdbe":"PDB","interpro":"InterPro","KEGG_PATHWAY":"KEGG","kegg.module":"KEGG","kegg.glycan":"KEGG","MeSH":"MESH","PubChem_Compound":"PubChem","gtdb.genome":"GTDB","pdb.ligand":"PDB","pdb-ccd":"PDB","RHEA-COMP":"RHEA","CAS-RN":"CAS","uniprot.location":"UniProt","uniprot.ptm":"UniProt","UniProtKB-KW":"UniProt","Swiss":"UniProt","TC":"TCDB","MSH":"MESH"}
+
+# The inclusion rule (#84, decided 2026-09-28; stated in roots.py beside
+# CITATION): count every external identifier namespace a record cites --
+# ontologies, databases and registries -- folded to one name per registry, with
+# every culture collection folded into one entry and literature counted under
+# roots.CITATION. Never count a Mech's own ids, another Mech's, kg-microbe's,
+# metamodel prefixes (skos, biolink, rdf, rdfs, xref), curator attribution (GOC,
+# POC, PATOC, MITRE) or provenance (sqlite, sha256, url, dataset row hashes).
+# The namespaces below were classified at the 2026-09-28 refresh's pins: every
+# prefix with 20 or more occurrences, and every prefix at any count in a
+# structured position (a list item or a whole field value), with sample ids read
+# for each (#333). Left out besides the classes above: dictionaries cited
+# without ids, and tokens that only look like prefixes -- chemical names,
+# serotypes (O157:H7), strain designations (Bacteroides sp. CAG:1060), ratios,
+# mass-shift notation. Each entry is the counted name, then the spellings that
+# fold into it.
+ADDED = {
+    # Protein domain, family, structure, pathway and function resources, and
+    # the ontologies ProteinTraitsMech and others cite beside them.
+    "CATH": ["CATH"], "CDD": ["CDD"], "PROSITE": ["PROSITE", "Prosite"],
+    "ECOD": ["ECOD"], "SCOP": ["SCOP"], "PANTHER": ["PANTHER"],
+    "AlphaFoldDB": ["AlphaFoldDB"], "OrthoDB": ["OrthoDB"], "IEDB": ["IEDB"],
+    "SMART": ["SMART"], "TED": ["TED"], "HAMAP": ["HAMAP"], "MCSA": ["MCSA"],
+    "Reactome": ["Reactome"], "MetaCyc": ["MetaCyc", "metacyc.compound", "MetaCyx", "MetyaCyc"],
+    "COG": ["COG"], "PRINTS": ["PRINTS"], "OMA": ["OMA"], "CAZy": ["CAZy"],
+    "MEROPS": ["MEROPS", "MEROPS_fam"], "OPM": ["OPM"], "RESID": ["RESID"],
+    "Unimod": ["Unimod"], "SFLD": ["SFLD"], "ELM": ["ELM"], "RepeatsDB": ["RepeatsDB"],
+    "UniPathway": ["UniPathway", "Unipathway"], "DeltaMass": ["DeltaMass"],
+    "UM-BBD": ["UM-BBD_reactionID", "UM-BBD_pathwayID", "UM-BBD_enzymeID", "umbbd.compound"],
+    "VZ": ["VZ"], "RNAcentral": ["RNAcentral"], "CORUM": ["CORUM"],
+    "IUPHAR": ["IUPHAR_GPCR", "IUPHAR_RECEPTOR"], "IntAct": ["Intact", "IntAct", "intAct"],
+    "OMIM": ["OMIM"], "SABIO-RK": ["SABIO-RK"], "RNAmods": ["RNAmods"], "DDANAT": ["DDANAT"], "CryoETDataPortal": ["CryoETDataPortal"],
+    "MI": ["MI"], "MOD": ["MOD"], "NIF_Subcellular": ["NIF_Subcellular"],
+    "IDPO": ["IDPO"], "GNO": ["GNO"], "UO": ["UO"], "MA": ["MA"], "MP": ["MP"],
+    "FMA": ["FMA"], "ZFA": ["ZFA"], "FBbt": ["FBbt"], "XAO": ["XAO"],
+    "WBbt": ["WBbt"], "HAO": ["HAO"], "CEPH": ["CEPH"],
+    # Rhea's generic and polymer compounds, cited as GENERIC: and POLYMER:
+    # beside RHEA-COMP:, fold into Rhea as RHEA-COMP does.
+    "RHEA": ["GENERIC", "POLYMER"],
+    # Strain, genome and sequence registries.
+    "StrainInfo": ["straininfo.strain", "straininfo.deposit"],
+    "ncbi.assembly": ["ncbi.assembly"], "patric": ["patric"], "biosample": ["biosample", "BioSample"],
+    "bioproject": ["bioproject"], "INSDC": ["INSDC"], "genbank": ["genbank", "GenBank"],
+    "NCBI_Nuccore": ["NCBI_Nuccore"], "NCBI_Protein": ["NCBI_Protein"], "SRA": ["SRA"],
+    "LPSN": ["lpsn"], "atb.assembly": ["atb.assembly"], "ena.analysis": ["ena.analysis"],
+    # Environmental and metabolomics data repositories CommunityMech cites.
+    "MG-RAST": ["MG-RAST"], "NMDC": ["nmdc"], "GNPS": ["gnps.task"], "BCO-DMO": ["BCO-DMO"],
+    # Chemical and natural-product registries.
+    "UNII": ["UNII"], "reaxys": ["reaxys", "beilstein"],
+    "gmelin": ["gmelin"], "drugcentral": ["drugcentral"], "knapsack": ["knapsack"],
+    "HMDB": ["hmdb"], "LINCS": ["lincs.smallmolecule"], "ChemSpider": ["chemspider"],
+    "ppdb": ["ppdb"], "bpdb": ["bpdb"], "pesticides": ["pesticides"],
+    "LIPIDMAPS": ["lipidmaps"], "FooDB": ["foodb.compound"], "vsdb": ["vsdb"],
+    "CyanoMetDB": ["cyanometdb"], "LOTUS": ["lotus"], "molbase": ["molbase"],
+    "YMDB": ["ymdb"], "ECMDB": ["ecmdb"], "GlyTouCan": ["glytoucan", "glygen"],
+    "PHI-base": ["PHIG"],
+    # Culture-media databases.
+    "TOGO": ["TOGO"], "MEDIADB": ["MEDIADB"],
+    # Literature and other citable works: counted, and listed in roots.CITATION.
+    "ISBN": ["ISBN"], "GO_REF": ["GO_REF"], "PO_REF": ["PO_REF"], "WB_REF": ["WB_REF"],
+    "patent": ["patent"], "Wikipedia": ["Wikipedia", "wikipedia.en", "WIKIPEDIA", "WikiPedia", "WIkipedia", "Wiki", "WIki"],
+    "PMCID": ["PMCID", "PMC"], "ISSN": ["ISSN"], "JSTOR": ["JSTOR"], "OSTI": ["OSTI", "osti.article"],
+    "Zenodo": ["Zenodo", "zenodo"], "GitHub": ["GITHUB", "github"], "PNNLDH": ["PNNLDH"],
+    "USGS": ["USGS"], "FB": ["FB"],
+    # A misspelling in one GO cross-reference list, folded like any other spelling.
+    "PMID": ["PIMD"],
+}
+# Every culture collection counts as one entry (#84): ATCC and DSMZ, which the
+# census counted separately before, and the collections TaxonMech cites in
+# source_strain_identifiers, CultureMech in media references (CCAP, UTEX, JCM's
+# medium list), with the spellings each uses.
+COLLECTIONS = ["ATCC", "DSMZ", "DSM", "JCM", "jcm.grmd", "NBRC", "NCTC", "CGMCC", "CCUG",
+               "KCTC", "LMG", "NRRL", "KACC", "CCM", "NCIMB", "CECT", "NCPPB", "CFBP", "KMM",
+               "CIP", "KCCM", "VKM", "CCTCC", "BCRC", "MTCC", "ICMP", "NCDO", "YIM", "VTT",
+               "NCFB", "HAMBI", "NCIB", "NCCB", "SGSC", "TBRC", "CPCC", "NCIM", "IAM", "PCC",
+               "CCOS", "RIMD", "IBSBF", "CCAP", "UTEX"]
+ADDED["CultureCollection"] = COLLECTIONS
+_have = set(P.replace("\\", "").split("|"))
+P += "".join("|" + re.escape(sp) for sps in ADDED.values() for sp in sps if sp not in _have)
+norm.update({sp: name for name, sps in ADDED.items() for sp in sps if sp != name})
+norm.update({"DSM": "CultureCollection"})
+# The lookahead skips every position not followed by a colon within LOOKAHEAD
+# prefix characters before trying the alternation. It changes no match, since
+# no alternative is that long (a test holds the bound), and it keeps the census
+# near its old running time: with #84's 270 alternatives, the bare alternation
+# took three times as long over the same records.
+LOOKAHEAD=40
+rx=re.compile(r"\b(?=[\w.\-]{1,%d}:)("%LOOKAHEAD+P+r"):[A-Za-z0-9_.\-]+")
 
 
 def census():

@@ -403,6 +403,49 @@ class PrefixListTests(unittest.TestCase):
         self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
         self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
 
+    def test_every_census_spelling_of_an_overlap_column_is_folded_by_the_subsets(self):
+        # build_subsets folds a column's spellings as prefix_census.norm does. A
+        # spelling only the census folds into an overlap column is counted in the
+        # heatmap but never shared, with nothing to say so (#337).
+        import build_subsets
+        subsets = set(build_subsets.rx.pattern.split("(", 1)[1].split(")", 1)[0].replace("\\", "").split("|"))
+        missing = [a for a in self.alternatives if self.norm.get(a, a) in self.pref and a not in subsets]
+        self.assertEqual(missing, [])
+        # ...and to the same column.
+        def column(a):
+            p = build_subsets.NORM.get(a, a)
+            if p not in build_subsets.PREF: return None  # terms_in drops it
+            return build_subsets.COLUMN_OF.get(build_subsets.TERM_SPACE.get(a, p), p)
+        differ = [a for a in self.alternatives if self.norm.get(a, a) in self.pref and column(a) != self.norm.get(a, a)]
+        self.assertEqual(differ, [])
+
+    def test_no_alternative_is_longer_than_the_census_lookahead(self):
+        # prefix_census.rx skips positions with no colon within LOOKAHEAD
+        # characters; a longer alternative would silently never match.
+        import prefix_census
+        self.assertEqual([p for p in self.alternatives if len(p) >= prefix_census.LOOKAHEAD], [])
+
+    def test_every_citation_prefix_is_a_name_the_census_emits(self):
+        # roots.CITATION names what the census counts as literature (#84); a
+        # name it can never emit would exempt nothing.
+        import roots
+        self.assertEqual([c for c in roots.CITATION if c not in self.census], [])
+
+    def test_every_culture_collection_counts_as_one_entry(self):
+        # #84: the forty-odd collections, ATCC and DSMZ included, are one entry.
+        for spelling in ("ATCC", "DSMZ", "DSM", "JCM", "NBRC", "CCUG", "jcm.grmd", "CCAP"):
+            self.assertIn(spelling, self.alternatives)
+            self.assertEqual(self.norm.get(spelling), "CultureCollection", spelling)
+        self.assertFalse({"ATCC", "DSMZ", "DSM", "JCM"} & self.census)
+
+    def test_the_classes_the_rule_excludes_are_never_counted(self):
+        # #84: own and cross-Mech ids, kg-microbe ids, metamodel prefixes,
+        # curator attribution and provenance are not vocabularies.
+        excluded = {"proteintraitsmech", "CultureMech", "MediaIngredientMech", "habitatmech",
+                    "kgmicrobe.strain", "kgmicrobe.compound", "skos", "biolink", "rdf",
+                    "rdfs", "xref", "GOC", "POC", "sqlite", "sha256", "url", "NCBI"}
+        self.assertEqual(sorted(excluded & set(self.alternatives)), [])
+
 
 
 

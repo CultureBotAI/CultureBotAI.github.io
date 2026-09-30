@@ -54,12 +54,22 @@ EXCLUDE_DIRS: dict[str, list[str]] = {
 
 ORDER = list(RECORD_GLOBS)
 
-# Prefixes that identify a piece of literature rather than a concept. Every
-# Mech cites papers, so counting them alongside the ontologies would say only
-# that, which is why build_subsets.py writes no record lists for them and
-# build_data.py keeps them out of the heatmap's ordering. Declared once here
-# because those two decisions have to agree (CultureBotAI.github.io#61).
-CITATION = ["PMID", "DOI"]
+# What the vocabulary census counts (#84, decided 2026-09-28): every external
+# identifier namespace a record cites -- ontologies, databases and registries --
+# folded to one name per registry, with every culture collection counted as one
+# entry. A Mech's own ids, other Mechs' ids, kg-microbe's ids, metamodel
+# prefixes, curator attribution and provenance are never counted.
+# prefix_census.ADDED lists the namespaces this rule brought in.
+#
+# Prefixes that identify a piece of literature or another citable work rather
+# than a concept. The census counts them, but every Mech cites papers, so
+# treating them as shared vocabulary would say only that, which is why
+# build_subsets.py writes no record lists for them and build_data.py keeps them
+# out of the heatmap's ordering. Declared once here because those two decisions
+# have to agree (CultureBotAI.github.io#61).
+CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
+            "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
+            "PNNLDH"]
 
 
 def mech_root(name: str) -> str:
