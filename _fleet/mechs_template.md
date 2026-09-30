@@ -190,7 +190,7 @@ The Mechs share curation conventions, with adoption recorded per capability in t
 ## Related resources
 
 - **[kg-microbe](/kg-microbe/)** - The central knowledge graph several Mechs draw from; MediaIngredientMech's ingredient mappings feed into it
-- **[MicroGrowAgents](/microgrowagents/)** - Multi-agent media design built on CultureMech, MediaIngredientMech and kg-microbe
+- **[MicroGrowAgents](/microgrowagents/)** - Multi-agent media design built on kg-microbe
 - **[Resources](/resources/#-ai-curation-tools)** - The full tool catalogue, including MicroMediaParam and the kg-microbe utilities
 - **[METPO](https://github.com/berkeleybop/metpo)** - The Microbial Ecophysiological Trait and Phenotype Ontology that seeds TraitMech and grounds trait references across the fleet
 

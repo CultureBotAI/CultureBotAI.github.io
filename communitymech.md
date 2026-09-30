@@ -84,7 +84,7 @@ The KGX exporter writes `nodes.tsv`, `edges.tsv`, and `manifest.json` under `out
 
 ## Integration with the X-Mech Suite
 
-Community records can refer to [CultureMech](/culturemech/) media by `culturemech_id`. Ingredients that carry ChEBI terms can be matched to [MediaIngredientMech](/mediaingredientmech/) records through those terms. Some records also hold older `MediaIngredientMech:NNNNNN` identifiers, which match no current MediaIngredientMech record. CommunityMech's schema marks that identifier scheme as vestigial. CommunityMech contributes structured community evidence for downstream consortium research, including [PFASCommunityAgents](/resources/#pfascommunityagents). Consult each downstream project's documentation for its supported integration interface.
+Community records can refer to [CultureMech](/culturemech/) media by `culturemech_id`. Ingredients that carry ChEBI terms can be matched to [MediaIngredientMech](/mediaingredientmech/) records through those terms. Some records also hold older `MediaIngredientMech:NNNNNN` identifiers, which match no current MediaIngredientMech record. CommunityMech's schema marks that identifier scheme as vestigial.
 
 ## Repository & Documentation
 
