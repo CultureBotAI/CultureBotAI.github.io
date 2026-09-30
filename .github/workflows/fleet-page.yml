@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: CultureBotAI/culturebotai-claw
           ref: main
@@ -27,14 +28,17 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r scripts/fleet/requirements.txt
       - run: python -m unittest discover -s tests -v
-      - run: python scripts/fleet/refresh_manifest.py --claw-root .claw --check
       - run: python scripts/fleet/assemble_page.py --check
-      # Scheduled only, and deliberately not on pull_request: the card figures
-      # are hand-curated from ten sites that publish on their own cadence, so a
-      # blocking check would make an unrelated docs fix unmergeable whenever a
-      # Mech shipped records overnight. Nightly red is the right signal.
-      # !cancelled() runs it even when an earlier step failed: a mistyped card
+      # The two steps below read state that moves on its own schedule, so they
+      # run nightly and on manual dispatch, deliberately not on pull_request or
+      # push: a blocking check would make an unrelated docs fix unmergeable
+      # whenever CLAW changed its fleet manifest (#303, #319) or a Mech shipped
+      # records overnight. Nightly red is the right signal. A PR that refreshes
+      # the manifest runs them by dispatching this workflow on its branch.
+      # !cancelled() runs each even when an earlier step failed: a mistyped card
       # fails the provenance tests first, and the card report, with its WRONG
       # or AUDIT line and every other card's verdict, must still print (#239).
+      - if: ${{ !cancelled() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
+        run: python scripts/fleet/refresh_manifest.py --claw-root .claw --check
       - if: ${{ !cancelled() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
         run: python scripts/fleet/check_cards.py

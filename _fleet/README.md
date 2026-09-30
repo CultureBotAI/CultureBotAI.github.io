@@ -93,10 +93,16 @@ are read by `scripts/fleet/card_markup.py`, the one parser the assembler, this
 check and the tests share, and the assembler refuses a card without exactly one
 headline figure (#114, #218).
 
-The `Fleet page` workflow checks pull requests, pushes and the live CLAW manifest
-daily. It detects changes to membership, capability declarations (including
+The `Fleet page` workflow runs the tests and `assemble_page.py --check` on every
+pull request and push, and checks the committed manifest against CLAW's live
+`main` nightly and on manual dispatch, not on pull requests, for the same reason
+as the card check: CLAW changes its manifest on its own schedule, and a check
+that read it on every PR failed them all until a refresh landed (#303, #319).
+The check detects changes to membership, capability declarations (including
 reasons/settings), and artifact count; unrelated CLAW commits do not make the
-snapshot stale. To run the read-only checks locally:
+snapshot stale. A PR that refreshes the manifest can run it on its own branch
+with `gh workflow run fleet-page.yml --ref <branch>`. To run the read-only
+checks locally:
 
 ```bash
 python3 scripts/fleet/refresh_manifest.py --claw-root /path/to/culturebotai-claw --check

@@ -201,23 +201,23 @@ Treat as P0 when live and externally consequential:
 
 ### 5. What actually gates a merge
 
-Only `.github/workflows/fleet-page.yml` runs. Three steps block a merge:
+Only `.github/workflows/fleet-page.yml` runs. Two steps block a merge:
 
 ```bash
 python -m unittest discover -s tests -v
-python scripts/fleet/refresh_manifest.py --claw-root .claw --check
 python scripts/fleet/assemble_page.py --check
 ```
 
-A fourth runs only on the nightly schedule and on manual dispatch, never on a
-pull request, so it can be red without blocking anything:
+Two more run only on the nightly schedule and on manual dispatch, never on a
+pull request, so they can be red without blocking anything (#319):
 
 ```bash
+python scripts/fleet/refresh_manifest.py --claw-root .claw --check   # committed manifest vs CLAW's live main
 python scripts/fleet/check_cards.py   # card headline figures vs each Mech's site
 ```
 
-A stale card therefore shows up as a failed scheduled run, not a failed PR
-check. A card behind a fast Mech only warns ("grew") for 14 days after the
+A stale card or a stale manifest therefore shows up as a failed scheduled run,
+not a failed PR check. A card behind a fast Mech only warns ("grew") for 14 days after the
 refresh's pins, and only while its site is at most half as large again as the
 card; past either limit it fails as STALE (#263). So a green run does not mean
 every card equals its site: read the run's log, not just its colour, before
