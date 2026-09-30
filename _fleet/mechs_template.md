@@ -59,7 +59,7 @@ Each card carries its Mech's own site color. Hover a card to trace its ties in t
     <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CellStructureMech--></div>
   </article>
   <article class="mech-card" data-mech="ProteinTraitsMech" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)">
-    <header><h3>ProteinTraitsMech</h3><span class="scale">Proteins</span></header>
+    <header><h3>ProteinTraitsMech</h3><span class="scale">Protein traits</span></header>
     <p class="tag">Protein sequence, structure and function trait classes seeded from InterPro, Pfam, Rhea, CATH, SCOPe, CARD and more.</p>
     <div class="num"><b>429,293</b><span>protein trait records · 34 sources</span></div>
     <p class="prov"><!--FLEET_STATS:ProteinTraitsMech--></p>
