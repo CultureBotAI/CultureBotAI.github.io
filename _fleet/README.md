@@ -177,9 +177,10 @@ python3 scripts/fleet/mech_stats.py       # _fleet/data/mech_stats.json (needs g
 python3 scripts/fleet/assemble_page.py    # mechs.md
 ```
 
-The census takes about eight minutes and `build_subsets.py` about six over the
+The census takes about eight minutes and `build_subsets.py` about fourteen over the
 ten-Mech snapshot, both dominated by TaxonMech's ~626k and ProteinTraitsMech's
-~430k records (#230).
+~430k records (#230); `build_subsets.py` scans each record's text twice since it
+separates prose fields from cited ones (#254).
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
@@ -217,7 +218,18 @@ identifiers in TaxonMech among them. `build_subsets.py` folds the same spellings
 for heatmap columns. Rhea compounds, whose ids share values with Rhea reactions,
 and PDB ligand codes, a different kind of identifier from entries, keep their own
 term keys, so an overlap never pairs a compound with a reaction or shows a
-ligand as an entry. Which
+ligand as an entry. Overlap terms come only from what a record cites outside
+prose fields (`build_subsets.PROSE`: notes and any `*_note(s)` key, change logs
+and curation history, descriptions, definitions, rationales, discussion prompts,
+quoted source snippets, `data_source`), because a note that rejects a term names it without
+citing it: MediaIngredientMech's cobalamin record once made cob(I)alamin,
+CHEBI:15982, a term it shared with CommunityMech (#254). An `evidence` list holds
+structured references, so it still counts, apart from the notes and snippets in
+it. The field list comes from an inventory of the keys holding identifiers at the
+2026-09-28 pins, with `prompt` added after review (#327). MediaIngredientMech's
+bare `cas_rn: 64-19-7` field is read as CAS:64-19-7, so its CAS identities stay
+shared although their only prefixed copy is in the curation history (#328). The
+heatmap and its cell lists still count every mention, as the census does. Which
 namespaces to count at all is still open on #84, which has the measured
 inventory: CATH, CDD, PROSITE, StrainInfo, LPSN, TOGO, UNII and about a hundred
 more are cited but not counted. Adding a prefix to the census does not add a

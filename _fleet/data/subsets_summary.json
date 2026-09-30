@@ -13,9 +13,9 @@
  },
  "edges": {
   "HabitatMech|CommunityMech": {
-   "n": 323,
+   "n": 322,
    "by": {
-    "NCBITaxon": 275,
+    "NCBITaxon": 274,
     "ENVO": 42,
     "UBERON": 4,
     "CHEBI": 2
@@ -36,11 +36,10 @@
    ]
   },
   "HabitatMech|TraitMech": {
-   "n": 122,
+   "n": 118,
    "by": {
     "NCBITaxon": 115,
-    "ENVO": 4,
-    "PATO": 2,
+    "ENVO": 2,
     "CHEBI": 1
    },
    "ex": [
@@ -102,9 +101,9 @@
    ]
   },
   "HabitatMech|NaturalProductMech": {
-   "n": 312,
+   "n": 311,
    "by": {
-    "NCBITaxon": 312
+    "NCBITaxon": 311
    },
    "ex": [
     {
@@ -142,11 +141,11 @@
    ]
   },
   "HabitatMech|MediaIngredientMech": {
-   "n": 22,
+   "n": 21,
    "by": {
     "ENVO": 15,
     "UBERON": 4,
-    "CHEBI": 3
+    "CHEBI": 2
    },
    "ex": [
     {
@@ -164,12 +163,11 @@
    ]
   },
   "HabitatMech|CultureMech": {
-   "n": 25,
+   "n": 23,
    "by": {
-    "NCBITaxon": 13,
+    "NCBITaxon": 12,
     "ENVO": 7,
-    "UBERON": 4,
-    "FOODON": 1
+    "UBERON": 4
    },
    "ex": [
     {
@@ -207,11 +205,11 @@
    ]
   },
   "CommunityMech|TraitMech": {
-   "n": 159,
+   "n": 154,
    "by": {
     "NCBITaxon": 63,
-    "CHEBI": 61,
-    "GO": 35
+    "CHEBI": 60,
+    "GO": 31
    },
    "ex": [
     {
@@ -229,10 +227,10 @@
    ]
   },
   "CommunityMech|CellStructureMech": {
-   "n": 62,
+   "n": 61,
    "by": {
     "NCBITaxon": 38,
-    "CHEBI": 13,
+    "CHEBI": 12,
     "GO": 11
    },
    "ex": [
@@ -251,11 +249,11 @@
    ]
   },
   "CommunityMech|ProteinTraitsMech": {
-   "n": 704,
+   "n": 698,
    "by": {
-    "CHEBI": 280,
-    "NCBITaxon": 234,
-    "GO": 189,
+    "CHEBI": 279,
+    "NCBITaxon": 233,
+    "GO": 185,
     "UBERON": 1
    },
    "ex": [
@@ -274,10 +272,10 @@
    ]
   },
   "CommunityMech|NaturalProductMech": {
-   "n": 137,
+   "n": 134,
    "by": {
     "NCBITaxon": 127,
-    "CHEBI": 10
+    "CHEBI": 7
    },
    "ex": [
     {
@@ -316,9 +314,9 @@
    ]
   },
   "CommunityMech|MediaIngredientMech": {
-   "n": 244,
+   "n": 231,
    "by": {
-    "CHEBI": 242,
+    "CHEBI": 229,
     "ENVO": 2
    },
    "ex": [
@@ -327,12 +325,12 @@
      "label": "glucose"
     },
     {
-     "id": "CHEBI:33709",
-     "label": "amino acid"
-    },
-    {
      "id": "CHEBI:26710",
      "label": "sodium chloride"
+    },
+    {
+     "id": "CHEBI:3312",
+     "label": "calcium dichloride"
     }
    ]
   },
@@ -359,10 +357,10 @@
    ]
   },
   "CommunityMech|TaxonMech": {
-   "n": 1225,
+   "n": 1220,
    "by": {
-    "NCBITaxon": 842,
-    "GTDB": 383
+    "NCBITaxon": 840,
+    "GTDB": 380
    },
    "ex": [
     {
@@ -380,13 +378,13 @@
    ]
   },
   "TraitMech|CellStructureMech": {
-   "n": 116,
+   "n": 113,
    "by": {
-    "GO": 55,
+    "GO": 53,
     "NCBITaxon": 40,
     "CHEBI": 7,
-    "UniProt": 6,
     "METPO": 5,
+    "UniProt": 5,
     "InterPro": 3
    },
    "ex": [
@@ -405,12 +403,12 @@
    ]
   },
   "TraitMech|ProteinTraitsMech": {
-   "n": 710,
+   "n": 659,
    "by": {
-    "GO": 248,
+    "GO": 204,
     "NCBITaxon": 137,
-    "METPO": 111,
-    "CHEBI": 109,
+    "METPO": 109,
+    "CHEBI": 104,
     "UniProt": 56,
     "InterPro": 49
    },
@@ -430,10 +428,10 @@
    ]
   },
   "TraitMech|NaturalProductMech": {
-   "n": 62,
+   "n": 60,
    "by": {
     "NCBITaxon": 53,
-    "CHEBI": 9
+    "CHEBI": 7
    },
    "ex": [
     {
@@ -472,15 +470,11 @@
    ]
   },
   "TraitMech|MediaIngredientMech": {
-   "n": 59,
+   "n": 56,
    "by": {
-    "CHEBI": 59
+    "CHEBI": 56
    },
    "ex": [
-    {
-     "id": "CHEBI:17234",
-     "label": "glucose"
-    },
     {
      "id": "CHEBI:18276",
      "label": "dihydrogen"
@@ -488,6 +482,10 @@
     {
      "id": "CHEBI:16526",
      "label": "carbon dioxide"
+    },
+    {
+     "id": "CHEBI:17234",
+     "label": "glucose"
     }
    ]
   },
@@ -533,14 +531,14 @@
    ]
   },
   "CellStructureMech|ProteinTraitsMech": {
-   "n": 1262,
+   "n": 1237,
    "by": {
-    "GO": 930,
-    "UniProt": 160,
-    "NCBITaxon": 83,
-    "InterPro": 64,
+    "GO": 922,
+    "UniProt": 149,
+    "NCBITaxon": 82,
+    "InterPro": 61,
     "CHEBI": 15,
-    "Pfam": 10
+    "Pfam": 8
    },
    "ex": [
     {
@@ -599,9 +597,9 @@
    ]
   },
   "CellStructureMech|MediaIngredientMech": {
-   "n": 14,
+   "n": 11,
    "by": {
-    "CHEBI": 14
+    "CHEBI": 11
    },
    "ex": [
     {
@@ -660,12 +658,12 @@
    ]
   },
   "ProteinTraitsMech|NaturalProductMech": {
-   "n": 916,
+   "n": 891,
    "by": {
-    "NCBITaxon": 487,
-    "CHEBI": 197,
-    "UniProt": 192,
-    "RHEA": 40
+    "NCBITaxon": 484,
+    "CHEBI": 192,
+    "UniProt": 179,
+    "RHEA": 36
    },
    "ex": [
     {
@@ -683,10 +681,10 @@
    ]
   },
   "ProteinTraitsMech|AntibioticMech": {
-   "n": 2575,
+   "n": 2566,
    "by": {
-    "ARO": 1740,
-    "CHEBI": 594,
+    "ARO": 1732,
+    "CHEBI": 593,
     "PDB": 140,
     "NCBITaxon": 79,
     "UniProt": 20,
@@ -708,9 +706,9 @@
    ]
   },
   "ProteinTraitsMech|MediaIngredientMech": {
-   "n": 805,
+   "n": 757,
    "by": {
-    "CHEBI": 804,
+    "CHEBI": 756,
     "UBERON": 1
    },
    "ex": [
@@ -723,15 +721,15 @@
      "label": "formate"
     },
     {
-     "id": "CHEBI:33709",
-     "label": "amino acid"
+     "id": "CHEBI:18276",
+     "label": "dihydrogen"
     }
    ]
   },
   "ProteinTraitsMech|CultureMech": {
-   "n": 234,
+   "n": 232,
    "by": {
-    "CHEBI": 222,
+    "CHEBI": 220,
     "NCBITaxon": 10,
     "UBERON": 2
    },
@@ -751,9 +749,9 @@
    ]
   },
   "ProteinTraitsMech|TaxonMech": {
-   "n": 7445,
+   "n": 7444,
    "by": {
-    "NCBITaxon": 7445
+    "NCBITaxon": 7444
    },
    "ex": [
     {
@@ -793,9 +791,9 @@
    ]
   },
   "NaturalProductMech|MediaIngredientMech": {
-   "n": 57,
+   "n": 54,
    "by": {
-    "CHEBI": 57
+    "CHEBI": 54
    },
    "ex": [
     {
@@ -834,9 +832,9 @@
    ]
   },
   "NaturalProductMech|TaxonMech": {
-   "n": 1708,
+   "n": 1697,
    "by": {
-    "NCBITaxon": 1708
+    "NCBITaxon": 1697
    },
    "ex": [
     {
@@ -854,16 +852,12 @@
    ]
   },
   "AntibioticMech|MediaIngredientMech": {
-   "n": 347,
+   "n": 461,
    "by": {
-    "CHEBI": 326,
-    "CAS": 21
+    "CHEBI": 314,
+    "CAS": 147
    },
    "ex": [
-    {
-     "id": "CHEBI:33709",
-     "label": "amino acid"
-    },
     {
      "id": "CHEBI:30746",
      "label": "benzoic acid"
@@ -871,6 +865,10 @@
     {
      "id": "CHEBI:17334",
      "label": "penicillin"
+    },
+    {
+     "id": "CHEBI:33709",
+     "label": "amino acid"
     }
    ]
   },
@@ -915,13 +913,11 @@
    ]
   },
   "MediaIngredientMech|CultureMech": {
-   "n": 612,
+   "n": 529,
    "by": {
-    "CHEBI": 545,
-    "KEGG": 56,
-    "FOODON": 6,
+    "CHEBI": 520,
+    "FOODON": 5,
     "UBERON": 3,
-    "CAS": 1,
     "ENVO": 1
    },
    "ex": [
@@ -934,15 +930,15 @@
      "label": "glucose"
     },
     {
-     "id": "CHEBI:2509",
-     "label": "agar"
+     "id": "CHEBI:53503",
+     "label": "cobalt chloride hexahydrate"
     }
    ]
   },
   "CultureMech|TaxonMech": {
-   "n": 54,
+   "n": 53,
    "by": {
-    "NCBITaxon": 54
+    "NCBITaxon": 53
    },
    "ex": [
     {

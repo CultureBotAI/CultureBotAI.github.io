@@ -153,7 +153,7 @@ For each issue record, when applicable: layer; whether it is a *generated* file
 or a source; which Mech and whether the claim is about that Mech's site or its
 checkout; which gate would catch it and whether that gate exists; prerequisites,
 duplicates, superseding issues; cheapest decisive evidence; and execution class —
-read-only check, source edit plus reassemble, a full pipeline rerun (~15 min), or
+read-only check, source edit plus reassemble, a full pipeline rerun (~25 min), or
 a change to what the page measures.
 
 ### 3. Check current reality and staleness
@@ -255,7 +255,7 @@ Calibrate P0 sparingly. Order within and across tiers by:
 2. a correct number before a prettier presentation of it;
 3. add the missing gate before clearing the backlog it would protect;
 4. read-only checks before anything that reruns the pipeline;
-5. batch anything needing a full pipeline run, since it costs ~15 minutes and
+5. batch anything needing a full pipeline run, since it costs ~25 minutes and
    touches ~40 committed files.
 
 Do not prioritize by age or by a `P0` string in a stale title.
