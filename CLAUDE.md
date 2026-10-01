@@ -61,7 +61,7 @@ merge only with the maintainer's go-ahead. Changes merged to `main` deploy.
 
 ### Other
 - `.github/workflows/fleet-page.yml` - the only CI; runs the tests and the fleet page checks, and nightly the checks against CLAW's live manifest and the Mech sites
-- `.claude/skills/` - `update-xmech-page` (the refresh procedure), `check-xmech-updates` (a read-only check of what a refresh would change, using `scripts/fleet/check_updates.py`) and `review-open-issues` (backlog triage)
+- `.claude/skills/` - `update-xmech-page` (the refresh procedure), `check-xmech-updates` (a read-only check of whether GitHub Pages serves `main` and what a refresh would change, using `scripts/fleet/check_updates.py`) and `review-open-issues` (backlog triage)
 - `robots.txt`, `README.md`
 - The organization profile README lives in the separate `CultureBotAI/.github`
   repository (`profile/README.md`), not here. It does not list the suite yet; it
