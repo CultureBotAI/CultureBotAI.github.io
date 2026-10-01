@@ -1146,7 +1146,9 @@ class UpdateCheckTests(unittest.TestCase):
             self.assertEqual(self.c.pages_check(api_for(build))[0], state, state)
         self.assertIn("main is aaaaaaa", self.c.pages_check(api_for(cases["behind"]))[1])
         self.assertIn("Page build failed.", self.c.pages_check(api_for(cases["errored"]))[1])
-        self.assertEqual(self.c.pages_check(api_for(None))[0], "NOT CHECKED")
+        self.assertEqual(self.c.pages_check(api_for(None)), ("NOT CHECKED", "NOT CHECKED: GitHub Pages (HTTP 404)"))
+        def no_gh(path): raise FileNotFoundError(2, "No such file or directory", "gh")
+        self.assertEqual(self.c.pages_check(no_gh)[0], "NOT CHECKED")  # #343
 
     def test_the_summary_leads_with_the_pages_state(self):
         quiet = [{"repo": "HabitatMech", "records": [], "claims": [], "unchecked": None}]
@@ -1156,6 +1158,8 @@ class UpdateCheckTests(unittest.TestCase):
         line = self.c.summary(quiet, ok, "matches", [], [], ("NOT CHECKED", "NOT CHECKED: GitHub Pages (x)"))
         self.assertIn("Not checked:** GitHub Pages deployment", line)
         self.assertFalse(line.startswith("**GitHub Pages"))
+        line = self.c.summary(quiet, ok, "matches", [], [], ("errored", "errored: failed: Page build failed."))
+        self.assertIn("Page build failed. **Refresh", line)  # one full stop (#344)
 
     def test_the_summary_names_every_section(self):
         # #288: a stale manifest or grown card is a change even when no repository moved.

@@ -198,8 +198,9 @@ def pages_check(api=gh) -> tuple[str, str]:
     try:
         head = api(f"repos/{SITE_REPO}/commits/main")["sha"]
         build = api(f"repos/{SITE_REPO}/pages/builds/latest")
-    except (Unchecked, KeyError, json.JSONDecodeError) as error:
-        return "NOT CHECKED", f"NOT CHECKED: GitHub Pages ({error})"
+    except (Unchecked, KeyError, ValueError, OSError) as error:  # OSError: no gh (#289, #343)
+        reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
+        return "NOT CHECKED", f"NOT CHECKED: GitHub Pages ({reason})"
     status, commit = build.get("status", "?"), build.get("commit") or ""
     when = build.get("updated_at", "?")
     if status == "errored":
@@ -281,7 +282,7 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
         not_checked.append(f"{len(unchecked_links)} evidence link(s)")
     if pages[0] == "NOT CHECKED":
         not_checked.append("GitHub Pages deployment")
-    line = (f"**GitHub Pages:** {pages[1]}. " if pages[0] not in ("", "NOT CHECKED") else "")
+    line = (f"**GitHub Pages:** {pages[1].rstrip('.')}. " if pages[0] not in ("", "NOT CHECKED") else "")
     line += "**Refresh would change:** " + ("; ".join(parts) if parts else "nothing found") + "."
     if not_checked:
         line += " **Not checked:** " + ", ".join(not_checked) + "."
