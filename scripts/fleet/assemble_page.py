@@ -8,6 +8,7 @@ import re
 
 from card_markup import card_figures, card_names, markup_problems
 from refresh_manifest import validate
+import additions as introductions
 
 REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
@@ -73,7 +74,7 @@ def number_word(value: int) -> str:
     return WORDS[value] if 0 <= value < len(WORDS) else f"{value:,}"
 
 
-def fleet_records(template):
+def fleet_records(template, uncounted=()):
     """What the Mech cards add up to, one figure per card.
 
     The tile used to carry its own typed figure and drifted away from the
@@ -95,9 +96,9 @@ def fleet_records(template):
     """
     # Exactly one figure per card, and none outside the cards: a second stat
     # tile used to replace a card's headline in the total without failing (#218).
-    problems = markup_problems(template)
+    problems = markup_problems(template, uncounted)
     if problems:
-        raise ValueError("Every Mech card must carry a record count, exactly once: "
+        raise ValueError("Every counted Mech card must carry a record count, exactly once: "
                          + "; ".join(f"{mech}: {why}" for mech, why in problems))
     figures = card_figures(template)
     if not figures:
@@ -105,19 +106,23 @@ def fleet_records(template):
     return figures
 
 
-def assemble(template, fragment, data, snapshot, stats, census):
+def assemble(template, fragment, data, snapshot, stats, census, additions=None):
     validate(snapshot)
-    names = set(snapshot["mechs"])
+    additions = additions or {}
+    introductions.validate(additions)
+    members = set(snapshot["mechs"])
+    names = members | set(additions)
+    uncounted = introductions.uncounted(additions)
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
     if len(badges) != len(names) or set(badges) != names:
-        raise ValueError("Mech cards must match canonical fleet membership exactly")
+        raise ValueError("Mech cards must match declared suite membership exactly")
     cards = card_names(template)
     if len(cards) != len(names) or set(cards) != names:
-        raise ValueError("Actual Mech cards must match canonical fleet membership exactly")
+        raise ValueError("Actual Mech cards must match declared suite membership exactly")
     metadata = fragment.split("var MECHS = {", 1)[1].split("\n  };", 1)[0]
     node_names = re.findall(r"^\s+([A-Za-z]+Mech):\s*\{", metadata, re.MULTILINE)
     if len(node_names) != len(names) or set(node_names) != names:
-        raise ValueError("Graph metadata must match canonical fleet membership exactly")
+        raise ValueError("Graph metadata must match declared suite membership exactly")
     measured = set(data["order"])
     if not measured or len(data["order"]) != len(measured) or not measured <= names:
         raise ValueError("Census order must be a unique subset of fleet members")
@@ -137,15 +142,17 @@ def assemble(template, fragment, data, snapshot, stats, census):
         raise ValueError("Expected one fleet fragment")
     page = template.replace("<!--FLEET_FRAGMENT-->", fragment)
     source = snapshot["source"]
-    # mech_stats.py follows the same manifest, so every card is covered; an
-    # admission that reached the manifest but not a recount would otherwise
-    # leave a stat line unfilled, which the placeholder sweep below catches.
+    # Measured cards have corpus/PR statistics; introductions have separately
+    # pinned source lines. Neither may silently inherit the other's snapshot.
     counted = {m["mech"] for m in stats["mechs"]}
-    if counted != names:
-        raise ValueError("Mech stats must cover canonical fleet membership exactly")
-    counts = fleet_records(template)
-    if set(counts) != names:
-        raise ValueError("Every Mech card must carry a record count")
+    if counted != names - set(additions):
+        raise ValueError("Mech stats must cover every member outside the separately pinned introductions")
+    counts = fleet_records(template, uncounted)
+    if set(counts) != names - uncounted:
+        raise ValueError("Every counted Mech card must carry a record count")
+    for name, entry in additions.items():
+        if counts.get(name) != entry["figure_at_pin"]:
+            raise ValueError(f"{name}: card count differs from its separately pinned source")
     # The census is a dated scan, so its vocabulary tally is labelled with its own
     # run date rather than as current, and its coverage is stated below.
     # Keys beginning with an underscore are the scan's own metadata, not Mechs.
@@ -169,11 +176,18 @@ def assemble(template, fragment, data, snapshot, stats, census):
         "<!--FLEET_CENSUS_DATE-->": datetime.date.fromisoformat(as_of).strftime("%-d %B %Y"),
         "<!--FLEET_PRS_TOTAL-->": f"{stats['merged_prs_total']:,}",
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
+        "<!--FLEET_MANIFEST_COUNT_WORD-->": number_word(len(members)),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
         "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot),
         "<!--FLEET_CAPABILITY_HEAD-->": capability_head(snapshot),
     }
-    tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">in fleet manifest</span>' for name in names})
+    tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">' +
+                   ('in fleet manifest' if name in members else 'not yet in fleet manifest') + '</span>'
+                   for name in names})
+    for name, entry in additions.items():
+        date = datetime.datetime.fromisoformat(entry['pinned_at_utc']).strftime('%-d %B %Y')
+        url = f"https://github.com/CultureBotAI/{entry['repo']}/tree/{entry['sha']}"
+        tokens[f"<!--FLEET_STATS:{name}-->"] = f'Checked {date} · <a href="{url}">source at {entry["sha"][:7]}</a>'
     for mech in stats["mechs"]:
         prs = f"{mech['merged_prs']:,} merged PRs"
         # A null reviewed count means the Mech's schema has no status that can
@@ -201,7 +215,8 @@ def main():
                     json.loads((FLEET / "data/fleet_data.json").read_text()),
                     json.loads((FLEET / "data/manifest.json").read_text()),
                     json.loads((FLEET / "data/mech_stats.json").read_text()),
-                    json.loads((FLEET / "data/prefix_census.json").read_text()))
+                    json.loads((FLEET / "data/prefix_census.json").read_text()),
+                    introductions.load())
     target = REPO / "mechs.md"
     if args.check:
         if target.read_text() != page:

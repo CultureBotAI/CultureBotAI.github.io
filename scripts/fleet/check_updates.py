@@ -36,7 +36,13 @@ import urllib.request
 from pathlib import Path
 
 import check_cards
+import additions as introductions
 from roots import EXCLUDE_DIRS, RECORD_GLOBS
+
+# Watching a newly introduced corpus for drift does not add it to the dated
+# vocabulary census. Keep this map local instead of mutating roots.RECORD_GLOBS.
+# DUFMech currently has a seed worklist, so its source is watched as a claim.
+UPDATE_RECORD_GLOBS = {**RECORD_GLOBS, "PathwayMech": ["data/pathways/**/*.yaml"]}
 
 REPO = Path(__file__).resolve().parents[2]
 AUDIT = REPO / "_fleet/data/site_audit.json"
@@ -87,7 +93,7 @@ def is_record(mech: str | None, path: str) -> bool:
         return False
     if any(path.startswith(d) for d in EXCLUDE_DIRS.get(mech, [])):
         return False
-    return any(matches(path, g) for g in RECORD_GLOBS.get(mech, []))
+    return any(matches(path, g) for g in UPDATE_RECORD_GLOBS.get(mech, []))
 
 
 def cited_paths(*texts: str) -> dict[str, set[str]]:
@@ -107,12 +113,20 @@ def cited_paths(*texts: str) -> dict[str, set[str]]:
     return paths
 
 
-def watched(audit: dict, sources: list[str]) -> dict[str, set[str]]:
+def watched(audit: dict, sources: list[str], additions: dict | None = None) -> dict[str, set[str]]:
     """Every file the page's claims rest on, per repository (lower-cased):
     GitHub and Pages links in the sources, each audited data file as served and
-    under docs/, and CLAW's membership files (#287, #288, #298)."""
+    under docs/, separately pinned introduction sources, and CLAW's membership
+    files (#287, #288, #298)."""
     urls = [row.get("data_url", "") for row in audit.get("repositories", [])]
+    for entry in (additions or {}).values():
+        urls.append(entry.get("source_url", ""))
+        if entry.get("source"):
+            urls.append(check_cards.source_url(entry["source"][1]))
     cited = cited_paths(*sources, "\n".join(urls))
+    for entry in (additions or {}).values():
+        if entry.get("source_path"):
+            cited.setdefault(entry["repo"].lower(), set()).add(entry["source_path"])
     cited.setdefault(CLAW, set()).update(CLAW_CLAIMS)
     return cited
 
@@ -275,7 +289,7 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
                     if r.get("truncated") and not r["records"] and not r["claims"]]
     not_checked += [f"{r['repo']} (main {r['status']})" for r in rows if r.get("status") in ("behind", "diverged")]
     not_checked += [f"card {m} ({s})" if m != "-" else f"cards ({d})" for s, m, d in cards
-                    if s not in ("ok", "grew", "STALE", "SHRANK", "WRONG")]
+                    if s not in ("ok", "grew", "STALE", "SHRANK", "WRONG", "uncounted")]
     if manifest.startswith("NOT CHECKED"):
         not_checked.append("CLAW manifest")
     if unchecked_links:
@@ -291,9 +305,10 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
 
 def main() -> int:
     audit = json.loads(AUDIT.read_text())
+    additions = introductions.load()
     fragment = FRAGMENT.read_text()
-    cited = watched(audit, site_sources())
-    mech_of = {m.lower(): m for m in RECORD_GLOBS} | {"proteintraitsmech": "ProteinTraitsMech"}
+    cited = watched(audit, site_sources(), additions)
+    mech_of = {m.lower(): m for m in UPDATE_RECORD_GLOBS} | {"proteintraitsmech": "ProteinTraitsMech"}
     print(f"# X-Mech update check against the pins of {audit['pinned_at_utc']}\n")
     print("## GitHub Pages deployment\n")
     pages = pages_check()
@@ -301,12 +316,12 @@ def main() -> int:
     print("## Repositories since their pins\n")
     print("| repository | pin | main | commits | what moved |\n|---|---|---|---:|---|")
     moved = []
-    for entry in audit["repositories"]:
+    for entry in audit["repositories"] + list(additions.values()):
         row = drift(entry, mech_of.get(entry["repo"].lower()), cited.get(entry["repo"].lower(), set()))
         moved.append(row)
         print(f"| {row['repo']} | {row['pin']} | {row['main']} | {row['ahead']} | {verdict(row)} |")
     print("\n## Card figures (check_cards)\n")
-    cards = check_cards.check(TEMPLATE.read_text(), audit=audit)
+    cards = check_cards.check(TEMPLATE.read_text(), audit=audit, additions=additions)
     for status, mech, detail in cards:
         print(f"- {status} {mech} {detail}")
     print("\n## Fleet membership and capabilities (CLAW main)\n")

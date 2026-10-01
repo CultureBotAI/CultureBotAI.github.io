@@ -45,6 +45,7 @@ except ModuleNotFoundError:  # the only pipeline script that needs it; see #68
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from roots import RECORD_GLOBS, mech_root, read_record, record_paths, revision, unchanged
+import additions as introductions
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
@@ -54,12 +55,10 @@ OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
 # search API does not follow.
 GH_REPO = {"ProteinTraitsMech": "proteintraitsmech"}
 
-# Fleet membership comes from the manifest snapshot, the same source
-# assemble_page.py validates the cards against, so a Mech admitted to the fleet
-# cannot end up with a card and no stat line. roots.ORDER is the *census* order
-# and is a narrower thing: it is the Mechs the vocabulary scans have measured.
+# Introductions keep separate source pins until admitted to the measured corpus.
+# Do not make an unmeasured addition a partial rerun of this dated snapshot.
 MANIFEST = json.load(open(os.path.join(REPO, "_fleet", "data", "manifest.json"), encoding="utf-8"))
-MEMBERS = list(MANIFEST["mechs"])
+MEMBERS = [m for m in MANIFEST["mechs"] if m not in introductions.load()]
 
 # Record globs for members the census has not reached yet. Counting reviewed
 # records needs only a corpus, not a vocabulary scan, so these can be reported

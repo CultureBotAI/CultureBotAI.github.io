@@ -2,7 +2,7 @@
  "checked_at_utc": "2026-09-28T19:33:59+00:00",
  "local_date": "2026-09-28",
  "pinned_at_utc": "2026-09-28T18:08:50+00:00",
- "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses, except CultureMech, whose figure is read from its committed README on main because no page it reliably serves states the count; the vocabulary census, subsets and card stats were regenerated at the same pins.",
+ "scope": "Public main revisions pinned once for the whole refresh, and the deployed GitHub Pages responses, except CultureMech, whose figure is read from its committed README on main because no page it reliably serves states the count; the vocabulary census, subsets and card stats were regenerated at the same pins. CLAW has a separate manifest-only admission pin dated October 1, 2026; the original ten Mech pins and their derived data remain unchanged. New project introductions are pinned separately in additions.json.",
  "repositories": [
   {
    "repo": "AntibioticMech",
@@ -47,10 +47,11 @@
   },
   {
    "repo": "culturebotai-claw",
-   "sha": "1edb949968bede916f1399083ae22a957a555489",
-   "commit_date": "2026-09-28T04:52:29Z",
-   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/1edb949968bede916f1399083ae22a957a555489/README.md",
-   "notes": "10 fleet members and 16 governed artifacts. Projected membership and all 26 capability declarations are unchanged from the previous snapshot (baa792d); provenance advanced to this pin. Every Mech's scripts/.vendored_canon_ref names claw 44db08d, eight commits behind this pin. Between the two commits vendored_artifacts.json and the 16 canonical payloads under src/kg_microbe_governance/artifacts/ are unchanged; fleet.yaml differs (+244 lines, causal_graph_coverage, claw#485) and README.md differs (+8 lines on causal-graph coverage reporting). After this pin, claw main admitted PathwayMech as an eleventh member (cb83def, claw#511)."
+   "sha": "6388a11d730f13905d118612fa99dd544eda6035",
+   "commit_date": "2026-10-01T02:31:29Z",
+   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/6388a11d730f13905d118612fa99dd544eda6035/README.md",
+   "notes": "Manifest-only admission snapshot at 6388a11: 11 canonical fleet members including PathwayMech, 20 governed artifacts, and 26 capability declarations per member. DUFMech is introduced separately on the website and is not declared in this CLAW snapshot. The ten-Mech census, card figures and statistics keep their September 28 pins.",
+   "pinned_at_utc": "2026-10-01T04:13:20.511503Z"
   },
   {
    "repo": "CultureMech",

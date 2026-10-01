@@ -29,9 +29,10 @@ class FleetPageTests(unittest.TestCase):
         self.data = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
         self.stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
         self.census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
+        self.additions = json.loads((ROOT / "_fleet/data/additions.json").read_text())
 
     def render(self):
-        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census)
+        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census, self.additions)
 
     def test_the_capability_table_shows_every_capability_claw_declares(self):
         # #305, #310: one column per catalogue capability, header and rows alike.
@@ -87,9 +88,9 @@ class FleetPageTests(unittest.TestCase):
     def test_published_page_contains_both_new_members_with_distinct_capabilities(self):
         page = self.render()
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
-        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 10)
-        self.assertIn('Relationship graph of the ten autonomous knowledge factories', page)
-        self.assertNotIn('not yet in fleet manifest', page)
+        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 11)
+        self.assertIn('Relationship graph of the twelve autonomous knowledge factories', page)
+        self.assertEqual(page.count('not yet in fleet manifest'), 1)
         self.assertNotIn('one revision behind', page)
         caps = self.snapshot['mechs']
         self.assertEqual(caps['NaturalProductMech']['capabilities']['source_queue']['status'], 'enabled')
@@ -103,10 +104,10 @@ class FleetPageTests(unittest.TestCase):
         # The heading, intro and SVG title are sentences, and the rest of the
         # site writes "ten" in prose; only the stat tile wants a figure (#93).
         page = self.render()
-        self.assertIn('# X-Mech Suite: ten autonomous knowledge factories', page)
-        self.assertIn('## The ten Mechs', page)
-        self.assertIn('census covers all ten Mechs', page)
-        self.assertIn('<b>10</b><span>autonomous knowledge factories</span>', page)
+        self.assertIn('# X-Mech Suite: twelve autonomous knowledge factories', page)
+        self.assertIn('## The twelve Mechs', page)
+        self.assertIn('census covers ten of the twelve Mechs', page)
+        self.assertIn('<b>12</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
     def test_the_meta_description_opens_like_a_sentence(self):
@@ -128,7 +129,7 @@ class FleetPageTests(unittest.TestCase):
         self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
         self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
         page = self.render()
-        self.assertIn("census covers nine of the ten Mechs", page)
+        self.assertIn("census covers nine of the twelve Mechs", page)
         self.assertNotIn("all ten Mechs", page)
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
@@ -488,10 +489,12 @@ class CardSourceTests(unittest.TestCase):
         # would otherwise get a card and be silently exempt from checking,
         # which is the failure this whole issue is about.
         import check_cards
+        import additions
+        sources = set(check_cards.SOURCES) | (set(additions.load()) - additions.uncounted(additions.load()))
         stated = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
-        self.assertEqual(sorted(set(stated) - set(check_cards.SOURCES)), [],
+        self.assertEqual(sorted(set(stated) - sources), [],
                          "card with no entry in check_cards.SOURCES")
-        self.assertEqual(sorted(set(check_cards.SOURCES) - set(stated)), [],
+        self.assertEqual(sorted(sources - set(stated)), [],
                          "SOURCES entry with no card")
 
     def test_culturemech_is_read_from_its_committed_readme(self):
@@ -520,7 +523,7 @@ class CardSourceTests(unittest.TestCase):
         snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
         template = (ROOT / "_fleet/mechs_template.md").read_text()
         self.assertEqual(sorted(card_figures(template)), sorted(snapshot["mechs"]))
-        self.assertEqual(sorted(card_names(template)), sorted(snapshot["mechs"]))
+        self.assertEqual(sorted(card_names(template)), sorted(set(snapshot["mechs"]) | {"DUFMech"}))
 
     def test_a_card_without_a_figure_does_not_borrow_its_neighbours(self):
         # The old check_cards regex paired a name with the next figure in the
@@ -825,6 +828,7 @@ class CardCheckTests(unittest.TestCase):
             audit.write_text(json.dumps(self.audit()))
             with mock.patch.object(self.check_cards, "TEMPLATE", template), \
                  mock.patch.object(self.check_cards, "AUDIT", audit), \
+                 mock.patch.object(self.check_cards.introductions, "load", return_value={}), \
                  mock.patch.object(self.check_cards, "fetch", self.fetch), \
                  contextlib.redirect_stdout(io.StringIO()):
                 self.site["AMech"] = 1050
