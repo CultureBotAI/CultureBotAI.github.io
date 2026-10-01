@@ -266,10 +266,14 @@ prefixes: chemical names, serotypes, strain designations, mass-shift notation.
 Prefixes seen only in running text fewer than 20 times were not each checked. The largest additions are
 ProteinTraitsMech's domain and structure resources (CATH, CDD, PROSITE, ECOD) and
 TaxonMech's strain and genome registries (StrainInfo, NCBI Assembly, PATRIC,
-BioSample). Adding a prefix to the census does not add a heatmap column
-(`build_data.VOC` decides those, and `PrefixListTests` keeps the lists
-consistent), but it changes the vocabulary tile and needs a full rescan. Which
-of the new namespaces deserve columns is a layout decision (#55, #58).
+BioSample). Every namespace present in the dated census appears in the heatmap
+and its vocabulary total. `build_data.vocabularies()` derives the columns from
+that snapshot; the table scrolls horizontally with sticky Mech names. Columns
+sort by Mech coverage, then occurrence total, with citable works at the right.
+`build_subsets.PREF` remains the smaller set with record lists and shared-term
+edges. Other columns show plain counts and do not offer graph filters, because
+this snapshot has not indexed their overlaps. Adding a namespace to the census
+requires a full rescan; displaying the saved census does not.
 
 ## Published-site refresh (September 28, 2026)
 

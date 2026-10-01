@@ -54,6 +54,9 @@ SITE_REPO = "CultureBotAI/CultureBotAI.github.io"
 FILE_CAP = 300
 CLAIM_PATTERNS = ["README.md", "LICENSE*", "CITATION.cff", "src/**/schema/*.yaml",
                   "pages/index.html", "docs/index.html", "app/index.html", "index.html"]
+# DUF freezes each worklist under a new date rather than replacing the pinned
+# source file. Watch subsequent manifests as claims, not curated corpus records.
+MECH_CLAIMS = {"DUFMech": ["data/worklists/interpro-pfam-duf-*.manifest.json"]}
 # The files in CLAW that decide membership, capabilities and the vendored
 # standard; site_audit.json's CLAW note names the same ones (#288).
 CLAW_CLAIMS = ["src/kg_microbe_fleet/fleet.yaml", "vendored_artifacts.json", "docs/guides/MECH_STANDARD.md"]
@@ -152,7 +155,7 @@ def classify(mech: str | None, files: list[dict], cited: set[str]) -> dict:
                 out["added"] += 1
             elif f["status"] == "removed":
                 out["removed"] += 1
-        elif name in cited or any(matches(name, p) for p in CLAIM_PATTERNS):
+        elif name in cited or any(matches(name, p) for p in CLAIM_PATTERNS + MECH_CLAIMS.get(mech, [])):
             out["claims"].append(name)
         else:
             out["other"].append(name)
@@ -308,7 +311,7 @@ def main() -> int:
     additions = introductions.load()
     fragment = FRAGMENT.read_text()
     cited = watched(audit, site_sources(), additions)
-    mech_of = {m.lower(): m for m in UPDATE_RECORD_GLOBS} | {"proteintraitsmech": "ProteinTraitsMech"}
+    mech_of = {m.lower(): m for m in UPDATE_RECORD_GLOBS.keys() | additions.keys()}
     print(f"# X-Mech update check against the pins of {audit['pinned_at_utc']}\n")
     print("## GitHub Pages deployment\n")
     pages = pages_check()

@@ -318,14 +318,11 @@ def census_sandbox():
                                MECHS_ROOT=str(root / "empty"))
 
 class PrefixListTests(unittest.TestCase):
-    """The pipeline carries three hand-maintained prefix lists that must agree.
+    """Counted prefixes, displayed columns and indexed subsets must agree.
 
-    `P` in prefix_census.py decides what is counted at all; `VOC` in
-    build_data.py decides which vocabularies become heatmap columns; `PREF` in
-    build_subsets.py decides which cells and edges get clickable record lists.
-    Nothing enforced their relationship, and a mismatch is silent in both
-    directions — a column with no cells renders dead, and a prefix counted but
-    absent from VOC never reaches the page at all (#84, #95).
+    `P` in prefix_census.py decides what is counted at all. Every namespace in
+    the saved census gets a heatmap column; `PREF` in build_subsets.py is the
+    smaller set with indexed record lists and shared-term edges.
     """
 
     def setUp(self):
@@ -356,7 +353,7 @@ class PrefixListTests(unittest.TestCase):
         # rebuilt after its literal, which is what #99 and #101 were about.
         # Reading the objects the pipeline actually uses retires the whole class.
         import build_data, build_subsets
-        self.voc = build_data.VOC
+        self.voc = build_data.vocabularies(json.loads((ROOT / "_fleet/data/prefix_census.json").read_text()))
         self.pref = build_subsets.PREF
 
     @staticmethod
@@ -395,13 +392,11 @@ class PrefixListTests(unittest.TestCase):
     def test_every_clickable_cell_prefix_is_a_vocabulary_the_census_counts(self):
         self.assertEqual([p for p in self.pref if p not in self.census], [])
 
-    def test_columns_and_clickable_cells_describe_the_same_vocabularies(self):
-        # Citation prefixes are deliberately asymmetric: they get a column but
-        # no record lists, which is what roots.CITATION exists to say.
+    def test_every_clickable_cell_prefix_has_a_column(self):
+        # All census namespaces get columns; only the indexed subset has lists.
         import roots
         columns = {v for v in self.voc if v not in roots.CITATION}
         cells = {p for p in self.pref if p not in roots.CITATION}
-        self.assertEqual(sorted(columns - cells), [], "heatmap column with no cells behind it")
         self.assertEqual(sorted(cells - columns), [], "record lists built for a vocabulary no column shows")
 
     def test_every_census_spelling_of_an_overlap_column_is_folded_by_the_subsets(self):
