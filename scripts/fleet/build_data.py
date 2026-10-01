@@ -14,7 +14,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 DATA = os.path.join(REPO, "_fleet", "data")
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from roots import CITATION, ORDER
+from roots import ORDER
 
 S=DATA
 def vocabularies(census):
@@ -33,17 +33,15 @@ def build(sub, cen):
     heat={m:{v:cen[m]["prefixes"].get(v,0) for v in sorted(voc)} for m in ORDER}
     cells={k.replace("|","--"):n for k,n in sub["cells"].items()}
 
-    # Heatmap columns run left to right from the most widely shared vocabulary to
-    # the least: first by how many Mechs ground anything in it, then, for the many
-    # ties, by total occurrences across the fleet. Unlike record-list totals,
+    # DOI and PMID lead; every remaining column runs from the most widely used
+    # vocabulary to the least: first by how many Mechs ground anything in it,
+    # then by total occurrences across the fleet. Unlike record-list totals,
     # occurrence counts are available for every vocabulary in this census.
     # Name last so the order is stable for equal counts.
     def reach(v): return sum(1 for m in ORDER if heat[m][v])
     def occurrences(v): return sum(heat[m][v] for m in ORDER)
-    # CITATION comes from roots.py, the same list build_subsets.py uses to decide
-    # which prefixes get no record lists. Keep citable works together at the
-    # right, after the ontology, database and registry vocabularies.
-    VOC_ORDER=sorted((v for v in voc if v not in CITATION),key=lambda v:(-reach(v),-occurrences(v),v))+[v for v in CITATION if v in voc]
+    leading=[v for v in ("DOI", "PMID") if v in voc]
+    VOC_ORDER=leading+sorted(voc-set(leading),key=lambda v:(-reach(v),-occurrences(v),v))
     for v in VOC_ORDER: print(f"  {v:<18} {reach(v)} mechs {occurrences(v):>9,} occurrences")
 
     return {"order":ORDER,"voc":VOC_ORDER,"heat":heat,"cells":cells,"vocab_edges":edges}

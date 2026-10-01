@@ -9,7 +9,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
 import build_data
-from roots import CITATION, ORDER
+from roots import ORDER
 
 
 class FullHeatmapTests(unittest.TestCase):
@@ -43,12 +43,16 @@ class FullHeatmapTests(unittest.TestCase):
         census[ORDER[0]]["prefixes"].update({"Wide": 1, "Many": 50, "Few": 5, "EqualA": 1, "EqualB": 1})
         census[ORDER[1]]["prefixes"]["Wide"] = 1
         result = self.build(census)
-        self.assertEqual(result["voc"], ["Wide", "Many", "Few", "EqualA", "EqualB", "DOI"])
+        self.assertEqual(result["voc"], ["DOI", "Wide", "Many", "Few", "EqualA", "EqualB"])
 
-    def test_citable_works_stay_together_at_the_right(self):
-        census = {m: {"prefixes": {v: 10 for v in CITATION}} for m in ORDER}
-        census[ORDER[0]]["prefixes"]["Registry"] = 1
-        self.assertEqual(self.build(census)["voc"], ["Registry", *CITATION])
+    def test_doi_and_pmid_lead_then_citable_works_sort_with_other_vocabularies(self):
+        census = {m: {"prefixes": {}} for m in ORDER}
+        census[ORDER[0]]["prefixes"] = {"DOI": 1, "PMID": 1, "CHEBI": 900,
+                                         "PMCID": 1, "Wikipedia": 50, "Registry": 1}
+        census[ORDER[1]]["prefixes"] = {"PMCID": 1, "Wikipedia": 1}
+        census[ORDER[2]]["prefixes"] = {"PMCID": 1}
+        self.assertEqual(self.build(census)["voc"],
+                         ["DOI", "PMID", "PMCID", "Wikipedia", "CHEBI", "Registry"])
 
 
 if __name__ == "__main__":

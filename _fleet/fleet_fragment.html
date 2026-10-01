@@ -285,6 +285,8 @@
   table.fleet-heat td { height: 30px; border-radius: 5px; text-align: center; font-variant-numeric: tabular-nums; font-size: .75rem; color: var(--ink); background: hsl(var(--fleet-heat-hue) 92% / .35); }
   table.fleet-heat td[data-l] { background: color-mix(in oklab, var(--accent-2) calc(var(--l) * 1%), var(--card)); color: var(--ink); }
   table.fleet-heat td[data-l="0"] { background: var(--wash-b); color: var(--muted); }
+  table.fleet-heat td.unmeasured { text-align: left; background: var(--wash-b); color: var(--muted); }
+  table.fleet-heat td.unmeasured span { position: sticky; left: 190px; display: inline-block; max-width: calc(100vw - 240px); box-sizing: border-box; padding: 0 .4rem; }
   table.fleet-heat td.hi { outline: 2px solid var(--accent); }
   table.fleet-heat td.sel { outline: 2px solid var(--ink); }
   table.fleet-heat tbody th a { color: var(--ink); background-image: none; }
@@ -390,11 +392,11 @@
 
 <h2 id="shared-vocabulary">Shared vocabulary</h2>
 
-<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies in the dated census, ordered from the most widely used to the least, with literature at the right. Mech names stay visible as you scroll. Click a Mech name to open it, a linked count to browse records, or a column button to filter the graph.</p>
+<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies in the dated census, with DOI and PMID first, followed by vocabularies used by the most Mechs to the fewest. Mech names stay visible as you scroll. Click a Mech name to open it, a linked count to browse records, or a column button to filter the graph.</p>
 
 <div class="fleet-heat-wrap" tabindex="0" role="region" aria-label="Vocabulary census; scroll horizontally to see all vocabularies"><table class="fleet-heat" id="fleet-heat" aria-label="Vocabulary identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs use each vocabulary, then by total occurrences across the fleet; literature and other citable works sit at the right. Record lists and graph filters are available for the vocabularies indexed in this snapshot. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. The table also lists PathwayMech and DUFMech as not yet measured. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. DOI and PMID are the first two columns. All remaining columns are ordered by how many Mechs use each vocabulary, from most to least, then by total occurrences across the fleet and vocabulary name. Record lists and graph filters are available for the vocabularies indexed in this snapshot. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -957,8 +959,13 @@
       var indexed = DATA.order.some(function (m) { return DATA.cells[m + "--" + v]; }) || DATA.vocab_edges.some(function (edge) { return edge.by[v] > 0; });
       return '<th scope="col">' + (indexed ? '<button type="button" data-voc="' + esc(v) + '" aria-pressed="false" title="Filter the graph to ' + esc(v) + '">' + esc(v) + '</button>' : '<span title="Occurrence counts; record lists and graph overlaps are not available for this vocabulary">' + esc(v) + '</span>') + '</th>';
     }).join("") + "</tr></thead><tbody>";
-    DATA.order.forEach(function (m) {
-      html += '<tr><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(MECHS[m]) + '" title="Open ' + esc(m) + '">' + esc(m) + "</a></th>";
+    var heatOrder = DATA.order.concat(Object.keys(MECHS).filter(function (m) { return DATA.order.indexOf(m) < 0; }));
+    heatOrder.forEach(function (m) {
+      html += '<tr data-mech="' + esc(m) + '"><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(MECHS[m]) + '" title="Open ' + esc(m) + '">' + esc(m) + "</a></th>";
+      if (!Object.prototype.hasOwnProperty.call(DATA.heat, m)) {
+        html += '<td class="unmeasured" colspan="' + VOC.length + '" title="' + esc(m) + ' is not included in the dated vocabulary census"><span>Not yet measured</span></td></tr>';
+        return;
+      }
       VOC.forEach(function (v) {
         var n = DATA.heat[m][v], l = n ? Math.round(12 + 88 * Math.log10(n) / lmax) : 0, recs = DATA.cells[m + "--" + v];
         var cell = !n ? "&middot;" : recs ? '<button type="button" data-mech="' + m + '" data-voc="' + v + '" aria-label="' + fmt(recs) + ' records in ' + esc(m) + ' grounded in ' + esc(v) + '">' + short(n) + "</button>" : '<span>' + short(n) + '</span>';

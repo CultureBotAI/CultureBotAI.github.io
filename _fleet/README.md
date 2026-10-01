@@ -268,8 +268,11 @@ ProteinTraitsMech's domain and structure resources (CATH, CDD, PROSITE, ECOD) an
 TaxonMech's strain and genome registries (StrainInfo, NCBI Assembly, PATRIC,
 BioSample). Every namespace present in the dated census appears in the heatmap
 and its vocabulary total. `build_data.vocabularies()` derives the columns from
-that snapshot; the table scrolls horizontally with sticky Mech names. Columns
-sort by Mech coverage, then occurrence total, with citable works at the right.
+that snapshot; the table scrolls horizontally with sticky Mech names. DOI and
+PMID lead; all remaining columns sort by Mech coverage, then occurrence total
+and vocabulary name.
+The table includes every suite member. Mechs outside the dated census appear
+after the measured rows with a "Not yet measured" status and no numeric cells.
 `build_subsets.PREF` remains the smaller set with record lists and shared-term
 edges. Other columns show plain counts and do not offer graph filters, because
 this snapshot has not indexed their overlaps. Adding a namespace to the census
