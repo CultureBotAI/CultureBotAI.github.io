@@ -25,8 +25,8 @@ def card_names(template: str) -> list[str]:
     return [mech for mech, _ in ARTICLE.findall(template)]
 
 
-def markup_problems(template: str) -> list[tuple[str, str]]:
-    """(Mech, what is wrong) for every card that does not state exactly one figure.
+def markup_problems(template: str, uncounted=()) -> list[tuple[str, str]]:
+    """Require one figure per counted card, or one explicit uncounted status.
 
     A card with two figures used to be read as its first, and a figure outside
     every card was ignored, so a second stat tile changed the fleet total without
@@ -35,6 +35,10 @@ def markup_problems(template: str) -> list[tuple[str, str]]:
     problems = []
     for mech, body in ARTICLE.findall(template):
         tiles = len(TILE.findall(body))
+        if mech in uncounted:
+            if tiles or len(re.findall(r'<div class="status"><b>[^<]+</b>', body)) != 1:
+                problems.append((mech, "uncounted card must state one status and no record count"))
+            continue
         if tiles == 0:
             problems.append((mech, "card has no headline figure"))
         elif tiles > 1:

@@ -5,11 +5,9 @@ scanning passes. Reads no checkout: its inputs are the JSON those passes wrote
 under _fleet/data, and its output goes back there. See _fleet/README.md for the
 whole pipeline.
 
-Everything below the constants sits behind main(), so VOC can be imported and
-checked against the other two prefix lists without reading or writing any data
-(#97). Before that, importing this module loaded both JSON inputs and rewrote
-fleet_data.json, so the test that pins the three lists to each other had to
-parse VOC out of the source text instead.
+Importing this module performs no file I/O (#97). The heatmap includes every
+vocabulary present in the dated census; the separately built record lists and
+shared-term edges cover the prefixes indexed by build_subsets.py.
 """
 import os
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -19,7 +17,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from roots import CITATION, ORDER
 
 S=DATA
-VOC=["CHEBI","NCBITaxon","GO","ENVO","METPO","ARO","UniProt","InterPro","Pfam","RHEA","PDB","PATO","UBERON","FOODON","BTO","GTDB","KEGG","CAS","MIBiG","NPAtlas","PMID","DOI"]
+def vocabularies(census):
+    """Every counted namespace in the measured Mechs, without scan metadata."""
+    return {prefix for mech in ORDER for prefix in census[mech]["prefixes"]}
 
 
 def build(sub, cen):
@@ -29,21 +29,22 @@ def build(sub, cen):
         a,b=k.split("|")
         if v["n"]==0: continue
         edges.append({"a":a,"b":b,"n":v["n"],"by":v["by"],"ex":v["ex"]})
-    heat={m:{v:cen[m]["prefixes"].get(v,0) for v in VOC} for m in ORDER}
+    voc=vocabularies(cen)
+    heat={m:{v:cen[m]["prefixes"].get(v,0) for v in sorted(voc)} for m in ORDER}
     cells={k.replace("|","--"):n for k,n in sub["cells"].items()}
 
     # Heatmap columns run left to right from the most widely shared vocabulary to
     # the least: first by how many Mechs ground anything in it, then, for the many
-    # ties at nine and at one, by the total records citing it across the fleet.
-    # Name last so the order is stable when a vocabulary appears in no records.
+    # ties, by total occurrences across the fleet. Unlike record-list totals,
+    # occurrence counts are available for every vocabulary in this census.
+    # Name last so the order is stable for equal counts.
     def reach(v): return sum(1 for m in ORDER if heat[m][v])
-    def records(v): return sum(cells.get(f"{m}--{v}",0) for m in ORDER)
+    def occurrences(v): return sum(heat[m][v] for m in ORDER)
     # CITATION comes from roots.py, the same list build_subsets.py uses to decide
-    # which prefixes get no record lists. Those two have to agree: a citation
-    # prefix would sort to the far left on Mech count with nothing to break the
-    # tie, which is what the pin exists to prevent.
-    VOC_ORDER=sorted((v for v in VOC if v not in CITATION),key=lambda v:(-reach(v),-records(v),v))+[v for v in CITATION if v in VOC]
-    for v in VOC_ORDER: print(f"  {v:<10} {reach(v)} mechs {records(v):>9,} records")
+    # which prefixes get no record lists. Keep citable works together at the
+    # right, after the ontology, database and registry vocabularies.
+    VOC_ORDER=sorted((v for v in voc if v not in CITATION),key=lambda v:(-reach(v),-occurrences(v),v))+[v for v in CITATION if v in voc]
+    for v in VOC_ORDER: print(f"  {v:<18} {reach(v)} mechs {occurrences(v):>9,} occurrences")
 
     return {"order":ORDER,"voc":VOC_ORDER,"heat":heat,"cells":cells,"vocab_edges":edges}
 

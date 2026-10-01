@@ -4,8 +4,8 @@
   :root {
     --mech-habitatmech: #156f4a; --mech-communitymech: #008bf3; --mech-traitmech: #cc3867;
     --mech-cellstructuremech: #662cfc; --mech-proteintraitsmech: #109c98; --mech-antibioticmech: #8f4e21;
-    /* Ten identity colours, re-derived together in OKLCH rather than picked one
-       at a time. TaxonMech used to carry CellStructureMech's exact value on this
+    /* The original ten identity colours were re-derived together in OKLCH
+       rather than picked one at a time. TaxonMech used to carry CellStructureMech's exact value on this
        theme, so two Mechs were indistinguishable everywhere the colour appears
        (#78). The set is validated with the data-viz palette checker over all 45
        pairs: on light every check passes, and on both themes the worst pair a
@@ -24,6 +24,9 @@
        is near-black and the alternative is losing separation. */
     --mech-naturalproductmech: #3559aa; --mech-taxonmech: #82307d;
     --mech-mediaingredientmech: #9a61cb; --mech-culturemech: #829c00;
+    /* Gold pathways and slate domains extend the palette without recolouring
+       existing Mechs. Labels carry identity as well as colour. */
+    --mech-pathwaymech: #ac8200; --mech-dufmech: #566a7c;
     /* Text variants: same hue, lightness walked until the colour clears 4.5:1
        against the palest surface they sit on, which is the scale ladder's wash
        rather than the card. The identity colour marks a node, a card spine or a
@@ -35,6 +38,7 @@
     --mech-cellstructuremech-ink: #662cfc; --mech-proteintraitsmech-ink: #007a77; --mech-antibioticmech-ink: #8f4e21;
     --mech-naturalproductmech-ink: #3559aa; --mech-taxonmech-ink: #82307d; --mech-mediaingredientmech-ink: #8c53bc;
     --mech-culturemech-ink: #5f7600;
+    --mech-pathwaymech-ink: #806000; --mech-dufmech-ink: #566a7c;
     /* Label colour for a button filled with a Mech's --ci. Stated per theme
        rather than borrowed from --card, which resolved inconsistently here. */
     --mech-onfill: #ffffff;
@@ -50,10 +54,12 @@
       --mech-cellstructuremech: #7251ff; --mech-proteintraitsmech: #00b9b5; --mech-antibioticmech: #e89e71;
       --mech-naturalproductmech: #9abbff; --mech-taxonmech: #b22bac;
       --mech-mediaingredientmech: #a97cd2; --mech-culturemech: #94af31;
+      --mech-pathwaymech: #d8b63f; --mech-dufmech: #98a7b5;
       --mech-habitatmech-ink: #219968; --mech-communitymech-ink: #0f95ff; --mech-traitmech-ink: #ec5d85;
       --mech-cellstructuremech-ink: #896fff; --mech-proteintraitsmech-ink: #00b9b5; --mech-antibioticmech-ink: #e89e71;
       --mech-naturalproductmech-ink: #9abbff; --mech-taxonmech-ink: #d450cd; --mech-mediaingredientmech-ink: #a97cd2;
       --mech-culturemech-ink: #94af31;
+      --mech-pathwaymech-ink: #d8b63f; --mech-dufmech-ink: #98a7b5;
       --mech-onfill: #121714;
       --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
       --fleet-edge: rgba(160, 178, 168, .34);
@@ -67,10 +73,12 @@
     --mech-cellstructuremech: #7251ff; --mech-proteintraitsmech: #00b9b5; --mech-antibioticmech: #e89e71;
     --mech-naturalproductmech: #9abbff; --mech-taxonmech: #b22bac;
     --mech-mediaingredientmech: #a97cd2; --mech-culturemech: #94af31;
+    --mech-pathwaymech: #d8b63f; --mech-dufmech: #98a7b5;
     --mech-habitatmech-ink: #219968; --mech-communitymech-ink: #0f95ff; --mech-traitmech-ink: #ec5d85;
     --mech-cellstructuremech-ink: #896fff; --mech-proteintraitsmech-ink: #00b9b5; --mech-antibioticmech-ink: #e89e71;
     --mech-naturalproductmech-ink: #9abbff; --mech-taxonmech-ink: #d450cd; --mech-mediaingredientmech-ink: #a97cd2;
     --mech-culturemech-ink: #94af31;
+    --mech-pathwaymech-ink: #d8b63f; --mech-dufmech-ink: #98a7b5;
     --mech-onfill: #121714;
     --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
     --fleet-edge: rgba(160, 178, 168, .34);
@@ -211,6 +219,8 @@
   .mech-card .num { display: flex; align-items: baseline; gap: .45rem; font-variant-numeric: tabular-nums; }
   .mech-card .num b { font-size: 1.45rem; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
   .mech-card .num span { font-size: .82rem; color: var(--muted); }
+  .mech-card .status b { display: block; font-size: 1.25rem; color: var(--ink); }
+  .mech-card .status span { font-size: .82rem; color: var(--muted); }
   /* Small print under the headline number: what the corpus has been through
      rather than how big it is. Muted and a size down, so it reads as a footnote
      to the number above it and not as a second headline. */
@@ -227,38 +237,32 @@
   .page-content .mech-card ul > li::before { display: none; }
 
   /* ---- Scale ladder ---- */
-  .fleet-ladder { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin: 1rem 0 .2rem; }
+  .fleet-ladder { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin: 1rem 0 .2rem; }
   .page-content .fleet-ladder > a { display: block; padding: .55rem .5rem .5rem; border-radius: 8px; background: var(--wash-b); border-top: 4px solid var(--c); font-size: .74rem; line-height: 1.3; color: var(--ink); background-image: none; transition: transform .15s ease, box-shadow .15s ease; }
   .page-content .fleet-ladder > a:hover, .page-content .fleet-ladder > a:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-lg); background-size: 0; }
   .fleet-ladder b { display: block; font-size: .78rem; color: var(--ci); }
   .fleet-ladder span { color: var(--muted); }
-  @media (max-width: 900px) { .fleet-ladder { grid-template-columns: repeat(5, 1fr); } }
+  @media (max-width: 900px) { .fleet-ladder { grid-template-columns: repeat(4, 1fr); } }
   @media (max-width: 760px) { .fleet-ladder { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 420px) { .fleet-ladder { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---- Heatmap ---- */
   .fleet-heat-wrap { overflow-x: auto; margin: 1rem 0 .4rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-  /* Fixed layout, so 22 vocabulary columns divide the width that is actually
-     available instead of each claiming room for its widest number and pushing
-     the table past the page. The declared widths sum to 968px (150 + 22*35 +
-     24 gaps of 2), which is the min-width below; the separate border model
-     then lays the table out at 970px, because it adds the two outer gaps
-     outside the declared width, so the card starts scrolling below 989px of
-     client width. Above that the table fills the card and fixed layout shares
-     out the surplus. Auto layout did the opposite: the row header alone took
-     168px and the table overflowed its container by 19px, which is a
-     horizontal scrollbar on a table that nearly fits. */
+  .fleet-heat-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  /* Fixed-width vocabulary columns keep every census count readable. The
+     generated minimum width accounts for the actual number of columns; only
+     this card scrolls horizontally, while Mech names stay visible at the left. */
   /* display: table overrides the site-wide `table { display: block; overflow-x:
      auto }` responsive rule in custom.css. While that applied, this table was
      its own scroll container and sized its columns from their content, so
-     table-layout and every column width below were inert and 22 vocabularies
-     ran past the card. The wrap keeps overflow-x for genuinely narrow screens. */
-  table.fleet-heat { display: table; overflow: visible; table-layout: fixed; width: calc(100% - 1.2rem); border-collapse: separate; border-spacing: 2px; margin: .6rem; font-size: .8rem; min-width: 968px; }
+     table-layout and every column width below were inert. The wrap owns the
+     scrollbar, including keyboard scrolling when focused. */
+  table.fleet-heat { display: table; overflow: visible; table-layout: fixed; width: calc(100% - 1.2rem); border-collapse: separate; border-spacing: 2px; margin: .6rem; font-size: .8rem; min-width: var(--heat-width); }
   /* Fixed layout only pins a column when that column is given a width, so every
      header cell gets one; with just the row header set, the rest fell back to
      their content width and the table ran 275px past the card while
      scrollWidth still reported no overflow. */
-  table.fleet-heat thead th { width: 35px; padding: .2rem 0; text-align: center; }
+  table.fleet-heat thead th { width: 42px; padding: .2rem 0; text-align: center; }
   table.fleet-heat td { padding: 0; }
   /* A cell's background sweeps the whole ramp from card to accent-2, so any one
      ring colour is invisible somewhere along it — a fixed neon ring fell under
@@ -270,21 +274,22 @@
     outline-offset: -2px;
     box-shadow: inset 0 0 0 2px var(--card), inset 0 0 0 4px var(--ink);
   }
-  table.fleet-heat thead th:first-child, table.fleet-heat tbody th { width: 150px; text-align: left; }
+  table.fleet-heat thead th:first-child, table.fleet-heat tbody th { width: 180px; text-align: left; position: sticky; left: 0; z-index: 1; background: var(--card); box-shadow: 2px 0 var(--line); }
   table.fleet-heat th { font-weight: 700; color: var(--muted); text-align: left; padding: .2rem .3rem; white-space: nowrap; }
   table.fleet-heat thead th { vertical-align: bottom; }
-  table.fleet-heat thead th button { font: inherit; font-size: .74rem; font-weight: 700; color: var(--muted); background: none; border: 0; padding: .2rem .15rem; cursor: pointer; border-radius: 6px; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 1; }
+  table.fleet-heat thead th button, table.fleet-heat thead th span { display: inline-block; font: inherit; font-size: .74rem; font-weight: 700; color: var(--muted); background: none; border: 0; padding: .2rem .15rem; border-radius: 6px; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 1; }
+  table.fleet-heat thead th button { cursor: pointer; }
   table.fleet-heat thead th button:hover, table.fleet-heat thead th button[aria-pressed="true"] { color: var(--accent); background: var(--wash-a); }
-  table.fleet-heat tbody th { color: var(--ink); font-size: .72rem; overflow: hidden; text-overflow: ellipsis; }
+  table.fleet-heat tbody th { color: var(--ink); font-size: .78rem; overflow: hidden; text-overflow: ellipsis; }
   table.fleet-heat tbody th i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: .45rem; background: var(--c); vertical-align: -1px; }
-  table.fleet-heat td { height: 30px; border-radius: 5px; text-align: center; font-variant-numeric: tabular-nums; font-size: .64rem; color: var(--ink); background: hsl(var(--fleet-heat-hue) 92% / .35); }
+  table.fleet-heat td { height: 30px; border-radius: 5px; text-align: center; font-variant-numeric: tabular-nums; font-size: .75rem; color: var(--ink); background: hsl(var(--fleet-heat-hue) 92% / .35); }
   table.fleet-heat td[data-l] { background: color-mix(in oklab, var(--accent-2) calc(var(--l) * 1%), var(--card)); color: var(--ink); }
   table.fleet-heat td[data-l="0"] { background: var(--wash-b); color: var(--muted); }
   table.fleet-heat td.hi { outline: 2px solid var(--accent); }
   table.fleet-heat td.sel { outline: 2px solid var(--ink); }
   table.fleet-heat tbody th a { color: var(--ink); background-image: none; }
   table.fleet-heat tbody th a:hover { color: var(--accent); }
-  table.fleet-heat td button { font: inherit; font-size: .64rem; color: inherit; background: none; border: 0; width: 100%; height: 100%; padding: 0; cursor: pointer; border-radius: 5px; }
+  table.fleet-heat td button { font: inherit; color: inherit; background: none; border: 0; width: 100%; height: 100%; padding: 0; cursor: pointer; border-radius: 5px; }
   table.fleet-heat td button:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
   .fleet-cell-panel { margin: .6rem 0 0; padding: 1rem 1.2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
   .fleet-cell-panel h3 { margin: 0 0 .4rem; padding-left: .6rem; font-size: 1.05rem; }
@@ -363,17 +368,20 @@
   <div><b><!--FLEET_COUNT--></b><span>autonomous knowledge factories</span></div>
   <div><b><!--FLEET_RECORDS_TOTAL--></b><span>curated entries across the fleet</span></div>
   <div><b><!--FLEET_VOCAB_COUNT--></b><span>vocabularies in dated census</span></div>
-  <div><b><!--FLEET_PRS_TOTAL--></b><span>merged PRs</span></div>
+  <div><b><!--FLEET_PRS_TOTAL--></b><span>merged PRs in the ten-Mech snapshot</span></div>
   <div><b>1</b><span>orchestrator (claw)</span></div>
 </div>
+<p class="fleet-heat-note">Entry totals include PathwayMech's published records; DUFMech's seed worklist is listed separately from curated records.</p>
 
 <div class="fleet-ladder" aria-label="Scale ladder, from environment to medium; each step opens that Mech">
   <a href="https://culturebotai.github.io/HabitatMech/" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)" title="Open HabitatMech"><b>Habitat</b><span>where it lives</span></a>
   <a href="https://culturebotai.github.io/CommunityMech/" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)" title="Open CommunityMech"><b>Community</b><span>who it lives with</span></a>
   <a href="https://culturebotai.github.io/TaxonMech/" style="--c: var(--mech-taxonmech); --ci: var(--mech-taxonmech-ink)" title="Open TaxonMech"><b>Taxa and strains</b><span>who it is</span></a>
   <a href="https://culturebotai.github.io/TraitMech/" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)" title="Open TraitMech"><b>Traits</b><span>what it does</span></a>
+  <a href="https://culturebotai.github.io/PathwayMech/" style="--c: var(--mech-pathwaymech); --ci: var(--mech-pathwaymech-ink)" title="Open PathwayMech"><b>Pathways</b><span>how reactions connect</span></a>
   <a href="https://culturebotai.github.io/CellStructureMech/" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)" title="Open CellStructureMech"><b>Cell structures</b><span>what it is built of</span></a>
   <a href="https://culturebotai.github.io/proteintraitsmech/" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)" title="Open ProteinTraitsMech"><b>Protein traits</b><span>the machinery</span></a>
+  <a href="https://github.com/CultureBotAI/DUFMech" style="--c: var(--mech-dufmech); --ci: var(--mech-dufmech-ink)" title="Open DUFMech on GitHub"><b>Unknown domains</b><span>what remains unexplained</span></a>
   <a href="https://culturebotai.github.io/NaturalProductMech/" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)" title="Open NaturalProductMech"><b>Natural products</b><span>what it makes</span></a>
   <a href="https://culturebotai.github.io/AntibioticMech/" style="--c: var(--mech-antibioticmech); --ci: var(--mech-antibioticmech-ink)" title="Open AntibioticMech"><b>Antibiotics</b><span>what acts on it</span></a>
   <a href="https://culturebotai.github.io/MediaIngredientMech/" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)" title="Open MediaIngredientMech"><b>Ingredients</b><span>what it is fed</span></a>
@@ -382,11 +390,11 @@
 
 <h2 id="shared-vocabulary">Shared vocabulary</h2>
 
-<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Columns run from the most widely shared vocabulary to the least, so the left edge is the fleet's common ground and the right edge is what a single Mech needs alone. Click a Mech name to open it, a cell to list the records behind it, or a column heading to filter the graph to that vocabulary.</p>
+<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies in the dated census, ordered from the most widely used to the least, with literature at the right. Mech names stay visible as you scroll. Click a Mech name to open it, a linked count to browse records, or a column button to filter the graph.</p>
 
-<div class="fleet-heat-wrap"><table class="fleet-heat" id="fleet-heat" aria-label="Ontology identifier occurrences per Mech"></table></div>
+<div class="fleet-heat-wrap" tabindex="0" role="region" aria-label="Vocabulary census; scroll horizontally to see all vocabularies"><table class="fleet-heat" id="fleet-heat" aria-label="Vocabulary identifier occurrences per Mech"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs ground anything in each vocabulary, then by the total records citing it across the fleet; PMID and DOI sit at the right because every Mech cites literature. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in the canonical record directories (merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. Columns are ordered by how many Mechs use each vocabulary, then by total occurrences across the fleet; literature and other citable works sit at the right. Record lists and graph filters are available for the vocabularies indexed in this snapshot. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -420,7 +428,7 @@
         <marker id="fleet-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrow" d="M0,0 L10,5 L0,10 z"></path></marker>
         <marker id="fleet-arrow-hub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrow-hub" d="M0,0 L10,5 L0,10 z"></path></marker>
         <!-- One light source for the whole ring, up and to the left, so the
-             nodes read as lit spheres rather than ten differently lit ones.
+             nodes read as consistently lit spheres.
              Both gradients are in objectBoundingBox units, so a single pair
              serves every node whatever its radius, and neither carries a hue:
              they multiply over whichever Mech colour is underneath. -->
@@ -468,16 +476,19 @@
     CommunityMech: { key: "communitymech", scale: "Community", tag: "Autonomous knowledge factory for microbial communities, their interactions, cultivation and evidence.", records: 455, unit: "community records", root: "MicrobialCommunity", vocab: ["NCBITaxon", "CHEBI", "GO", "ENVO", "GTDB"], github: "https://github.com/CultureBotAI/CommunityMech", site: "https://culturebotai.github.io/CommunityMech/", page: "/communitymech/", license: "BSD-3-Clause", sources: "PubMed literature, GTDB, IMG, BioModels, CultureMech media, MediaIngredientMech ingredients", extra: "455 communities across 15 categories, with faceted record browsing, a PaCMAP embedding browser and a graph layout." },
     TaxonMech: { key: "taxonmech", scale: "Taxa and strains", tag: "Microbial taxa and strains identified by NCBI Taxonomy and harmonized with GTDB, LPSN and BacDive.", records: 625960, unit: "taxon records", root: "TaxonRecord", vocab: ["NCBITaxon", "GTDB", "LPSN", "BacDive", "NCBI Assembly"], github: "https://github.com/CultureBotAI/TaxonMech", site: "https://culturebotai.github.io/TaxonMech/", page: "", license: "CC0-1.0 project content; upstream terms apply", sources: "NCBI Taxonomy and Assembly, BacDive, BV-BRC, AllTheBacteria, StrainInfo and the GOLD workbook as primary snapshots; GTDB, LPSN, MediaDive, GOLD organisms, Madin and BactoTraits through kg-microbe", extra: "625,960 taxa, 100,745 distinct listed strains and 20,648 taxa with a type strain. 21,071 listed strains have genome identifier links. Taxon pages show NCBI, GTDB, BV-BRC/PATRIC, IMG and AllTheBacteria links, plus StrainInfo references and evidence." },
     TraitMech: { key: "traitmech", scale: "Traits", tag: "Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO, with one curated YAML per trait.", records: 834, unit: "trait records", root: "TraitRecord", vocab: ["METPO", "GO", "NCBITaxon", "CHEBI", "UniProt"], github: "https://github.com/CultureBotAI/TraitMech", site: "https://culturebotai.github.io/TraitMech/", page: "", license: "CC0-1.0", sources: "METPO (vendored OWL), GapMind and GTDB genome tables as candidates", extra: "834 traits across 10 categories; 57.2% embedded. Browse definitions, causal graphs, kg-microbe matches and nearest neighbors, or explore PaCMAP and graph layouts." },
+    PathwayMech: { key: "pathwaymech", scale: "Pathways", tag: "Pathway-level microbial mechanisms linking participants, reactions and causal edges to reference-backed evidence.", records: 152, unit: "pathway records", root: "PathwayRecord", vocab: ["NCBITaxon", "CHEBI", "EC", "UniProtKB", "RHEA", "MetaCyc", "Reactome", "WikiPathways"], github: "https://github.com/CultureBotAI/PathwayMech", site: "https://culturebotai.github.io/PathwayMech/", page: "", license: "MIT", sources: "Cited pathway literature and imported pathway sources, grounded in taxon, participant and reaction identifiers", extra: "152 pathways, 4,690 mechanistic edges and 15 distinct taxa. Browse pathway records and their evidence." },
     CellStructureMech: { key: "cellstructuremech", scale: "Cell structures", tag: "Ontology-grounded microbial cell structures: components, distribution, function and causal mechanism.", records: 672, unit: "structure records", root: "CellStructureRecord", vocab: ["GO", "NCBITaxon", "UniProt", "METPO", "Pfam"], github: "https://github.com/CultureBotAI/CellStructureMech", site: "https://culturebotai.github.io/CellStructureMech/", page: "", license: "CC0-1.0 project content; upstream terms apply", sources: "GO cellular component, UniProt subcellular location, Complex Portal, EMDB/EMPIAR, PDB, TraitMech", extra: "672 structures across 13 categories, including 197 membrane organelles; 605 records are GO-grounded. Browse records by category, view the GO-grounded list, or explore the text embedding map." },
     ProteinTraitsMech: { key: "proteintraitsmech", scale: "Protein traits", tag: "Protein sequence, structure and function trait classes seeded from InterPro, Pfam, Rhea, CATH and more, one YAML per trait. Reviewed records carry evidence-backed causal graphs.", records: 429293, unit: "protein trait records", root: "ProteinTraitRecord", vocab: ["InterPro", "UniProt", "RHEA", "Pfam", "GO", "CHEBI", "ARO"], github: "https://github.com/CultureBotAI/proteintraitsmech", site: "https://culturebotai.github.io/proteintraitsmech/", page: "", license: "CC0-1.0 project content; upstream terms apply", sources: "InterPro, Pfam, CATH, SCOPe, ECOD, Rhea, ExPASy ENZYME, CARD/ARO, PROSITE, TCDB, COG, Reactome, METPO", extra: "118,283 structure, 147,091 sequence, 384 sequence-structure, 163,526 function and 9 evolution records. The corpus map uses text embeddings; a protein map covers 68,657 Swiss-Prot proteins, and an ESM-2 sequence map covers canonical-example proteins." },
+    DUFMech: { key: "dufmech", scale: "Unknown domains", tag: "A seed worklist for domains of unknown function, separating current candidates from historically uncharacterized protein families.", records: null, recordLabel: "Seed worklist", unit: "", root: "", vocab: ["Pfam", "InterPro"], github: "https://github.com/CultureBotAI/DUFMech", site: "", page: "", license: "CC0-1.0", sources: "Pfam and InterPro protein-family seeds", extra: "6,532 seed families: 4,533 unknown candidates and 1,999 historical DUFs. The repository is at the seed-worklist stage, with no published mechanism-record corpus or Pages browser yet." },
     NaturalProductMech: { key: "naturalproductmech", scale: "Natural products", tag: "One record per natural product structure: who makes it, from which gene cluster, and what it does.", records: 3115, unit: "natural product structures", root: "NaturalProductRecord", vocab: ["MIBiG", "NCBITaxon", "ChEBI", "NPAtlas", "PubChem", "UniProt"], github: "https://github.com/CultureBotAI/NaturalProductMech", site: "https://culturebotai.github.io/NaturalProductMech/", page: "", license: "CC0-1.0 code · CC BY 4.0 data", sources: "ChEBI, MIBiG gene clusters, LOTUS occurrences, CyanoMetDB, NPClassifier, PubChem BioAssay, BindingDB, NCBI Taxonomy, AntibioticMech", extra: "3,407 producer claims, including 805 supported by evidence addressing the organism; 2,342 records carry cited occurrences. Structure and corpus maps complement the record browser." },
-    AntibioticMech: { key: "antibioticmech", scale: "Antibiotics", tag: "One record per antimicrobial structure, harmonizing ChEBI and CARD with mechanism and evidence.", records: 2939, unit: "antimicrobial structures", root: "AntibioticRecord", vocab: ["CHEBI", "ARO", "CAS", "NCBITaxon", "PubChem", "DrugBank"], github: "https://github.com/CultureBotAI/AntibioticMech", site: "https://culturebotai.github.io/AntibioticMech/", page: "", license: "CC0-1.0 code · CC BY 4.0 data", sources: "ChEBI 3-star antimicrobial roles, CARD/ARO antibiotic molecules, PubChem structures, PHI-base, MIBiG, BindingDB, Drugs@FDA, CRyPTIC", extra: "2,669 ontology-grounded and 270 minted identities; 454 records with mode of action, 282 with molecular targets and 16 with causal graphs. The chemical map places all 2,939 records by chiral molecular fingerprints; a corpus map places them by record text." },
+    AntibioticMech: { key: "antibioticmech", scale: "Antibiotics", tag: "One record per antimicrobial structure, harmonizing ChEBI and CARD with mechanism and evidence.", records: 2939, unit: "antimicrobial structures", graphUnit: "antimicrobials", root: "AntibioticRecord", vocab: ["CHEBI", "ARO", "CAS", "NCBITaxon", "PubChem", "DrugBank"], github: "https://github.com/CultureBotAI/AntibioticMech", site: "https://culturebotai.github.io/AntibioticMech/", page: "", license: "CC0-1.0 code · CC BY 4.0 data", sources: "ChEBI 3-star antimicrobial roles, CARD/ARO antibiotic molecules, PubChem structures, PHI-base, MIBiG, BindingDB, Drugs@FDA, CRyPTIC", extra: "2,669 ontology-grounded and 270 minted identities; 454 records with mode of action, 282 with molecular targets and 16 with causal graphs. The chemical map places all 2,939 records by chiral molecular fingerprints; a corpus map places them by record text." },
     MediaIngredientMech: { key: "mediaingredientmech", scale: "Ingredients", tag: "LLM-assisted curation of media-ingredient ontology mappings with full audit trails.", records: 2953, unit: "ingredient records", root: "IngredientRecord", vocab: ["CHEBI", "CAS", "NCIT", "FOODON", "ENVO"], github: "https://github.com/CultureBotAI/MediaIngredientMech", site: "https://culturebotai.github.io/MediaIngredientMech/", page: "/mediaingredientmech/", license: "CC0-1.0", sources: "MIM-owned ingredient records; CultureMech recipe changes as diagnostic inputs; OAK/OLS term services; ChEBI, FOODON, NCIT, MeSH, METPO", extra: "2,611 of 2,953 ingredients mapped (88%). Search by mapping status and quality, or explore ingredient PaCMAP and graph layouts." },
     CultureMech: { key: "culturemech", scale: "Media", tag: "Autonomous knowledge factory curating versioned, ontology-grounded microbial culture-media recipes.", records: 6288, unit: "canonical media", root: "MediaRecipe", vocab: ["CHEBI", "KEGG", "FOODON", "UBERON", "CAS"], github: "https://github.com/CultureBotAI/CultureMech", site: "https://culturebotai.github.io/CultureMech/", page: "/culturemech/", license: "CC0-1.0", sources: "MediaDive/DSMZ, TogoMedium, KOMODO, ATCC, JCM, BacDive (queued)", extra: "6,288 deduplicated canonical media, merged from 15,878 source-specific normalized records across five categories. Explore derived ingredient-based and direct medium-node embeddings and a graph layout; the recipe browser, with filters for target organisms and ingredients, works only while CultureMech's Pages deployment carries its data." }
   };
 
   // Directed cross-references between Mech records, schemas and curation practice.
   var XREFS = [
+    { from: "TaxonMech", to: "PathwayMech", kind: "schema", what: "PathwayMech's optional CurationEvent has the same shape as TaxonMech's; no pathway record carries curation history at this pin.", ev: "PathwayMech schema CurationEvent at 22ce01b", url: "https://github.com/CultureBotAI/PathwayMech/blob/22ce01b11eb17c414ef6f9d6dde8eee47b49fada/src/pathwaymech/schema/pathwaymech.yaml#L73" },
     { from: "HabitatMech", to: "TaxonMech", kind: "schema", what: "TaxonMech's causal-graph node types are the same 16 as HabitatMech's. A habitat node may be a HabitatMech or ENVO term, the schema declares the habitatmech: prefix, and TaxonMech's curation-event helper and closed-schema write gate are ported from HabitatMech's and CellStructureMech's; no TaxonMech record has a causal graph yet.", ev: "TaxonMech schema CausalNodeTypeEnum and prefixes; src/taxonmech/curate/curation_event.py, src/taxonmech/validation/write_validated.py", url: "https://github.com/CultureBotAI/TaxonMech/blob/main/src/taxonmech/schema/taxonmech.yaml" },
     { from: "HabitatMech", to: "CellStructureMech", kind: "practice", what: "CellStructureMech's curation-event helper and closed-schema write gate are ported from HabitatMech's modules of the same names, which HabitatMech had itself ported from TraitMech. 17 of CellStructureMech's writer scripts use both.", ev: "CellStructureMech src/cellstructuremech/curate/curation_event.py; validation/write_validated.py", url: "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/curate/curation_event.py" },
     { from: "HabitatMech", to: "AntibioticMech", kind: "practice", what: "AntibioticMech's static-site generator is ported from HabitatMech's render_pages.py, including its paged category pages that filter through a JSON index, and its stylesheet is ported from HabitatMech's. Together they render AntibioticMech's whole browser. Its curation-event helper and closed-schema write gate are HabitatMech's copies as well; their docstrings still credit TraitMech, which HabitatMech ported them from.", ev: "AntibioticMech scripts/render_pages.py; src/antibioticmech/templates/style.css; src/antibioticmech/curate/curation_event.py", url: "https://github.com/CultureBotAI/AntibioticMech/blob/main/scripts/render_pages.py" },
@@ -527,6 +538,9 @@
     { mech: "NaturalProductMech", dir: "out", kind: "namespace", what: "schema minted under the kg-microbe namespace (w3id.org/kg-microbe/naturalproductmech); no data release into the graph yet" }
   ];
 
+  // Biological order also sets the ring: pathways bridge traits and cellular
+  // machinery; unknown domains sit beside protein traits. Keeping the same
+  // canvas and radius leaves existing nodes close to their earlier positions.
   var order = Object.keys(MECHS), N = order.length;
   order.forEach(function (m) {
     MECHS[m].name = m;
@@ -542,7 +556,10 @@
     var a = -Math.PI / 2 + i * (2 * Math.PI / N);
     pos[m] = { x: CX + R * Math.cos(a), y: CY + R * Math.sin(a), a: a };
   });
-  function radius(m) { return 14 + 5.5 * Math.log10(MECHS[m].records); }
+  // A worklist without a published corpus has a neutral size, not a zero count.
+  function radius(m) { var n = MECHS[m].records; return n === null ? 24 : 14 + 5.5 * Math.log10(Math.max(1, n)); }
+  function mechURL(M) { return M.site || M.github; }
+  function recordLabel(M) { return M.records === null ? M.recordLabel : fmt(M.records) + " " + M.unit; }
   function color(m) { return "var(--mech-" + MECHS[m].key + ")"; }
   // Text set in a Mech's colour uses the readable variant; marks use color().
   function inkColor(m) { return "var(--mech-" + MECHS[m].key + "-ink)"; }
@@ -721,7 +738,7 @@
   var nodeEls = {};
   order.forEach(function (m) {
     var p = pos[m], r = radius(m), M = MECHS[m];
-    var a = el("a", { "class": "node-link", href: M.site, "aria-label": "Open " + m + ", " + fmt(M.records) + " " + M.unit }, gNodes);
+    var a = el("a", { "class": "node-link", href: mechURL(M), "aria-label": "Open " + m + (M.site ? "" : " on GitHub") + ", " + recordLabel(M) }, gNodes);
     var g = el("g", { "class": "node" + (M.member ? "" : " adjacent") }, a);
     el("circle", { cx: p.x, cy: p.y, r: r, fill: color(m) }, g);
     el("circle", { "class": "shade", cx: p.x, cy: p.y, r: r, fill: "url(#fleet-limb)" }, g);
@@ -730,7 +747,7 @@
     var lx = p.x + Math.cos(p.a) * (r + 10), ly = p.y + Math.sin(p.a) * (r + 10);
     var dy = Math.sin(p.a) > 0.6 ? 14 : Math.sin(p.a) < -0.6 ? -10 : 4;
     var t = el("text", { "class": "node-label", x: lx, y: ly + dy, "text-anchor": anchor }, g); t.textContent = m;
-    var s = el("text", { "class": "node-sub", x: lx, y: ly + dy + 14, "text-anchor": anchor }, g); s.textContent = fmt(M.records) + " " + M.unit;
+    var s = el("text", { "class": "node-sub", x: lx, y: ly + dy + 14, "text-anchor": anchor }, g); s.textContent = M.graphUnit ? fmt(M.records) + " " + M.graphUnit : recordLabel(M);
     a.addEventListener("mouseenter", function () { selectNode(m); });
     a.addEventListener("focus", function () { selectNode(m); });
     nodeEls[m] = g;
@@ -790,9 +807,9 @@
 
   // ---- Detail panel ----
   function linkRow(M) {
-    var out = '<div class="links"><a class="go" href="' + M.site + '">Open ' + esc(M.name) + ' ↗</a>';
+    var out = '<div class="links"><a class="go" href="' + mechURL(M) + '">Open ' + esc(M.name) + (M.site ? '' : ' on GitHub') + ' ↗</a>';
     if (M.page) out += '<a href="' + M.page + '">Page on this site</a>';
-    return out + '<a href="' + M.github + '">GitHub</a></div>';
+    return out + (M.site ? '<a href="' + M.github + '">GitHub</a>' : '') + '</div>';
   }
   function strongest() {
     var rows = pairs.map(function (p) { return { p: p, n: pairWeight(p) }; }).filter(function (r) { return r.n > 0; }).sort(function (a, b) { return b.n - a.n; }).slice(0, 5);
@@ -805,7 +822,7 @@
   function overview() {
     detail.innerHTML =
       '<div><p class="eyebrow">Reading the graph</p><h3 style="color:var(--ink)">' + N + ' views of one microbe</h3>' +
-      '<p>Clockwise from the top the ring walks from the environment a microbe lives in to the medium it is grown in: habitat, community, taxon identity, traits, cell structures, proteins, natural products, antibiotics, ingredients, media. A culture medium is a synthetic habitat, so the ring closes.</p>' +
+      '<p>Clockwise from the top the ring walks from the environment a microbe lives in to the medium it is grown in: habitat, community, taxon identity, traits, pathways, cell structures, proteins, domains of unknown function, natural products, antibiotics, ingredients, media. A culture medium is a synthetic habitat, so the ring closes.</p>' +
       '<p>Arcs outside the ring are direct cross-references, where one Mech\'s records, schema or curation practice name another, dashed for record data and dotted for schema or practice; spokes tie each Mech to the central kg-microbe graph. Turn on the shared-vocabulary layer to see one colored chord per ontology that two measured Mechs both cite. The September 2026 census covers <!--FLEET_CENSUS_COVERAGE-->; TaxonMech shares taxon identifiers with most of the others. Hover a node for its detail and click it to open that Mech; click a chord, arc or spoke to see what it carries and to jump to the matching records.</p></div>' +
       '<div><p class="eyebrow">Strongest shared vocabulary' + (state.voc ? ' (' + esc(state.voc) + ')' : '') + '</p>' + strongest() + '</div>';
   }
@@ -819,7 +836,7 @@
     detail.innerHTML =
       '<div><p class="eyebrow">' + esc(M.scale) + ' · ' + (M.member ? 'in the claw fleet manifest' : 'not declared in this manifest snapshot') + '</p>' +
       '<h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + esc(m) + '</h3><p>' + esc(M.tag) + ' ' + esc(M.extra) + '</p>' +
-      '<dl class="meta"><dt>Records</dt><dd>' + fmt(M.records) + ' ' + esc(M.unit) + '</dd><dt>Root class</dt><dd><code>' + esc(M.root) + '</code></dd><dt>Grounded in</dt><dd>' + esc(M.vocab.join(", ")) + '</dd><dt>Sources</dt><dd>' + esc(M.sources) + '</dd><dt>License</dt><dd>' + esc(M.license) + '</dd></dl>' + linkRow(M) + '</div>' +
+      '<dl class="meta"><dt>' + (M.records === null ? 'Stage' : 'Records') + '</dt><dd>' + esc(recordLabel(M)) + '</dd>' + (M.root ? '<dt>Root class</dt><dd><code>' + esc(M.root) + '</code></dd>' : '') + '<dt>Grounded in</dt><dd>' + esc(M.vocab.join(", ")) + '</dd><dt>Sources</dt><dd>' + esc(M.sources) + '</dd><dt>License</dt><dd>' + esc(M.license) + '</dd></dl>' + linkRow(M) + '</div>' +
       '<div>' + (xr.length ? '<p class="eyebrow">Cross-references</p><ul>' + xr.map(function (x) { return '<li><b>' + esc(x.from) + ' → ' + esc(x.to) + '</b>: ' + esc(x.what) + '</li>'; }).join("") + '</ul>' : '') +
       (hub.length ? '<p class="eyebrow" style="margin-top:.8rem">kg-microbe</p><ul>' + hub.map(function (h) { return '<li>' + (h.dir === "out" ? (h.kind === "namespace" ? "Namespace: " : "Exports ") : "Receives ") + esc(h.what) + '</li>'; }).join("") + '</ul>' : '') +
       '<p class="eyebrow" style="margin-top:.8rem">Shared vocabulary' + (state.voc ? ' (' + esc(state.voc) + ')' : '') + (state.layers.vocab ? '' : ' · layer off') + '</p><ul>' +
@@ -864,7 +881,7 @@
     var e = pair.e, keys = Object.keys(e.by).sort(function (a, b) { return e.by[b] - e.by[a]; });
     var initial = keep ? keep.q : (voc && voc !== "other" ? voc + ":" : "");
     detail.innerHTML = '<div><p class="eyebrow">Shared vocabulary</p><h3 style="color:var(--ink)">' + esc(e.a) + ' ↔ ' + esc(e.b) + '</h3><p>' + fmt(e.n) + ' identical ontology identifiers occur in both record corpora, so their knowledge bases join on them without any mapping step.</p>' +
-      '<div class="links"><a class="go" href="' + MECHS[e.a].site + '">Open ' + esc(e.a) + ' ↗</a><a class="go" href="' + MECHS[e.b].site + '">Open ' + esc(e.b) + ' ↗</a></div>' +
+      '<div class="links"><a class="go" href="' + mechURL(MECHS[e.a]) + '">Open ' + esc(e.a) + ' ↗</a><a class="go" href="' + mechURL(MECHS[e.b]) + '">Open ' + esc(e.b) + ' ↗</a></div>' +
       '<dl class="meta" style="margin-top:.8rem">' + keys.map(function (k) { return '<dt><i class="voc-dot" style="background:' + vocColor(k) + '"></i>' + esc(k) + '</dt><dd>' + fmt(e.by[k]) + '</dd>'; }).join("") + '</dl></div>' +
       '<div class="termbox" id="fleet-termbox"><p class="eyebrow">The records behind this edge</p><p class="count">Loading the shared terms…</p></div>';
     var box = document.getElementById("fleet-termbox");
@@ -884,7 +901,7 @@
     state.sel = { type: "xref", rec: rec }; render();
     var x = rec.x;
     detail.innerHTML = '<div><p class="eyebrow">Cross-reference · ' + esc(x.kind) + '</p><h3 style="color:var(--ink)">' + esc(x.from) + ' → ' + esc(x.to) + '</h3><p>' + esc(x.what) + '</p>' +
-      '<div class="links"><a class="go" href="' + MECHS[x.from].site + '">Open ' + esc(x.from) + ' ↗</a><a href="' + MECHS[x.to].site + '">Open ' + esc(x.to) + '</a></div></div>' +
+      '<div class="links"><a class="go" href="' + mechURL(MECHS[x.from]) + '">Open ' + esc(x.from) + ' ↗</a><a href="' + mechURL(MECHS[x.to]) + '">Open ' + esc(x.to) + '</a></div></div>' +
       '<div><p class="eyebrow">Evidence</p><p>' + esc(x.ev) + '</p>' + (x.url ? '<div class="links"><a href="' + x.url + '">View the source on GitHub</a></div>' : '') + '</div>';
   }
   function selectHub() {
@@ -933,11 +950,15 @@
   var heat = document.getElementById("fleet-heat");
   if (heat) {
     var VOC = DATA.voc, max = 0;
+    heat.style.setProperty("--heat-width", (184 + VOC.length * 44) + "px");
     DATA.order.forEach(function (m) { VOC.forEach(function (v) { max = Math.max(max, DATA.heat[m][v]); }); });
     var lmax = Math.log10(max);
-    var html = "<thead><tr><th></th>" + VOC.map(function (v) { return '<th><button type="button" data-voc="' + v + '" aria-pressed="false" title="Filter the graph to ' + v + '">' + esc(v) + "</button></th>"; }).join("") + "</tr></thead><tbody>";
+    var html = "<thead><tr><th scope=\"col\">Mech</th>" + VOC.map(function (v) {
+      var indexed = DATA.order.some(function (m) { return DATA.cells[m + "--" + v]; }) || DATA.vocab_edges.some(function (edge) { return edge.by[v] > 0; });
+      return '<th scope="col">' + (indexed ? '<button type="button" data-voc="' + esc(v) + '" aria-pressed="false" title="Filter the graph to ' + esc(v) + '">' + esc(v) + '</button>' : '<span title="Occurrence counts; record lists and graph overlaps are not available for this vocabulary">' + esc(v) + '</span>') + '</th>';
+    }).join("") + "</tr></thead><tbody>";
     DATA.order.forEach(function (m) {
-      html += '<tr><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + MECHS[m].site + '" title="Open ' + esc(m) + '">' + esc(m) + "</a></th>";
+      html += '<tr><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(MECHS[m]) + '" title="Open ' + esc(m) + '">' + esc(m) + "</a></th>";
       VOC.forEach(function (v) {
         var n = DATA.heat[m][v], l = n ? Math.round(12 + 88 * Math.log10(n) / lmax) : 0, recs = DATA.cells[m + "--" + v];
         var cell = !n ? "&middot;" : recs ? '<button type="button" data-mech="' + m + '" data-voc="' + v + '" aria-label="' + fmt(recs) + ' records in ' + esc(m) + ' grounded in ' + esc(v) + '">' + short(n) + "</button>" : '<span>' + short(n) + '</span>';
@@ -959,7 +980,7 @@
           var cap = doc.records.length < doc.total;
           cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + fmt(doc.total) + ' record' + (doc.total === 1 ? '' : 's') + ' in ' + esc(m) + ' cite ' + esc(v) + ' identifiers</h3>' +
             '<p>' + (cap ? 'Showing the first ' + fmt(doc.records.length) + '. ' : '') + 'Each link opens the record' + (m === "CultureMech" || m === "MediaIngredientMech" ? ' source file on GitHub' : ' page') + '.</p>' +
-            '<div class="links"><a class="go" href="' + MECHS[m].site + '">Open ' + esc(m) + ' ↗</a></div><p class="reclist">' + recLinks(doc.base, doc.records, doc.records.length) + '</p>';
+            '<div class="links"><a class="go" href="' + mechURL(MECHS[m]) + '">Open ' + esc(m) + ' ↗</a></div><p class="reclist">' + recLinks(doc.base, doc.records, doc.records.length) + '</p>';
         })["catch"](function () { if (cellSel !== key) return; cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>' + loadFailed() + '</p>'; });
       });
     });

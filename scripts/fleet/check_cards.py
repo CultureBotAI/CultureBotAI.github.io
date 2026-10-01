@@ -59,6 +59,7 @@ import urllib.request
 from pathlib import Path
 
 from card_markup import card_figures, card_names, markup_problems
+import additions as introductions
 
 REPO = Path(__file__).resolve().parents[2]
 TEMPLATE = REPO / "_fleet/mechs_template.md"
@@ -144,6 +145,14 @@ def region(body: str, markers: tuple[str, str]) -> str | None:
 
 def published(kind: str, body: str, selector: str) -> int | None:
     """The figure the site publishes, or None when the shape has changed."""
+    if kind == "record-list":
+        lists = re.findall(r'<ul class="' + re.escape(selector) + r'">(.*?)</ul>', body, re.S)
+        if len(lists) != 1:
+            return None
+        links = re.findall(r'<li>\s*<a href="(records/[^"<>]+\.html)"', lists[0])
+        if len(links) != len(re.findall(r'<li\b', lists[0])) or len(links) != len(set(links)):
+            return None
+        return len(links)
     if kind == "json":
         document = json.loads(body)
         # ingredients.json has shipped as a bare list in some releases. Test the
@@ -270,20 +279,26 @@ def audit_entries(audit) -> tuple[dict, str | None]:
 
 
 def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None = None,
-          audit_error: str | None = None) -> list[tuple[str, str, str]]:
+          audit_error: str | None = None, additions=None) -> list[tuple[str, str, str]]:
     """One (status, mech, detail) row per card problem and per source, plus the run-level verdicts.
 
     A malformed audit is an AUDIT row, not an exception, so the other rows still
     print (#250); audit_error carries a problem found while reading the file.
     """
     now = now or datetime.datetime.now(datetime.timezone.utc)
-    rows = [("MARKUP", mech, why) for mech, why in markup_problems(template)]
+    additions = additions or {}
+    introductions.validate(additions)
+    uncounted = introductions.uncounted(additions)
+    sources = dict(SOURCES)
+    sources.update({name: tuple(entry["source"]) for name, entry in additions.items() if name not in uncounted})
+    rows = [("MARKUP", mech, why) for mech, why in markup_problems(template, uncounted)]
     if audit_error:
         rows.append(("AUDIT", "-", audit_error))
     entries, problem = audit_entries(audit) if audit is not None else ({}, None)
     if problem:
         rows.append(("AUDIT", "-", problem))
         audit = None
+    entries.update({entry["repo"].lower(): entry for entry in additions.values()})
     age = None
     if audit is not None:  # {} too, so a missing pin time is reported (#257)
         try:
@@ -298,10 +313,13 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
                 rows.append(("AUDIT", "-", f"site_audit.json: pinned_at_utc {audit['pinned_at_utc']} is in the future"))
                 age = None
     stated = card_figures(template)
-    names = set(card_names(template))
-    for mech in sorted(names - set(SOURCES)):
+    all_names = set(card_names(template))
+    names = all_names - uncounted
+    for mech in sorted(uncounted & all_names):
+        rows.append(("uncounted", mech, additions[mech]["status_label"] + "; excluded from curated-entry totals"))
+    for mech in sorted(names - set(sources)):
         rows.append(("UNCARDED", mech, "card with no entry in SOURCES"))
-    for mech, (kind, path, selector) in sorted(SOURCES.items()):
+    for mech, (kind, path, selector) in sorted(sources.items()):
         if mech not in names:
             rows.append(("UNCARDED", mech, "SOURCES entry with no card in the template"))
             continue
@@ -327,16 +345,17 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
         if status != "value":
             rows.append((status, mech, result))
             continue
-        verdict = classify(card, result, age)
+        card_age = now - pin_time(additions[mech]) if mech in additions else age
+        verdict = classify(card, result, card_age)
         detail = f"{card:>9,}" if verdict == "ok" else f"card {card:,}, site {result:,}"
-        if verdict in ("grew", "STALE") and age is not None:
-            detail += f" (+{result - card:,} in the {span(age)} since the pins)"
+        if verdict in ("grew", "STALE") and card_age is not None:
+            detail += f" (+{result - card:,} in the {span(card_age)} since the pins)"
         rows.append((verdict, mech, detail))
     unread = sum(1 for status, _, _ in rows if status == "unread")
-    if unread * 2 > len(SOURCES):
+    if unread * 2 > len(sources):
         # One site down is someone else's outage. Most of them down is this run
         # having checked nothing, which must not read as a pass (#115).
-        rows.append(("UNCHECKED", "-", f"{unread} of {len(SOURCES)} sources could not be read"))
+        rows.append(("UNCHECKED", "-", f"{unread} of {len(sources)} sources could not be read"))
     return rows
 
 
@@ -353,7 +372,8 @@ def main() -> int:
         audit_error = "site_audit.json is missing"
     except (OSError, ValueError) as error:
         audit_error = f"site_audit.json cannot be read: {error}"
-    rows = check(TEMPLATE.read_text(), audit=audit, audit_error=audit_error)
+    rows = check(TEMPLATE.read_text(), audit=audit, audit_error=audit_error,
+                 additions=introductions.load())
     for status, mech, detail in rows:
         print(f"  {status:<9} {mech:<20} {detail}")
     tally: dict[str, int] = {}

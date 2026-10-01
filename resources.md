@@ -14,7 +14,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#-project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
-- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of ten autonomous knowledge factories: CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech ([suite overview](/mechs/))
+- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of twelve autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech ([suite overview](/mechs/))
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents, KOGUT
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** is a fleet of ten ontology-grounded autonomous knowledge factories (CultureMech, MediaIngredientMech, CommunityMech, TraitMech, ProteinTraitsMech, AntibioticMech, CellStructureMech, HabitatMech, NaturalProductMech, TaxonMech; see the [suite overview and relationship graph](/mechs/)), coordinated by the [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator. Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs.
+The **[X-Mech Suite](/mechs/)** is a fleet of twelve ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator currently lists eleven of these Mechs in its manifest, including PathwayMech; DUFMech is listed separately in the suite. Figures for the original ten Mechs below retain the September 28, 2026 snapshot.
 
 ### Pipeline Overview
 
@@ -189,12 +189,26 @@ Autonomous knowledge factory for microbial ecophysiological traits, seeded from 
 
 ---
 
+### PathwayMech - Microbial Pathway Mechanisms
+**[GitHub Repository](https://github.com/CultureBotAI/PathwayMech)** | **[Web Interface](https://culturebotai.github.io/PathwayMech/)**
+
+Curates pathway-level microbial mechanisms with explicit participants, reactions, causal edges, and reference-backed evidence. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/22ce01b11eb17c414ef6f9d6dde8eee47b49fada/README.md).
+
+---
+
 ### ProteinTraitsMech - Protein Sequence & Structure Traits
 **[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC0-1.0 License (project content; upstream sources retain their own terms)
 
 Autonomous knowledge factory for protein sequence, structure, and function traits — 429,293 LinkML-validated records from 34 sources, one YAML per trait. Most are imported from those sources and not yet reviewed. Reviewed records carry evidence-backed causal graphs.
 
 **What it does**: Extends trait curation from the organism level to the molecular level, connecting protein features to the phenotypes they help explain. Explore the [corpus, protein and ESM-2 sequence maps](https://culturebotai.github.io/proteintraitsmech/map.html).
+
+---
+
+### DUFMech - Domains and Families of Unknown Function
+**[GitHub Repository](https://github.com/CultureBotAI/DUFMech)**
+
+Curates domains and protein families of unknown function, with evidence gathering and triage worklists. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/90c74d5806ead534cd437fa6ae70c9102d5bc7d3/README.md); a published browser is not yet available.
 
 ---
 
