@@ -1,6 +1,6 @@
 ---
 name: check-xmech-updates
-description: Read-only deep check of whether the X-Mech Suite page (/mechs/) is out of date. Compares each Mech's repository and live site with the pins in _fleet/data/site_audit.json, sorts what changed into what it would move on the page (census and overlaps, card figures, hand-curated claims, fleet membership), reads the changed files behind every flagged claim, and reports what a refresh would change and whether one is due. Use when asked whether the X-Mech page is current, what has changed since the last refresh, or whether a refresh is needed. Never edits, pins, commits or refreshes; update-xmech-page does that.
+description: Read-only deep check of whether the site's GitHub Pages deployment serves the current main and whether the X-Mech Suite page (/mechs/) is out of date. Compares each Mech's repository and live site with the pins in _fleet/data/site_audit.json, sorts what changed into what it would move on the page (census and overlaps, card figures, hand-curated claims, fleet membership), reads the changed files behind every flagged claim, and reports what a refresh would change and whether one is due. Use when asked whether GitHub Pages or the X-Mech page is current, what has changed since the last refresh, or whether a refresh is needed. Never edits, pins, commits or refreshes; update-xmech-page does that.
 ---
 
 # Check the X-Mech page for updates
@@ -34,6 +34,11 @@ python3.12 scripts/fleet/check_updates.py      # about a minute; needs gh and ne
 Use a Python with `scripts/fleet/requirements.txt` installed (3.12 is what CI
 uses); without PyYAML the membership line says NOT CHECKED. The script prints:
 
+- whether GitHub Pages serves this repository's `main`: the commit of the latest
+  Pages build against `main`'s head, as current, building, behind (the live site
+  lags `main`), errored (with GitHub's message) or NOT CHECKED. A deploy that is
+  behind or errored means the live pages are not what the repository says, so
+  read it before anything else;
 - per repository, commits since its pin and what the changed files touch:
   `records` (census record globs, read as `glob.glob` and the census read them),
   `claims` (README, schema, licence and citation files, landing page, every file
@@ -95,7 +100,8 @@ a graph node and a census glob before a refresh can include it.
 
 One short report, in this order:
 
-1. **Verdict:** current, or which layers are out of date. Say whether a refresh
+1. **Verdict:** whether GitHub Pages serves `main`, then whether the page is
+   current or which layers are out of date. Say whether a refresh
    is due, and why.
 2. **Deadlines:** the date the card check's grace period ends (`pinned_at_utc` +
    `GRACE_DAYS`) and any card within reach of the lead limit (`MAX_LEAD`), since

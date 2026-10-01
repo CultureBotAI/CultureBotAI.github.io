@@ -1128,6 +1128,35 @@ class UpdateCheckTests(unittest.TestCase):
         self.assertEqual(dead, ["https://x/404 (404)"])
         self.assertEqual(len(unchecked), 3)
 
+    def test_pages_check_compares_the_deployed_commit_with_main(self):
+        head = "a" * 40
+        def api_for(build):
+            def api(path):
+                if path.endswith("/commits/main"): return {"sha": head}
+                if build is None: raise self.c.Unchecked(["HTTP 404"])
+                return build
+            return api
+        cases = {
+            "current": {"status": "built", "commit": head, "updated_at": "t"},
+            "behind": {"status": "built", "commit": "b" * 40, "updated_at": "t"},
+            "building": {"status": "building", "commit": head},
+            "errored": {"status": "errored", "commit": head, "error": {"message": "Page build failed."}},
+        }
+        for state, build in cases.items():
+            self.assertEqual(self.c.pages_check(api_for(build))[0], state, state)
+        self.assertIn("main is aaaaaaa", self.c.pages_check(api_for(cases["behind"]))[1])
+        self.assertIn("Page build failed.", self.c.pages_check(api_for(cases["errored"]))[1])
+        self.assertEqual(self.c.pages_check(api_for(None))[0], "NOT CHECKED")
+
+    def test_the_summary_leads_with_the_pages_state(self):
+        quiet = [{"repo": "HabitatMech", "records": [], "claims": [], "unchecked": None}]
+        ok = [("ok", "HabitatMech", "x")]
+        line = self.c.summary(quiet, ok, "matches", [], [], ("behind", "behind: Pages serves bbbbbbb; main is aaaaaaa"))
+        self.assertTrue(line.startswith("**GitHub Pages:** behind"), line)
+        line = self.c.summary(quiet, ok, "matches", [], [], ("NOT CHECKED", "NOT CHECKED: GitHub Pages (x)"))
+        self.assertIn("Not checked:** GitHub Pages deployment", line)
+        self.assertFalse(line.startswith("**GitHub Pages"))
+
     def test_the_summary_names_every_section(self):
         # #288: a stale manifest or grown card is a change even when no repository moved.
         quiet = [{"repo": "HabitatMech", "records": [], "claims": [], "unchecked": None}]

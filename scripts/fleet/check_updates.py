@@ -43,6 +43,7 @@ AUDIT = REPO / "_fleet/data/site_audit.json"
 FRAGMENT = REPO / "_fleet/fleet_fragment.html"
 TEMPLATE = REPO / "_fleet/mechs_template.md"
 CLAW = "culturebotai-claw"
+SITE_REPO = "CultureBotAI/CultureBotAI.github.io"
 # The compare API lists at most this many files; past it the split is a floor.
 FILE_CAP = 300
 CLAIM_PATTERNS = ["README.md", "LICENSE*", "CITATION.cff", "src/**/schema/*.yaml",
@@ -187,6 +188,30 @@ def verdict(row: dict) -> str:
                                              " by hand" if row["truncated"] else "")
 
 
+def pages_check(api=gh) -> tuple[str, str]:
+    """Is GitHub Pages serving this repository's current main? (state, line).
+
+    States: current, building, behind (the last finished build is of an older
+    commit, so the live site lags main), errored, and NOT CHECKED when the API
+    does not answer. Read-only: two GET calls.
+    """
+    try:
+        head = api(f"repos/{SITE_REPO}/commits/main")["sha"]
+        build = api(f"repos/{SITE_REPO}/pages/builds/latest")
+    except (Unchecked, KeyError, json.JSONDecodeError) as error:
+        return "NOT CHECKED", f"NOT CHECKED: GitHub Pages ({error})"
+    status, commit = build.get("status", "?"), build.get("commit") or ""
+    when = build.get("updated_at", "?")
+    if status == "errored":
+        message = (build.get("error") or {}).get("message") or "no message"
+        return "errored", f"errored: the latest build ({commit[:7]}, {when}) failed: {message}"
+    if status in ("building", "queued"):
+        return "building", f"building: {commit[:7]} is being deployed; main is {head[:7]}"
+    if commit != head:
+        return "behind", f"behind: Pages serves {commit[:7]} (built {when}); main is {head[:7]}"
+    return "current", f"current: Pages serves main ({head[:7]}, built {when})"
+
+
 def manifest_check() -> str:
     """refresh_manifest --check against CLAW's current main, from a shallow clone."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -228,8 +253,9 @@ def dead_links(urls: list[str], opener=urllib.request.urlopen) -> tuple[list[str
 
 
 def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
-            dead: list[str], unchecked_links: list[str]) -> str:
-    """One line naming everything a refresh would change, from every section (#288)."""
+            dead: list[str], unchecked_links: list[str], pages: tuple[str, str] = ("", "")) -> str:
+    """One line naming everything a refresh would change, from every section (#288),
+    led by whether the live site is the deployed main at all."""
     parts = []
     moved = [r["repo"] for r in rows if r["records"] or r["claims"]]
     if moved:
@@ -253,7 +279,10 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
         not_checked.append("CLAW manifest")
     if unchecked_links:
         not_checked.append(f"{len(unchecked_links)} evidence link(s)")
-    line = "**Refresh would change:** " + ("; ".join(parts) if parts else "nothing found") + "."
+    if pages[0] == "NOT CHECKED":
+        not_checked.append("GitHub Pages deployment")
+    line = (f"**GitHub Pages:** {pages[1]}. " if pages[0] not in ("", "NOT CHECKED") else "")
+    line += "**Refresh would change:** " + ("; ".join(parts) if parts else "nothing found") + "."
     if not_checked:
         line += " **Not checked:** " + ", ".join(not_checked) + "."
     return line
@@ -265,6 +294,9 @@ def main() -> int:
     cited = watched(audit, site_sources())
     mech_of = {m.lower(): m for m in RECORD_GLOBS} | {"proteintraitsmech": "ProteinTraitsMech"}
     print(f"# X-Mech update check against the pins of {audit['pinned_at_utc']}\n")
+    print("## GitHub Pages deployment\n")
+    pages = pages_check()
+    print(pages[1] + "\n")
     print("## Repositories since their pins\n")
     print("| repository | pin | main | commits | what moved |\n|---|---|---|---:|---|")
     moved = []
@@ -285,7 +317,7 @@ def main() -> int:
     for line in [f"- dead: {d}" for d in dead] + [f"- not checked: {u}" for u in unchecked]:
         print(line)
     print(f"{len(urls) - len(dead) - len(unchecked)} of {len(urls)} distinct links resolve.")
-    print("\n" + summary(moved, cards, manifest, dead, unchecked))
+    print("\n" + summary(moved, cards, manifest, dead, unchecked, pages))
     return 0
 
 
