@@ -12,7 +12,7 @@ import datetime
 import json
 import re
 
-from roots import ORDER, read_record, record_paths, revision, unchanged
+from roots import ORDER, record_documents, record_paths, revision, unchanged
 
 # The rule (#271): every namespace named for or qualified by a counted registry
 # folds into that registry. That covers case and alternate names (gold:, GOLD:;
@@ -52,9 +52,15 @@ ADDED = {
     # Protein domain, family, structure, pathway and function resources, and
     # the ontologies ProteinTraitsMech and others cite beside them.
     "CATH": ["CATH"], "CDD": ["CDD"], "PROSITE": ["PROSITE", "Prosite"],
+    "Rfam": ["Rfam"], "WikiPathways": ["WikiPathways"], "SGD": ["SGD"],
+    # GO-CAM provider model/activity IDs preserved by PathwayMech's importer.
+    "gomodel": ["gomodel"],
+    # Spellings present in DUFMech's preserved family descriptions.
+    "Pfam": ["pfam"], "InterPro": ["Interpro"], "PDB": ["pdb"],
+    "UniProt": ["swiss", "SWISS", "UnioProtKB"],
     "ECOD": ["ECOD"], "SCOP": ["SCOP"], "PANTHER": ["PANTHER"],
     "AlphaFoldDB": ["AlphaFoldDB"], "OrthoDB": ["OrthoDB"], "IEDB": ["IEDB"],
-    "SMART": ["SMART"], "TED": ["TED"], "HAMAP": ["HAMAP"], "MCSA": ["MCSA"],
+    "SMART": ["SMART", "Smart"], "TED": ["TED"], "HAMAP": ["HAMAP"], "MCSA": ["MCSA"],
     "Reactome": ["Reactome"], "MetaCyc": ["MetaCyc", "metacyc.compound", "MetaCyx", "MetyaCyc"],
     "COG": ["COG"], "PRINTS": ["PRINTS"], "OMA": ["OMA"], "CAZy": ["CAZy"],
     "MEROPS": ["MEROPS", "MEROPS_fam"], "OPM": ["OPM"], "RESID": ["RESID"],
@@ -74,7 +80,7 @@ ADDED = {
     # Strain, genome and sequence registries.
     "StrainInfo": ["straininfo.strain", "straininfo.deposit"],
     "ncbi.assembly": ["ncbi.assembly"], "patric": ["patric"], "biosample": ["biosample", "BioSample"],
-    "bioproject": ["bioproject"], "INSDC": ["INSDC"], "genbank": ["genbank", "GenBank"],
+    "bioproject": ["bioproject"], "INSDC": ["INSDC"], "genbank": ["genbank", "GenBank", "Genbank"],
     "NCBI_Nuccore": ["NCBI_Nuccore"], "NCBI_Protein": ["NCBI_Protein"], "SRA": ["SRA"],
     "LPSN": ["lpsn"], "atb.assembly": ["atb.assembly"], "ena.analysis": ["ena.analysis"],
     # Environmental and metabolomics data repositories CommunityMech cites.
@@ -82,7 +88,7 @@ ADDED = {
     # Chemical and natural-product registries.
     "UNII": ["UNII"], "reaxys": ["reaxys", "beilstein"],
     "gmelin": ["gmelin"], "drugcentral": ["drugcentral"], "knapsack": ["knapsack"],
-    "HMDB": ["hmdb"], "LINCS": ["lincs.smallmolecule"], "ChemSpider": ["chemspider"],
+    "HMDB": ["hmdb", "HMDB"], "LINCS": ["lincs.smallmolecule"], "ChemSpider": ["chemspider"],
     "ppdb": ["ppdb"], "bpdb": ["bpdb"], "pesticides": ["pesticides"],
     "LIPIDMAPS": ["lipidmaps"], "FooDB": ["foodb.compound"], "vsdb": ["vsdb"],
     "CyanoMetDB": ["cyanometdb"], "LOTUS": ["lotus"], "molbase": ["molbase"],
@@ -131,11 +137,13 @@ def census():
         # The revision is taken before the records are read and checked after,
         # so it names the tree that was actually counted (#122).
         revisions[m]=revision(m, paths)
-        for f in paths:
-            for p in rx.findall(read_record(f)): pc[norm.get(p,p)]+=1
+        count=0
+        for _, text in record_documents(m, paths):
+            count+=1
+            for p in rx.findall(text): pc[norm.get(p,p)]+=1
         unchanged(m, revisions[m])
-        out[m]={"files":len(paths),"prefixes":dict(pc.most_common())}
-        print(m,len(paths),dict(pc.most_common(14)),flush=True)
+        out[m]={"files":count,"prefixes":dict(pc.most_common())}
+        print(m,count,dict(pc.most_common(14)),flush=True)
     # The run date travels in the file, not on it: git does not preserve mtimes,
     # so a fresh clone would otherwise make the page claim the corpora were
     # counted on the day someone cloned it (CultureBotAI.github.io#74).

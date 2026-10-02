@@ -36,13 +36,9 @@ import urllib.request
 from pathlib import Path
 
 import check_cards
-import additions as introductions
 from roots import EXCLUDE_DIRS, RECORD_GLOBS
 
-# Watching a newly introduced corpus for drift does not add it to the dated
-# vocabulary census. Keep this map local instead of mutating roots.RECORD_GLOBS.
-# DUFMech currently has a seed worklist, so its source is watched as a claim.
-UPDATE_RECORD_GLOBS = {**RECORD_GLOBS, "PathwayMech": ["data/pathways/**/*.yaml"]}
+UPDATE_RECORD_GLOBS = RECORD_GLOBS
 
 REPO = Path(__file__).resolve().parents[2]
 AUDIT = REPO / "_fleet/data/site_audit.json"
@@ -54,8 +50,8 @@ SITE_REPO = "CultureBotAI/CultureBotAI.github.io"
 FILE_CAP = 300
 CLAIM_PATTERNS = ["README.md", "LICENSE*", "CITATION.cff", "src/**/schema/*.yaml",
                   "pages/index.html", "docs/index.html", "app/index.html", "index.html"]
-# DUF freezes each worklist under a new date rather than replacing the pinned
-# source file. Watch subsequent manifests as claims, not curated corpus records.
+# DUF freezes each worklist under a new date rather than replacing its source
+# file. A new manifest changes the selected family corpus even if its rows match.
 MECH_CLAIMS = {"DUFMech": ["data/worklists/interpro-pfam-duf-*.manifest.json"]}
 # The files in CLAW that decide membership, capabilities and the vendored
 # standard; site_audit.json's CLAW note names the same ones (#288).
@@ -116,20 +112,17 @@ def cited_paths(*texts: str) -> dict[str, set[str]]:
     return paths
 
 
-def watched(audit: dict, sources: list[str], additions: dict | None = None) -> dict[str, set[str]]:
+def watched(audit: dict, sources: list[str]) -> dict[str, set[str]]:
     """Every file the page's claims rest on, per repository (lower-cased):
     GitHub and Pages links in the sources, each audited data file as served and
-    under docs/, separately pinned introduction sources, and CLAW's membership
-    files (#287, #288, #298)."""
+    under docs/, card sources, and CLAW's membership files (#287, #288, #298)."""
     urls = [row.get("data_url", "") for row in audit.get("repositories", [])]
-    for entry in (additions or {}).values():
-        urls.append(entry.get("source_url", ""))
-        if entry.get("source"):
-            urls.append(check_cards.source_url(entry["source"][1]))
+    urls.extend(check_cards.source_url(source[1]) for source in check_cards.SOURCES.values())
     cited = cited_paths(*sources, "\n".join(urls))
-    for entry in (additions or {}).values():
-        if entry.get("source_path"):
-            cited.setdefault(entry["repo"].lower(), set()).add(entry["source_path"])
+    for url in urls:
+        if url.startswith("https://raw.githubusercontent.com/CultureBotAI/"):
+            repo, _, path = url.removeprefix("https://raw.githubusercontent.com/CultureBotAI/").split("/", 2)
+            cited.setdefault(repo.lower(), set()).add(path)
     cited.setdefault(CLAW, set()).update(CLAW_CLAIMS)
     return cited
 
@@ -195,7 +188,8 @@ def verdict(row: dict) -> str:
         parts = []
         if row["records"]:
             changed = len(row["records"]) - row["added"] - row["removed"]
-            parts.append(f"records: {row['added']} added, {row['removed']} removed, {changed} edited")
+            unit = "worklist source files" if row.get("mech") == "DUFMech" else "records"
+            parts.append(f"{unit}: {row['added']} added, {row['removed']} removed, {changed} edited")
         if row["claims"]:
             parts.append(f"claims: {', '.join(sorted(row['claims'])[:4])}"
                          + (f" +{len(row['claims']) - 4} more" if len(row["claims"]) > 4 else ""))
@@ -292,7 +286,7 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
                     if r.get("truncated") and not r["records"] and not r["claims"]]
     not_checked += [f"{r['repo']} (main {r['status']})" for r in rows if r.get("status") in ("behind", "diverged")]
     not_checked += [f"card {m} ({s})" if m != "-" else f"cards ({d})" for s, m, d in cards
-                    if s not in ("ok", "grew", "STALE", "SHRANK", "WRONG", "uncounted")]
+                    if s not in ("ok", "grew", "STALE", "SHRANK", "WRONG")]
     if manifest.startswith("NOT CHECKED"):
         not_checked.append("CLAW manifest")
     if unchecked_links:
@@ -308,10 +302,9 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
 
 def main() -> int:
     audit = json.loads(AUDIT.read_text())
-    additions = introductions.load()
     fragment = FRAGMENT.read_text()
-    cited = watched(audit, site_sources(), additions)
-    mech_of = {m.lower(): m for m in UPDATE_RECORD_GLOBS.keys() | additions.keys()}
+    cited = watched(audit, site_sources())
+    mech_of = {m.lower(): m for m in UPDATE_RECORD_GLOBS}
     print(f"# X-Mech update check against the pins of {audit['pinned_at_utc']}\n")
     print("## GitHub Pages deployment\n")
     pages = pages_check()
@@ -319,12 +312,12 @@ def main() -> int:
     print("## Repositories since their pins\n")
     print("| repository | pin | main | commits | what moved |\n|---|---|---|---:|---|")
     moved = []
-    for entry in audit["repositories"] + list(additions.values()):
+    for entry in audit["repositories"]:
         row = drift(entry, mech_of.get(entry["repo"].lower()), cited.get(entry["repo"].lower(), set()))
         moved.append(row)
         print(f"| {row['repo']} | {row['pin']} | {row['main']} | {row['ahead']} | {verdict(row)} |")
     print("\n## Card figures (check_cards)\n")
-    cards = check_cards.check(TEMPLATE.read_text(), audit=audit, additions=additions)
+    cards = check_cards.check(TEMPLATE.read_text(), audit=audit)
     for status, mech, detail in cards:
         print(f"- {status} {mech} {detail}")
     print("\n## Fleet membership and capabilities (CLAW main)\n")

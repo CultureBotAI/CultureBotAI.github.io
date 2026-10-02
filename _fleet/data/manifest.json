@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "6388a11d730f13905d118612fa99dd544eda6035",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/6388a11d730f13905d118612fa99dd544eda6035/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "b196e676a5e428c8cd4629651efd1f8c5b30a42b",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/b196e676a5e428c8cd4629651efd1f8c5b30a42b/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -1934,8 +1934,14 @@
           }
         },
         "kgx_export": {
-          "status": "disabled",
-          "reason": "Records are already node-and-edge graphs -- evidenced subject/predicate/object edges between CURIE nodes -- but there is no exporter and no nodes or edges file for the contract to judge. Adopting KGX applies once an exporter emits them."
+          "status": "enabled",
+          "settings": {
+            "nodes_path": "output/kgx/nodes.tsv",
+            "edges_path": "output/kgx/edges.tsv",
+            "extra_prefixes": [
+              "pathwaymech"
+            ]
+          }
         },
         "writer_audit": {
           "status": "disabled",
@@ -1947,11 +1953,10 @@
           }
         },
         "sssom_export": {
-          "status": "disabled",
-          "reason": "Records carry ChEBI, SGD, EC, UniProtKB and NCBITaxon identifiers inline rather than through a mapping file, and local-identifier exceptions are logged in curation/decisions.tsv, a curator decision log rather than a mapping set. Adopting SSSOM applies once a mapping product exists.",
-          "reason_claims": {
-            "present": [
-              "curation/decisions.tsv"
+          "status": "enabled",
+          "settings": {
+            "mapping_globs": [
+              "output/sssom/*.sssom.tsv"
             ]
           }
         },

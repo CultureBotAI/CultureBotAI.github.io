@@ -10,18 +10,19 @@
   hand-curated at the top of the script.
 - `data/manifest.json` — membership and all capability declarations from a pinned
   commit of CLAW's canonical manifest, plus the canonical artifact count.
-- `data/additions.json` — separately pinned sources and status for PathwayMech and
-  DUFMech, added after the September 28 census. PathwayMech has a published
-  corpus; DUFMech has a seed worklist rather than a curated corpus count.
+- `audit_notes.json` — hand-checked explanations of each source and its counted
+  entities. PathwayMech records and DUFMech seed families use the same pinned
+  census, statistics and site-audit pipeline as the other ten Mechs.
 - Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the provenance record, written by `scripts/fleet/build_site_audit.py` from the snapshot, the live sites and the audited notes in `_fleet/audit_notes.json`.
 
 ## Membership and capability updates
 
 The site currently lists twelve Mechs. CLAW's manifest lists eleven, including
 PathwayMech; DUFMech is listed separately without a manifest membership declaration. The
-September 28 vocabulary census and derived overlap assets still cover the ten
-Mechs measured in that snapshot. Adding a card does not imply that its corpus
-has been included in those measurements.
+October 1 vocabulary census, shared-term assets and repository statistics cover
+all twelve Mechs. DUFMech's contribution is a measured seed worklist, labeled
+as families rather than curated mechanism records. Its capability row reports
+undeclared values without inventing CLAW membership.
 
 Use a CLAW checkout at the desired published `main` revision. The refresh reads
 committed Git blobs at that checkout's HEAD; uncommitted changes are excluded.
@@ -39,8 +40,9 @@ a manifest member from the cards or graph. Its capability table and badges must
 never be maintained by hand. The rendered page links to the source revision.
 
 The card headline figures are hand-curated from each Mech's published browser,
-except CultureMech's, which comes from its committed README (see below), so
-nothing regenerates them. `scripts/fleet/check_cards.py` compares each card
+except CultureMech's, which comes from its committed README, and DUFMech's,
+which counts families in its frozen JSON worklist. Nothing regenerates the
+hand-curated card figures. `scripts/fleet/check_cards.py` compares each card
 against the page it cites and is the one script here that needs the network:
 
 ```bash
@@ -57,8 +59,7 @@ alongside the card check and a manifest check against CLAW's main. The
 restricts a source to the part that states it where the same words appear
 elsewhere (CultureMech's generated README block). The page is a snapshot at a
 refresh's pins, so a site ahead of its card only warns ("grew") for
-`GRACE_DAYS` (14) after the pins in `site_audit.json` (or the independently
-pinned date in `additions.json` for an introduction), and only while the site is
+`GRACE_DAYS` (14) after the pins in `site_audit.json`, and only while the site is
 at most `MAX_LEAD` (50%) ahead. Past either limit it fails as STALE. It also
 fails when a card differs from `figure_at_pin`, the figure `site_audit.json`
 records its source stating at the pin (the card was never right), when a site is
@@ -96,14 +97,17 @@ remedy for each failing verdict (#235):
   or malformed audit: the builder copies the pin time from `revisions.json`, so
   take the pins and pin time from the last audit the builder wrote (`git log -p --
   _fleet/data/site_audit.json`), then regenerate. A Mech
-  with no source entry needs a refresh or a separately pinned introduction in
-  `additions.json`; an unmeasured introduction must not be inserted into the old census.
+  with no source entry needs a checked source and a full refresh at matching
+  pins before its figures can join the common census.
 - UNCHECKED: most sites could not be reached; rerun before changing anything.
 
-A numeric card needs a checked source in `SOURCES` or a separately pinned entry in `data/additions.json`; tests enforce that. PathwayMech counts the record links in its published browser. An introduction without a curated corpus, currently DUFMech, instead has one explicit status tile and no numeric headline; it is excluded from entry totals and reported as `uncounted` by the checker. Its source, pin, worklist figures and explanation remain in `additions.json`. The cards
-are read by `scripts/fleet/card_markup.py`, the one parser the assembler, this
-check and the tests share, and the assembler refuses a card without exactly one
-headline figure, except explicitly uncounted introductions, which require one status tile (#114, #218).
+Each numeric card needs a checked source in `SOURCES`; tests enforce that.
+PathwayMech counts record links in its published browser. DUFMech counts the
+6,532 family rows in its frozen seed worklist, preserving the distinction
+between a candidate family and a curated mechanism record. Its card, statistics,
+heatmap cells and shared-term links all use that same source snapshot. The cards
+are read by `scripts/fleet/card_markup.py`, the parser shared by the assembler,
+card check and tests; every card requires exactly one numeric headline.
 
 The `Fleet page` workflow runs the tests and `assemble_page.py --check` on every
 pull request and push, and checks the committed manifest against CLAW's live
@@ -124,9 +128,15 @@ python3 scripts/fleet/assemble_page.py --check
 ## Cross-reference arrows
 
 `XREFS` in `fleet_fragment.html` and the "How the Mechs reference each other" list
-in `mechs_template.md` hold the same entries, one per ordered pair, and the graph
-draws each as an arrow pointing at the Mech that consumes, or at the one a scope
-decision defers to. An arrow needs an implemented, committed reference: a record
+in `mechs_template.md` hold the same entries, one per ordered pair. The biological
+graph shows the entries classified as data links or complementary biological
+scope. Its arrows point at the Mech that consumes the data, or at the one a scope
+decision defers to. Software reuse and unpopulated schema links remain in the
+detailed list. Hover summaries describe the biological subject and data use;
+the original implementation evidence stays in `what`, `ev` and the source links.
+Hub spokes likewise require a data relationship; a shared namespace alone is
+kept out of the graph. A documented reference needs an implemented, committed
+source: a record
 field or id in the other Mech's namespace, a schema slot, enum or prefix naming it,
 a vendored snapshot of its data or vocabulary, code that reads its repository,
 data or site, a scope rule in its docs handing a concept over, or a practice
@@ -144,24 +154,30 @@ credited to it in the file that implements it. Rules that have come up:
   "Ported from TraitMech's" but match HabitatMech's copies, so the credit sits on
   HabitatMech to AntibioticMech (#159).
 
-The last full sweep, over records, schemas, scripts, config, vendored data,
-curation decisions, docs and site generators in the ten repositories at the
-September 28 pins, found 30 arrows. References involving later suite additions
-are checked against their separately pinned sources.
+The September 28 sweep over records, schemas, scripts, config, vendored data,
+curation decisions, docs and site generators found 30 arrows among the original
+ten Mechs. PathwayMech adds an evidenced schema reference from TaxonMech; the
+October 1 refresh checks that reference at the common refresh pin. DUFMech's
+shared family identifiers produce vocabulary chords, not an invented direct
+reference or kg-microbe ingestion claim.
 
 ## Vocabulary census updates
 
-Membership updates do not require rescanning the record corpora. The September
-2026 vocabulary census covers the ten Mechs measured at the September 28
-refresh; PathwayMech and DUFMech are not yet measured. TaxonMech joined it in #87:
-its 625,960 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
+The October 1, 2026 census measures all twelve Mechs. PathwayMech contributes
+152 pathway records. DUFMech contributes 6,532 seed-family rows from its frozen
+JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
+A worklist row is one measured family; the JSON container and its redundant TSV
+copy are not additional records. TaxonMech joined the census in #87; its 625,960 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
 id, each carrying its lineage, so a higher taxon is counted once per record
 under it and TaxonMech's NCBITaxon cell dwarfs everyone else's. Its overlaps are
 what tie taxa to the rest of the fleet: most taxa that ProteinTraitsMech,
 HabitatMech, NaturalProductMech, CommunityMech, TraitMech, AntibioticMech,
 CellStructureMech and CultureMech cite are TaxonMech records. A new member
-needs a record glob in `roots.py` and a link route in `build_subsets.py` before
-its vocabulary can be measured.
+needs a record source in `roots.py` and a link route in `build_subsets.py` before
+its vocabulary can be measured. `duf_records.py` validates the selected dated
+worklist and its manifest before projecting individual family documents.
+`record_paths` tracks physical provenance; `record_documents` and the census's
+record counts represent logical records, including those worklist rows.
 
 `build_subsets.py` scans ProteinTraitsMech and TaxonMech last and keeps only
 terms another Mech also cites, which is all an overlap needs. The proteins also
@@ -191,16 +207,18 @@ python3 scripts/fleet/mech_stats.py       # _fleet/data/mech_stats.json (needs g
 python3 scripts/fleet/assemble_page.py    # mechs.md
 ```
 
-The census takes about eight minutes and `build_subsets.py` about fourteen over the
-ten-Mech snapshot, both dominated by TaxonMech's ~626k and ProteinTraitsMech's
+The original ten-Mech benchmark took about eight minutes for the census and
+fourteen for `build_subsets.py`, both dominated by TaxonMech's ~626k and ProteinTraitsMech's
 ~430k records (#230); `build_subsets.py` scans each record's text twice since it
 separates prose fields from cited ones (#254).
 
 Jekyll ignores `_fleet/` (leading underscore) and `scripts/` is excluded in `_config.yml`.
 Record links resolve to each Mech's published page where one exists (TraitMech,
 CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, NaturalProductMech,
-TaxonMech's taxon.html route, ProteinTraitsMech hash routes) and to the record's
-source file on GitHub for CultureMech and MediaIngredientMech.
+TaxonMech's taxon.html route, ProteinTraitsMech hash routes, PathwayMech record
+pages) and to the record's source file on GitHub for CultureMech and
+MediaIngredientMech. DUFMech family links open the corresponding Pfam entry in
+InterPro, using the family's stable accession.
 NaturalProductMech's pages are committed under `pages/<class>/<slug>.html`, one per
 record, and served by its branch build (#149). CultureMech's `pages/media/` pages
 come and go with its Actions deployment (#175), so its links stay on GitHub until
@@ -268,86 +286,81 @@ ProteinTraitsMech's domain and structure resources (CATH, CDD, PROSITE, ECOD) an
 TaxonMech's strain and genome registries (StrainInfo, NCBI Assembly, PATRIC,
 BioSample). Every namespace present in the dated census appears in the heatmap
 and its vocabulary total. `build_data.vocabularies()` derives the columns from
-that snapshot; the table scrolls horizontally with sticky Mech names. Columns
-sort by Mech coverage, then occurrence total, with citable works at the right.
+that snapshot; the table scrolls horizontally with sticky Mech names. DOI and
+PMID lead; all remaining columns sort by Mech coverage, then occurrence total
+and vocabulary name.
+The table includes measured numeric rows for every suite member, including
+PathwayMech and DUFMech.
 `build_subsets.PREF` remains the smaller set with record lists and shared-term
 edges. Other columns show plain counts and do not offer graph filters, because
 this snapshot has not indexed their overlaps. Adding a namespace to the census
 requires a full rescan; displaying the saved census does not.
 
-## Published-site refresh (September 28, 2026)
+The October 1 namespace audit adds SGD, WikiPathways, Rfam and GO-CAM's
+`gomodel`, and folds uppercase HMDB and the additional case spellings found in
+DUF family descriptions. `gomodel` identifiers are imported Gene Ontology
+model and activity identifiers, not PathwayMech-local ids: Gene Ontology's
+[upstream sulfate-activation model](https://github.com/geneontology/noctua-models/blob/master/models/YeastPathways_PWY-5340.ttl)
+defines the namespace and the same model/reaction identifiers carried by
+PathwayMech. The identifier namespace is counted separately from ontology
+terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-Every number on the page was re-derived from one set of pinned revisions: each
-Mech's GitHub `main` and CLAW's, fetched once at the start of the run. The
-census, the card stats and `data/site_audit.json` each record the revision they
-read, and `RefreshProvenanceTests` fails if they disagree. The corpora were read
-from sparse clones of the shared checkouts at those commits, never from the
-checkouts' working trees, several of which lagged their remotes by dozens of
-commits or carried uncommitted files. `.claude/skills/update-xmech-page/` is the
-procedure.
+## Published-site refresh (October 1, 2026)
 
-`data/site_audit.json` records, per repository, the pinned revision, the URL each
-card figure is read from (a Pages URL, except CultureMech's committed README on
-`main`), the figure, the figure its source stated at the pin (`figure_at_pin`),
-response hashes and merged pull-request totals. `scripts/fleet/build_site_audit.py
---snapshot "$SNAP"` writes it: every mechanical field is derived, and only the
-notes on how each site's figure relates to its records, kept in
-`_fleet/audit_notes.json`, are written by hand. It refuses a card that differs
-from its figure at the pin or exceeds its site (#238). The three dedicated pages link their descriptions and
-commands to those same revisions.
+All twelve Mechs were pinned at their published `main` revisions at
+2026-10-01 22:44 UTC. The census, shared-term subsets, repository statistics and
+`data/site_audit.json` record the same revisions; provenance checks reject a
+mixture of snapshots. The corpora are read from isolated snapshots of committed
+Git blobs, never from shared checkouts' uncommitted files.
+`.claude/skills/update-xmech-page/` documents the refresh procedure.
+
+`data/site_audit.json` records each pinned revision, card source URL, count at the
+pin, response hashes and merged pull-request total. `build_site_audit.py` derives
+those fields; `_fleet/audit_notes.json` supplies the checked explanatory notes.
+The dedicated Mech pages link to the same pinned repository revisions.
+
+Card figures follow the published browsers, except CultureMech's generated
+README inventory and DUFMech's frozen JSON worklist. CommunityMech's browser
+lists 456 communities; its repository additionally includes four isolates, so
+the census and statistics count 460. DUFMech's 6,532 rows describe 4,533 unknown
+candidates and 1,999 historical DUFs. The aggregate is labeled records and seed
+families to preserve that distinction. PathwayMech contributes 152 records,
+4,690 mechanistic edges and 15 taxa. Its KGX and SSSOM products are available in
+the repository; their existence does not establish ingestion into kg-microbe.
+
+CellStructureMech's pin contains 781 records, 711 GO-grounded, and TraitMech's
+contains 922 records with 51.7% embedding coverage and 678 causal graphs.
+NaturalProductMech records 809 evidence-supported producer claims, 137
+biosynthetic pathways and 177 causal graphs; its 3,115-record total is unchanged.
+The other card totals remain unchanged. Live sites may advance after the pins;
+`check_cards.py` applies its documented grace window before declaring them stale.
+
+CultureMech's generated README and landing page now both distinguish 15,878
+normalized records from 6,288 merged records. Its documentation requires GitHub
+Actions publishing to carry the generated browser data and indexes. The card
+checker retains the committed README as its stable count source.
 
 Follow client-side meta refreshes from site roots to `pages/` or `app/`. Read
-JavaScript-backed headline counts from the data files they load: MIM uses
+JavaScript-backed figures from their data files: MediaIngredientMech uses
 `data/ingredients.json` (2,953 ingredients; 2,611 MAPPED), and ProteinTraitsMech
-uses `data/facets.json` (429,293 records; 34 source labels). The latter's static
-HTML still has a legacy fallback count.
+uses `data/facets.json` (429,293 records; 34 source labels). ProteinTraitsMech's
+static HTML still carries a legacy fallback count.
 
-Card figures follow the published sites, CultureMech's its committed README
-instead, and the census follows the pinned repositories. At this refresh they agree for every Mech except CommunityMech:
-its site lists 455 communities, while its record glob also takes four isolate
-records, so the census and `mech_stats.json` count 459. CellStructureMech,
-CommunityMech and TraitMech published new records after the pins were taken;
-their cards keep the pinned figures, and `site_audit.json` records what the three
-sites showed when it was written. `check_cards.py` reports all three as grown, a
-warning, until 14 days after the pins or until a site is half as large again as
-its card, whichever comes first; CellStructureMech, adding about one and a half
-records an hour, reaches the second in about nine days. For every source with a
-committed copy, the audit records the live hash beside the hash of the committed
-copy at the pin, and its notes say which matched when it was written
-(ProteinTraitsMech's data file is built in CI and has no committed copy).
+Reviewed-record counts are reported only where a schema defines a review
+status. A Mech without that field still receives its merged-PR count and pinned
+provenance, rather than an invented zero reviewed count. All twelve repositories
+participate in statistics collection.
 
-CultureMech's README inventory at the pinned revision reports 15,878 normalized
-records and 6,288 merged records, and the card cites it: no page CultureMech
-reliably serves states the canonical count. The `app/` landing tile, which the
-site root redirects to, still reads 10,657. The `app/` browser's data
-(`app/data.js`), the `/pages/` media index and the dashboard are all built and
-deployed by CultureMech's generate-pages workflow through GitHub Actions, while
-the site's Pages source is set to branch builds; a push to `main` outside the
-workflow's paths triggers a branch build that replaces the deployment. So all
-three appear and disappear: live on September 24, gone on September 25, when the
-browser never finished loading, and still gone on September 28 (#175, #182, #204). The fix is upstream, setting the
-Pages source to GitHub Actions (#172). `check_cards.py` therefore reads the
-committed README on `main`.
+CLAW's b196e67 snapshot declares eleven members and enables PathwayMech's KGX and
+SSSOM exporters. DUFMech remains outside that upstream manifest; its capability
+row is explicitly undeclared. The capability table preserves CLAW's full
+catalogue and recorded reasons. Capability adoption does not establish that all
+CLAW workflows execute unattended.
 
-Reviewed-record counts come from `mech_stats.py`, which counts a record as
-reviewed only where the Mech's schema has a status that can say REVIEWED; the
-card secondary figures were checked against each live site. Merged pull-request
-totals come from GitHub search at run time and were cross-checked against the
-GraphQL `pullRequests(states: MERGED)` count for every repository.
+The requested suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for
+code. Redistributed source material retains its applicable terms.
 
-The CLAW manifest's projected membership and capabilities are unchanged from
-baa792d, to which the manifest alone was refreshed on 2026-09-26 to add a 26th
-capability, `causal_graph_coverage` (#303, #304); this refresh advances its
-provenance to CLAW 1edb949. The capability table shows every capability
-in CLAW's catalogue, in its order, so one CLAW adds appears on the next manifest
-refresh (#310). CLAW's README distinguishes
-supported discovery, validation and dry-run tools from unimplemented CLI agent
-execution and disabled cross-repository apply modes. Capability adoption must
-not be described as proof that those workflows execute unattended.
-
-The vocabulary census and overlap assets were rescanned at the same pinned
-revisions. TaxonMech was added to the census at the September 24 refresh (#87).
-The census before that refresh had read ProteinTraitsMech's counts from a checkout
-with uncommitted files: it reported 770,276 UniProt references where the
-revision the September 20 audit pinned (`700b6f7`) holds 657,598. That rescan's
-lower figures were a correction, not a loss of data.
+The DUF nightly card check resolves the latest dated worklist on `main` through
+GitHub directory metadata. Its pinned audit still records the frozen source
+used for this page, so a new worklist cannot leave the live freshness check
+reading the old snapshot indefinitely.

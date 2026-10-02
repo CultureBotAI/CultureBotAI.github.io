@@ -8,7 +8,7 @@ import re
 
 from card_markup import card_figures, card_names, markup_problems
 from refresh_manifest import validate
-import additions as introductions
+from roots import ORDER
 
 REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
@@ -39,17 +39,24 @@ def capability_head(snapshot):
     return "<tr>" + "".join(cells) + "</tr>"
 
 
-def capability_rows(snapshot):
+def capability_rows(snapshot, suite_order=None):
     rows = []
-    for name, mech in snapshot["mechs"].items():
+    for name in suite_order if suite_order is not None else snapshot["mechs"]:
+        mech = snapshot["mechs"].get(name)
         cells = [f'<th scope="row">{escape(name)}</th>']  # #314
         for key in capability_columns(snapshot):
-            declaration = mech["capabilities"][key]
-            status = declaration["status"]
-            css = {"enabled": "e", "disabled": "d", "not_applicable": "n"}[status]
-            label = f"{capability_label(key)}: {status.replace('_', ' ')}"  # #314
-            if declaration.get("reason"):
-                label += ". " + declaration["reason"].strip()
+            if mech is None:
+                # Suite coverage is independent of CLAW admission. An absent
+                # declaration says neither disabled nor not applicable.
+                css = "u"
+                label = f"{capability_label(key)}: not declared in CLAW manifest"
+            else:
+                declaration = mech["capabilities"][key]
+                status = declaration["status"]
+                css = {"enabled": "e", "disabled": "d", "not_applicable": "n"}[status]
+                label = f"{capability_label(key)}: {status.replace('_', ' ')}"  # #314
+                if declaration.get("reason"):
+                    label += ". " + declaration["reason"].strip()
             label = escape(label, quote=True)
             cells.append(f'<td><i class="{css}" role="img" title="{label}" aria-label="{label}"></i></td>')
         rows.append("<tr>" + "".join(cells) + "</tr>")
@@ -74,7 +81,7 @@ def number_word(value: int) -> str:
     return WORDS[value] if 0 <= value < len(WORDS) else f"{value:,}"
 
 
-def fleet_records(template, uncounted=()):
+def fleet_records(template):
     """What the Mech cards add up to, one figure per card.
 
     The tile used to carry its own typed figure and drifted away from the
@@ -86,9 +93,10 @@ def fleet_records(template, uncounted=()):
     CultureMech, its committed README), which
     the record-corpus census does not measure the same way.
 
-    The ten are not ten counts of the same thing: the cards call theirs taxon
-    records, published recipes, natural product structures and so on. The tile
-    says "curated entries" rather than "records" for that reason (#82).
+    These are not counts of the same thing: the cards call theirs taxon
+    records, published recipes, natural product structures and seed families.
+    The tile names both records and seed families instead of claiming that all
+    entries are curated mechanisms.
 
     Keyed by Mech and read card by card through card_markup, the parser
     check_cards.py also uses, so the total and the nightly check cannot read the
@@ -96,7 +104,7 @@ def fleet_records(template, uncounted=()):
     """
     # Exactly one figure per card, and none outside the cards: a second stat
     # tile used to replace a card's headline in the total without failing (#218).
-    problems = markup_problems(template, uncounted)
+    problems = markup_problems(template)
     if problems:
         raise ValueError("Every counted Mech card must carry a record count, exactly once: "
                          + "; ".join(f"{mech}: {why}" for mech, why in problems))
@@ -106,13 +114,12 @@ def fleet_records(template, uncounted=()):
     return figures
 
 
-def assemble(template, fragment, data, snapshot, stats, census, additions=None):
+def assemble(template, fragment, data, snapshot, stats, census):
     validate(snapshot)
-    additions = additions or {}
-    introductions.validate(additions)
     members = set(snapshot["mechs"])
-    names = members | set(additions)
-    uncounted = introductions.uncounted(additions)
+    # The site measures the suite; CLAW declares its governed members. A new
+    # canonical admission still requires a corresponding card and graph node.
+    names = set(ORDER) | members
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
     if len(badges) != len(names) or set(badges) != names:
         raise ValueError("Mech cards must match declared suite membership exactly")
@@ -128,6 +135,9 @@ def assemble(template, fragment, data, snapshot, stats, census, additions=None):
         raise ValueError("Census order must be a unique subset of fleet members")
     if set(data["heat"]) != measured or any(set(data["heat"][m]) != set(data["voc"]) for m in measured):
         raise ValueError("Census heat rows must cover the measured members and vocabularies")
+    measured_mechs = {name: mech for name, mech in census.items() if not name.startswith("_")}
+    if set(measured_mechs) != measured:
+        raise ValueError("Census members must match the measured graph and heat rows")
     if any(edge["a"] not in measured or edge["b"] not in measured for edge in data["vocab_edges"]):
         raise ValueError("Census edges must connect measured members")
     replacements = {
@@ -142,32 +152,25 @@ def assemble(template, fragment, data, snapshot, stats, census, additions=None):
         raise ValueError("Expected one fleet fragment")
     page = template.replace("<!--FLEET_FRAGMENT-->", fragment)
     source = snapshot["source"]
-    # Measured cards have corpus/PR statistics; introductions have separately
-    # pinned source lines. Neither may silently inherit the other's snapshot.
     counted = {m["mech"] for m in stats["mechs"]}
-    if counted != names - set(additions):
-        raise ValueError("Mech stats must cover every member outside the separately pinned introductions")
-    counts = fleet_records(template, uncounted)
-    if set(counts) != names - uncounted:
+    if counted != names or len(stats["mechs"]) != len(names):
+        raise ValueError("Mech stats must cover every suite member exactly once")
+    counts = fleet_records(template)
+    if set(counts) != names:
         raise ValueError("Every counted Mech card must carry a record count")
-    for name, entry in additions.items():
-        if counts.get(name) != entry["figure_at_pin"]:
-            raise ValueError(f"{name}: card count differs from its separately pinned source")
     # The census is a dated scan, so its vocabulary tally is labelled with its own
     # run date rather than as current, and its coverage is stated below.
     # Keys beginning with an underscore are the scan's own metadata, not Mechs.
     # Read rather than pop: assemble() is handed a parsed document and must not
     # consume it, or a second call with the same object fails (#81).
     as_of = census["_as_of"]
-    measured_mechs = {name: mech for name, mech in census.items() if not name.startswith("_")}
     vocabularies = {prefix for mech in measured_mechs.values() for prefix in mech["prefixes"]}
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
         "<!--FLEET_COUNT_WORD-->": number_word(len(names)),
         "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts.values()):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
-        # "all ten Mechs" once the census reaches every member, which it has
-        # since TaxonMech was added (#87); "nine of the ten Mechs" otherwise.
+        # State coverage from the measured corpus and suite membership.
         "<!--FLEET_CENSUS_COVERAGE-->": (f"all {number_word(len(names))} Mechs" if len(measured_mechs) == len(names)
                                          else f"{number_word(len(measured_mechs))} of the {number_word(len(names))} Mechs"),
         # The scan's own run date, carried in the file it writes. Not the file's
@@ -178,16 +181,12 @@ def assemble(template, fragment, data, snapshot, stats, census, additions=None):
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
         "<!--FLEET_MANIFEST_COUNT_WORD-->": number_word(len(members)),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
-        "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot),
+        "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot, cards),
         "<!--FLEET_CAPABILITY_HEAD-->": capability_head(snapshot),
     }
     tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">' +
                    ('in fleet manifest' if name in members else 'not yet in fleet manifest') + '</span>'
                    for name in names})
-    for name, entry in additions.items():
-        date = datetime.datetime.fromisoformat(entry['pinned_at_utc']).strftime('%-d %B %Y')
-        url = f"https://github.com/CultureBotAI/{entry['repo']}/tree/{entry['sha']}"
-        tokens[f"<!--FLEET_STATS:{name}-->"] = f'Checked {date} · <a href="{url}">source at {entry["sha"][:7]}</a>'
     for mech in stats["mechs"]:
         prs = f"{mech['merged_prs']:,} merged PRs"
         # A null reviewed count means the Mech's schema has no status that can
@@ -215,8 +214,7 @@ def main():
                     json.loads((FLEET / "data/fleet_data.json").read_text()),
                     json.loads((FLEET / "data/manifest.json").read_text()),
                     json.loads((FLEET / "data/mech_stats.json").read_text()),
-                    json.loads((FLEET / "data/prefix_census.json").read_text()),
-                    introductions.load())
+                    json.loads((FLEET / "data/prefix_census.json").read_text()))
     target = REPO / "mechs.md"
     if args.check:
         if target.read_text() != page:

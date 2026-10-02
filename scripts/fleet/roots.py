@@ -30,8 +30,12 @@ RECORD_GLOBS: dict[str, list[str]] = {
     "HabitatMech": ["data/habitats/**/*.yaml"],
     "CommunityMech": ["kb/communities/*.yaml", "data/isolates/*.yaml"],
     "TraitMech": ["data/traits/**/*.yaml"],
+    "PathwayMech": ["data/pathways/**/*.yaml"],
     "CellStructureMech": ["data/structures/**/*.yaml"],
     "ProteinTraitsMech": ["data/traits/**/*.yaml"],
+    # Keep all physical snapshots in revision checks; the logical-record
+    # adapter selects only the newest manifest and its verified JSON payload.
+    "DUFMech": ["data/worklists/interpro-pfam-duf-*.json"],
     "NaturalProductMech": ["data/natural_products/**/*.yaml"],
     "AntibioticMech": ["data/antibiotics/**/*.yaml"],
     "MediaIngredientMech": ["data/ingredients/**/*.yaml"],
@@ -64,9 +68,8 @@ ORDER = list(RECORD_GLOBS)
 # Prefixes that identify a piece of literature or another citable work rather
 # than a concept. The census counts them, but every Mech cites papers, so
 # treating them as shared vocabulary would say only that, which is why
-# build_subsets.py writes no record lists for them and build_data.py keeps them
-# out of the heatmap's ordering. Declared once here because those two decisions
-# have to agree (CultureBotAI.github.io#61).
+# build_subsets.py writes no record lists or overlaps for them. The heatmap
+# still counts their occurrences, with DOI and PMID shown first.
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
             "PNNLDH"]
@@ -191,6 +194,33 @@ def read_record(path: str, errors: str = "ignore") -> str:
         raise SystemExit(f"could not read record {path}: {error}")
 
 
+def record_documents(name: str, paths: list[str] | None = None):
+    """Yield (physical path, text) for each logical record in the corpus.
+
+    YAML corpora have one record per file; DUFMech has many seed-family
+    records inside its newest frozen JSON worklist. Keep physical paths for
+    provenance and expand records only while reading their contents.
+    """
+    if paths is None:
+        paths = record_paths(name)
+    if name == "DUFMech":
+        from duf_records import documents
+        yield from documents(paths)
+    else:
+        for path in paths:
+            yield path, read_record(path)
+
+
+def record_count(name: str, paths: list[str] | None = None) -> int:
+    """Count logical records without reading every YAML merely to count it."""
+    if paths is None:
+        paths = record_paths(name)
+    if name == "DUFMech":
+        from duf_records import snapshot
+        return len(snapshot(paths)[1])
+    return len(paths)
+
+
 def unchanged(name: str, before: str | None) -> None:
     """Stop if a checkout's HEAD moved while its records were being read (#122)."""
     if before is None:
@@ -202,7 +232,7 @@ def unchanged(name: str, before: str | None) -> None:
 
 
 def summary() -> str:
-    return "\n".join(f"{name:22s} {len(record_paths(name)):>7,} records" for name in ORDER)
+    return "\n".join(f"{name:22s} {record_count(name):>7,} records" for name in ORDER)
 
 
 if __name__ == "__main__":

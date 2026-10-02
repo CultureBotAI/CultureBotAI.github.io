@@ -44,8 +44,7 @@ except ModuleNotFoundError:  # the only pipeline script that needs it; see #68
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from roots import RECORD_GLOBS, mech_root, read_record, record_paths, revision, unchanged
-import additions as introductions
+from roots import ORDER, RECORD_GLOBS, mech_root, record_documents, record_paths, revision, unchanged
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
@@ -55,10 +54,8 @@ OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
 # search API does not follow.
 GH_REPO = {"ProteinTraitsMech": "proteintraitsmech"}
 
-# Introductions keep separate source pins until admitted to the measured corpus.
-# Do not make an unmeasured addition a partial rerun of this dated snapshot.
-MANIFEST = json.load(open(os.path.join(REPO, "_fleet", "data", "manifest.json"), encoding="utf-8"))
-MEMBERS = [m for m in MANIFEST["mechs"] if m not in introductions.load()]
+# Site coverage and canonical CLAW admission are separate facts.
+MEMBERS = ORDER
 
 # Record globs for members the census has not reached yet. Counting reviewed
 # records needs only a corpus, not a vocabulary scan, so these can be reported
@@ -108,17 +105,16 @@ def review_census(mech: str) -> tuple[int, int | None, str | None, str | None]:
     # Taken before the reads and checked after, as in prefix_census.py (#122).
     rev = revision(mech, paths)
     field = review_slot(mech)
-    if field is None:
-        unchanged(mech, rev)
-        return len(paths), None, None, rev
-    reviewed = 0
-    for path in paths:
-        for key, value in STATUS.findall(read_record(path, errors="replace")):
-            if key == field:
-                reviewed += value == "REVIEWED"
-                break
+    records, reviewed = 0, 0 if field is not None else None
+    for _, text in record_documents(mech, paths):
+        records += 1
+        if field is not None:
+            for key, value in STATUS.findall(text):
+                if key == field:
+                    reviewed += value == "REVIEWED"
+                    break
     unchanged(mech, rev)
-    return len(paths), reviewed, field, rev
+    return records, reviewed, field, rev
 
 
 def merged_prs(mech: str) -> int:
