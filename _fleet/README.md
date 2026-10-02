@@ -128,9 +128,15 @@ python3 scripts/fleet/assemble_page.py --check
 ## Cross-reference arrows
 
 `XREFS` in `fleet_fragment.html` and the "How the Mechs reference each other" list
-in `mechs_template.md` hold the same entries, one per ordered pair, and the graph
-draws each as an arrow pointing at the Mech that consumes, or at the one a scope
-decision defers to. An arrow needs an implemented, committed reference: a record
+in `mechs_template.md` hold the same entries, one per ordered pair. The biological
+graph shows the entries classified as data links or complementary biological
+scope. Its arrows point at the Mech that consumes the data, or at the one a scope
+decision defers to. Software reuse and unpopulated schema links remain in the
+detailed list. Hover summaries describe the biological subject and data use;
+the original implementation evidence stays in `what`, `ev` and the source links.
+Hub spokes likewise require a data relationship; a shared namespace alone is
+kept out of the graph. A documented reference needs an implemented, committed
+source: a record
 field or id in the other Mech's namespace, a schema slot, enum or prefix naming it,
 a vendored snapshot of its data or vocabulary, code that reads its repository,
 data or site, a scope rule in its docs handing a concept over, or a practice
