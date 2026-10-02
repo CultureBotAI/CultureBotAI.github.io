@@ -19,7 +19,7 @@
 
 The site currently lists twelve Mechs. CLAW's manifest lists eleven, including
 PathwayMech; DUFMech is listed separately without a manifest membership declaration. The
-October 1 vocabulary census, shared-term assets and repository statistics cover
+October 2 vocabulary census, shared-term assets and repository statistics cover
 all twelve Mechs. DUFMech's contribution is a measured seed worklist, labeled
 as families rather than curated mechanism records. Its capability row reports
 undeclared values without inventing CLAW membership.
@@ -157,13 +157,13 @@ credited to it in the file that implements it. Rules that have come up:
 The September 28 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators found 30 arrows among the original
 ten Mechs. PathwayMech adds an evidenced schema reference from TaxonMech; the
-October 1 refresh checks that reference at the common refresh pin. DUFMech's
+October 2 refresh checks that reference at the common refresh pin. DUFMech's
 shared family identifiers produce vocabulary chords, not an invented direct
 reference or kg-microbe ingestion claim.
 
 ## Vocabulary census updates
 
-The October 1, 2026 census measures all twelve Mechs. PathwayMech contributes
+The October 2, 2026 census measures all twelve Mechs. PathwayMech contributes
 152 pathway records. DUFMech contributes 6,532 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
 A worklist row is one measured family; the JSON container and its redundant TSV
@@ -305,13 +305,15 @@ defines the namespace and the same model/reaction identifiers carried by
 PathwayMech. The identifier namespace is counted separately from ontology
 terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-## Published-site refresh (October 1, 2026)
+## Published-site refresh (October 2, 2026)
 
 All twelve Mechs were pinned at their published `main` revisions at
-2026-10-01 22:44 UTC. The census, shared-term subsets, repository statistics and
+2026-10-02 19:05 UTC. The census, shared-term subsets, repository statistics and
 `data/site_audit.json` record the same revisions; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
+Record statistics use those pinned commits. Merged-PR totals are all-time GitHub
+counts queried during the refresh, rather than counts cut off at the pin time.
 `.claude/skills/update-xmech-page/` documents the refresh procedure.
 
 `data/site_audit.json` records each pinned revision, card source URL, count at the
@@ -328,15 +330,15 @@ families to preserve that distinction. PathwayMech contributes 152 records,
 4,690 mechanistic edges and 15 taxa. Its KGX and SSSOM products are available in
 the repository; their existence does not establish ingestion into kg-microbe.
 
-CellStructureMech's pin contains 781 records, 711 GO-grounded, and TraitMech's
-contains 922 records with 51.7% embedding coverage and 678 causal graphs.
-NaturalProductMech records 809 evidence-supported producer claims, 137
-biosynthetic pathways and 177 causal graphs; its 3,115-record total is unchanged.
-The other card totals remain unchanged. Live sites may advance after the pins;
+CellStructureMech's pin contains 810 records, 728 GO-grounded, and TraitMech's
+contains 946 records with 50.4% embedding coverage and 702 causal graphs.
+NaturalProductMech records 809 evidence-supported producer claims, 138
+biosynthetic pathways and 186 causal graphs; its 3,115-record total is unchanged.
+Live sites may advance after the pins;
 `check_cards.py` applies its documented grace window before declaring them stale.
 
-CultureMech's generated README and landing page now both distinguish 15,878
-normalized records from 6,288 merged records. Its documentation requires GitHub
+CultureMech's generated README and landing page now both distinguish 15,910
+normalized records from 6,320 merged records. Its documentation requires GitHub
 Actions publishing to carry the generated browser data and indexes. The card
 checker retains the committed README as its stable count source.
 
@@ -357,8 +359,14 @@ row is explicitly undeclared. The capability table preserves CLAW's full
 catalogue and recorded reasons. Capability adoption does not establish that all
 CLAW workflows execute unattended.
 
-The requested suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for
-code. Redistributed source material retains its applicable terms.
+All twelve pinned repositories license project-authored data under CC BY 4.0
+and code under BSD-3-Clause. Redistributed source material retains its applicable terms.
+
+The kg-microbe integration was checked at `1408e7099d039026d7611c240938d8e177753406`.
+Its reviewed ingredient mappings and optional ingredient-context graph are
+candidate inputs; production promotion and a graph release remain separate
+review and validation steps. The graph and related pages preserve that
+distinction.
 
 The DUF nightly card check resolves the latest dated worklist on `main` through
 GitHub directory metadata. Its pinned audit still records the frozen source

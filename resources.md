@@ -131,17 +131,17 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** is a fleet of twelve ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator currently lists eleven of these Mechs in its manifest, including PathwayMech; DUFMech is listed separately in the suite. Figures below reflect the October 1, 2026 snapshot, which measures all twelve Mechs, including DUFMech's seed families.
+The **[X-Mech Suite](/mechs/)** is a fleet of twelve ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator currently lists eleven of these Mechs in its manifest, including PathwayMech; DUFMech is listed separately in the suite. Figures below reflect the October 2, 2026 snapshot, which measures all twelve Mechs, including DUFMech's seed families.
 
 ### Pipeline Overview
 
 ```
 Raw Cultivation Records (Literature, Lab Protocols)
     ↓
-CultureMech ↔ MediaIngredientMech ── ingredient mappings ──→ KG-Microbe Knowledge Graph
-Recipes       Ingredient identity                                  │
-    ↓                                                              │ ontologies, mappings,
-CommunityMech + other domain-specific Mechs  ←─────────────────────┘ embeddings
+CultureMech ↔ MediaIngredientMech ── candidate ingredient mappings ──→ KG-Microbe Knowledge Graph
+Recipes       Ingredient identity                                          │
+    ↓                                                                      │ ontologies, mappings,
+CommunityMech + other domain-specific Mechs  ←─────────────────────────────┘ embeddings
 Community, trait, taxon, habitat and molecular evidence
     ↓
 AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Microbe
@@ -150,7 +150,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 ### CultureMech - Autonomous Knowledge Factory for Culture Media
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-15,878 curated culture media recipes from major international repositories, deduplicated into 6,288 canonical media, with LinkML schema, ingredient ontology grounding, and browser-based exploration.
+15,910 curated culture media recipes from major international repositories, deduplicated into 6,320 canonical media, with LinkML schema, ingredient ontology grounding, and browser-based exploration.
 
 **What it does**: Curates source-specific recipes, grounds ingredient identifiers, validates records, and generates deduplicated media and browser outputs.
 
@@ -183,7 +183,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 ### TraitMech - Microbial Ecophysiological Traits
 **[GitHub Repository](https://github.com/CultureBotAI/TraitMech)** | **[Web Interface](https://culturebotai.github.io/TraitMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO and curated incrementally — 922 trait records across 10 categories; 427 are marked REVIEWED and 678 carry causal graphs.
+Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO and curated incrementally — 946 trait records across 10 categories; 427 are marked REVIEWED and 702 carry causal graphs.
 
 **What it does**: Standardizes the trait vocabulary used to describe microbial growth and ecology, and links traits to their evidence and, where a match exists, to kg-microbe.
 
@@ -192,14 +192,14 @@ Autonomous knowledge factory for microbial ecophysiological traits, seeded from 
 ### PathwayMech - Microbial Pathway Mechanisms
 **[GitHub Repository](https://github.com/CultureBotAI/PathwayMech)** | **[Web Interface](https://culturebotai.github.io/PathwayMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Curates 152 pathway-level microbial mechanisms across 15 taxa, with explicit participants, reactions, 4,690 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/3dc787604a53c15982af761ef537ab2b39863cd9/README.md).
+Curates 152 pathway-level microbial mechanisms across 15 taxa, with explicit participants, reactions, 4,690 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/71e573dfebbb01a1e82cd32f8cfff4a63e8871b2/README.md).
 
 ---
 
 ### ProteinTraitsMech - Protein Sequence & Structure Traits
 **[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC BY 4.0 data · BSD-3-Clause code (upstream sources retain their own terms)
 
-Autonomous knowledge factory for protein sequence, structure, and function traits — 429,293 LinkML-validated records from 34 sources, one YAML per trait. Most are imported from those sources and not yet reviewed. Reviewed records carry evidence-backed causal graphs.
+Autonomous knowledge factory for protein sequence, structure, and function traits — 429,293 LinkML-validated records grouped under 34 browser source labels, one YAML per trait. These labels include imported sources and curation groupings; most records are imported and not yet reviewed. Reviewed records carry evidence-backed causal graphs.
 
 **What it does**: Extends trait curation from the organism level to the molecular level, connecting protein features to the phenotypes they help explain. Explore the [corpus, protein and ESM-2 sequence maps](https://culturebotai.github.io/proteintraitsmech/map.html).
 
@@ -208,14 +208,14 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 ### DUFMech - Domains and Families of Unknown Function
 **[GitHub Repository](https://github.com/CultureBotAI/DUFMech)** | CC BY 4.0 data · BSD-3-Clause code
 
-Provides a seed worklist of 6,532 Pfam families, separating 4,533 unknown candidates from 1,999 historical DUFs. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/90c74d5806ead534cd437fa6ae70c9102d5bc7d3/README.md); a published browser is not yet available.
+Provides a seed worklist of 6,532 Pfam families, separating 4,533 unknown candidates from 1,999 historical DUFs. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/b2e6d24890aa84bed7a7d75763ea1d5886527a64/README.md); a published browser is not yet available.
 
 ---
 
 ### CellStructureMech - Microbial Cell Structures
 **[GitHub Repository](https://github.com/CultureBotAI/CellStructureMech)** | **[Web Interface](https://culturebotai.github.io/CellStructureMech/)** | CC BY 4.0 data · BSD-3-Clause code (redistributed UniProt and Complex Portal material retains its CC BY 4.0 terms)
 
-781 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 711 of them grounded in GO cellular component.
+810 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 728 of them grounded in GO cellular component.
 
 **What it does**: Occupies the layer between traits and proteins, recording what a structure is made of, which organisms have it, what it does, and the causal mechanism by which it does so.
 
@@ -411,7 +411,7 @@ Comprehensive chemical compound knowledge graph mapping pipeline for microbial g
 #### CultureMech
 **[Dedicated Page](/culturemech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CultureMech)** | **[Web Interface](https://culturebotai.github.io/CultureMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-15,878 curated culture media recipes deduplicated into 6,288 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech suite of autonomous knowledge factories.
+15,910 curated culture media recipes deduplicated into 6,320 canonical media, with chemical entity extraction and ontology grounding. Part of the X-Mech suite of autonomous knowledge factories.
 
 **→ See the [dedicated CultureMech page](/culturemech/) for full documentation, use cases, and examples.**
 

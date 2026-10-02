@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "CultureMech"
-description: "Autonomous knowledge factory for microbial culture media: 15,878 curated recipes from major international repositories, deduplicated into 6,288 canonical media, with LinkML schema, ontology grounding, and browser-based exploration"
+description: "Autonomous knowledge factory for microbial culture media: 15,910 curated recipes from major international repositories, deduplicated into 6,320 canonical media, with LinkML schema, ontology grounding, and browser-based exploration"
 permalink: /culturemech/
 ---
 
@@ -9,7 +9,7 @@ permalink: /culturemech/
 
 ## Overview
 
-**CultureMech** is an autonomous knowledge factory for microbial culture media, combining ontology grounding, validation, provenance, and recipe deduplication with human oversight. Its current repository holds **15,878 normalized records** and **6,288 merged canonical media**. Normalized records preserve each source's formulation; merged records provide the deduplicated view. [Repository snapshot](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/README.md#corpus-snapshot).
+**CultureMech** is an autonomous knowledge factory for microbial culture media, combining ontology grounding, validation, provenance, and recipe deduplication with human oversight. Its current repository holds **15,910 normalized records** and **6,320 merged canonical media**. Normalized records preserve each source's formulation; merged records provide the deduplicated view. [Repository snapshot](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/README.md#corpus-snapshot).
 
 ## Explore the Published Site
 
@@ -18,7 +18,7 @@ permalink: /culturemech/
 - **[Direct media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct)** — explore the medium nodes' own KG-Microbe embeddings.
 - **[Graph layout](https://culturebotai.github.io/CultureMech/app/umap_graph.html)** — another view of media similarity.
 
-Counts were checked on October 1, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,878 normalized records from 6,288 merged records.
+Counts were checked on October 2, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,910 normalized records from 6,320 merged records.
 
 ## Data Architecture
 
@@ -29,17 +29,17 @@ Counts were checked on October 1, 2026 against the repository's generated corpus
 | Normalized records | `data/normalized_yaml/` | Authoritative source-specific curation and browser input |
 | Merged records | `data/merge_yaml/merged/` | Reproducible deduplicated media |
 
-Source imports include MediaDive/DSMZ, TogoMedium, KOMODO, and collection-specific recipes. The normalized inventory contains 14,305 bacterial, 743 archaeal, 249 algal, 126 fungal, and 455 specialized records. These categories sum to the normalized total, not the canonical total. [Data layers](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/docs/DATA_LAYERS.md).
+Source imports include MediaDive/DSMZ, TogoMedium, KOMODO, and collection-specific recipes. The normalized inventory contains 14,329 bacterial, 746 archaeal, 254 algal, 126 fungal, and 455 specialized records. These categories sum to the normalized total, not the canonical total. [Data layers](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/docs/DATA_LAYERS.md).
 
 ## Curation and Validation
 
 Records carry ingredient amounts, ontology identifiers and labels, source references, and curation history. The LinkML schema separates composition type, nutritional class, and functional role while retaining the compatibility `medium_type` field. Validation checks schema shape, stricter record invariants, and recipe identifiers.
 
-[MediaIngredientMech](/mediaingredientmech/) supplies ingredient identity and mapping artifacts. CultureMech retains recipe-specific composition and provenance. These structured outputs support downstream knowledge-graph integration, comparative media analysis, and cultivation research. [Schema](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/src/culturemech/schema/culturemech.yaml) · [Curation guide](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/docs/CONTRIBUTING.md).
+[MediaIngredientMech](/mediaingredientmech/) supplies ingredient identity and mapping artifacts. CultureMech retains recipe-specific composition and provenance. These structured outputs support downstream knowledge-graph integration, comparative media analysis, and cultivation research. [Schema](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/src/culturemech/schema/culturemech.yaml) · [Curation guide](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/docs/CONTRIBUTING.md).
 
 ## Example: A Tracked Recipe
 
-The repository's [LB medium record](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/data/normalized_yaml/bacterial/lb_medium.yaml) has the stable identifier `CultureMech:008037` and preserves its TogoMedium/NBRC source. Its sodium-chloride ingredient illustrates the actual nested record format:
+The repository's [LB medium record](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/data/normalized_yaml/bacterial/lb_medium.yaml) has the stable identifier `CultureMech:008037` and preserves its TogoMedium/NBRC source. Its sodium-chloride ingredient illustrates the actual nested record format:
 
 ```yaml
 preferred_term: NaCl
@@ -75,13 +75,13 @@ just gen-media-pages
 just serve-browser
 ```
 
-For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml`; the result is written under `pages/single/`. See the [current quick start](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/docs/QUICK_START.md) for the full workflow.
+For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml`; the result is written under `pages/single/`. See the [current quick start](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/docs/QUICK_START.md) for the full workflow.
 
 ## Repository & Documentation
 
 - **[Repository](https://github.com/CultureBotAI/CultureMech)** and **[published site](https://culturebotai.github.io/CultureMech/)**
-- **[Recipe identifier lifecycle](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/docs/RECIPE_ID_LIFECYCLE.md)**
-- **[Citation metadata](https://github.com/CultureBotAI/CultureMech/blob/ec49c9da275414572c4b9800313265d907aecf8a/CITATION.cff)**
+- **[Recipe identifier lifecycle](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/docs/RECIPE_ID_LIFECYCLE.md)**
+- **[Citation metadata](https://github.com/CultureBotAI/CultureMech/blob/ea4fad40114940af87daf1d56c9cad56beec8cca/CITATION.cff)**
 - **Licensing policy:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for data; [BSD-3-Clause](https://opensource.org/license/bsd-3-clause) for code. Redistributed source material retains its applicable terms.
 
 ---
