@@ -122,10 +122,15 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
         raise SystemExit(f"{mech}: the site says {live:,}, below the card's {card:,}; that is not growth")
     entry["merged_prs"] = stats["merged_prs"]
     if kind == "json":
-        # The page's markup carries a placeholder; hash both it and the data.
-        page = url.rsplit("/data/", 1)[0] + "/"
-        entry["site"] = page
-        entry["site_html_sha256"] = hashlib.sha256(fetch(page)).hexdigest()
+        if url.startswith("https://raw.githubusercontent.com/"):
+            # A source worklist need not have an HTML browser. Link the
+            # repository file and hash its data without inventing a Pages URL.
+            entry["site"] = url.replace("https://raw.githubusercontent.com/", "https://github.com/").replace("/main/", "/blob/main/", 1)
+        else:
+            # The page's markup carries a placeholder; hash it and the data.
+            page = url.rsplit("/data/", 1)[0] + "/"
+            entry["site"] = page
+            entry["site_html_sha256"] = hashlib.sha256(fetch(page)).hexdigest()
         entry["data_url"] = url
         entry["data_sha256"] = hashlib.sha256(body).hexdigest()
         key = "data_sha256"

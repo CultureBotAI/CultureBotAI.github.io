@@ -4,8 +4,8 @@ Run from the site root: `python3 scripts/fleet/check_cards.py`. Read-only, and
 the only script here that needs the network.
 
 The card numbers in _fleet/mechs_template.md are hand-curated from each Mech's
-published browser (CultureMech's from its committed README; see SOURCES), so
-nothing regenerates them and nothing noticed when they
+published browser (CultureMech's from its committed README, DUFMech's from
+its frozen family worklist; see SOURCES), so nothing regenerates them and nothing noticed when they
 went stale — two of six had drifted within two days of a refresh
 (CultureBotAI.github.io#104). This reports that, and is meant to run on the
 nightly schedule rather than on a pull request: the corpora move fast enough
@@ -59,7 +59,6 @@ import urllib.request
 from pathlib import Path
 
 from card_markup import card_figures, card_names, markup_problems
-import additions as introductions
 
 REPO = Path(__file__).resolve().parents[2]
 TEMPLATE = REPO / "_fleet/mechs_template.md"
@@ -67,7 +66,7 @@ AUDIT = REPO / "_fleet/data/site_audit.json"
 SITE = "https://culturebotai.github.io/"
 
 # Where each card's headline actually comes from. Pinned here rather than
-# guessed, because the ten sites do not agree on how they publish it:
+# guessed, because the suite does not publish every figure the same way:
 #
 #   html  the figure is in a stat tile, as <b>N</b><span>LABEL
 #   text  the figure is in a sentence, as "N LABEL" — CultureMech and
@@ -82,19 +81,53 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "CommunityMech":       ("html", "CommunityMech/", "communities"),
     "TaxonMech":           ("html", "TaxonMech/pages/index.html", "taxon records"),
     "TraitMech":           ("html", "TraitMech/pages/index.html", "trait records"),
+    "PathwayMech":         ("record-list", "PathwayMech/pages/browse.html", "record-list"),
     "CellStructureMech":   ("html", "CellStructureMech/pages/index.html", "structure records"),
     "AntibioticMech":      ("html", "AntibioticMech/pages/index.html", "compound records"),
     "NaturalProductMech":  ("text", "NaturalProductMech/pages/index.html", "natural product structures"),
-    # No page CultureMech reliably serves states its canonical count. The app/
-    # landing tile is a legacy hand-typed figure (#86). Its pages/ media index is
-    # built and deployed by the generate-pages workflow, and the branch-based
-    # Pages build replaces that deployment on other pushes to main, so the index
-    # appears and disappears (#175, #180). The README on main is committed and
-    # states the count in its generated corpus snapshot ("6,288 merged records").
+    # CultureMech's generated README remains the stable committed count source.
+    # Its landing page now agrees, after earlier deployment and hand-typed
+    # figure drift (#86, #175, #180). Read only the generated corpus block.
     "CultureMech":         ("text", "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md", "merged records"),
     "ProteinTraitsMech":   ("json", "proteintraitsmech/data/facets.json", "total"),
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
+    # The dated path identifies the frozen source for the at-pin audit. The
+    # nightly reader resolves the newest worklist on main before counting it.
+    "DUFMech":             ("json", "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/interpro-pfam-duf-2026-10-01.json", "families"),
 }
+
+DUF_WORKLISTS = "https://api.github.com/repos/CultureBotAI/DUFMech/contents/data/worklists?ref=main"
+DUF_RAW = "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/"
+
+
+def latest_duf_worklist(fetcher) -> str:
+    """The newest frozen DUF payload on main, independently of the audit pin.
+
+    DUF adds dated snapshots instead of replacing one stable data URL. Reading
+    only the audit's filename would report an old card as current indefinitely.
+    Select from directory metadata, then read only that snapshot's payload.
+    """
+    listing = json.loads(fetcher(DUF_WORKLISTS))
+    if not isinstance(listing, list) or not all(isinstance(item, dict) for item in listing):
+        raise ValueError("DUF worklist directory listing is not an array of files")
+    # GitHub's contents API caps directory listings at 1,000 entries. Never
+    # select a supposedly newest snapshot from a potentially incomplete list.
+    if len(listing) >= 1000:
+        raise ValueError("DUF worklist directory listing may be truncated")
+    files = {item.get("name") for item in listing
+             if item.get("type") == "file" and isinstance(item.get("name"), str)}
+    candidates = []
+    for name in files:
+        match = re.fullmatch(r"interpro-pfam-duf-(\d{4}-\d{2}-\d{2})\.manifest\.json", name)
+        if match:
+            date = datetime.date.fromisoformat(match.group(1))
+            candidates.append((date, name.removesuffix(".manifest.json") + ".json"))
+    if not candidates:
+        raise ValueError("DUF worklist directory has no dated snapshot manifest")
+    _, payload = max(candidates)
+    if payload not in files:
+        raise ValueError(f"newest DUF manifest has no matching payload: {payload}")
+    return DUF_RAW + payload
 
 # Where inside a source the figure must be read, when the source states the same
 # label elsewhere too. CultureMech's README says "merged records" in its prose;
@@ -207,7 +240,8 @@ def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) ->
     """
     fetcher = fetcher or fetch
     try:
-        body = fetcher(source_url(path))
+        url = latest_duf_worklist(fetcher) if mech == "DUFMech" else source_url(path)
+        body = fetcher(url)
     except urllib.error.HTTPError as error:
         # HTTPError is a URLError, so it is caught first. A 4xx is the source
         # telling us it is not there, unless it is asking us to come back later.
@@ -217,6 +251,8 @@ def read_source(mech: str, kind: str, path: str, selector: str, fetcher=None) ->
         # HTTPException covers a body cut short (IncompleteRead) and a garbled
         # status line, which used to end the run with a traceback (#220).
         return "unread", f"fetch failed: {error}"
+    except (ValueError, TypeError, AttributeError) as error:
+        return "CHANGED", f"source selection failed: {error}"
     try:
         value = figure(mech, kind, body, selector)
     except (ValueError, TypeError, AttributeError) as error:
@@ -279,26 +315,21 @@ def audit_entries(audit) -> tuple[dict, str | None]:
 
 
 def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None = None,
-          audit_error: str | None = None, additions=None) -> list[tuple[str, str, str]]:
+          audit_error: str | None = None) -> list[tuple[str, str, str]]:
     """One (status, mech, detail) row per card problem and per source, plus the run-level verdicts.
 
     A malformed audit is an AUDIT row, not an exception, so the other rows still
     print (#250); audit_error carries a problem found while reading the file.
     """
     now = now or datetime.datetime.now(datetime.timezone.utc)
-    additions = additions or {}
-    introductions.validate(additions)
-    uncounted = introductions.uncounted(additions)
     sources = dict(SOURCES)
-    sources.update({name: tuple(entry["source"]) for name, entry in additions.items() if name not in uncounted})
-    rows = [("MARKUP", mech, why) for mech, why in markup_problems(template, uncounted)]
+    rows = [("MARKUP", mech, why) for mech, why in markup_problems(template)]
     if audit_error:
         rows.append(("AUDIT", "-", audit_error))
     entries, problem = audit_entries(audit) if audit is not None else ({}, None)
     if problem:
         rows.append(("AUDIT", "-", problem))
         audit = None
-    entries.update({entry["repo"].lower(): entry for entry in additions.values()})
     age = None
     if audit is not None:  # {} too, so a missing pin time is reported (#257)
         try:
@@ -313,10 +344,7 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
                 rows.append(("AUDIT", "-", f"site_audit.json: pinned_at_utc {audit['pinned_at_utc']} is in the future"))
                 age = None
     stated = card_figures(template)
-    all_names = set(card_names(template))
-    names = all_names - uncounted
-    for mech in sorted(uncounted & all_names):
-        rows.append(("uncounted", mech, additions[mech]["status_label"] + "; excluded from curated-entry totals"))
+    names = set(card_names(template))
     for mech in sorted(names - set(sources)):
         rows.append(("UNCARDED", mech, "card with no entry in SOURCES"))
     for mech, (kind, path, selector) in sorted(sources.items()):
@@ -345,11 +373,10 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
         if status != "value":
             rows.append((status, mech, result))
             continue
-        card_age = now - pin_time(additions[mech]) if mech in additions else age
-        verdict = classify(card, result, card_age)
+        verdict = classify(card, result, age)
         detail = f"{card:>9,}" if verdict == "ok" else f"card {card:,}, site {result:,}"
-        if verdict in ("grew", "STALE") and card_age is not None:
-            detail += f" (+{result - card:,} in the {span(card_age)} since the pins)"
+        if verdict in ("grew", "STALE") and age is not None:
+            detail += f" (+{result - card:,} in the {span(age)} since the pins)"
         rows.append((verdict, mech, detail))
     unread = sum(1 for status, _, _ in rows if status == "unread")
     if unread * 2 > len(sources):
@@ -372,8 +399,7 @@ def main() -> int:
         audit_error = "site_audit.json is missing"
     except (OSError, ValueError) as error:
         audit_error = f"site_audit.json cannot be read: {error}"
-    rows = check(TEMPLATE.read_text(), audit=audit, audit_error=audit_error,
-                 additions=introductions.load())
+    rows = check(TEMPLATE.read_text(), audit=audit, audit_error=audit_error)
     for status, mech, detail in rows:
         print(f"  {status:<9} {mech:<20} {detail}")
     tally: dict[str, int] = {}

@@ -29,10 +29,9 @@ class FleetPageTests(unittest.TestCase):
         self.data = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
         self.stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
         self.census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
-        self.additions = json.loads((ROOT / "_fleet/data/additions.json").read_text())
 
     def render(self):
-        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census, self.additions)
+        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census)
 
     def test_the_capability_table_shows_every_capability_claw_declares(self):
         # #305, #310: one column per catalogue capability, header and rows alike.
@@ -42,7 +41,7 @@ class FleetPageTests(unittest.TestCase):
         catalogue = list(self.snapshot["capability_catalogue"])
         self.assertEqual(len(re.findall(r"<th[ >]", head)), len(catalogue) + 1)
         rows = re.findall(r"<tr>(.*?)</tr>", table[table.index("<tbody>"):], re.S)
-        self.assertEqual(len(rows), len(self.snapshot["mechs"]))
+        self.assertEqual(len(rows), len(roots.ORDER))
         for row in rows:
             self.assertEqual(len(re.findall(r"<td[ >]", row)), len(catalogue))
             self.assertTrue(row.startswith('<th scope="row">'))  # #314
@@ -56,7 +55,7 @@ class FleetPageTests(unittest.TestCase):
     def test_records_tile_equals_the_sum_of_the_cards(self):
         page = self.render()
         total = sum(card_figures(self.template).values())
-        self.assertIn(f"<div><b>{total:,}</b><span>curated entries across the fleet</span></div>", page)
+        self.assertIn(f"<div><b>{total:,}</b><span>records and seed families</span></div>", page)
 
     def test_a_card_without_a_record_count_cannot_be_left_out_of_the_total(self):
         self.template = self.template.replace('<div class="num"><b>625,960</b>', '<div class="num"><b>', 1)
@@ -106,7 +105,7 @@ class FleetPageTests(unittest.TestCase):
         page = self.render()
         self.assertIn('# X-Mech Suite: twelve autonomous knowledge factories', page)
         self.assertIn('## The twelve Mechs', page)
-        self.assertIn('census covers ten of the twelve Mechs', page)
+        self.assertIn('census covers all twelve Mechs', page)
         self.assertIn('<b>12</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
@@ -129,7 +128,7 @@ class FleetPageTests(unittest.TestCase):
         self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
         self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
         page = self.render()
-        self.assertIn("census covers nine of the twelve Mechs", page)
+        self.assertIn("census covers eleven of the twelve Mechs", page)
         self.assertNotIn("all ten Mechs", page)
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
@@ -484,8 +483,7 @@ class CardSourceTests(unittest.TestCase):
         # would otherwise get a card and be silently exempt from checking,
         # which is the failure this whole issue is about.
         import check_cards
-        import additions
-        sources = set(check_cards.SOURCES) | (set(additions.load()) - additions.uncounted(additions.load()))
+        sources = set(check_cards.SOURCES)
         stated = card_figures((ROOT / "_fleet/mechs_template.md").read_text())
         self.assertEqual(sorted(set(stated) - sources), [],
                          "card with no entry in check_cards.SOURCES")
@@ -515,10 +513,9 @@ class CardSourceTests(unittest.TestCase):
                          "https://culturebotai.github.io/TraitMech/pages/index.html")
 
     def test_the_card_parser_reads_every_member(self):
-        snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
         template = (ROOT / "_fleet/mechs_template.md").read_text()
-        self.assertEqual(sorted(card_figures(template)), sorted(snapshot["mechs"]))
-        self.assertEqual(sorted(card_names(template)), sorted(set(snapshot["mechs"]) | {"DUFMech"}))
+        self.assertEqual(sorted(card_figures(template)), sorted(roots.ORDER))
+        self.assertEqual(sorted(card_names(template)), sorted(roots.ORDER))
 
     def test_a_card_without_a_figure_does_not_borrow_its_neighbours(self):
         # The old check_cards regex paired a name with the next figure in the
@@ -823,7 +820,6 @@ class CardCheckTests(unittest.TestCase):
             audit.write_text(json.dumps(self.audit()))
             with mock.patch.object(self.check_cards, "TEMPLATE", template), \
                  mock.patch.object(self.check_cards, "AUDIT", audit), \
-                 mock.patch.object(self.check_cards.introductions, "load", return_value={}), \
                  mock.patch.object(self.check_cards, "fetch", self.fetch), \
                  contextlib.redirect_stdout(io.StringIO()):
                 self.site["AMech"] = 1050
@@ -949,6 +945,27 @@ class SiteAuditBuilderTests(unittest.TestCase):
         self.assertEqual(entry["data_url"], "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json")
         self.assertEqual(entry["data_sha256"], entry["data_sha256_at_pin"])
         self.assertEqual(entry["figure_at_pin"], 3)
+
+    def test_a_repository_json_source_hashes_data_without_inventing_a_browser(self):
+        import hashlib
+        body = b'[{"pfam_id": "PF00001"}, {"pfam_id": "PF00002"}]'
+        path = "data/worklists/interpro-pfam-duf-2026-10-01.json"
+        url = "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/" + path
+        calls = []
+        def fetch(source):
+            calls.append(source)
+            self.assertEqual(source, url)
+            return body
+        stats = dict(self.stats, repo="DUFMech")
+        entry = self.b.build_entry("DUFMech", ("json", url, "families"), self.pin, stats, 2, "Seed families.",
+                                   fetch, lambda source: body if source == path else None)
+        self.assertEqual(calls, [url])
+        self.assertEqual(entry["data_url"], url)
+        self.assertEqual(entry["data_sha256"], hashlib.sha256(body).hexdigest())
+        self.assertEqual(entry["data_sha256"], entry["data_sha256_at_pin"])
+        self.assertEqual(entry["figure_at_pin"], 2)
+        self.assertEqual(entry["site"], "https://github.com/CultureBotAI/DUFMech/blob/main/" + path)
+        self.assertNotIn("site_html_sha256", entry)
 
     def whole_build(self, notes=None, pinned_at="2026-09-25T02:06:03+00:00", now=None):
         """build() over two fake Mechs, one of them with no committed copy."""
@@ -1494,6 +1511,19 @@ class SubsetDeterminismTests(unittest.TestCase):
             base = roots._record_dirs(mech)[0]
             folder = root / mech / base
             folder.mkdir(parents=True, exist_ok=True)
+            if mech == "DUFMech":
+                import hashlib
+                snapshot_id = "interpro-pfam-duf-2026-10-01"
+                rows = [{"pfam_id": "PF00001", "interpro_id": "IPR000001", "name": "Seed family",
+                         "description": "", "unknown_status": "UNKNOWN_CANDIDATE"}]
+                payload = json.dumps(rows).encode()
+                (folder / (snapshot_id + ".json")).write_bytes(payload)
+                manifest = {"snapshot": {"date": "2026-10-01", "id": snapshot_id},
+                            "files": {"json": {"path": snapshot_id + ".json", "bytes": len(payload),
+                                                "sha256": hashlib.sha256(payload).hexdigest()}},
+                            "rows": {"total": 1, "by_unknown_status": {"UNKNOWN_CANDIDATE": 1}}}
+                (folder / (snapshot_id + ".manifest.json")).write_text(json.dumps(manifest))
+                continue
             ident = {"HabitatMech": "habitatmech:0001", "ProteinTraitsMech": "PTM:1"}.get(mech, f"{mech}:1")
             (folder / "rec.yaml").write_text(f"id: {ident}\nlabel: record\nterms: {self.SHARED}\n")
         pages = root / "HabitatMech/pages/habitats"

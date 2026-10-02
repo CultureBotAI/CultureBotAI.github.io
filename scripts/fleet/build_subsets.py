@@ -14,7 +14,7 @@ import json
 import re
 import urllib.parse
 
-from roots import CITATION, ORDER, mech_root, read_record, record_paths, revision, unchanged
+from roots import CITATION, ORDER, mech_root, record_documents, record_paths, revision, unchanged
 
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
@@ -38,6 +38,10 @@ SITE_BASE={
  # Every taxon renders at taxon.html?id=<identifier>; the files under
  # pages/taxa/ are redirects kept for old URLs.
  "TaxonMech": SITE+"TaxonMech/pages/taxon.html?id=",
+ "PathwayMech": SITE+"PathwayMech/pages/records/",
+ # DUF's seed records identify Pfam families; this is the family browser,
+ # while the card and audit link the exact DUF worklist snapshot.
+ "DUFMech": "https://www.ebi.ac.uk/interpro/entry/pfam/",
 }
 # Filled by prepare(). mech_root() touches the filesystem and exits on a
 # missing checkout, so resolving these at import made the module unimportable
@@ -59,10 +63,12 @@ TERM_SPACE={"RHEA-COMP":"RHEA-COMP","GENERIC":"RHEA-COMP","POLYMER":"RHEA-COMP",
 COLUMN_OF={"RHEA-COMP":"RHEA","PDB-CCD":"PDB"}
 def column(term): p=term.split(":")[0]; return COLUMN_OF.get(p,p)
 rx=re.compile(r"\b(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|GENERIC|POLYMER|PDB|BTO|GTDB|mibig|MIBiG|MIBIG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
+NORM.update({"pfam":"Pfam", "Interpro":"InterPro", "pdb":"PDB", "swiss":"UniProt", "SWISS":"UniProt", "UnioProtKB":"UniProt"})
+rx=re.compile(rx.pattern.replace("CHEBI|", "pfam|Interpro|pdb|swiss|SWISS|UnioProtKB|CHEBI|", 1))
 STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
-AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
+AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["DUFMech","CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
 # Fields whose values are prose. A note that rejects a term, a change log naming
 # the grounding it replaced, a definition citing a neighbouring concept or a
 # quoted source snippet mentions an identifier without the record citing it, so
@@ -180,12 +186,13 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):-5]+".html")
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
     if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
+    if m=="PathwayMech": return urllib.parse.quote(doc_id.replace(":", "_").replace("/", "_")+".html") if doc_id else None
+    if m=="DUFMech": return doc_id.removeprefix("Pfam:")+"/" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None
     return None
 def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
     """Return per-mech index: term -> [(slug,label)], prefix -> (count, first refs), term labels votes."""
     cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); own={}; nfiles=0; nolink=0
-    for f in record_paths(m):
-        txt=read_record(f)
+    for f,txt in record_documents(m):
         nfiles+=1
         head=txt[:4000]
         mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M); doc_id=mid.group(1).strip("'\"") if mid else ""
@@ -280,8 +287,7 @@ def main():
         shared=set(idx[a]["terms"])&set(idx[b]["terms"])
         # An edge counts shared *concepts*, not shared bibliography. roots.CITATION
         # says why: every Mech cites papers, so counting those "would say only
-        # that". build_data.py already keeps them out of the heatmap ordering and
-        # the cell indexes below already skip them; the edge weight was the one
+        # that". The cell indexes below already skip them; the edge weight was the one
         # place that still counted them, because this line read
         # `!="DOI" or True` and the `or True` made it a no-op (#62).
         shared={t for t in shared if t.split(":")[0] not in CITATION}
