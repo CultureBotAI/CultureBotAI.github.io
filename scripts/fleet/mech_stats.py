@@ -1,28 +1,32 @@
-"""Count reviewed records per Mech and merged pull requests per repository.
+"""Count reviewed records per Mech and merged pull requests across the suite.
 
 Run from the site root: `python3 scripts/fleet/mech_stats.py`. Writes
 _fleet/data/mech_stats.json, which assemble_page.py substitutes into the stat
 strip and the Mech cards. Needs the checkouts (see roots.py) and a `gh` that
 can read the CultureBotAI repositories; pass --no-prs to recount records only
-and keep the pull-request numbers already on file.
+and keep the pull-request numbers already on file. A records-only recount
+requires cached counts for every Mech, CLAW and the website.
 
 Two facts per Mech, and they come from different places:
 
 - Reviewed records are counted here, from the same record files the rest of the
   pipeline reads. Whether a Mech tracks review at all is decided by its LinkML
-  schema, not by the values its records happen to carry: six declare a status
-  slot whose enum permits REVIEWED, and for those a count of zero is a real
-  zero. MediaIngredientMech and CultureMech do have a mapping_status, but its
+  schema, not by the values its records happen to carry: where a status slot's
+  enum permits REVIEWED, a count of zero is a real zero. MediaIngredientMech
+  and CultureMech do have a mapping_status, but its
   enum runs UNMAPPED to AMBIGUOUS and never reaches REVIEWED, so it grades
   mapping completeness rather than review; CommunityMech has no such slot.
-  Those three are recorded as null rather than zero, because "nobody has
-  reviewed one" and "this Mech does not track review" are different claims and
-  the page should not make the second look like the first.
+  Mechs without a REVIEWED-bearing status slot are recorded as null rather
+  than zero, because "nobody has reviewed one" and "this Mech does not track
+  review" are different claims and the page should not make the second look
+  like the first.
 - Merged pull requests are asked of GitHub, since the local checkout knows only
   the branch it is on. The count is every merged pull request in the
   repository's history, curation and automation alike: seeding runs,
   regeneration and dependency updates land the same way human curation does.
-  It measures development activity on a Mech, not how much of it was human.
+  It measures repository development activity, not how much of it was human.
+  CLAW and the website contribute to the total in separate repository rows;
+  they do not add scientific records or change any Mech card's PR count.
 """
 from __future__ import annotations
 
@@ -53,6 +57,9 @@ OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
 # from a lowercase repo, and GitHub redirects the mixed-case form, which the
 # search API does not follow.
 GH_REPO = {"ProteinTraitsMech": "proteintraitsmech"}
+
+# Development activity only: these are not scientific Mechs or record corpora.
+ADDITIONAL_REPOS = ("culturebotai-claw", "CultureBotAI.github.io")
 
 # Site coverage and canonical CLAW admission are separate facts.
 MEMBERS = ORDER
@@ -129,16 +136,56 @@ def merged_prs(mech: str) -> int:
     return int(out.stdout.strip())
 
 
+def cached_prs() -> dict[str, int]:
+    """Read every required cached PR count without falling back to GitHub."""
+    try:
+        with open(OUT, encoding="utf-8") as handle:
+            cached = json.load(handle)
+    except (OSError, ValueError) as exc:
+        raise SystemExit(f"--no-prs requires cached PR counts in {OUT}: {exc}") from exc
+    if not isinstance(cached, dict):
+        raise SystemExit("--no-prs requires a statistics object with cached PR counts")
+
+    counts = {}
+    for field, key, required in (("mechs", "mech", MEMBERS),
+                                 ("additional_repositories", "repo", ADDITIONAL_REPOS)):
+        rows = cached.get(field, [])
+        if not isinstance(rows, list):
+            raise SystemExit(f"--no-prs requires a cached {field} list")
+        for row in rows:
+            if not isinstance(row, dict):
+                raise SystemExit(f"--no-prs found an invalid cached {field} row")
+            name = row.get(key)
+            if name not in required:
+                continue
+            expected_repo = GH_REPO.get(name, name)
+            if row.get("repo") != expected_repo:
+                raise SystemExit(
+                    f"--no-prs requires cached repository {expected_repo} for {name}"
+                )
+            if name in counts:
+                raise SystemExit(f"--no-prs found duplicate cached PR counts for {name}")
+            value = row.get("merged_prs")
+            if type(value) is not int or value < 0:
+                raise SystemExit(f"--no-prs requires a nonnegative cached merged_prs integer for {name}")
+            counts[name] = value
+    missing = [name for name in (*MEMBERS, *ADDITIONAL_REPOS) if name not in counts]
+    if missing:
+        raise SystemExit(
+            "--no-prs is missing cached PR counts for " + ", ".join(missing)
+            + "; run mech_stats.py without --no-prs to collect them"
+        )
+    return counts
+
+
 def main() -> None:
     keep_prs = "--no-prs" in sys.argv
-    old = {}
-    if keep_prs and os.path.exists(OUT):
-        old = {m["mech"]: m for m in json.load(open(OUT))["mechs"]}
+    old = cached_prs() if keep_prs else {}
 
     mechs = []
     for name in MEMBERS:
         records, reviewed, field, rev = review_census(name)
-        prs = old[name]["merged_prs"] if keep_prs and name in old else merged_prs(name)
+        prs = old[name] if keep_prs else merged_prs(name)
         # The revision is derived here rather than typed into the output: the
         # previous refresh added source_revision by hand, so rerunning this
         # script would have silently dropped it.
@@ -148,13 +195,21 @@ def main() -> None:
         shown = "not tracked" if reviewed is None else f"{reviewed:,} reviewed"
         print(f"{name:<22} {records:>8,} records  {shown:<16} {prs:>5,} merged PRs")
 
+    additional = []
+    for repo in ADDITIONAL_REPOS:
+        prs = old[repo] if keep_prs else merged_prs(repo)
+        additional.append({"repo": repo, "merged_prs": prs})
+        print(f"{repo:<22} {'development activity only':<34} {prs:>5,} merged PRs")
+
     blob = {
         "as_of": _dt.date.today().isoformat(),
-        "merged_prs_total": sum(m["merged_prs"] for m in mechs),
+        "merged_prs_total": sum(m["merged_prs"] for m in mechs + additional),
         "mechs": mechs,
+        "additional_repositories": additional,
     }
-    json.dump(blob, open(OUT, "w"), indent=1, ensure_ascii=False)
-    print(f"\n{blob['merged_prs_total']:,} merged PRs across {len(mechs)} Mechs -> {OUT}")
+    with open(OUT, "w", encoding="utf-8") as handle:
+        json.dump(blob, handle, indent=1, ensure_ascii=False)
+    print(f"\n{blob['merged_prs_total']:,} merged PRs across {len(mechs)} Mechs, CLAW and the website -> {OUT}")
 
 
 if __name__ == "__main__":

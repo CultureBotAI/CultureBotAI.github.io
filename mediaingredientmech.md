@@ -11,7 +11,7 @@ permalink: /mediaingredientmech/
 
 **MediaIngredientMech** is an autonomous knowledge factory for culture-media ingredient identity and ontology mappings, with LLM-assisted curation and human oversight. It maintains ingredient records, synonyms, mapping quality, environmental context, and an audit trail for curation decisions. [Repository overview](https://github.com/CultureBotAI/MediaIngredientMech/blob/7a65c4e9173efc435b77c300b5f1fedc71bc5297/README.md).
 
-The published browser contains **2,953 ingredients: 2,611 MAPPED, 261 UNMAPPED, 80 REJECTED, and 1 AMBIGUOUS**, giving **88% mapped coverage** after rounding. These figures were checked on October 2, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
+The published browser contains **2,953 ingredients: 2,611 MAPPED, 261 UNMAPPED, 80 REJECTED, and 1 AMBIGUOUS**, giving **88% mapped coverage** after rounding. These figures were checked on October 3, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
 
 ## Explore the Published Site
 
