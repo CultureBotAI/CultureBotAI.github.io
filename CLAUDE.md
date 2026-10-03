@@ -46,7 +46,7 @@ merge only with the maintainer's go-ahead. Changes merged to `main` deploy.
 - `publications.md` - papers, preprints and presentations; the canonical numbered bibliography
 - `kg-microbe.md` - the kg-microbe knowledge graph
 - `marcin-joachimiak.md` - PI profile
-- `culturemech.md` - CultureMech: 15,878 normalized culture-media recipes deduplicated into 6,288 canonical media
+- `culturemech.md` - CultureMech: 15,910 normalized culture-media recipes deduplicated into 6,320 canonical media
 - `mediaingredientmech.md` - MediaIngredientMech: LLM-assisted ingredient curation and ontology mapping
 - `communitymech.md` - CommunityMech: LinkML-based microbial community modelling
 - `microgrowagents.md` - MicroGrowAgents, the multi-agent media-design system
@@ -120,10 +120,10 @@ Sources, refreshed differently:
   committed README on main, retained as the stable count source after earlier
   browser deployment drift (see `SOURCES`; #226), or DUFMech's frozen worklist.
 
-Last full data refresh was 2026-10-01, pinned at 22:44 UTC. All twelve Mechs
+Last full data refresh was 2026-10-02, pinned at 19:05 UTC. All twelve Mechs
 participate in the census, overlap assets and repository statistics, including
-PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 922
-records and CellStructureMech 781 at those pins. TaxonMech joined the census in
+PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 946
+records and CellStructureMech 810 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
 committed evidence as described in `_fleet/README.md`. CLAW still declares only
 eleven members, so DUFMech's capability row remains explicitly undeclared.

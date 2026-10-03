@@ -76,13 +76,24 @@ class FleetPageTests(unittest.TestCase):
             self.render()
 
     def test_a_mech_that_cannot_record_review_shows_only_its_pull_requests(self):
-        page = self.render()
         by_name = {m["mech"]: m for m in self.stats["mechs"]}
         untracked = next(m for m in by_name.values() if m["reviewed"] is None)
         tracked = next(m for m in by_name.values() if m["reviewed"] is not None)
-        self.assertIn(f'<p class="prov">{untracked["merged_prs"]:,} merged PRs</p>', page)
-        self.assertIn(f'{tracked["reviewed"]:,} reviewed \u00b7 {tracked["merged_prs"]:,} merged PRs', page)
-        self.assertNotIn("0 reviewed \u00b7 " + f'{untracked["merged_prs"]:,}', page)
+        # PR counts can coincide across repositories. A page-wide substring
+        # search also mistakes "80 reviewed" for "0 reviewed" on another card.
+        tracked["merged_prs"] = untracked["merged_prs"]
+        self.stats["merged_prs_total"] = sum(m["merged_prs"] for m in by_name.values())
+        for reviewed in (0, 80):
+            with self.subTest(reviewed=reviewed):
+                tracked["reviewed"] = reviewed
+                cards = dict(re.findall(r'<article\b[^>]*\bdata-mech="([^"]+)"[^>]*>(.*?)</article>',
+                                        self.render(), re.S))
+                for mech in (untracked, tracked):
+                    expected = f'{mech["merged_prs"]:,} merged PRs'
+                    if mech["reviewed"] is not None:
+                        expected = f'{mech["reviewed"]:,} reviewed \u00b7 ' + expected
+                    lines = re.findall(r'<p class="prov">(.*?)</p>', cards[mech["mech"]], re.S)
+                    self.assertEqual(lines, [expected])
 
     def test_published_page_contains_both_new_members_with_distinct_capabilities(self):
         page = self.render()

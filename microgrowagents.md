@@ -97,7 +97,7 @@ Organism-Specific Media Recommendation
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
-- **[CultureMech](/culturemech/)** - Autonomous knowledge factory for microbial culture media (6,288 canonical media)
+- **[CultureMech](/culturemech/)** - Autonomous knowledge factory for microbial culture media (6,320 canonical media)
 - **[MicroGrowLink](/resources/#microgrowlink)** - Graph-based growth media prediction
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
