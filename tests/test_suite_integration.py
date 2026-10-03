@@ -61,6 +61,70 @@ class SuiteIntegrationTests(unittest.TestCase):
             self.assertIsNone(check_cards.published("record-list", '<ul class="record-list">' + body + '</ul>', "record-list"))
         self.assertIsNone(check_cards.published("record-list", '<ul class="changed"></ul>', "record-list"))
 
+    def test_record_list_accepts_the_pathway_browser_id_attribute(self):
+        # PathwayMech added this id for browser filtering without changing its records.
+        body = ('<ul class="record-list" id="pathway-list">'
+                '<li><a href="records/a.html"><strong>A</strong><span>Edges</span></a></li>'
+                '<li><a href="records/b.html">B</a></li></ul>')
+        result = check_cards.read_source("PathwayMech", *check_cards.SOURCES["PathwayMech"],
+                                         fetcher=lambda _: body)
+        self.assertEqual(result, ("value", 2))
+
+    def test_record_list_accepts_ordinary_attributes_and_class_tokens(self):
+        item = ('<li data-record="a"><a title="A > B" href=\'records/a.html\'>'
+                '<strong>A</strong><br><span>Edges</span></a></li>')
+        for opening in ('<ul class="record-list">',
+                        '<ul id="pathway-list" class="record-list" aria-label="Pathways">',
+                        "<ul class='filtered record-list compact' id='pathway-list'>",
+                        '<UL id=pathway-list CLASS=record-list>',
+                        '<ul data-class="unrelated" title="A > B" class="record-list">'):
+            with self.subTest(opening=opening):
+                self.assertEqual(check_cards.published("record-list", opening + item + '</ul>', "record-list"), 1)
+        self.assertEqual(check_cards.published("record-list", '<ul class="record-list"></ul>', "record-list"), 0)
+
+    def test_record_list_does_not_confuse_attribute_names_or_partial_classes(self):
+        item = '<li><a href="records/a.html">A</a></li>'
+        for opening in ('<ul data-class="record-list">', '<ul class="not-record-list">',
+                        '<ul data-class="record-list" class="other">'):
+            with self.subTest(opening=opening):
+                self.assertIsNone(check_cards.published("record-list", opening + item + '</ul>', "record-list"))
+        bad_link = '<ul class="record-list"><li><a data-href="records/a.html">A</a></li></ul>'
+        self.assertIsNone(check_cards.published("record-list", bad_link, "record-list"))
+
+    def test_record_list_rejects_duplicate_lists_and_ambiguous_attributes(self):
+        item = '<li><a href="records/a.html">A</a></li>'
+        first = '<ul class="record-list">' + item + '</ul>'
+        second = '<ul id="pathway-list" class="record-list">' + item + '</ul>'
+        for body in (first + second,
+                     '<ul class="other" class="record-list">' + item + '</ul>',
+                     '<ul class="record-list"><li><a href="records/a.html" href="records/b.html">A</a></li></ul>'):
+            with self.subTest(body=body):
+                self.assertIsNone(check_cards.published("record-list", body, "record-list"))
+
+    def test_record_list_requires_one_unique_record_link_in_every_item(self):
+        for items in ('<li><a href="records/a.html">A</a></li><li><a href="records/&#97;.html">A again</a></li>',
+                      '<li>No link</li><li><a href="records/a.html">A</a><a href="records/b.html">B</a></li>',
+                      '<li><a href="records/a.html">A</a><a href="other.html">Other</a></li>'):
+            with self.subTest(items=items):
+                self.assertIsNone(check_cards.published("record-list", '<ul class="record-list">' + items + '</ul>', "record-list"))
+
+    def test_record_list_rejects_incomplete_or_nested_markup(self):
+        for body in ('<ul class="record-list"><li><a href="records/a.html">A</a></li>',
+                     '<ul class="record-list"><li><a href="records/a.html">A</li></ul>',
+                     '<ul class="record-list"><li><a href="records/a.html">A</a></ul>',
+                     '<ul class="record-list"><ul><li><a href="records/a.html">A</a></li></ul></ul>',
+                     '<ul class="record-list"/>',
+                     '<ul class="record-list"><li><a href="records/a.html"/></li></ul>'):
+            with self.subTest(body=body):
+                self.assertIsNone(check_cards.published("record-list", body, "record-list"))
+
+    def test_record_list_ignores_comment_script_and_outside_link_decoys(self):
+        decoy = '<ul class="record-list"><li><a href="records/decoy.html">Decoy</a></li></ul>'
+        outside = '<a href="records/outside.html">Outside</a>'
+        real = '<ul class="record-list"><li><a href="records/a.html">A</a></li></ul>'
+        body = '<!--' + decoy + '--><script>const example = \'' + decoy + '\';</script>' + outside + real
+        self.assertEqual(check_cards.published("record-list", body, "record-list"), 1)
+
     def test_duf_worklist_card_uses_the_same_pin_validation_as_other_cards(self):
         now = datetime.datetime.now(datetime.timezone.utc)
         audit = {"pinned_at_utc": (now - datetime.timedelta(days=2)).isoformat(),
