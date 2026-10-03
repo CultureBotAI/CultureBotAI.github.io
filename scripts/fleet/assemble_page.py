@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 
 from card_markup import card_figures, card_names, markup_problems
+from mech_stats import ADDITIONAL_REPOS, GH_REPO
 from refresh_manifest import validate
 from roots import ORDER
 
@@ -114,6 +115,27 @@ def fleet_records(template):
     return figures
 
 
+def pr_activity(stats):
+    """Validate the distinct repositories behind the displayed activity total."""
+    extra = stats.get("additional_repositories", [])
+    if (len(extra) != len(ADDITIONAL_REPOS)
+            or {row["repo"] for row in extra} != set(ADDITIONAL_REPOS)):
+        raise ValueError("PR activity must include CLAW and the project website exactly once")
+    rows = stats["mechs"] + extra
+    if any(row["repo"] != GH_REPO.get(row["mech"], row["mech"]) for row in stats["mechs"]):
+        raise ValueError("PR activity repository must match its Mech")
+    repos = [row["repo"] for row in rows]
+    expected = {GH_REPO.get(row["mech"], row["mech"]) for row in stats["mechs"]} | set(ADDITIONAL_REPOS)
+    if len(set(repos)) != len(repos) or set(repos) != expected:
+        raise ValueError("PR activity must count each repository exactly once")
+    if any(type(row["merged_prs"]) is not int or row["merged_prs"] < 0 for row in rows):
+        raise ValueError("PR activity counts must be nonnegative integers")
+    total = sum(row["merged_prs"] for row in rows)
+    if type(stats["merged_prs_total"]) is not int or stats["merged_prs_total"] != total:
+        raise ValueError("PR activity total must equal the sum across all repositories")
+    return total, len(repos)
+
+
 def assemble(template, fragment, data, snapshot, stats, census):
     validate(snapshot)
     members = set(snapshot["mechs"])
@@ -155,6 +177,7 @@ def assemble(template, fragment, data, snapshot, stats, census):
     counted = {m["mech"] for m in stats["mechs"]}
     if counted != names or len(stats["mechs"]) != len(names):
         raise ValueError("Mech stats must cover every suite member exactly once")
+    prs_total, pr_repo_count = pr_activity(stats)
     counts = fleet_records(template)
     if set(counts) != names:
         raise ValueError("Every counted Mech card must carry a record count")
@@ -177,7 +200,8 @@ def assemble(template, fragment, data, snapshot, stats, census):
         # mtime: git neither records nor restores those, so a fresh clone would
         # date the census to the day somebody cloned it.
         "<!--FLEET_CENSUS_DATE-->": datetime.date.fromisoformat(as_of).strftime("%-d %B %Y"),
-        "<!--FLEET_PRS_TOTAL-->": f"{stats['merged_prs_total']:,}",
+        "<!--FLEET_PRS_TOTAL-->": f"{prs_total:,}",
+        "<!--FLEET_PR_REPO_COUNT-->": str(pr_repo_count),
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
         "<!--FLEET_MANIFEST_COUNT_WORD-->": number_word(len(members)),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',

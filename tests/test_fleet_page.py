@@ -15,7 +15,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from assemble_page import assemble, capability_rows, number_word, script_json
+from assemble_page import assemble, capability_rows, number_word, pr_activity, script_json
 from card_markup import card_figures, card_names
 from refresh_manifest import ARTIFACT_PATH, MANIFEST_PATH, read_canonical, semantic, validate
 import roots
@@ -82,7 +82,8 @@ class FleetPageTests(unittest.TestCase):
         # PR counts can coincide across repositories. A page-wide substring
         # search also mistakes "80 reviewed" for "0 reviewed" on another card.
         tracked["merged_prs"] = untracked["merged_prs"]
-        self.stats["merged_prs_total"] = sum(m["merged_prs"] for m in by_name.values())
+        self.stats["merged_prs_total"] = sum(m["merged_prs"] for m in by_name.values()) + sum(
+            r["merged_prs"] for r in self.stats["additional_repositories"])
         for reviewed in (0, 80):
             with self.subTest(reviewed=reviewed):
                 tracked["reviewed"] = reviewed
@@ -94,6 +95,50 @@ class FleetPageTests(unittest.TestCase):
                         expected = f'{mech["reviewed"]:,} reviewed \u00b7 ' + expected
                     lines = re.findall(r'<p class="prov">(.*?)</p>', cards[mech["mech"]], re.S)
                     self.assertEqual(lines, [expected])
+
+    def test_pr_total_includes_claw_and_site_without_changing_mech_cards(self):
+        self.stats["additional_repositories"] = [
+            {"repo": "culturebotai-claw", "merged_prs": 101},
+            {"repo": "CultureBotAI.github.io", "merged_prs": 202},
+        ]
+        mech_total = sum(m["merged_prs"] for m in self.stats["mechs"])
+        self.stats["merged_prs_total"] = mech_total + 303
+        page = self.render()
+        self.assertIn(f'<b>{mech_total + 303:,}</b><span>Merged PRs</span>', page)
+        self.assertIn('Across 14 repositories: the twelve Mechs, CLAW and this website', page)
+        self.assertIn('<b>1</b><span>orchestrator (claw)</span>', page)
+        self.assertIn('<b>1</b><span>project website</span>', page)
+        self.assertEqual(len(card_names(page)), 12)
+        self.assertNotIn('data-mech="culturebotai-claw"', page)
+        self.assertNotIn('data-mech="CultureBotAI.github.io"', page)
+
+    def test_pr_activity_rejects_missing_duplicate_and_inconsistent_counts(self):
+        valid = {"mechs": [{"mech": "TraitMech", "repo": "TraitMech", "merged_prs": 10}],
+                 "additional_repositories": [
+                     {"repo": "culturebotai-claw", "merged_prs": 20},
+                     {"repo": "CultureBotAI.github.io", "merged_prs": 30}],
+                 "merged_prs_total": 60}
+        self.assertEqual(pr_activity(valid), (60, 3))
+        for mutation in ("missing", "duplicate", "wrong_repo", "wrong_total", "negative", "boolean"):
+            with self.subTest(mutation=mutation):
+                stats = deepcopy(valid)
+                if mutation == "missing": stats["additional_repositories"].pop()
+                elif mutation == "duplicate": stats["additional_repositories"].append(stats["additional_repositories"][0])
+                elif mutation == "wrong_repo": stats["mechs"][0]["repo"] = "culturebotai-claw"
+                elif mutation == "wrong_total": stats["merged_prs_total"] = 10
+                elif mutation == "negative": stats["additional_repositories"][0]["merged_prs"] = -1
+                elif mutation == "boolean": stats["additional_repositories"][0]["merged_prs"] = True
+                with self.assertRaisesRegex(ValueError, "PR activity"):
+                    pr_activity(stats)
+
+        swapped = deepcopy(valid)
+        swapped["mechs"] = [
+            {"mech": "TraitMech", "repo": "AntibioticMech", "merged_prs": 10},
+            {"mech": "AntibioticMech", "repo": "TraitMech", "merged_prs": 40},
+        ]
+        swapped["merged_prs_total"] = 100
+        with self.assertRaisesRegex(ValueError, "repository must match"):
+            pr_activity(swapped)
 
     def test_published_page_contains_both_new_members_with_distinct_capabilities(self):
         page = self.render()

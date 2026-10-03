@@ -18,7 +18,7 @@ permalink: /culturemech/
 - **[Direct media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct)** — explore the medium nodes' own KG-Microbe embeddings.
 - **[Graph layout](https://culturebotai.github.io/CultureMech/app/umap_graph.html)** — another view of media similarity.
 
-Counts were checked on October 2, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,910 normalized records from 6,320 merged records.
+Counts were checked on October 3, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,910 normalized records from 6,320 merged records.
 
 ## Data Architecture
 

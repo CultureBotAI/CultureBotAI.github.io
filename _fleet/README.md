@@ -19,7 +19,7 @@
 
 The site currently lists twelve Mechs. CLAW's manifest lists eleven, including
 PathwayMech; DUFMech is listed separately without a manifest membership declaration. The
-October 2 vocabulary census, shared-term assets and repository statistics cover
+October 3 vocabulary census, shared-term assets and repository statistics cover
 all twelve Mechs. DUFMech's contribution is a measured seed worklist, labeled
 as families rather than curated mechanism records. Its capability row reports
 undeclared values without inventing CLAW membership.
@@ -157,13 +157,13 @@ credited to it in the file that implements it. Rules that have come up:
 The September 28 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators found 30 arrows among the original
 ten Mechs. PathwayMech adds an evidenced schema reference from TaxonMech; the
-October 2 refresh checks that reference at the common refresh pin. DUFMech's
+October 3 refresh checks that reference at the common refresh pin. DUFMech's
 shared family identifiers produce vocabulary chords, not an invented direct
 reference or kg-microbe ingestion claim.
 
 ## Vocabulary census updates
 
-The October 2, 2026 census measures all twelve Mechs. PathwayMech contributes
+The October 3, 2026 census measures all twelve Mechs. PathwayMech contributes
 152 pathway records. DUFMech contributes 6,532 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
 A worklist row is one measured family; the JSON container and its redundant TSV
@@ -305,15 +305,20 @@ defines the namespace and the same model/reaction identifiers carried by
 PathwayMech. The identifier namespace is counted separately from ontology
 terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-## Published-site refresh (October 2, 2026)
+## Published-site refresh (October 3, 2026)
 
 All twelve Mechs were pinned at their published `main` revisions at
-2026-10-02 19:05 UTC. The census, shared-term subsets, repository statistics and
+2026-10-03 06:03 UTC. The census, shared-term subsets, repository statistics and
 `data/site_audit.json` record the same revisions; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
 Record statistics use those pinned commits. Merged-PR totals are all-time GitHub
 counts queried during the refresh, rather than counts cut off at the pin time.
+The headline PR total includes all twelve Mechs, `culturebotai-claw` and
+`CultureBotAI.github.io`. The two supporting repositories are stored in
+`mech_stats.json` under `additional_repositories`; each Mech card retains its
+own PR count. The stat strip lists one orchestrator and one project website
+alongside the twelve knowledge factories.
 `.claude/skills/update-xmech-page/` documents the refresh procedure.
 
 `data/site_audit.json` records each pinned revision, card source URL, count at the
@@ -330,10 +335,11 @@ families to preserve that distinction. PathwayMech contributes 152 records,
 4,690 mechanistic edges and 15 taxa. Its KGX and SSSOM products are available in
 the repository; their existence does not establish ingestion into kg-microbe.
 
-CellStructureMech's pin contains 810 records, 728 GO-grounded, and TraitMech's
-contains 946 records with 50.4% embedding coverage and 702 causal graphs.
-NaturalProductMech records 809 evidence-supported producer claims, 138
-biosynthetic pathways and 186 causal graphs; its 3,115-record total is unchanged.
+CellStructureMech's pin contains 826 records, 742 GO-grounded, and TraitMech's
+contains 959 records with 49.7% embedding coverage and 715 causal graphs.
+NaturalProductMech records 809 evidence-supported producer claims; 155 records
+describe biosynthetic pathways and 205 contain causal graphs (289 individual
+graphs). Its 3,115-record total is unchanged.
 Live sites may advance after the pins;
 `check_cards.py` applies its documented grace window before declaring them stale.
 

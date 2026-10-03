@@ -51,6 +51,7 @@ from __future__ import annotations
 
 import datetime
 import http.client
+from html.parser import HTMLParser
 import json
 import re
 import sys
@@ -176,16 +177,77 @@ def region(body: str, markers: tuple[str, str]) -> str | None:
     return inside if found else None
 
 
+class RecordListParser(HTMLParser):
+    """Count one complete record list, allowing ordinary HTML attributes."""
+
+    VOID = frozenset("area base br col embed hr img input link meta param source track wbr".split())
+
+    def __init__(self, selector: str):
+        super().__init__(convert_charrefs=True)
+        self.selector = selector
+        self.lists = 0
+        self.stack: list[str] = []
+        self.links: list[str] = []
+        self.item_links = 0
+        self.invalid = False
+
+    def handle_starttag(self, tag, attrs):
+        classes = [value for name, value in attrs if name == "class"]
+        if tag == "ul" and any(self.selector in (value or "").split() for value in classes):
+            self.lists += 1
+            if len(classes) != 1 or self.stack:
+                self.invalid = True
+            if not self.stack:
+                self.stack.append(tag)
+                return
+        if not self.stack:
+            return  # Links and unrelated lists outside the selected list do not count.
+        if tag == "ul":
+            self.invalid = True  # Nested lists are not the flat record browser.
+        elif tag == "li":
+            if self.stack != ["ul"]:
+                self.invalid = True
+            self.item_links = 0
+        elif tag == "a":
+            hrefs = [value for name, value in attrs if name == "href"]
+            if self.stack != ["ul", "li"] or len(hrefs) != 1 or not re.fullmatch(
+                    r'records/[^"<>]+\.html', hrefs[0] or ""):
+                self.invalid = True
+            else:
+                self.links.append(hrefs[0])
+            self.item_links += 1
+        if tag not in self.VOID:
+            self.stack.append(tag)
+
+    def handle_endtag(self, tag):
+        if not self.stack or tag in self.VOID:
+            return
+        if self.stack[-1] != tag:
+            self.invalid = True
+            return
+        if tag == "li" and self.item_links != 1:
+            self.invalid = True
+        self.stack.pop()
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+        if self.stack and tag not in self.VOID:
+            self.invalid = True  # A self-closing list, item or anchor is incomplete HTML.
+        self.handle_endtag(tag)
+
+    def count(self) -> int | None:
+        if self.invalid or self.lists != 1 or self.stack or len(self.links) != len(set(self.links)):
+            return None
+        return len(self.links)
+
+
 def published(kind: str, body: str, selector: str) -> int | None:
     """The figure the site publishes, or None when the shape has changed."""
     if kind == "record-list":
-        lists = re.findall(r'<ul class="' + re.escape(selector) + r'">(.*?)</ul>', body, re.S)
-        if len(lists) != 1:
-            return None
-        links = re.findall(r'<li>\s*<a href="(records/[^"<>]+\.html)"', lists[0])
-        if len(links) != len(re.findall(r'<li\b', lists[0])) or len(links) != len(set(links)):
-            return None
-        return len(links)
+        parser = RecordListParser(selector)
+        parser.feed(body)
+        parser.close()
+        return parser.count()
     if kind == "json":
         document = json.loads(body)
         # ingredients.json has shipped as a bare list in some releases. Test the
