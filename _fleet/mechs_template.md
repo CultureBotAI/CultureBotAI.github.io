@@ -129,6 +129,25 @@ Alongside record browsing, the Mechs publish complementary ways to explore their
 - **Chemical structures:** compare compounds in the [AntibioticMech chemical map](https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html) and the [NaturalProductMech structure map](https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html). Both Mechs also offer a corpus map that places compounds by their record text rather than their structure: [AntibioticMech](https://culturebotai.github.io/AntibioticMech/pages/map.html) and [NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/pages/map.html).
 - **Habitat meaning:** HabitatMech offers a [semantic text map](https://culturebotai.github.io/HabitatMech/pages/text-map/) alongside its ontology-grounded record browser.
 
+### Website features
+
+The capability table further down lists the shared contracts each Mech declares to CLAW. This table shows what a reader can do on each Mech's own website: <!--FLEET_SITE_FEATURE_COUNT_WORD--> features across the <!--FLEET_SITE_COUNT_WORD--> published sites, tested on the live sites on <!--FLEET_SITE_DATE--> in a headless browser. The tests searched for known identifiers and labels, applied filters, carried a theme choice from page to page, measured pages at a 390-pixel width and made data requests fail on purpose. Each verdict was tested by one AI agent, re-tested independently by a second and settled by a third where the two disagreed; a final pass compared each column across the sites. A feature counts as present only if it worked as described, so a search that lists only its first 20 matches, or cannot find record identifiers, counts as partial. Some features do not apply everywhere: a page that embeds its data makes no data request that could fail, and DUFMech's worklist has no schema to document. Hover a marker for its evidence, or open the list below the table. A gap marks a possible improvement to a website, not a problem with the Mech's records. These are the live sites rather than the pinned revisions used elsewhere on this page, so a redeployment can change a verdict.
+
+<div class="fleet-caps-wrap" tabindex="0" role="region" aria-label="Mech website features, one column per feature">
+<table class="fleet-site">
+  <thead><!--FLEET_SITE_HEAD--></thead>
+  <tbody>
+<!--FLEET_SITE_ROWS-->
+  </tbody>
+  <tfoot><!--FLEET_SITE_TOTALS--></tfoot>
+</table>
+</div>
+<div class="fleet-caps-key"><!--FLEET_SITE_KEY--></div>
+<details class="fleet-site-notes">
+<summary>Evidence for each verdict</summary>
+<!--FLEET_SITE_EVIDENCE-->
+</details>
+
 
 ## How the Mechs reference each other
 

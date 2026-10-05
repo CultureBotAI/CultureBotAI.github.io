@@ -19,7 +19,8 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.template = (ROOT / "_fleet/mechs_template.md").read_text()
         self.fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
         self.inputs = [json.loads((ROOT / "_fleet/data" / name).read_text()) for name in
-                       ("fleet_data.json", "manifest.json", "mech_stats.json", "prefix_census.json")]
+                       ("fleet_data.json", "manifest.json", "mech_stats.json", "prefix_census.json",
+                                     "site_features.json")]
 
     def render(self):
         return assemble(self.template, self.fragment, *self.inputs)

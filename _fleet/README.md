@@ -10,6 +10,12 @@
   hand-curated at the top of the script.
 - `data/manifest.json` — membership and all capability declarations from a pinned
   commit of CLAW's canonical manifest, plus the canonical artifact count.
+- `data/site_features.json` — the hand-curated website feature table: one verdict
+  per feature per Mech site (present, partial, missing, not applicable or not
+  verified), each with a one-sentence note and an evidence URL, judged on the live
+  sites on `checked_on` rather than at the repository pins. `assemble_page.py`
+  fails if a suite Mech, a feature or a note is missing. A Mech without a
+  website carries one `note` and no verdicts.
 - `audit_notes.json` — hand-checked explanations of each source and its counted
   entities. PathwayMech records and DUFMech seed families use the same pinned
   census, statistics and site-audit pipeline as the other ten Mechs.

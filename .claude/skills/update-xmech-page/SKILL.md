@@ -19,7 +19,7 @@ The page has three sources, and a refresh must redo all three from one moment in
 |---|---|---|
 | **manifest** | membership badges, capability table, the stat strip's Mech count | `refresh_manifest.py` from CLAW at its pin (step 1) |
 | **derived** | census heatmap, overlap chords, `assets/fleet/`, reviewed and merged-PR counts, the stat strip's vocabulary and merged-PR tiles | the pipeline in `scripts/fleet/`, run over pinned checkouts |
-| **hand-curated** | card headline figures and their secondary figure, tag lines, vocab chips, graph panels (`MECHS`), cross-references (`XREFS` and the template list), kg-microbe ties (`HUB`), Explore links; the stat strip's records tile sums the card figures, so it moves only when they do (#225) | a person or agent, re-checked claim by claim against the live sites and the pinned repos |
+| **hand-curated** | card headline figures and their secondary figure, tag lines, vocab chips, graph panels (`MECHS`), cross-references (`XREFS` and the template list), kg-microbe ties (`HUB`), Explore links, the website feature table (`_fleet/data/site_features.json`); the stat strip's records tile sums the card figures, so it moves only when they do (#225) | a person or agent, re-checked claim by claim against the live sites and the pinned repos |
 
 Read `_fleet/README.md` first. It is the pipeline reference; this skill is the
 procedure around it.
@@ -201,7 +201,9 @@ removes only logs with that suffix (#251).
 Every hand-curated claim, for every Mech, against its live site and its repo at
 the pin. That means the card, the `MECHS` entry, the Explore bullets, `HUB`, both
 cross-reference lists, the licence bullet, the Orchestration section, and each
-page listed in step 6. For a large fleet this fans out well: one read-only
+page listed in step 6. The website feature table is re-judged on the live sites, not
+the pins: exercise each feature in a headless browser, update every verdict, note and
+evidence URL that changed, and move `checked_on`. For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
 refute it. Apply only changes that survive, with one editor making all the edits

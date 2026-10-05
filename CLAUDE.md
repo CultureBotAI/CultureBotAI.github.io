@@ -124,8 +124,9 @@ Sources, refreshed differently:
   the subsets, the cell lists, the stats and `_fleet/data/site_audit.json` record
   the revisions they read, and
   tests fail if they disagree.
-- **Hand-curated:** card figures, graph panels, the cross-reference arrows and the
-  kg-microbe ties, checked claim by claim against each Mech's live site and its
+- **Hand-curated:** card figures, graph panels, the cross-reference arrows, the
+  website feature table (`_fleet/data/site_features.json`) and the kg-microbe
+  ties, checked claim by claim against each Mech's live site and its
   repository at the pin. The stat strip's records tile is the sum of the card
   figures, so it moves only when the cards do, not when the pipeline reruns; it
   differs from the census total wherever a card and the census count different
