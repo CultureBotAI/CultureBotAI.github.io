@@ -86,11 +86,22 @@ separately listed suite member not yet declared in that manifest.
 `_fleet/mechs_template.md` (prose, cards, the cross-reference list),
 `_fleet/fleet_fragment.html` (the self-contained graph: `MECHS`, `XREFS`, `HUB`),
 and the data in `_fleet/data/`, assembled by `scripts/fleet/assemble_page.py`.
-The pipeline is `prefix_census.py` then `build_subsets.py`, `build_data.py`,
-`mech_stats.py` and `assemble_page.py`; `_fleet/README.md` describes it, and
+The pipeline is `prefix_census.py` then `build_subsets.py`, `build_cells.py`,
+`build_data.py`, `mech_stats.py`, `build_site_audit.py` and `assemble_page.py`;
+`_fleet/README.md` describes it, and
 `.claude/skills/update-xmech-page/` is the refresh procedure. The record-subset
-indexes the page fetches on demand are `assets/fleet/{edges,cells}/*.json`,
-about 14 MB with all twelve Mechs in the census.
+indexes the page fetches on demand are `assets/fleet/{edges,cells}/*.json`.
+`build_subsets.py` writes graph edges and retains legacy cell-count metadata;
+`build_cells.py` owns complete heatmap record lists and `cells_summary.json`.
+It validates pins, logical record counts and exact census occurrences before
+replacing outputs, and records cell-asset SHA-256 hashes. Every heatmap cell
+opens a summary, with up to 300 links and the full record total for populated
+cells; zero cells display an empty summary. Citation lists are included.
+Cells without a published record route link the pinned source file, including
+CommunityMech isolates. Complete cell lists remain separate from graph
+`indexed_voc` and do not change overlap methodology. Rows sort by vocabulary
+count, descending, with ties in biological scale order; DOI and PMID remain
+first, followed by columns in descending Mech coverage.
 
 Sources, refreshed differently:
 - **Fleet membership and capabilities:** the membership badges and capability
@@ -109,8 +120,9 @@ Sources, refreshed differently:
   vocabularies over snapshots of each Mech pinned at its GitHub `main`, merged-PR
   counts from GitHub search when `mech_stats.py` runs. The headline PR total
   includes all twelve Mechs plus CLAW and this website; the two supporting
-  repositories are stored separately from the Mech record statistics. The census, the subsets,
-  the stats and `_fleet/data/site_audit.json` record the revisions they read, and
+  repositories are stored separately from the Mech record statistics. The census,
+  the subsets, the cell lists, the stats and `_fleet/data/site_audit.json` record
+  the revisions they read, and
   tests fail if they disagree.
 - **Hand-curated:** card figures, graph panels, the cross-reference arrows and the
   kg-microbe ties, checked claim by claim against each Mech's live site and its
@@ -122,10 +134,10 @@ Sources, refreshed differently:
   committed README on main, retained as the stable count source after earlier
   browser deployment drift (see `SOURCES`; #226), or DUFMech's frozen worklist.
 
-Last full data refresh was 2026-10-03, pinned at 06:03 UTC. All twelve Mechs
+Last full data refresh was 2026-10-05, pinned at 03:20 UTC. All twelve Mechs
 participate in the census, overlap assets and repository statistics, including
-PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 959
-records and CellStructureMech 826 at those pins. TaxonMech joined the census in
+PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 1,005
+records and CellStructureMech 885 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
 committed evidence as described in `_fleet/README.md`. CLAW still declares only
 eleven members, so DUFMech's capability row remains explicitly undeclared.

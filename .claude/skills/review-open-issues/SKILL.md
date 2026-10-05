@@ -127,12 +127,22 @@ sampling arriving by another route.
 ```text
 Mech checkouts (MECHS_ROOT)  +  CLAW fleet manifest
   -> prefix_census.py     prefix counts per Mech
-  -> build_subsets.py     assets/fleet/{edges,cells}/*.json
+  -> build_subsets.py     graph edges + legacy cell-count metadata
+  -> build_cells.py       all census record lists + cells_summary.json
   -> build_data.py        fleet_data.json — which vocabularies become columns
   -> mech_stats.py        reviewed records, merged PRs
+  -> build_site_audit.py  provenance after the source audit
   -> assemble_page.py     mechs.md
   -> GitHub Pages         the live page
 ```
+
+The cell builder owns `assets/fleet/cells/*.json`; the subset builder owns
+`assets/fleet/edges/*.json`. Complete heatmap lists include citation namespaces
+and source links for records without published pages. They report full record
+totals with up to 300 links; zero cells show an empty summary locally. Their
+summary records pins, counts and asset SHA-256 hashes, and the builder must
+match the census before writing. A cell-list problem does not imply that the
+graph's separately indexed vocabularies or shared-term extraction should change.
 
 Alongside it runs a **hand-curated layer**: the card headline numbers in
 `_fleet/mechs_template.md` and the `MECHS` / `XREFS` / `HUB` blocks in

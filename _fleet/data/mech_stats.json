@@ -1,6 +1,6 @@
 {
- "as_of": "2026-10-03",
- "merged_prs_total": 5665,
+ "as_of": "2026-10-05",
+ "merged_prs_total": 5918,
  "mechs": [
   {
    "mech": "HabitatMech",
@@ -8,8 +8,8 @@
    "records": 3206,
    "reviewed": 686,
    "status_field": "mapping_status",
-   "merged_prs": 813,
-   "source_revision": "154b091f9cb5a75327cfb058ee0d182f5371300c"
+   "merged_prs": 876,
+   "source_revision": "be4473d84d7ec22ba27a3ba7da75d9fd57da2e5a"
   },
   {
    "mech": "CommunityMech",
@@ -17,17 +17,17 @@
    "records": 460,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 618,
-   "source_revision": "b78871146f1341728689583d646678439b8a5b7e"
+   "merged_prs": 624,
+   "source_revision": "3536d19ee6fe49082f8f0c0f9b3ff67f45fb8e34"
   },
   {
    "mech": "TraitMech",
    "repo": "TraitMech",
-   "records": 959,
+   "records": 1005,
    "reviewed": 427,
    "status_field": "mapping_status",
-   "merged_prs": 860,
-   "source_revision": "c13854b923f5c36f00af6a06ec7cac8e43826218"
+   "merged_prs": 912,
+   "source_revision": "d0399d1d8967db08296dfdbd63feef17d1315fd7"
   },
   {
    "mech": "PathwayMech",
@@ -35,17 +35,17 @@
    "records": 152,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 177,
-   "source_revision": "71e573dfebbb01a1e82cd32f8cfff4a63e8871b2"
+   "merged_prs": 178,
+   "source_revision": "90d0d838a30b7a6e56f05f1d2f74e6fdfb9a6384"
   },
   {
    "mech": "CellStructureMech",
    "repo": "CellStructureMech",
-   "records": 826,
+   "records": 885,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 905,
-   "source_revision": "04cbb2e95b63fc49572e4a9dfad7e7df1342c603"
+   "merged_prs": 967,
+   "source_revision": "adef3460edf7b8bf95733b561b089fb9e17a2bc4"
   },
   {
    "mech": "ProteinTraitsMech",
@@ -53,8 +53,8 @@
    "records": 429293,
    "reviewed": 39591,
    "status_field": "mapping_status",
-   "merged_prs": 372,
-   "source_revision": "87650c4d958c8fd32e6e852e3399e9465202f133"
+   "merged_prs": 383,
+   "source_revision": "316a8005e69bb3f2ee5d53bb0c6bd41beb018421"
   },
   {
    "mech": "DUFMech",
@@ -62,8 +62,8 @@
    "records": 6532,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 27,
-   "source_revision": "b2e6d24890aa84bed7a7d75763ea1d5886527a64"
+   "merged_prs": 28,
+   "source_revision": "89954387c7b6a4528d5f3a0233ccd233af95ced2"
   },
   {
    "mech": "NaturalProductMech",
@@ -71,8 +71,8 @@
    "records": 3115,
    "reviewed": 0,
    "status_field": "curation_status",
-   "merged_prs": 337,
-   "source_revision": "c0d794b34d7eb38b66f410d7cf949477d0500443"
+   "merged_prs": 361,
+   "source_revision": "aa0e38c4ac899ca5534b4ce02318c019fc44db29"
   },
   {
    "mech": "AntibioticMech",
@@ -80,8 +80,8 @@
    "records": 2939,
    "reviewed": 80,
    "status_field": "curation_status",
-   "merged_prs": 631,
-   "source_revision": "fbef0703c5c216246aa76df116c685d2f3b85d99"
+   "merged_prs": 648,
+   "source_revision": "b51019a34c70bf8ef3ec6aaaaaae611170159ee1"
   },
   {
    "mech": "MediaIngredientMech",
@@ -89,8 +89,8 @@
    "records": 2953,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 391,
-   "source_revision": "7a65c4e9173efc435b77c300b5f1fedc71bc5297"
+   "merged_prs": 396,
+   "source_revision": "bf101f8508861240528220857d2d2943f70c25a4"
   },
   {
    "mech": "CultureMech",
@@ -98,8 +98,8 @@
    "records": 6320,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 261,
-   "source_revision": "ea4fad40114940af87daf1d56c9cad56beec8cca"
+   "merged_prs": 265,
+   "source_revision": "c4d05b1df27665d2e3cf8f6d6c68ac0408a74fa3"
   },
   {
    "mech": "TaxonMech",
@@ -107,18 +107,18 @@
    "records": 625960,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 23,
-   "source_revision": "152344637f4d73423af94d3073c6c8102351ce05"
+   "merged_prs": 27,
+   "source_revision": "700c6732cee83d9939c58e7e8c922c7c91b9fabf"
   }
  ],
  "additional_repositories": [
   {
    "repo": "culturebotai-claw",
-   "merged_prs": 199
+   "merged_prs": 201
   },
   {
    "repo": "CultureBotAI.github.io",
-   "merged_prs": 51
+   "merged_prs": 52
   }
  ]
 }
