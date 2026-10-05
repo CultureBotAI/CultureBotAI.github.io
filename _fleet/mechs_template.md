@@ -81,7 +81,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <p>The worklist separates 4,533 unknown candidates from 1,999 historical DUFs. These families are candidates for investigation, not curated mechanism records.</p>
     <p class="prov"><!--FLEET_STATS:DUFMech--></p>
     <div class="vocab"><span>Pfam</span><span>InterPro</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/DUFMech">Explore repository</a><a href="https://github.com/CultureBotAI/DUFMech/blob/89954387c7b6a4528d5f3a0233ccd233af95ced2/data/worklists/interpro-pfam-duf-2026-10-01.manifest.json">Seed snapshot</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:DUFMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/DUFMech/">Browse dashboard</a><a href="https://github.com/CultureBotAI/DUFMech/blob/89954387c7b6a4528d5f3a0233ccd233af95ced2/data/worklists/interpro-pfam-duf-2026-10-01.manifest.json">Seed snapshot</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:DUFMech--></div>
   </article>
   <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)">
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
@@ -122,12 +122,32 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
 Alongside record browsing, the Mechs publish complementary ways to explore their data:
 
 - **Pathway mechanisms:** browse [PathwayMech's 152 pathway summaries, labeled mechanistic edges and cited evidence](https://culturebotai.github.io/PathwayMech/pages/browse.html). Its [repository records](https://github.com/CultureBotAI/PathwayMech/tree/90d0d838a30b7a6e56f05f1d2f74e6fdfb9a6384/data/pathways) include participants, reactions and cited evidence, alongside [KGX nodes and edges](https://github.com/CultureBotAI/PathwayMech/tree/90d0d838a30b7a6e56f05f1d2f74e6fdfb9a6384/output/kgx) and [SSSOM source mappings](https://github.com/CultureBotAI/PathwayMech/blob/90d0d838a30b7a6e56f05f1d2f74e6fdfb9a6384/output/sssom/source_mappings.sssom.tsv).
-- **Unknown protein families:** explore [DUFMech's InterPro/Pfam worklist](https://github.com/CultureBotAI/DUFMech/blob/89954387c7b6a4528d5f3a0233ccd233af95ced2/data/worklists/interpro-pfam-duf-2026-10-01.tsv). Its family identifiers connect the worklist to the other Mechs through the shared-vocabulary graph and heatmap.
+- **Unknown protein families:** explore [DUFMech's dashboard](https://culturebotai.github.io/DUFMech/) and its [InterPro/Pfam seed worklist](https://github.com/CultureBotAI/DUFMech/blob/89954387c7b6a4528d5f3a0233ccd233af95ced2/data/worklists/interpro-pfam-duf-2026-10-01.tsv). Its family identifiers connect the worklist to the other Mechs through the shared-vocabulary graph and heatmap.
 - **Taxa and strains:** TaxonMech lists the [20,648 taxa with a type strain](https://culturebotai.github.io/TaxonMech/pages/type-strains.html), each naming the BacDive deposit that LPSN records as the type. Taxon pages carry strain-level NCBI, GTDB, BV-BRC/PATRIC, IMG and AllTheBacteria genome identifiers, plus StrainInfo references and their evidence. The [source catalogue](https://culturebotai.github.io/TaxonMech/pages/sources.html) describes provenance.
 - **Community, trait, cell structure and media similarity:** explore [CommunityMech](https://culturebotai.github.io/CommunityMech/community_umap.html), [TraitMech](https://culturebotai.github.io/TraitMech/pages/umap.html), [cell structures](https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html), [ingredients](https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html) and [culture media](https://culturebotai.github.io/CultureMech/app/umap.html) through their embedding browsers.
 - **Protein traits, proteins and sequences:** ProteinTraitsMech provides a [text-embedding corpus map](https://culturebotai.github.io/proteintraitsmech/map.html), a [map of 68,657 Swiss-Prot proteins by their traits](https://culturebotai.github.io/proteintraitsmech/map.html#proteins), and an [ESM-2 sequence map](https://culturebotai.github.io/proteintraitsmech/map.html#sequences) of canonical-example proteins.
 - **Chemical structures:** compare compounds in the [AntibioticMech chemical map](https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html) and the [NaturalProductMech structure map](https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html). Both Mechs also offer a corpus map that places compounds by their record text rather than their structure: [AntibioticMech](https://culturebotai.github.io/AntibioticMech/pages/map.html) and [NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/pages/map.html).
 - **Habitat meaning:** HabitatMech offers a [semantic text map](https://culturebotai.github.io/HabitatMech/pages/text-map/) alongside its ontology-grounded record browser.
+
+### Website features
+
+The capability table further down lists the shared contracts each Mech declares to CLAW. This table shows what a reader can do on each Mech's own website: <!--FLEET_SITE_FEATURE_COUNT_WORD--> features across the <!--FLEET_SITE_COUNT_WORD--> published sites, tested on the live sites on <!--FLEET_SITE_DATE--> in a headless browser. The tests searched for known identifiers and labels, applied filters, carried a theme choice from page to page, measured pages at a 390-pixel width and made data requests fail on purpose. Each verdict was tested by one AI agent, re-tested independently by a second and settled by a third where the two disagreed; a final pass compared each column across the sites against written criteria, which are listed with the evidence below the table. A feature counts as present only if it met its criteria, so a search that lists only its first 20 matches, or cannot find record identifiers, counts as partial. Some features do not apply to every site: a page that embeds its data makes no data request that could fail, a page with no search or filters has no search to link to, and DUFMech's worklist has no schema to document. Hover a marker for its evidence, or open the list below the table. A gap marks a possible improvement to a website, not a problem with the Mech's records. The notes describe each site as it stood when it was checked that day, after the cards above were counted, so a site that has grown since then quotes larger figures here, and a later redeployment can change a verdict.
+
+<div class="fleet-caps-wrap" tabindex="0" role="region" aria-label="Mech website features, one column per feature">
+<table class="fleet-site">
+  <!--FLEET_SITE_COLGROUPS-->
+  <thead><!--FLEET_SITE_HEAD--></thead>
+  <tbody>
+<!--FLEET_SITE_ROWS-->
+  </tbody>
+  <tfoot><!--FLEET_SITE_TOTALS--></tfoot>
+</table>
+</div>
+<div class="fleet-caps-key"><!--FLEET_SITE_KEY--></div>
+<details class="fleet-site-notes">
+<summary>Feature criteria and the evidence for each verdict</summary>
+<!--FLEET_SITE_EVIDENCE-->
+</details>
 
 
 ## How the Mechs reference each other
@@ -205,7 +225,7 @@ The established Mechs share curation conventions, with adoption recorded per cap
   <li><b>Evidence and provenance</b>Evidence cites its source, such as a publication (PMID or DOI), a database record or a web page, as each Mech's schema allows. Mechs that adopt the source-catalogue or source-queue contract record each source's licence before ingesting it.</li>
   <li><b>Causal mechanism graphs</b>Traits, pathways, protein traits, structures, natural products, antibiotics, habitats and taxa can carry directed, evidence-backed graphs of mechanism, and community records chain their ecological interactions into causal interaction graphs. Each of these Mechs defines its own node types; most share a core set, such as chemical, pathway and biological process. DUFMech's seed worklist supplies candidate families for evidence gathering.</li>
   <li><b>Append-only curation history</b>Mechs adopting the history contract record changes as append-only events, preserving provenance across agent and human curation.</li>
-  <li><b>A static browser and an open licence</b>Established corpora publish GitHub Pages browsers; DUFMech currently links to its repository. The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. Redistributed source material retains its applicable terms.</li>
+  <li><b>A static browser and an open licence</b>Every Mech publishes a GitHub Pages site: the established corpora publish record browsers, and DUFMech a dashboard of its seed worklist. The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. Redistributed source material retains its applicable terms.</li>
 </ul>
 
 ## Related resources

@@ -64,6 +64,187 @@ def capability_rows(snapshot, suite_order=None):
     return "\n".join(rows)
 
 
+# Website features are judged on each Mech's live site, unlike the capabilities
+# above, which CLAW declares. Each status has a marker class; the half marker
+# shows partial support and the dash a feature that does not apply.
+SITE_STATUSES = {"present": ("e", "present"), "partial": ("p", "partial"),
+                 "missing": ("m", "missing"), "not_applicable": ("na", "not applicable"),
+                 "unknown": ("u", "not verified")}
+SITE_KEY = {"present": "present", "partial": "partial, as its note explains",
+            "missing": "missing", "not_applicable": "does not apply to this site",
+            "unknown": "not verified"}
+# Classes for the table's structure. They must never equal a marker class: the
+# missing marker once shared the Mech column's class and turned sticky (#365).
+MECH_CELL = "mech"
+GROUP_START = "grp"
+NO_SITE = "none"
+SHA = re.compile(r"[0-9a-f]{40}")
+
+
+def _text(value):
+    """A non-empty string, or None: str() would pass null as "None" (#377)."""
+    return value.strip() if isinstance(value, str) and value.strip() else None
+
+
+def site_feature_columns(features):
+    """(group title, feature key) pairs in display order. Every catalogue
+    feature sits in exactly one group, so no column can go unshown."""
+    columns = [(group["title"], key) for group in features["groups"] for key in group["features"]]
+    keys = [key for _, key in columns]
+    if len(keys) != len(set(keys)) or set(keys) != set(features["catalogue"]):
+        raise ValueError("Site feature groups must list every catalogue feature exactly once")
+    return columns
+
+
+def validate_site_features(features, names):
+    """Fail closed: every suite Mech has a row, every row judges every feature."""
+    datetime.date.fromisoformat(features["checked_on"])
+    if not _text(features.get("scope")):
+        raise ValueError("Site features need a scope saying what was checked and how")
+    columns = site_feature_columns(features)
+    for key, entry in features["catalogue"].items():
+        if not (_text(entry.get("label")) and _text(entry.get("definition"))):
+            raise ValueError(f"Catalogue feature {key} needs a label and a definition")
+        if "criteria" in entry and not _text(entry["criteria"]):
+            raise ValueError(f"Catalogue feature {key} has empty criteria")
+    if set(features["mechs"]) != set(names):
+        raise ValueError("Site features must cover every suite Mech exactly once")
+    for name, mech in features["mechs"].items():
+        if mech.get("site") is None:
+            # A Mech without a website gets one explanatory cell, not a row of
+            # markers that would read as twenty-four separate judgements.
+            if "features" in mech or not _text(mech.get("note")):
+                raise ValueError(f"{name}: a Mech without a site needs a note and no feature verdicts")
+            continue
+        if not (isinstance(mech["site"], str) and mech["site"].startswith("https://")):
+            raise ValueError(f"{name}: site must be an https URL")
+        if not (isinstance(mech.get("repository"), str) and
+                re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", mech["repository"])):
+            raise ValueError(f"{name}: repository must be a GitHub repository URL")
+        if not (isinstance(mech.get("deployed_revision"), str) and SHA.fullmatch(mech["deployed_revision"])):
+            raise ValueError(f"{name}: deployed_revision must be the full SHA of the deployment checked")
+        verdicts = mech.get("features")
+        if not isinstance(verdicts, dict) or set(verdicts) != {key for _, key in columns}:
+            raise ValueError(f"{name}: every site feature needs a verdict")
+        for key, verdict in verdicts.items():
+            if verdict.get("status") not in SITE_STATUSES:
+                raise ValueError(f"{name}: unknown status for {key}")
+            if not _text(verdict.get("note")):
+                raise ValueError(f"{name}: {key} needs a note giving the evidence")
+            if not (isinstance(verdict.get("url"), str) and verdict["url"].startswith("https://")):
+                raise ValueError(f"{name}: {key} needs an https evidence URL")
+    return columns
+
+
+def _groups(columns):
+    """[title, span] runs of consecutive columns."""
+    groups = []
+    for title, _ in columns:
+        if not groups or groups[-1][0] != title:
+            groups.append([title, 0])
+        groups[-1][1] += 1
+    return groups
+
+
+def _starts_group(columns, i):
+    return i == 0 or columns[i - 1][0] != columns[i][0]
+
+
+def _cls(*names):
+    names = [name for name in names if name]
+    return f' class="{" ".join(names)}"' if names else ""
+
+
+def site_feature_colgroups(features):
+    """One column group per feature group, which scope="colgroup" headings need
+    to be anchored in (#382); the first group holds the Mech column."""
+    return "<colgroup></colgroup>" + "".join(
+        f'<colgroup span="{span}"></colgroup>' for _, span in _groups(site_feature_columns(features)))
+
+
+def site_feature_head(features):
+    columns = site_feature_columns(features)
+    top = [f'<th scope="col" rowspan="2"{_cls(MECH_CELL)}>Mech</th>'] + [
+        f'<th scope="colgroup" colspan="{span}"{_cls(GROUP_START)}>{escape(title)}</th>'
+        for title, span in _groups(columns)]
+    labels = []
+    for i, (_, key) in enumerate(columns):
+        entry = features["catalogue"][key]
+        labels.append(f'<th scope="col"{_cls(GROUP_START if _starts_group(columns, i) else "")} '
+                      f'title="{escape(entry["definition"], quote=True)}"><span>{escape(entry["label"])}</span></th>')
+    return "<tr>" + "".join(top) + "</tr>\n<tr>" + "".join(labels) + "</tr>"
+
+
+def site_feature_rows(features, suite_order):
+    columns = site_feature_columns(features)
+    rows = []
+    for name in suite_order:
+        mech = features["mechs"][name]
+        if mech.get("site") is None:
+            rows.append(f'<tr><th scope="row"{_cls(MECH_CELL)}>{escape(name)}</th>'
+                        f'<td colspan="{len(columns)}"{_cls(NO_SITE, GROUP_START)}>{escape(mech["note"])}</td></tr>')
+            continue
+        cells = [f'<th scope="row"{_cls(MECH_CELL)}><a href="{escape(mech["site"], quote=True)}">{escape(name)}</a></th>']
+        for i, (_, key) in enumerate(columns):
+            verdict = mech["features"][key]
+            css, word = SITE_STATUSES[verdict["status"]]
+            label = escape(f'{features["catalogue"][key]["label"]}: {word}. {verdict["note"].strip()}', quote=True)
+            cells.append(f'<td{_cls(GROUP_START if _starts_group(columns, i) else "")}>'
+                         f'<i class="{css}" role="img" title="{label}" aria-label="{label}"></i></td>')
+        rows.append("<tr>" + "".join(cells) + "</tr>")
+    return "\n".join(rows)
+
+
+def site_feature_totals(features):
+    """How many published sites offer each feature, as the table's last row.
+    The tooltip accounts for every site, so no verdict goes unmentioned (#374)."""
+    columns = site_feature_columns(features)
+    sites = [mech for mech in features["mechs"].values() if mech.get("site") is not None]
+    cells = [f'<th scope="row"{_cls(MECH_CELL)}>Sites with it</th>']
+    for i, (_, key) in enumerate(columns):
+        count = {status: sum(mech["features"][key]["status"] == status for mech in sites) for status in SITE_STATUSES}
+        label = f'{features["catalogue"][key]["label"]}: present on {count["present"]} of {len(sites)} sites'
+        label += "".join(f", {SITE_STATUSES[status][1]} on {count[status]}"
+                         for status in ("partial", "missing", "not_applicable", "unknown") if count[status])
+        label = escape(label, quote=True)
+        cells.append(f'<td{_cls(GROUP_START if _starts_group(columns, i) else "")} title="{label}" '
+                     f'aria-label="{label}">{count["present"]}</td>')
+    return "<tr>" + "".join(cells) + "</tr>"
+
+
+def site_feature_evidence(features, suite_order):
+    """The feature definitions and every verdict's note and evidence link, for
+    readers who cannot hover: tooltips never appear on touch screens (#376)."""
+    columns = site_feature_columns(features)
+    terms = []
+    for _, key in columns:
+        entry = features["catalogue"][key]
+        terms.append(f'<dt>{escape(entry["label"])}</dt><dd>{escape(entry["definition"])}'
+                     + (f' {escape(entry["criteria"])}' if entry.get("criteria") else "") + "</dd>")
+    parts = ["<h4>Features</h4><dl>" + "".join(terms) + "</dl>"]
+    for name in suite_order:
+        mech = features["mechs"][name]
+        if mech.get("site") is None:
+            parts.append(f"<h4>{escape(name)}</h4><p>{escape(mech['note'])}</p>")
+            continue
+        items = []
+        for _, key in columns:
+            verdict = mech["features"][key]
+            items.append(f'<li><b>{escape(features["catalogue"][key]["label"])}</b> '
+                         f'<span>{escape(SITE_STATUSES[verdict["status"]][1])}</span>: '
+                         f'{escape(verdict["note"].strip())} <a href="{escape(verdict["url"], quote=True)}">Evidence</a></li>')
+        parts.append(f'<h4><a href="{escape(mech["site"], quote=True)}">{escape(name)}</a></h4><ul>{"".join(items)}</ul>')
+    return "\n".join(parts)
+
+
+def site_feature_key(features):
+    """A legend for the statuses the table actually uses."""
+    used = {verdict["status"] for mech in features["mechs"].values()
+            for verdict in (mech.get("features") or {}).values()}
+    return "".join(f'<span><i class="{SITE_STATUSES[status][0]}"></i>{escape(SITE_KEY[status])}</span>'
+                   for status in SITE_STATUSES if status in used)
+
+
 def script_json(value):
     # A reason containing markup must remain data inside the inline script.
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
@@ -136,7 +317,7 @@ def pr_activity(stats):
     return total, len(repos)
 
 
-def assemble(template, fragment, data, snapshot, stats, census):
+def assemble(template, fragment, data, snapshot, stats, census, features):
     validate(snapshot)
     members = set(snapshot["mechs"])
     # The site measures the suite; CLAW declares its governed members. A new
@@ -183,6 +364,7 @@ def assemble(template, fragment, data, snapshot, stats, census):
     if counted != names or len(stats["mechs"]) != len(names):
         raise ValueError("Mech stats must cover every suite member exactly once")
     prs_total, pr_repo_count = pr_activity(stats)
+    validate_site_features(features, names)
     counts = fleet_records(template)
     if set(counts) != names:
         raise ValueError("Every counted Mech card must carry a record count")
@@ -212,6 +394,15 @@ def assemble(template, fragment, data, snapshot, stats, census):
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
         "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot, cards),
         "<!--FLEET_CAPABILITY_HEAD-->": capability_head(snapshot),
+        "<!--FLEET_SITE_COLGROUPS-->": site_feature_colgroups(features),
+        "<!--FLEET_SITE_HEAD-->": site_feature_head(features),
+        "<!--FLEET_SITE_ROWS-->": site_feature_rows(features, cards),
+        "<!--FLEET_SITE_TOTALS-->": site_feature_totals(features),
+        "<!--FLEET_SITE_KEY-->": site_feature_key(features),
+        "<!--FLEET_SITE_EVIDENCE-->": site_feature_evidence(features, cards),
+        "<!--FLEET_SITE_DATE-->": datetime.date.fromisoformat(features["checked_on"]).strftime("%B %-d, %Y"),
+        "<!--FLEET_SITE_COUNT_WORD-->": number_word(sum(m.get("site") is not None for m in features["mechs"].values())),
+        "<!--FLEET_SITE_FEATURE_COUNT_WORD-->": number_word(len(features["catalogue"])),
     }
     tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">' +
                    ('in fleet manifest' if name in members else 'not yet in fleet manifest') + '</span>'
@@ -243,7 +434,8 @@ def main():
                     json.loads((FLEET / "data/fleet_data.json").read_text()),
                     json.loads((FLEET / "data/manifest.json").read_text()),
                     json.loads((FLEET / "data/mech_stats.json").read_text()),
-                    json.loads((FLEET / "data/prefix_census.json").read_text()))
+                    json.loads((FLEET / "data/prefix_census.json").read_text()),
+                    json.loads((FLEET / "data/site_features.json").read_text()))
     target = REPO / "mechs.md"
     if args.check:
         if target.read_text() != page:

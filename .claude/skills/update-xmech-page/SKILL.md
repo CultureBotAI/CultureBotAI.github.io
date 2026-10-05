@@ -20,6 +20,7 @@ The page has three sources, and a refresh must redo all three from one moment in
 | **manifest** | membership badges, capability table, the stat strip's Mech count | `refresh_manifest.py` from CLAW at its pin (step 1) |
 | **derived** | census heatmap, overlap chords, `assets/fleet/`, reviewed and merged-PR counts, the stat strip's vocabulary and merged-PR tiles | the pipeline in `scripts/fleet/`, run over pinned checkouts |
 | **hand-curated** | card headline figures and their secondary figure, tag lines, vocab chips, graph panels (`MECHS`), cross-references (`XREFS` and the template list), kg-microbe ties (`HUB`), Explore links; the stat strip's records tile sums the card figures, so it moves only when they do (#225) | a person or agent, re-checked claim by claim against the live sites and the pinned repos |
+| **website features** | the website feature table (`_fleet/data/site_features.json`) | re-judged on the live sites, not the pins, in step 5 |
 
 Read `_fleet/README.md` first. It is the pipeline reference; this skill is the
 procedure around it.
@@ -201,7 +202,30 @@ removes only logs with that suffix (#251).
 Every hand-curated claim, for every Mech, against its live site and its repo at
 the pin. That means the card, the `MECHS` entry, the Explore bullets, `HUB`, both
 cross-reference lists, the licence bullet, the Orchestration section, and each
-page listed in step 6. For a large fleet this fans out well: one read-only
+page listed in step 6. The website feature table is re-judged on the live sites, not
+the pins. Exercise every feature in a headless browser against the criteria in
+the file's `catalogue` (one reviewer per site, an independent skeptic per verdict,
+an arbiter for each disagreement and a final pass comparing each column across
+sites, as the page's intro states; change that sentence if the method changes).
+Update every verdict, note and evidence URL that changed, move `checked_on`,
+rewrite `scope`, and record each site's `deployed_revision` as the successful
+deployment the final browser check of that site saw. A deployment request alone
+does not establish that Pages serves its commit. Read its ID and SHA, then check
+the latest status for that exact deployment ID:
+
+```bash
+gh api "repos/CultureBotAI/<repo>/deployments?environment=github-pages&per_page=1" --jq '.[0] | {id, sha, created_at}'
+gh api "repos/CultureBotAI/<repo>/deployments/<deployment-id>/statuses?per_page=1" --jq '.[0] | {state, created_at}'
+```
+
+Record the SHA only when the status is `success` and it corresponds to the
+browser review. Queued, pending, failed, inactive or unavailable statuses are
+inconclusive about what is currently served; preserve the prior recorded
+revision and report the deployment as not checked until it can be verified.
+
+`scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
+at a different revision, and marks unverified deployment states `NOT CHECKED`.
+For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
 refute it. Apply only changes that survive, with one editor making all the edits

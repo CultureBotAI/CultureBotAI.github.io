@@ -78,7 +78,8 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 ### The X-Mech Suite page
 The suite has twelve Mechs, all under https://github.com/CultureBotAI, plus the
 orchestrator `culturebotai-claw`. Three have pages here; the others link to their
-own GitHub Pages sites, except DUFMech, which links to its GitHub repository.
+own GitHub Pages sites. DUFMech's card links its Pages dashboard and seed
+snapshot, the source of its count; the dashboard went live on 2026-10-05.
 CLAW's manifest lists eleven members, including PathwayMech; DUFMech is a
 separately listed suite member not yet declared in that manifest.
 
@@ -133,6 +134,10 @@ Sources, refreshed differently:
   nightly with the source it cites: a Pages URL, or for CultureMech its
   committed README on main, retained as the stable count source after earlier
   browser deployment drift (see `SOURCES`; #226), or DUFMech's frozen worklist.
+- **Website features:** the feature table, `_fleet/data/site_features.json`, is
+  hand-curated too, but judged on the live sites on its `checked_on` date rather
+  than at the pins: one verdict per feature per site, with criteria in its
+  catalogue and each site's github-pages `deployed_revision`.
 
 Last full data refresh was 2026-10-05, pinned at 03:20 UTC. All twelve Mechs
 participate in the census, overlap assets and repository statistics, including
@@ -153,7 +158,7 @@ Redistributed source material retains its applicable terms.
 - **PathwayMech** (https://culturebotai.github.io/PathwayMech/) - pathway-level microbial mechanisms with participants, reactions, causal edges and reference-backed evidence.
 - **CellStructureMech** (https://culturebotai.github.io/CellStructureMech/) - microbial cell structures, between the trait and protein layers.
 - **ProteinTraitsMech** (https://culturebotai.github.io/proteintraitsmech/) - protein sequence, structure and function trait classes.
-- **DUFMech** (https://github.com/CultureBotAI/DUFMech) - domains and protein families of unknown function, with evidence gathering and triage worklists.
+- **DUFMech** (https://culturebotai.github.io/DUFMech/, repository https://github.com/CultureBotAI/DUFMech) - domains and protein families of unknown function, with evidence gathering and triage worklists.
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
 - **MediaIngredientMech** (`/mediaingredientmech/`) - LLM-assisted curation of media-ingredient mappings; its records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO. Where curation found no ontology term, about 175 mapped ingredients carry kg-microbe registry ids, mostly for preparations and mixtures, and about 85 carry CAS Registry Numbers; about 55 more carry kg-microbe placeholder ids pending curation. None map to PubChem or METPO (#150, #186, #215).

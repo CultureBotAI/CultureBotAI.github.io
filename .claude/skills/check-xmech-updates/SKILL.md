@@ -49,6 +49,10 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
 - the card check (`check_cards.check`), with the grace and lead limits applied;
 - `refresh_manifest --check` against CLAW's current main;
 - dead XREFS evidence links, and links that could not be checked;
+- per Mech site, whether GitHub Pages has deployed it again since the
+  `deployed_revision` the website feature table (`_fleet/data/site_features.json`)
+  records. The table is judged on live sites, not pins, so a redeployment is its
+  staleness signal; its evidence URLs are not part of `claims`;
 - a closing line naming everything a refresh would change, and what was not checked.
 
 The compare API lists at most 300 files per repository. Where the report says the
@@ -70,7 +74,10 @@ about that Mech:
   `vocab`, `sources`, `license`, `extra`;
 - every `XREFS` arrow from or to it, and its `HUB` tie to kg-microbe;
 - the pages that repeat its figures (`index.md`, `resources.md`, the dedicated
-  pages, `CLAUDE.md`).
+  pages, `CLAUDE.md`);
+- its row of the website feature table: for a site the mechanical pass reports
+  as redeployed, re-test the verdicts the changed pages could move, against the
+  criteria in the file's `catalogue`.
 
 Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;
@@ -108,7 +115,8 @@ One short report, in this order:
    those turn the nightly red.
 3. **Per layer:** card figures; census and overlaps (records added, removed,
    edited per Mech); hand-curated claims that no longer hold, each with evidence;
-   membership and capabilities; dead links.
+   membership and capabilities; website feature verdicts that a redeployment
+   moved; dead links.
 4. **What was not checked**, such as files past the API's 300-file cap that were
    not paged through.
 

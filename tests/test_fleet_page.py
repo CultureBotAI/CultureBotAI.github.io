@@ -29,9 +29,10 @@ class FleetPageTests(unittest.TestCase):
         self.data = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
         self.stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text())
         self.census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
+        self.features = json.loads((ROOT / "_fleet/data/site_features.json").read_text())
 
     def render(self):
-        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census)
+        return assemble(self.template, self.fragment, self.data, self.snapshot, self.stats, self.census, self.features)
 
     def test_the_capability_table_shows_every_capability_claw_declares(self):
         # #305, #310: one column per catalogue capability, header and rows alike.
