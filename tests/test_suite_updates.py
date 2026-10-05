@@ -61,9 +61,37 @@ class SuiteUpdateTests(unittest.TestCase):
               mock.patch.object(check_updates, "manifest_check", return_value="matches"),
               mock.patch.object(check_updates, "dead_links", return_value=([], [])),
               mock.patch.object(check_updates.check_cards, "check", return_value=[]),
+              mock.patch.object(check_updates, "site_feature_check", return_value=[]),
               contextlib.redirect_stdout(output)):
             self.assertEqual(check_updates.main(), 0)
         self.assertIn("**Refresh would change:** repositories: DUFMech.", output.getvalue())
+
+    def test_a_redeployed_site_flags_its_feature_verdicts(self):
+        # #373: the feature table is judged on live sites, so a new deployment
+        # since its recorded revision is what can make a verdict stale.
+        features = {"mechs": {
+            "AMech": {"site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",
+                      "deployed_revision": "a" * 40},
+            "BMech": {"site": "https://example.org/b/", "repository": "https://github.com/CultureBotAI/BMech",
+                      "deployed_revision": "b" * 40},
+            "CMech": {"site": "https://example.org/c/", "repository": "https://github.com/CultureBotAI/CMech",
+                      "deployed_revision": "c" * 40},
+            "DMech": {"site": None, "note": "No site."},
+        }}
+        def api(path):
+            if "AMech" in path:
+                return [{"sha": "a" * 40, "created_at": "2026-10-05T09:00:00Z"}]
+            if "BMech" in path:
+                return [{"sha": "d" * 40, "created_at": "2026-10-06T09:00:00Z"}]
+            raise check_updates.Unchecked(["HTTP 502"])
+        rows = check_updates.site_feature_check(features, api=api)
+        self.assertEqual([(s, m) for s, m, _ in rows], [("same", "AMech"), ("redeployed", "BMech"), ("NOT CHECKED", "CMech")])
+        self.assertIn("bbbbbbb when checked, now ddddddd", rows[1][2])
+        self.assertIn("HTTP 502", rows[2][2])
+        line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+        self.assertIn("website feature verdicts to re-check on redeployed sites: BMech", line)
+        self.assertIn("site deployment CMech", line)
+        self.assertNotIn("AMech", line)
 
 
 if __name__ == "__main__":

@@ -20,8 +20,10 @@ move on the page:
             here has nothing for a refresh to do
 
 It also runs check_cards.check() for the card figures, refresh_manifest --check
-against CLAW's main for membership and capabilities, and a HEAD request for each
-XREFS evidence URL.
+against CLAW's main for membership and capabilities, a HEAD request for each
+XREFS evidence URL, and, for the website feature table, which is judged on the
+live sites rather than at the pins, whether each Mech site has redeployed since
+the deployment its verdicts describe.
 """
 from __future__ import annotations
 
@@ -44,6 +46,7 @@ REPO = Path(__file__).resolve().parents[2]
 AUDIT = REPO / "_fleet/data/site_audit.json"
 FRAGMENT = REPO / "_fleet/fleet_fragment.html"
 TEMPLATE = REPO / "_fleet/mechs_template.md"
+FEATURES = REPO / "_fleet/data/site_features.json"
 CLAW = "culturebotai-claw"
 SITE_REPO = "CultureBotAI/CultureBotAI.github.io"
 # The compare API lists at most this many files; past it the split is a floor.
@@ -224,6 +227,34 @@ def pages_check(api=gh) -> tuple[str, str]:
     return "current", f"current: Pages serves main ({head[:7]}, built {when})"
 
 
+def site_feature_check(features: dict, api=gh) -> list[tuple[str, str, str]]:
+    """(status, mech, detail) for each Mech site in the website feature table.
+
+    The table describes live sites, not pins, so a site that GitHub Pages has
+    deployed again since its recorded deployed_revision may no longer match its
+    verdicts (#373). States: same, redeployed and NOT CHECKED when the API does
+    not answer. Read-only: one GET per site.
+    """
+    rows = []
+    for mech, entry in sorted(features["mechs"].items()):
+        if entry.get("site") is None:
+            continue
+        repo = entry["repository"].removeprefix("https://github.com/")
+        try:
+            latest = api(f"repos/{repo}/deployments?environment=github-pages&per_page=1")[0]
+            sha, when = latest["sha"], latest.get("created_at", "?")
+        except (Unchecked, KeyError, IndexError, TypeError, ValueError, OSError) as error:
+            reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
+            rows.append(("NOT CHECKED", mech, reason or "no deployment"))
+            continue
+        recorded = entry["deployed_revision"]
+        if sha == recorded:
+            rows.append(("same", mech, f"still serves {sha[:7]}"))
+        else:
+            rows.append(("redeployed", mech, f"{recorded[:7]} when checked, now {sha[:7]} (deployed {when})"))
+    return rows
+
+
 def manifest_check() -> str:
     """refresh_manifest --check against CLAW's current main, from a shallow clone."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -265,7 +296,8 @@ def dead_links(urls: list[str], opener=urllib.request.urlopen) -> tuple[list[str
 
 
 def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
-            dead: list[str], unchecked_links: list[str], pages: tuple[str, str] = ("", "")) -> str:
+            dead: list[str], unchecked_links: list[str], pages: tuple[str, str] = ("", ""),
+            sites: list[tuple[str, str, str]] = ()) -> str:
     """One line naming everything a refresh would change, from every section (#288),
     led by whether the live site is the deployed main at all."""
     parts = []
@@ -281,6 +313,9 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
         parts.append("fleet membership or capabilities (CLAW manifest)")
     if dead:
         parts.append(f"{len(dead)} dead evidence link(s)")
+    redeployed = [m for s, m, _ in sites if s == "redeployed"]
+    if redeployed:
+        parts.append("website feature verdicts to re-check on redeployed sites: " + ", ".join(redeployed))
     not_checked = [r["repo"] for r in rows if r.get("unchecked")]
     not_checked += [f"{r['repo']} (past the 300-file cap)" for r in rows  # #297
                     if r.get("truncated") and not r["records"] and not r["claims"]]
@@ -293,6 +328,7 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
         not_checked.append(f"{len(unchecked_links)} evidence link(s)")
     if pages[0] == "NOT CHECKED":
         not_checked.append("GitHub Pages deployment")
+    not_checked += [f"site deployment {m}" for s, m, _ in sites if s == "NOT CHECKED"]
     line = (f"**GitHub Pages:** {pages[1].rstrip('.')}. " if pages[0] not in ("", "NOT CHECKED") else "")
     line += "**Refresh would change:** " + ("; ".join(parts) if parts else "nothing found") + "."
     if not_checked:
@@ -329,7 +365,12 @@ def main() -> int:
     for line in [f"- dead: {d}" for d in dead] + [f"- not checked: {u}" for u in unchecked]:
         print(line)
     print(f"{len(urls) - len(dead) - len(unchecked)} of {len(urls)} distinct links resolve.")
-    print("\n" + summary(moved, cards, manifest, dead, unchecked, pages))
+    features = json.loads(FEATURES.read_text())
+    print(f"\n## Website feature table (judged on the live sites on {features['checked_on']})\n")
+    sites = site_feature_check(features)
+    for status, mech, detail in sites:
+        print(f"- {status} {mech}: {detail}")
+    print("\n" + summary(moved, cards, manifest, dead, unchecked, pages, sites))
     return 0
 
 

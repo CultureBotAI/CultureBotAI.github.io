@@ -131,10 +131,11 @@ Alongside record browsing, the Mechs publish complementary ways to explore their
 
 ### Website features
 
-The capability table further down lists the shared contracts each Mech declares to CLAW. This table shows what a reader can do on each Mech's own website: <!--FLEET_SITE_FEATURE_COUNT_WORD--> features across the <!--FLEET_SITE_COUNT_WORD--> published sites, tested on the live sites on <!--FLEET_SITE_DATE--> in a headless browser. The tests searched for known identifiers and labels, applied filters, carried a theme choice from page to page, measured pages at a 390-pixel width and made data requests fail on purpose. Each verdict was tested by one AI agent, re-tested independently by a second and settled by a third where the two disagreed; a final pass compared each column across the sites. A feature counts as present only if it worked as described, so a search that lists only its first 20 matches, or cannot find record identifiers, counts as partial. Some features do not apply everywhere: a page that embeds its data makes no data request that could fail, and DUFMech's worklist has no schema to document. Hover a marker for its evidence, or open the list below the table. A gap marks a possible improvement to a website, not a problem with the Mech's records. These are the live sites rather than the pinned revisions used elsewhere on this page, so a redeployment can change a verdict.
+The capability table further down lists the shared contracts each Mech declares to CLAW. This table shows what a reader can do on each Mech's own website: <!--FLEET_SITE_FEATURE_COUNT_WORD--> features across the <!--FLEET_SITE_COUNT_WORD--> published sites, tested on the live sites on <!--FLEET_SITE_DATE--> in a headless browser. The tests searched for known identifiers and labels, applied filters, carried a theme choice from page to page, measured pages at a 390-pixel width and made data requests fail on purpose. Each verdict was tested by one AI agent, re-tested independently by a second and settled by a third where the two disagreed; a final pass compared each column across the sites against written criteria, which are listed with the evidence below the table. A feature counts as present only if it met its criteria, so a search that lists only its first 20 matches, or cannot find record identifiers, counts as partial. Some features do not apply to every site: a page that embeds its data makes no data request that could fail, a page with no search or filters has no search to link to, and DUFMech's worklist has no schema to document. Hover a marker for its evidence, or open the list below the table. A gap marks a possible improvement to a website, not a problem with the Mech's records. The notes describe each site as it stood when it was checked that day, after the cards above were counted, so a site that has grown since then quotes larger figures here, and a later redeployment can change a verdict.
 
 <div class="fleet-caps-wrap" tabindex="0" role="region" aria-label="Mech website features, one column per feature">
 <table class="fleet-site">
+  <!--FLEET_SITE_COLGROUPS-->
   <thead><!--FLEET_SITE_HEAD--></thead>
   <tbody>
 <!--FLEET_SITE_ROWS-->
@@ -144,7 +145,7 @@ The capability table further down lists the shared contracts each Mech declares 
 </div>
 <div class="fleet-caps-key"><!--FLEET_SITE_KEY--></div>
 <details class="fleet-site-notes">
-<summary>Evidence for each verdict</summary>
+<summary>Feature criteria and the evidence for each verdict</summary>
 <!--FLEET_SITE_EVIDENCE-->
 </details>
 
@@ -224,7 +225,7 @@ The established Mechs share curation conventions, with adoption recorded per cap
   <li><b>Evidence and provenance</b>Evidence cites its source, such as a publication (PMID or DOI), a database record or a web page, as each Mech's schema allows. Mechs that adopt the source-catalogue or source-queue contract record each source's licence before ingesting it.</li>
   <li><b>Causal mechanism graphs</b>Traits, pathways, protein traits, structures, natural products, antibiotics, habitats and taxa can carry directed, evidence-backed graphs of mechanism, and community records chain their ecological interactions into causal interaction graphs. Each of these Mechs defines its own node types; most share a core set, such as chemical, pathway and biological process. DUFMech's seed worklist supplies candidate families for evidence gathering.</li>
   <li><b>Append-only curation history</b>Mechs adopting the history contract record changes as append-only events, preserving provenance across agent and human curation.</li>
-  <li><b>A static browser and an open licence</b>Established corpora publish GitHub Pages browsers; DUFMech currently links to its repository. The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. Redistributed source material retains its applicable terms.</li>
+  <li><b>A static browser and an open licence</b>Every Mech publishes a GitHub Pages site: the established corpora publish record browsers, and DUFMech a dashboard of its seed worklist. The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. Redistributed source material retains its applicable terms.</li>
 </ul>
 
 ## Related resources

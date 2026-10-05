@@ -1,6 +1,6 @@
 {
  "checked_on": "2026-10-05",
- "scope": "Each Mech's live GitHub Pages site on 2026-10-05, not the repository pins used by the census. Every verdict was tested in headless Chrome by one agent (real identifier and label searches, filters, URL state, theme persistence across pages, 390 px overflow, data requests aborted on purpose), re-tested independently by a skeptic, settled by an arbiter where the two disagreed, and compared column by column across all twelve sites against written calibration rules. deployed_revision is the github-pages deployment the final check saw; TraitMech and CellStructureMech redeployed several times that day.",
+ "scope": "Each Mech's live GitHub Pages site as it stood when checked on 2026-10-05, not the repository pins used by the census. Every verdict was tested in headless Chrome by one agent (real identifier and label searches, filters, URL state, theme persistence across pages, 390 px overflow, data requests aborted on purpose), re-tested independently by a skeptic, settled by an arbiter where the two disagreed, and compared column by column across all twelve sites against each feature's criteria in the catalogue. deployed_revision is the github-pages deployment the final check of that site saw; several sites redeployed during the day, so later deployments may differ.",
  "groups": [
   {
    "title": "Find records",
@@ -55,39 +55,47 @@
  "catalogue": {
   "search": {
    "label": "Search",
-   "definition": "A labeled text search whose scope is the whole published corpus, tested with a known identifier and a known label."
+   "definition": "A labeled text search over the whole published corpus, tested with a known identifier and a known label.",
+   "criteria": "Present: it finds records by identifier and by label, shows how many match, and every match can be opened. Partial: results are capped with no route to the rest, no match count is shown, identifiers are not searchable, or search works only within one category."
   },
   "facets": {
    "label": "Filters",
-   "definition": "Filter controls on record properties, with a way to clear them."
+   "definition": "Filter controls on record properties, with a way to clear them.",
+   "criteria": "Present: at least one filter on a record property in the main record listing, with a reset. Partial: filters only on a map or plot page, or a single selector without a reset. A free-text box is a search, not a filter."
   },
   "result_counts": {
    "label": "Result counts",
-   "definition": "A count of matching records that updates with search and filters, distinct from the total."
+   "definition": "A count of matching records that updates with search and filters, distinct from the total.",
+   "criteria": "Partial: only a static total."
   },
   "sorting": {
    "label": "Sorting",
-   "definition": "The reader can change the sort order of a listing."
+   "definition": "The reader can change the sort order of a listing.",
+   "criteria": "Present: a sort control or sortable column headings."
   },
   "shareable_state": {
    "label": "Linkable search",
-   "definition": "Search and filter state is kept in the URL, so a filtered view can be bookmarked and restores on load."
+   "definition": "Search and filter state is kept in the URL, so a filtered view can be bookmarked and restores on load.",
+   "criteria": "Partial: some state, such as a facet or a selected record, restores from the URL but the main search does not. Does not apply: the site has no search or filters."
   },
   "full_catalogue": {
    "label": "Complete catalog",
-   "definition": "Every record the site counts is reachable from it, by listing, pagination, shards or lazy loading."
+   "definition": "Every record the site counts is reachable from it, by listing, pagination, shards or lazy loading.",
+   "criteria": "Partial: some records the site counts cannot be reached from its pages."
   },
   "record_pages": {
    "label": "Record pages",
    "definition": "Each record has its own stable, linkable URL."
   },
   "term_links": {
-   "label": "Labeled terms",
-   "definition": "Ontology terms show a readable label beside the CURIE, and the CURIE links to a resolver."
+   "label": "Term links",
+   "definition": "Ontology terms show a readable label beside the CURIE, and the CURIE links to a resolver.",
+   "criteria": "Present: the record's own grounding and the terms in its main sections are labeled and linked; a few minor prefixes may be plain text. Partial: a whole main section of terms is unlinked, unlabeled or broken, or the record's own identifier does not resolve for many records."
   },
   "evidence": {
    "label": "Evidence links",
-   "definition": "References (PMID, DOI or URL) are shown on record pages and linked."
+   "definition": "References (PMID, DOI or URL) shown on record pages are linked.",
+   "criteria": "Partial: references are plain text, or only a minority of the records that cite something link it."
   },
   "review_status": {
    "label": "Curation status",
@@ -99,15 +107,18 @@
   },
   "source_link": {
    "label": "Source link",
-   "definition": "The record view links to the record's source file in the GitHub repository."
+   "definition": "The record view links to the record's own source file in the GitHub repository.",
+   "criteria": "Partial: the file is named as plain text, or only the repository root is linked."
   },
   "domain_view": {
    "label": "Domain visual",
-   "definition": "A view suited to the domain, such as a structure depiction, pathway diagram, network, lineage or map."
+   "definition": "A view suited to the domain, such as a structure or embedding map, a pathway or causal diagram, an interaction network or a lineage.",
+   "criteria": "Partial: the visual exists but is broken for readers."
   },
   "cross_mech_links": {
    "label": "Cross-Mech links",
-   "definition": "Record views link to specific records in sibling Mechs or in kg-microbe."
+   "definition": "Record views link to specific records in sibling Mechs or in kg-microbe.",
+   "criteria": "Partial: related records are named as plain text, or the links are broken."
   },
   "corpus_stats": {
    "label": "Corpus statistics",
@@ -115,7 +126,8 @@
   },
   "category_browse": {
    "label": "Category browsing",
-   "definition": "Category or class pages lead into subsets of the corpus."
+   "definition": "Category or class pages lead into subsets of the corpus.",
+   "criteria": "Partial: categories are reachable only as a filter, or their index is not linked from the landing page."
   },
   "suite_nav": {
    "label": "Suite link",
@@ -123,31 +135,38 @@
   },
   "downloads": {
    "label": "Downloads",
-   "definition": "A bulk machine-readable export (JSON, TSV, YAML, KGX or SSSOM) is linked from the site."
+   "definition": "A bulk machine-readable export of all records is linked from the site.",
+   "criteria": "Partial: only the repository, per-record files, partial exports, or a bulk file that no page links. Missing: no data or repository link at all."
   },
   "schema_docs": {
    "label": "Schema docs",
-   "definition": "LinkML schema documentation is published on or linked from the site."
+   "definition": "LinkML schema documentation is published on or linked from the site.",
+   "criteria": "Partial: the site says a schema exists but links only the repository root, or a documentation page exists that nothing links. Does not apply: there is no schema."
   },
   "license": {
    "label": "License",
-   "definition": "The site states the data or code license."
+   "definition": "The site states the data and code licenses, consistent with the repository's license files.",
+   "criteria": "Partial: stated on only some pages, or inconsistent with the repository."
   },
   "build_provenance": {
-   "label": "Build date",
-   "definition": "The site states when it was built or which revision or data version it shows."
+   "label": "Build or version",
+   "definition": "The site states when it was built, which commit it shows, or a dated version of its own records.",
+   "criteria": "Partial: only the dates or releases of upstream sources."
   },
   "theme_toggle": {
    "label": "Theme toggle",
-   "definition": "A light and dark toggle whose choice carries across pages."
+   "definition": "A light and dark toggle whose choice carries across pages.",
+   "criteria": "Partial: follows the operating system's setting without a toggle, or some linked pages ignore the choice."
   },
   "responsive": {
    "label": "Narrow screens",
-   "definition": "No horizontal page overflow at 390 pixels on the landing, browse and record pages; wide tables scroll in their own region."
+   "definition": "No horizontal page overflow at 390 pixels on pages linked from the main navigation, the browse page or record pages; wide tables scroll in their own region.",
+   "criteria": "Partial: some of those pages overflow."
   },
   "load_failure": {
    "label": "Load errors",
-   "definition": "When a data index fails to load, the page shows an error rather than an empty result."
+   "definition": "When a data request fails, the page shows an error rather than an empty or misleading result.",
+   "criteria": "Partial: some failures are silent or misleading. Does not apply: the pages fetch no data."
   }
  },
  "mechs": {
@@ -163,7 +182,7 @@
     },
     "facets": {
      "status": "partial",
-     "note": "Record filters exist only on the maps: the Chemical map's class select with Reset (Antifungal gave 594 of 2939) and Corpus map class chips. Class listings have no filter controls, and nothing filters by status.",
+     "note": "Property filters exist only on the maps: the Chemical map's class select with Reset (Antifungal gave 594 of 2939) and Corpus map class chips. Class listings have only a free-text Filter records box, and nothing filters by status.",
      "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html"
     },
     "result_counts": {
@@ -281,7 +300,7 @@
   "CellStructureMech": {
    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
    "repository": "https://github.com/CultureBotAI/CellStructureMech",
-   "deployed_revision": "fbbe30632addd564cfcb11ec4391fd4938c9e82f",
+   "deployed_revision": "ed89a0eda25b9c46ba91f3a90e8d607769da3bd1",
    "features": {
     "search": {
      "status": "present",
@@ -1551,7 +1570,7 @@
   "TraitMech": {
    "site": "https://culturebotai.github.io/TraitMech/pages/index.html",
    "repository": "https://github.com/CultureBotAI/TraitMech",
-   "deployed_revision": "f23f307f6a654d62d52fa40e488b5ef4ce96bab6",
+   "deployed_revision": "84c3430f1f99744a682979eb5523dba4e05bfaa0",
    "features": {
     "search": {
      "status": "present",
