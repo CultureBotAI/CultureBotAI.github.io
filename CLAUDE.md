@@ -122,10 +122,10 @@ Sources, refreshed differently:
   committed README on main, retained as the stable count source after earlier
   browser deployment drift (see `SOURCES`; #226), or DUFMech's frozen worklist.
 
-Last full data refresh was 2026-10-03, pinned at 06:03 UTC. All twelve Mechs
+Last full data refresh was 2026-10-05, pinned at 03:20 UTC. All twelve Mechs
 participate in the census, overlap assets and repository statistics, including
-PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 959
-records and CellStructureMech 826 at those pins. TaxonMech joined the census in
+PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 1,005
+records and CellStructureMech 885 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
 committed evidence as described in `_fleet/README.md`. CLAW still declares only
 eleven members, so DUFMech's capability row remains explicitly undeclared.
