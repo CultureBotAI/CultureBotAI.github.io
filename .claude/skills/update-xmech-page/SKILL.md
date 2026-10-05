@@ -164,18 +164,32 @@ and verify its output before starting the next. The first stage is the canary:
 ```bash
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/prefix_census.py   # ~8 min
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_subsets.py   # ~14 min
+MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/build_cells.py     # all census cell lists
 python3 scripts/fleet/build_data.py
 MECHS_ROOT=$SNAP/mechs python3 scripts/fleet/mech_stats.py      # needs gh
 ```
 
 After each, check the side effects, not the exit code: the file changed, it
-parses, every census Mech has a row, `_revisions` equals the pins in both the
-census and `subsets_summary.json`, `files` per Mech equals the record count at
+parses, every census Mech has a row, `_revisions` equals the pins in the census,
+`subsets_summary.json` and `cells_summary.json`, `files` per Mech equals the record count at
 the pin, and `mech_stats.json` names the same revisions and counts. Each scan
 records its revision before reading and stops if HEAD moves during the read
 (#122), and stops on an unreadable record rather than skipping it (#127).
 Since #107, two `build_subsets.py` runs over the same snapshot must be
 byte-identical; `SubsetDeterminismTests` checks that on a fixture.
+
+`build_subsets.py` owns graph-edge assets only; its legacy cell counts remain
+metadata for graph indexing. `build_cells.py` owns all heatmap cell assets and
+uses the census's exact prefix pattern and normalization. It must match the
+saved census's pins, logical record counts and per-vocabulary occurrence totals
+before replacing outputs. Verify its summary's cell-asset SHA-256 hashes too.
+Every populated cell, including citations, has a distinct-record total and up
+to 300 links. Records without a published route use pinned source-file links,
+including CommunityMech isolates; zero cells show a local empty summary.
+`build_data.py` requires all three summaries. The complete record lists must
+not broaden graph `indexed_voc` or alter shared-term extraction. Heatmap rows
+sort by vocabulary count descending, with biological scale order breaking ties;
+DOI and PMID remain first and the other columns retain their coverage ordering.
 
 Long scripts piped to `tail` print nothing until they exit. Check the process,
 not the empty log. Exit codes through pipes are the last command's, so use

@@ -68,8 +68,9 @@ ORDER = list(RECORD_GLOBS)
 # Prefixes that identify a piece of literature or another citable work rather
 # than a concept. The census counts them, but every Mech cites papers, so
 # treating them as shared vocabulary would say only that, which is why
-# build_subsets.py writes no record lists or overlaps for them. The heatmap
-# still counts their occurrences, with DOI and PMID shown first.
+# build_subsets.py writes no overlaps for them. The heatmap still counts their
+# occurrences, with DOI and PMID shown first, and build_cells.py includes their
+# record lists using the census's exact prefix pattern and normalization.
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
             "PNNLDH"]

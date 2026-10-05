@@ -298,6 +298,8 @@
   .fleet-cell-panel .links a { font-size: .8rem; font-weight: 700; padding: .35em .8em; border-radius: 999px; border: 1px solid var(--line); background: var(--wash-b); }
   .fleet-cell-panel .links a.go { background: var(--accent); border-color: var(--accent); color: #fff; }
   .fleet-cell-panel .reclist { max-height: 18rem; overflow-y: auto; font-size: .84rem; line-height: 1.7; padding: .5rem .7rem; background: var(--wash-b); border-radius: 8px; }
+  .fleet-cell-panel ol.reclist { padding-left: 2.5rem; }
+  .fleet-cell-panel .reclist a { overflow-wrap: anywhere; }
   .fleet-heat-note { font-size: .82rem; color: var(--muted); margin: .3rem .2rem 0; }
 
   /* ---- Cross-reference list ---- */
@@ -391,11 +393,11 @@
 
 <h2 id="shared-vocabulary">Shared vocabulary</h2>
 
-<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies, with DOI and PMID first, followed by vocabularies used by the most Mechs to the fewest. Mech names stay visible as you scroll. Click a Mech name to open it, a linked count to browse records, or a column button to filter the graph.</p>
+<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies, with DOI and PMID first, followed by vocabularies used by the most Mechs to the fewest. Rows run from the Mech using the most vocabularies to the fewest. Mech names stay visible as you scroll. Select any cell to see its occurrence count and matching records below, including cells with no occurrences. Click a Mech name to open it, or a column button to filter the graph.</p>
 
 <div class="fleet-heat-wrap" tabindex="0" role="region" aria-label="Vocabulary census; scroll horizontally to see all vocabularies"><table class="fleet-heat" id="fleet-heat" aria-label="Vocabulary identifier occurrences per Mech"></table></div>
-<div class="fleet-cell-panel" id="fleet-cell-panel" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in structured records and seed worklists (one family per DUFMech worklist row; merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. DOI and PMID are the first two columns. All remaining columns are ordered by how many Mechs use each vocabulary, from most to least, then by total occurrences across the fleet and vocabulary name. Record lists and graph filters are available for the vocabularies indexed in this snapshot. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<div class="fleet-cell-panel" id="fleet-cell-panel" role="region" aria-label="Selected vocabulary records" hidden></div>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in structured records and seed worklists (one family per DUFMech worklist row; merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. DOI and PMID are the first two columns. All remaining columns are ordered by how many Mechs use each vocabulary, from most to least, then by total occurrences across the fleet and vocabulary name. Rows are ordered by how many vocabularies each Mech uses; ties retain the biological scale order. Every cell opens its matching-record summary; lists show up to 300 records. Column buttons filter the graph for vocabularies with a shared-term index. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
 <div class="fleet-graph" id="fleet-graph">
   <div class="fleet-controls">
@@ -910,10 +912,11 @@
     return p;
   }
   function recLinks(base, refs, more) {
-    var out = refs.map(function (r) { return '<a href="' + esc(base + r[0]) + '" title="' + esc(r[1]) + '">' + esc(r[1].length > 38 ? r[1].slice(0, 36) + "…" : r[1]) + '</a>'; }).join(", ");
+    var out = refs.map(function (r) { return '<a href="' + esc(recordURL(base, r)) + '" title="' + esc(r[1]) + '">' + esc(r[1].length > 38 ? r[1].slice(0, 36) + "…" : r[1]) + '</a>'; }).join(", ");
     if (more > refs.length) out += ' <em>+' + fmt(more - refs.length) + ' more</em>';
     return out;
   }
+  function recordURL(base, record) { return record[2] || base + record[0]; }
   // Term keys that count toward another column (build_subsets TERM_SPACE): a
   // column filter such as "PDB:" must still find PDB-CCD ligand codes (#284).
   var TERM_COLUMN = { "PDB-CCD": "PDB", "RHEA-COMP": "RHEA" };
@@ -1009,40 +1012,66 @@
     DATA.order.forEach(function (m) { VOC.forEach(function (v) { max = Math.max(max, DATA.heat[m][v]); }); });
     var lmax = Math.log10(max);
     var html = "<thead><tr><th scope=\"col\">Mech</th>" + VOC.map(function (v) {
-      var indexed = DATA.order.some(function (m) { return DATA.cells[m + "--" + v]; }) || DATA.vocab_edges.some(function (edge) { return edge.by[v] > 0; });
-      return '<th scope="col">' + (indexed ? '<button type="button" data-voc="' + esc(v) + '" aria-pressed="false" title="Filter the graph to ' + esc(v) + '">' + esc(v) + '</button>' : '<span title="Occurrence counts; record lists and graph overlaps are not available for this vocabulary">' + esc(v) + '</span>') + '</th>';
+      var indexed = DATA.indexed_voc ? DATA.indexed_voc.indexOf(v) >= 0 : DATA.vocab_edges.some(function (edge) { return edge.by[v] > 0; });
+      return '<th scope="col">' + (indexed ? '<button type="button" data-voc="' + esc(v) + '" aria-pressed="false" title="Filter the graph to ' + esc(v) + '">' + esc(v) + '</button>' : '<span title="Select a cell below to browse matching records. This vocabulary has no shared-term graph index.">' + esc(v) + '</span>') + '</th>';
     }).join("") + "</tr></thead><tbody>";
     var heatOrder = DATA.order.concat(Object.keys(MECHS).filter(function (m) { return DATA.order.indexOf(m) < 0; }));
+    var vocabCounts = {}, biologicalOrder = {};
+    heatOrder.forEach(function (m, i) { biologicalOrder[m] = i; vocabCounts[m] = VOC.filter(function (v) { return DATA.heat[m] && DATA.heat[m][v] > 0; }).length; });
+    heatOrder.sort(function (a, b) { return vocabCounts[b] - vocabCounts[a] || biologicalOrder[a] - biologicalOrder[b]; });
     heatOrder.forEach(function (m) {
-      html += '<tr data-mech="' + esc(m) + '"><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(MECHS[m]) + '" title="Open ' + esc(m) + '">' + esc(m) + "</a></th>";
+      html += '<tr data-mech="' + esc(m) + '"><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(MECHS[m]) + '" title="Open ' + esc(m) + ' · ' + fmt(vocabCounts[m]) + ' vocabularies">' + esc(m) + "</a></th>";
       if (!Object.prototype.hasOwnProperty.call(DATA.heat, m)) {
         html += '<td class="unmeasured" colspan="' + VOC.length + '" title="' + esc(m) + ' is not included in the dated vocabulary census"><span>Not yet measured</span></td></tr>';
         return;
       }
       VOC.forEach(function (v) {
-        var n = DATA.heat[m][v], l = n ? Math.round(12 + 88 * Math.log10(n) / lmax) : 0, recs = DATA.cells[m + "--" + v];
-        var cell = !n ? "&middot;" : recs ? '<button type="button" data-mech="' + m + '" data-voc="' + v + '" aria-label="' + fmt(recs) + ' records in ' + esc(m) + ' grounded in ' + esc(v) + '">' + short(n) + "</button>" : '<span>' + short(n) + '</span>';
-        html += '<td data-voc="' + v + '" data-l="' + l + '" style="--l:' + l + '" title="' + esc(m) + " · " + esc(v) + ": " + fmt(n) + ' occurrences' + (recs ? ' in ' + fmt(recs) + ' records' : '') + '">' + cell + "</td>";
+        var n = DATA.heat[m][v], l = n ? Math.round(12 + 88 * Math.log10(n) / lmax) : 0, recs = DATA.cells[m + "--" + v] || 0;
+        var description = m + ' · ' + v + ': ' + fmt(n) + ' occurrences in ' + fmt(recs) + ' matching records';
+        var cell = '<button type="button" data-mech="' + esc(m) + '" data-voc="' + esc(v) + '" aria-label="' + esc(description) + '" aria-controls="fleet-cell-panel" aria-pressed="false">' + (n ? short(n) : "&middot;") + "</button>";
+        html += '<td data-voc="' + esc(v) + '" data-l="' + l + '" style="--l:' + l + '" title="' + esc(description) + '">' + cell + "</td>";
       });
       html += "</tr>";
     });
     heat.innerHTML = html + "</tbody>";
     heat.querySelectorAll("thead button").forEach(function (b) { b.addEventListener("click", function () { var v = b.dataset.voc; setVoc(state.voc === v ? "" : v); }); });
-    var cellPanel = document.getElementById("fleet-cell-panel"), cellSel = null;
-    heat.querySelectorAll("tbody button").forEach(function (b) {
-      b.addEventListener("click", function () {
-        var m = b.dataset.mech, v = b.dataset.voc, key = m + "--" + v; cellSel = key;
-        heat.querySelectorAll("tbody td").forEach(function (td) { td.classList.toggle("sel", td.contains(b)); });
-        cellPanel.hidden = false;
-        cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>Loading records…</p>';
-        loadJSON("cells/" + key + ".json").then(function (doc) {
-          if (cellSel !== key) return; // a later click replaced this one
-          var cap = doc.records.length < doc.total;
-          cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + fmt(doc.total) + ' record' + (doc.total === 1 ? '' : 's') + ' in ' + esc(m) + ' cite ' + esc(v) + ' identifiers</h3>' +
-            '<p>' + (cap ? 'Showing the first ' + fmt(doc.records.length) + '. ' : '') + 'Each link opens ' + (m === "DUFMech" ? 'the Pfam family entry at InterPro' : 'the record' + (m === "CultureMech" || m === "MediaIngredientMech" ? ' source file on GitHub' : ' page')) + '.</p>' +
-            '<div class="links"><a class="go" href="' + mechURL(MECHS[m]) + '">Open ' + esc(m) + ' ↗</a></div><p class="reclist">' + recLinks(doc.base, doc.records, doc.records.length) + '</p>';
-        })["catch"](function () { if (cellSel !== key) return; cellPanel.innerHTML = '<p class="eyebrow">' + esc(m) + ' · ' + esc(v) + '</p><p>' + loadFailed() + '</p>'; });
+    var cellPanel = document.getElementById("fleet-cell-panel"), cellRequest = 0;
+    function selectCell(b) {
+      var m = b.dataset.mech, v = b.dataset.voc, key = m + "--" + v, request = ++cellRequest, occurrences = DATA.heat[m][v];
+      heat.querySelectorAll("tbody button").forEach(function (button) { button.setAttribute("aria-pressed", String(button === b)); });
+      heat.querySelectorAll("tbody td").forEach(function (td) { td.classList.toggle("sel", td.contains(b)); });
+      cellPanel.hidden = false;
+      cellPanel.dataset.mech = m; cellPanel.dataset.voc = v;
+      cellPanel.innerHTML = '<p class="eyebrow">Selected vocabulary</p><h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + esc(m) + ' · ' + esc(v) + '</h3>' +
+        '<p class="cell-count"></p><p class="cell-status" role="status" aria-live="polite" aria-atomic="true"></p>' +
+        '<div class="links"><a class="go" href="' + mechURL(MECHS[m]) + '">Open ' + esc(m) + ' ↗</a></div><div class="cell-records"></div>';
+      var count = cellPanel.querySelector(".cell-count"), status = cellPanel.querySelector(".cell-status"), records = cellPanel.querySelector(".cell-records");
+      count.textContent = fmt(occurrences) + ' identifier occurrence' + (occurrences === 1 ? '' : 's') + ' in this census.';
+      if (!occurrences) {
+        status.textContent = m + ' · ' + v + ': no matching records. No identifiers from this vocabulary occur in the measured record corpus.';
+        return;
+      }
+      status.textContent = 'Loading matching records for ' + m + ' · ' + v + '…';
+      records.setAttribute("aria-busy", "true");
+      loadJSON("cells/" + key + ".json").then(function (doc) {
+        if (request !== cellRequest) return;
+        if (doc.mech !== m || doc.prefix !== v || doc.occurrences !== occurrences || doc.total !== DATA.cells[key] || !Array.isArray(doc.records) || !doc.records.length || doc.records.length > doc.total || typeof doc.base !== "string") throw new Error("Record list does not match the selected census cell");
+        if (!doc.records.every(function (record) { return Array.isArray(record) && typeof record[0] === "string" && typeof record[1] === "string" && /^https:\/\//.test(recordURL(doc.base, record)); })) throw new Error("Invalid record link");
+        count.textContent = fmt(doc.occurrences) + ' identifier occurrence' + (doc.occurrences === 1 ? '' : 's') + ' across ' + fmt(doc.total) + ' distinct matching record' + (doc.total === 1 ? '' : 's') + '. A record can contain more than one occurrence.';
+        status.textContent = m + ' · ' + v + ': ' + (doc.records.length < doc.total ? 'showing the first ' + fmt(doc.records.length) + ' of ' + fmt(doc.total) + ' matching records.' : 'showing all ' + fmt(doc.total) + ' matching record' + (doc.total === 1 ? '.' : 's.'));
+        records.removeAttribute("aria-busy");
+        records.innerHTML = '<p>Each link opens ' + (m === "DUFMech" ? 'the Pfam family entry at InterPro' : m === "CultureMech" || m === "MediaIngredientMech" ? 'the record source file on GitHub' : 'the record page or its source file') + '.</p><ol class="reclist" tabindex="0" aria-label="Matching records; scroll to browse">' + doc.records.map(function (record) { return '<li><a href="' + esc(recordURL(doc.base, record)) + '">' + esc(record[1]) + '</a></li>'; }).join("") + '</ol>';
+      })["catch"](function () {
+        if (request !== cellRequest) return;
+        delete subsetCache["cells/" + key + ".json"];
+        records.removeAttribute("aria-busy");
+        status.textContent = 'The matching records for ' + m + ' · ' + v + ' could not be loaded. Try again.';
+        records.innerHTML = '<button type="button" class="fleet-chip cell-retry">Try again</button>';
+        records.querySelector("button").addEventListener("click", function () { b.focus({ preventScroll: true }); selectCell(b); });
       });
+    }
+    heat.querySelectorAll("tbody button").forEach(function (b) {
+      b.addEventListener("click", function () { selectCell(b); });
     });
   }
   function short(n) { return n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "k" : String(n); }

@@ -1,4 +1,6 @@
-"""Build the shared-term index per Mech pair and the per-Mech, per-vocabulary record lists (assets/fleet/edges, assets/fleet/cells) plus subsets_summary.json.
+"""Build shared-term graph indexes (assets/fleet/edges) and subsets_summary.json.
+
+Full-census heatmap record lists are written separately by build_cells.py.
 
 Run from the site root: `python3 scripts/fleet/build_subsets.py`. Reads the Mech
 checkouts through scripts/fleet/roots.py (set MECHS_ROOT to relocate them); writes derived data under _fleet/data and assets/fleet. See
@@ -189,19 +191,24 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="PathwayMech": return urllib.parse.quote(doc_id.replace(":", "_").replace("/", "_")+".html") if doc_id else None
     if m=="DUFMech": return doc_id.removeprefix("Pfam:")+"/" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None
     return None
+def record_identity(path, text):
+    """Read the stable record id and full folded display label used by links."""
+    head=text[:4000]
+    mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M)
+    doc_id=mid.group(1).strip("'\"") if mid else ""
+    ml=re.search(r"^(?:label|preferred_term|display_name|title|name)\s*:\s*(.+(?:\n[ \t]+(?![\w-]+\s*:)(?!-\s)\S.*)*)$",head,flags=re.M)
+    label=unq(" ".join(part.strip() for part in ml.group(1).split("\n"))) if ml else os.path.basename(path)[:-5]
+    return doc_id, label, bool(ml)
+
+
 def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
     """Return per-mech index: term -> [(slug,label)], prefix -> (count, first refs), term labels votes."""
     cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); own={}; nfiles=0; nolink=0
     for f,txt in record_documents(m):
         nfiles+=1
-        head=txt[:4000]
-        mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M); doc_id=mid.group(1).strip("'\"") if mid else ""
-        # A long label can be folded onto indented continuation lines; read them all
-        # rather than stopping at the first line (#165).
-        ml=re.search(r"^(?:label|preferred_term|display_name|title|name)\s*:\s*(.+(?:\n[ \t]+(?![\w-]+\s*:)(?!-\s)\S.*)*)$",head,flags=re.M)
-        doc_label=unq(" ".join(part.strip() for part in ml.group(1).split("\n"))) if ml else os.path.basename(f)[:-5]
+        doc_id,doc_label,has_label=record_identity(f,txt)
         # A TaxonMech record's own label names the taxon it is keyed by (#163).
-        if m=="TaxonMech" and doc_id and ml: own[doc_id]=doc_label
+        if m=="TaxonMech" and doc_id and has_label: own[doc_id]=doc_label
         slug=slug_for(m,f,doc_id,doc_label)
         if slug is None: nolink+=1; continue
         assert re.fullmatch(r"[A-Za-z0-9_.~%\-/]+",slug), (m,slug)
@@ -281,13 +288,13 @@ def main():
             if c:
                 l,n=c.most_common(1)[0]
                 if n/sum(c.values())>=0.6 and l.count("'")%2==0: labels[t]=l; break
-    os.makedirs(f"{OUT}/edges",exist_ok=True); os.makedirs(f"{OUT}/cells",exist_ok=True)
+    os.makedirs(f"{OUT}/edges",exist_ok=True)
     summary={"_revisions":revisions,"edges":{},"cells":{}}
     for a,b in itertools.combinations(ORDER,2):
         shared=set(idx[a]["terms"])&set(idx[b]["terms"])
         # An edge counts shared *concepts*, not shared bibliography. roots.CITATION
         # says why: every Mech cites papers, so counting those "would say only
-        # that". The cell indexes below already skip them; the edge weight was the one
+        # that". The overlap summaries below skip them; the edge weight was the one
         # place that still counted them, because this line read
         # `!="DOI" or True` and the `or True` made it a no-op (#62).
         shared={t for t in shared if t.split(":")[0] not in CITATION}
@@ -304,7 +311,9 @@ def main():
         # same checkouts write the same bytes (#107).
         by=dict(sorted(byp.items(), key=lambda kv:(-kv[1], kv[0])))
         doc={"a":a,"b":b,"base":{a:MECHS[a]["base"],b:MECHS[b]["base"]},"n":len(shared),"by":by,"terms":rows}
-        fn=f"{a}--{b}.json"; json.dump(doc,open(f"{OUT}/edges/{fn}","w"),separators=(",",":"),ensure_ascii=False)
+        fn=f"{a}--{b}.json"
+        with open(f"{OUT}/edges/{fn}", "w") as handle:
+            json.dump(doc,handle,separators=(",",":"),ensure_ascii=False)
         ex=[r for r in rows if r["l"] and r["id"].split(":")[0] not in CITATION]
         # A TaxonMech overlap also holds higher taxa that appear only in lineages, and
         # they sort first by record count. Show taxa TaxonMech has records for (#164).
@@ -317,10 +326,11 @@ def main():
         # subsets_summary.json and the page's embedded data (#107).
         for p,(n,refs) in sorted(idx[m]["cells"].items()):
             if p in CITATION: continue
-            fn=f"{m}--{p}.json"
-            json.dump({"mech":m,"prefix":p,"base":MECHS[m]["base"],"total":n,"records":refs},open(f"{OUT}/cells/{fn}","w"),separators=(",",":"),ensure_ascii=False)
+            # Retain the overlap-index coverage metadata, but never overwrite
+            # the broader heatmap assets owned by build_cells.py.
             summary["cells"][f"{m}|{p}"]=n
-    json.dump(summary,open(DATA+"/subsets_summary.json","w"),indent=1)
+    with open(DATA+"/subsets_summary.json", "w") as handle:
+        json.dump(summary,handle,indent=1)
     print("labels resolved",len(labels),"of",len(allterms)); print("habitat pages unresolved (no link emitted):",len(hab_collisions), hab_collisions[:3]); print("done; total size KB:", sum(os.path.getsize(f) for f in glob.glob(f"{OUT}/**/*.json",recursive=True))//1024)
 
 

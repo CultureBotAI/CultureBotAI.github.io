@@ -376,8 +376,8 @@ class PrefixListTests(unittest.TestCase):
     """Counted prefixes, displayed columns and indexed subsets must agree.
 
     `P` in prefix_census.py decides what is counted at all. Every namespace in
-    the saved census gets a heatmap column; `PREF` in build_subsets.py is the
-    smaller set with indexed record lists and shared-term edges.
+    the saved census gets a heatmap column and record lists; `PREF` in
+    build_subsets.py is the smaller set with indexed shared-term edges.
     """
 
     def setUp(self):
@@ -444,11 +444,11 @@ class PrefixListTests(unittest.TestCase):
         # A column the census never counts renders as a stripe of zeros.
         self.assertEqual([v for v in self.voc if v not in self.census], [])
 
-    def test_every_clickable_cell_prefix_is_a_vocabulary_the_census_counts(self):
+    def test_every_overlap_prefix_is_a_vocabulary_the_census_counts(self):
         self.assertEqual([p for p in self.pref if p not in self.census], [])
 
-    def test_every_clickable_cell_prefix_has_a_column(self):
-        # All census namespaces get columns; only the indexed subset has lists.
+    def test_every_overlap_prefix_has_a_column(self):
+        # All census namespaces get lists; graph filters remain a smaller set.
         import roots
         columns = {v for v in self.voc if v not in roots.CITATION}
         cells = {p for p in self.pref if p not in roots.CITATION}
@@ -1422,7 +1422,8 @@ class RefreshProvenanceTests(unittest.TestCase):
         import build_data
         subsets = json.loads((ROOT / "_fleet/data/subsets_summary.json").read_text())
         with contextlib.redirect_stdout(open(os.devnull, "w")):
-            expected = build_data.build(subsets, self.census)
+            cells = json.loads((ROOT / "_fleet/data/cells_summary.json").read_text())
+            expected = build_data.build(subsets, self.census, cells)
         committed = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
         self.assertEqual(committed, json.loads(json.dumps(expected)))
 
@@ -1588,7 +1589,11 @@ class SubsetDeterminismTests(unittest.TestCase):
 
     def run_once(self, fixture, out, seed):
         driver = ("import build_subsets as b, os; b.OUT=os.environ['OUT']; b.DATA=os.environ['DATA']; "
-                  "os.makedirs(b.DATA, exist_ok=True); b.main()")
+                  "os.makedirs(b.DATA, exist_ok=True); b.main(); "
+                  "import build_cells as c, hashlib; c.OUT=b.OUT; c.DATA=b.DATA; "
+                  "docs={m+'|'+p:d for m in b.ORDER for p,d in c.scan(m,source_revision='a'*40).items()}; "
+                  "summary={'_revisions':{m:'a'*40 for m in b.ORDER},'cells':{k:{'records':d['total'],'occurrences':d['occurrences'],'sha256':hashlib.sha256(c.encoded(d)).hexdigest()} for k,d in docs.items()}}; "
+                  "c.write_outputs(summary,docs)")
         env = dict(os.environ, MECHS_ROOT=str(fixture), PYTHONPATH=str(ROOT / "scripts/fleet"),
                    PYTHONHASHSEED=str(seed), OUT=str(out / "fleet"), DATA=str(out / "data"))
         done = subprocess.run([sys.executable, "-c", driver], env=env, capture_output=True, text=True, timeout=120)

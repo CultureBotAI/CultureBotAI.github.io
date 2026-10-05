@@ -160,6 +160,11 @@ def assemble(template, fragment, data, snapshot, stats, census):
     measured_mechs = {name: mech for name, mech in census.items() if not name.startswith("_")}
     if set(measured_mechs) != measured:
         raise ValueError("Census members must match the measured graph and heat rows")
+    positive_cells = {m + "--" + v for m in measured for v, n in data["heat"][m].items() if n}
+    if set(data["cells"]) != positive_cells:
+        raise ValueError("Every populated heatmap cell must have a matching-record count")
+    if any(type(n) is not int or n < 1 for n in data["cells"].values()):
+        raise ValueError("Heatmap matching-record counts must be positive integers")
     if any(edge["a"] not in measured or edge["b"] not in measured for edge in data["vocab_edges"]):
         raise ValueError("Census edges must connect measured members")
     replacements = {
