@@ -17,10 +17,13 @@
   `definition` and optional `criteria`, shown on the page). `mechs` has one entry per suite
   Mech: `site` (https URL, or `null` for a Mech without a website, which then carries a
   `note` and no `features`), `repository`, `deployed_revision` (the full SHA of the
-  github-pages deployment the check saw) and `features`, one verdict per catalogue feature
+  successful github-pages deployment the browser check saw) and `features`, one verdict per catalogue feature
   with `status` (`present`, `partial`, `missing`, `not_applicable` or `unknown`), `note`
   (tooltip text giving the evidence) and `url` (https evidence page). `assemble_page.py`
-  fails if any of these is missing or malformed.
+  fails if any of these is missing or malformed. Confirm the latest status of
+  the deployment ID is `success` before recording its SHA; a queued or failed
+  deployment request does not identify the currently served site. The update
+  checker reports such unverified states as `NOT CHECKED`.
 - `audit_notes.json` — hand-checked explanations of each source and its counted
   entities. PathwayMech records and DUFMech seed families use the same pinned
   census, statistics and site-audit pipeline as the other ten Mechs.

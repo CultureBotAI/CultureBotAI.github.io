@@ -118,6 +118,9 @@ def validate_site_features(features, names):
             continue
         if not (isinstance(mech["site"], str) and mech["site"].startswith("https://")):
             raise ValueError(f"{name}: site must be an https URL")
+        if not (isinstance(mech.get("repository"), str) and
+                re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", mech["repository"])):
+            raise ValueError(f"{name}: repository must be a GitHub repository URL")
         if not (isinstance(mech.get("deployed_revision"), str) and SHA.fullmatch(mech["deployed_revision"])):
             raise ValueError(f"{name}: deployed_revision must be the full SHA of the deployment checked")
         verdicts = mech.get("features")

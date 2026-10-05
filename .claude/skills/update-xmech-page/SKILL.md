@@ -208,14 +208,24 @@ the file's `catalogue` (one reviewer per site, an independent skeptic per verdic
 an arbiter for each disagreement and a final pass comparing each column across
 sites, as the page's intro states; change that sentence if the method changes).
 Update every verdict, note and evidence URL that changed, move `checked_on`,
-rewrite `scope`, and record each site's `deployed_revision` as the deployment the
-final check of that site saw:
+rewrite `scope`, and record each site's `deployed_revision` as the successful
+deployment the final browser check of that site saw. A deployment request alone
+does not establish that Pages serves its commit. Read its ID and SHA, then check
+the latest status for that exact deployment ID:
 
 ```bash
-gh api "repos/CultureBotAI/<repo>/deployments?environment=github-pages&per_page=1" --jq '.[0].sha'
+gh api "repos/CultureBotAI/<repo>/deployments?environment=github-pages&per_page=1" --jq '.[0] | {id, sha, created_at}'
+gh api "repos/CultureBotAI/<repo>/deployments/<deployment-id>/statuses?per_page=1" --jq '.[0] | {state, created_at}'
 ```
 
-`scripts/fleet/check_updates.py` reports sites that have redeployed since. For a large fleet this fans out well: one read-only
+Record the SHA only when the status is `success` and it corresponds to the
+browser review. Queued, pending, failed, inactive or unavailable statuses are
+inconclusive about what is currently served; preserve the prior recorded
+revision and report the deployment as not checked until it can be verified.
+
+`scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
+at a different revision, and marks unverified deployment states `NOT CHECKED`.
+For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
 refute it. Apply only changes that survive, with one editor making all the edits

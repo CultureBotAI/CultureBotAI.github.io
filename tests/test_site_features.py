@@ -129,6 +129,11 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["mechs"][name]["features"][key].update(url="http://example.org"), "https evidence"),
             (lambda f: f["mechs"][name].update(site="http://example.org/"), "https URL"),
             (lambda f: f["mechs"][name].update(site=["https://example.org/"]), "https URL"),
+            (lambda f: f["mechs"][name].pop("repository"), "repository"),
+            (lambda f: f["mechs"][name].update(repository=None), "repository"),
+            (lambda f: f["mechs"][name].update(repository=["https://github.com/CultureBotAI/AMech"]), "repository"),
+            (lambda f: f["mechs"][name].update(repository="https://github.com/CultureBotAI"), "repository"),
+            (lambda f: f["mechs"][name].update(repository="https://example.org/CultureBotAI/AMech"), "repository"),
             (lambda f: f["mechs"][name].update(deployed_revision="f23f307"), "deployed_revision"),
             (lambda f: f["mechs"][name].pop("deployed_revision"), "deployed_revision"),
             (lambda f: f["mechs"][name].update(features=None), "every site feature"),
@@ -139,7 +144,7 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["catalogue"][key].update(definition=""), "label and a definition"),
             (lambda f: f["catalogue"][key].update(criteria=" "), "empty criteria"),
             (lambda f: f.update(scope=""), "scope"),
-            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "features": {}}), "no feature verdicts"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "features": deepcopy(f["mechs"][name]["features"])}), "no feature verdicts"),
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": None}), "needs a note"),
         ]:
             changed = deepcopy(self.features)

@@ -78,8 +78,8 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 ### The X-Mech Suite page
 The suite has twelve Mechs, all under https://github.com/CultureBotAI, plus the
 orchestrator `culturebotai-claw`. Three have pages here; the others link to their
-own GitHub Pages sites. DUFMech's card links its GitHub repository and seed
-snapshot, the source of its count; its Pages dashboard went live on 2026-10-05.
+own GitHub Pages sites. DUFMech's card links its Pages dashboard and seed
+snapshot, the source of its count; the dashboard went live on 2026-10-05.
 CLAW's manifest lists eleven members, including PathwayMech; DUFMech is a
 separately listed suite member not yet declared in that manifest.
 

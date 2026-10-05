@@ -231,23 +231,41 @@ def site_feature_check(features: dict, api=gh) -> list[tuple[str, str, str]]:
     """(status, mech, detail) for each Mech site in the website feature table.
 
     The table describes live sites, not pins, so a site that GitHub Pages has
-    deployed again since its recorded deployed_revision may no longer match its
-    verdicts (#373). States: same, redeployed and NOT CHECKED when the API does
-    not answer. Read-only: one GET per site.
+    successfully deployed again since its recorded deployed_revision may no
+    longer match its verdicts (#373). A deployment request can still be queued
+    or have failed, so its latest status must confirm success before calling it
+    the served revision. States: same, redeployed and NOT CHECKED when success
+    cannot be verified. Read-only: at most two GETs per site.
     """
     rows = []
     for mech, entry in sorted(features["mechs"].items()):
         if entry.get("site") is None:
             continue
-        repo = entry["repository"].removeprefix("https://github.com/")
         try:
+            repository = entry["repository"]
+            if not (isinstance(repository, str) and
+                    re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", repository)):
+                raise ValueError("repository must be a GitHub repository URL")
+            repo = repository.removeprefix("https://github.com/").rstrip("/")
+            recorded = entry["deployed_revision"]
+            if not (isinstance(recorded, str) and re.fullmatch(r"[0-9a-f]{40}", recorded)):
+                raise ValueError("deployed_revision must be a full commit SHA")
             latest = api(f"repos/{repo}/deployments?environment=github-pages&per_page=1")[0]
             sha, when = latest["sha"], latest.get("created_at", "?")
+            deployment_id = latest["id"]
+            if type(deployment_id) is not int or deployment_id <= 0:
+                raise ValueError("deployment response has no valid id")
+            if not (isinstance(sha, str) and re.fullmatch(r"[0-9a-f]{40}", sha)):
+                raise ValueError("deployment response has no valid commit SHA")
+            status = api(f"repos/{repo}/deployments/{deployment_id}/statuses?per_page=1")[0]["state"]
+            if status != "success":
+                rows.append(("NOT CHECKED", mech,
+                             f"latest deployment is {status}; currently served revision not verified"))
+                continue
         except (Unchecked, KeyError, IndexError, TypeError, ValueError, OSError) as error:
             reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
             rows.append(("NOT CHECKED", mech, reason or "no deployment"))
             continue
-        recorded = entry["deployed_revision"]
         if sha == recorded:
             rows.append(("same", mech, f"still serves {sha[:7]}"))
         else:
