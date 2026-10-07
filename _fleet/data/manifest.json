@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "ad3862e7a5bd771f94c320bde5fd364d3460884d",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/ad3862e7a5bd771f94c320bde5fd364d3460884d/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "73958edb97994bc16c5404443956ee64c47bfe9b",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/73958edb97994bc16c5404443956ee64c47bfe9b/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -28,6 +28,9 @@
     },
     "knowledge_gap_scan": {
       "settings": {
+        "scheduled": {
+          "type": "boolean"
+        },
         "window": {
           "type": "integer",
           "required_when_enabled": true,
@@ -2012,6 +2015,186 @@
         "causal_graph_coverage": {
           "status": "disabled",
           "reason": "Every record is one causal graph: CURIE nodes in the record-level taxa, participants and reactions lists plus the record itself, and one record-level mechanistic_edges list. That is neither graph_list nor node_nested_edges, so the coverage reader would report no record covered. Enable once the reader has a record-level shape."
+        }
+      }
+    },
+    "DUFMech": {
+      "key": "dufmech",
+      "github": "CultureBotAI/DUFMech",
+      "capabilities": {
+        "id_label_validation": {
+          "status": "enabled",
+          "reason": "conf/id_label_targets.yaml uses genuine OAK against a verified frozen Pfam reference, captured independently from family record labels by src/dufmech/id_labels.py. This checks retained-source correspondence, not live ontology freshness or scientific characterization.",
+          "reason_claims": {
+            "present": [
+              "conf/id_label_targets.yaml",
+              "src/dufmech/id_labels.py"
+            ]
+          }
+        },
+        "curation_history": {
+          "status": "enabled"
+        },
+        "strict_validation": {
+          "status": "enabled"
+        },
+        "schema_sync": {
+          "status": "enabled"
+        },
+        "release_management": {
+          "status": "enabled"
+        },
+        "build_coordination": {
+          "status": "enabled"
+        },
+        "documentation": {
+          "status": "enabled"
+        },
+        "testing": {
+          "status": "enabled"
+        },
+        "refactoring": {
+          "status": "enabled"
+        },
+        "coordination_hooks": {
+          "status": "enabled"
+        },
+        "deep_research": {
+          "status": "disabled",
+          "reason": "conf/deep_research_provider.yaml and src/dufmech/research.py support offline planning and retained simulated results only. Provider execution is refused; enable after reviewed provider-backed adoption.",
+          "reason_claims": {
+            "present": [
+              "conf/deep_research_provider.yaml",
+              "src/dufmech/research.py"
+            ]
+          }
+        },
+        "edison_key_discovery": {
+          "status": "not_applicable",
+          "reason": "DUFMech has no Edison research-provider integration."
+        },
+        "environment_coverage": {
+          "status": "not_applicable",
+          "reason": "DUF/Pfam family evidence is not a culture-media, ingredient or microbial-community environment inventory."
+        },
+        "knowledge_gap_scan": {
+          "status": "enabled",
+          "reason": "conf/kgscan_config.yaml and src/dufmech/knowledge_gaps.py use shared sentence scoring over retained abstracts and emit timestamped review packets. Explicit digest-bound review is required before native overlay acceptance. This offline adapter is not a live scheduled scan.",
+          "reason_claims": {
+            "present": [
+              "conf/kgscan_config.yaml",
+              "src/dufmech/knowledge_gaps.py"
+            ]
+          },
+          "settings": {
+            "window": 25,
+            "scheduled": false
+          }
+        },
+        "vendored_sync": {
+          "status": "enabled"
+        },
+        "corpus_statistics": {
+          "status": "enabled",
+          "settings": {
+            "fields": [
+              "id",
+              "name",
+              "seed_status",
+              "characterization_status",
+              "curation_status",
+              "provenance"
+            ]
+          }
+        },
+        "page_budgets": {
+          "status": "enabled",
+          "settings": {
+            "site_path": "pages",
+            "budgets_path": "conf/pages_budgets.json"
+          }
+        },
+        "kgx_export": {
+          "status": "enabled",
+          "settings": {
+            "nodes_path": "exports/kgx/nodes.tsv",
+            "edges_path": "exports/kgx/edges.tsv"
+          }
+        },
+        "writer_audit": {
+          "status": "enabled",
+          "settings": {
+            "search_dirs": [
+              "src/dufmech",
+              "scripts"
+            ],
+            "save_helpers": [
+              "write_records",
+              "new_history"
+            ],
+            "validators": [
+              "validate_record\\(",
+              "_validate_record\\(",
+              "_validate_content\\("
+            ],
+            "curation_markers": [
+              "new_history\\("
+            ]
+          }
+        },
+        "sssom_export": {
+          "status": "enabled",
+          "settings": {
+            "mapping_globs": [
+              "exports/sssom/*.sssom.tsv"
+            ]
+          }
+        },
+        "metpo_proposal": {
+          "status": "disabled",
+          "reason": "No proposals/ directory exists. Enable when family mechanisms need new METPO terms and the repository adopts the proposal contract.",
+          "reason_claims": {
+            "absent": [
+              "proposals"
+            ]
+          }
+        },
+        "source_queue": {
+          "status": "enabled",
+          "settings": {
+            "queue_path": "curation/source_queue.tsv",
+            "extensions": [
+              "implementation",
+              "reviewed_on",
+              "review_basis",
+              "script",
+              "artifacts",
+              "license_url"
+            ],
+            "required_when_adopted": [
+              "script",
+              "artifacts",
+              "license_url",
+              "review_basis"
+            ]
+          }
+        },
+        "site_contract": {
+          "status": "enabled",
+          "settings": {
+            "site_path": "pages"
+          }
+        },
+        "source_catalogue": {
+          "status": "enabled"
+        },
+        "unmapped_inventory_input": {
+          "status": "not_applicable",
+          "reason": "Protein-family evidence is not a culture-medium ingredient corpus."
+        },
+        "causal_graph_coverage": {
+          "status": "disabled",
+          "reason": "The schema supports scientific assertions, but the seeded corpus has no curated mechanistic assertions or adopted causal-graph projection in a supported shared coverage shape."
         }
       }
     }

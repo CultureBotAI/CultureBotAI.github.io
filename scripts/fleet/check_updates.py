@@ -384,10 +384,11 @@ def main() -> int:
         print(line)
     print(f"{len(urls) - len(dead) - len(unchecked)} of {len(urls)} distinct links resolve.")
     features = json.loads(FEATURES.read_text())
-    print(f"\n## Website feature table (judged on the live sites on {features['checked_on']})\n")
+    print(f"\n## Website feature table (baseline audit: {features['checked_on']})\n")
     sites = site_feature_check(features)
     for status, mech, detail in sites:
-        print(f"- {status} {mech}: {detail}")
+        checked_on = features["mechs"][mech].get("checked_on", features["checked_on"])
+        print(f"- {status} {mech} (audit date: {checked_on}): {detail}")
     print("\n" + summary(moved, cards, manifest, dead, unchecked, pages, sites))
     return 0
 

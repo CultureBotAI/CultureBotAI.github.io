@@ -80,8 +80,9 @@ The suite has twelve Mechs, all under https://github.com/CultureBotAI, plus the
 orchestrator `culturebotai-claw`. Three have pages here; the others link to their
 own GitHub Pages sites. DUFMech's card links its Pages dashboard and seed
 snapshot, the source of its count; the dashboard went live on 2026-10-05.
-CLAW's manifest lists eleven members, including PathwayMech; DUFMech is a
-separately listed suite member not yet declared in that manifest.
+CLAW membership is read from `_fleet/data/manifest.json`, independently of
+suite coverage. An absent declaration remains undeclared; neither a suite card
+nor a website feature verdict implies admission.
 
 `mechs.md` (`/mechs/`) is **generated**. Edit its sources, never the page:
 `_fleet/mechs_template.md` (prose, cards, the cross-reference list),
@@ -110,7 +111,8 @@ Sources, refreshed differently:
   `_fleet/data/manifest.json`, refreshed with
   `scripts/fleet/refresh_manifest.py --claw-root <claw checkout>`, separately
   from the census. Its tooltips quote claw's reasons verbatim. The site lists
-  twelve Mechs, while this manifest currently lists eleven.
+  twelve Mechs; the membership count and undeclared-project prose are derived
+  from the snapshot, not maintained as a separate count.
 - **All twelve corpora:** PathwayMech records and DUFMech seed families use the
   common census, subset, statistics and site-audit pipeline. DUFMech's frozen
   JSON worklist is validated and projected into individual family documents;
@@ -138,14 +140,20 @@ Sources, refreshed differently:
   hand-curated too, but judged on the live sites on its `checked_on` date rather
   than at the pins: one verdict per feature per site, with criteria in its
   catalogue and each site's github-pages `deployed_revision`.
+  A later site-only recheck adds that Mech's own `checked_on` and `scope`
+  together, backed by a successful deployed revision and browser evidence for
+  every feature. Its date and method render separately; leave the baseline
+  date and other sites unchanged. Schema-documentation prose reflects the
+  website verdict, never an inference about whether a repository has a schema.
 
 Last full data refresh was 2026-10-05, pinned at 03:20 UTC. All twelve Mechs
 participate in the census, overlap assets and repository statistics, including
 PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 1,005
 records and CellStructureMech 885 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
-committed evidence as described in `_fleet/README.md`. CLAW still declares only
-eleven members, so DUFMech's capability row remains explicitly undeclared.
+committed evidence as described in `_fleet/README.md`. Membership and website
+audits can advance independently of these census pins; neither refresh is
+permission to redate or recount the other inputs.
 
 The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code.
 Redistributed source material retains its applicable terms.

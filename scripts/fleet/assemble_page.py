@@ -86,6 +86,18 @@ def _text(value):
     return value.strip() if isinstance(value, str) and value.strip() else None
 
 
+def _audit_date(value, label):
+    if not isinstance(value, str):
+        raise ValueError(f"{label}: checked_on must be an ISO date")
+    try:
+        day = datetime.date.fromisoformat(value)
+    except ValueError:
+        raise ValueError(f"{label}: checked_on must be an ISO date") from None
+    if day.isoformat() != value:
+        raise ValueError(f"{label}: checked_on must be YYYY-MM-DD")
+    return day
+
+
 def site_feature_columns(features):
     """(group title, feature key) pairs in display order. Every catalogue
     feature sits in exactly one group, so no column can go unshown."""
@@ -98,7 +110,7 @@ def site_feature_columns(features):
 
 def validate_site_features(features, names):
     """Fail closed: every suite Mech has a row, every row judges every feature."""
-    datetime.date.fromisoformat(features["checked_on"])
+    baseline = _audit_date(features.get("checked_on"), "Site features")
     if not _text(features.get("scope")):
         raise ValueError("Site features need a scope saying what was checked and how")
     columns = site_feature_columns(features)
@@ -110,6 +122,14 @@ def validate_site_features(features, names):
     if set(features["mechs"]) != set(names):
         raise ValueError("Site features must cover every suite Mech exactly once")
     for name, mech in features["mechs"].items():
+        if "checked_on" in mech or "scope" in mech:
+            checked = _audit_date(mech.get("checked_on"), name)
+            if checked < baseline:
+                raise ValueError(f"{name}: site-specific check cannot predate the baseline audit")
+            if not _text(mech.get("scope")):
+                raise ValueError(f"{name}: site-specific check needs its own scope")
+            if mech.get("site") is None:
+                raise ValueError(f"{name}: site-specific check needs a published site")
         if mech.get("site") is None:
             # A Mech without a website gets one explanatory cell, not a row of
             # markers that would read as twenty-four separate judgements.
@@ -221,7 +241,8 @@ def site_feature_evidence(features, suite_order):
         entry = features["catalogue"][key]
         terms.append(f'<dt>{escape(entry["label"])}</dt><dd>{escape(entry["definition"])}'
                      + (f' {escape(entry["criteria"])}' if entry.get("criteria") else "") + "</dd>")
-    parts = ["<h4>Features</h4><dl>" + "".join(terms) + "</dl>"]
+    parts = [f'<h4>Baseline audit</h4><p>{escape(features["scope"].strip())}</p>',
+             "<h4>Features</h4><dl>" + "".join(terms) + "</dl>"]
     for name in suite_order:
         mech = features["mechs"][name]
         if mech.get("site") is None:
@@ -233,8 +254,37 @@ def site_feature_evidence(features, suite_order):
             items.append(f'<li><b>{escape(features["catalogue"][key]["label"])}</b> '
                          f'<span>{escape(SITE_STATUSES[verdict["status"]][1])}</span>: '
                          f'{escape(verdict["note"].strip())} <a href="{escape(verdict["url"], quote=True)}">Evidence</a></li>')
-        parts.append(f'<h4><a href="{escape(mech["site"], quote=True)}">{escape(name)}</a></h4><ul>{"".join(items)}</ul>')
+        recheck = ""
+        if "checked_on" in mech:
+            day = _audit_date(mech["checked_on"], name).strftime("%B %-d, %Y")
+            revision = mech["deployed_revision"]
+            source = f'{mech["repository"].rstrip("/")}/tree/{revision}'
+            recheck = (f'<p>Site-specific check on {day}, '
+                       f'<a href="{escape(source, quote=True)}">deployed revision {revision[:7]}</a>. '
+                       f'{escape(mech["scope"].strip())}</p>')
+        parts.append(f'<h4><a href="{escape(mech["site"], quote=True)}">{escape(name)}</a></h4>'
+                     f'{recheck}<ul>{"".join(items)}</ul>')
     return "\n".join(parts)
+
+
+def site_feature_rechecks(features, suite_order):
+    checks = [f'{escape(name)} ({_audit_date(features["mechs"][name]["checked_on"], name):%B %-d, %Y})'
+              for name in suite_order if "checked_on" in features["mechs"][name]]
+    if not checks:
+        return ""
+    note = "Site-specific rechecks: " + "; ".join(checks) + ". Their methods and deployed revisions are recorded below."
+    if len(checks) < sum(m.get("site") is not None for m in features["mechs"].values()):
+        note += " Other sites retain the baseline audit date and method."
+    return note
+
+
+def site_schema_note(features, name):
+    verdict = features["mechs"][name].get("features", {}).get("schema_docs")
+    if verdict is None:
+        return f"There is no website feature verdict for {escape(name)}'s schema documentation."
+    status = SITE_STATUSES[verdict["status"]][1]
+    return (f"The website audit records {escape(name)}'s schema documentation as "
+            f'<a href="{escape(verdict["url"], quote=True)}">{escape(status)}</a>.')
 
 
 def site_feature_key(features):
@@ -391,6 +441,10 @@ def assemble(template, fragment, data, snapshot, stats, census, features):
         "<!--FLEET_PR_REPO_COUNT-->": str(pr_repo_count),
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
         "<!--FLEET_MANIFEST_COUNT_WORD-->": number_word(len(members)),
+        "<!--FLEET_UNDECLARED_NOTE-->": (
+            "Separately listed projects without a declaration: "
+            + ", ".join(escape(name) for name in cards if name not in members) + "."
+            if names - members else "All projects shown here have a manifest declaration."),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
         "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot, cards),
         "<!--FLEET_CAPABILITY_HEAD-->": capability_head(snapshot),
@@ -401,6 +455,8 @@ def assemble(template, fragment, data, snapshot, stats, census, features):
         "<!--FLEET_SITE_KEY-->": site_feature_key(features),
         "<!--FLEET_SITE_EVIDENCE-->": site_feature_evidence(features, cards),
         "<!--FLEET_SITE_DATE-->": datetime.date.fromisoformat(features["checked_on"]).strftime("%B %-d, %Y"),
+        "<!--FLEET_SITE_RECHECKS-->": site_feature_rechecks(features, cards),
+        "<!--FLEET_DUF_SCHEMA_NOTE-->": site_schema_note(features, "DUFMech"),
         "<!--FLEET_SITE_COUNT_WORD-->": number_word(sum(m.get("site") is not None for m in features["mechs"].values())),
         "<!--FLEET_SITE_FEATURE_COUNT_WORD-->": number_word(len(features["catalogue"])),
     }
