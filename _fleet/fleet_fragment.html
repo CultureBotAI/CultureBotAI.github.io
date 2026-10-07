@@ -96,8 +96,25 @@
   .fleet-stats span { display: block; font-size: .72rem; line-height: 1.35; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
   @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } .fleet-stats b { font-size: 1.45rem; } }
 
+  /* ---- On-page section links ---- */
+  .fleet-section-nav { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .5rem; margin: 1.6rem 0; }
+  .page-content .fleet-section-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; min-width: 0; padding: .8rem .25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font-size: .75rem; font-weight: 650; line-height: 1.3; text-align: center; }
+  .fleet-section-nav svg { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--accent-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .fleet-section-nav span { min-width: 0; overflow-wrap: anywhere; }
+  .page-content .fleet-section-nav a:hover, .page-content .fleet-section-nav a:focus-visible { border-color: var(--accent-2); background: var(--wash-b); color: var(--ink); }
+  .page-content .fleet-section-nav a:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+  .fleet-section-target { scroll-margin-top: 11rem; }
+  @media (max-width: 1050px) { .fleet-section-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .fleet-section-nav { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); }
+    .page-content .fleet-section-nav a { flex-direction: row; justify-content: flex-start; gap: .6rem; padding: .65rem .75rem; font-size: .8rem; }
+    .fleet-section-nav svg { width: 24px; height: 24px; }
+    .fleet-section-target { scroll-margin-top: 5rem; }
+  }
+
   /* ---- Graph shell ---- */
-  .fleet-graph { margin: 1.4rem 0 2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  /* Clip rounded corners without creating a scroll container that swallows the fragment offset. */
+  .fleet-graph { margin: 1.4rem 0 2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: clip; }
   .fleet-controls { display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: center; padding: .8rem 1rem; border-bottom: 1px solid var(--line); background: var(--wash-b); }
   .fleet-controls .grp { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
   .fleet-controls .grp > span { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-right: .2rem; }
@@ -428,7 +445,20 @@
   <a href="https://culturebotai.github.io/CultureMech/" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)" title="Open CultureMech"><b>Media</b><span>how it is grown</span></a>
 </div>
 
-<h2 id="shared-vocabulary">Shared vocabulary</h2>
+<nav class="fleet-section-nav" aria-label="X-Mech page sections">
+  <a href="#shared-vocabulary"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path></svg><span>Vocabulary</span></a>
+  <a href="#fleet-graph"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 6 10 2M6 8l4 10m8-8-6 8"></path><circle cx="5" cy="5" r="3"></circle><circle cx="19" cy="8" r="3"></circle><circle cx="11" cy="20" r="2"></circle></svg><span>Graph</span></a>
+  <a href="#the-<!--FLEET_COUNT_WORD-->-mechs"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span>Mechs</span></a>
+  <a href="#explore-the-current-sites"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 6h14M5 18h14"></path></svg><span>Sites</span></a>
+  <a href="#website-features"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="m6 9 2 2 3-4m-5 9 2 2 3-4m3-5h4m-4 7h4"></path></svg><span>Features</span></a>
+  <a href="#how-the-mechs-reference-each-other"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 14 4-4m-6 6-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0m2 10a4.2 4.2 0 0 0 6 0l4-4a4.2 4.2 0 0 0-6-6l-1 1" transform="translate(1 0) scale(.92)"></path></svg><span>Links</span></a>
+  <a href="#orchestration-culturebotai-claw"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="2" width="8" height="6" rx="1.5"></rect><path d="M12 8v5M5 17v-4h14v4"></path><rect x="2" y="17" width="6" height="5" rx="1"></rect><rect x="16" y="17" width="6" height="5" rx="1"></rect></svg><span>CLAW</span></a>
+  <a href="#what-makes-a-mech"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 8 3v6c0 5-4 8-8 11-4-3-8-6-8-11V5z"></path><path d="m8 12 3 3 5-6"></path></svg><span>Standard</span></a>
+  <a href="#related-resources"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h6l2 3h10v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 11h18"></path></svg><span>Resources</span></a>
+  <a href="#bibliography"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1zm0 0v15M5 8h4m6 0h4M5 12h4m6 0h4"></path></svg><span>References</span></a>
+</nav>
+
+<h2 id="shared-vocabulary" class="fleet-section-target">Shared vocabulary</h2>
 
 <p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies, with DOI and PMID first, followed by vocabularies used by the most Mechs to the fewest. Rows run from the Mech using the most vocabularies to the fewest. Mech names stay visible as you scroll. Select any cell to see its occurrence count and matching records below, including cells with no occurrences. Click a Mech name to open it, or a column button to filter the graph.</p>
 
@@ -436,7 +466,7 @@
 <div class="fleet-cell-panel" id="fleet-cell-panel" role="region" aria-label="Selected vocabulary records" hidden></div>
 <p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in structured records and seed worklists (one family per DUFMech worklist row; merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. DOI and PMID are the first two columns. All remaining columns are ordered by how many Mechs use each vocabulary, from most to least, then by total occurrences across the fleet and vocabulary name. Rows are ordered by how many vocabularies each Mech uses; ties retain the biological scale order. Every cell opens its matching-record summary; lists show up to 300 records. Column buttons filter the graph for vocabularies with a shared-term index. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
-<div class="fleet-graph" id="fleet-graph">
+<div class="fleet-graph fleet-section-target" id="fleet-graph">
   <div class="fleet-controls">
     <div class="grp" role="group" aria-label="Edge layers">
       <span>Layers</span>
