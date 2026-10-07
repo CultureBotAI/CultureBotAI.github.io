@@ -98,6 +98,42 @@ class SiteFeatureTests(unittest.TestCase):
         sticky = re.findall(r"([^{}\n]+)\{[^}]*position: sticky", css)
         self.assertEqual([s.strip() for s in sticky], [f"table.fleet-site .{MECH_CELL}"])
 
+    def test_matrix_and_evidence_links_keep_readable_theme_colors(self):
+        rule = ".page-content .fleet-caps-wrap a, .page-content .fleet-site-notes a"
+        declarations = re.search(re.escape(rule) + r" \{([^}]+)\}", self.fragment).group(1)
+        for declaration in ("color: var(--fleet-link)", "text-decoration: underline",
+                            "text-underline-offset: .15em", "background-image: none"):
+            self.assertIn(declaration, declarations)
+        summary = re.search(r"\.fleet-site-notes summary \{([^}]+)\}", self.fragment).group(1)
+        self.assertIn("color: var(--fleet-link)", summary)
+        links = re.findall(r"--fleet-link:\s*(#[0-9A-Fa-f]{6});", self.fragment)
+        theme = (ROOT / "assets/custom.css").read_text()
+        blocks = re.findall(r":root[^{}]*\{([^{}]+)\}", theme)[:3]
+        self.assertEqual(len(links), 3)
+        self.assertEqual(len(blocks), 3)
+
+        def luminance(color):
+            channels = [int(color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+            linear = [c / 12.92 if c <= .04045 else ((c + .055) / 1.055) ** 2.4 for c in channels]
+            return sum(c * weight for c, weight in zip(linear, (.2126, .7152, .0722)))
+
+        for link, block in zip(links, blocks):
+            colors = dict(re.findall(r"--([\w-]+):\s*(#[0-9A-Fa-f]{6});", block))
+            for surface in ("card", "bg", "wash-a", "wash-b", "pastel-a", "pastel-b"):
+                for foreground, minimum in ((link, 4.5), (colors["muted"], 3)):
+                    lighter, darker = sorted((luminance(foreground), luminance(colors[surface])), reverse=True)
+                    self.assertGreaterEqual((lighter + .05) / (darker + .05), minimum,
+                                            (foreground, surface, colors[surface]))
+
+    def test_capability_na_marker_and_legend_use_the_same_opaque_dash(self):
+        selector = "table.fleet-caps td i.n, .fleet-caps-key i.n"
+        rule = re.search(re.escape(selector) + r" \{([^}]+)\}", self.fragment).group(1)
+        for declaration in ("border-top: 2px solid var(--muted)", "width: 10px",
+                            "height: 0", "border-radius: 0"):
+            self.assertIn(declaration, rule)
+        self.assertNotIn("opacity", rule)
+        self.assertNotIn("var(--line)", rule)
+
     def test_a_mech_without_a_site_renders_end_to_end(self):
         # #383: DUFMech had no website until October 5, 2026.
         changed = self.without_site()
