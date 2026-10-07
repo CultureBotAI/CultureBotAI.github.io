@@ -14,6 +14,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 <!--FLEET_FRAGMENT-->
 
 ## The <!--FLEET_COUNT_WORD--> Mechs
+{: .fleet-section-target}
 
 Each card carries its Mech's identity color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Counts were checked on October 5, 2026, with all twelve Mechs included in the vocabulary census and repository statistics. DUFMech's 6,532 seed families are labeled separately from curated mechanism records. Each Browse link is the source for its numbered card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/c4d05b1df27665d2e3cf8f6d6c68ac0408a74fa3/README.md#corpus-snapshot">repository's corpus snapshot</a>, and DUFMech, whose count comes from its linked seed snapshot. CommunityMech lists 456 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
 
@@ -118,6 +119,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
 </div>
 
 ## Explore the current sites
+{: .fleet-section-target}
 
 Alongside record browsing, the Mechs publish complementary ways to explore their data:
 
@@ -130,6 +132,7 @@ Alongside record browsing, the Mechs publish complementary ways to explore their
 - **Habitat meaning:** HabitatMech offers a [semantic text map](https://culturebotai.github.io/HabitatMech/pages/text-map/) alongside its ontology-grounded record browser.
 
 ### Website features
+{: .fleet-section-target}
 
 The capability table further down lists the shared contracts each Mech declares to CLAW. This table shows what a reader can do on each Mech's own website: <!--FLEET_SITE_FEATURE_COUNT_WORD--> features across the <!--FLEET_SITE_COUNT_WORD--> published sites, tested on the live sites on <!--FLEET_SITE_DATE--> in a headless browser. The tests searched for known identifiers and labels, applied filters, carried a theme choice from page to page, measured pages at a 390-pixel width and made data requests fail on purpose. Each verdict was tested by one AI agent, re-tested independently by a second and settled by a third where the two disagreed; a final pass compared each column across the sites against written criteria, which are listed with the evidence below the table. A feature counts as present only if it met its criteria, so a search that lists only its first 20 matches, or cannot find record identifiers, counts as partial. Some features do not apply to every site: a page that embeds its data makes no data request that could fail, a page with no search or filters has no search to link to, and DUFMech's worklist has no schema to document. Hover a marker for its evidence, or open the list below the table. A gap marks a possible improvement to a website, not a problem with the Mech's records. The notes describe each site as it stood when it was checked that day, after the cards above were counted, so a site that has grown since then quotes larger figures here, and a later redeployment can change a verdict.
 
@@ -151,6 +154,7 @@ The capability table further down lists the shared contracts each Mech declares 
 
 
 ## How the Mechs reference each other
+{: .fleet-section-target}
 
 Beyond shared vocabulary, Mechs name one another directly, in record fields, in schema slots, and in the curation practices they adopt from each other. The graph draws biological data links and complementary coverage; this detailed list also includes shared software and record formats. Arrows point at the Mech that consumes, or at the one a scope decision defers to. Taxa tie TaxonMech to much of the fleet through shared NCBI Taxonomy identifiers, while DUFMech connects to ProteinTraitsMech records through shared Pfam and InterPro families. Those links appear as chords in the graph's shared-vocabulary layer. Direct-reference arrows require a committed record, schema or curation practice naming the other Mech.
 
@@ -190,6 +194,7 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 </div>
 
 ## Orchestration: culturebotai-claw
+{: .fleet-section-target}
 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and tooling for cross-repository curation and validation.
 
@@ -214,6 +219,7 @@ Capability declarations from CLAW record adoption of shared contracts; they do n
 <div class="fleet-caps-key"><span><i class="e"></i>enabled</span><span><i class="d"></i>disabled, with a recorded reason</span><span><i class="n"></i>not applicable to this corpus</span><span><i class="u"></i>not declared in CLAW</span></div>
 
 ## What makes a Mech
+{: .fleet-section-target}
 
 The established Mechs share curation conventions, with adoption recorded per capability in the table above. DUFMech currently provides a seed worklist; the record and schema conventions below describe the structured corpora. The fleet standard is documented in [CLAW's MECH_STANDARD.md](https://github.com/CultureBotAI/culturebotai-claw/blob/main/docs/guides/MECH_STANDARD.md):
 
@@ -229,6 +235,7 @@ The established Mechs share curation conventions, with adoption recorded per cap
 </ul>
 
 ## Related resources
+{: .fleet-section-target}
 
 - **[kg-microbe](/kg-microbe/)** - The central knowledge graph several Mechs draw from; MediaIngredientMech provides candidate ingredient mappings for it
 - **[MicroGrowAgents](/microgrowagents/)** - Multi-agent media design built on kg-microbe
@@ -236,6 +243,7 @@ The established Mechs share curation conventions, with adoption recorded per cap
 - **[METPO](https://github.com/berkeleybop/metpo)** - The Microbial Ecophysiological Trait and Phenotype Ontology that seeds TraitMech and grounds trait references across the fleet
 
 ## Bibliography
+{: .fleet-section-target}
 
 1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 2. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)

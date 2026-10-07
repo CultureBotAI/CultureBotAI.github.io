@@ -109,8 +109,25 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   .fleet-stats span { display: block; font-size: .72rem; line-height: 1.35; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
   @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } .fleet-stats b { font-size: 1.45rem; } }
 
+  /* ---- On-page section links ---- */
+  .fleet-section-nav { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .5rem; margin: 1.6rem 0; }
+  .page-content .fleet-section-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; min-width: 0; padding: .8rem .25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font-size: .75rem; font-weight: 650; line-height: 1.3; text-align: center; }
+  .fleet-section-nav svg { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--accent-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .fleet-section-nav span { min-width: 0; overflow-wrap: anywhere; }
+  .page-content .fleet-section-nav a:hover, .page-content .fleet-section-nav a:focus-visible { border-color: var(--accent-2); background: var(--wash-b); color: var(--ink); }
+  .page-content .fleet-section-nav a:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+  .fleet-section-target { scroll-margin-top: 11rem; }
+  @media (max-width: 1050px) { .fleet-section-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .fleet-section-nav { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); }
+    .page-content .fleet-section-nav a { flex-direction: row; justify-content: flex-start; gap: .6rem; padding: .65rem .75rem; font-size: .8rem; }
+    .fleet-section-nav svg { width: 24px; height: 24px; }
+    .fleet-section-target { scroll-margin-top: 5rem; }
+  }
+
   /* ---- Graph shell ---- */
-  .fleet-graph { margin: 1.4rem 0 2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  /* Clip rounded corners without creating a scroll container that swallows the fragment offset. */
+  .fleet-graph { margin: 1.4rem 0 2rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: clip; }
   .fleet-controls { display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: center; padding: .8rem 1rem; border-bottom: 1px solid var(--line); background: var(--wash-b); }
   .fleet-controls .grp { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
   .fleet-controls .grp > span { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-right: .2rem; }
@@ -441,7 +458,20 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   <a href="https://culturebotai.github.io/CultureMech/" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)" title="Open CultureMech"><b>Media</b><span>how it is grown</span></a>
 </div>
 
-<h2 id="shared-vocabulary">Shared vocabulary</h2>
+<nav class="fleet-section-nav" aria-label="X-Mech page sections">
+  <a href="#shared-vocabulary"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path></svg><span>Vocabulary</span></a>
+  <a href="#fleet-graph"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 6 10 2M6 8l4 10m8-8-6 8"></path><circle cx="5" cy="5" r="3"></circle><circle cx="19" cy="8" r="3"></circle><circle cx="11" cy="20" r="2"></circle></svg><span>Graph</span></a>
+  <a href="#the-twelve-mechs"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span>Mechs</span></a>
+  <a href="#explore-the-current-sites"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 6h14M5 18h14"></path></svg><span>Sites</span></a>
+  <a href="#website-features"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="m6 9 2 2 3-4m-5 9 2 2 3-4m3-5h4m-4 7h4"></path></svg><span>Features</span></a>
+  <a href="#how-the-mechs-reference-each-other"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 14 4-4m-6 6-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0m2 10a4.2 4.2 0 0 0 6 0l4-4a4.2 4.2 0 0 0-6-6l-1 1" transform="translate(1 0) scale(.92)"></path></svg><span>Links</span></a>
+  <a href="#orchestration-culturebotai-claw"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="2" width="8" height="6" rx="1.5"></rect><path d="M12 8v5M5 17v-4h14v4"></path><rect x="2" y="17" width="6" height="5" rx="1"></rect><rect x="16" y="17" width="6" height="5" rx="1"></rect></svg><span>CLAW</span></a>
+  <a href="#what-makes-a-mech"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 8 3v6c0 5-4 8-8 11-4-3-8-6-8-11V5z"></path><path d="m8 12 3 3 5-6"></path></svg><span>Standard</span></a>
+  <a href="#related-resources"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h6l2 3h10v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 11h18"></path></svg><span>Resources</span></a>
+  <a href="#bibliography"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1zm0 0v15M5 8h4m6 0h4M5 12h4m6 0h4"></path></svg><span>References</span></a>
+</nav>
+
+<h2 id="shared-vocabulary" class="fleet-section-target">Shared vocabulary</h2>
 
 <p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all 160 vocabularies, with DOI and PMID first, followed by vocabularies used by the most Mechs to the fewest. Rows run from the Mech using the most vocabularies to the fewest. Mech names stay visible as you scroll. Select any cell to see its occurrence count and matching records below, including cells with no occurrences. Click a Mech name to open it, or a column button to filter the graph.</p>
 
@@ -449,7 +479,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 <div class="fleet-cell-panel" id="fleet-cell-panel" role="region" aria-label="Selected vocabulary records" hidden></div>
 <p class="fleet-heat-note">This vocabulary census covers all twelve Mechs. Counts are prefix occurrences in structured records and seed worklists (one family per DUFMech worklist row; merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of 5 October 2026. DOI and PMID are the first two columns. All remaining columns are ordered by how many Mechs use each vocabulary, from most to least, then by total occurrences across the fleet and vocabulary name. Rows are ordered by how many vocabularies each Mech uses; ties retain the biological scale order. Every cell opens its matching-record summary; lists show up to 300 records. Column buttons filter the graph for vocabularies with a shared-term index. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
 
-<div class="fleet-graph" id="fleet-graph">
+<div class="fleet-graph fleet-section-target" id="fleet-graph">
   <div class="fleet-controls">
     <div class="grp" role="group" aria-label="Edge layers">
       <span>Layers</span>
@@ -1133,6 +1163,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 
 
 ## The twelve Mechs
+{: .fleet-section-target}
 
 Each card carries its Mech's identity color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose schema has no field recording review shows only the pull-request count, rather than a zero that would claim more than it knows. Counts were checked on October 5, 2026, with all twelve Mechs included in the vocabulary census and repository statistics. DUFMech's 6,532 seed families are labeled separately from curated mechanism records. Each Browse link is the source for its numbered card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/c4d05b1df27665d2e3cf8f6d6c68ac0408a74fa3/README.md#corpus-snapshot">repository's corpus snapshot</a>, and DUFMech, whose count comes from its linked seed snapshot. CommunityMech lists 456 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the record-corpus census below. Fleet membership and capability declarations come from <a href="https://github.com/CultureBotAI/culturebotai-claw/blob/ad3862e7a5bd771f94c320bde5fd364d3460884d/src/kg_microbe_fleet/fleet.yaml">CLAW fleet manifest at ad3862e</a>.
 
@@ -1237,6 +1268,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
 </div>
 
 ## Explore the current sites
+{: .fleet-section-target}
 
 Alongside record browsing, the Mechs publish complementary ways to explore their data:
 
@@ -1249,6 +1281,7 @@ Alongside record browsing, the Mechs publish complementary ways to explore their
 - **Habitat meaning:** HabitatMech offers a [semantic text map](https://culturebotai.github.io/HabitatMech/pages/text-map/) alongside its ontology-grounded record browser.
 
 ### Website features
+{: .fleet-section-target}
 
 The capability table further down lists the shared contracts each Mech declares to CLAW. This table shows what a reader can do on each Mech's own website: 24 features across the twelve published sites, tested on the live sites on October 5, 2026 in a headless browser. The tests searched for known identifiers and labels, applied filters, carried a theme choice from page to page, measured pages at a 390-pixel width and made data requests fail on purpose. Each verdict was tested by one AI agent, re-tested independently by a second and settled by a third where the two disagreed; a final pass compared each column across the sites against written criteria, which are listed with the evidence below the table. A feature counts as present only if it met its criteria, so a search that lists only its first 20 matches, or cannot find record identifiers, counts as partial. Some features do not apply to every site: a page that embeds its data makes no data request that could fail, a page with no search or filters has no search to link to, and DUFMech's worklist has no schema to document. Hover a marker for its evidence, or open the list below the table. A gap marks a possible improvement to a website, not a problem with the Mech's records. The notes describe each site as it stood when it was checked that day, after the cards above were counted, so a site that has grown since then quotes larger figures here, and a later redeployment can change a verdict.
 
@@ -1294,6 +1327,7 @@ The capability table further down lists the shared contracts each Mech declares 
 
 
 ## How the Mechs reference each other
+{: .fleet-section-target}
 
 Beyond shared vocabulary, Mechs name one another directly, in record fields, in schema slots, and in the curation practices they adopt from each other. The graph draws biological data links and complementary coverage; this detailed list also includes shared software and record formats. Arrows point at the Mech that consumes, or at the one a scope decision defers to. Taxa tie TaxonMech to much of the fleet through shared NCBI Taxonomy identifiers, while DUFMech connects to ProteinTraitsMech records through shared Pfam and InterPro families. Those links appear as chords in the graph's shared-vocabulary layer. Direct-reference arrows require a committed record, schema or curation practice naming the other Mech.
 
@@ -1333,6 +1367,7 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 </div>
 
 ## Orchestration: culturebotai-claw
+{: .fleet-section-target}
 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and tooling for cross-repository curation and validation.
 
@@ -1368,6 +1403,7 @@ Capability declarations from CLAW record adoption of shared contracts; they do n
 <div class="fleet-caps-key"><span><i class="e"></i>enabled</span><span><i class="d"></i>disabled, with a recorded reason</span><span><i class="n"></i>not applicable to this corpus</span><span><i class="u"></i>not declared in CLAW</span></div>
 
 ## What makes a Mech
+{: .fleet-section-target}
 
 The established Mechs share curation conventions, with adoption recorded per capability in the table above. DUFMech currently provides a seed worklist; the record and schema conventions below describe the structured corpora. The fleet standard is documented in [CLAW's MECH_STANDARD.md](https://github.com/CultureBotAI/culturebotai-claw/blob/main/docs/guides/MECH_STANDARD.md):
 
@@ -1383,6 +1419,7 @@ The established Mechs share curation conventions, with adoption recorded per cap
 </ul>
 
 ## Related resources
+{: .fleet-section-target}
 
 - **[kg-microbe](/kg-microbe/)** - The central knowledge graph several Mechs draw from; MediaIngredientMech provides candidate ingredient mappings for it
 - **[MicroGrowAgents](/microgrowagents/)** - Multi-agent media design built on kg-microbe
@@ -1390,6 +1427,7 @@ The established Mechs share curation conventions, with adoption recorded per cap
 - **[METPO](https://github.com/berkeleybop/metpo)** - The Microbial Ecophysiological Trait and Phenotype Ontology that seeds TraitMech and grounds trait references across the fleet
 
 ## Bibliography
+{: .fleet-section-target}
 
 1. Santangelo BE, Hegde H, Caufield JH, Reese J, Kliegr T, Hunter LE, Lozupone CA, Mungall CJ, **Joachimiak MP**. KG-Microbe — Building Modular and Scalable Knowledge Graphs for Microbiome and Microbial Sciences. *GigaScience*. 2026;giag077. [doi:10.1093/gigascience/giag077](https://doi.org/10.1093/gigascience/giag077)
 2. Naseem S, Miller MA, Martinez-Gomez NC, Sun N, **Joachimiak MP**. MicroGrowAgents: An Agentic AI System for Microbial Cultivation Engineering. *bioRxiv*. 2026. [doi:10.64898/2026.06.04.729985](https://doi.org/10.64898/2026.06.04.729985)
