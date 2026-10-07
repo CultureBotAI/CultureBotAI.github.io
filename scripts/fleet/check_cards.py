@@ -94,7 +94,7 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
     # The dated path identifies the frozen source for the at-pin audit. The
     # nightly reader resolves the newest worklist on main before counting it.
-    "DUFMech":             ("json", "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/interpro-pfam-duf-2026-10-01.json", "families"),
+    "DUFMech":             ("json", "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/interpro-pfam-duf-2026-10-05.json", "families"),
 }
 
 DUF_WORKLISTS = "https://api.github.com/repos/CultureBotAI/DUFMech/contents/data/worklists?ref=main"

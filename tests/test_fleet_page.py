@@ -144,9 +144,9 @@ class FleetPageTests(unittest.TestCase):
     def test_published_page_contains_both_new_members_with_distinct_capabilities(self):
         page = self.render()
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
-        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 11)
+        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(self.snapshot['mechs']))
         self.assertIn('Relationship graph of the twelve autonomous knowledge factories', page)
-        self.assertEqual(page.count('not yet in fleet manifest'), 1)
+        self.assertEqual(page.count('not yet in fleet manifest'), len(card_names(self.template)) - len(self.snapshot['mechs']))
         self.assertNotIn('one revision behind', page)
         caps = self.snapshot['mechs']
         self.assertEqual(caps['NaturalProductMech']['capabilities']['source_queue']['status'], 'enabled')

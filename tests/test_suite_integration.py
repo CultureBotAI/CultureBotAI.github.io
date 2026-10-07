@@ -3,6 +3,7 @@ import datetime
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 from unittest import mock
 
@@ -25,7 +26,7 @@ class SuiteIntegrationTests(unittest.TestCase):
     def render(self):
         return assemble(self.template, self.fragment, *self.inputs)
 
-    def test_seed_families_are_measured_without_inventing_claw_admission(self):
+    def test_seed_families_are_measured_with_declared_claw_admission(self):
         page = self.render()
         figures = card_figures(self.template)
         self.assertEqual(set(figures), set(roots.ORDER))
@@ -33,8 +34,17 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertIn(f"<b>{sum(figures.values()):,}</b>", page)
         self.assertIn("records and seed families", page)
         self.assertIn("all twelve Mechs", page)
+        self.assertIn("DUFMech", self.inputs[1]["mechs"])
+        self.assertNotIn('<span class="badge">not yet in fleet manifest</span>', page)
+        rows = capability_rows(self.inputs[1], ["DUFMech"])
+        self.assertNotIn('class="u"', rows)
+        self.assertIn('class="e"', rows)
+        self.assertIn('class="d"', rows)
+
+    def test_a_measured_member_without_claw_admission_remains_undeclared(self):
+        self.inputs[1]["mechs"].pop("DUFMech")
+        page = self.render()
         self.assertIn('<span class="badge">not yet in fleet manifest</span>', page)
-        self.assertNotIn("DUFMech", self.inputs[1]["mechs"])
         rows = capability_rows(self.inputs[1], ["DUFMech"])
         self.assertEqual(rows.count('class="u"'), len(self.inputs[1]["capability_catalogue"]))
         self.assertIn("not declared in CLAW manifest", rows)
@@ -184,6 +194,17 @@ class SuiteIntegrationTests(unittest.TestCase):
               mock.patch.object(mech_stats, "unchanged"),
               mock.patch.object(mech_stats, "review_slot", return_value=None)):
             self.assertEqual(mech_stats.review_census("DUFMech"), (3, None, None, "a" * 40))
+
+    def test_native_schema_does_not_add_review_status_to_seed_worklists(self):
+        import mech_stats
+        with tempfile.TemporaryDirectory() as folder:
+            schema = Path(folder) / "src/native/schema/native.yaml"
+            schema.parent.mkdir(parents=True)
+            schema.write_text("slots:\n  curation_status:\n    range: Status\n"
+                              "enums:\n  Status:\n    permissible_values:\n      REVIEWED: {}\n")
+            with mock.patch.object(mech_stats, "mech_root", return_value=folder):
+                self.assertEqual(mech_stats.review_slot("TraitMech"), "curation_status")
+                self.assertIsNone(mech_stats.review_slot("DUFMech"))
 
 
 if __name__ == "__main__":

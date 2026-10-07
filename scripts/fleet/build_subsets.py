@@ -43,7 +43,7 @@ SITE_BASE={
  "PathwayMech": SITE+"PathwayMech/pages/records/",
  # DUF's seed records identify Pfam families; this is the family browser,
  # while the card and audit link the exact DUF worklist snapshot.
- "DUFMech": "https://www.ebi.ac.uk/interpro/entry/pfam/",
+ "DUFMech": SITE+"DUFMech/families/",
 }
 # Filled by prepare(). mech_root() touches the filesystem and exits on a
 # missing checkout, so resolving these at import made the module unimportable
@@ -189,7 +189,7 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
     if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
     if m=="PathwayMech": return urllib.parse.quote(doc_id.replace(":", "_").replace("/", "_")+".html") if doc_id else None
-    if m=="DUFMech": return doc_id.removeprefix("Pfam:")+"/" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None
+    if m=="DUFMech": return doc_id.removeprefix("Pfam:")+".html" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None
     return None
 def record_identity(path, text):
     """Read the stable record id and full folded display label used by links."""

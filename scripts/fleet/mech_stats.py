@@ -84,6 +84,11 @@ def review_slot(mech: str) -> str | None:
     MediaIngredientMech and CultureMech would otherwise report zero reviewed
     off a mapping_status that cannot take the value.
     """
+    # The fleet still measures DUFMech's frozen seed worklist, not its newer
+    # native FamilyRecord corpus. That worklist has no review-status field;
+    # adopting a native schema must not turn unknown review coverage into zero.
+    if mech == "DUFMech":
+        return None
     root = mech_root(mech)
     slots: dict = {}
     enums: dict = {}

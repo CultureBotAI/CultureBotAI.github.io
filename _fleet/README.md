@@ -31,12 +31,11 @@
 
 ## Membership and capability updates
 
-The site currently lists twelve Mechs. CLAW's manifest lists eleven, including
-PathwayMech; DUFMech is listed separately without a manifest membership declaration. The
-October 5 vocabulary census, shared-term assets and repository statistics cover
+The site and CLAW's manifest both list twelve Mechs, including PathwayMech and
+DUFMech. The October 7 vocabulary census, shared-term assets and repository statistics cover
 all twelve Mechs. DUFMech's contribution is a measured seed worklist, labeled
-as families rather than curated mechanism records. Its capability row reports
-undeclared values without inventing CLAW membership.
+as families rather than curated mechanism records. Its capability row now
+reports CLAW's declared native record, history and site contracts.
 
 Use a CLAW checkout at the desired published `main` revision. The refresh reads
 committed Git blobs at that checkout's HEAD; uncommitted changes are excluded.
@@ -171,14 +170,17 @@ credited to it in the file that implements it. Rules that have come up:
 The September 28 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators found 30 arrows among the original
 ten Mechs. PathwayMech adds an evidenced schema reference from TaxonMech; the
-October 5 refresh checks that reference at the common refresh pin. DUFMech's
-shared family identifiers produce vocabulary chords, not an invented direct
-reference or kg-microbe ingestion claim.
+October 7 refresh checks that reference at the common refresh pin and finds
+88 pathway records carrying 110 history events. DUFMech's shared family
+identifiers produce vocabulary chords. Its committed cross-Mech snapshot now
+also supplies seven directed data imports, retaining source revisions and
+distinguishing text mentions, unresolved names and protein-family associations.
+These evidence leads do not establish functional validation or kg-microbe ingestion.
 
 ## Vocabulary census updates
 
-The October 5, 2026 census measures all twelve Mechs. PathwayMech contributes
-152 pathway records. DUFMech contributes 6,532 seed-family rows from its frozen
+The October 7, 2026 census measures all twelve Mechs. PathwayMech contributes
+156 pathway records. DUFMech contributes 6,532 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
 A worklist row is one measured family; the JSON container and its redundant TSV
 copy are not additional records. TaxonMech joined the census in #87; its 625,960 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
@@ -244,8 +246,9 @@ Record links resolve to each Mech's published page where one exists (TraitMech,
 CellStructureMech, AntibioticMech, HabitatMech, CommunityMech, NaturalProductMech,
 TaxonMech's taxon.html route, ProteinTraitsMech hash routes, PathwayMech record
 pages) and to the record's source file on GitHub for CultureMech and
-MediaIngredientMech. DUFMech family links open the corresponding Pfam entry in
-InterPro, using the family's stable accession.
+MediaIngredientMech. DUFMech family links open its native
+`families/PFxxxxx.html` pages, using the family's stable Pfam accession.
+Every measured family has a published page.
 NaturalProductMech's pages are committed under `pages/<class>/<slug>.html`, one per
 record, and served by its branch build (#149). CultureMech's `pages/media/` pages
 come and go with its Actions deployment (#175), so its links stay on GitHub until
@@ -321,7 +324,7 @@ and vocabulary name. Rows sort from most to fewest vocabularies used, with ties
 retaining the biological scale order.
 The table includes measured numeric rows for every suite member, including
 PathwayMech and DUFMech.
-Every cell opens the summary below the table. At the October 5 pins, all 296
+Every cell opens the summary below the table. At the October 7 pins, all 302
 populated cells across 160 vocabularies have record-list assets, including DOI,
 PMID and other citation namespaces. Each list reports the full distinct-record
 total and shows up to 300 record links; repeated occurrences in one record still
@@ -342,10 +345,10 @@ defines the namespace and the same model/reaction identifiers carried by
 PathwayMech. The identifier namespace is counted separately from ontology
 terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-## Published-site refresh (October 5, 2026)
+## Published-site refresh (October 7, 2026)
 
 All twelve Mechs were pinned at their published `main` revisions at
-2026-10-05 03:20 UTC. The census, shared-term subsets, heatmap record lists,
+2026-10-07 19:36 UTC. The census, shared-term subsets, heatmap record lists,
 repository statistics and `data/site_audit.json` record the same revisions; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
@@ -366,17 +369,23 @@ The dedicated Mech pages link to the same pinned repository revisions.
 Card figures follow the published browsers, except CultureMech's generated
 README inventory and DUFMech's frozen JSON worklist. CommunityMech's browser
 lists 456 communities; its repository additionally includes four isolates, so
-the census and statistics count 460. DUFMech's 6,532 rows describe 4,533 unknown
-candidates and 1,999 historical DUFs. The aggregate is labeled records and seed
-families to preserve that distinction. PathwayMech contributes 152 records,
-4,690 mechanistic edges and 15 taxa. Its KGX and SSSOM products are available in
+the census and statistics count 460. DUFMech's 6,532 rows describe 6,154 unknown
+candidates and 378 historical DUFs. The aggregate is labeled records and seed
+families to preserve that distinction. The October 5 worklist corrects seed
+classification of the original metadata, rather than fetching newer InterPro
+data. DUFMech also publishes native family records with a schema, evidence and
+history; those records do not replace the worklist in this census.
+PathwayMech contributes 156 records,
+7,307 mechanistic edges and 16 taxa. Its KGX and SSSOM products are available in
 the repository; their existence does not establish ingestion into kg-microbe.
 
-CellStructureMech's pin contains 885 records, 751 GO-grounded, and TraitMech's
-contains 1,005 records with 47.5% embedding coverage and 718 causal graphs.
-NaturalProductMech records 809 evidence-supported producer claims; 157 records
-describe biosynthetic pathways and 210 contain causal graphs (350 individual
-graphs). Its 3,115-record total is unchanged.
+CellStructureMech's pin contains 906 records, 758 GO-grounded, and TraitMech's
+contains 1,059 records with 45.0% embedding coverage and 718 causal graphs.
+NaturalProductMech records 808 evidence-supported producer claims; 157 records
+describe biosynthetic pathways and 240 have causal graphs (567 individual
+graphs after resolving 159 referenced components). The census keeps its existing
+owner-record globs; it does not separately scan component files. Its
+3,115-record total is unchanged.
 Live sites may advance after the pins;
 `check_cards.py` applies its documented grace window before declaring them stale.
 
@@ -391,14 +400,15 @@ JavaScript-backed figures from their data files: MediaIngredientMech uses
 uses `data/facets.json` (429,293 records; 34 source labels). ProteinTraitsMech's
 static HTML now matches these runtime figures.
 
-Reviewed-record counts are reported only where a schema defines a review
-status. A Mech without that field still receives its merged-PR count and pinned
+Reviewed-record counts are reported only where the measured corpus has a
+schema-defined review status. DUFMech's seed worklist has no such field even
+though its separate native FamilyRecord schema does. A Mech without a measured
+review field still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All twelve repositories
 participate in statistics collection.
 
-CLAW's ad3862e snapshot declares eleven members and enables PathwayMech's KGX and
-SSSOM exporters. DUFMech remains outside that upstream manifest; its capability
-row is explicitly undeclared. The capability table preserves CLAW's full
+CLAW's 7253f80 snapshot declares all twelve members, including DUFMech, and
+enables PathwayMech's KGX and SSSOM exporters. The capability table preserves CLAW's full
 catalogue and recorded reasons. Capability adoption does not establish that all
 CLAW workflows execute unattended.
 
