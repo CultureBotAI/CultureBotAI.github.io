@@ -8,7 +8,7 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from assemble_page import assemble, capability_rows
+from assemble_page import assemble, capability_rows, number_word
 from card_markup import card_figures
 import check_cards
 import roots
@@ -33,13 +33,56 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertIn(f"<b>{sum(figures.values()):,}</b>", page)
         self.assertIn("records and seed families", page)
         self.assertIn("all twelve Mechs", page)
+        members = set(self.inputs[1]["mechs"])
+        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
+        self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
+                         len(set(figures) - members))
+        self.assertIn(f"The manifest declares {number_word(len(members))} of the twelve projects", page)
+
+    def test_undeclared_duf_fixture_retains_a_seed_card_and_unknown_capabilities(self):
+        self.inputs[1]["mechs"].pop("DUFMech", None)
+        page = self.render()
         self.assertIn('<span class="badge">not yet in fleet manifest</span>', page)
-        self.assertNotIn("DUFMech", self.inputs[1]["mechs"])
+        self.assertIn("Separately listed projects without a declaration: DUFMech.", page)
         rows = capability_rows(self.inputs[1], ["DUFMech"])
         self.assertEqual(rows.count('class="u"'), len(self.inputs[1]["capability_catalogue"]))
         self.assertIn("not declared in CLAW manifest", rows)
         self.assertNotIn('class="d"', rows)
         self.assertNotIn('class="n"', rows)
+
+    def test_twelve_member_fixture_declares_duf_without_upgrading_website_verdicts(self):
+        # Synthetic declarations exercise admission, not a claim about CLAW main.
+        snapshot = self.inputs[1]
+        snapshot["mechs"]["DUFMech"] = {
+            "key": "dufmech", "github": "CultureBotAI/DUFMech",
+            "capabilities": {
+                key: {"status": "disabled", "reason": "Synthetic admission fixture."}
+                for key in snapshot["capability_catalogue"]
+            },
+        }
+        snapshot["mechs"]["DUFMech"]["capabilities"]["strict_validation"] = {"status": "enabled"}
+        feature_data = json.dumps(self.inputs[4], sort_keys=True)
+        page = self.render()
+        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 12)
+        self.assertNotIn('<span class="badge">not yet in fleet manifest</span>', page)
+        self.assertIn("The manifest declares twelve of the twelve projects", page)
+        self.assertIn("All projects shown here have a manifest declaration.", page)
+        self.assertNotIn("Separately listed projects without a declaration:", page)
+        rows = capability_rows(snapshot, ["DUFMech"])
+        self.assertNotIn('class="u"', rows)
+        self.assertIn('class="e"', rows)
+        self.assertIn('class="d"', rows)
+        self.assertEqual(json.dumps(self.inputs[4], sort_keys=True), feature_data)
+        self.assertEqual("Site-specific rechecks:" in page,
+                         any("checked_on" in row for row in self.inputs[4]["mechs"].values()))
+        self.assertNotIn("DUFMech's worklist has no schema", page)
+
+    def test_absent_stub_never_becomes_a_disabled_declaration(self):
+        snapshot = {"mechs": {}, "capability_catalogue": {"testing": {}, "schema_sync": {}}}
+        rows = capability_rows(snapshot, ["UndeclaredStubMech"])
+        self.assertEqual(rows.count('class="u"'), 2)
+        self.assertIn("UndeclaredStubMech", rows)
+        self.assertNotIn('class="d"', rows)
 
     def test_a_missing_new_mech_stat_cannot_be_silently_omitted(self):
         for name in ("PathwayMech", "DUFMech"):
