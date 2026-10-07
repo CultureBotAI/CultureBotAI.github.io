@@ -357,7 +357,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
      to its rounded corners and stays put while the table scrolls inside (#315). */
   .fleet-caps-wrap { overflow-x: auto; margin: 1rem 0 .3rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
   .fleet-caps-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .page-content .fleet-caps-wrap a, .page-content .fleet-site-notes a { color: var(--fleet-link); }
+  .page-content .fleet-caps-wrap a, .page-content .fleet-site-notes a { color: var(--fleet-link); text-decoration: underline; text-underline-offset: .15em; background-image: none; }
   /* display: table undoes the site-wide `table { display: block; overflow-x: auto }`,
      so the wrap is the only scroller: the sticky Mech column sticks to it, and
      width: 100% fills the card again (#311, #313), as table.fleet-heat does. */

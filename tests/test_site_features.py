@@ -100,7 +100,10 @@ class SiteFeatureTests(unittest.TestCase):
 
     def test_matrix_and_evidence_links_keep_readable_theme_colors(self):
         rule = ".page-content .fleet-caps-wrap a, .page-content .fleet-site-notes a"
-        self.assertIn(rule + " { color: var(--fleet-link); }", self.fragment)
+        declarations = re.search(re.escape(rule) + r" \{([^}]+)\}", self.fragment).group(1)
+        for declaration in ("color: var(--fleet-link)", "text-decoration: underline",
+                            "text-underline-offset: .15em", "background-image: none"):
+            self.assertIn(declaration, declarations)
         summary = re.search(r"\.fleet-site-notes summary \{([^}]+)\}", self.fragment).group(1)
         self.assertIn("color: var(--fleet-link)", summary)
         links = re.findall(r"--fleet-link:\s*(#[0-9A-Fa-f]{6});", self.fragment)
