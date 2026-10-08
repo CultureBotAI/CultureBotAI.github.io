@@ -7,7 +7,7 @@ permalink: /mechs/
 
 # X-Mech Suite: <!--FLEET_COUNT_WORD--> autonomous knowledge factories, one shared standard
 
-The X-Mech suite brings together <!--FLEET_COUNT_WORD--> autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media. Established corpora curate structured records with evidence and provenance; DUFMech builds family records from a frozen InterPro/Pfam seed worklist, which remains its measured corpus here. [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) coordinates all <!--FLEET_MANIFEST_COUNT_WORD--> projects in its fleet manifest.
+The X-Mech suite brings together <!--FLEET_COUNT_WORD--> autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media.
 
 Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
@@ -212,6 +212,9 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 </div>
 
 The <a href="https://github.com/CultureBotAI/culturebotai-claw#current-support-status">current support matrix</a> distinguishes supported tools from planned execution. The autonomous knowledge factory label describes each Mech's curation model with human oversight; it does not imply that every CLAW workflow runs unattended.
+
+### Mech repository support matrix
+{: .fleet-section-target}
 
 Capability declarations from CLAW record adoption of shared contracts; they do not certify complete validation of every record field or that every failed check blocks a merge. Every disabled entry records a reason, such as no download.yaml or no source queue yet. Projects absent from that snapshot are shown as undeclared, not disabled:
 

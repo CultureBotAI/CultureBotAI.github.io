@@ -7,7 +7,7 @@ permalink: /mechs/
 
 # X-Mech Suite: twelve autonomous knowledge factories, one shared standard
 
-The X-Mech suite brings together twelve autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media. Established corpora curate structured records with evidence and provenance; DUFMech builds family records from a frozen InterPro/Pfam seed worklist, which remains its measured corpus here. [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) coordinates all twelve projects in its fleet manifest.
+The X-Mech suite brings together twelve autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media.
 
 Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
@@ -113,14 +113,14 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } .fleet-stats b { font-size: 1.45rem; } }
 
   /* ---- On-page section links ---- */
-  .fleet-section-nav { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .5rem; margin: 1.6rem 0; }
+  .fleet-section-nav { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: .5rem; margin: 1.6rem 0; }
   .page-content .fleet-section-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; min-width: 0; padding: .8rem .25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font-size: .75rem; font-weight: 650; line-height: 1.3; text-align: center; }
   .fleet-section-nav svg { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--accent-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   .fleet-section-nav span { min-width: 0; overflow-wrap: anywhere; }
   .page-content .fleet-section-nav a:hover, .page-content .fleet-section-nav a:focus-visible { border-color: var(--accent-2); background: var(--wash-b); color: var(--ink); }
   .page-content .fleet-section-nav a:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
   .fleet-section-target { scroll-margin-top: 11rem; }
-  @media (max-width: 1050px) { .fleet-section-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+  @media (max-width: 1050px) { .fleet-section-nav { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
   @media (max-width: 600px) {
     .fleet-section-nav { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); }
     .page-content .fleet-section-nav a { flex-direction: row; justify-content: flex-start; gap: .6rem; padding: .65rem .75rem; font-size: .8rem; }
@@ -467,8 +467,9 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   <a href="#the-twelve-mechs"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span>Mechs</span></a>
   <a href="#explore-the-current-sites"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 6h14M5 18h14"></path></svg><span>Sites</span></a>
   <a href="#website-features"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="m6 9 2 2 3-4m-5 9 2 2 3-4m3-5h4m-4 7h4"></path></svg><span>Features</span></a>
-  <a href="#how-the-mechs-reference-each-other"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 14 4-4m-6 6-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0m2 10a4.2 4.2 0 0 0 6 0l4-4a4.2 4.2 0 0 0-6-6l-1 1" transform="translate(1 0) scale(.92)"></path></svg><span>Links</span></a>
+  <a href="#how-the-mechs-reference-each-other" aria-label="Mech cross-references"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 14 4-4m-6 6-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0m2 10a4.2 4.2 0 0 0 6 0l4-4a4.2 4.2 0 0 0-6-6l-1 1" transform="translate(1 0) scale(.92)"></path></svg><span>Cross-refs</span></a>
   <a href="#orchestration-culturebotai-claw"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="2" width="8" height="6" rx="1.5"></rect><path d="M12 8v5M5 17v-4h14v4"></path><rect x="2" y="17" width="6" height="5" rx="1"></rect><rect x="16" y="17" width="6" height="5" rx="1"></rect></svg><span>CLAW</span></a>
+  <a href="#mech-repository-support-matrix" aria-label="Mech repository support matrix"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 8h18M9 8v13m3-9 1.5 1.5L16 11m-4 6h6M5.5 12h1M5.5 17h1"></path></svg><span>Repo support</span></a>
   <a href="#what-makes-a-mech"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 8 3v6c0 5-4 8-8 11-4-3-8-6-8-11V5z"></path><path d="m8 12 3 3 5-6"></path></svg><span>Standard</span></a>
   <a href="#related-resources"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h6l2 3h10v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 11h18"></path></svg><span>Resources</span></a>
   <a href="#bibliography"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1zm0 0v15M5 8h4m6 0h4M5 12h4m6 0h4"></path></svg><span>References</span></a>
@@ -1396,6 +1397,9 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
 </div>
 
 The <a href="https://github.com/CultureBotAI/culturebotai-claw#current-support-status">current support matrix</a> distinguishes supported tools from planned execution. The autonomous knowledge factory label describes each Mech's curation model with human oversight; it does not imply that every CLAW workflow runs unattended.
+
+### Mech repository support matrix
+{: .fleet-section-target}
 
 Capability declarations from CLAW record adoption of shared contracts; they do not certify complete validation of every record field or that every failed check blocks a merge. Every disabled entry records a reason, such as no download.yaml or no source queue yet. Projects absent from that snapshot are shown as undeclared, not disabled:
 
