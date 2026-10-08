@@ -6,6 +6,7 @@ permalink: /mechs/
 ---
 
 # X-Mech Suite: <!--FLEET_COUNT_WORD--> autonomous knowledge factories, one shared standard
+{: .fleet-title}
 
 The X-Mech suite brings together <!--FLEET_COUNT_WORD--> autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media.
 

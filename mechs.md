@@ -6,6 +6,7 @@ permalink: /mechs/
 ---
 
 # X-Mech Suite: twelve autonomous knowledge factories, one shared standard
+{: .fleet-title}
 
 The X-Mech suite brings together twelve autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media.
 
@@ -103,17 +104,25 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
     --voc-envo: #4FBAD3; --voc-aro: #E86F96; --voc-uniprot: #D9AA3F; --voc-doi: #9AA5B1; --voc-other: #8C8780;
   }
 
+  /* ---- Compact page opening; keep the shared hero's typography and width. ---- */
+  .page-content > .wrapper > h1.fleet-title:first-child { margin-top: 1rem; padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  @supports selector(:has(+ p)) {
+    .page-content > .wrapper > h1.fleet-title:first-child:has(+ p) { padding-bottom: .75rem; }
+    .page-content > .wrapper > h1.fleet-title:first-child + p { margin-bottom: 1.25rem; padding-bottom: 1.25rem; }
+  }
+
   /* ---- Stat strip ---- */
   /* Six tiles use explicit 6 -> 3 -> 2 breakpoints so each row stays full. */
-  .fleet-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: .8rem; margin: 1.2rem 0 .4rem; }
+  .fleet-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: .8rem; margin: .8rem 0 .4rem; }
   @media (max-width: 1010px) { .fleet-stats { grid-template-columns: repeat(3, 1fr); } }
-  .fleet-stats > div { padding: .9rem 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+  .fleet-stats > div { padding: .7rem 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
   .fleet-stats b { display: block; font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ink); }
   .fleet-stats span { display: block; font-size: .72rem; line-height: 1.35; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
   @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } .fleet-stats b { font-size: 1.45rem; } }
 
   /* ---- On-page section links ---- */
-  .fleet-section-nav { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: .5rem; margin: 1.6rem 0; }
+  .fleet-section-nav { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: .5rem; margin: 1rem 0; }
+  .page-content .fleet-section-nav + h2 { margin-top: 1.6rem; }
   .page-content .fleet-section-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; min-width: 0; padding: .8rem .25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font-size: .75rem; font-weight: 650; line-height: 1.3; text-align: center; }
   .fleet-section-nav svg { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--accent-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   .fleet-section-nav span { min-width: 0; overflow-wrap: anywhere; }
