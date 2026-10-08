@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** is a fleet of twelve ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator currently lists eleven of these Mechs in its manifest, including PathwayMech; DUFMech is listed separately in the suite. Figures below reflect the October 5, 2026 snapshot, which measures all twelve Mechs, including DUFMech's seed families.
+The **[X-Mech Suite](/mechs/)** is a fleet of twelve ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator now lists all twelve Mechs in its manifest, including PathwayMech and DUFMech. Figures below reflect the October 7, 2026 snapshot, which measures all twelve Mechs, including DUFMech's seed families.
 
 ### Pipeline Overview
 
@@ -183,7 +183,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 ### TraitMech - Microbial Ecophysiological Traits
 **[GitHub Repository](https://github.com/CultureBotAI/TraitMech)** | **[Web Interface](https://culturebotai.github.io/TraitMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO and curated incrementally — 1,005 trait records across 10 categories; 427 are marked REVIEWED and 718 carry causal graphs.
+Autonomous knowledge factory for microbial ecophysiological traits, seeded from METPO and curated incrementally — 1,059 trait records across 10 categories; 427 are marked REVIEWED and 718 carry causal graphs.
 
 **What it does**: Standardizes the trait vocabulary used to describe microbial growth and ecology, and links traits to their evidence and, where a match exists, to kg-microbe.
 
@@ -192,7 +192,7 @@ Autonomous knowledge factory for microbial ecophysiological traits, seeded from 
 ### PathwayMech - Microbial Pathway Mechanisms
 **[GitHub Repository](https://github.com/CultureBotAI/PathwayMech)** | **[Web Interface](https://culturebotai.github.io/PathwayMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Curates 152 pathway-level microbial mechanisms across 15 taxa, with explicit participants, reactions, 4,690 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/90d0d838a30b7a6e56f05f1d2f74e6fdfb9a6384/README.md).
+Curates 156 pathway-level microbial mechanisms across 16 taxa, with explicit participants, reactions, 7,307 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/ff3e716843ba8ff27970b2ba028fae328d1f9569/README.md).
 
 ---
 
@@ -206,16 +206,16 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 ---
 
 ### DUFMech - Domains and Families of Unknown Function
-**[GitHub Repository](https://github.com/CultureBotAI/DUFMech)** | CC BY 4.0 data · BSD-3-Clause code
+**[GitHub Repository](https://github.com/CultureBotAI/DUFMech)** | **[Web Interface](https://culturebotai.github.io/DUFMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Provides a seed worklist of 6,532 Pfam families, separating 4,533 unknown candidates from 1,999 historical DUFs. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/89954387c7b6a4528d5f3a0233ccd233af95ced2/README.md); a generated dashboard is committed, but a published browser is not yet available.
+Provides a seed worklist of 6,532 Pfam families, separating 6,154 unknown candidates from 378 historical DUFs. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/f97ed39db701b1912d29b07479db65b37e15867c/README.md); the published browser now offers individual family pages, search, filters, evidence, curation history and cross-Mech leads. Native family records validate against a LinkML schema. The corrected seed labels describe frozen metadata; all 6,532 families remain unscored.
 
 ---
 
 ### CellStructureMech - Microbial Cell Structures
 **[GitHub Repository](https://github.com/CultureBotAI/CellStructureMech)** | **[Web Interface](https://culturebotai.github.io/CellStructureMech/)** | CC BY 4.0 data · BSD-3-Clause code (redistributed UniProt and Complex Portal material retains its CC BY 4.0 terms)
 
-885 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 751 of them grounded in GO cellular component.
+906 structure records across 13 categories — organelles, envelope layers, appendages, microcompartments and multi-protein complexes — 758 of them grounded in GO cellular component.
 
 **What it does**: Occupies the layer between traits and proteins, recording what a structure is made of, which organisms have it, what it does, and the causal mechanism by which it does so.
 
@@ -226,7 +226,7 @@ Provides a seed worklist of 6,532 Pfam families, separating 4,533 unknown candid
 ### HabitatMech - Microbial Habitats
 **[GitHub Repository](https://github.com/CultureBotAI/HabitatMech)** | **[Web Interface](https://culturebotai.github.io/HabitatMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-3,206 habitat records harmonized from GOLD, BacDive, PREGO and Madin et al., grounded in ENVO, UBERON, FOODON, BTO and PO, with every source's own attestation retained.
+3,207 habitat records harmonized from GOLD, BacDive, PREGO and Madin et al., grounded in ENVO, UBERON, FOODON, BTO and PO, with every source's own attestation retained.
 
 **What it does**: Gives the fleet one record per habitat concept, so that isolation sources expressed differently by each upstream database resolve to a single identity.
 
@@ -248,7 +248,7 @@ Provides a seed worklist of 6,532 Pfam families, separating 4,533 unknown candid
 
 3,115 natural product structures, one per Standard InChIKey, seeded from nine sources and grounded in ChEBI, MIBiG and NCBI Taxonomy.
 
-**What it does**: Links every structure to the biosynthetic gene cluster it comes from (3,115 of 3,115) and to its producer organisms (3,076), and carries cited occurrences (2,342) and measured bioactivities (176) where a source reports them. Producer claims are graded: of 3,407, only 809 rest on evidence that addressed the organism. The current records have no REVIEWED status entries; mechanism and evidence coverage vary by record.
+**What it does**: Links every structure to the biosynthetic gene cluster it comes from (3,115 of 3,115) and to its producer organisms (3,076), and carries cited occurrences (2,342) and measured bioactivities (176) where a source reports them. Producer claims are graded: of 3,407, only 808 rest on evidence that addressed the organism. The current records have no REVIEWED status entries; mechanism and evidence coverage vary by record.
 
 ---
 

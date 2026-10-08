@@ -78,9 +78,10 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 ### The X-Mech Suite page
 The suite has twelve Mechs, all under https://github.com/CultureBotAI, plus the
 orchestrator `culturebotai-claw`. Three have pages here; the others link to their
-own GitHub Pages sites. DUFMech's card links its Pages dashboard and seed
-snapshot, the source of its count; the dashboard went live on 2026-10-05.
-CLAW membership is read from `_fleet/data/manifest.json`, independently of
+own GitHub Pages sites. DUFMech's card links its family browser and seed
+snapshot, the source of its count. Its native FamilyRecord corpus now has a
+LinkML schema, history and individual pages; the census still measures the
+frozen seed worklist. CLAW membership is read from `_fleet/data/manifest.json`, independently of
 suite coverage. An absent declaration remains undeclared; neither a suite card
 nor a website feature verdict implies admission.
 
@@ -146,14 +147,16 @@ Sources, refreshed differently:
   date and other sites unchanged. Schema-documentation prose reflects the
   website verdict, never an inference about whether a repository has a schema.
 
-Last full data refresh was 2026-10-05, pinned at 03:20 UTC. All twelve Mechs
+Last full data refresh was 2026-10-07, pinned at 19:36 UTC. All twelve Mechs
 participate in the census, overlap assets and repository statistics, including
-PathwayMech's 152 records and DUFMech's 6,532 seed families. TraitMech has 1,005
-records and CellStructureMech 885 at those pins. TaxonMech joined the census in
+PathwayMech's 156 records and DUFMech's 6,532 seed families. TraitMech has 1,059
+records and CellStructureMech 906 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
-committed evidence as described in `_fleet/README.md`. Membership and website
-audits can advance independently of these census pins; neither refresh is
-permission to redate or recount the other inputs.
+committed evidence as described in `_fleet/README.md`. DUFMech's retained
+cross-Mech evidence adds seven directed imports, with source pins and link
+bases preserved; these are evidence leads, not functional validation.
+Membership and website audits can advance independently of these census pins;
+neither refresh is permission to redate or recount the other inputs.
 
 The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code.
 Redistributed source material retains its applicable terms.

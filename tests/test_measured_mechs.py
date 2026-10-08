@@ -19,12 +19,12 @@ class MeasuredMechTests(unittest.TestCase):
         self.assertEqual(build_subsets.SITE_BASE['PathwayMech'],
                          'https://culturebotai.github.io/PathwayMech/pages/records/')
 
-    def test_duf_links_identify_the_family_in_the_pfam_browser(self):
+    def test_duf_links_identify_the_family_in_its_native_browser(self):
         with mock.patch.dict(build_subsets.MECHS, {'DUFMech': {'root': '/example/DUFMech'}}):
-            for identifier, expected in [('Pfam:PF04149', 'PF04149/'), ('InterPro:IPR001234', None)]:
+            for identifier, expected in [('Pfam:PF04149', 'PF04149.html'), ('InterPro:IPR001234', None)]:
                 self.assertEqual(build_subsets.slug_for('DUFMech', '/example/DUFMech/data/worklists/source.json',
                                                         identifier), expected)
-        self.assertEqual(build_subsets.SITE_BASE['DUFMech'], 'https://www.ebi.ac.uk/interpro/entry/pfam/')
+        self.assertEqual(build_subsets.SITE_BASE['DUFMech'], 'https://culturebotai.github.io/DUFMech/families/')
 
     def test_new_provider_namespaces_and_description_aliases_are_counted(self):
         text = 'gomodel:YeastPathways_GLYCOLYSIS SGD:S000001635 WikiPathways:WP5587 Rfam:RF01764 pfam:PF04149 Interpro:IPR001234'

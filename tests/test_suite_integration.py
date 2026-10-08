@@ -3,6 +3,7 @@ import datetime
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 from unittest import mock
 
@@ -227,6 +228,17 @@ class SuiteIntegrationTests(unittest.TestCase):
               mock.patch.object(mech_stats, "unchanged"),
               mock.patch.object(mech_stats, "review_slot", return_value=None)):
             self.assertEqual(mech_stats.review_census("DUFMech"), (3, None, None, "a" * 40))
+
+    def test_native_schema_does_not_add_review_status_to_seed_worklists(self):
+        import mech_stats
+        with tempfile.TemporaryDirectory() as folder:
+            schema = Path(folder) / "src/native/schema/native.yaml"
+            schema.parent.mkdir(parents=True)
+            schema.write_text("slots:\n  curation_status:\n    range: Status\n"
+                              "enums:\n  Status:\n    permissible_values:\n      REVIEWED: {}\n")
+            with mock.patch.object(mech_stats, "mech_root", return_value=folder):
+                self.assertEqual(mech_stats.review_slot("TraitMech"), "curation_status")
+                self.assertIsNone(mech_stats.review_slot("DUFMech"))
 
 
 if __name__ == "__main__":

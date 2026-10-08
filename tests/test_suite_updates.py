@@ -32,11 +32,11 @@ class SuiteUpdateTests(unittest.TestCase):
     def test_raw_worklist_sources_are_watched_without_page_links(self):
         cited = check_updates.watched({"repositories": []}, [])
         self.assertIn("pages/browse.html", cited["pathwaymech"])
-        self.assertIn("data/worklists/interpro-pfam-duf-2026-10-01.json", cited["dufmech"])
+        self.assertIn("data/worklists/interpro-pfam-duf-2026-10-05.json", cited["dufmech"])
 
     def test_a_new_dated_duf_worklist_requires_a_refresh(self):
         cited = check_updates.watched({"repositories": []}, [])
-        paths = [f"data/worklists/interpro-pfam-duf-2026-10-02.{extension}"
+        paths = [f"data/worklists/interpro-pfam-duf-2026-10-08.{extension}"
                  for extension in ("json", "tsv", "manifest.json")]
         compare = {"ahead_by": 1, "commits": [{"sha": "b" * 40}], "files": [
             {"filename": path, "status": "added"} for path in paths]}

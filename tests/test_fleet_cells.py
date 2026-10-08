@@ -71,7 +71,7 @@ class CellScanTests(unittest.TestCase):
         self.assertEqual(cells["Pfam"]["occurrences"], 4)
         self.assertEqual(cells["PMID"]["total"], 2)
         self.assertEqual([row[0] for row in cells["Pfam"]["records"]],
-                         ["PF00001/", "PF00002/"])
+                         ["PF00001.html", "PF00002.html"])
 
     def test_unpublished_isolate_links_to_the_exact_source_pin(self):
         path = "/example/CommunityMech/data/isolates/strain with #.yaml"
