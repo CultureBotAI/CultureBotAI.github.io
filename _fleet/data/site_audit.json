@@ -1,8 +1,8 @@
 {
- "checked_at_utc": "2026-10-07T20:30:02+00:00",
+ "checked_at_utc": "2026-10-08T00:32:11+00:00",
  "local_date": "2026-10-07",
  "pinned_at_utc": "2026-10-07T19:36:48.761841+00:00",
- "scope": "All twelve public main revisions pinned together at 2026-10-07T19:36:48.761841+00:00, with the vocabulary census, subsets, heatmap record lists and record statistics regenerated at those pins. The site audit records these pins and the live sources checked during the refresh. Merged-PR totals cover all twelve Mechs, culturebotai-claw and CultureBotAI.github.io. They are all-time GitHub counts queried during the refresh, rather than counts cut off at the pin time; the two supporting repositories are recorded separately from Mech record statistics in mech_stats.json. Card sources are published browsers, CultureMech's generated README inventory and DUFMech's frozen seed-family JSON. DUF seed families remain explicitly distinguished from curated mechanism records even though native FamilyRecords are now published. All twelve pinned repositories contain CC BY 4.0 project-data and BSD-3-Clause code licenses, preserving upstream and historical terms. CLAW declares all twelve members. Capability declarations describe contract adoption, not a certification of complete validation coverage or blocking enforcement.",
+ "scope": "All twelve public main revisions pinned together at 2026-10-07T19:36:48.761841+00:00, with the vocabulary census, subsets, heatmap record lists and record statistics regenerated at those pins. The site audit records these pins and the live sources checked during the refresh. Merged-PR totals cover all twelve Mechs, culturebotai-claw and CultureBotAI.github.io. They are all-time GitHub counts queried during the refresh, rather than counts cut off at the pin time; the two supporting repositories are recorded separately from Mech record statistics in mech_stats.json. Card sources are published browsers, CultureMech's generated README inventory and DUFMech's frozen seed-family JSON. DUF seed families remain explicitly distinguished from curated mechanism records even though native FamilyRecords are now published. All twelve pinned repositories contain CC BY 4.0 project-data and BSD-3-Clause code licenses, preserving upstream and historical terms. CLAW declares all twelve members. Capability declarations describe contract adoption, not a certification of complete validation coverage or blocking enforcement. The separately refreshed CLAW governance manifest is retained from main at 73958edb97994bc16c5404443956ee64c47bfe9b (20:46 UTC), later than the common Mech data pins.",
  "repositories": [
   {
    "repo": "AntibioticMech",
@@ -45,10 +45,10 @@
   },
   {
    "repo": "culturebotai-claw",
-   "sha": "7253f80f75bd93161238d0496bc017efa1ddd69f",
-   "commit_date": "2026-10-07T19:24:27Z",
-   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/7253f80f75bd93161238d0496bc017efa1ddd69f/README.md",
-   "notes": "The 7253f80 snapshot declares all 12 canonical fleet members, including DUFMech, 20 governed artifacts and 26 capabilities per member. PathwayMech KGX and SSSOM export contracts remain enabled. The website preserves DUFMech's newly declared adoption states and each capability's reason directly from the upstream manifest."
+   "sha": "73958edb97994bc16c5404443956ee64c47bfe9b",
+   "commit_date": "2026-10-07T20:46:26Z",
+   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/73958edb97994bc16c5404443956ee64c47bfe9b/README.md",
+   "notes": "The published 73958ed snapshot declares 12 canonical fleet members, including DUFMech, 20 governed artifacts and 26 capabilities per member. This manifest-only refresh retains the October 7 Mech census, card and statistics pins; the 24 website-feature criteria are a separate evidence surface. DUFMech has 20 enabled, 3 disabled and 3 not_applicable canonical declarations, with reasons and settings preserved verbatim. Its enabled offline adapters include genuine OAK correspondence to frozen Pfam labels, retained-abstract knowledge-gap proposals and KGX/SSSOM exports. Knowledge-gap scheduled execution remains false; provider-backed deep research, METPO proposals and causal-graph coverage remain disabled. This governance-pin update does not claim scientific characterization, live source freshness or a full data refresh."
   },
   {
    "repo": "CultureMech",
@@ -166,10 +166,10 @@
    "figure_at_pin": 1059,
    "merged_prs": 970,
    "site": "https://culturebotai.github.io/TraitMech/pages/index.html",
-   "site_html_sha256": "be65f2cd55bc1d8d590c704985fdb549b0f06ca9b1cfa663801889317c1c2779",
+   "site_html_sha256": "9401d5dea118a40cfa44f6cea1dac5947f63b99b21b0340abf688ba51841b552",
    "site_html_sha256_at_pin": "9ac312a3f7c3f2d15ef675b1a7c715b92f2641bb15231c166c78f8d1fd82d717",
-   "notes": "1,059 data/traits records at the pin, equal to the pinned landing tile: 427 REVIEWED, 544 PROPOSED, 50 DEPRECATED and 38 SEEDED. The README and corpus contain 718 records with causal graphs. The pinned page shows 10 populated categories and 45.0% embedded (477 of 1,059). The live browser advanced to 1,060 during the feature audit; the card and common census retain their original pin. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 1,060 when this audit was written; the card keeps the pinned figure, 1,059.",
-   "site_figure_at_check": 1060
+   "notes": "1,059 data/traits records at the pin, equal to the pinned landing tile: 427 REVIEWED, 544 PROPOSED, 50 DEPRECATED and 38 SEEDED. The README and corpus contain 718 records with causal graphs. The pinned page shows 10 populated categories and 45.0% embedded (477 of 1,059). The live browser advanced to 1,060 during the feature audit; the card and common census retain their original pin. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 1,062 when this audit was written; the card keeps the pinned figure, 1,059.",
+   "site_figure_at_check": 1062
   }
  ]
 }

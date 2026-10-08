@@ -98,6 +98,42 @@ class SiteFeatureTests(unittest.TestCase):
         sticky = re.findall(r"([^{}\n]+)\{[^}]*position: sticky", css)
         self.assertEqual([s.strip() for s in sticky], [f"table.fleet-site .{MECH_CELL}"])
 
+    def test_matrix_and_evidence_links_keep_readable_theme_colors(self):
+        rule = ".page-content .fleet-caps-wrap a, .page-content .fleet-site-notes a"
+        declarations = re.search(re.escape(rule) + r" \{([^}]+)\}", self.fragment).group(1)
+        for declaration in ("color: var(--fleet-link)", "text-decoration: underline",
+                            "text-underline-offset: .15em", "background-image: none"):
+            self.assertIn(declaration, declarations)
+        summary = re.search(r"\.fleet-site-notes summary \{([^}]+)\}", self.fragment).group(1)
+        self.assertIn("color: var(--fleet-link)", summary)
+        links = re.findall(r"--fleet-link:\s*(#[0-9A-Fa-f]{6});", self.fragment)
+        theme = (ROOT / "assets/custom.css").read_text()
+        blocks = re.findall(r":root[^{}]*\{([^{}]+)\}", theme)[:3]
+        self.assertEqual(len(links), 3)
+        self.assertEqual(len(blocks), 3)
+
+        def luminance(color):
+            channels = [int(color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+            linear = [c / 12.92 if c <= .04045 else ((c + .055) / 1.055) ** 2.4 for c in channels]
+            return sum(c * weight for c, weight in zip(linear, (.2126, .7152, .0722)))
+
+        for link, block in zip(links, blocks):
+            colors = dict(re.findall(r"--([\w-]+):\s*(#[0-9A-Fa-f]{6});", block))
+            for surface in ("card", "bg", "wash-a", "wash-b", "pastel-a", "pastel-b"):
+                for foreground, minimum in ((link, 4.5), (colors["muted"], 3)):
+                    lighter, darker = sorted((luminance(foreground), luminance(colors[surface])), reverse=True)
+                    self.assertGreaterEqual((lighter + .05) / (darker + .05), minimum,
+                                            (foreground, surface, colors[surface]))
+
+    def test_capability_na_marker_and_legend_use_the_same_opaque_dash(self):
+        selector = "table.fleet-caps td i.n, .fleet-caps-key i.n"
+        rule = re.search(re.escape(selector) + r" \{([^}]+)\}", self.fragment).group(1)
+        for declaration in ("border-top: 2px solid var(--muted)", "width: 10px",
+                            "height: 0", "border-radius: 0"):
+            self.assertIn(declaration, rule)
+        self.assertNotIn("opacity", rule)
+        self.assertNotIn("var(--line)", rule)
+
     def test_a_mech_without_a_site_renders_end_to_end(self):
         # #383: DUFMech had no website until October 5, 2026.
         changed = self.without_site()
@@ -203,7 +239,7 @@ class SiteFeatureTests(unittest.TestCase):
         page = self.render()
         notes = section(page, '<details class="fleet-site-notes">', "</details>")
         columns = site_feature_columns(self.features)
-        blocks = re.findall(r'<h4><a href="([^"]*)">([^<]*)</a></h4><ul>(.*?)</ul>', notes, re.S)
+        blocks = re.findall(r'<h4><a href="([^"]*)">([^<]*)</a></h4>(?:<p>.*?</p>)?<ul>(.*?)</ul>', notes, re.S)
         self.assertEqual([name for _, name, _ in blocks], self.order)
         for site, name, items in blocks:
             mech = self.features["mechs"][name]
@@ -226,14 +262,106 @@ class SiteFeatureTests(unittest.TestCase):
     def test_the_table_states_its_own_check_date(self):
         # #366: the table's sentence, not the card paragraph's "checked on".
         def sentence(day):
-            return f"tested on the live sites on {day:%B} {day.day}, {day.year} in a headless browser"
+            return f"with a baseline audit dated {day:%B} {day.day}, {day.year}"
         day = datetime.date.fromisoformat(self.features["checked_on"])
         self.assertIn(sentence(day), self.render())
         moved = deepcopy(self.features)
         moved["checked_on"] = "2026-11-02"
+        for mech in moved["mechs"].values():
+            mech.pop("checked_on", None)
+            mech.pop("scope", None)
         page = self.render(moved)
         self.assertIn(sentence(datetime.date(2026, 11, 2)), page)
         self.assertNotIn(sentence(day), page)
+
+    def test_baseline_method_is_visible_without_inventing_a_recheck(self):
+        baseline = deepcopy(self.features)
+        for mech in baseline["mechs"].values():
+            mech.pop("checked_on", None)
+            mech.pop("scope", None)
+        page = self.render(baseline)
+        self.assertIn(escape(baseline["scope"].strip()), page)
+        self.assertIn("<h4>Baseline audit</h4>", page)
+        self.assertNotIn("Site-specific rechecks:", page)
+        self.assertNotIn("Site-specific check on", page)
+
+    def test_duf_recheck_is_dated_without_redating_other_sites_or_changing_verdicts(self):
+        changed = deepcopy(self.features)
+        for mech in changed["mechs"].values():
+            mech.pop("checked_on", None)
+            mech.pop("scope", None)
+        unchanged = deepcopy(changed)
+        later = datetime.date.fromisoformat(changed["checked_on"]) + datetime.timedelta(days=2)
+        day = later.strftime("%B %-d, %Y")
+        duf = changed["mechs"]["DUFMech"]
+        duf.update(checked_on=later.isoformat(), scope='DUF-only <browser> checks; no other sites rechecked.',
+                   deployed_revision="a" * 40)
+        page = self.render(changed)
+        self.assertIn(f"Site-specific rechecks: DUFMech ({day}).", page)
+        self.assertIn("Other sites retain the baseline audit date and method.", page)
+        notes = section(page, '<details class="fleet-site-notes">', "</details>")
+        self.assertEqual(notes.count("Site-specific check on"), 1)
+        self.assertIn(f"Site-specific check on {day}", notes)
+        self.assertIn("DUF-only &lt;browser&gt; checks; no other sites rechecked.", notes)
+        self.assertIn(f'{duf["repository"]}/tree/{"a" * 40}', notes)
+        self.assertEqual(self.table(changed), self.table(unchanged))
+        self.assertEqual(changed["checked_on"], unchanged["checked_on"])
+        for name, mech in unchanged["mechs"].items():
+            if name != "DUFMech":
+                self.assertEqual(changed["mechs"][name], mech)
+
+    def test_per_site_check_requires_valid_date_scope_and_deployment(self):
+        for value in (None, "", "2026-02-30", "20261007", 20261007, ["2026-10-07"]):
+            with self.subTest(date=value):
+                changed = deepcopy(self.features)
+                changed["mechs"]["DUFMech"].update(checked_on=value, scope="Test scope")
+                with self.assertRaisesRegex(ValueError, "checked_on"):
+                    validate_site_features(changed, self.names)
+        for scope in (None, "", " ", 17, ["Test scope"]):
+            with self.subTest(scope=scope):
+                changed = deepcopy(self.features)
+                changed["mechs"]["DUFMech"].update(checked_on=changed["checked_on"], scope=scope)
+                with self.assertRaisesRegex(ValueError, "own scope"):
+                    validate_site_features(changed, self.names)
+        changed = deepcopy(self.features)
+        duf = changed["mechs"]["DUFMech"]
+        duf.update(scope="Scope without a date")
+        duf.pop("checked_on", None)
+        with self.assertRaisesRegex(ValueError, "checked_on"):
+            validate_site_features(changed, self.names)
+        earlier = datetime.date.fromisoformat(changed["checked_on"]) - datetime.timedelta(days=1)
+        duf["checked_on"] = earlier.isoformat()
+        with self.assertRaisesRegex(ValueError, "predate"):
+            validate_site_features(changed, self.names)
+        duf["checked_on"] = changed["checked_on"]
+        duf.pop("deployed_revision")
+        with self.assertRaisesRegex(ValueError, "deployed_revision"):
+            validate_site_features(changed, self.names)
+        changed = self.without_site()
+        changed["mechs"]["DUFMech"].update(checked_on=changed["checked_on"], scope="No website")
+        with self.assertRaisesRegex(ValueError, "published site"):
+            validate_site_features(changed, self.names)
+
+    def test_baseline_dates_are_canonical_iso_strings(self):
+        for value in (None, "", "2026-02-30", "20261005", 20261005):
+            with self.subTest(date=value):
+                changed = deepcopy(self.features)
+                changed["checked_on"] = value
+                with self.assertRaisesRegex(ValueError, "checked_on"):
+                    validate_site_features(changed, self.names)
+
+    def test_duf_schema_prose_uses_the_website_verdict_not_membership(self):
+        for status, (_, label) in SITE_STATUSES.items():
+            with self.subTest(status=status):
+                changed = deepcopy(self.features)
+                changed["mechs"]["DUFMech"]["features"]["schema_docs"].update(
+                    status=status, url="https://example.org/duf/schema", note="Synthetic schema verdict.")
+                page = self.render(changed)
+                self.assertIn("The website audit records DUFMech's schema documentation as "
+                              f'<a href="https://example.org/duf/schema">{label}</a>.', page)
+                self.assertNotIn("DUFMech's worklist has no schema", page)
+        self.assertIn("There is no website feature verdict for DUFMech's schema documentation.",
+                      self.render(self.without_site()))
 
 
 if __name__ == "__main__":

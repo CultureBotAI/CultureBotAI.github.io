@@ -24,6 +24,17 @@
   the deployment ID is `success` before recording its SHA; a queued or failed
   deployment request does not identify the currently served site. The update
   checker reports such unverified states as `NOT CHECKED`.
+  For a later site-only recheck, add `checked_on` and `scope` together to that
+  Mech's entry, update its `deployed_revision` to the successfully served SHA,
+  and reassess every feature against browser evidence. The row date must be
+  a canonical `YYYY-MM-DD` no earlier than the baseline. The assembler shows
+  the exception date above the table and its method and revision with that
+  site's evidence. The baseline `scope` is also rendered, clearly labeled.
+  Leave top-level `checked_on`, other sites' entries and census pins unchanged;
+  no per-site fields means the baseline date and method still apply. A partial
+  feature spot-check cannot redate the entire row. An entry without a published
+  site cannot carry a website recheck. Adding these optional fields is a
+  provenance assertion, not an automatic browser test or approval of a feature.
 - `audit_notes.json` — hand-checked explanations of each source and its counted
   entities. PathwayMech records and DUFMech seed families use the same pinned
   census, statistics and site-audit pipeline as the other ten Mechs.
@@ -31,11 +42,16 @@
 
 ## Membership and capability updates
 
-The site and CLAW's manifest both list twelve Mechs, including PathwayMech and
-DUFMech. The October 7 vocabulary census, shared-term assets and repository statistics cover
-all twelve Mechs. DUFMech's contribution is a measured seed worklist, labeled
-as families rather than curated mechanism records. Its capability row now
-reports CLAW's declared native record, history and site contracts.
+The site lists twelve Mechs. Membership counts, badges and prose about
+undeclared projects come from `data/manifest.json`; suite coverage does not
+imply CLAW admission. A project's capability row remains undeclared until the
+snapshot contains its declaration. Tests exercise both an eleven-member
+fixture without DUFMech and a twelve-member fixture with synthetic DUFMech
+declarations, independently of the current snapshot. The October 7 vocabulary
+census, shared-term assets and repository statistics cover all twelve Mechs.
+DUFMech's contribution to that census is a measured seed worklist, labeled as
+families rather than curated mechanism records. Its schema-documentation prose
+uses the website feature verdict, not membership or an inferred schema absence.
 
 Use a CLAW checkout at the desired published `main` revision. The refresh reads
 committed Git blobs at that checkout's HEAD; uncommitted changes are excluded.
@@ -407,8 +423,10 @@ review field still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All twelve repositories
 participate in statistics collection.
 
-CLAW's 7253f80 snapshot declares all twelve members, including DUFMech, and
-enables PathwayMech's KGX and SSSOM exporters. The capability table preserves CLAW's full
+The CLAW governance snapshot is retained from main at 73958ed, published at
+20:46 UTC after the common Mech data pins. It declares all twelve members,
+including DUFMech, and enables PathwayMech and DUFMech KGX and SSSOM exporters.
+The capability table preserves CLAW's full
 catalogue and recorded reasons. Capability adoption does not establish that all
 CLAW workflows execute unattended.
 

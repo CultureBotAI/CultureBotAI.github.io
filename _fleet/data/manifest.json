@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "7253f80f75bd93161238d0496bc017efa1ddd69f",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/7253f80f75bd93161238d0496bc017efa1ddd69f/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "73958edb97994bc16c5404443956ee64c47bfe9b",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/73958edb97994bc16c5404443956ee64c47bfe9b/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -28,6 +28,9 @@
     },
     "knowledge_gap_scan": {
       "settings": {
+        "scheduled": {
+          "type": "boolean"
+        },
         "window": {
           "type": "integer",
           "required_when_enabled": true,
@@ -2020,14 +2023,12 @@
       "github": "CultureBotAI/DUFMech",
       "capabilities": {
         "id_label_validation": {
-          "status": "disabled",
-          "reason": "Native src/dufmech/records.py checks identity and labels against retained frozen Pfam source rows, not an external ontology. No shared OAK adapter or conf/id_label_targets.yaml is adopted; native validation does not establish shared OAK correspondence capability.",
+          "status": "enabled",
+          "reason": "conf/id_label_targets.yaml uses genuine OAK against a verified frozen Pfam reference, captured independently from family record labels by src/dufmech/id_labels.py. This checks retained-source correspondence, not live ontology freshness or scientific characterization.",
           "reason_claims": {
             "present": [
-              "src/dufmech/records.py"
-            ],
-            "absent": [
-              "conf/id_label_targets.yaml"
+              "conf/id_label_targets.yaml",
+              "src/dufmech/id_labels.py"
             ]
           }
         },
@@ -2060,10 +2061,11 @@
         },
         "deep_research": {
           "status": "disabled",
-          "reason": "Source reports exist, but no conf/deep_research_provider.yaml does. Enable once a provider exercises the shared research contract.",
+          "reason": "conf/deep_research_provider.yaml and src/dufmech/research.py support offline planning and retained simulated results only. Provider execution is refused; enable after reviewed provider-backed adoption.",
           "reason_claims": {
-            "absent": [
-              "conf/deep_research_provider.yaml"
+            "present": [
+              "conf/deep_research_provider.yaml",
+              "src/dufmech/research.py"
             ]
           }
         },
@@ -2076,12 +2078,17 @@
           "reason": "DUF/Pfam family evidence is not a culture-media, ingredient or microbial-community environment inventory."
         },
         "knowledge_gap_scan": {
-          "status": "disabled",
-          "reason": "The schema supports Discussions, but no conf/kgscan_config.yaml or shared scan window is adopted. Enable after the native generated record pipeline can preserve and validate shared scan output.",
+          "status": "enabled",
+          "reason": "conf/kgscan_config.yaml and src/dufmech/knowledge_gaps.py use shared sentence scoring over retained abstracts and emit timestamped review packets. Explicit digest-bound review is required before native overlay acceptance. This offline adapter is not a live scheduled scan.",
           "reason_claims": {
-            "absent": [
-              "conf/kgscan_config.yaml"
+            "present": [
+              "conf/kgscan_config.yaml",
+              "src/dufmech/knowledge_gaps.py"
             ]
+          },
+          "settings": {
+            "window": 25,
+            "scheduled": false
           }
         },
         "vendored_sync": {
@@ -2108,8 +2115,11 @@
           }
         },
         "kgx_export": {
-          "status": "disabled",
-          "reason": "Native JSON exports exist, but no KGX node/edge product is adopted."
+          "status": "enabled",
+          "settings": {
+            "nodes_path": "exports/kgx/nodes.tsv",
+            "edges_path": "exports/kgx/edges.tsv"
+          }
         },
         "writer_audit": {
           "status": "enabled",
@@ -2133,8 +2143,12 @@
           }
         },
         "sssom_export": {
-          "status": "disabled",
-          "reason": "No SSSOM mapping product exists yet."
+          "status": "enabled",
+          "settings": {
+            "mapping_globs": [
+              "exports/sssom/*.sssom.tsv"
+            ]
+          }
         },
         "metpo_proposal": {
           "status": "disabled",
@@ -2180,7 +2194,7 @@
         },
         "causal_graph_coverage": {
           "status": "disabled",
-          "reason": "Family records have scientific assertions but no adopted causal-graph projection in a supported shared coverage shape."
+          "reason": "The schema supports scientific assertions, but the seeded corpus has no curated mechanistic assertions or adopted causal-graph projection in a supported shared coverage shape."
         }
       }
     }

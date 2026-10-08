@@ -95,6 +95,57 @@ class SuiteUpdateTests(unittest.TestCase):
         self.assertIn("site deployment CMech", line)
         self.assertNotIn("AMech", line)
 
+    def feature_check_output(self, *, duf_recheck=False):
+        features = {"checked_on": "2026-10-05", "scope": "Baseline browser audit.", "mechs": {
+            "TraitMech": {"site": "https://example.org/trait/",
+                          "repository": "https://github.com/CultureBotAI/TraitMech",
+                          "deployed_revision": "a" * 40},
+            "DUFMech": {"site": "https://example.org/duf/",
+                        "repository": "https://github.com/CultureBotAI/DUFMech",
+                        "deployed_revision": "b" * 40},
+        }}
+        if duf_recheck:
+            features["mechs"]["DUFMech"].update(checked_on="2026-10-07", scope="DUF-only browser audit.")
+
+        def api(path):
+            if "/statuses?" in path:
+                return [{"state": "success"}]
+            sha = "a" * 40 if "TraitMech" in path else "c" * 40
+            return [{"id": 1, "sha": sha, "created_at": "2026-10-07T09:00:00Z"}]
+
+        drift = check_updates.drift
+        site_check = check_updates.site_feature_check
+        output = io.StringIO()
+        with (mock.patch.object(check_updates, "FEATURES") as source,
+              mock.patch.object(check_updates, "drift", side_effect=lambda entry, mech, watched:
+                                drift(entry, mech, watched, api=lambda _: {"ahead_by": 0, "files": []})),
+              mock.patch.object(check_updates, "pages_check", return_value=("current", "current")),
+              mock.patch.object(check_updates, "manifest_check", return_value="matches"),
+              mock.patch.object(check_updates, "dead_links", return_value=([], [])),
+              mock.patch.object(check_updates.check_cards, "check", return_value=[]),
+              mock.patch.object(check_updates, "site_feature_check", side_effect=lambda f: site_check(f, api=api)),
+              contextlib.redirect_stdout(output)):
+            source.read_text.return_value = json.dumps(features)
+            self.assertEqual(check_updates.main(), 0)
+        return output.getvalue()
+
+    def test_feature_check_labels_baseline_and_inherited_row_dates(self):
+        output = self.feature_check_output()
+        self.assertIn("## Website feature table (baseline audit: 2026-10-05)", output)
+        self.assertIn("- same TraitMech (audit date: 2026-10-05): still serves aaaaaaa", output)
+        self.assertIn("- redeployed DUFMech (audit date: 2026-10-05): bbbbbbb when checked, now ccccccc", output)
+        self.assertNotIn("judged on the live sites on", output)
+
+    def test_feature_check_preserves_mixed_duf_recheck_and_baseline_dates(self):
+        output = self.feature_check_output(duf_recheck=True)
+        self.assertIn("## Website feature table (baseline audit: 2026-10-05)", output)
+        self.assertIn("- same TraitMech (audit date: 2026-10-05): still serves aaaaaaa", output)
+        self.assertIn("- redeployed DUFMech (audit date: 2026-10-07): bbbbbbb when checked, now ccccccc", output)
+        self.assertNotIn("DUFMech (audit date: 2026-10-05)", output)
+        self.assertNotIn("TraitMech (audit date: 2026-10-07)", output)
+        self.assertIn("website feature verdicts to re-check on redeployed sites: DUFMech", output)
+        self.assertNotIn("judged on the live sites on", output)
+
     def test_unsuccessful_deployment_requests_are_not_claimed_as_served(self):
         features = {"mechs": {"AMech": {
             "site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",

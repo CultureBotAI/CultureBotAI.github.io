@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-10-07",
-  "scope": "Each Mech's live GitHub Pages site as it stood when checked on 2026-10-07, independently of the repository pins used by the census. An AI auditor exercised each site's features in headless Chrome, using identifier and label searches, filters, URL restoration, page-to-page theme persistence, 390 px layout checks and deliberately aborted data requests where applicable. Changed ratings were independently re-tested; disagreements were resolved against the catalogue, then columns were compared across the twelve sites for consistent criteria. Notes state the scope of sampled pages rather than claiming an exhaustive check of every route. deployed_revision identifies a successful github-pages deployment corresponding to that site's final browser check; several sites redeployed during the audit, and later deployments may differ.",
+  "scope": "Each Mech's live GitHub Pages site as it stood when checked on 2026-10-07, independently of the repository pins used by the census. An AI auditor exercised each site's features in headless Chrome, using identifier and label searches, filters, URL restoration, page-to-page theme persistence, 390 px layout checks and deliberately aborted data requests where applicable. Changed ratings were independently re-tested; disagreements were resolved against the catalogue, then columns were compared across the twelve sites for consistent criteria. Notes state the scope of sampled pages rather than claiming an exhaustive check of every route. deployed_revision identifies a successful github-pages deployment corresponding to that site's final browser check; several sites redeployed during the audit, and later deployments may differ. DUFMech retains the later site-specific recheck already published on main, with its own method and successful deployment recorded separately.",
   "groups": [
     {
       "title": "Find records",
@@ -681,127 +681,129 @@
     "DUFMech": {
       "site": "https://culturebotai.github.io/DUFMech/",
       "repository": "https://github.com/CultureBotAI/DUFMech",
-      "deployed_revision": "f97ed39db701b1912d29b07479db65b37e15867c",
+      "deployed_revision": "1dccc4ff61998e78f12448c52f37e4d370fe7299",
+      "checked_on": "2026-10-07",
+      "scope": "DUF-only recheck bound to successful github-pages deployment 6920450378 at 1dccc4ff61998e78f12448c52f37e4d370fe7299. Fresh post-129 checks verified 26 byte-exact public paths and desktop/mobile light/dark behavior, completed by a separate review of 12 new screenshots; the raw automated receipt remains unchanged. The 24 criteria also reuse retained October 7 supplementary checks of identifier/label searches, filters, counts, all sort options, copied URL state, category/navigation views, 390 px layouts, deliberate catalogue failures and JavaScript-free pagination, after all 19,881 artifact-file digest entries were verified identical. Catalogue completeness combines the exact served inventory and complete served bulk-index IDs with exhaustive offline coverage of 131 listing pages and representative public record routes, not a complete public record crawl. Deployed bytes match artifact ef7e2d01d337ce94c12abdda282a76ae5faaf313; build 3db152edc7acea72 pins corpus source 658dc8c9e4ed2587f7bf1c62ee59563f327706de, distinct from deployment. Retained external checks cover identical immutable targets and bounded mutable targets/official identity metadata; these were not all re-fetched in the post-129 run. No external provider application-rendering or scientific-review claim. GitHub code-license HTML returned 429 during the earlier supplementary check; raw project license bytes were verified separately. P33017 remains an inactive historical reference. All 6,532 families remain SEEDED and UNSCORED with zero curated functional assertions; retained reports are scoped non-scientific audits. Other sites use the fleet-wide October 7 baseline. These 24 website criteria do not promote any of the 26 repository capabilities.",
       "features": {
         "search": {
           "status": "present",
-          "note": "Search accession or family searches the complete catalogue: PF04149 and IPR007278 each return 1 of 6,532; DUF397 returns 10, each with an individual family link.",
+          "note": "The labelled family search covers all 6,532 families. PF04149, Domain of unknown function (DUF397) and IPR007278 each find PF04149; PF31276 is also found. Each tested result opens its family page, and browser Back restores the query.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "facets": {
           "status": "present",
-          "note": "Seed-status and characterization filters act on the main catalogue, with Clear search and filters. KNOWN HISTORICAL DUF returns 378 families and UNKNOWN CANDIDATE returns 6,154.",
+          "note": "Seed-status and characterization-status selects filter the main listing, with Reset. Historical DUFs give 378 of 6,532 and unknown candidates 6,154 of 6,532; combining historical status, UNSCORED and PF02698 gives one match. Reset restores all families.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "result_counts": {
           "status": "present",
-          "note": "The matching count changes with search and filters: 1 of 6,532 for PF04149, 378 for historical DUFs, and an explicit empty result for an unmatched query.",
+          "note": "The live matching count updates with search and filters, independently of the total: PF04149 gives 1 of 6,532 families match. An unmatched query gives zero and an empty-state message; Reset restores 6,532.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "sorting": {
           "status": "present",
-          "note": "The sort control offers protein count in either direction, Pfam accession, family name and structure count. Selecting Pfam accession reorders historical families with PF01784 first.",
+          "note": "The sort selector changes Pfam accession and protein-count order. All offered sort options were exercised and their first 50 rows compared with the complete served catalogue, including deterministic accession tie-breaking.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "shareable_state": {
           "status": "present",
-          "note": "The q, seed, characterization, sort and page parameters are written to the URL and restore on load; a PF04149 / UNKNOWN_CANDIDATE / UNSCORED / name-asc view restores all controls and its one result.",
-          "url": "https://culturebotai.github.io/DUFMech/?q=PF04149&seed=UNKNOWN_CANDIDATE&sort=name-asc&page=1&characterization=UNSCORED#families"
+          "note": "Search, seed status, characterization, sort and page are encoded in URL parameters. A copied second-page DUF search with UNKNOWN_CANDIDATE, UNSCORED and Pfam ascending restored every control and result on a new page and reload; record Back navigation also restored search.",
+          "url": "https://culturebotai.github.io/DUFMech/"
         },
         "full_catalogue": {
           "status": "present",
-          "note": "Following all 131 pages in the live browser yielded all 6,532 unique family identifiers, matching the complete index download and the 6,532 committed family-page routes.",
+          "note": "All 6,532 family IDs occur exactly once across 131 static listing pages and have HTML/JSON artifacts. Completeness was checked through the verified deployment, exact served inventory, complete served bulk IDs, exhaustive offline listing coverage and representative public record routes, not a complete public record crawl. The last static page shows 32 rows without JavaScript.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "record_pages": {
           "status": "present",
-          "note": "Each family has a stable families/PFxxxxx.html page. PF04149, PF01784 and the final catalogue family PF28257 opened successfully; every measured family has a corresponding committed page.",
+          "note": "Each family has its own static URL under families/, linked from the listing and paired with JSON. The verified artifact contains all 6,532 routes; sampled public PF04149, PF02698 and PF31276 pages opened successfully. This is not a complete public-route crawl.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "term_links": {
           "status": "present",
-          "note": "Family pages show readable Pfam and InterPro grounding labels linked to their human-readable entry resolvers; PF04149 links PF04149 and IPR007278, with protein-member links to UniProt.",
+          "note": "Record grounding shows readable family labels beside Pfam and integrated InterPro identifiers and links to their entry pages. PF04149 and IPR007278 targets returned 200 and official metadata confirmed their identities. Provider application rendering was not re-audited.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "evidence": {
           "status": "present",
-          "note": "Family source URLs and citations are linked. PF01784 links its internal InterPro PUB references to the originating entry and explains that these are source provenance, not PubMed IDs or independent functional validation.",
-          "url": "https://culturebotai.github.io/DUFMech/families/PF01784.html"
+          "note": "Imported descriptions link their source and references. PF02698 links UniProt entries and unresolved internal InterPro PUB citations to the originating entry, not invented PMIDs. P33017 resolves as an inactive, demerged historical accession, not an active protein. These links do not establish functional characterization; the corpus has zero curated assertions.",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html"
         },
         "review_status": {
           "status": "present",
-          "note": "Each family page and catalogue row shows native curation status separately from seed classification and characterization. The checked build shows SEEDED and UNSCORED, which it explicitly distinguishes from scientific review.",
+          "note": "Records distinguish curation status, imported seed status and characterization status. All 6,532 remain SEEDED and UNSCORED, including PF04149 after its scoped integrity review; historical-DUF seed labels are not scientific-review status.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "curation_history": {
           "status": "present",
-          "note": "PF04149 shows a dated, attributed REVIEW event with its summary, outcome, canonical history file and retained scoped reports. The page states that the seed-only audit did not promote the record to REVIEWED.",
+          "note": "PF04149 shows one actual REVIEW event at 2026-10-07T12:26:02Z by Codex with no_change outcome, scope and a pinned sidecar link, plus four associated retained reviews. All are scoped non-scientific audits; status stays SEEDED/UNSCORED. Records without events, such as PF31276, say none were supplied.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "source_link": {
           "status": "present",
-          "note": "The Record source section links the family YAML to a pinned GitHub source file and also offers its file in the site build and a per-family JSON download.",
+          "note": "Family pages link their own data/families/PFxxxxx.yaml on GitHub at source commit 658dc8c9e4ed, plus a build-local YAML copy and per-family JSON. The sampled PF04149 pinned source and served copy have matching bytes; the source pin is distinct from the Pages deployment commit.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "domain_view": {
           "status": "present",
-          "note": "PF04149 renders residue-range bars for two supplied protein members: residues 9–60 of 67 and 5–57 of 65. It identifies these as sequence coordinates from a limited frozen sample, rather than a complete family alignment or a structure.",
+          "note": "PF04149 displays two frozen member sequence-domain tracks: A0A010YFW0 residues 9-60 of 67 and A0A010YYK3 residues 5-57 of 65. Geometry and labels were checked at desktop/mobile widths in both themes. These are sampled sequence coordinates, not a 3D structure, full-family architecture or alignment.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "cross_mech_links": {
           "status": "present",
-          "note": "Related Mech records link to specific pinned sibling source records; PF04149 opens ProteinTraitsMech Pfam and InterPro trait files. Link bases distinguish family identities, text mentions and protein associations.",
+          "note": "Related-record tables link specific ProteinTraitsMech YAML records at a pinned revision, not only the sibling homepage. PF04149 links its Pfam and InterPro domain records; the sampled Pfam target resolves and its raw record identifies PF04149/DUF397.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "corpus_stats": {
           "status": "present",
-          "note": "Generated landing tiles show 6,532 families, 6,492 with InterPro IDs, 820 with structures and 6,478 with AlphaFold models, alongside clearly labeled per-family protein and match sums.",
+          "note": "Generated landing statistics show 6,532 families, 6,492 with InterPro IDs, 820 with structures and 6,478 with AlphaFold models, matching the served index. Current seed subsets are 6,154 unknown candidates and 378 historical DUFs. Upstream structure/model counters do not imply local structures or curated function.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "category_browse": {
           "status": "present",
-          "note": "Categories is linked from the landing navigation; its separate historical-DUF and unknown-candidate pages open the corresponding 378- and 6,154-family subsets.",
+          "note": "Categories is linked from the landing navigation and opens a category index with separate paginated unknown-candidate and historical-DUF subsets, containing 6,154 and 378 families. Both subset pages opened with linked family rows.",
           "url": "https://culturebotai.github.io/DUFMech/categories.html"
         },
         "suite_nav": {
           "status": "present",
-          "note": "All checked pages show All Mech projects linking to https://culturebotai.github.io/mechs/.",
+          "note": "A visible All Mech projects navigation link appears on the landing, category, record, sources and schema pages and targets https://culturebotai.github.io/mechs/. The suite destination returned 200 in the bounded live check.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "downloads": {
           "status": "present",
-          "note": "The landing and Sources & schema pages link the complete index.json, containing all 6,532 families plus inputs, metadata, provenance and summary; family pages additionally offer individual exports.",
+          "note": "Sources & schema visibly links the complete index.json export. Its served bytes match the final artifact and contain all 6,532 family IDs and metadata entries with provenance. Per-family JSON/YAML and sampled member JSON/TSV are additional downloads, not substitutes for the full export.",
           "url": "https://culturebotai.github.io/DUFMech/sources.html"
         },
         "schema_docs": {
           "status": "present",
-          "note": "Sources & schema links published LinkML documentation at schema.html, including FamilyRecord fields, types, cardinalities and review semantics, and a downloadable schema.",
+          "note": "Sources & schema links readable LinkML documentation covering FamilyRecord, the human-owned FamilyCuration overlay, event fields, provenance and enums. The documentation links the downloadable LinkML schema; both served documentation and schema bytes match the verified artifact.",
           "url": "https://culturebotai.github.io/DUFMech/schema.html"
         },
         "license": {
           "status": "present",
-          "note": "The shared footer states project data CC BY 4.0 and code BSD 3-Clause, links the license policy, and preserves third-party terms; this matches the repository LICENSE files.",
+          "note": "Shared footers state project data CC BY 4.0 and code BSD 3-Clause, with license links and a third-party-terms caveat. Raw project license files matched the repository policy; the GitHub code-license HTML view was throttled with 429 during the retained October 7 supplementary check. No permission for unverified upstream datasets is implied.",
           "url": "https://culturebotai.github.io/DUFMech/sources.html"
         },
         "build_provenance": {
           "status": "present",
-          "note": "The shared footer names site build 3db152edc7acea72, corpus source 658dc8c9e4ed and dated worklist, member and cross-Mech snapshots; source links are pinned.",
-          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+          "note": "Footers state site build 3db152edc7acea72 and pinned corpus source 658dc8c9e4ed, alongside dated frozen inputs. These match the served index and verified artifact ef7e2d01d337; corpus-source, artifact and build provenance are distinct from deployed revision 1dccc4ff6199.",
+          "url": "https://culturebotai.github.io/DUFMech/"
         },
         "theme_toggle": {
           "status": "present",
-          "note": "System, Light and Dark are selectable. Dark persisted from the catalogue to family, category, source and cross-Mech pages; Light persisted to schema.html.",
+          "note": "System/Light/Dark controls work across landing, category, record, sources, schema and cross-Mech pages. Plato checked saved preference across reload and system preference changes; supplementary navigation pages were checked in both themes at 1440 and 390 pixels.",
           "url": "https://culturebotai.github.io/DUFMech/"
         },
         "responsive": {
           "status": "present",
-          "note": "At 390 px the landing, last catalogue page, category index and both category pages, sources, schema, cross-Mech page and three sampled family pages had no page overflow; wide tables stay within scroll regions.",
-          "url": "https://culturebotai.github.io/DUFMech/"
+          "note": "Main navigation pages, both seed subsets and sampled records fit 390 pixels in light and dark themes. Wide tables stay in their scroll regions; PF04149's last related-record column remains reachable. Supplementary sources/schema/PF02698 screenshots show no incoherent overlap. This is bounded browser coverage, not rendering every record.",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
         },
         "load_failure": {
           "status": "present",
-          "note": "Aborting catalogue.json shows an explicit Search is unavailable warning, says URL search parameters were not applied, and retains the static catalogue with numbered-page and complete-download fallbacks.",
-          "url": "https://culturebotai.github.io/DUFMech/?q=PF04149"
+          "note": "With catalogue.json returning 503, malformed data or an aborted request, enhanced browsing shows an error saying URL parameters were not applied, while retaining 50 static rows and static pagination. The final static page also works without JavaScript. This feature applies because enhanced browsing fetches data.",
+          "url": "https://culturebotai.github.io/DUFMech/"
         }
       }
     },
