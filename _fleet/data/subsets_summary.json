@@ -9,6 +9,7 @@
   "DUFMech": "f97ed39db701b1912d29b07479db65b37e15867c",
   "NaturalProductMech": "f3bfec397457a22fd0118ba9d7f6a53d0e4fa7cc",
   "AntibioticMech": "87653291542ce22ab7b714b67bc3dc97137e2f38",
+  "CMMMech": "905388523b6e9184783989484896e4cc20297832",
   "MediaIngredientMech": "401a2ff8b92203008fcaeb7bfcf4b845b64fc6d0",
   "CultureMech": "26c8ba8e8d1c49ee9a118726b6facd584e7bb0fd",
   "TaxonMech": "555300c6198962db11fff3a6eb3855c36413af0d"
@@ -160,6 +161,18 @@
     {
      "id": "NCBITaxon:573",
      "label": "Klebsiella pneumoniae"
+    }
+   ]
+  },
+  "HabitatMech|CMMMech": {
+   "n": 1,
+   "by": {
+    "NCBITaxon": 1
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:876",
+     "label": "Desulfovibrio desulfuricans"
     }
    ]
   },
@@ -355,6 +368,27 @@
     {
      "id": "CHEBI:33709",
      "label": "amino acid"
+    }
+   ]
+  },
+  "CommunityMech|CMMMech": {
+   "n": 3,
+   "by": {
+    "NCBITaxon": 2,
+    "CHEBI": 1
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:3077",
+     "label": "Chlorella vulgaris"
+    },
+    {
+     "id": "CHEBI:33363",
+     "label": "palladium atom"
+    },
+    {
+     "id": "NCBITaxon:876",
+     "label": "Desulfovibrio desulfuricans"
     }
    ]
   },
@@ -955,6 +989,26 @@
     }
    ]
   },
+  "ProteinTraitsMech|CMMMech": {
+   "n": 3,
+   "by": {
+    "CHEBI": 3
+   },
+   "ex": [
+    {
+     "id": "CHEBI:27638",
+     "label": "cobalt atom"
+    },
+    {
+     "id": "CHEBI:33363",
+     "label": "palladium atom"
+    },
+    {
+     "id": "CHEBI:33372",
+     "label": "neodymium atom"
+    }
+   ]
+  },
   "ProteinTraitsMech|MediaIngredientMech": {
    "n": 755,
    "by": {
@@ -1162,6 +1216,30 @@
     }
    ]
   },
+  "CMMMech|CultureMech": {
+   "n": 1,
+   "by": {
+    "NCBITaxon": 1
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:3077",
+     "label": "Chlorella vulgaris"
+    }
+   ]
+  },
+  "CMMMech|TaxonMech": {
+   "n": 1,
+   "by": {
+    "NCBITaxon": 1
+   },
+   "ex": [
+    {
+     "id": "NCBITaxon:876",
+     "label": "Desulfovibrio desulfuricans"
+    }
+   ]
+  },
   "MediaIngredientMech|CultureMech": {
    "n": 528,
    "by": {
@@ -1276,6 +1354,8 @@
   "AntibioticMech|NCBITaxon": 163,
   "AntibioticMech|PDB": 331,
   "AntibioticMech|UniProt": 47,
+  "CMMMech|CHEBI": 3,
+  "CMMMech|NCBITaxon": 2,
   "MediaIngredientMech|BTO": 1,
   "MediaIngredientMech|CAS": 739,
   "MediaIngredientMech|CHEBI": 2234,

@@ -47,10 +47,10 @@ class PRActivityTests(unittest.TestCase):
             "merged_prs_total": -1,
         }
 
-    def test_queries_all_fourteen_repositories_and_keeps_twelve_record_rows(self):
+    def test_queries_all_fifteen_repositories_and_keeps_thirteen_record_rows(self):
         expected_repos = ["proteintraitsmech" if name == "ProteinTraitsMech" else name
                           for name in roots.ORDER] + ["culturebotai-claw", "CultureBotAI.github.io"]
-        values = dict(zip(expected_repos, range(10, 24)))
+        values = dict(zip(expected_repos, range(10, 25)))
 
         def answer(command, **kwargs):
             query = command[command.index("-f") + 1]
@@ -59,7 +59,7 @@ class PRActivityTests(unittest.TestCase):
 
         self.gh.side_effect = answer
         actual = self.run_stats()
-        self.assertEqual(len(expected_repos), 14)
+        self.assertEqual(len(expected_repos), 15)
         self.assertEqual(self.gh.call_args_list, [mock.call(
             ["gh", "api", "-X", "GET", "search/issues", "-f",
              f"q=repo:CultureBotAI/{repo} is:pr is:merged", "--jq", ".total_count"],
@@ -67,13 +67,13 @@ class PRActivityTests(unittest.TestCase):
         ) for repo in expected_repos])
         self.assertEqual([row["mech"] for row in actual["mechs"]], list(roots.ORDER))
         self.assertEqual(self.census.call_args_list, [mock.call(name) for name in roots.ORDER])
-        self.assertEqual([row["merged_prs"] for row in actual["mechs"]], list(range(10, 22)))
+        self.assertEqual([row["merged_prs"] for row in actual["mechs"]], list(range(10, 23)))
         self.assertEqual(actual["additional_repositories"], [
-            {"repo": "culturebotai-claw", "merged_prs": 22},
-            {"repo": "CultureBotAI.github.io", "merged_prs": 23},
+            {"repo": "culturebotai-claw", "merged_prs": 23},
+            {"repo": "CultureBotAI.github.io", "merged_prs": 24},
         ])
-        self.assertEqual(actual["merged_prs_total"], sum(range(10, 24)))
-        self.assertEqual(sum(row["records"] for row in actual["mechs"]), 12 * 7)
+        self.assertEqual(actual["merged_prs_total"], sum(range(10, 25)))
+        self.assertEqual(sum(row["records"] for row in actual["mechs"]), 13 * 7)
 
     def test_no_prs_preserves_every_cached_count_without_querying(self):
         cached = self.cached_snapshot()
@@ -83,7 +83,7 @@ class PRActivityTests(unittest.TestCase):
         self.assertEqual([row["merged_prs"] for row in actual["mechs"]],
                          [row["merged_prs"] for row in cached["mechs"]])
         self.assertEqual(actual["additional_repositories"], cached["additional_repositories"])
-        self.assertEqual(actual["merged_prs_total"], sum(range(12)) + 301 + 17)
+        self.assertEqual(actual["merged_prs_total"], sum(range(13)) + 301 + 17)
         self.assertTrue(all(row["records"] == 7 for row in actual["mechs"]))
 
     def test_no_prs_missing_cache_fails_before_queries_or_record_scan(self):

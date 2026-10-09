@@ -33,12 +33,12 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertGreater(figures["DUFMech"], 0)
         self.assertIn(f"<b>{sum(figures.values()):,}</b>", page)
         self.assertIn("records and seed families", page)
-        self.assertIn("all twelve Mechs", page)
+        self.assertIn("all thirteen Mechs", page)
         members = set(self.inputs[1]["mechs"])
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
         self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
                          len(set(figures) - members))
-        self.assertIn(f"The manifest declares {number_word(len(members))} of the twelve projects", page)
+        self.assertIn(f"The manifest declares {number_word(len(members))} of the thirteen projects", page)
 
     def test_undeclared_duf_fixture_retains_a_seed_card_and_unknown_capabilities(self):
         self.inputs[1]["mechs"].pop("DUFMech", None)
@@ -51,7 +51,7 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertNotIn('class="d"', rows)
         self.assertNotIn('class="n"', rows)
 
-    def test_twelve_member_fixture_declares_duf_without_upgrading_website_verdicts(self):
+    def test_thirteen_member_fixture_declares_duf_without_upgrading_website_verdicts(self):
         # Synthetic declarations exercise admission, not a claim about CLAW main.
         snapshot = self.inputs[1]
         snapshot["mechs"]["DUFMech"] = {
@@ -64,9 +64,9 @@ class SuiteIntegrationTests(unittest.TestCase):
         snapshot["mechs"]["DUFMech"]["capabilities"]["strict_validation"] = {"status": "enabled"}
         feature_data = json.dumps(self.inputs[4], sort_keys=True)
         page = self.render()
-        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 12)
+        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 13)
         self.assertNotIn('<span class="badge">not yet in fleet manifest</span>', page)
-        self.assertIn("The manifest declares twelve of the twelve projects", page)
+        self.assertIn("The manifest declares thirteen of the thirteen projects", page)
         self.assertIn("All projects shown here have a manifest declaration.", page)
         self.assertNotIn("Separately listed projects without a declaration:", page)
         rows = capability_rows(snapshot, ["DUFMech"])

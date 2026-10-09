@@ -38,6 +38,7 @@ RECORD_GLOBS: dict[str, list[str]] = {
     "DUFMech": ["data/worklists/interpro-pfam-duf-*.json"],
     "NaturalProductMech": ["data/natural_products/**/*.yaml"],
     "AntibioticMech": ["data/antibiotics/**/*.yaml"],
+    "CMMMech": ["data/records/**/*.yaml", "data/records/**/*.yml"],
     "MediaIngredientMech": ["data/ingredients/**/*.yaml"],
     "CultureMech": ["data/merge_yaml/merged/*.yaml"],
     # Species-level and infraspecific taxon records, keyed by NCBI Taxonomy id;
@@ -73,7 +74,7 @@ ORDER = list(RECORD_GLOBS)
 # record lists using the census's exact prefix pattern and normalization.
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
-            "PNNLDH"]
+            "PNNLDH", "CELEX"]
 
 
 def mech_root(name: str) -> str:

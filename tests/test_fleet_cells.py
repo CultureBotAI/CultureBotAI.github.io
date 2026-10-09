@@ -242,7 +242,8 @@ class FullCellIntegrationTests(unittest.TestCase):
                     for mech in ORDER for prefix, n in census[mech]["prefixes"].items() if n}
         self.assertEqual(summary["_revisions"], census["_revisions"])
         self.assertEqual(set(summary["cells"]), expected)
-        self.assertEqual(set(fleet["cells"]), {key.replace("|", "--") for key in expected})
+        self.assertEqual({key for key in fleet["cells"] if not key.startswith("kg-microbe--")},
+                         {key.replace("|", "--") for key in expected})
         assets = ROOT / "assets/fleet/cells"
         # Path.rglob includes ignored and hidden entries, so extra generated
         # cells cannot remain unnoticed after a vocabulary disappears.

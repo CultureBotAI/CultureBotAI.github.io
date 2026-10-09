@@ -85,7 +85,7 @@ Organism-Specific Media Recommendation
 
 ## Related Tools
 
-- **[X-Mech Suite overview](/mechs/)** - All twelve Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[X-Mech Suite overview](/mechs/)** - All thirteen Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
 - **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
@@ -96,6 +96,7 @@ Organism-Specific Media Recommendation
 - **[DUFMech](https://github.com/CultureBotAI/DUFMech)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
+- **[CMMMech](https://github.com/CultureBotAI/CMMMech)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[CultureMech](/culturemech/)** - Autonomous knowledge factory for microbial culture media (6,320 canonical media)
 - **[MicroGrowLink](/resources/#microgrowlink)** - Graph-based growth media prediction

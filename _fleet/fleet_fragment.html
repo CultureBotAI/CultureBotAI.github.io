@@ -27,6 +27,7 @@
     /* Gold pathways and slate domains extend the palette without recolouring
        existing Mechs. Labels carry identity as well as colour. */
     --mech-pathwaymech: #ac8200; --mech-dufmech: #566a7c;
+    --mech-cmmmech: #b54b3f; --mech-kgmicrobe: #466458;
     /* Text variants: same hue, lightness walked until the colour clears 4.5:1
        against the palest surface they sit on, which is the scale ladder's wash
        rather than the card. The identity colour marks a node, a card spine or a
@@ -39,6 +40,7 @@
     --mech-naturalproductmech-ink: #3559aa; --mech-taxonmech-ink: #82307d; --mech-mediaingredientmech-ink: #8c53bc;
     --mech-culturemech-ink: #5f7600;
     --mech-pathwaymech-ink: #806000; --mech-dufmech-ink: #566a7c;
+    --mech-cmmmech-ink: #a54035; --mech-kgmicrobe-ink: #466458;
     /* Label colour for a button filled with a Mech's --ci. Stated per theme
        rather than borrowed from --card, which resolved inconsistently here. */
     --mech-onfill: #ffffff;
@@ -56,11 +58,13 @@
       --mech-naturalproductmech: #9abbff; --mech-taxonmech: #b22bac;
       --mech-mediaingredientmech: #a97cd2; --mech-culturemech: #94af31;
       --mech-pathwaymech: #d8b63f; --mech-dufmech: #98a7b5;
+      --mech-cmmmech: #f08c79; --mech-kgmicrobe: #9fc4b1;
       --mech-habitatmech-ink: #219968; --mech-communitymech-ink: #0f95ff; --mech-traitmech-ink: #ec5d85;
       --mech-cellstructuremech-ink: #896fff; --mech-proteintraitsmech-ink: #00b9b5; --mech-antibioticmech-ink: #e89e71;
       --mech-naturalproductmech-ink: #9abbff; --mech-taxonmech-ink: #d450cd; --mech-mediaingredientmech-ink: #a97cd2;
       --mech-culturemech-ink: #94af31;
       --mech-pathwaymech-ink: #d8b63f; --mech-dufmech-ink: #98a7b5;
+      --mech-cmmmech-ink: #f08c79; --mech-kgmicrobe-ink: #9fc4b1;
       --mech-onfill: #121714;
       --fleet-link: #FFA35C;
       --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
@@ -76,11 +80,13 @@
     --mech-naturalproductmech: #9abbff; --mech-taxonmech: #b22bac;
     --mech-mediaingredientmech: #a97cd2; --mech-culturemech: #94af31;
     --mech-pathwaymech: #d8b63f; --mech-dufmech: #98a7b5;
+    --mech-cmmmech: #f08c79; --mech-kgmicrobe: #9fc4b1;
     --mech-habitatmech-ink: #219968; --mech-communitymech-ink: #0f95ff; --mech-traitmech-ink: #ec5d85;
     --mech-cellstructuremech-ink: #896fff; --mech-proteintraitsmech-ink: #00b9b5; --mech-antibioticmech-ink: #e89e71;
     --mech-naturalproductmech-ink: #9abbff; --mech-taxonmech-ink: #d450cd; --mech-mediaingredientmech-ink: #a97cd2;
     --mech-culturemech-ink: #94af31;
     --mech-pathwaymech-ink: #d8b63f; --mech-dufmech-ink: #98a7b5;
+    --mech-cmmmech-ink: #f08c79; --mech-kgmicrobe-ink: #9fc4b1;
     --mech-onfill: #121714;
     --fleet-link: #FFA35C;
     --sphere-hi: .34; --sphere-hi-mid: .09; --sphere-lo-mid: .26; --sphere-lo: .44;
@@ -289,6 +295,7 @@
      scrollWidth still reported no overflow. */
   table.fleet-heat thead th { width: 42px; padding: .2rem 0; text-align: center; }
   table.fleet-heat td { padding: 0; }
+  table.fleet-heat tr.heat-comparison > th, table.fleet-heat tr.heat-comparison > td { border-top: 10px solid var(--card); background-clip: padding-box; }
   /* A cell's background sweeps the whole ramp from card to accent-2, so any one
      ring colour is invisible somewhere along it — a fixed neon ring fell under
      3:1 on the mid shades. Two bands instead: card then ink, which always
@@ -434,7 +441,7 @@
 <div class="fleet-stats" aria-label="Fleet at a glance">
   <div><b><!--FLEET_COUNT--></b><span>autonomous knowledge factories</span></div>
   <div><b><!--FLEET_RECORDS_TOTAL--></b><span>records and seed families</span></div>
-  <div><b><!--FLEET_VOCAB_COUNT--></b><span>vocabularies</span></div>
+  <div title="Across the Mech census and kg-microbe comparison"><b><!--FLEET_VOCAB_COUNT--></b><span>tracked vocabularies</span></div>
   <div title="Across <!--FLEET_PR_REPO_COUNT--> repositories: the <!--FLEET_COUNT_WORD--> Mechs, CLAW and this website"><b><!--FLEET_PRS_TOTAL--></b><span>Merged PRs</span></div>
   <div><b>1</b><span>orchestrator (claw)</span></div>
   <div><b>1</b><span>project website</span></div>
@@ -452,6 +459,7 @@
   <a href="https://culturebotai.github.io/DUFMech/" style="--c: var(--mech-dufmech); --ci: var(--mech-dufmech-ink)" title="Open DUFMech"><b>Unknown domains</b><span>what remains unexplained</span></a>
   <a href="https://culturebotai.github.io/NaturalProductMech/" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)" title="Open NaturalProductMech"><b>Natural products</b><span>what it makes</span></a>
   <a href="https://culturebotai.github.io/AntibioticMech/" style="--c: var(--mech-antibioticmech); --ci: var(--mech-antibioticmech-ink)" title="Open AntibioticMech"><b>Antibiotics</b><span>what acts on it</span></a>
+  <a href="https://github.com/CultureBotAI/CMMMech" style="--c: var(--mech-cmmmech); --ci: var(--mech-cmmmech-ink)" title="Open CMMMech"><b>Critical minerals</b><span>what it mobilizes or recovers</span></a>
   <a href="https://culturebotai.github.io/MediaIngredientMech/" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)" title="Open MediaIngredientMech"><b>Ingredients</b><span>what it is fed</span></a>
   <a href="https://culturebotai.github.io/CultureMech/" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)" title="Open CultureMech"><b>Media</b><span>how it is grown</span></a>
 </div>
@@ -472,11 +480,12 @@
 
 <h2 id="shared-vocabulary" class="fleet-section-target">Shared vocabulary</h2>
 
-<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences per vocabulary in each Mech's record corpus; darker cells mean more. Scroll sideways to explore all <!--FLEET_VOCAB_COUNT--> vocabularies, with DOI and PMID first, followed by vocabularies used by the most Mechs to the fewest. Rows run from the Mech using the most vocabularies to the fewest. Mech names stay visible as you scroll. Select any cell to see its occurrence count and matching records below, including cells with no occurrences. Click a Mech name to open it, or a column button to filter the graph.</p>
+<p>The Mechs are joinable because they ground records in the same public ontologies. The table counts identifier occurrences in Mech records and, for comparison, kg-microbe graph node records; darker cells mean more. Scroll sideways to explore <!--FLEET_VOCAB_COUNT--> tracked vocabularies, with DOI and PMID first, followed by vocabularies used by the most datasets to the fewest. Mech rows run from the most vocabularies to the fewest, followed by kg-microbe as a separate comparison. Dataset names stay visible as you scroll. Select any cell to see its occurrence count and matching records below, including cells with no occurrences. Click a dataset name to open it, or a column button to filter the graph.</p>
 
-<div class="fleet-heat-wrap" tabindex="0" role="region" aria-label="Vocabulary census; scroll horizontally to see all vocabularies"><table class="fleet-heat" id="fleet-heat" aria-label="Vocabulary identifier occurrences per Mech"></table></div>
+<div class="fleet-heat-wrap" tabindex="0" role="region" aria-label="Vocabulary census; scroll horizontally to see all tracked vocabularies"><table class="fleet-heat" id="fleet-heat" aria-label="Vocabulary identifier occurrences per dataset"></table></div>
 <div class="fleet-cell-panel" id="fleet-cell-panel" role="region" aria-label="Selected vocabulary records" hidden></div>
-<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->. Counts are prefix occurrences in structured records and seed worklists (one family per DUFMech worklist row; merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) as of <!--FLEET_CENSUS_DATE-->. DOI and PMID are the first two columns. All remaining columns are ordered by how many Mechs use each vocabulary, from most to least, then by total occurrences across the fleet and vocabulary name. Rows are ordered by how many vocabularies each Mech uses; ties retain the biological scale order. Every cell opens its matching-record summary; lists show up to 300 records. Column buttons filter the graph for vocabularies with a shared-term index. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<p class="fleet-heat-note">This vocabulary census covers <!--FLEET_CENSUS_COVERAGE-->, plus a separate kg-microbe comparison. Counts are prefix occurrences in structured records and seed worklists (one family per DUFMech worklist row; merged recipes for CultureMech, communities and isolate records for CommunityMech, habitat records for HabitatMech, species-level and infraspecific taxon records for TaxonMech, each carrying its lineage, so a higher taxon is counted once per record under it) measured on <!--FLEET_CENSUS_DATE-->. The original twelve Mechs retain their 7 October 2026 source revisions; CMMMech uses its 8 October revision. DOI and PMID are the first two columns. All remaining columns are ordered by how many datasets use each vocabulary, from most to least, then by total occurrences and vocabulary name. Mech rows are ordered by how many tracked vocabularies each uses; ties retain the biological scale order. kg-microbe is always last, separated by a small gap. Every cell opens its matching-record summary; lists show up to 300 records. Column buttons filter the graph for vocabularies with a shared-term index. The shared terms behind each chord come only from what a record cites outside prose fields, so an identifier named only in a note, a change log or a quotation counts here but is not shared. ChEBI binds the chemistry arm (media, ingredients, antibiotics, proteins); NCBITaxon and ENVO bind the organism arm (habitat, community, taxa, traits); GO and METPO bridge phenotype, structure and protein.</p>
+<!--FLEET_KG_CENSUS_NOTE-->
 
 <div class="fleet-graph fleet-section-target" id="fleet-graph">
   <div class="fleet-controls">
@@ -564,6 +573,7 @@
     DUFMech: { key: "dufmech", scale: "Unknown domains", tag: "A seed worklist for domains of unknown function, separating current candidates from historically uncharacterized protein families.", records: 6532, unit: "seed families", root: "FamilyRecord", vocab: ["Pfam", "InterPro"], github: "https://github.com/CultureBotAI/DUFMech", site: "https://culturebotai.github.io/DUFMech/", page: "", license: "CC BY 4.0 data · BSD-3-Clause code", sources: "Pfam and InterPro protein-family seeds", extra: "6,532 seed families: 6,154 unknown candidates and 378 historical DUFs. The corrected seed classification preserves the original metadata. The site publishes searchable, paginated FamilyRecord pages with evidence, history and cross-Mech leads; characterization remains UNSCORED for all families." },
     NaturalProductMech: { key: "naturalproductmech", scale: "Natural products", tag: "One record per natural product structure: who makes it, from which gene cluster, and what it does.", records: 3115, unit: "natural product structures", root: "NaturalProductRecord", vocab: ["MIBiG", "NCBITaxon", "ChEBI", "NPAtlas", "PubChem", "UniProt"], github: "https://github.com/CultureBotAI/NaturalProductMech", site: "https://culturebotai.github.io/NaturalProductMech/", page: "", license: "CC BY 4.0 data · BSD-3-Clause code", sources: "ChEBI, MIBiG gene clusters, LOTUS occurrences, CyanoMetDB, NPClassifier, PubChem BioAssay, BindingDB, NCBI Taxonomy, AntibioticMech", extra: "3,407 producer claims, including 808 supported by evidence addressing the organism; 2,342 records carry cited occurrences. Structure and corpus maps complement the record browser." },
     AntibioticMech: { key: "antibioticmech", scale: "Antibiotics", tag: "One record per antimicrobial structure, harmonizing ChEBI and CARD with mechanism and evidence.", records: 2939, unit: "antimicrobial structures", graphUnit: "antimicrobials", root: "AntibioticRecord", vocab: ["CHEBI", "ARO", "CAS", "NCBITaxon", "PubChem", "DrugBank"], github: "https://github.com/CultureBotAI/AntibioticMech", site: "https://culturebotai.github.io/AntibioticMech/", page: "", license: "CC BY 4.0 data · BSD-3-Clause code", sources: "ChEBI 3-star antimicrobial roles, CARD/ARO antibiotic molecules, PubChem structures, PHI-base, MIBiG, BindingDB, Drugs@FDA, CRyPTIC", extra: "2,669 ontology-grounded and 270 minted identities; 454 records with mode of action, 282 with molecular targets and 16 with causal graphs. The chemical map places all 2,939 records by chiral molecular fingerprints; a corpus map places them by record text." },
+    CMMMech: { key: "cmmmech", scale: "Critical minerals", tag: "Evidence-backed microbial extraction, transformation and recovery mechanisms for critical materials.", records: 3, unit: "material records", root: "CriticalMineralRecord", vocab: ["CHEBI", "NCBITaxon"], github: "https://github.com/CultureBotAI/CMMMech", site: "", page: "", license: "CC BY 4.0 data · BSD-3-Clause code; upstream terms apply", sources: "Primary literature, ChEBI chemical identities, NCBI Taxonomy and dated critical-material lists", extra: "Three element-level records: cobalt bioleaching, neodymium biosorption and palladium reduction. Each states laboratory context, evidence and limitations, with scientific review artifacts and append-only curation history. Browse the repository records; no public website is deployed." },
     MediaIngredientMech: { key: "mediaingredientmech", scale: "Ingredients", tag: "LLM-assisted curation of media-ingredient ontology mappings with full audit trails.", records: 2953, unit: "ingredient records", root: "IngredientRecord", vocab: ["CHEBI", "CAS", "NCIT", "FOODON", "ENVO"], github: "https://github.com/CultureBotAI/MediaIngredientMech", site: "https://culturebotai.github.io/MediaIngredientMech/", page: "/mediaingredientmech/", license: "CC BY 4.0 data · BSD-3-Clause code", sources: "MIM-owned ingredient records; CultureMech recipe changes as diagnostic inputs; OAK/OLS term services; ChEBI, FOODON, NCIT, MeSH, METPO", extra: "2,611 of 2,953 ingredients mapped (88%). Search by mapping status and quality, or explore ingredient PaCMAP and graph layouts." },
     CultureMech: { key: "culturemech", scale: "Media", tag: "Autonomous knowledge factory curating versioned, ontology-grounded microbial culture-media recipes.", records: 6320, unit: "canonical media", root: "MediaRecipe", vocab: ["CHEBI", "KEGG", "FOODON", "UBERON", "CAS"], github: "https://github.com/CultureBotAI/CultureMech", site: "https://culturebotai.github.io/CultureMech/", page: "/culturemech/", license: "CC BY 4.0 data · BSD-3-Clause code", sources: "MediaDive/DSMZ, TogoMedium, KOMODO, ATCC, JCM, BacDive (queued)", extra: "6,320 deduplicated canonical media, merged from 15,910 source-specific normalized records across five categories. Explore derived ingredient-based and direct medium-node embeddings and a graph layout; browse recipes with filters for target organisms and ingredients." }
   };
@@ -659,7 +669,7 @@
     PathwayMech: "biochemical pathways", CellStructureMech: "cellular structures",
     ProteinTraitsMech: "protein functions", DUFMech: "unknown and formerly unknown protein families",
     NaturalProductMech: "natural products", AntibioticMech: "antimicrobial activity",
-    MediaIngredientMech: "media ingredients", CultureMech: "growth media"
+    CMMMech: "critical material recovery", MediaIngredientMech: "media ingredients", CultureMech: "growth media"
   };
   var W = 900, H = 760, CX = 450, CY = 372, R = 262;
   var HUB_R = 46;   // declared here because the cross-reference arcs are routed before the hub is drawn
@@ -672,9 +682,10 @@
   function radius(m) { var n = MECHS[m].records; return n === null ? 24 : 14 + 5.5 * Math.log10(Math.max(1, n)); }
   function mechURL(M) { return M.site || M.github; }
   function recordLabel(M) { return M.records === null ? M.recordLabel : fmt(M.records) + " " + M.unit; }
-  function color(m) { return "var(--mech-" + MECHS[m].key + ")"; }
+  function heatMeta(m) { return MECHS[m] || DATA.comparisons[m]; }
+  function color(m) { return "var(--mech-" + heatMeta(m).key + ")"; }
   // Text set in a Mech's colour uses the readable variant; marks use color().
-  function inkColor(m) { return "var(--mech-" + MECHS[m].key + "-ink)"; }
+  function inkColor(m) { return "var(--mech-" + heatMeta(m).key + "-ink)"; }
   function vocColor(v) { return "var(--voc-" + (VOCS.indexOf(v) >= 0 ? v.toLowerCase() : "other") + ")"; }
   function fmt(n) { return n.toLocaleString("en-US"); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
@@ -1095,18 +1106,18 @@
   if (heat) {
     var VOC = DATA.voc, max = 0;
     heat.style.setProperty("--heat-width", (184 + VOC.length * 44) + "px");
-    DATA.order.forEach(function (m) { VOC.forEach(function (v) { max = Math.max(max, DATA.heat[m][v]); }); });
+    Object.keys(DATA.heat).forEach(function (m) { VOC.forEach(function (v) { max = Math.max(max, DATA.heat[m][v]); }); });
     var lmax = Math.log10(max);
-    var html = "<thead><tr><th scope=\"col\">Mech</th>" + VOC.map(function (v) {
+    var html = "<thead><tr><th scope=\"col\">Dataset</th>" + VOC.map(function (v) {
       var indexed = DATA.indexed_voc ? DATA.indexed_voc.indexOf(v) >= 0 : DATA.vocab_edges.some(function (edge) { return edge.by[v] > 0; });
       return '<th scope="col">' + (indexed ? '<button type="button" data-voc="' + esc(v) + '" aria-pressed="false" title="Filter the graph to ' + esc(v) + '">' + esc(v) + '</button>' : '<span title="Select a cell below to browse matching records. This vocabulary has no shared-term graph index.">' + esc(v) + '</span>') + '</th>';
     }).join("") + "</tr></thead><tbody>";
-    var heatOrder = DATA.order.concat(Object.keys(MECHS).filter(function (m) { return DATA.order.indexOf(m) < 0; }));
+    var heatOrder = DATA.order.concat(Object.keys(MECHS).filter(function (m) { return DATA.order.indexOf(m) < 0; }), Object.keys(DATA.comparisons || {}));
     var vocabCounts = {}, biologicalOrder = {};
     heatOrder.forEach(function (m, i) { biologicalOrder[m] = i; vocabCounts[m] = VOC.filter(function (v) { return DATA.heat[m] && DATA.heat[m][v] > 0; }).length; });
-    heatOrder.sort(function (a, b) { return vocabCounts[b] - vocabCounts[a] || biologicalOrder[a] - biologicalOrder[b]; });
+    heatOrder.sort(function (a, b) { return Number(!MECHS[a]) - Number(!MECHS[b]) || vocabCounts[b] - vocabCounts[a] || biologicalOrder[a] - biologicalOrder[b]; });
     heatOrder.forEach(function (m) {
-      html += '<tr data-mech="' + esc(m) + '"><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(MECHS[m]) + '" title="Open ' + esc(m) + ' · ' + fmt(vocabCounts[m]) + ' vocabularies">' + esc(m) + "</a></th>";
+      html += '<tr' + (MECHS[m] ? '' : ' class="heat-comparison"') + ' data-mech="' + esc(m) + '"><th scope="row" style="--c:' + color(m) + '"><i></i><a href="' + mechURL(heatMeta(m)) + '" title="Open ' + esc(m) + ' · ' + fmt(vocabCounts[m]) + ' vocabularies">' + esc(m) + "</a></th>";
       if (!Object.prototype.hasOwnProperty.call(DATA.heat, m)) {
         html += '<td class="unmeasured" colspan="' + VOC.length + '" title="' + esc(m) + ' is not included in the dated vocabulary census"><span>Not yet measured</span></td></tr>';
         return;
@@ -1130,26 +1141,26 @@
       cellPanel.dataset.mech = m; cellPanel.dataset.voc = v;
       cellPanel.innerHTML = '<p class="eyebrow">Selected vocabulary</p><h3 style="color:' + inkColor(m) + ';border-image:none;border-color:' + color(m) + '">' + esc(m) + ' · ' + esc(v) + '</h3>' +
         '<p class="cell-count"></p><p class="cell-status" role="status" aria-live="polite" aria-atomic="true"></p>' +
-        '<div class="links"><a class="go" href="' + mechURL(MECHS[m]) + '">Open ' + esc(m) + ' ↗</a></div><div class="cell-records"></div>';
+        '<div class="links"><a class="go" href="' + mechURL(heatMeta(m)) + '">Open ' + esc(m) + ' ↗</a></div><div class="cell-records"></div>';
       var count = cellPanel.querySelector(".cell-count"), status = cellPanel.querySelector(".cell-status"), records = cellPanel.querySelector(".cell-records");
-      count.textContent = fmt(occurrences) + ' identifier occurrence' + (occurrences === 1 ? '' : 's') + ' in this census.';
+      count.textContent = fmt(occurrences) + ' identifier occurrence' + (occurrences === 1 ? '' : 's') + (m === 'kg-microbe' ? ' in the ' + DATA.comparisons[m].source.release + ' core release node records.' : ' in this census.');
       if (!occurrences) {
         status.textContent = m + ' · ' + v + ': no matching records. No identifiers from this vocabulary occur in the measured record corpus.';
         return;
       }
       status.textContent = 'Loading matching records for ' + m + ' · ' + v + '…';
       records.setAttribute("aria-busy", "true");
-      loadJSON("cells/" + key + ".json").then(function (doc) {
+      loadJSON((MECHS[m] ? "cells/" : "comparison-cells/") + key + ".json").then(function (doc) {
         if (request !== cellRequest) return;
         if (doc.mech !== m || doc.prefix !== v || doc.occurrences !== occurrences || doc.total !== DATA.cells[key] || !Array.isArray(doc.records) || !doc.records.length || doc.records.length > doc.total || typeof doc.base !== "string") throw new Error("Record list does not match the selected census cell");
         if (!doc.records.every(function (record) { return Array.isArray(record) && typeof record[0] === "string" && typeof record[1] === "string" && /^https:\/\//.test(recordURL(doc.base, record)); })) throw new Error("Invalid record link");
-        count.textContent = fmt(doc.occurrences) + ' identifier occurrence' + (doc.occurrences === 1 ? '' : 's') + ' across ' + fmt(doc.total) + ' distinct matching record' + (doc.total === 1 ? '' : 's') + '. A record can contain more than one occurrence.';
+        count.textContent = fmt(doc.occurrences) + ' identifier occurrence' + (doc.occurrences === 1 ? '' : 's') + ' across ' + fmt(doc.total) + ' distinct matching record' + (doc.total === 1 ? '' : 's') + '. A record can contain more than one occurrence.' + (m === 'kg-microbe' ? ' Here, a record is one KGX node from the ' + DATA.comparisons[m].source.release + ' core release.' : '');
         status.textContent = m + ' · ' + v + ': ' + (doc.records.length < doc.total ? 'showing the first ' + fmt(doc.records.length) + ' of ' + fmt(doc.total) + ' matching records.' : 'showing all ' + fmt(doc.total) + ' matching record' + (doc.total === 1 ? '.' : 's.'));
         records.removeAttribute("aria-busy");
-        records.innerHTML = '<p>Each link opens ' + (m === "DUFMech" ? 'the DUFMech family page' : m === "CultureMech" || m === "MediaIngredientMech" ? 'the record source file on GitHub' : 'the record page or its source file') + '.</p><ol class="reclist" tabindex="0" aria-label="Matching records; scroll to browse">' + doc.records.map(function (record) { return '<li><a href="' + esc(recordURL(doc.base, record)) + '">' + esc(record[1]) + '</a></li>'; }).join("") + '</ol>';
+        records.innerHTML = '<p>Each link opens ' + (m === "kg-microbe" ? 'the external term page, or the release containing a graph-local node' : m === "DUFMech" ? 'the DUFMech family page' : m === "CultureMech" || m === "MediaIngredientMech" ? 'the record source file on GitHub' : 'the record page or its source file') + '.</p><ol class="reclist" tabindex="0" aria-label="Matching records; scroll to browse">' + doc.records.map(function (record) { return '<li><a href="' + esc(recordURL(doc.base, record)) + '">' + esc(record[1]) + '</a></li>'; }).join("") + '</ol>';
       })["catch"](function () {
         if (request !== cellRequest) return;
-        delete subsetCache["cells/" + key + ".json"];
+        delete subsetCache[(MECHS[m] ? "cells/" : "comparison-cells/") + key + ".json"];
         records.removeAttribute("aria-busy");
         status.textContent = 'The matching records for ' + m + ' · ' + v + ' could not be loaded. Try again.';
         records.innerHTML = '<button type="button" class="fleet-chip cell-retry">Try again</button>';

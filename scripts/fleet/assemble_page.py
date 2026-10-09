@@ -305,7 +305,7 @@ def script_json(value):
 # the stat tile wants a numeral, so the count is offered in both forms rather
 # than spelled out at every call site (CultureBotAI.github.io#93).
 WORDS = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
-         "nine", "ten", "eleven", "twelve")
+         "nine", "ten", "eleven", "twelve", "thirteen")
 
 
 def number_word(value: int) -> str:
@@ -386,12 +386,16 @@ def assemble(template, fragment, data, snapshot, stats, census, features):
     measured = set(data["order"])
     if not measured or len(data["order"]) != len(measured) or not measured <= names:
         raise ValueError("Census order must be a unique subset of fleet members")
-    if set(data["heat"]) != measured or any(set(data["heat"][m]) != set(data["voc"]) for m in measured):
+    comparisons = data.get("comparisons", {})
+    if set(comparisons) - {"kg-microbe"} or set(comparisons) & names:
+        raise ValueError("Heatmap comparisons must be separate from Mech membership")
+    heat_rows = measured | set(comparisons)
+    if set(data["heat"]) != heat_rows or any(set(data["heat"][m]) != set(data["voc"]) for m in heat_rows):
         raise ValueError("Census heat rows must cover the measured members and vocabularies")
     measured_mechs = {name: mech for name, mech in census.items() if not name.startswith("_")}
     if set(measured_mechs) != measured:
         raise ValueError("Census members must match the measured graph and heat rows")
-    positive_cells = {m + "--" + v for m in measured for v, n in data["heat"][m].items() if n}
+    positive_cells = {m + "--" + v for m in heat_rows for v, n in data["heat"][m].items() if n}
     if set(data["cells"]) != positive_cells:
         raise ValueError("Every populated heatmap cell must have a matching-record count")
     if any(type(n) is not int or n < 1 for n in data["cells"].values()):
@@ -424,12 +428,25 @@ def assemble(template, fragment, data, snapshot, stats, census, features):
     # Read rather than pop: assemble() is handed a parsed document and must not
     # consume it, or a second call with the same object fails (#81).
     as_of = census["_as_of"]
-    vocabularies = {prefix for mech in measured_mechs.values() for prefix in mech["prefixes"]}
+    vocabularies = set(data["voc"])
+    kg = comparisons.get("kg-microbe")
+    kg_note = ""
+    if kg:
+        kg_note = ('<p class="fleet-heat-note"><b>kg-microbe comparison:</b> '
+                   f'{kg["records"]:,} KGX node records from the '
+                   f'<a href="{escape(kg["source"]["release_url"], quote=True)}">'
+                   f'{escape(kg["source"]["release"])} core release</a>. '
+                   'Counts include identifiers in node fields, cross-references and descriptions, '
+                   'using the same namespace registry as the Mechs. They exclude edges, graph-local '
+                   'identifiers and namespaces outside that registry. Links open external term pages '
+                   'or the source release. This comparison does not add a Mech or scientific records '
+                   'to the suite totals.</p>')
     tokens = {
         "<!--FLEET_COUNT-->": str(len(names)),
         "<!--FLEET_COUNT_WORD-->": number_word(len(names)),
         "<!--FLEET_RECORDS_TOTAL-->": f"{sum(counts.values()):,}",
         "<!--FLEET_VOCAB_COUNT-->": f"{len(vocabularies):,}",
+        "<!--FLEET_KG_CENSUS_NOTE-->": kg_note,
         # State coverage from the measured corpus and suite membership.
         "<!--FLEET_CENSUS_COVERAGE-->": (f"all {number_word(len(names))} Mechs" if len(measured_mechs) == len(names)
                                          else f"{number_word(len(measured_mechs))} of the {number_word(len(names))} Mechs"),

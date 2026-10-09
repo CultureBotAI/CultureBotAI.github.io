@@ -71,6 +71,11 @@ class SiteFeatureTests(unittest.TestCase):
         self.assertEqual([i for i, attrs in enumerate(heads) if f'class="{GROUP_START}"' in attrs], starts)
         for row in self.body_rows(table) + re.findall(r"<tr>(.*?)</tr>", table.split("<tfoot>")[1], re.S):
             cells = re.findall(r"<td([^>]*)>(.*?)</td>", row, re.S)
+            if f'class="{NO_SITE} {GROUP_START}"' in row:
+                self.assertEqual(len(cells), 1)
+                self.assertIn(f'colspan="{len(columns)}"', cells[0][0])
+                self.assertNotIn('role="img"', row)
+                continue
             self.assertEqual(len(cells), len(columns))
             self.assertEqual([i for i, (attrs, _) in enumerate(cells) if f'class="{GROUP_START}"' in attrs], starts)
             for (attrs, inner), (_, key) in zip(cells, columns):
@@ -240,7 +245,8 @@ class SiteFeatureTests(unittest.TestCase):
         notes = section(page, '<details class="fleet-site-notes">', "</details>")
         columns = site_feature_columns(self.features)
         blocks = re.findall(r'<h4><a href="([^"]*)">([^<]*)</a></h4>(?:<p>.*?</p>)?<ul>(.*?)</ul>', notes, re.S)
-        self.assertEqual([name for _, name, _ in blocks], self.order)
+        self.assertEqual([name for _, name, _ in blocks],
+                         [name for name in self.order if self.features["mechs"][name].get("site")])
         for site, name, items in blocks:
             mech = self.features["mechs"][name]
             self.assertEqual(site, escape(mech["site"], quote=True))

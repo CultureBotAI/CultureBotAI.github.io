@@ -106,10 +106,10 @@ class FleetPageTests(unittest.TestCase):
         self.stats["merged_prs_total"] = mech_total + 303
         page = self.render()
         self.assertIn(f'<b>{mech_total + 303:,}</b><span>Merged PRs</span>', page)
-        self.assertIn('Across 14 repositories: the twelve Mechs, CLAW and this website', page)
+        self.assertIn('Across 15 repositories: the thirteen Mechs, CLAW and this website', page)
         self.assertIn('<b>1</b><span>orchestrator (claw)</span>', page)
         self.assertIn('<b>1</b><span>project website</span>', page)
-        self.assertEqual(len(card_names(page)), 12)
+        self.assertEqual(len(card_names(page)), 13)
         self.assertNotIn('data-mech="culturebotai-claw"', page)
         self.assertNotIn('data-mech="CultureBotAI.github.io"', page)
 
@@ -146,7 +146,7 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
         members = set(self.snapshot["mechs"])
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
-        self.assertIn('Relationship graph of the twelve autonomous knowledge factories', page)
+        self.assertIn('Relationship graph of the thirteen autonomous knowledge factories', page)
         self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
                          len(set(card_figures(self.template)) - members))
         self.assertNotIn('one revision behind', page)
@@ -162,10 +162,10 @@ class FleetPageTests(unittest.TestCase):
         # The heading, intro and SVG title are sentences, and the rest of the
         # site writes "ten" in prose; only the stat tile wants a figure (#93).
         page = self.render()
-        self.assertIn('# X-Mech Suite: twelve autonomous knowledge factories', page)
-        self.assertIn('## The twelve Mechs', page)
-        self.assertIn('census covers all twelve Mechs', page)
-        self.assertIn('<b>12</b><span>autonomous knowledge factories</span>', page)
+        self.assertIn('# X-Mech Suite: thirteen autonomous knowledge factories', page)
+        self.assertIn('## The thirteen Mechs', page)
+        self.assertIn('census covers all thirteen Mechs', page)
+        self.assertIn('<b>13</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
     def test_the_meta_description_opens_like_a_sentence(self):
@@ -187,7 +187,7 @@ class FleetPageTests(unittest.TestCase):
         self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
         self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
         page = self.render()
-        self.assertIn("census covers eleven of the twelve Mechs", page)
+        self.assertIn("census covers twelve of the thirteen Mechs", page)
         self.assertNotIn("all ten Mechs", page)
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
@@ -195,7 +195,8 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(number_word(10), 'ten')
         self.assertEqual(number_word(12), 'twelve')
         # A fleet that outgrows the table should read as digits, not break.
-        self.assertEqual(number_word(13), '13')
+        self.assertEqual(number_word(13), 'thirteen')
+        self.assertEqual(number_word(14), '14')
         self.assertEqual(number_word(1000), '1,000')
 
     def test_new_admission_cannot_silently_omit_card_or_graph_node(self):
@@ -1378,10 +1379,16 @@ class RefreshProvenanceTests(unittest.TestCase):
         # #242: and must fall between the newest pinned commit and the check.
         # The Mech pins only: CLAW's manifest is refreshed on its own, so its
         # pin can be newer than the Mechs' (#303).
+        checked = datetime.datetime.fromisoformat(audit["checked_at_utc"])
         newest = max(datetime.datetime.fromisoformat(r["commit_date"].replace("Z", "+00:00"))
                      for r in audit["repositories"] if r["repo"] != "culturebotai-claw")
-        checked = datetime.datetime.fromisoformat(audit["checked_at_utc"])
-        self.assertLessEqual(newest, pinned)
+        for row in audit["repositories"]:
+            if row["repo"] == "culturebotai-claw":
+                continue
+            own_pin = check_cards.pin_time(row) if "pinned_at_utc" in row else pinned
+            commit = datetime.datetime.fromisoformat(row["commit_date"].replace("Z", "+00:00"))
+            self.assertLessEqual(commit, own_pin)
+            self.assertLessEqual(own_pin, checked)
         self.assertLessEqual(pinned, checked)
         # CLAW's pin is refreshed on its own, but it still cannot postdate now (#306).
         claw = next(r for r in audit["repositories"] if r["repo"] == "culturebotai-claw")
@@ -1426,7 +1433,8 @@ class RefreshProvenanceTests(unittest.TestCase):
         subsets = json.loads((ROOT / "_fleet/data/subsets_summary.json").read_text())
         with contextlib.redirect_stdout(open(os.devnull, "w")):
             cells = json.loads((ROOT / "_fleet/data/cells_summary.json").read_text())
-            expected = build_data.build(subsets, self.census, cells)
+            comparison = json.loads((ROOT / "_fleet/data/kg_microbe_census.json").read_text())
+            expected = build_data.build(subsets, self.census, cells, comparison)
         committed = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
         self.assertEqual(committed, json.loads(json.dumps(expected)))
 

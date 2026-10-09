@@ -8,7 +8,7 @@ permalink: /mechs/
 # X-Mech Suite: <!--FLEET_COUNT_WORD--> autonomous knowledge factories, one shared standard
 {: .fleet-title}
 
-The X-Mech suite brings together <!--FLEET_COUNT_WORD--> autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, ingredients and culture media.
+The X-Mech suite brings together <!--FLEET_COUNT_WORD--> autonomous knowledge factories that describe a microbe at every scale: its taxon and strain identity, habitat, community, traits, pathways, cellular structures, protein functions and unresolved domains, natural products, antibiotics, critical mineral recovery, ingredients and culture media.
 
 Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
@@ -17,7 +17,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
 ## The <!--FLEET_COUNT_WORD--> Mechs
 {: .fleet-section-target}
 
-Each card carries its Mech's identity color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose measured corpus has no review-status field shows only the pull-request count, rather than a zero that would claim more than it knows. Counts were checked on October 7, 2026, with all twelve Mechs included in the vocabulary census and repository statistics. DUFMech's 6,532 seed families are labeled separately from curated mechanism records. Each Browse link is the source for its numbered card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/26c8ba8e8d1c49ee9a118726b6facd584e7bb0fd/README.md#corpus-snapshot">repository's corpus snapshot</a>, and DUFMech, whose count comes from its linked seed snapshot. CommunityMech lists 456 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
+Each card carries its Mech's identity color. Hover a card to trace its ties in the graph above; use "Show in graph" to select it. The small print under each headline number gives reviewed records and merged pull requests; a Mech whose measured corpus has no review-status field shows only the pull-request count, rather than a zero that would claim more than it knows. The original twelve Mechs retain their October 7, 2026 source revisions. CMMMech was added at its October 8 revision; all thirteen are included in the vocabulary census and repository statistics. DUFMech's 6,532 seed families are labeled separately from curated mechanism records. Each Browse link is the source for its numbered card, except CultureMech, whose count comes from its <a href="https://github.com/CultureBotAI/CultureMech/blob/26c8ba8e8d1c49ee9a118726b6facd584e7bb0fd/README.md#corpus-snapshot">repository's corpus snapshot</a>, DUFMech, whose count comes from its linked seed snapshot, and CMMMech, whose count is its repository record inventory. CommunityMech lists 456 communities online and keeps four additional isolate records in its repository. These published-browser totals may differ from the record-corpus census below. Fleet membership and capability declarations come from <!--FLEET_MANIFEST_SOURCE-->.
 
 <div class="mech-cards">
   <article class="mech-card" data-mech="HabitatMech" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)">
@@ -100,6 +100,14 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <p class="prov"><!--FLEET_STATS:AntibioticMech--></p>
     <div class="vocab"><span>ChEBI</span><span>ARO</span><span>CAS</span><span>PubChem</span><span>DrugBank</span><span>NCBITaxon</span></div>
     <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AntibioticMech--></div>
+  </article>
+  <article class="mech-card" data-mech="CMMMech" style="--c: var(--mech-cmmmech); --ci: var(--mech-cmmmech-ink)">
+    <header><h3>CMMMech</h3><span class="scale">Critical minerals</span></header>
+    <p class="tag">Evidence-backed records of microbial extraction, transformation and recovery of critical materials, with assay context and limits.</p>
+    <div class="num"><b>3</b><span>material records · cobalt, neodymium, palladium</span></div>
+    <p class="prov"><!--FLEET_STATS:CMMMech--></p>
+    <div class="vocab"><span>ChEBI</span><span>NCBITaxon</span></div>
+    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/CMMMech/tree/905388523b6e9184783989484896e4cc20297832/data/records">Browse records</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CMMMech--></div>
   </article>
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
