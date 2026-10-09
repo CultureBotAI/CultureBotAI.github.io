@@ -97,7 +97,7 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 
 ## Related Tools
 
-- **[X-Mech Suite overview](/mechs/)** - All twelve Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[X-Mech Suite overview](/mechs/)** - All thirteen Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
 - **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Autonomous knowledge factory for microbial ecophysiological traits
@@ -107,6 +107,7 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 - **[DUFMech](https://github.com/CultureBotAI/DUFMech)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
+- **[CMMMech](https://github.com/CultureBotAI/CMMMech)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
 - **[CultureMech](/culturemech/)** - Single-organism media requirements (6,320 canonical media)
 - **[PFASCommunityAgents](/resources/#pfascommunityagents)** - AI-driven consortium design for PFAS biodegradation

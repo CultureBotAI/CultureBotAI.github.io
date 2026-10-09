@@ -44,6 +44,7 @@ SITE_BASE={
  # DUF's seed records identify Pfam families; this is the family browser,
  # while the card and audit link the exact DUF worklist snapshot.
  "DUFMech": SITE+"DUFMech/families/",
+ "CMMMech": GH+"CMMMech/blob/main/data/records/",
 }
 # Filled by prepare(). mech_root() touches the filesystem and exits on a
 # missing checkout, so resolving these at import made the module unimportable
@@ -66,7 +67,9 @@ COLUMN_OF={"RHEA-COMP":"RHEA","PDB-CCD":"PDB"}
 def column(term): p=term.split(":")[0]; return COLUMN_OF.get(p,p)
 rx=re.compile(r"\b(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas|RHEA|GENERIC|POLYMER|PDB|BTO|GTDB|mibig|MIBiG|MIBIG|npatlas|NPAtlas|DOI|doi):([A-Za-z0-9_.\-/()]+)")
 NORM.update({"pfam":"Pfam", "Interpro":"InterPro", "pdb":"PDB", "swiss":"UniProt", "SWISS":"UniProt", "UnioProtKB":"UniProt"})
-rx=re.compile(rx.pattern.replace("CHEBI|", "pfam|Interpro|pdb|swiss|SWISS|UnioProtKB|CHEBI|", 1))
+NORM.update({"PDBeChem":"PDB", "envo":"ENVO", "pato":"PATO", "foodon":"FOODON"})
+TERM_SPACE["PDBeChem"] = "PDB-CCD"
+rx=re.compile(rx.pattern.replace("CHEBI|", "pfam|Interpro|pdb|swiss|SWISS|UnioProtKB|PDBeChem|envo|pato|foodon|CHEBI|", 1))
 STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
@@ -153,6 +156,10 @@ def prepare():
     Everything here reads the filesystem, which is why it is not at import.
     """
     MECHS.update({name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER})
+    # CMMMech has no website: every record link names the scanned commit.
+    cmm_pin = revision("CMMMech")
+    if cmm_pin and re.fullmatch(r"[0-9a-f]{40}", cmm_pin):
+        MECHS["CMMMech"]["base"] = GH+"CMMMech/blob/"+cmm_pin+"/data/records/"
     hab_pages.update(os.path.basename(f)[:-5]
                      for f in glob.glob(os.path.join(mech_root("HabitatMech"),"pages","habitats","*.html")))
     if not hab_pages:
@@ -187,6 +194,7 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="MediaIngredientMech": return urllib.parse.quote(rel[len("data/ingredients/"):])
     if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):-5]+".html")
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
+    if m=="CMMMech": return urllib.parse.quote(rel[len("data/records/"):])
     if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
     if m=="PathwayMech": return urllib.parse.quote(doc_id.replace(":", "_").replace("/", "_")+".html") if doc_id else None
     if m=="DUFMech": return doc_id.removeprefix("Pfam:")+".html" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None

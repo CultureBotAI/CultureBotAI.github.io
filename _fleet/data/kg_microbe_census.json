@@ -1,0 +1,406 @@
+{
+  "name": "kg-microbe",
+  "key": "kgmicrobe",
+  "site": "/kg-microbe/",
+  "source": {
+    "repository": "Knowledge-Graph-Hub/kg-microbe",
+    "release": "2025-03-07",
+    "release_url": "https://github.com/Knowledge-Graph-Hub/kg-microbe/releases/tag/2025-03-07",
+    "asset_url": "https://github.com/Knowledge-Graph-Hub/kg-microbe/releases/download/2025-03-07/kg-microbe-core.tar.gz",
+    "sha256": "a7eebfc255ed39435cdd2f28754b5bd6b063b3c58fced02477ba687c2fd3e953",
+    "archive_member": "./merged-kg.tar.gz",
+    "nodes_member": "merged-kg_nodes.tsv",
+    "nodes_sha256": "6c45021ef76e072e41bd8619ba55850b17f60ce3eef82a0a9dea6172df1eea47"
+  },
+  "as_of": "2026-10-08",
+  "records": 1379336,
+  "method": "Identifier occurrences in all KGX node fields, including xrefs and descriptions, using the suite namespace registry. Edges, graph-local identifiers and unregistered namespaces are excluded. One node is one matching record.",
+  "prefixes": {
+    "BFO": 37,
+    "CAS": 29697,
+    "CHEBI": 220928,
+    "CL": 2,
+    "CORUM": 12,
+    "ChemSpider": 53335,
+    "CultureCollection": 1,
+    "DOI": 40,
+    "DrugBank": 3532,
+    "EC": 11924,
+    "ECMDB": 99,
+    "ENVO": 4429,
+    "FBbt": 1,
+    "FMA": 5,
+    "FOODON": 422,
+    "FooDB": 653,
+    "GO": 52355,
+    "GlyTouCan": 20486,
+    "HMDB": 19709,
+    "IAO": 36,
+    "IntAct": 3,
+    "InterPro": 11,
+    "KEGG": 24066,
+    "LINCS": 41351,
+    "LIPIDMAPS": 12492,
+    "MA": 1,
+    "MP": 1,
+    "MetaCyc": 12167,
+    "NCBITaxon": 870981,
+    "NCIT": 7,
+    "NIF_Subcellular": 228,
+    "OBI": 6,
+    "PATO": 409,
+    "PDB": 3908,
+    "PMCID": 263,
+    "PMID": 157429,
+    "PO": 158,
+    "PubChem": 179,
+    "RESID": 356,
+    "RHEA": 74074,
+    "RO": 207,
+    "Reactome": 6352,
+    "SABIO-RK": 2,
+    "SO": 3,
+    "TCDB": 54,
+    "UBERON": 598,
+    "UM-BBD": 1241,
+    "UNII": 2,
+    "UniPathway": 2,
+    "UniProt": 1,
+    "VZ": 148,
+    "WBbt": 2,
+    "Wikipedia": 7385,
+    "YMDB": 103,
+    "bpdb": 92,
+    "drugcentral": 3789,
+    "gmelin": 3456,
+    "knapsack": 4956,
+    "molbase": 294,
+    "patent": 4911,
+    "pesticides": 629,
+    "ppdb": 1138,
+    "reaxys": 23685,
+    "vsdb": 251
+  },
+  "cells": {
+    "kg-microbe|BFO": {
+      "records": 34,
+      "occurrences": 37,
+      "sha256": "42be35f98df3a0014b9dc91189f58a662c4d6f2ec47503ce510fce63697b9010"
+    },
+    "kg-microbe|CAS": {
+      "records": 29381,
+      "occurrences": 29697,
+      "sha256": "4d2805f454561d04a2e530e7628817033a36aaac234a2da3c0cf8ba8496692a8"
+    },
+    "kg-microbe|CHEBI": {
+      "records": 220837,
+      "occurrences": 220928,
+      "sha256": "86f7e17c1df7e134dd70300c1c1d2812741847d9493c0a9f87d1a553dc99ac06"
+    },
+    "kg-microbe|CL": {
+      "records": 2,
+      "occurrences": 2,
+      "sha256": "f2d00f0e9a631fc8fed3999718f1e4c4a9cba5c567d29fc6f0d207a035916bb4"
+    },
+    "kg-microbe|CORUM": {
+      "records": 12,
+      "occurrences": 12,
+      "sha256": "536e4e27adb046f6e546697edadfc6c57717b8a5ed88f054d4c707eb9e00d30b"
+    },
+    "kg-microbe|ChemSpider": {
+      "records": 53162,
+      "occurrences": 53335,
+      "sha256": "1e12325e980c4fc77c9dcc5353d5a0f6dc73a9b32b42938913bf8ddabc6371f5"
+    },
+    "kg-microbe|CultureCollection": {
+      "records": 1,
+      "occurrences": 1,
+      "sha256": "376bfd8b7531c1750046e3084694091780a7e8766b57fe5d13deb76a870828ad"
+    },
+    "kg-microbe|DOI": {
+      "records": 40,
+      "occurrences": 40,
+      "sha256": "9025f08931036289c6828054fe50706ba19701f1a589c655dc53d3457db5b7ce"
+    },
+    "kg-microbe|DrugBank": {
+      "records": 3527,
+      "occurrences": 3532,
+      "sha256": "ada0fe2b1607ac558e1375941eaad63f9668b39aac2c469abbb9b67df128eb15"
+    },
+    "kg-microbe|EC": {
+      "records": 11911,
+      "occurrences": 11924,
+      "sha256": "020f46f17ef7189bd216a00fdfd3d2e801f0adc0ee1d29515af48a514ff21e30"
+    },
+    "kg-microbe|ECMDB": {
+      "records": 99,
+      "occurrences": 99,
+      "sha256": "df6cd1a3653a1f5c21c93a59d3952f1cedefdd953038b1cc2bf0eaf0b3beaadc"
+    },
+    "kg-microbe|ENVO": {
+      "records": 4429,
+      "occurrences": 4429,
+      "sha256": "96232ed887cf830204ae8c7d56818d886aa190e13965a6a62033e5c642029a19"
+    },
+    "kg-microbe|FBbt": {
+      "records": 1,
+      "occurrences": 1,
+      "sha256": "588a3ec355dddb24e4c799f4dc6a190d334357c5d289b0d16ef86053351d8a26"
+    },
+    "kg-microbe|FMA": {
+      "records": 5,
+      "occurrences": 5,
+      "sha256": "4ed494cbbfbe6e0fa678e2c039bd9bf13e34d9b69d6b6bf6784eb1248dae362d"
+    },
+    "kg-microbe|FOODON": {
+      "records": 422,
+      "occurrences": 422,
+      "sha256": "354a5ab8c8851d689f7f5768108147db6b2430d8f147569740c771209accea52"
+    },
+    "kg-microbe|FooDB": {
+      "records": 653,
+      "occurrences": 653,
+      "sha256": "f9da41dcfe71aa38a04983db7db6d9ccd0a3a41c4dd1ba1fd37980eb5e7167b4"
+    },
+    "kg-microbe|GO": {
+      "records": 52320,
+      "occurrences": 52355,
+      "sha256": "18abfb7c9ea4e87368fdefc6e6f9e3d1e6a80d43ed2a9f350071bd396c2effa7"
+    },
+    "kg-microbe|GlyTouCan": {
+      "records": 10590,
+      "occurrences": 20486,
+      "sha256": "3bcd3c39f5867f73f949af6d6e8e6bd57001544aa711a981bb3a6c0e0e7fe44b"
+    },
+    "kg-microbe|HMDB": {
+      "records": 19689,
+      "occurrences": 19709,
+      "sha256": "990788881ad2f6375bc8a082d12c58f9ecbc9b6882a66d776c3ff67d85e55dcf"
+    },
+    "kg-microbe|IAO": {
+      "records": 34,
+      "occurrences": 36,
+      "sha256": "fd7945132e1502179ffa1cc2aaeda580984ceae42a9a301ce9d253d8810402bb"
+    },
+    "kg-microbe|IntAct": {
+      "records": 3,
+      "occurrences": 3,
+      "sha256": "751ea79e79c0b4cfa883b6e2119504965c85fac4959776329416307824870266"
+    },
+    "kg-microbe|InterPro": {
+      "records": 5,
+      "occurrences": 11,
+      "sha256": "f04898ea9342044fb1a123b293a1a49bdd5592fd1308d60988e71656c55cef43"
+    },
+    "kg-microbe|KEGG": {
+      "records": 22108,
+      "occurrences": 24066,
+      "sha256": "e935a4555f558b5e66fbee03cb89c931f9af80f1a6fddd291070d7ff0856d532"
+    },
+    "kg-microbe|LINCS": {
+      "records": 41348,
+      "occurrences": 41351,
+      "sha256": "8a2f61d66ab77dff58517824cd736e50ae47ebef08de8ee2aabf4a44bdf15005"
+    },
+    "kg-microbe|LIPIDMAPS": {
+      "records": 12477,
+      "occurrences": 12492,
+      "sha256": "0fe89d377cebd6228f7ce98b217f6897d4e956eef719a32aca1d00435877dd5c"
+    },
+    "kg-microbe|MA": {
+      "records": 1,
+      "occurrences": 1,
+      "sha256": "20fcbe61832ac7c8a750ede634dae034727660b0a3413016041b50868d80ba35"
+    },
+    "kg-microbe|MP": {
+      "records": 1,
+      "occurrences": 1,
+      "sha256": "816b1a6295718d79bb1903f85c93f7d95fcd786abedd00a2f1e007faee6b5417"
+    },
+    "kg-microbe|MetaCyc": {
+      "records": 12163,
+      "occurrences": 12167,
+      "sha256": "fba126a8940e0e5bd213079fdecd69e05a65471971ffa29337313179a27e2191"
+    },
+    "kg-microbe|NCBITaxon": {
+      "records": 870981,
+      "occurrences": 870981,
+      "sha256": "5610aadb7219d78e003f67a5c480bb43af6611e487230f2fc9bf841d7fae433f"
+    },
+    "kg-microbe|NCIT": {
+      "records": 7,
+      "occurrences": 7,
+      "sha256": "58ac2b52edfc7b2ac2d1dcde3eca1f0e89ab7278d1268cfbc3a16f3954474b78"
+    },
+    "kg-microbe|NIF_Subcellular": {
+      "records": 221,
+      "occurrences": 228,
+      "sha256": "1ec600035f63c705d7e86629a89449178d8fa3f87a1e36dc7468f4cdd687c222"
+    },
+    "kg-microbe|OBI": {
+      "records": 6,
+      "occurrences": 6,
+      "sha256": "b8cb072dfee9404d87dfd991648a6869ef2984805cd1775d82389fbdcdeee179"
+    },
+    "kg-microbe|PATO": {
+      "records": 409,
+      "occurrences": 409,
+      "sha256": "514e20cbb39fcf78ff8981cdf4b471084a8d77aeee09f23174430db46d0a2269"
+    },
+    "kg-microbe|PDB": {
+      "records": 3789,
+      "occurrences": 3908,
+      "sha256": "4f60db364375705c2a9a80afd9e7ce39a8afab3ea4c8e5fff7dc0ba651fab7b5"
+    },
+    "kg-microbe|PMCID": {
+      "records": 193,
+      "occurrences": 263,
+      "sha256": "37e909dc0d8c88a2be421446c8677a9844f6ad8f6ce5f8d49415ca4f6d6a36c8"
+    },
+    "kg-microbe|PMID": {
+      "records": 62707,
+      "occurrences": 157429,
+      "sha256": "3d5ef2491c652bf4294a8d25f67fda1bbcb27b30692d4cb6481dd881c1e74631"
+    },
+    "kg-microbe|PO": {
+      "records": 50,
+      "occurrences": 158,
+      "sha256": "e355710cf0b88f017052f9f519f52259dfeafff0e5f87d79809ffa43d4c783b2"
+    },
+    "kg-microbe|PubChem": {
+      "records": 177,
+      "occurrences": 179,
+      "sha256": "885e6df0e1900220ffd058c48067717ca65778e497a928834000b827c439499f"
+    },
+    "kg-microbe|RESID": {
+      "records": 301,
+      "occurrences": 356,
+      "sha256": "f9845eabbe4173ac013ad02b2a38f2d4c3244c1dc2194a9522f59f6d8e539e54"
+    },
+    "kg-microbe|RHEA": {
+      "records": 74074,
+      "occurrences": 74074,
+      "sha256": "e317c82eb61102290b5f0e2a5ab2aa1fb3410d98f89bacc369514296424dcd66"
+    },
+    "kg-microbe|RO": {
+      "records": 200,
+      "occurrences": 207,
+      "sha256": "480ab0bf246ed18a03bbbd0afe7fd880a2c90bf286d4e2cf6d3beae3f8e15c90"
+    },
+    "kg-microbe|Reactome": {
+      "records": 1518,
+      "occurrences": 6352,
+      "sha256": "b36457b6e66f5445b200a128b0d29a2a6f0d3350e864dc785e20e5c94798d66d"
+    },
+    "kg-microbe|SABIO-RK": {
+      "records": 2,
+      "occurrences": 2,
+      "sha256": "aafe3c82ae945eb54dcaca918f346a6136f10628d59f56886cc2c6ae7cc44082"
+    },
+    "kg-microbe|SO": {
+      "records": 3,
+      "occurrences": 3,
+      "sha256": "4dac8f908135624ba4951684892ad1462096cd546a686ca9ff0d4b74f805cb83"
+    },
+    "kg-microbe|TCDB": {
+      "records": 53,
+      "occurrences": 54,
+      "sha256": "10870c1a77bfd12571328573efe06ae1ed1cc749353fe79117744ab338a19ac2"
+    },
+    "kg-microbe|UBERON": {
+      "records": 598,
+      "occurrences": 598,
+      "sha256": "542319e408da0eb894686b0c7c6e198d3fbcb030a397617431f3bed18daf8da6"
+    },
+    "kg-microbe|UM-BBD": {
+      "records": 1225,
+      "occurrences": 1241,
+      "sha256": "4acab0186cda5e5fa1b8b5c7b611661dd662aa40e06dd7f205f91dbd69c1d139"
+    },
+    "kg-microbe|UNII": {
+      "records": 2,
+      "occurrences": 2,
+      "sha256": "68b0a3a40c1833161a5a6bf2cf5584a13912db5e1381cc88bd30c0e0c4a436c8"
+    },
+    "kg-microbe|UniPathway": {
+      "records": 2,
+      "occurrences": 2,
+      "sha256": "9afbf23bcb9e15fac4ef3cf4ad68232fba21140657f7659a0721ae4b42bd0cb1"
+    },
+    "kg-microbe|UniProt": {
+      "records": 1,
+      "occurrences": 1,
+      "sha256": "98061849fcb75311442ba9d5593e6d77e7a7945cf71090316e8244e9f274a91b"
+    },
+    "kg-microbe|VZ": {
+      "records": 147,
+      "occurrences": 148,
+      "sha256": "f84f0d083e7a7068fa5fc349791b2a7274445b475f803251d3818890dd7ae9eb"
+    },
+    "kg-microbe|WBbt": {
+      "records": 1,
+      "occurrences": 2,
+      "sha256": "eeaf7195b4876863c03256ffe61e14f74774287b9258672467d9a005a95c15e5"
+    },
+    "kg-microbe|Wikipedia": {
+      "records": 7353,
+      "occurrences": 7385,
+      "sha256": "17c2b0b0080e9f000c1e57ac3ee1c89493903f8a5485a07dfaf0e5fb948e77c7"
+    },
+    "kg-microbe|YMDB": {
+      "records": 103,
+      "occurrences": 103,
+      "sha256": "398c03a857a0b045fb8e0fd4749463b2cf0f2789fef05141dca7827e7a9865ab"
+    },
+    "kg-microbe|bpdb": {
+      "records": 92,
+      "occurrences": 92,
+      "sha256": "557b4fd7a31c004344001d7b2f687070002140538fef22298f2061998dcdf9e7"
+    },
+    "kg-microbe|drugcentral": {
+      "records": 3788,
+      "occurrences": 3789,
+      "sha256": "c5221f9dc9819a3dbc232f8bab4fac684e4d8ac4017e38202031142b89857690"
+    },
+    "kg-microbe|gmelin": {
+      "records": 3350,
+      "occurrences": 3456,
+      "sha256": "8f1497857990009319d3e7977fefe3d8274e4d7fb0c78c8c4a9972b02449eee7"
+    },
+    "kg-microbe|knapsack": {
+      "records": 4864,
+      "occurrences": 4956,
+      "sha256": "f01175f3c982a09361ee53e93e123501f792be8d49ba80d8af0f4d167d57fa4b"
+    },
+    "kg-microbe|molbase": {
+      "records": 291,
+      "occurrences": 294,
+      "sha256": "341f24611d2bcf2b01570a849676d3fbd9b4eeb0eaadbd2cc8b486cd4bfc72e9"
+    },
+    "kg-microbe|patent": {
+      "records": 2588,
+      "occurrences": 4911,
+      "sha256": "22bde4f307c78ea8fbcae0c6cbbbfc3e585af64fde38bde70a8adfd41ba883a4"
+    },
+    "kg-microbe|pesticides": {
+      "records": 627,
+      "occurrences": 629,
+      "sha256": "95245d4c36753d80540a63372b0db2d8dc93adeda55c0957c7990e9e238975a7"
+    },
+    "kg-microbe|ppdb": {
+      "records": 1137,
+      "occurrences": 1138,
+      "sha256": "ddb572cde29564be229e66c72c8d52328fe0c31f6a2c5774029ab87bca4d0dfa"
+    },
+    "kg-microbe|reaxys": {
+      "records": 22630,
+      "occurrences": 23685,
+      "sha256": "7eeb4d2c1dcad5e4daa87684ba54cb9f025e10325717b34b7c9b32ce87becc1f"
+    },
+    "kg-microbe|vsdb": {
+      "records": 251,
+      "occurrences": 251,
+      "sha256": "256e348f39d71ffda623419f6112bb591bcfc39ca32fc582e07ab5b2f55a84f0"
+    }
+  }
+}

@@ -101,7 +101,7 @@ ADDED = {
     "patent": ["patent"], "Wikipedia": ["Wikipedia", "wikipedia.en", "WIKIPEDIA", "WikiPedia", "WIkipedia", "Wiki", "WIki"],
     "PMCID": ["PMCID", "PMC"], "ISSN": ["ISSN"], "JSTOR": ["JSTOR"], "OSTI": ["OSTI", "osti.article"],
     "Zenodo": ["Zenodo", "zenodo"], "GitHub": ["GITHUB", "github"], "PNNLDH": ["PNNLDH"],
-    "USGS": ["USGS"], "FB": ["FB"],
+    "USGS": ["USGS"], "FB": ["FB"], "CELEX": ["CELEX"],
     # A misspelling in one GO cross-reference list, folded like any other spelling.
     "PMID": ["PIMD"],
 }
@@ -115,6 +115,25 @@ COLLECTIONS = ["ATCC", "DSMZ", "DSM", "JCM", "jcm.grmd", "NBRC", "NCTC", "CGMCC"
                "NCFB", "HAMBI", "NCIB", "NCCB", "SGSC", "TBRC", "CPCC", "NCIM", "IAM", "PCC",
                "CCOS", "RIMD", "IBSBF", "CCAP", "UTEX"]
 ADDED["CultureCollection"] = COLLECTIONS
+# Registry spellings in kg-microbe's 2025-03-07 core node table. Apply the
+# same aliases to every Mech too; the addition is accompanied by a full rescan
+# at the retained Mech pins. These are aliases, not new graph term indexes.
+KG_ALIASES = {
+    "ChemSpider": ["Chemspider"], "LINCS": ["LINCS"],
+    "reaxys": ["Reaxys", "Beilstein"],
+    "LIPIDMAPS": ["LIPID_MAPS_instance", "LIPID_MAPS_class"],
+    "GlyTouCan": ["GlyTouCan", "GlyGen"], "knapsack": ["KNApSAcK"],
+    "patent": ["Patent"], "drugcentral": ["Drug_Central"],
+    "PDB": ["PDBeChem"], "gmelin": ["Gmelin"], "ppdb": ["PPDB"],
+    "FooDB": ["FooDB"], "pesticides": ["Pesticides"],
+    "UM-BBD": ["UM-BBD_compID"], "molbase": ["MolBase"],
+    "vsdb": ["VSDB"], "PubChem": ["Pubchem"], "YMDB": ["YMDB"],
+    "ECMDB": ["ECMDB"], "bpdb": ["BPDB"],
+    "ENVO": ["envo"], "PATO": ["pato"], "FOODON": ["foodon"],
+    "PO": ["po"], "PMID": ["pmid"],
+}
+for registry, spellings in KG_ALIASES.items():
+    ADDED.setdefault(registry, []).extend(spellings)
 _have = set(P.replace("\\", "").split("|"))
 P += "".join("|" + re.escape(sp) for sps in ADDED.values() for sp in sps if sp not in _have)
 norm.update({sp: name for name, sps in ADDED.items() for sp in sps if sp != name})

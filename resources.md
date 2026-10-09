@@ -14,7 +14,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#-project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
-- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of twelve autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech ([suite overview](/mechs/))
+- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of thirteen autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech ([suite overview](/mechs/))
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents, KOGUT
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** is a fleet of twelve ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator now lists all twelve Mechs in its manifest, including PathwayMech and DUFMech. Figures below reflect the October 7, 2026 snapshot, which measures all twelve Mechs, including DUFMech's seed families.
+The **[X-Mech Suite](/mechs/)** is a fleet of thirteen ontology-grounded autonomous knowledge factories (HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech; see the [suite overview and relationship graph](/mechs/)). Their curation workflows transform unstructured microbial cultivation data from literature, laboratory records, and sequence data into standardized, machine-readable knowledge graphs. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) orchestrator now lists all thirteen Mechs in its manifest, including CMMMech. Figures below retain the October 7, 2026 source revisions for twelve Mechs, including DUFMech's seed families; CMMMech adds three material records at its October 8 revision.
 
 ### Pipeline Overview
 
@@ -157,6 +157,10 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 **→ [Learn more on the dedicated CultureMech page](/culturemech/)**
 
 ---
+
+### CMMMech
+
+**[CMMMech](https://github.com/CultureBotAI/CMMMech)** curates evidence-backed microbial extraction, transformation and recovery mechanisms for critical materials. Its three pilot records cover cobalt bioleaching, neodymium biosorption and palladium reduction, with ChEBI identities, taxon grounding where present, cited evidence, assay context and limitations. Records, the LinkML schema and review artifacts are available in the repository.
 
 ### MediaIngredientMech - LLM-Assisted Ingredient Curation
 **[Dedicated Page](/mediaingredientmech/)** | **[GitHub Repository](https://github.com/CultureBotAI/MediaIngredientMech)** | **[Web Interface](https://culturebotai.github.io/MediaIngredientMech/)** | CC BY 4.0 data · BSD-3-Clause code

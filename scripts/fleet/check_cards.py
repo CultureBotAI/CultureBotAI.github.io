@@ -95,6 +95,7 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     # The dated path identifies the frozen source for the at-pin audit. The
     # nightly reader resolves the newest worklist on main before counting it.
     "DUFMech":             ("json", "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/interpro-pfam-duf-2026-10-05.json", "families"),
+    "CMMMech":             ("git-tree", "https://api.github.com/repos/CultureBotAI/CMMMech/git/trees/main?recursive=1", r"data/records/(?:[^/]+/)*[^/]+\.(?:yaml|yml)"),
 }
 
 DUF_WORKLISTS = "https://api.github.com/repos/CultureBotAI/DUFMech/contents/data/worklists?ref=main"
@@ -241,8 +242,33 @@ class RecordListParser(HTMLParser):
         return len(self.links)
 
 
+def record_inventory(body: str, selector: str) -> bytes:
+    """Canonical record paths and blob hashes from a complete Git tree.
+
+    The API and git ls-tree have different metadata; normalize their record
+    inventories so the audit can compare the actual committed corpus.
+    """
+    tree = json.loads(body)
+    if not isinstance(tree, dict) or tree.get("truncated") is not False or not isinstance(tree.get("tree"), list):
+        raise ValueError("Expected a complete Git tree")
+    rows = []
+    paths = set()
+    for row in tree["tree"]:
+        if not isinstance(row, dict) or not isinstance(row.get("path"), str) or row["path"] in paths:
+            raise ValueError("Malformed or duplicate Git tree path")
+        paths.add(row["path"])
+        if re.fullmatch(selector, row["path"]):
+            if row.get("type") != "blob" or row.get("mode") not in ("100644", "100755") or not re.fullmatch(r"[0-9a-f]{40}", row.get("sha", "")):
+                raise ValueError("Record path is not a regular committed file")
+            rows.append({key: row[key] for key in ("path", "type", "mode", "sha")})
+    return json.dumps({"truncated": False, "tree": sorted(rows, key=lambda row: row["path"])},
+                      sort_keys=True, separators=(",", ":")).encode()
+
+
 def published(kind: str, body: str, selector: str) -> int | None:
     """The figure the site publishes, or None when the shape has changed."""
+    if kind == "git-tree":
+        return len(json.loads(record_inventory(body, selector))["tree"])
     if kind == "record-list":
         parser = RecordListParser(selector)
         parser.feed(body)
@@ -417,6 +443,15 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
             continue  # its card's markup is already reported above
         card = stated[mech]
         entry = entries.get(mech.lower())
+        entry_age = age
+        if entry and "pinned_at_utc" in entry:
+            try:
+                entry_age = now - pin_time(entry)
+                if entry_age < datetime.timedelta(0):
+                    raise ValueError("pin time is in the future")
+            except ValueError as error:
+                rows.append(("AUDIT", mech, str(error)))
+                entry_age = None
         at_pin = entry.get("figure_at_pin") if entry else None
         whole = isinstance(at_pin, int) and not isinstance(at_pin, bool)
         if audit is not None:
@@ -435,10 +470,10 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
         if status != "value":
             rows.append((status, mech, result))
             continue
-        verdict = classify(card, result, age)
+        verdict = classify(card, result, entry_age)
         detail = f"{card:>9,}" if verdict == "ok" else f"card {card:,}, site {result:,}"
-        if verdict in ("grew", "STALE") and age is not None:
-            detail += f" (+{result - card:,} in the {span(age)} since the pins)"
+        if verdict in ("grew", "STALE") and entry_age is not None:
+            detail += f" (+{result - card:,} in the {span(entry_age)} since the pin)"
         rows.append((verdict, mech, detail))
     unread = sum(1 for status, _, _ in rows if status == "unread")
     if unread * 2 > len(sources):

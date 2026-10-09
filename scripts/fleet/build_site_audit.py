@@ -70,6 +70,16 @@ def committed_copy(show, path: str) -> tuple[str | None, bytes | None]:
 def git_show(clone: Path, sha: str):
     """show(candidate) for one Mech's snapshot clone at its pin."""
     def show(candidate: str) -> bytes | None:
+        if candidate == "__git_tree__":
+            raw = subprocess.check_output(["git", "-C", str(clone), "ls-tree", "-rz", sha])
+            tree = []
+            for item in raw.split(b"\0"):
+                if not item:
+                    continue
+                meta, path = item.decode("utf-8").split("\t", 1)
+                mode, kind, blob = meta.split()
+                tree.append({"path": path, "type": kind, "mode": mode, "sha": blob})
+            return json.dumps({"truncated": False, "tree": tree}).encode()
         done = subprocess.run(["git", "-C", str(clone), "show", f"{sha}:{candidate}"], capture_output=True)
         return done.stdout if done.returncode == 0 else None
     return show
@@ -102,7 +112,12 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
         raise SystemExit(f"{mech}: mech_stats.json was not counted at the pin")
     body = fetch(url)
     live = read_figure(mech, kind, body, selector, url)
-    pinned_path, pinned = committed_copy(show, path)
+    if kind == "git-tree":
+        body = check_cards.record_inventory(body.decode(), selector)
+        pinned_path = "data/records inventory"
+        pinned = check_cards.record_inventory(show("__git_tree__").decode(), selector)
+    else:
+        pinned_path, pinned = committed_copy(show, path)
     entry = {
         "repo": stats["repo"],
         "sha": pin["sha"],
@@ -110,6 +125,8 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
         "readme_url": f"https://github.com/CultureBotAI/{stats['repo']}/blob/{pin['sha']}/README.md",
         "card_records": card,
     }
+    if "pinned_at_utc" in pin:
+        entry["pinned_at_utc"] = pin["pinned_at_utc"]
     if pinned is not None:
         at_pin = read_figure(mech, kind, pinned, selector, f"{pinned_path} at the pin")
         if at_pin != card:
@@ -121,7 +138,12 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
     if live < card:
         raise SystemExit(f"{mech}: the site says {live:,}, below the card's {card:,}; that is not growth")
     entry["merged_prs"] = stats["merged_prs"]
-    if kind == "json":
+    if kind == "git-tree":
+        entry["site"] = f"https://github.com/CultureBotAI/{stats['repo']}/tree/{pin['sha']}/data/records"
+        entry["data_url"] = url
+        entry["data_sha256"] = hashlib.sha256(body).hexdigest()
+        key = "data_sha256"
+    elif kind == "json":
         if url.startswith("https://raw.githubusercontent.com/"):
             # A source worklist need not have an HTML browser. Link the
             # repository file and hash its data without inventing a Pages URL.
@@ -177,6 +199,11 @@ def build(pins: dict, notes: dict, template: str, stats: dict, fetch, shower, cl
     repositories = []
     for mech, source in sorted(check_cards.SOURCES.items()):
         pin = dict(pins["mechs"][mech], commit_date=utc(pins["mechs"][mech]["commit_date"]))
+        if "pinned_at_utc" in pin:
+            addition_pin = check_cards.pin_time(pin)
+            commit = datetime.datetime.fromisoformat(pin["commit_date"].replace("Z", "+00:00"))
+            if not commit <= addition_pin <= now:
+                raise SystemExit(f"{mech}: addition pin must fall between its commit and this check")
         repositories.append(build_entry(mech, source, pin, by_mech[mech], cards[mech],
                                         notes["notes"][mech], fetch, shower(mech, pin["sha"])))
     claw = pins["claw"]

@@ -124,7 +124,7 @@ Our research goals are enabled by a suite of interconnected software tools:
 
 - [PathwayMech](https://culturebotai.github.io/PathwayMech/) - Microbial pathway mechanisms with participants, reactions, causal edges, and reference-backed evidence
 - [DUFMech](https://github.com/CultureBotAI/DUFMech) - Domains and protein families of unknown function, with evidence gathering and triage worklists
-- [X-Mech Suite overview](/mechs/) - All twelve Mechs and their relationships
+- [X-Mech Suite overview](/mechs/) - All thirteen Mechs and their relationships
 
 ### For Consortium Design & Community Modeling
 - [CommunityMech](/communitymech/) - Microbial community interaction modeling with LinkML schema

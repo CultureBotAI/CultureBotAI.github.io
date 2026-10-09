@@ -42,13 +42,14 @@
 
 ## Membership and capability updates
 
-The site lists twelve Mechs. Membership counts, badges and prose about
+The site lists thirteen Mechs. Membership counts, badges and prose about
 undeclared projects come from `data/manifest.json`; suite coverage does not
 imply CLAW admission. A project's capability row remains undeclared until the
-snapshot contains its declaration. Tests exercise both an eleven-member
-fixture without DUFMech and a twelve-member fixture with synthetic DUFMech
-declarations, independently of the current snapshot. The October 7 vocabulary
-census, shared-term assets and repository statistics cover all twelve Mechs.
+snapshot contains its declaration. Tests exercise both a twelve-member
+fixture without DUFMech and a thirteen-member fixture with synthetic DUFMech
+declarations, independently of the current snapshot. The October 8 addition
+extends the census, shared-term assets and statistics to CMMMech, retaining
+the original twelve Mech source revisions from October 7.
 DUFMech's contribution to that census is a measured seed worklist, labeled as
 families rather than curated mechanism records. Its schema-documentation prose
 uses the website feature verdict, not membership or an inferred schema absence.
@@ -443,3 +444,64 @@ The DUF nightly card check resolves the latest dated worklist on `main` through
 GitHub directory metadata. Its pinned audit still records the frozen source
 used for this page, so a new worklist cannot leave the live freshness check
 reading the old snapshot indefinitely.
+
+
+## CMMMech and the kg-microbe comparison (October 8, 2026)
+
+CMMMech joins every Mech surface: ladder, card, graph node, vocabulary census,
+shared-term edges, statistics and both support tables. The canonical corpus is
+`data/records/**/*.yaml` and `*.yml`, matching its native CLI and CLAW manifest;
+fixtures, reviews and history sidecars are not additional records. Its three
+records at `905388523b6e9184783989484896e4cc20297832` have no REVIEWED-bearing
+status slot. A null statistic makes no claim about scientific review artifacts.
+There is no published website, so links use the pinned GitHub records and the
+website-feature row explicitly says so. Its card checker counts a complete Git
+tree inventory, rejects truncated API responses, and compares canonical paths
+and blob hashes with `git ls-tree` at the pin. It never treats a README's
+hand-maintained list as the live corpus size.
+
+The original twelve Mech source revisions are retained. All thirteen corpora
+were rescanned for this addition: CELEX and registry aliases observed in the
+kg-microbe node table apply consistently to every row. CMMMech carries its own
+`pinned_at_utc` in the audit and snapshot manifest; the original twelve keep
+their October 7 pin time and nightly growth allowance. Merged-PR activity was
+queried again. The existing website feature audits retain their own dates.
+
+kg-microbe is a **heatmap comparison**, not a fourteenth Mech. It never joins
+`roots.ORDER`, the Mech statistics, cards, capability table or shared-term edge
+index. `_fleet/kg_microbe_source.json` pins the published **2025-03-07 core**
+release asset by SHA-256, not current main or a locally rebuilt graph. Reproduce
+its counts with:
+
+```bash
+python3 scripts/fleet/build_kg_microbe.py /path/to/kg-microbe-core.tar.gz
+python3 scripts/fleet/build_data.py
+python3 scripts/fleet/assemble_page.py
+```
+
+The script verifies the archive hash and reads the nested `merged-kg.tar.gz`
+without extracting archive paths. It records the node-table hash and treats
+one KGX node as one record. Counts scan all node fields (including xrefs and
+prose) with the same prefix regex and normalization registry as Mech records;
+repeat identifiers are repeat occurrences. Matching-node totals count each
+node once per vocabulary. Edge rows, graph-local identifiers, metamodel terms
+and namespaces outside the suite registry are excluded. This is coverage of
+the tracked namespaces, not an exhaustive inventory of graph namespaces or a
+count of distinct ontology terms. The release has 1,379,336 node records;
+headers and blank lines are not nodes.
+
+`data/kg_microbe_census.json` records the counts and source, independently of
+Mech commit pins. `assets/fleet/comparison-cells/` contains up to 300 node links
+per populated cell with total counts and hashes, following the same cell format
+as Mech records. Links open external term pages where available, otherwise the
+source release with the node identifier shown in the label. Mech cell rebuilds
+own only `assets/fleet/cells/` and cannot delete comparison assets.
+
+`build_data.py` merges the comparison into `heat`, `voc` and `cells`, keeping
+`order`, `indexed_voc` and `vocab_edges` exclusively Mech-derived. The embedded
+`comparisons` metadata supplies the row identity and source note. Columns sort
+by dataset coverage after DOI/PMID; Mech rows sort by tracked vocabulary count, with
+biological-order ties. kg-microbe is always the final row, with a small gap
+above it. Tests check
+source hashes, complete cell coverage, matching counts and isolation from
+fleet membership and graph indexes.

@@ -31,7 +31,8 @@ class FullHeatmapTests(unittest.TestCase):
     def test_every_dated_vocabulary_and_occurrence_is_displayed(self):
         census = json.loads((ROOT / "_fleet/data/prefix_census.json").read_text())
         saved = json.loads((ROOT / "_fleet/data/fleet_data.json").read_text())
-        expected = {v for m in ORDER for v in census[m]["prefixes"]}
+        comparison = json.loads((ROOT / "_fleet/data/kg_microbe_census.json").read_text())
+        expected = {v for m in ORDER for v in census[m]["prefixes"]} | set(comparison["prefixes"])
         self.assertEqual(set(saved["voc"]), expected)
         self.assertEqual(len(saved["voc"]), len(expected))
         for mech in ORDER:
