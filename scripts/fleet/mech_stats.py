@@ -19,7 +19,9 @@ Two facts per Mech, and they come from different places:
   Mechs without a REVIEWED-bearing status slot are recorded as null rather
   than zero, because "nobody has reviewed one" and "this Mech does not track
   review" are different claims and the page should not make the second look
-  like the first.
+  like the first. AIMech's imported and maintained concepts allow only
+  NOT_REVIEWED and DRAFT respectively; its separate scientific-review
+  observations do not promote the record status, so its count is also null.
 - Merged pull requests are asked of GitHub, since the local checkout knows only
   the branch it is on. The count is every merged pull request in the
   repository's history, curation and automation alike: seeding runs,
@@ -94,7 +96,8 @@ def review_slot(mech: str) -> str | None:
     enums: dict = {}
     for path in sorted(glob.glob(os.path.join(root, "src", "**", "schema", "*.yaml"), recursive=True)):
         try:
-            doc = yaml.safe_load(open(path, encoding="utf-8")) or {}
+            with open(path, encoding="utf-8") as handle:
+                doc = yaml.safe_load(handle) or {}
         except yaml.YAMLError:
             continue
         slots.update(doc.get("slots") or {})

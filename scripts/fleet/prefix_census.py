@@ -49,6 +49,10 @@ norm={"pubchem.compound":"PubChem","mesh":"MESH","UniProtKB":"UniProt","PFAM":"P
 # mass-shift notation. Each entry is the counted name, then the spellings that
 # fold into it.
 ADDED = {
+    # AIMech imports this independently maintained ontology and cites its
+    # classes from native concept mappings. AIMech's own namespace is excluded.
+    "AIO": ["AIO"],
+    "arXiv": ["arXiv", "arxiv"],
     # Protein domain, family, structure, pathway and function resources, and
     # the ontologies ProteinTraitsMech and others cite beside them.
     "CATH": ["CATH"], "CDD": ["CDD"], "PROSITE": ["PROSITE", "Prosite"],

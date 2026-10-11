@@ -305,7 +305,7 @@ def script_json(value):
 # the stat tile wants a numeral, so the count is offered in both forms rather
 # than spelled out at every call site (CultureBotAI.github.io#93).
 WORDS = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
-         "nine", "ten", "eleven", "twelve", "thirteen")
+         "nine", "ten", "eleven", "twelve", "thirteen", "fourteen")
 
 
 def number_word(value: int) -> str:
@@ -326,8 +326,8 @@ def fleet_records(template):
     the record-corpus census does not measure the same way.
 
     These are not counts of the same thing: the cards call theirs taxon
-    records, published recipes, natural product structures and seed families.
-    The tile names both records and seed families instead of claiming that all
+    records, published recipes, natural product structures, seed families and
+    AI concepts. The tile names these units instead of claiming that all
     entries are curated mechanisms.
 
     Keyed by Mech and read card by card through card_markup, the parser

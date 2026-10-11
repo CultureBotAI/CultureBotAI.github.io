@@ -42,7 +42,7 @@ def _scan(mech, cap_cell=300, *, source_revision=None, paths=None):
             cell["occurrences"] += count
             if len(cell["records"]) < cap_cell:
                 if ref is None:
-                    doc_id, label, _ = record_identity(path, text)
+                    doc_id, label, _ = record_identity(path, text, mech)
                     slug = slug_for(mech, path, doc_id, label)
                     if slug:
                         if not re.fullmatch(r"[A-Za-z0-9_.~%\-/]+", slug):

@@ -56,7 +56,7 @@ class FleetPageTests(unittest.TestCase):
     def test_records_tile_equals_the_sum_of_the_cards(self):
         page = self.render()
         total = sum(card_figures(self.template).values())
-        self.assertIn(f"<div><b>{total:,}</b><span>records and seed families</span></div>", page)
+        self.assertIn(f"<div><b>{total:,}</b><span>records, seed families and concepts</span></div>", page)
 
     def test_a_card_without_a_record_count_cannot_be_left_out_of_the_total(self):
         self.template = self.template.replace('<div class="num"><b>625,960</b>', '<div class="num"><b>', 1)
@@ -106,10 +106,10 @@ class FleetPageTests(unittest.TestCase):
         self.stats["merged_prs_total"] = mech_total + 303
         page = self.render()
         self.assertIn(f'<b>{mech_total + 303:,}</b><span>Merged PRs</span>', page)
-        self.assertIn('Across 15 repositories: the thirteen Mechs, CLAW and this website', page)
+        self.assertIn('Across 16 repositories: the fourteen Mechs, CLAW and this website', page)
         self.assertIn('<b>1</b><span>orchestrator (claw)</span>', page)
         self.assertIn('<b>1</b><span>project website</span>', page)
-        self.assertEqual(len(card_names(page)), 13)
+        self.assertEqual(len(card_names(page)), 14)
         self.assertNotIn('data-mech="culturebotai-claw"', page)
         self.assertNotIn('data-mech="CultureBotAI.github.io"', page)
 
@@ -146,7 +146,7 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
         members = set(self.snapshot["mechs"])
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
-        self.assertIn('Relationship graph of the thirteen autonomous knowledge factories', page)
+        self.assertIn('Relationship graph of the fourteen autonomous knowledge factories', page)
         self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
                          len(set(card_figures(self.template)) - members))
         self.assertNotIn('one revision behind', page)
@@ -162,10 +162,10 @@ class FleetPageTests(unittest.TestCase):
         # The heading, intro and SVG title are sentences, and the rest of the
         # site writes "ten" in prose; only the stat tile wants a figure (#93).
         page = self.render()
-        self.assertIn('# X-Mech Suite: thirteen autonomous knowledge factories', page)
-        self.assertIn('## The thirteen Mechs', page)
-        self.assertIn('census covers all thirteen Mechs', page)
-        self.assertIn('<b>13</b><span>autonomous knowledge factories</span>', page)
+        self.assertIn('# X-Mech Suite: fourteen autonomous knowledge factories', page)
+        self.assertIn('## The fourteen Mechs', page)
+        self.assertIn('census covers all fourteen Mechs', page)
+        self.assertIn('<b>14</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
     def test_the_meta_description_opens_like_a_sentence(self):
@@ -187,7 +187,7 @@ class FleetPageTests(unittest.TestCase):
         self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
         self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
         page = self.render()
-        self.assertIn("census covers twelve of the thirteen Mechs", page)
+        self.assertIn("census covers thirteen of the fourteen Mechs", page)
         self.assertNotIn("all ten Mechs", page)
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
@@ -196,7 +196,8 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(number_word(12), 'twelve')
         # A fleet that outgrows the table should read as digits, not break.
         self.assertEqual(number_word(13), 'thirteen')
-        self.assertEqual(number_word(14), '14')
+        self.assertEqual(number_word(14), 'fourteen')
+        self.assertEqual(number_word(15), '15')
         self.assertEqual(number_word(1000), '1,000')
 
     def test_new_admission_cannot_silently_omit_card_or_graph_node(self):

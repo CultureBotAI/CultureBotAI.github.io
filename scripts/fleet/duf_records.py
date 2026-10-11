@@ -17,7 +17,10 @@ import re
 MANIFEST = re.compile(r"interpro-pfam-duf-(\d{4}-\d{2}-\d{2})\.manifest\.json$")
 PFAM = re.compile(r"PF[0-9]{5}$")
 INTERPRO = re.compile(r"IPR[0-9]{6}$")
-STATUSES = {"UNKNOWN_CANDIDATE", "KNOWN_HISTORICAL_DUF"}
+# EX_DUF was added to the native worklist in October 2026 for Pfam families
+# renamed away from a prior DUF/UPF identifier. Like the other seed categories,
+# naming history is neither scientific review nor experimental validation.
+STATUSES = {"UNKNOWN_CANDIDATE", "KNOWN_HISTORICAL_DUF", "EX_DUF"}
 
 
 def _fail(message):
