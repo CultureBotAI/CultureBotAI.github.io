@@ -153,10 +153,10 @@ Sources, refreshed differently:
   date and other sites unchanged. Schema-documentation prose reflects the
   website verdict, never an inference about whether a repository has a schema.
 
-The October 10, 2026 refresh pins all fourteen Mechs, with a common acquisition
-bound of 2026-10-11 04:12 UTC. All participate in the census, overlap assets and
-repository statistics, including PathwayMech's 186 records, DUFMech's 8,296
-seed families and AIMech's 516 concepts. TraitMech has 1,089 records and
+The October 11, 2026 refresh pins all fourteen Mechs, with a common acquisition
+bound of 2026-10-11 06:57 UTC. All participate in the census, overlap assets and
+repository statistics, including PathwayMech's 198 records, DUFMech's 8,296
+seed families and AIMech's 601 concepts. TraitMech has 1,089 records and
 CellStructureMech 909 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
 committed evidence as described in `_fleet/README.md`. DUFMech's retained
@@ -181,10 +181,10 @@ maintained concepts without a source that states it.
 - **DUFMech** (https://culturebotai.github.io/DUFMech/, repository https://github.com/CultureBotAI/DUFMech) - unknown and formerly unknown domains and protein families, with evidence gathering and triage worklists.
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
-- **CMMMech** (https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with ten material records: seven elements, two minerals and one secondary resource. No published website; card and record links point to the repository.
+- **CMMMech** (https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 48 material records: 42 elements, four minerals and two secondary resources. No published website; card and record links point to the repository.
 - **MediaIngredientMech** (`/mediaingredientmech/`) - LLM-assisted curation of media-ingredient mappings; its records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO. Where curation found no ontology term, about 175 mapped ingredients carry kg-microbe registry ids, mostly for preparations and mixtures, and about 85 carry CAS Registry Numbers; about 55 more carry kg-microbe placeholder ids pending curation. None map to PubChem or METPO (#150, #186, #215).
 - **CultureMech** (`/culturemech/`) - versioned, ontology-grounded culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.
-- **AIMech** (https://github.com/CultureBotAI/AIMech) - AI concepts, with 442 imported AIO records and 74 maintained concepts. No published website; card and record links point to pinned repository files.
+- **AIMech** (https://github.com/CultureBotAI/AIMech) - AI concepts, with 442 imported AIO records and 159 maintained concepts. No published website; card and record links point to pinned repository files.
 
 Wherever the suite is enumerated (index.md, resources.md, each page's Related
 Tools), list all fourteen and link to `/mechs/`. Name ontologies consistently across

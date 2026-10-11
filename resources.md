@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on October 10, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
+The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on October 11, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
 
 ### Pipeline Overview
 
@@ -160,11 +160,11 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 
 ### AIMech
 
-**[AIMech](https://github.com/CultureBotAI/AIMech)** extends the suite's curation workflow to artificial intelligence concepts. Its [pinned repository](https://github.com/CultureBotAI/AIMech/tree/299b2c80273ab585228a6c6661a46f347bd2a5ee/data) contains **516 concept records: 442 imported AIO classes and 74 maintained concepts** with claim-specific citations and explicit AIO mappings or documented no-match assessments. Imported records are NOT_REVIEWED and maintained concepts are DRAFT; separate scientific review artifacts do not change those statuses. The repository provides native LinkML schemas and validation. Its [data-license notice](https://github.com/CultureBotAI/AIMech/blob/299b2c80273ab585228a6c6661a46f347bd2a5ee/LICENSE-DATA) covers the AIO imports under CC BY 4.0; it does not specify a grant for maintained concepts. Code is BSD-3-Clause. It has no published website.
+**[AIMech](https://github.com/CultureBotAI/AIMech)** extends the suite's curation workflow to artificial intelligence concepts. Its [pinned repository](https://github.com/CultureBotAI/AIMech/tree/b797b0f7c64fc69521e66986256e1e055c34e92c/data) contains **601 concept records: 442 imported AIO classes and 159 maintained concepts** with claim-specific citations and explicit AIO mappings or documented no-match assessments. Imported records are NOT_REVIEWED and maintained concepts are DRAFT; separate scientific review artifacts do not change those statuses. The repository provides native LinkML schemas and validation. Its [data-license notice](https://github.com/CultureBotAI/AIMech/blob/b797b0f7c64fc69521e66986256e1e055c34e92c/LICENSE-DATA) covers the AIO imports under CC BY 4.0; it does not specify a grant for maintained concepts. Code is BSD-3-Clause. It has no published website.
 
 ### CMMMech
 
-**[CMMMech](https://github.com/CultureBotAI/CMMMech)** curates evidence-backed microbial extraction, transformation and recovery mechanisms for critical materials. Its ten material records cover seven elements, two mineral species and one secondary resource. Mechanism records preserve cited evidence, assay context and limitations; mineral identity records do not inherit microbial mechanisms. Records, the LinkML schema and review artifacts are available in the repository.
+**[CMMMech](https://github.com/CultureBotAI/CMMMech)** curates evidence-backed microbial extraction, transformation and recovery mechanisms for critical materials. Its 48 material records cover 42 elements, four mineral species and two secondary resources. 46 records describe mechanisms with cited evidence, assay context and limitations; Cobaltite and Monazite-(Nd) remain identity records without assigned microbial mechanisms. Records, the LinkML schema and review artifacts are available in the repository.
 
 ### MediaIngredientMech - LLM-Assisted Ingredient Curation
 **[Dedicated Page](/mediaingredientmech/)** | **[GitHub Repository](https://github.com/CultureBotAI/MediaIngredientMech)** | **[Web Interface](https://culturebotai.github.io/MediaIngredientMech/)** | CC BY 4.0 data · BSD-3-Clause code
@@ -200,7 +200,7 @@ Autonomous knowledge factory for microbial ecophysiological traits, seeded from 
 ### PathwayMech - Microbial Pathway Mechanisms
 **[GitHub Repository](https://github.com/CultureBotAI/PathwayMech)** | **[Web Interface](https://culturebotai.github.io/PathwayMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Curates 186 pathway-level microbial mechanisms across 20 taxa, with explicit participants, reactions, 8,535 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/407f1e2d992494f4a61ba336bedfc24155ea5574/README.md).
+Curates 198 pathway-level microbial mechanisms across 20 taxa, with explicit participants, reactions, 8,977 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/720ebcddbc421fbc01a4a82461fcbf13da7ea44f/README.md).
 
 ---
 
