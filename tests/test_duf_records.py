@@ -79,6 +79,19 @@ class DUFRecordTests(unittest.TestCase):
         self.assertEqual(prefixes.count("InterPro"), 1)
         self.assertEqual(prefixes.count("PMID"), 1)
 
+    def test_ex_duf_naming_history_remains_a_seed_family_not_a_review_status(self):
+        rows = deepcopy(self.rows)
+        rows[1]["unknown_status"] = "EX_DUF"
+        self.freeze(rows=rows)
+        documents = list(roots.record_documents("DUFMech", self.paths()))
+        self.assertEqual(roots.record_count("DUFMech", self.paths()), 2)
+        self.assertIn("unknown_status: EX_DUF", documents[1][1])
+        self.assertNotIn("REVIEWED", documents[1][1])
+        rows[1]["unknown_status"] = "UNSUPPORTED"
+        self.freeze(rows=rows)
+        with self.assertRaisesRegex(SystemExit, "unsupported unknown status"):
+            duf_records.snapshot(self.paths())
+
     def test_newest_snapshot_only_and_bad_latest_never_falls_back(self):
         self.freeze("2026-09-30", self.rows[:1])
         newest, _ = self.freeze()

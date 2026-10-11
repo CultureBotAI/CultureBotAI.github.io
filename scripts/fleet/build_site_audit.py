@@ -114,7 +114,8 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
     live = read_figure(mech, kind, body, selector, url)
     if kind == "git-tree":
         body = check_cards.record_inventory(body.decode(), selector)
-        pinned_path = "data/records inventory"
+        inventory_dir = check_cards.INVENTORY_DIRS[mech]
+        pinned_path = inventory_dir + " inventory"
         pinned = check_cards.record_inventory(show("__git_tree__").decode(), selector)
     else:
         pinned_path, pinned = committed_copy(show, path)
@@ -139,7 +140,7 @@ def build_entry(mech: str, source: tuple[str, str, str], pin: dict, stats: dict,
         raise SystemExit(f"{mech}: the site says {live:,}, below the card's {card:,}; that is not growth")
     entry["merged_prs"] = stats["merged_prs"]
     if kind == "git-tree":
-        entry["site"] = f"https://github.com/CultureBotAI/{stats['repo']}/tree/{pin['sha']}/data/records"
+        entry["site"] = f"https://github.com/CultureBotAI/{stats['repo']}/tree/{pin['sha']}/{inventory_dir}"
         entry["data_url"] = url
         entry["data_sha256"] = hashlib.sha256(body).hexdigest()
         key = "data_sha256"

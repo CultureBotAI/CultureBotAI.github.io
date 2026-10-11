@@ -45,6 +45,10 @@ RECORD_GLOBS: dict[str, list[str]] = {
     # each carries its lineage, so higher taxa are counted once per record under
     # them. Measured since #87; before that only mech_stats.py read it.
     "TaxonMech": ["data/taxa/**/*.yaml"],
+    # Imported AIO classes and separately maintained AIMech-native concepts.
+    # Source ontology exports, review/history sidecars and reference downloads
+    # are not additional concept records.
+    "AIMech": ["data/aio/*.yaml", "data/curated/*.yaml"],
 }
 
 # Paths a record glob sweeps up that are not records. A `**` glob cannot say
@@ -74,7 +78,7 @@ ORDER = list(RECORD_GLOBS)
 # record lists using the census's exact prefix pattern and normalization.
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
-            "PNNLDH", "CELEX"]
+            "PNNLDH", "CELEX", "arXiv"]
 
 
 def mech_root(name: str) -> str:

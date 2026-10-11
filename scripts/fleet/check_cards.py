@@ -94,9 +94,14 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "MediaIngredientMech": ("json", "MediaIngredientMech/data/ingredients.json", "ingredients"),
     # The dated path identifies the frozen source for the at-pin audit. The
     # nightly reader resolves the newest worklist on main before counting it.
-    "DUFMech":             ("json", "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/interpro-pfam-duf-2026-10-05.json", "families"),
+    "DUFMech":             ("json", "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/interpro-pfam-duf-2026-10-10.json", "families"),
     "CMMMech":             ("git-tree", "https://api.github.com/repos/CultureBotAI/CMMMech/git/trees/main?recursive=1", r"data/records/(?:[^/]+/)*[^/]+\.(?:yaml|yml)"),
+    "AIMech":              ("git-tree", "https://api.github.com/repos/CultureBotAI/AIMech/git/trees/main?recursive=1", r"data/(?:aio|curated)/(?!\.)[^/]+\.yaml"),
 }
+
+# Repository directories shown as count-source links for native corpora with
+# no published website. The regex selectors above define the exact inventory.
+INVENTORY_DIRS = {"CMMMech": "data/records", "AIMech": "data"}
 
 DUF_WORKLISTS = "https://api.github.com/repos/CultureBotAI/DUFMech/contents/data/worklists?ref=main"
 DUF_RAW = "https://raw.githubusercontent.com/CultureBotAI/DUFMech/main/data/worklists/"

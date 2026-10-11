@@ -45,6 +45,7 @@ SITE_BASE={
  # while the card and audit link the exact DUF worklist snapshot.
  "DUFMech": SITE+"DUFMech/families/",
  "CMMMech": GH+"CMMMech/blob/main/data/records/",
+ "AIMech": GH+"AIMech/blob/main/data/",
 }
 # Filled by prepare(). mech_root() touches the filesystem and exits on a
 # missing checkout, so resolving these at import made the module unimportable
@@ -156,10 +157,11 @@ def prepare():
     Everything here reads the filesystem, which is why it is not at import.
     """
     MECHS.update({name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER})
-    # CMMMech has no website: every record link names the scanned commit.
-    cmm_pin = revision("CMMMech")
-    if cmm_pin and re.fullmatch(r"[0-9a-f]{40}", cmm_pin):
-        MECHS["CMMMech"]["base"] = GH+"CMMMech/blob/"+cmm_pin+"/data/records/"
+    # These Mechs have no website: every record link names the scanned commit.
+    for name, directory in (("CMMMech", "data/records/"), ("AIMech", "data/")):
+        pin = revision(name)
+        if pin and re.fullmatch(r"[0-9a-f]{40}", pin):
+            MECHS[name]["base"] = GH+name+"/blob/"+pin+"/"+directory
     hab_pages.update(os.path.basename(f)[:-5]
                      for f in glob.glob(os.path.join(mech_root("HabitatMech"),"pages","habitats","*.html")))
     if not hab_pages:
@@ -195,17 +197,24 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="NaturalProductMech": return urllib.parse.quote(rel[len("data/natural_products/"):-5]+".html")
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
     if m=="CMMMech": return urllib.parse.quote(rel[len("data/records/"):])
+    if m=="AIMech": return urllib.parse.quote(rel[len("data/"):])
     if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
     if m=="PathwayMech": return urllib.parse.quote(doc_id.replace(":", "_").replace("/", "_")+".html") if doc_id else None
     if m=="DUFMech": return doc_id.removeprefix("Pfam:")+".html" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None
     return None
-def record_identity(path, text):
+def record_identity(path, text, mech=None):
     """Read the stable record id and full folded display label used by links."""
-    head=text[:4000]
+    head=text if mech=="AIMech" else text[:4000]
     mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M)
     doc_id=mid.group(1).strip("'\"") if mid else ""
     ml=re.search(r"^(?:label|preferred_term|display_name|title|name)\s*:\s*(.+(?:\n[ \t]+(?![\w-]+\s*:)(?!-\s)\S.*)*)$",head,flags=re.M)
     label=unq(" ".join(part.strip() for part in ml.group(1).split("\n"))) if ml else os.path.basename(path)[:-5]
+    if mech=="AIMech":
+        # Imported and maintained concepts can share a name and filename.
+        # Retain the namespace in their display labels as well as their links.
+        if not re.fullmatch(r"(?:AIO|AIMech):[A-Za-z0-9]+",doc_id) or not ml:
+            raise ValueError(f"AIMech: missing native concept identity in {path}")
+        label += " · " + doc_id
     return doc_id, label, bool(ml)
 
 
@@ -214,7 +223,7 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
     cfg=MECHS[m]; root=cfg["root"]; terms=collections.defaultdict(list); cells=collections.defaultdict(lambda:[0,[]]); votes=collections.defaultdict(collections.Counter); own={}; nfiles=0; nolink=0
     for f,txt in record_documents(m):
         nfiles+=1
-        doc_id,doc_label,has_label=record_identity(f,txt)
+        doc_id,doc_label,has_label=record_identity(f,txt,m)
         # A TaxonMech record's own label names the taxon it is keyed by (#163).
         if m=="TaxonMech" and doc_id and has_label: own[doc_id]=doc_label
         slug=slug_for(m,f,doc_id,doc_label)
