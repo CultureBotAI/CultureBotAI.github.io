@@ -161,7 +161,7 @@ class SiteFeatureTests(unittest.TestCase):
         other = next(n for n, m in self.features["mechs"].items() if m.get("site") and n != name)
         key = next(iter(self.features["catalogue"]))
         extra_mech = lambda f: f["mechs"].__setitem__("PhantomMech", deepcopy(f["mechs"][name]))
-        for change, message in [
+        for case, (change, message) in enumerate([
             (lambda f: f["mechs"][name]["features"].pop(key), "every site feature"),
             (lambda f: f["mechs"][name]["features"].__setitem__("invented", {"status": "present", "note": "x", "url": "https://x"}), "every site feature"),
             (lambda f: f["mechs"][name]["features"][key].update(status="maybe"), "unknown status"),
@@ -186,17 +186,22 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["catalogue"][key].update(definition=""), "label and a definition"),
             (lambda f: f["catalogue"][key].update(criteria=" "), "empty criteria"),
             (lambda f: f.update(scope=""), "scope"),
-            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "features": deepcopy(f["mechs"][name]["features"])}), "no feature verdicts"),
-            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": None}), "needs a note"),
+            # Each site-less case keeps the replaced Mech's repository, so it is
+            # invalid in exactly one way whatever order the checks run in (#421).
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": f["mechs"][other]["repository"],
+                                                      "features": deepcopy(f["mechs"][name]["features"])}), "no feature verdicts"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": None, "repository": f["mechs"][other]["repository"]}),
+             "needs a note"),
             # #410: the update check needs the repository of a Mech without a site.
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x"}), "repository must be"),
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": "https://example.org/x"}),
              "repository must be"),
-        ]:
-            changed = deepcopy(self.features)
-            change(changed)
-            with self.assertRaisesRegex(ValueError, message):
-                validate_site_features(changed, self.names)
+        ]):
+            with self.subTest(case=case, message=message):
+                changed = deepcopy(self.features)
+                change(changed)
+                with self.assertRaisesRegex(ValueError, message):
+                    validate_site_features(changed, self.names)
 
     def test_notes_are_escaped_into_the_tooltip_and_the_list(self):
         changed = deepcopy(self.features)

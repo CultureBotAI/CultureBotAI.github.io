@@ -54,9 +54,11 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   records. The table is judged on live sites, not pins, so a redeployment is its
   staleness signal; its evidence URLs are not part of `claims`. A Mech the table
   records without a site is listed as `new site` once its repository has GitHub
-  Pages enabled and a successful latest deployment, as `no site` while Pages is
-  turned off or has never deployed, and as NOT CHECKED when that cannot be
-  verified;
+  Pages enabled, its latest deployment has succeeded and its site answers a HEAD
+  request; as `no site` while Pages is not enabled; and as NOT CHECKED
+  otherwise. That includes Pages enabled with no deployment record, since a
+  deploy job that names no environment records none, and a successful deployment
+  whose site does not answer;
 - a closing line naming everything a refresh would change, and what was not checked.
 
 The compare API lists at most 300 files per repository. Where the report says the
@@ -85,14 +87,32 @@ about that Mech:
 
 For a Mech the mechanical pass reports as a new site, whether or not its
 repository has `claims` changes, every statement that it has no website no
-longer holds; report each one. They include its entry in `site_features.json`
-and the feature table's notes, its card, its `MECHS` entry (an empty `site`
-sends the graph's node and panel links to GitHub), `resources.md`, `CLAUDE.md`,
+longer holds; report each one. Some say so in words: its entry in
+`site_features.json` and the feature table's notes, its card, its `MECHS` entry
+(an empty `site` sends the graph's node and panel links to GitHub, and `extra`
+can say that no website is deployed), its note in `_fleet/audit_notes.json`
+(copied into `_fleet/data/site_audit.json`), `resources.md`, `CLAUDE.md`,
 `_fleet/README.md`, and the comments in `scripts/fleet/build_subsets.py` and
-`scripts/fleet/check_cards.py` that give it as a reason. The list is not
-exhaustive: search the whole tree, ignored files included (`grep -rn`), for
-"no published website" and "no website". Leave judging the new site's features
-to `update-xmech-page`.
+`scripts/fleet/check_cards.py` that give it as a reason. Others say so only by
+linking its repository where every Mech with a site links the site: the footer
+(`_includes/footer.html`), the ladder at the top of `_fleet/fleet_fragment.html`,
+the suite sentence in `index.md`, every page's Related Tools list and the tool
+lists in `research.md`. CLAW's capability reasons in `_fleet/data/manifest.json`,
+shown as tooltips in the capability table, can deny a site too ("No pages/ tree
+exists"). They quote CLAW verbatim, so report them for CLAW to correct and never
+edit the snapshot.
+
+Read the named files whole, since their prose wraps across lines. The list is
+not exhaustive, so then search the whole tree, ignored files included except
+Jekyll's build copy in `_site`, for other wordings and for links to the
+repository:
+
+```bash
+grep -rniE --exclude-dir=.git --exclude-dir=_site 'no (published |public )?(website|browser)' .
+grep -rnE --exclude-dir=.git --exclude-dir=_site 'github\.com/CultureBotAI/<Mech>[)"]' .
+```
+
+Leave judging the new site's features to `update-xmech-page`.
 
 Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;

@@ -229,11 +229,14 @@ the `deployed_revision` its browser check saw and a verdict for every catalogue
 feature, with the `note` removed. Judge it with the other sites when the whole
 table is re-judged, or alone as a site-only recheck with its own `checked_on`
 and `scope`. Then correct every statement that it has no website, using the
-list in check-xmech-updates and a search of the whole tree.
+list and the searches in check-xmech-updates (step 2). They include places that
+say so only by linking its repository, and CLAW's capability reasons, which are
+reported for CLAW to correct rather than edited here.
 
 `scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
-at a different revision, Mechs recorded without a site that GitHub Pages now
-serves (`new site`), and marks unverified deployment states `NOT CHECKED`.
+at a different revision, and Mechs recorded without a site whose latest
+deployment succeeded and whose site answers (`new site`). It marks unverified
+states `NOT CHECKED`, including Pages enabled with no deployment record.
 For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
