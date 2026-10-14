@@ -23,7 +23,8 @@ It also runs check_cards.check() for the card figures, refresh_manifest --check
 against CLAW's main for membership and capabilities, a HEAD request for each
 XREFS evidence URL, and, for the website feature table, which is judged on the
 live sites rather than at the pins, whether each Mech site has redeployed since
-the deployment its verdicts describe.
+the deployment its verdicts describe, and whether a Mech recorded without a site
+has started publishing one.
 """
 from __future__ import annotations
 
@@ -228,29 +229,39 @@ def pages_check(api=gh) -> tuple[str, str]:
 
 
 def site_feature_check(features: dict, api=gh) -> list[tuple[str, str, str]]:
-    """(status, mech, detail) for each Mech site in the website feature table.
+    """(status, mech, detail) for each Mech in the website feature table.
 
     The table describes live sites, not pins, so a site that GitHub Pages has
     successfully deployed again since its recorded deployed_revision may no
-    longer match its verdicts (#373). A deployment request can still be queued
-    or have failed, so its latest status must confirm success before calling it
-    the served revision. States: same, redeployed and NOT CHECKED when success
-    cannot be verified. Read-only: at most two GETs per site.
+    longer match its verdicts (#373). A Mech the table records without a site
+    is checked the same way, since its first successful deployment leaves the
+    table calling a published site absent (#405). A deployment request can
+    still be queued or have failed, so its latest status must confirm success
+    before calling it the served revision. States: same, redeployed, new site,
+    no site (no Pages deployment at all) and NOT CHECKED when success cannot be
+    verified. Read-only: at most two GETs per Mech.
     """
     rows = []
     for mech, entry in sorted(features["mechs"].items()):
-        if entry.get("site") is None:
-            continue
+        has_site = entry.get("site") is not None
         try:
-            repository = entry["repository"]
+            # The validator lets a Mech without a site omit its repository.
+            repository = entry.get("repository")
             if not (isinstance(repository, str) and
                     re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", repository)):
                 raise ValueError("repository must be a GitHub repository URL")
             repo = repository.removeprefix("https://github.com/").rstrip("/")
-            recorded = entry["deployed_revision"]
-            if not (isinstance(recorded, str) and re.fullmatch(r"[0-9a-f]{40}", recorded)):
-                raise ValueError("deployed_revision must be a full commit SHA")
-            latest = api(f"repos/{repo}/deployments?environment=github-pages&per_page=1")[0]
+            if has_site:
+                recorded = entry["deployed_revision"]
+                if not (isinstance(recorded, str) and re.fullmatch(r"[0-9a-f]{40}", recorded)):
+                    raise ValueError("deployed_revision must be a full commit SHA")
+            deployments = api(f"repos/{repo}/deployments?environment=github-pages&per_page=1")
+            if deployments == []:
+                if has_site:
+                    raise ValueError("no GitHub Pages deployment")
+                rows.append(("no site", mech, "no GitHub Pages deployment"))
+                continue
+            latest = deployments[0]
             sha, when = latest["sha"], latest.get("created_at", "?")
             deployment_id = latest["id"]
             if type(deployment_id) is not int or deployment_id <= 0:
@@ -266,7 +277,9 @@ def site_feature_check(features: dict, api=gh) -> list[tuple[str, str, str]]:
             reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
             rows.append(("NOT CHECKED", mech, reason or "no deployment"))
             continue
-        if sha == recorded:
+        if not has_site:
+            rows.append(("new site", mech, f"recorded without a site, now serves {sha[:7]} (deployed {when})"))
+        elif sha == recorded:
             rows.append(("same", mech, f"still serves {sha[:7]}"))
         else:
             rows.append(("redeployed", mech, f"{recorded[:7]} when checked, now {sha[:7]} (deployed {when})"))
@@ -334,6 +347,9 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
     redeployed = [m for s, m, _ in sites if s == "redeployed"]
     if redeployed:
         parts.append("website feature verdicts to re-check on redeployed sites: " + ", ".join(redeployed))
+    new_sites = [m for s, m, _ in sites if s == "new site"]
+    if new_sites:
+        parts.append("website feature verdicts to judge on new sites: " + ", ".join(new_sites))
     not_checked = [r["repo"] for r in rows if r.get("unchecked")]
     not_checked += [f"{r['repo']} (past the 300-file cap)" for r in rows  # #297
                     if r.get("truncated") and not r["records"] and not r["claims"]]
