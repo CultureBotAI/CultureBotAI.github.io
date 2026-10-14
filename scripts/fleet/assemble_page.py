@@ -79,6 +79,7 @@ MECH_CELL = "mech"
 GROUP_START = "grp"
 NO_SITE = "none"
 SHA = re.compile(r"[0-9a-f]{40}")
+REPOSITORY = re.compile(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?")
 
 
 def _text(value):
@@ -135,12 +136,14 @@ def validate_site_features(features, names):
             # markers that would read as twenty-four separate judgements.
             if "features" in mech or not _text(mech.get("note")):
                 raise ValueError(f"{name}: a Mech without a site needs a note and no feature verdicts")
+        # Every entry names its repository: the update check reads it to notice
+        # when a Mech without a site starts publishing one (#405, #410).
+        if not (isinstance(mech.get("repository"), str) and REPOSITORY.fullmatch(mech["repository"])):
+            raise ValueError(f"{name}: repository must be a GitHub repository URL")
+        if mech.get("site") is None:
             continue
         if not (isinstance(mech["site"], str) and mech["site"].startswith("https://")):
             raise ValueError(f"{name}: site must be an https URL")
-        if not (isinstance(mech.get("repository"), str) and
-                re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", mech["repository"])):
-            raise ValueError(f"{name}: repository must be a GitHub repository URL")
         if not (isinstance(mech.get("deployed_revision"), str) and SHA.fullmatch(mech["deployed_revision"])):
             raise ValueError(f"{name}: deployed_revision must be the full SHA of the deployment checked")
         verdicts = mech.get("features")

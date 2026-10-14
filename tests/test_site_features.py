@@ -47,7 +47,8 @@ class SiteFeatureTests(unittest.TestCase):
 
     def without_site(self, name="DUFMech"):
         changed = deepcopy(self.features)
-        changed["mechs"][name] = {"site": None, "note": "No published website yet."}
+        changed["mechs"][name] = {"site": None, "repository": self.features["mechs"][name]["repository"],
+                                  "note": "No published website yet."}
         return changed
 
     def test_every_suite_mech_has_a_row_in_card_order(self):
@@ -187,6 +188,10 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f.update(scope=""), "scope"),
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "features": deepcopy(f["mechs"][name]["features"])}), "no feature verdicts"),
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": None}), "needs a note"),
+            # #410: the update check needs the repository of a Mech without a site.
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x"}), "repository must be"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": "https://example.org/x"}),
+             "repository must be"),
         ]:
             changed = deepcopy(self.features)
             change(changed)

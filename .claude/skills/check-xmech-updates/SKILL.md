@@ -53,8 +53,10 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   `deployed_revision` the website feature table (`_fleet/data/site_features.json`)
   records. The table is judged on live sites, not pins, so a redeployment is its
   staleness signal; its evidence URLs are not part of `claims`. A Mech the table
-  records without a site is listed as `no site`, or as `new site` once GitHub
-  Pages has successfully deployed it;
+  records without a site is listed as `new site` once its repository has GitHub
+  Pages enabled and a successful latest deployment, as `no site` while Pages is
+  turned off or has never deployed, and as NOT CHECKED when that cannot be
+  verified;
 - a closing line naming everything a refresh would change, and what was not checked.
 
 The compare API lists at most 300 files per repository. Where the report says the
@@ -83,9 +85,14 @@ about that Mech:
 
 For a Mech the mechanical pass reports as a new site, whether or not its
 repository has `claims` changes, every statement that it has no website no
-longer holds: its entry in `site_features.json`, its card, the feature table's
-notes and `CLAUDE.md`. Report them, and leave judging the new site's features to
-`update-xmech-page`.
+longer holds; report each one. They include its entry in `site_features.json`
+and the feature table's notes, its card, its `MECHS` entry (an empty `site`
+sends the graph's node and panel links to GitHub), `resources.md`, `CLAUDE.md`,
+`_fleet/README.md`, and the comments in `scripts/fleet/build_subsets.py` and
+`scripts/fleet/check_cards.py` that give it as a reason. The list is not
+exhaustive: search the whole tree, ignored files included (`grep -rn`), for
+"no published website" and "no website". Leave judging the new site's features
+to `update-xmech-page`.
 
 Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;

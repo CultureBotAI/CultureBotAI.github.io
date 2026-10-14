@@ -77,6 +77,7 @@ class SuiteUpdateTests(unittest.TestCase):
             "CMech": {"site": "https://example.org/c/", "repository": "https://github.com/CultureBotAI/CMech",
                       "deployed_revision": "c" * 40},
             "DMech": {"site": None, "repository": "https://github.com/CultureBotAI/DMech", "note": "No site."},
+            "EMech": {"site": None, "repository": "https://github.com/CultureBotAI/EMech", "note": "No site."},
         }}
         def api(path):
             if "/statuses?" in path:
@@ -85,19 +86,23 @@ class SuiteUpdateTests(unittest.TestCase):
                 return [{"id": 1, "sha": "a" * 40, "created_at": "2026-10-05T09:00:00Z"}]
             if "BMech" in path:
                 return [{"id": 2, "sha": "d" * 40, "created_at": "2026-10-06T09:00:00Z"}]
-            if "DMech" in path:
-                return []
+            if path == "repos/CultureBotAI/DMech":
+                return {"has_pages": False}
             raise check_updates.Unchecked(["HTTP 502"])
         rows = check_updates.site_feature_check(features, api=api)
-        self.assertEqual([(s, m) for s, m, _ in rows],
-                         [("same", "AMech"), ("redeployed", "BMech"), ("NOT CHECKED", "CMech"), ("no site", "DMech")])
-        self.assertIn("bbbbbbb when checked, now ddddddd", rows[1][2])
-        self.assertIn("HTTP 502", rows[2][2])
+        self.assertEqual(rows, [
+            ("same", "AMech", "still serves aaaaaaa"),
+            ("redeployed", "BMech", "bbbbbbb when checked, now ddddddd (deployed 2026-10-06T09:00:00Z)"),
+            ("NOT CHECKED", "CMech", "HTTP 502"),
+            ("no site", "DMech", "GitHub Pages is not enabled"),
+            ("NOT CHECKED", "EMech", "HTTP 502"),
+        ])
         line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
         self.assertIn("website feature verdicts to re-check on redeployed sites: BMech", line)
-        self.assertIn("site deployment CMech", line)
+        self.assertIn("**Not checked:** site deployment CMech, site deployment EMech.", line)
         self.assertNotIn("AMech", line)
-        # A Mech that still has no Pages deployment gives a refresh nothing to do.
+        # A Mech that still has no site gives a refresh nothing to do, but one
+        # whose check failed must stay visible (#413).
         self.assertNotIn("DMech", line)
         self.assertNotIn("new sites", line)
 
@@ -111,17 +116,42 @@ class SuiteUpdateTests(unittest.TestCase):
         calls = []
         def api(path):
             calls.append(path)
+            if path == "repos/CultureBotAI/AIMech":
+                return {"has_pages": True}
             if path.endswith("/statuses?per_page=1"):
                 return [{"state": "success"}]
-            return [{"id": 9, "sha": "e" * 40, "created_at": "2026-10-13T00:34:00Z"}]
+            return [{"id": 9, "sha": "e" * 40, "created_at": "2026-10-12T23:48:02Z"}]
         rows = check_updates.site_feature_check(features, api=api)
-        self.assertEqual(rows, [("new site", "AIMech",
-                                 "recorded without a site, now serves eeeeeee (deployed 2026-10-13T00:34:00Z)")])
-        self.assertEqual(calls, ["repos/CultureBotAI/AIMech/deployments?environment=github-pages&per_page=1",
+        self.assertEqual(rows, [("new site", "AIMech", "GitHub Pages now serves eeeeeee (deployed 2026-10-12T23:48:02Z)")])
+        self.assertEqual(calls, ["repos/CultureBotAI/AIMech",
+                                 "repos/CultureBotAI/AIMech/deployments?environment=github-pages&per_page=1",
                                  "repos/CultureBotAI/AIMech/deployments/9/statuses?per_page=1"])
         line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
         self.assertIn("website feature verdicts to judge on new sites: AIMech", line)
         self.assertNotIn("Not checked", line)
+
+    def test_a_mech_without_a_site_is_not_new_while_pages_is_off_or_undeployed(self):
+        # #407: Pages deployments keep their success status after Pages is
+        # turned off, so a successful deployment alone does not mean a site.
+        features = {"mechs": {"AIMech": {
+            "site": None, "repository": "https://github.com/CultureBotAI/AIMech",
+            "note": "No published website.",
+        }}}
+        served = [{"id": 9, "sha": "e" * 40, "created_at": "2023-01-29T13:38:48Z"}]
+        for has_pages, deployments, detail in ((False, served, "GitHub Pages is not enabled"),
+                                               (False, [], "GitHub Pages is not enabled"),
+                                               (True, [], "GitHub Pages is enabled but has no deployment")):
+            with self.subTest(has_pages=has_pages, deployments=bool(deployments)):
+                def api(path):
+                    if path == "repos/CultureBotAI/AIMech":
+                        return {"has_pages": has_pages}
+                    if path.endswith("/statuses?per_page=1"):
+                        return [{"state": "success"}]
+                    return deployments
+                rows = check_updates.site_feature_check(features, api=api)
+                self.assertEqual(rows, [("no site", "AIMech", detail)])
+                line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                self.assertNotIn("AIMech", line)
 
     def test_an_unconfirmed_first_deployment_is_not_claimed_as_a_new_site(self):
         features = {"mechs": {"AIMech": {
@@ -131,9 +161,11 @@ class SuiteUpdateTests(unittest.TestCase):
         for state in ("queued", "in_progress", "failure", "inactive"):
             with self.subTest(state=state):
                 def api(path):
+                    if path == "repos/CultureBotAI/AIMech":
+                        return {"has_pages": True}
                     if path.endswith("/statuses?per_page=1"):
                         return [{"state": state}]
-                    return [{"id": 9, "sha": "e" * 40, "created_at": "2026-10-13T00:34:00Z"}]
+                    return [{"id": 9, "sha": "e" * 40, "created_at": "2026-10-12T23:48:02Z"}]
                 rows = check_updates.site_feature_check(features, api=api)
                 self.assertEqual([(s, m) for s, m, _ in rows], [("NOT CHECKED", "AIMech")])
                 self.assertIn(f"latest deployment is {state}", rows[0][2])
@@ -149,6 +181,55 @@ class SuiteUpdateTests(unittest.TestCase):
         rows = check_updates.site_feature_check(features, api=lambda path: [])
         self.assertEqual(rows, [("NOT CHECKED", "AMech", "no GitHub Pages deployment")])
 
+    def test_every_failed_or_malformed_answer_is_not_checked(self):
+        # #413, #414: a check that could not finish must say so for either kind
+        # of entry, never pass for "no site", which the summary leaves out.
+        recorded = {"site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",
+                    "deployed_revision": "a" * 40}
+        siteless = {"site": None, "repository": "https://github.com/CultureBotAI/AMech", "note": "No site."}
+        good = {"id": 9, "sha": "a" * 40, "created_at": "2026-10-12T23:48:02Z"}
+        def answers(repo=None, deployments=None, statuses=None):
+            def api(path):
+                if path == "repos/CultureBotAI/AMech":
+                    reply = {"has_pages": True} if repo is None else repo
+                elif path.endswith("/statuses?per_page=1"):
+                    reply = [{"state": "success"}] if statuses is None else statuses
+                else:
+                    reply = [good] if deployments is None else deployments
+                if isinstance(reply, Exception):
+                    raise reply
+                return reply
+            return api
+        no_gh = FileNotFoundError(2, "No such file or directory", "gh")
+        shared = [
+            (answers(deployments=check_updates.Unchecked(["HTTP 502"])), "HTTP 502"),
+            (answers(statuses=check_updates.Unchecked(["HTTP 503"])), "HTTP 503"),
+            (answers(deployments=no_gh), str(no_gh)),
+            (answers(statuses=[]), "latest deployment has no status yet"),
+            (answers(statuses=[{}]), "'state'"),
+            (answers(deployments=[dict(good, id=0)]), "deployment response has no valid id"),
+            (answers(deployments=[dict(good, id="9")]), "deployment response has no valid id"),
+            (answers(deployments=[dict(good, id=None)]), "deployment response has no valid id"),
+            (answers(deployments=[dict(good, sha=None)]), "deployment response has no valid commit SHA"),
+            (answers(deployments=[dict(good, sha="abc")]), "deployment response has no valid commit SHA"),
+        ]
+        cases = [(recorded, api, detail) for api, detail in shared]
+        cases += [(siteless, api, detail) for api, detail in shared]
+        cases += [
+            (siteless, answers(repo=check_updates.Unchecked(["HTTP 404"])), "HTTP 404"),
+            (siteless, answers(repo={}), "repository response has no has_pages flag"),
+            (siteless, answers(repo={"has_pages": "yes"}), "repository response has no has_pages flag"),
+            (siteless, answers(repo=[]), "repository response has no has_pages flag"),
+            (dict(recorded, deployed_revision="abc"), answers(), "deployed_revision must be a full commit SHA"),
+        ]
+        for entry, api, detail in cases:
+            with self.subTest(site=entry["site"], detail=detail):
+                rows = check_updates.site_feature_check({"mechs": {"AMech": entry}}, api=api)
+                self.assertEqual(rows, [("NOT CHECKED", "AMech", detail)])
+                line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                self.assertIn("**Not checked:** site deployment AMech.", line)
+                self.assertIn("Refresh would change:** nothing found", line)
+
     def feature_check_output(self, *, duf_recheck=False, new_site=False):
         features = {"checked_on": "2026-10-05", "scope": "Baseline browser audit.", "mechs": {
             "TraitMech": {"site": "https://example.org/trait/",
@@ -161,12 +242,15 @@ class SuiteUpdateTests(unittest.TestCase):
         if duf_recheck:
             features["mechs"]["DUFMech"].update(checked_on="2026-10-07", scope="DUF-only browser audit.")
         if new_site:
-            features["mechs"]["CMMMech"] = {"site": None, "repository": "https://github.com/CultureBotAI/CMMMech",
-                                            "note": "No published website."}
+            for name in ("AIMech", "CMMMech"):
+                features["mechs"][name] = {"site": None, "repository": f"https://github.com/CultureBotAI/{name}",
+                                           "note": "No published website."}
 
         def api(path):
             if "/statuses?" in path:
                 return [{"state": "success"}]
+            if "/deployments?" not in path:
+                return {"has_pages": not path.endswith("/AIMech")}
             sha = "a" * 40 if "TraitMech" in path else "c" * 40
             return [{"id": 1, "sha": sha, "created_at": "2026-10-07T09:00:00Z"}]
 
@@ -205,9 +289,14 @@ class SuiteUpdateTests(unittest.TestCase):
 
     def test_feature_check_reports_a_new_site_in_its_section_and_summary(self):
         output = self.feature_check_output(new_site=True)
-        self.assertIn("- new site CMMMech (audit date: 2026-10-05): recorded without a site, now serves ccccccc", output)
+        # #415: a Mech without a site has no audit date of its own to print.
+        self.assertIn("- new site CMMMech (recorded without a site): GitHub Pages now serves ccccccc "
+                      "(deployed 2026-10-07T09:00:00Z)", output)
+        self.assertIn("- no site AIMech (recorded without a site): GitHub Pages is not enabled", output)
+        self.assertNotIn("CMMMech (audit date", output)
         self.assertIn("website feature verdicts to re-check on redeployed sites: DUFMech; "
                       "website feature verdicts to judge on new sites: CMMMech.", output)
+        self.assertNotIn("AIMech", output.rsplit("\n\n", 1)[-1])
 
     def test_unsuccessful_deployment_requests_are_not_claimed_as_served(self):
         features = {"mechs": {"AMech": {
@@ -254,8 +343,7 @@ class SuiteUpdateTests(unittest.TestCase):
                         entry["repository"] = repository
                     api = mock.Mock(side_effect=AssertionError("Invalid metadata must not make an API request"))
                     rows = check_updates.site_feature_check({"mechs": {"AMech": entry}}, api=api)
-                    self.assertEqual([(s, m) for s, m, _ in rows], [("NOT CHECKED", "AMech")])
-                    self.assertIn("repository", rows[0][2])
+                    self.assertEqual(rows, [("NOT CHECKED", "AMech", "repository must be a GitHub repository URL")])
                     api.assert_not_called()
 
 

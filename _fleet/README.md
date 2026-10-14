@@ -15,8 +15,9 @@
   date), `scope` (what was checked and how), `groups` (each `title` with its `features`, in
   column order; every feature in exactly one group) and `catalogue` (per feature: `label`,
   `definition` and optional `criteria`, shown on the page). `mechs` has one entry per suite
-  Mech: `site` (https URL, or `null` for a Mech without a website, which then carries a
-  `note` and no `features`), `repository`, `deployed_revision` (the full SHA of the
+  Mech: `site` (https URL, or `null` for a Mech without a website, which then carries its
+  `repository` and a `note` but no `features`), `repository` (required on every entry, since
+  the update checker reads it to notice a new site), `deployed_revision` (the full SHA of the
   successful github-pages deployment the browser check saw) and `features`, one verdict per catalogue feature
   with `status` (`present`, `partial`, `missing`, `not_applicable` or `unknown`), `note`
   (tooltip text giving the evidence) and `url` (https evidence page). `assemble_page.py`

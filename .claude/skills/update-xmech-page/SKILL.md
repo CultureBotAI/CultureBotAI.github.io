@@ -223,8 +223,17 @@ browser review. Queued, pending, failed, inactive or unavailable statuses are
 inconclusive about what is currently served; preserve the prior recorded
 revision and report the deployment as not checked until it can be verified.
 
+A Mech recorded without a site that the update check reports as a new site
+gets a full entry in place of its site-less one: its `site` URL, `repository`,
+the `deployed_revision` its browser check saw and a verdict for every catalogue
+feature, with the `note` removed. Judge it with the other sites when the whole
+table is re-judged, or alone as a site-only recheck with its own `checked_on`
+and `scope`. Then correct every statement that it has no website, using the
+list in check-xmech-updates and a search of the whole tree.
+
 `scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
-at a different revision, and marks unverified deployment states `NOT CHECKED`.
+at a different revision, Mechs recorded without a site that GitHub Pages now
+serves (`new site`), and marks unverified deployment states `NOT CHECKED`.
 For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
