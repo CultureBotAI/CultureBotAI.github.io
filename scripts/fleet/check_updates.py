@@ -24,7 +24,8 @@ against CLAW's main for membership and capabilities, a HEAD request for each
 XREFS evidence URL, and, for the website feature table, which is judged on the
 live sites rather than at the pins, whether each Mech site has redeployed since
 the deployment its verdicts describe, and whether a Mech recorded without a site
-has started publishing one, confirmed with a HEAD request to that site.
+has started publishing one, confirmed by a HEAD request to that site that GitHub
+Pages answers.
 """
 from __future__ import annotations
 
@@ -240,17 +241,20 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     queued or have failed, so its latest status must confirm success before
     calling it the served revision. Pages deployments keep that success after
     Pages is turned off, so a Mech without a site counts as a new site only
-    while its repository has Pages enabled (#407), and only once its site
-    answers: the success also outlives an unpublished site and is recorded
-    for runs that skip publishing (#419). Conversely a site can be served with
-    no deployment record, from a deploy job that names no environment or a
-    build older than the records, so a missing record is not "no site" (#418).
+    while its repository has Pages enabled (#407), and only once a HEAD
+    request to its site succeeds: the success also outlives an unpublished
+    site and is recorded for runs that skip publishing (#419). GitHub Pages
+    has to answer that request, since another host can serve a custom domain
+    (#428). Conversely a site can be served with no deployment record, from a
+    deploy job that names no environment or a build older than the records,
+    so a missing record is not "no site" (#418).
 
     States: same and redeployed for a recorded site; new site, or no site
     (Pages not enabled), for a Mech recorded without one; NOT CHECKED for
     either when the served revision cannot be verified or the entry is
     malformed. Read-only: two GETs per recorded site; for a Mech without one,
-    up to four GETs and a HEAD request to its site.
+    up to four GETs, the last of which needs gh's repo scope (#429), and a
+    HEAD request to its site.
     """
     rows = []
     for mech, entry in sorted(features["mechs"].items()):
@@ -293,17 +297,31 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
                              f"latest deployment is {status}; currently served revision not verified"))
                 continue
             if not has_site:
-                pages = api(f"repos/{repo}/pages")
+                try:
+                    pages = api(f"repos/{repo}/pages")
+                except Unchecked as error:
+                    # Unlike the requests above, this one needs gh's repo scope and
+                    # answers 404 without it, even for a public repository (#429).
+                    why = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
+                    raise ValueError(f"repos/{repo}/pages failed ({why}); it needs gh's repo scope") from None
                 url = pages.get("html_url") if isinstance(pages, dict) else None
                 if not (isinstance(url, str) and re.fullmatch(r"https?://\S+", url)):
                     raise ValueError("Pages response has no site URL")
                 try:
-                    opener(urllib.request.Request(url, method="HEAD",
-                                                  headers={"User-Agent": "culturebotai-update-check"}), timeout=30)
+                    with opener(urllib.request.Request(url, method="HEAD",
+                                                       headers={"User-Agent": "culturebotai-update-check"}),
+                                timeout=30) as answer:
+                        headers = answer.headers
                 except urllib.error.HTTPError as error:
                     raise ValueError(f"deployment {sha[:7]} succeeded, but {url} answers {error.code}") from None
                 except (OSError, http.client.HTTPException) as error:  # URLError, timeouts, bad replies
                     raise ValueError(f"{url} did not answer ({error})") from None
+                # html_url follows a custom domain, which another host can serve while
+                # Pages keeps an old successful deployment. GitHub Pages marks each
+                # answer with a request id, also behind a CDN (#428).
+                if headers.get("X-GitHub-Request-Id") is None:
+                    raise ValueError(f"deployment {sha[:7]} succeeded, but {url} is served by "
+                                     f"{headers.get('Server') or 'an unnamed server'}, not GitHub Pages")
         except (Unchecked, KeyError, IndexError, TypeError, ValueError, OSError) as error:
             reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
             rows.append(("NOT CHECKED", mech, reason or "no deployment"))

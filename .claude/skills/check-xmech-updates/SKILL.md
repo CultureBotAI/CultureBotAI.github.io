@@ -28,7 +28,7 @@ question is whether the moves touch anything the page states.
 ### 1. The mechanical pass
 
 ```bash
-python3.12 scripts/fleet/check_updates.py      # about a minute; needs gh and network
+python3.12 scripts/fleet/check_updates.py      # about a minute; needs gh (repo scope) and network
 ```
 
 Use a Python with `scripts/fleet/requirements.txt` installed (3.12 is what CI
@@ -54,11 +54,15 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   records. The table is judged on live sites, not pins, so a redeployment is its
   staleness signal; its evidence URLs are not part of `claims`. A Mech the table
   records without a site is listed as `new site` once its repository has GitHub
-  Pages enabled, its latest deployment has succeeded and its site answers a HEAD
-  request; as `no site` while Pages is not enabled; and as NOT CHECKED
-  otherwise. That includes Pages enabled with no deployment record, since a
-  deploy job that names no environment records none, and a successful deployment
-  whose site does not answer;
+  Pages enabled, its latest deployment has succeeded, and a HEAD request to its
+  site succeeds (no HTTP error status after redirects) and is answered by GitHub
+  Pages; as `no site` while Pages is not enabled; and as NOT CHECKED otherwise.
+  That includes Pages enabled with no deployment record, since a deploy job that
+  names no environment records none, and a successful deployment whose site
+  returns an error status, does not answer, or is served by another host at a
+  custom domain. The site's URL comes from `repos/<repo>/pages`, which needs
+  gh's `repo` scope (Pages read for a fine-grained token), even for a public
+  repository; without it these Mechs read NOT CHECKED, naming that request;
 - a closing line naming everything a refresh would change, and what was not checked.
 
 The compare API lists at most 300 files per repository. Where the report says the
@@ -105,11 +109,13 @@ edit the snapshot.
 Read the named files whole, since their prose wraps across lines. The list is
 not exhaustive, so then search the whole tree, ignored files included except
 Jekyll's build copy in `_site`, for other wordings and for links to the
-repository:
+repository, with `<repo>` the repository name from the entry's `repository`
+field. `command grep` runs the system grep: in Claude Code's shell a plain
+`grep` runs a ugrep wrapper that skips ignored files.
 
 ```bash
-grep -rniE --exclude-dir=.git --exclude-dir=_site 'no (published |public )?(website|browser)' .
-grep -rnE --exclude-dir=.git --exclude-dir=_site 'github\.com/CultureBotAI/<Mech>[)"]' .
+command grep -rniE --exclude-dir=.git --exclude-dir=_site 'no (published |public )?(website|browser)' .
+command grep -rniE --exclude-dir=.git --exclude-dir=_site 'github\.com/CultureBotAI/<repo>[)"]' .
 ```
 
 Leave judging the new site's features to `update-xmech-page`.

@@ -235,8 +235,9 @@ reported for CLAW to correct rather than edited here.
 
 `scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
 at a different revision, and Mechs recorded without a site whose latest
-deployment succeeded and whose site answers (`new site`). It marks unverified
-states `NOT CHECKED`, including Pages enabled with no deployment record.
+deployment succeeded and whose site GitHub Pages serves, confirmed by a HEAD
+request (`new site`). It marks unverified states `NOT CHECKED`, including Pages
+enabled with no deployment record.
 For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
@@ -290,7 +291,8 @@ The card figures are repeated across the site. Update every occurrence, and ever
   cards were checked.
 
 Find stragglers by searching the *old* figures across the whole tree, gitignored
-files included (`grep -rn`, not `rg`), excluding `_site/` and generated files.
+files included (`command grep -rn`, not `rg` or Claude Code's plain `grep`, which
+both skip them), excluding `_site/` and generated files.
 A page that still states an old figure contradicts `/mechs/`, which is worse than
 either being stale alone.
 

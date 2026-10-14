@@ -8,6 +8,7 @@ import sys
 import unittest
 from unittest import mock
 import urllib.error
+import urllib.response
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
@@ -15,14 +16,23 @@ sys.path.insert(0, str(ROOT / "scripts/fleet"))
 import check_updates
 import roots
 
+# What GitHub Pages sent for https://culturebotai.github.io/AIMech/ on 2026-10-14.
+PAGES_ANSWER = {"Server": "GitHub.com", "X-GitHub-Request-Id": "2DC2:26D7FE:9C091:AF2C7:6ACFF425"}
+
 
 def head_requests(answer=None):
-    """A stand-in for urlopen that records each request and raises answer if given."""
+    """A stand-in for urlopen that records each request. It raises answer if it
+    is an exception, and otherwise answers with answer's headers, by default
+    those of a GitHub Pages answer."""
     requests = []
     def opener(request, timeout):
         requests.append((request.get_method(), request.full_url, timeout))
-        if answer is not None:
+        if isinstance(answer, Exception):
             raise answer
+        headers = http.client.HTTPMessage()
+        for name, value in (PAGES_ANSWER if answer is None else answer).items():
+            headers[name] = value
+        return urllib.response.addinfourl(io.BytesIO(), headers, request.full_url, 200)
     return opener, requests
 
 
@@ -224,7 +234,13 @@ class SuiteUpdateTests(unittest.TestCase):
             (site, urllib.error.URLError("no route"), f"{url} did not answer (<urlopen error no route>)"),
             (site, TimeoutError("timed out"), f"{url} did not answer (timed out)"),
             (site, http.client.BadStatusLine("garbage"), f"{url} did not answer (garbage)"),
-            (check_updates.Unchecked(["HTTP 404"]), None, "HTTP 404"),
+            # #428: a custom domain served by another host.
+            (site, {"Server": "Netlify"}, f"deployment eeeeeee succeeded, but {url} is served by Netlify, "
+                                          "not GitHub Pages"),
+            (site, {}, f"deployment eeeeeee succeeded, but {url} is served by an unnamed server, not GitHub Pages"),
+            # #429: the Pages request needs gh's repo scope and answers 404 without it.
+            (check_updates.Unchecked(["gh: Not Found (HTTP 404)"]), None,
+             "repos/CultureBotAI/AIMech/pages failed (gh: Not Found (HTTP 404)); it needs gh's repo scope"),
             ({}, None, "Pages response has no site URL"),
             ({"html_url": None}, None, "Pages response has no site URL"),
             ({"html_url": "ftp://culturebotai.github.io/AIMech/"}, None, "Pages response has no site URL"),
@@ -241,6 +257,47 @@ class SuiteUpdateTests(unittest.TestCase):
                 line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
                 self.assertIn("**Not checked:** site deployment AIMech.", line)
                 self.assertNotIn("new sites", line)
+
+    def test_a_new_site_on_a_custom_domain_must_be_served_by_github_pages(self):
+        # #428: html_url follows a custom domain, which another host can serve
+        # while Pages keeps an old successful deployment. GitHub Pages marks its
+        # answers with a request id, also behind a CDN, and header names can
+        # arrive in lower case.
+        features = {"mechs": {"AIMech": {
+            "site": None, "repository": "https://github.com/CultureBotAI/AIMech",
+            "note": "No published website.",
+        }}}
+        url = "https://www.example.org/"
+        def api(path):
+            if path == "repos/CultureBotAI/AIMech":
+                return {"has_pages": True}
+            if path == "repos/CultureBotAI/AIMech/deployments?environment=github-pages&per_page=1":
+                return [{"id": 9, "sha": "e" * 40, "created_at": "2021-10-27T10:41:39Z"}]
+            if path == "repos/CultureBotAI/AIMech/deployments/9/statuses?per_page=1":
+                return [{"state": "success"}]
+            if path == "repos/CultureBotAI/AIMech/pages":
+                return {"html_url": url, "cname": "www.example.org"}
+            raise AssertionError(f"unexpected request to {path}")
+        behind_a_cdn = {"server": "cloudflare", "x-github-request-id": "F538:1170F3:1359F:16B00:6ACCE13C"}
+        cases = [
+            (behind_a_cdn, ("new site", "AIMech", f"GitHub Pages now serves eeeeeee (deployed 2021-10-27T10:41:39Z) "
+                                                  f"at {url}")),
+            ({"Server": "Netlify"}, ("NOT CHECKED", "AIMech", f"deployment eeeeeee succeeded, but {url} is served "
+                                                              "by Netlify, not GitHub Pages")),
+        ]
+        for answer, row in cases:
+            with self.subTest(answer=answer):
+                opener, requests = head_requests(answer)
+                rows = check_updates.site_feature_check(features, api=api, opener=opener)
+                self.assertEqual(rows, [row])
+                self.assertEqual(requests, [("HEAD", url, 30)])
+                line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                if row[0] == "new site":
+                    self.assertIn("website feature verdicts to judge on new sites: AIMech", line)
+                    self.assertNotIn("Not checked", line)
+                else:
+                    self.assertIn("**Not checked:** site deployment AIMech.", line)
+                    self.assertNotIn("new sites", line)
 
     def test_an_unconfirmed_first_deployment_is_not_claimed_as_a_new_site(self):
         features = {"mechs": {"AIMech": {
@@ -295,6 +352,10 @@ class SuiteUpdateTests(unittest.TestCase):
                 return reply
             return api
         no_gh = FileNotFoundError(2, "No such file or directory", "gh")
+        # CPython 3.11 added ", not 'str'" to this message, so take it from the
+        # running interpreter (#430).
+        with self.assertRaises(TypeError) as str_index:
+            "x"["sha"]
         shared = [
             (answers(deployments=check_updates.Unchecked(["HTTP 502"])), "HTTP 502"),
             (answers(statuses=check_updates.Unchecked(["HTTP 503"])), "HTTP 503"),
@@ -309,7 +370,7 @@ class SuiteUpdateTests(unittest.TestCase):
             # #422: null, non-list and non-object answers end as NOT CHECKED too.
             (answers(deployments=None), "'NoneType' object is not subscriptable"),
             (answers(deployments=""), "string index out of range"),
-            (answers(deployments=["x"]), "string indices must be integers, not 'str'"),
+            (answers(deployments=["x"]), str(str_index.exception)),
             (answers(statuses=None), "'NoneType' object is not subscriptable"),
             (answers(statuses=[None]), "'NoneType' object is not subscriptable"),
         ]
