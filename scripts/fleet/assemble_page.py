@@ -136,6 +136,11 @@ def validate_site_features(features, names):
             # markers that would read as twenty-four separate judgements.
             if "features" in mech or not _text(mech.get("note")):
                 raise ValueError(f"{name}: a Mech without a site needs a note and no feature verdicts")
+            # It may record a Pages deployment an audit judged not to be a website;
+            # the update check then reports only a later one (#409).
+            if "deployed_revision" in mech and not (
+                    isinstance(mech["deployed_revision"], str) and SHA.fullmatch(mech["deployed_revision"])):
+                raise ValueError(f"{name}: deployed_revision must be the full SHA of the deployment judged")
         # Every entry names its repository: the update check reads it to notice
         # when a Mech without a site starts publishing one (#405, #410).
         if not (isinstance(mech.get("repository"), str) and REPOSITORY.fullmatch(mech["repository"])):

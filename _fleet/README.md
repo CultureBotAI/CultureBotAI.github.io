@@ -16,7 +16,10 @@
   column order; every feature in exactly one group) and `catalogue` (per feature: `label`,
   `definition` and optional `criteria`, shown on the page). `mechs` has one entry per suite
   Mech: `site` (https URL, or `null` for a Mech without a website, which then carries its
-  `repository` and a `note` but no `features`), `repository` (required on every entry, since
+  `repository` and a `note` but no `features`; if an audit judged what GitHub Pages serves
+  for it not to be a website, such as a placeholder, it also carries that deployment's full
+  SHA as `deployed_revision` and its `note` says why, so the update checker reports only a
+  later deployment), `repository` (required on every entry, since
   the update checker reads it to notice a new site), `deployed_revision` (the full SHA of the
   successful github-pages deployment the browser check saw) and `features`, one verdict per catalogue feature
   with `status` (`present`, `partial`, `missing`, `not_applicable` or `unknown`), `note`

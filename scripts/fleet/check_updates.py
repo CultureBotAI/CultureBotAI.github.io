@@ -23,9 +23,9 @@ It also runs check_cards.check() for the card figures, refresh_manifest --check
 against CLAW's main for membership and capabilities, a HEAD request for each
 XREFS evidence URL, and, for the website feature table, which is judged on the
 live sites rather than at the pins, whether each Mech site has redeployed since
-the deployment its verdicts describe, and whether a Mech recorded without a site
-has started publishing one, confirmed by a HEAD request to that site that GitHub
-Pages answers.
+the deployment its verdicts describe or is no longer published, and whether a
+Mech recorded without a site has started publishing one, each confirmed by a
+HEAD request to the site that GitHub Pages answers.
 """
 from __future__ import annotations
 
@@ -239,22 +239,24 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     is checked too, since its first successful deployment leaves the table
     calling a published site absent (#405). A deployment request can still be
     queued or have failed, so its latest status must confirm success before
-    calling it the served revision. Pages deployments keep that success after
-    Pages is turned off, so a Mech without a site counts as a new site only
-    while its repository has Pages enabled (#407), and only once a HEAD
-    request to its site succeeds: the success also outlives an unpublished
-    site and is recorded for runs that skip publishing (#419). GitHub Pages
-    has to answer that request, since another host can serve a custom domain
-    (#428). Conversely a site can be served with no deployment record, from a
-    deploy job that names no environment or a build older than the records,
-    so a missing record is not "no site" (#418).
+    calling it the served revision. That success outlives Pages being turned
+    off, the site being unpublished and runs that skip publishing, so a site
+    counts as served only while its repository has Pages enabled (#407, #408)
+    and only once a HEAD request to it succeeds (#419), answered by GitHub
+    Pages rather than another host at a custom domain (#428). Conversely a site
+    can be served with no deployment record, from a deploy job that names no
+    environment or a build older than the records, so a missing record is not
+    "no site" (#418). A Mech recorded without a site may carry the
+    deployed_revision an audit judged not to be a website, which is then not
+    reported again (#409).
 
-    States: same and redeployed for a recorded site; new site, or no site
-    (Pages not enabled), for a Mech recorded without one; NOT CHECKED for
-    either when the served revision cannot be verified or the entry is
-    malformed. Read-only: two GETs per recorded site; for a Mech without one,
-    up to four GETs, the last of which needs gh's repo scope (#429), and a
-    HEAD request to its site.
+    States: same and redeployed for a recorded site that is still served, gone
+    once its repository no longer has Pages enabled; new site, or no site (Pages
+    not enabled, or still serving the revision judged not to be a website), for
+    a Mech recorded without one; NOT CHECKED for either when the served revision
+    cannot be verified or the entry is malformed. Read-only: per Mech up to three
+    GETs and a HEAD request to its site, plus for a Mech without a site the GET of
+    its Pages settings, which needs gh's repo scope (#429).
     """
     rows = []
     for mech, entry in sorted(features["mechs"].items()):
@@ -265,18 +267,21 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
                     re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", repository)):
                 raise ValueError("repository must be a GitHub repository URL")
             repo = repository.removeprefix("https://github.com/").rstrip("/")
-            if has_site:
-                recorded = entry["deployed_revision"]
-                if not (isinstance(recorded, str) and re.fullmatch(r"[0-9a-f]{40}", recorded)):
-                    raise ValueError("deployed_revision must be a full commit SHA")
-            else:
-                about = api(f"repos/{repo}")
-                has_pages = about.get("has_pages") if isinstance(about, dict) else None
-                if not isinstance(has_pages, bool):
-                    raise ValueError("repository response has no has_pages flag")
-                if not has_pages:
-                    rows.append(("no site", mech, "GitHub Pages is not enabled"))
-                    continue
+            if has_site and not (isinstance(entry["site"], str) and re.fullmatch(r"https://\S+", entry["site"])):
+                raise ValueError("site must be an https URL")
+            has_revision = has_site or "deployed_revision" in entry
+            recorded = entry["deployed_revision"] if has_revision else None
+            if has_revision and not (isinstance(recorded, str) and re.fullmatch(r"[0-9a-f]{40}", recorded)):
+                raise ValueError("deployed_revision must be a full commit SHA")
+            about = api(f"repos/{repo}")
+            has_pages = about.get("has_pages") if isinstance(about, dict) else None
+            if not isinstance(has_pages, bool):
+                raise ValueError("repository response has no has_pages flag")
+            if not has_pages:
+                rows.append(("gone", mech, f"GitHub Pages is no longer enabled; the table still describes "
+                                           f"{entry['site']}") if has_site
+                            else ("no site", mech, "GitHub Pages is not enabled"))
+                continue
             deployments = api(f"repos/{repo}/deployments?environment=github-pages&per_page=1")
             if deployments == []:
                 raise ValueError("no GitHub Pages deployment" if has_site
@@ -296,7 +301,12 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
                 rows.append(("NOT CHECKED", mech,
                              f"latest deployment is {status}; currently served revision not verified"))
                 continue
-            if not has_site:
+            if not has_site and sha == recorded:
+                rows.append(("no site", mech, f"GitHub Pages still serves {sha[:7]}, judged not to be a website"))
+                continue
+            if has_site:
+                url = entry["site"]
+            else:
                 try:
                     pages = api(f"repos/{repo}/pages")
                 except Unchecked as error:
@@ -307,27 +317,28 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
                 url = pages.get("html_url") if isinstance(pages, dict) else None
                 if not (isinstance(url, str) and re.fullmatch(r"https?://\S+", url)):
                     raise ValueError("Pages response has no site URL")
-                try:
-                    with opener(urllib.request.Request(url, method="HEAD",
-                                                       headers={"User-Agent": "culturebotai-update-check"}),
-                                timeout=30) as answer:
-                        headers = answer.headers
-                except urllib.error.HTTPError as error:
-                    raise ValueError(f"deployment {sha[:7]} succeeded, but {url} answers {error.code}") from None
-                except (OSError, http.client.HTTPException) as error:  # URLError, timeouts, bad replies
-                    raise ValueError(f"{url} did not answer ({error})") from None
-                # html_url follows a custom domain, which another host can serve while
-                # Pages keeps an old successful deployment. GitHub Pages marks each
-                # answer with a request id, also behind a CDN (#428).
-                if headers.get("X-GitHub-Request-Id") is None:
-                    raise ValueError(f"deployment {sha[:7]} succeeded, but {url} is served by "
-                                     f"{headers.get('Server') or 'an unnamed server'}, not GitHub Pages")
+            try:
+                with opener(urllib.request.Request(url, method="HEAD",
+                                                   headers={"User-Agent": "culturebotai-update-check"}),
+                            timeout=30) as answer:
+                    headers = answer.headers
+            except urllib.error.HTTPError as error:
+                raise ValueError(f"deployment {sha[:7]} succeeded, but {url} answers {error.code}") from None
+            except (OSError, http.client.HTTPException) as error:  # URLError, timeouts, bad replies
+                raise ValueError(f"{url} did not answer ({error})") from None
+            # A custom domain can be served by another host while Pages keeps an
+            # old successful deployment. GitHub Pages marks each answer with a
+            # request id, also behind a CDN (#428).
+            if headers.get("X-GitHub-Request-Id") is None:
+                raise ValueError(f"deployment {sha[:7]} succeeded, but {url} is served by "
+                                 f"{headers.get('Server') or 'an unnamed server'}, not GitHub Pages")
         except (Unchecked, KeyError, IndexError, TypeError, ValueError, OSError) as error:
             reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
             rows.append(("NOT CHECKED", mech, reason or "no deployment"))
             continue
         if not has_site:
-            rows.append(("new site", mech, f"GitHub Pages now serves {sha[:7]} (deployed {when}) at {url}"))
+            earlier = f"; the table judged {recorded[:7]} not to be a website" if recorded else ""
+            rows.append(("new site", mech, f"GitHub Pages now serves {sha[:7]} (deployed {when}) at {url}{earlier}"))
         elif sha == recorded:
             rows.append(("same", mech, f"still serves {sha[:7]}"))
         else:
@@ -396,6 +407,9 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
     redeployed = [m for s, m, _ in sites if s == "redeployed"]
     if redeployed:
         parts.append("website feature verdicts to re-check on redeployed sites: " + ", ".join(redeployed))
+    gone = [m for s, m, _ in sites if s == "gone"]
+    if gone:
+        parts.append("website feature rows of sites no longer published: " + ", ".join(gone))
     new_sites = [m for s, m, _ in sites if s == "new site"]
     if new_sites:
         parts.append("website feature verdicts to judge on new sites: " + ", ".join(new_sites))

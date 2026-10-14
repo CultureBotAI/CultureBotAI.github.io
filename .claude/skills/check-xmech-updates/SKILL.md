@@ -52,17 +52,21 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
 - per Mech site, whether GitHub Pages has deployed it again since the
   `deployed_revision` the website feature table (`_fleet/data/site_features.json`)
   records. The table is judged on live sites, not pins, so a redeployment is its
-  staleness signal; its evidence URLs are not part of `claims`. A Mech the table
-  records without a site is listed as `new site` once its repository has GitHub
-  Pages enabled, its latest deployment has succeeded, and a HEAD request to its
-  site succeeds (no HTTP error status after redirects) and is answered by GitHub
-  Pages; as `no site` while Pages is not enabled; and as NOT CHECKED otherwise.
-  That includes Pages enabled with no deployment record, since a deploy job that
-  names no environment records none, and a successful deployment whose site
-  returns an error status, does not answer, or is served by another host at a
-  custom domain. The site's URL comes from `repos/<repo>/pages`, which needs
-  gh's `repo` scope (Pages read for a fine-grained token), even for a public
-  repository; without it these Mechs read NOT CHECKED, naming that request;
+  staleness signal; its evidence URLs are not part of `claims`. A site counts as
+  served only while its repository has GitHub Pages enabled, its latest
+  deployment has succeeded, and a HEAD request to it succeeds (no HTTP error
+  status after redirects) and is answered by GitHub Pages. A recorded site that
+  is served is `same` or `redeployed`; one whose repository no longer has Pages
+  enabled is `gone`. A Mech the table records without a site is `new site` once
+  its site is served, and `no site` while Pages is not enabled or while Pages
+  still serves the `deployed_revision` an audit judged not to be a website. Any
+  other state is NOT CHECKED: that includes Pages enabled with no deployment
+  record, since a deploy job that names no environment records none, and a
+  successful deployment whose site returns an error status, does not answer,
+  or is served by another host at a custom domain. A new site's URL comes from
+  `repos/<repo>/pages`, which needs gh's `repo` scope (Pages read for a
+  fine-grained token), even for a public repository; without it these Mechs
+  read NOT CHECKED, naming that request;
 - a closing line naming everything a refresh would change, and what was not checked.
 
 The compare API lists at most 300 files per repository. Where the report says the
@@ -119,6 +123,11 @@ command grep -rniE --exclude-dir=.git --exclude-dir=_site 'github\.com/CultureBo
 ```
 
 Leave judging the new site's features to `update-xmech-page`.
+
+For a Mech reported as `gone`, the reverse holds: its feature row and every
+statement or link that presents its site describe a site that is no longer
+published. Report them; the same places and the link search, run for the site's
+URL, find them.
 
 Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;

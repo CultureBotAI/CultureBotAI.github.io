@@ -156,6 +156,19 @@ class SiteFeatureTests(unittest.TestCase):
         notes = section(page, '<details class="fleet-site-notes">', "</details>")
         self.assertIn("<h4>DUFMech</h4><p>No published website yet.</p>", notes)
 
+    def test_a_mech_without_a_site_can_record_a_deployment_judged_not_a_website(self):
+        # #409: the update check then reports only a later deployment; the page
+        # still shows the entry's note as its one cell.
+        changed = self.without_site()
+        changed["mechs"]["DUFMech"].update(deployed_revision="9d7a87f74786813fcdf65801bdf940d79cc7a56e",
+                                           note="GitHub Pages serves only a placeholder page.")
+        validate_site_features(changed, self.names)
+        table = self.table(changed)
+        row = next(r for r in self.body_rows(table) if ">DUFMech</th>" in r)
+        self.assertEqual(row.count("<td"), 1)
+        notes = section(self.render(changed), '<details class="fleet-site-notes">', "</details>")
+        self.assertIn("<h4>DUFMech</h4><p>GitHub Pages serves only a placeholder page.</p>", notes)
+
     def test_missing_or_invented_entries_fail_closed(self):
         name = next(n for n, m in self.features["mechs"].items() if m.get("site"))
         other = next(n for n, m in self.features["mechs"].items() if m.get("site") and n != name)
@@ -196,6 +209,11 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x"}), "repository must be"),
             (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": "https://example.org/x"}),
              "repository must be"),
+            # #409: a deployment judged not to be a website is recorded as a full SHA.
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": f["mechs"][other]["repository"],
+                                                      "deployed_revision": "f23f307"}), "deployment judged"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": f["mechs"][other]["repository"],
+                                                      "deployed_revision": None}), "deployment judged"),
         ]):
             with self.subTest(case=case, message=message):
                 changed = deepcopy(self.features)

@@ -106,6 +106,8 @@ class SuiteUpdateTests(unittest.TestCase):
             "EMech": {"site": None, "repository": "https://github.com/CultureBotAI/EMech", "note": "No site."},
         }}
         def api(path):
+            if path in ("repos/CultureBotAI/AMech", "repos/CultureBotAI/BMech"):
+                return {"has_pages": True}
             if "/statuses?" in path:
                 return [{"state": "success"}]
             if "AMech" in path:
@@ -115,7 +117,8 @@ class SuiteUpdateTests(unittest.TestCase):
             if path == "repos/CultureBotAI/DMech":
                 return {"has_pages": False}
             raise check_updates.Unchecked(["HTTP 502"])
-        rows = check_updates.site_feature_check(features, api=api, opener=no_request)
+        opener, requests = head_requests()
+        rows = check_updates.site_feature_check(features, api=api, opener=opener)
         self.assertEqual(rows, [
             ("same", "AMech", "still serves aaaaaaa"),
             ("redeployed", "BMech", "bbbbbbb when checked, now ddddddd (deployed 2026-10-06T09:00:00Z)"),
@@ -123,6 +126,8 @@ class SuiteUpdateTests(unittest.TestCase):
             ("no site", "DMech", "GitHub Pages is not enabled"),
             ("NOT CHECKED", "EMech", "HTTP 502"),
         ])
+        # #408: a recorded site counts as served only once it answers.
+        self.assertEqual(requests, [("HEAD", "https://example.org/a/", 30), ("HEAD", "https://example.org/b/", 30)])
         line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
         self.assertIn("website feature verdicts to re-check on redeployed sites: BMech", line)
         self.assertIn("**Not checked:** site deployment CMech, site deployment EMech.", line)
@@ -324,10 +329,115 @@ class SuiteUpdateTests(unittest.TestCase):
             "site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",
             "deployed_revision": "a" * 40,
         }}}
-        rows = check_updates.site_feature_check(features, api=lambda path: [], opener=no_request)
+        def api(path):
+            return {"has_pages": True} if path == "repos/CultureBotAI/AMech" else []
+        rows = check_updates.site_feature_check(features, api=api, opener=no_request)
         self.assertEqual(rows, [("NOT CHECKED", "AMech", "no GitHub Pages deployment")])
         line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
         self.assertIn("**Not checked:** site deployment AMech.", line)
+
+    def test_a_recorded_site_is_gone_once_pages_is_turned_off(self):
+        # #408: a deployment keeps its success after Pages is turned off, so a
+        # recorded site whose repository no longer has Pages enabled is no
+        # longer published, and its row is something a refresh has to change.
+        features = {"mechs": {"AMech": {
+            "site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",
+            "deployed_revision": "a" * 40,
+        }}}
+        def api(path):
+            if path == "repos/CultureBotAI/AMech":
+                return {"has_pages": False}
+            raise AssertionError(f"unexpected request to {path}")
+        rows = check_updates.site_feature_check(features, api=api, opener=no_request)
+        self.assertEqual(rows, [("gone", "AMech", "GitHub Pages is no longer enabled; the table still describes "
+                                                  "https://example.org/a/")])
+        line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+        self.assertIn("website feature rows of sites no longer published: AMech.", line)
+        self.assertNotIn("Not checked", line)
+
+    def test_a_recorded_site_must_still_answer_from_github_pages(self):
+        # #408: an unpublished site keeps both Pages and its successful
+        # deployment, so a recorded site counts as served only once it answers,
+        # and from GitHub Pages rather than another host (#428).
+        features = {"mechs": {"AMech": {
+            "site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",
+            "deployed_revision": "a" * 40,
+        }}}
+        url = "https://example.org/a/"
+        def api(path):
+            if path == "repos/CultureBotAI/AMech":
+                return {"has_pages": True}
+            if path == "repos/CultureBotAI/AMech/deployments?environment=github-pages&per_page=1":
+                return [{"id": 7, "sha": "a" * 40, "created_at": "2026-10-05T16:00:00Z"}]
+            if path == "repos/CultureBotAI/AMech/deployments/7/statuses?per_page=1":
+                return [{"state": "success"}]
+            raise AssertionError(f"unexpected request to {path}")
+        cases = [
+            (None, ("same", "AMech", "still serves aaaaaaa")),
+            (urllib.error.HTTPError(url, 404, "Not Found", {}, None),
+             ("NOT CHECKED", "AMech", f"deployment aaaaaaa succeeded, but {url} answers 404")),
+            (urllib.error.URLError("no route"), ("NOT CHECKED", "AMech", f"{url} did not answer (<urlopen error no route>)")),
+            ({"Server": "Netlify"}, ("NOT CHECKED", "AMech", f"deployment aaaaaaa succeeded, but {url} is served by "
+                                                             "Netlify, not GitHub Pages")),
+        ]
+        for answer, row in cases:
+            with self.subTest(row=row):
+                opener, requests = head_requests(answer)
+                rows = check_updates.site_feature_check(features, api=api, opener=opener)
+                self.assertEqual(rows, [row])
+                self.assertEqual(requests, [("HEAD", url, 30)])
+                line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                if row[0] == "same":
+                    self.assertIn("Refresh would change:** nothing found.", line)
+                    self.assertNotIn("Not checked", line)
+                else:
+                    self.assertIn("**Not checked:** site deployment AMech.", line)
+        for site in ("http://example.org/a/", "example.org/a/", "https://example.org/a b/", 12):
+            with self.subTest(site=site):
+                api = mock.Mock(side_effect=AssertionError("an invalid site must not make an API request"))
+                rows = check_updates.site_feature_check({"mechs": {"AMech": dict(features["mechs"]["AMech"], site=site)}},
+                                                        api=api, opener=no_request)
+                self.assertEqual(rows, [("NOT CHECKED", "AMech", "site must be an https URL")])
+                api.assert_not_called()
+
+    def test_a_deployment_judged_not_to_be_a_website_is_not_reported_again(self):
+        # #409: an audit can find that what Pages serves for a Mech is not a
+        # website (a placeholder, a rendered README); the site-less entry records
+        # that deployment, and only a later one is reported.
+        judged = {"site": None, "repository": "https://github.com/CultureBotAI/AIMech",
+                  "note": "GitHub Pages serves only a placeholder page.", "deployed_revision": "e" * 40}
+        def answers(sha):
+            def api(path):
+                if path == "repos/CultureBotAI/AIMech":
+                    return {"has_pages": True}
+                if path == "repos/CultureBotAI/AIMech/deployments?environment=github-pages&per_page=1":
+                    return [{"id": 9, "sha": sha, "created_at": "2026-10-14T08:22:48Z"}]
+                if path == "repos/CultureBotAI/AIMech/deployments/9/statuses?per_page=1":
+                    return [{"state": "success"}]
+                if path == "repos/CultureBotAI/AIMech/pages":
+                    return {"html_url": "https://culturebotai.github.io/AIMech/"}
+                raise AssertionError(f"unexpected request to {path}")
+            return api
+        rows = check_updates.site_feature_check({"mechs": {"AIMech": judged}}, api=answers("e" * 40), opener=no_request)
+        self.assertEqual(rows, [("no site", "AIMech", "GitHub Pages still serves eeeeeee, judged not to be a website")])
+        line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+        self.assertIn("Refresh would change:** nothing found.", line)
+        self.assertNotIn("Not checked", line)
+        opener, requests = head_requests()
+        rows = check_updates.site_feature_check({"mechs": {"AIMech": judged}}, api=answers("f" * 40), opener=opener)
+        self.assertEqual(rows, [("new site", "AIMech", "GitHub Pages now serves fffffff (deployed 2026-10-14T08:22:48Z) "
+                                                       "at https://culturebotai.github.io/AIMech/; the table judged "
+                                                       "eeeeeee not to be a website")])
+        self.assertEqual(requests, [("HEAD", "https://culturebotai.github.io/AIMech/", 30)])
+        line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+        self.assertIn("website feature verdicts to judge on new sites: AIMech.", line)
+        for revision in ("e" * 39, "E" * 40, 7, None):
+            with self.subTest(deployed_revision=revision):
+                api = mock.Mock(side_effect=AssertionError("an invalid revision must not make an API request"))
+                rows = check_updates.site_feature_check({"mechs": {"AIMech": dict(judged, deployed_revision=revision)}},
+                                                        api=api, opener=no_request)
+                self.assertEqual(rows, [("NOT CHECKED", "AIMech", "deployed_revision must be a full commit SHA")])
+                api.assert_not_called()
 
     def test_every_failed_or_malformed_answer_is_not_checked(self):
         # #413, #414: a check that could not finish must say so for either kind
@@ -373,14 +483,15 @@ class SuiteUpdateTests(unittest.TestCase):
             (answers(deployments=["x"]), str(str_index.exception)),
             (answers(statuses=None), "'NoneType' object is not subscriptable"),
             (answers(statuses=[None]), "'NoneType' object is not subscriptable"),
+            # #408: recorded sites read the repository's has_pages flag too.
+            (answers(repo=check_updates.Unchecked(["HTTP 404"])), "HTTP 404"),
+            (answers(repo={}), "repository response has no has_pages flag"),
+            (answers(repo={"has_pages": "yes"}), "repository response has no has_pages flag"),
+            (answers(repo=[]), "repository response has no has_pages flag"),
         ]
         cases = [(recorded, api, detail) for api, detail in shared]
         cases += [(siteless, api, detail) for api, detail in shared]
         cases += [
-            (siteless, answers(repo=check_updates.Unchecked(["HTTP 404"])), "HTTP 404"),
-            (siteless, answers(repo={}), "repository response has no has_pages flag"),
-            (siteless, answers(repo={"has_pages": "yes"}), "repository response has no has_pages flag"),
-            (siteless, answers(repo=[]), "repository response has no has_pages flag"),
             (dict(recorded, deployed_revision="abc"), answers(), "deployed_revision must be a full commit SHA"),
         ]
         for entry, api, detail in cases:
@@ -466,7 +577,9 @@ class SuiteUpdateTests(unittest.TestCase):
         self.assertIn("- new site CMMMech (recorded without a site): GitHub Pages now serves ccccccc "
                       "(deployed 2026-10-07T09:00:00Z) at https://culturebotai.github.io/CMMMech/\n", output)
         self.assertIn("- no site AIMech (recorded without a site): GitHub Pages is not enabled\n", output)
-        self.assertEqual(self.site_requests, [("HEAD", "https://culturebotai.github.io/CMMMech/", 30)])
+        self.assertEqual(self.site_requests, [("HEAD", "https://culturebotai.github.io/CMMMech/", 30),
+                                              ("HEAD", "https://example.org/duf/", 30),
+                                              ("HEAD", "https://example.org/trait/", 30)])
         self.assertNotIn("CMMMech (audit date", output)
         self.assertIn("website feature verdicts to re-check on redeployed sites: DUFMech; "
                       "website feature verdicts to judge on new sites: CMMMech.", output)
@@ -482,7 +595,9 @@ class SuiteUpdateTests(unittest.TestCase):
         self.assertIn("- NOT CHECKED HabitatMech (audit date: 2026-10-05): HTTP 502\n", output)
         self.assertIn("**Not checked:** site deployment AIMech, site deployment CMMMech, "
                       "site deployment HabitatMech.", output)
-        self.assertEqual(self.site_requests, [])
+        # Only the two sites that reached a successful deployment are requested.
+        self.assertEqual(self.site_requests, [("HEAD", "https://example.org/duf/", 30),
+                                              ("HEAD", "https://example.org/trait/", 30)])
 
     def test_unsuccessful_deployment_requests_are_not_claimed_as_served(self):
         features = {"mechs": {"AMech": {
@@ -495,6 +610,8 @@ class SuiteUpdateTests(unittest.TestCase):
                     calls = []
                     def api(path):
                         calls.append(path)
+                        if path == "repos/CultureBotAI/AMech":
+                            return {"has_pages": True}
                         if path.endswith("/statuses?per_page=1"):
                             return [{"state": state}]
                         return [{"id": 7, "sha": sha, "created_at": "2026-10-05T16:00:00Z"}]
@@ -512,6 +629,8 @@ class SuiteUpdateTests(unittest.TestCase):
             "deployed_revision": "a" * 40,
         }}}
         def api(path):
+            if path == "repos/CultureBotAI/AMech":
+                return {"has_pages": True}
             if "/statuses?" in path:
                 raise check_updates.Unchecked(["HTTP 502"])
             return [{"id": 8, "sha": "a" * 40}]
