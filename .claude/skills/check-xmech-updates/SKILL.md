@@ -78,9 +78,10 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   make on every push to main and some only when site files change or on a
   schedule (a scheduled run deploys main's head, a new commit once main has
   moved); that deployment reads `new site` again, naming the judged revision. A
-  redeployment of the same commit, such as a re-run or a scheduled run while
-  main has not moved, is not reported, for a judged revision or a recorded one
-  (#487). Any other state
+  successful redeployment of the same commit that published, such as a re-run
+  or a scheduled run while main has not moved, is not reported, for a judged
+  revision or a recorded one (#487); one still in progress, or one that
+  published nothing, reads NOT CHECKED like any other deployment. Any other state
   is NOT CHECKED: that includes Pages enabled with no deployment record, since a
   deploy job that names no environment records none; at the recorded revision,
   a successful deployment whose site returns an error status, does not answer,
@@ -92,7 +93,9 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   whose URL now redirects. The table accepts only https URLs, so a redirect to
   http leaves the recorded URL as it is, and a row whose failure came through a
   redirect needs a browser check instead. A new site's URL comes from
-  `repos/<repo>/pages`, which needs gh's `repo` scope (Pages read for a
+  `repos/<repo>/pages` and can be http where a custom domain does not enforce
+  HTTPS, which the table refuses (see update-xmech-page). The request needs gh's
+  `repo` scope (Pages read for a
   fine-grained token), even for a public repository; without it these Mechs
   read NOT CHECKED, naming that request;
 - a closing line naming everything a refresh would change, and what was not checked.

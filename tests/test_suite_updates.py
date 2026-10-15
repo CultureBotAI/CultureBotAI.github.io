@@ -302,8 +302,8 @@ class SuiteUpdateTests(unittest.TestCase):
         self.assertEqual(rows, [("NOT CHECKED", "AIMech", f"deployment eeeeeee succeeded, but {url} "
                                                           "(redirected to javascript:void(0)) answers 301")])
         # A redirect to a custom domain that GitHub Pages serves is still a new
-        # site, named where it ended, which is what a refresh would record, and
-        # so is one at a domain that merely ends in github.com (#462).
+        # site, named where it ended, which a refresh records when it is https
+        # (#492), and so is one at a domain that merely ends in github.com (#462).
         for final in ("https://www.example.org/", "https://www.notgithub.com/"):
             with self.subTest(final=final):
                 opener, requests = head_requests(final=final)
@@ -476,7 +476,8 @@ class SuiteUpdateTests(unittest.TestCase):
         cases += [
             ("a" * 40, None, None, ("same", "AMech", "still serves aaaaaaa")),
             ("b" * 40, None, None, ("redeployed", "AMech", since)),
-            # #454: a passing row names a redirect too, since the site should move.
+            # #454: a passing row names a redirect too; the site moves only to an
+            # https end (#488, #493).
             ("a" * 40, None, moved, ("same", "AMech", f"still serves aaaaaaa at {url} (redirected to {moved})")),
             ("b" * 40, None, moved, ("redeployed", "AMech", f"{since} at {url} (redirected to {moved})")),
             # #488: the table takes only https, so a redirect to http is not a move

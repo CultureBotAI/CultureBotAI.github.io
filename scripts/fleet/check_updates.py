@@ -297,9 +297,10 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     site files change or on a schedule (a scheduled run deploys main's head, a
     new commit once main has moved); that deployment reads as a new site
     again, to be judged (#447, #465, #489). The comparison is by commit, so a
-    redeployment of the same commit, such as a re-run or a scheduled run while
-    main has not moved, keeps a judged revision and leaves a recorded site
-    same (#484, #487).
+    successful redeployment of the same commit that published, such as a
+    re-run or a scheduled run while main has not moved, keeps a judged
+    revision and leaves a recorded site same; one still in progress or one
+    that published nothing is NOT CHECKED (#484, #487, #494).
     NOT CHECKED for either when the served revision cannot be verified or the
     entry is malformed. Read-only: per Mech up to three GETs and a HEAD request
     to its site (urllib follows redirects), plus for a Mech without a site the

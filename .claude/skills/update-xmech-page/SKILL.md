@@ -227,7 +227,9 @@ earlier deployment published, so check too that the site's `Last-Modified`
 date (`curl -sI <site>`) is no earlier than the deployment's `created_at`.
 
 A Mech recorded without a site that the update check reports as a new site
-gets a full entry in place of its site-less one: its `site` URL, `repository`,
+gets a full entry in place of its site-less one: its `site` URL (https: where
+the check names an http URL, record its https form once it is checked to be
+served by GitHub Pages, or the site's github.io URL), `repository`,
 the `deployed_revision` its browser check saw and a verdict for every catalogue
 feature, with the `note` removed. Judge it with the other sites when the whole
 table is re-judged, or alone as a site-only recheck with its own `checked_on`
