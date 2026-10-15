@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import glob
 import os
+import re
 import subprocess
 import unicodedata
 
@@ -79,6 +80,11 @@ ORDER = list(RECORD_GLOBS)
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
             "PNNLDH", "CELEX", "arXiv"]
+
+# A website feature table site: https, then printable ASCII with no spaces, so
+# that urllib can request every value the validator accepts (#439, #456). The
+# validator and the update check share it, so the two cannot drift (#459).
+SITE_URL = re.compile(r"https://[!-~]+")
 
 
 def mech_root(name: str) -> str:

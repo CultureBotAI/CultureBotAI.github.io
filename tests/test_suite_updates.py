@@ -16,10 +16,16 @@ sys.path.insert(0, str(ROOT / "scripts/fleet"))
 import check_updates
 import roots
 
-# What GitHub Pages sent for https://culturebotai.github.io/AIMech/ on
-# 2026-10-15 (UTC), 14 seconds after the deployment it published was created.
-PAGES_ANSWER = {"Server": "GitHub.com", "Last-Modified": "Thu, 15 Oct 2026 00:48:08 GMT",
-                "X-GitHub-Request-Id": "D1A0:FFAF7:DAD40:F635C:6AD025B3"}
+# What urllib got from GitHub Pages for https://culturebotai.github.io/AIMech/
+# at 03:36 UTC on 2026-10-15. Its Last-Modified is 13 seconds after the
+# deployment that published it (c6b01e1) was created.
+PAGES_ANSWER = {"Server": "GitHub.com", "Last-Modified": "Thu, 15 Oct 2026 03:20:14 GMT",
+                "ETag": '"6ad0466e-132"', "X-GitHub-Request-Id": "E3E8:253BEB:100CB8:1223A9:6AD04A2A",
+                "Date": "Thu, 15 Oct 2026 03:36:10 GMT"}
+# And for a missing page on a live site at the same time: a GitHub Pages error
+# answer has no Last-Modified (#457).
+PAGES_404 = {"Server": "GitHub.com", "ETag": '"6ad03935-d10"', "X-GitHub-Request-Id": "9B50:E2ADC:10268F:123DBA:6AD04A2A",
+             "Date": "Thu, 15 Oct 2026 03:36:10 GMT"}
 
 
 def message(answer):
@@ -43,7 +49,7 @@ def head_requests(answer=None, final=None):
     return opener, requests
 
 
-def pages_error(url, code, answer=PAGES_ANSWER):
+def pages_error(url, code, answer=PAGES_404):
     """The HTTPError urlopen raises for an error status that GitHub Pages sent."""
     return urllib.error.HTTPError(url, code, "Not Found" if code == 404 else "Error", message(answer), None)
 
@@ -275,30 +281,41 @@ class SuiteUpdateTests(unittest.TestCase):
                 self.assertIn("**Not checked:** site deployment AIMech.", line)
                 self.assertNotIn("new sites", line)
         # #434, #440: a detail names where a redirect ended, and a GitHub page,
-        # which carries a request id too, is not a GitHub Pages site.
-        repository = "https://github.com/CultureBotAI/AIMech"
+        # which carries a request id too, is not a GitHub Pages site, whatever
+        # the case of its host or its port (#462).
+        github = "a GitHub host rather than a Mech's Pages site"
         for answer, final, detail in (
-                (PAGES_ANSWER, repository, f"{url} (redirected to {repository}) is on github.com, "
-                                           "where GitHub Pages serves no site"),
-                ({"Server": "Netlify"}, "https://www.example.org/", f"{url} (redirected to https://www.example.org/) "
-                                                                    "is served by Netlify, not GitHub Pages")):
+                (PAGES_ANSWER, "https://github.com/CultureBotAI/AIMech", f"is on github.com, {github}"),
+                (PAGES_ANSWER, "https://GitHub.com/CultureBotAI/AIMech", f"is on github.com, {github}"),
+                (PAGES_ANSWER, "https://github.com:443/CultureBotAI/AIMech", f"is on github.com, {github}"),
+                ({"Server": "Netlify"}, "https://www.example.org/", "is served by Netlify, not GitHub Pages")):
             with self.subTest(final=final):
                 opener, requests = head_requests(answer, final)
                 rows = check_updates.site_feature_check(features, api=answers(site), opener=opener)
-                self.assertEqual(rows, [("NOT CHECKED", "AIMech", f"deployment eeeeeee succeeded, but {detail}")])
+                self.assertEqual(rows, [("NOT CHECKED", "AIMech", f"deployment eeeeeee succeeded, but {url} "
+                                                                  f"(redirected to {final}) {detail}")])
                 self.assertEqual(requests, [("HEAD", url, 30)])
+        # #471: urllib refuses a redirect to another scheme with an HTTPError
+        # naming that target, which has no host.
+        refused = pages_error("javascript:void(0)", 301)
+        rows = check_updates.site_feature_check(features, api=answers(site), opener=head_requests(refused)[0])
+        self.assertEqual(rows, [("NOT CHECKED", "AIMech", f"deployment eeeeeee succeeded, but {url} "
+                                                          "(redirected to javascript:void(0)) answers 301")])
         # A redirect to a custom domain that GitHub Pages serves is still a new
-        # site, named where it ended, which is what a refresh would record.
-        opener, requests = head_requests(final="https://www.example.org/")
-        rows = check_updates.site_feature_check(features, api=answers(site), opener=opener)
-        self.assertEqual(rows, [("new site", "AIMech", f"GitHub Pages now serves eeeeeee (deployed 2026-10-12T23:48:02Z) "
-                                                       f"at {url} (redirected to https://www.example.org/)")])
+        # site, named where it ended, which is what a refresh would record, and
+        # so is one at a domain that merely ends in github.com (#462).
+        for final in ("https://www.example.org/", "https://www.notgithub.com/"):
+            with self.subTest(final=final):
+                opener, requests = head_requests(final=final)
+                rows = check_updates.site_feature_check(features, api=answers(site), opener=opener)
+                self.assertEqual(rows, [("new site", "AIMech", "GitHub Pages now serves eeeeeee (deployed "
+                                                               f"2026-10-12T23:48:02Z) at {url} (redirected to {final})")])
 
     def test_a_new_site_on_a_custom_domain_must_be_served_by_github_pages(self):
         # #428: html_url follows a custom domain, which another host can serve
         # while Pages keeps an old successful deployment. GitHub Pages marks its
-        # answers with a request id, also behind a CDN, and header names can
-        # arrive in lower case.
+        # answers with a request id, also behind a CDN, and header lookups must
+        # ignore case.
         features = {"mechs": {"AIMech": {
             "site": None, "repository": "https://github.com/CultureBotAI/AIMech",
             "note": "No published website.",
@@ -314,7 +331,9 @@ class SuiteUpdateTests(unittest.TestCase):
             if path == "repos/CultureBotAI/AIMech/pages":
                 return {"html_url": url, "cname": "www.example.org"}
             raise AssertionError(f"unexpected request to {path}")
-        # What Cloudflare sent for GitHub Pages at https://getbootstrap.com/ on 2026-10-15.
+        # Cloudflare's answer for GitHub Pages at https://getbootstrap.com/ on 2026-10-15,
+        # with the header names lower-cased as HTTP/2 shows them, so the lookups must
+        # ignore case; urllib, speaking HTTP/1.1, gets them capitalised (#463).
         behind_a_cdn = {"server": "cloudflare", "last-modified": "Thu, 08 Oct 2026 17:12:02 GMT",
                         "x-github-request-id": "F538:1170F3:1359F:16B00:6ACCE13C"}
         cases = [
@@ -394,7 +413,7 @@ class SuiteUpdateTests(unittest.TestCase):
         # request to it succeeds, with an answer from GitHub Pages rather than
         # another host (#428) or a GitHub page (#440). The deployment record
         # settles a redeployment, so one is still reported when that request
-        # fails (#435). Details name where a redirect ended (#434).
+        # fails (#435). Details name where a redirect ended (#434, #454).
         features = {"mechs": {"AMech": {
             "site": "https://example.org/a/", "repository": "https://github.com/CultureBotAI/AMech",
             "deployed_revision": "a" * 40,
@@ -420,15 +439,21 @@ class SuiteUpdateTests(unittest.TestCase):
             (urllib.error.HTTPError(url, 404, "Not Found", {}, None), None, f"{url} answers 404"),
             (pages_error(moved, 503), None, f"{url} (redirected to {moved}) answers 503"),
             (pages_error(repository + "/gone", 404), None, f"{url} (redirected to {repository}/gone) answers 404"),
+            # #462: the host is matched whatever its case.
+            (pages_error("https://GitHub.com/CultureBotAI/NoSuchRepo406", 404), None,
+             f"{url} (redirected to https://GitHub.com/CultureBotAI/NoSuchRepo406) answers 404"),
+            # #471: a refused redirect to another scheme names a target with no host.
+            (pages_error("javascript:void(0)", 301), None, f"{url} (redirected to javascript:void(0)) answers 301"),
             (urllib.error.URLError("no route"), None, f"{url} did not answer (<urlopen error no route>)"),
             (TimeoutError("timed out"), None, f"{url} did not answer (timed out)"),
             ({"Server": "Netlify"}, None, f"{url} is served by Netlify, not GitHub Pages"),
             ({"Server": "Netlify"}, moved, f"{url} (redirected to {moved}) is served by Netlify, not GitHub Pages"),
             (PAGES_ANSWER, repository, f"{url} (redirected to {repository}) is on github.com, "
-                                       "where GitHub Pages serves no site"),
+                                       "a GitHub host rather than a Mech's Pages site"),
             (PAGES_ANSWER, readme, f"{url} (redirected to {readme}) is on raw.githubusercontent.com, "
-                                   "where GitHub Pages serves no site"),
+                                   "a GitHub host rather than a Mech's Pages site"),
             (undated, None, f"{url} sends no valid Last-Modified date"),
+            (undated, moved, f"{url} (redirected to {moved}) sends no valid Last-Modified date"),  # #461
             (dict(PAGES_ANSWER, **{"Last-Modified": "yesterday"}), None, f"{url} sends no valid Last-Modified date"),
             # An HTTP date must be GMT; "-0000" leaves its zone unknown.
             (dict(PAGES_ANSWER, **{"Last-Modified": "Thu, 15 Oct 2026 00:48:08 -0000"}), None,
@@ -439,12 +464,21 @@ class SuiteUpdateTests(unittest.TestCase):
             unverified = failure if "did not answer" in failure else f"deployment aaaaaaa succeeded, but {failure}"
             cases.append(("a" * 40, answer, final, ("NOT CHECKED", "AMech", unverified)))
             cases.append(("b" * 40, answer, final, ("redeployed", "AMech", f"{since}, but {failure}")))
+        early = dict(PAGES_ANSWER, **{"Last-Modified": "Mon, 05 Oct 2026 15:59:59 GMT"})
+        stale = "was last published at 2026-10-05T15:59:59Z, before that deployment was created (2026-10-05T16:00:00Z)"
         cases += [
             ("a" * 40, None, None, ("same", "AMech", "still serves aaaaaaa")),
             ("b" * 40, None, None, ("redeployed", "AMech", since)),
-            # Published in the second its deployment was created (#448).
+            # #454: a passing row names a redirect too, since the site should move.
+            ("a" * 40, None, moved, ("same", "AMech", f"still serves aaaaaaa at {url} (redirected to {moved})")),
+            ("b" * 40, None, moved, ("redeployed", "AMech", f"{since} at {url} (redirected to {moved})")),
+            # Published in the second its deployment was created (#448), and one
+            # second earlier, which is NOT CHECKED at any revision (#452, #453, #458).
             ("a" * 40, dict(PAGES_ANSWER, **{"Last-Modified": "Mon, 05 Oct 2026 16:00:00 GMT"}), None,
              ("same", "AMech", "still serves aaaaaaa")),
+            ("a" * 40, early, None, ("NOT CHECKED", "AMech", f"deployment aaaaaaa succeeded, but {url} {stale}")),
+            ("b" * 40, early, moved, ("NOT CHECKED", "AMech", f"deployment bbbbbbb succeeded, but {url} (redirected to "
+                                                              f"{moved}) {stale}; the table describes aaaaaaa")),
         ]
         for sha, answer, final, row in cases:
             with self.subTest(sha=sha[:1], row=row):
@@ -472,8 +506,38 @@ class SuiteUpdateTests(unittest.TestCase):
                 api = mock.Mock(side_effect=AssertionError("an invalid site must not make an API request"))
                 rows = check_updates.site_feature_check({"mechs": {"AMech": dict(features["mechs"]["AMech"], site=site)}},
                                                         api=api, opener=no_request)
-                self.assertEqual(rows, [("NOT CHECKED", "AMech", "site must be an https URL")])
+                self.assertEqual(rows, [("NOT CHECKED", "AMech", "site must be an https URL in printable ASCII, "
+                                                                 "with no spaces")])
                 api.assert_not_called()
+
+    def test_the_validator_and_the_check_apply_one_site_url_rule(self):
+        # #439, #456, #459: every site the validator accepts is one the check
+        # can request, and every one it rejects the check rejects too.
+        from assemble_page import validate_site_features
+        table = json.loads((ROOT / "_fleet/data/site_features.json").read_text())
+        name = next(n for n, m in table["mechs"].items() if m.get("site"))
+        cases = [(table["mechs"][name]["site"], True), ("https://example.org/a/%C3%A9/", True),
+                 ("https://", False), ("http://example.org/a/", False), ("https://example.org/a b/", False),
+                 ("https://example.org/a/ ", False), ("https://example.org/a/\n", False),
+                 ("https://example.org/a/\t", False), ("https://example.org/a/\xe9/", False),
+                 ("https://caf\xe9.example.org/", False), ("https://example.org/a/\xa0", False)]
+        rejected = "site must be an https URL in printable ASCII, with no spaces"
+        for site, valid in cases:
+            with self.subTest(site=site):
+                changed = json.loads(json.dumps(table))
+                changed["mechs"][name]["site"] = site
+                try:
+                    validate_site_features(changed, set(roots.ORDER))
+                    accepted = True
+                except ValueError as error:
+                    self.assertIn(rejected, str(error))
+                    accepted = False
+                # The first API request ends the check, so the detail shows whether
+                # the site passed the rule before it.
+                api = mock.Mock(side_effect=check_updates.Unchecked(["stopped after the URL rule"]))
+                rows = check_updates.site_feature_check({"mechs": {name: changed["mechs"][name]}},
+                                                        api=api, opener=no_request)
+                self.assertEqual((accepted, rows[0][2] != rejected), (valid, valid))
 
     def test_a_recorded_page_github_pages_answers_404_for_is_not_found(self):
         # #436: a transferred or unpublished site keeps Pages and its successful
@@ -554,9 +618,12 @@ class SuiteUpdateTests(unittest.TestCase):
             with self.subTest(entry=name):
                 opener, requests = head_requests(stale)
                 rows = check_updates.site_feature_check({"mechs": {"AMech": entry}}, api=api, opener=opener)
+                # Both times are named (#453), and at a newer revision the recorded
+                # one too, since it may be what Pages still serves (#452).
+                table = "; the table describes bbbbbbb" if name == "bbbbbbb" else ""
                 self.assertEqual(rows, [("NOT CHECKED", "AMech", f"deployment aaaaaaa succeeded, but {url} was last "
                                                                  "published at 2026-10-07T20:44:01Z, before that "
-                                                                 "deployment was created")])
+                                                                 f"deployment was created (2026-10-08T00:42:55Z){table}")])
                 self.assertEqual(requests, [("HEAD", url, 30)])
                 line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
                 self.assertIn("**Not checked:** site deployment AMech.", line)
@@ -614,6 +681,18 @@ class SuiteUpdateTests(unittest.TestCase):
         self.assertEqual(requests, [("HEAD", "https://culturebotai.github.io/AIMech/", 30)])
         line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
         self.assertIn("website feature verdicts to judge on new sites: AIMech.", line)
+        # #460: a judged entry has no verdicts to re-check, so a later deployment
+        # whose site fails to load is unverified, not redeployed.
+        url = "https://culturebotai.github.io/AIMech/"
+        for answer, detail in ((TimeoutError("timed out"), f"{url} did not answer (timed out)"),
+                               (pages_error(url, 404), f"deployment fffffff succeeded, but {url} answers 404")):
+            with self.subTest(answer=answer):
+                rows = check_updates.site_feature_check({"mechs": {"AIMech": judged}}, api=answers("f" * 40),
+                                                        opener=head_requests(answer)[0])
+                self.assertEqual(rows, [("NOT CHECKED", "AIMech", detail)])
+                line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                self.assertIn("**Not checked:** site deployment AIMech.", line)
+                self.assertNotIn("re-check", line)
         for revision in ("e" * 39, "E" * 40, 7, None):
             with self.subTest(deployed_revision=revision):
                 api = mock.Mock(side_effect=AssertionError("an invalid revision must not make an API request"))

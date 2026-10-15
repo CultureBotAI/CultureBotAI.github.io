@@ -9,7 +9,7 @@ import re
 from card_markup import card_figures, card_names, markup_problems
 from mech_stats import ADDITIONAL_REPOS, GH_REPO
 from refresh_manifest import validate
-from roots import ORDER
+from roots import ORDER, SITE_URL
 
 REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
@@ -147,9 +147,9 @@ def validate_site_features(features, names):
             raise ValueError(f"{name}: repository must be a GitHub repository URL")
         if mech.get("site") is None:
             continue
-        # The rule check_updates.site_feature_check applies before reading the site (#439).
-        if not (isinstance(mech["site"], str) and re.fullmatch(r"https://\S+", mech["site"])):
-            raise ValueError(f"{name}: site must be an https URL")
+        # The rule check_updates.site_feature_check applies before reading the site (#439, #459).
+        if not (isinstance(mech["site"], str) and SITE_URL.fullmatch(mech["site"])):
+            raise ValueError(f"{name}: site must be an https URL in printable ASCII, with no spaces")
         if not (isinstance(mech.get("deployed_revision"), str) and SHA.fullmatch(mech["deployed_revision"])):
             raise ValueError(f"{name}: deployed_revision must be the full SHA of the deployment checked")
         verdicts = mech.get("features")

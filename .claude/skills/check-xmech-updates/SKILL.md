@@ -56,27 +56,35 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   served only while its repository has GitHub Pages enabled, its latest
   deployment has succeeded, and a HEAD request to it succeeds (no HTTP error
   status after redirects) with an answer from GitHub Pages: one that carries
-  its `X-GitHub-Request-Id` header and does not come from a GitHub page, such
-  as the repository, which carries the header too. The answer's `Last-Modified`
-  date must also be no earlier than the deployment's creation, since a run that
-  skips publishing still ends in success while Pages serves what an earlier
-  deployment published. A recorded site that is served is `same` or
-  `redeployed`; one whose repository no longer has Pages enabled is `gone`; one
-  whose recorded page GitHub Pages answers with 404 is `not found`, which a
-  removed or moved page and an unpublished or transferred site all give. A newer
-  successful deployment reads `redeployed` even when the HEAD request fails, with
-  the failure in its detail. A Mech the table records without a site is `new
-  site` once its site is served, and `no site` while Pages is not enabled or
-  while its latest successful deployment is still the `deployed_revision` an
-  audit judged not to be a website. That judgement covers one deployment, and
-  these repositories deploy on every push, so the next push makes the Mech read
-  `new site` again, naming the judged revision. Any other state is NOT CHECKED:
-  that includes Pages enabled with no deployment record, since a deploy job that
-  names no environment records none; a successful deployment whose site returns
-  an error status, does not answer, is served by another host at a custom domain
-  or by a GitHub page, or was last published before that deployment was
-  created; and a 404 for a new site, whose root can be missing while its pages
-  exist. A detail names where a redirect ended. A new site's URL comes from
+  its `X-GitHub-Request-Id` header and does not come from one of GitHub's own
+  hosts, such as the repository's page, which carry the header too. The
+  answer's `Last-Modified` date must also be no earlier than the deployment's
+  creation, since a run that skips publishing still ends in success while Pages
+  serves what an earlier deployment published. A recorded site that is served
+  is `same` or `redeployed`; one whose repository no longer has Pages enabled is
+  `gone`; one whose recorded page GitHub Pages answers with 404 is `not found`,
+  which a removed or moved page and an unpublished or transferred site all
+  give, at the recorded revision or a newer one. A newer successful deployment
+  also reads `redeployed` when the HEAD request fails, the site returns another
+  error status, another host or a GitHub host answers, or the answer has no
+  valid `Last-Modified`, with the failure in its detail; but a page last
+  published before that deployment was created is NOT CHECKED at any revision,
+  naming the recorded revision, since a run that skipped publishing may have
+  left the recorded one served. A Mech the table records without a site is
+  `new site` once its site is served, and `no site` while Pages is not enabled
+  or while its latest successful deployment is still the `deployed_revision`
+  an audit judged not to be a website. That judgement holds until the Mech's
+  next github-pages deployment, which most of these repositories make on every
+  push to main and some only when site files change or on a schedule; that
+  deployment reads `new site` again, naming the judged revision. Any other state
+  is NOT CHECKED: that includes Pages enabled with no deployment record, since a
+  deploy job that names no environment records none; at the recorded revision,
+  a successful deployment whose site returns an error status, does not answer,
+  is served by another host at a custom domain or by a GitHub host, or has no
+  valid `Last-Modified`; and a 404 for a new site, whose root can be missing
+  while its pages exist. A detail names where a redirect ended; for a `same` or
+  `redeployed` site that means the recorded `site` should move there. A new
+  site's URL comes from
   `repos/<repo>/pages`, which needs gh's `repo` scope (Pages read for a
   fine-grained token), even for a public repository; without it these Mechs
   read NOT CHECKED, naming that request;
@@ -158,13 +166,24 @@ command grep -rniE --exclude-dir=.git --exclude-dir=_site 'culturebotai\.github\
 Two places join a base URL and a path, so no URL search finds them: the card
 source in `SOURCES` in `scripts/fleet/check_cards.py` and the record-link base in
 `SITE_BASE` in `scripts/fleet/build_subsets.py`, which `build_cells.py` reuses.
-Report both, with the record lists generated from them.
+Report both, with the record lists generated from them. Statements that present
+the site in words carry no URL: read the places listed above for a new site,
+now for what says the site is served, among them the Mech's note in
+`_fleet/audit_notes.json` and CLAW's capability reasons in
+`_fleet/data/manifest.json` (report those for CLAW to correct; never edit the
+snapshot). Then search the Mech's name with the words that describe a site:
+
+```bash
+command grep -rniE --exclude-dir=.git --exclude-dir=_site '<repo>.{0,80}(website|site|browser|pages)' .
+```
 
 For a Mech reported as `not found`, GitHub Pages itself has nothing at the
 recorded page. Open the site's root and its Pages URL in a browser and report
 whether the page moved (the feature row's `site` and the links above need the
 new URL, and its verdicts a re-check) or the whole site is no longer served
-(as for `gone`).
+(as for `gone`). In that last case Pages stays enabled with a successful
+deployment, so a plain site-less entry would read NOT CHECKED on every run:
+`update-xmech-page` records that deployment as a judged `deployed_revision`.
 
 Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;
