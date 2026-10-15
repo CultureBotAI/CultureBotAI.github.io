@@ -240,10 +240,12 @@ placeholder, a rendered README, a data-only host), keep the site-less entry,
 record the judged deployment's full SHA as its `deployed_revision` and say why
 in its `note`. The judgement holds until a github-pages deployment of another
 commit, which most of these repositories make on every push to main and some
-only when site files change. The update check reports that deployment as a new
-site again, naming the judged revision, and it needs judging in turn. A
-redeployment of the same commit, such as a scheduled rebuild or a re-run, is
-not reported, though it can change what is served (#487).
+only when site files change or on a schedule (a scheduled run deploys main's
+head, a new commit once main has moved). The update check reports that
+deployment as a new site again, naming the judged revision, and it needs
+judging in turn. A redeployment of the same commit, such as a re-run or a
+scheduled run while main has not moved, is not reported, though it can change
+what is served (#487).
 
 A recorded site the update check reports as `gone` becomes a site-less entry:
 `site` null, its `repository`, and a `note` giving the date on which the check

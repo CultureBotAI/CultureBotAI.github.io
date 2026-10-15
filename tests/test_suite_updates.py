@@ -310,6 +310,9 @@ class SuiteUpdateTests(unittest.TestCase):
                 rows = check_updates.site_feature_check(features, api=answers(site), opener=opener)
                 self.assertEqual(rows, [("new site", "AIMech", "GitHub Pages now serves eeeeeee (deployed "
                                                                f"2026-10-12T23:48:02Z) at {url} (redirected to {final})")])
+                # #491: a new site has no recorded URL to move.
+                line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                self.assertNotIn("now redirects", line)
 
     def test_a_new_site_on_a_custom_domain_must_be_served_by_github_pages(self):
         # #428: html_url follows a custom domain, which another host can serve
@@ -476,6 +479,12 @@ class SuiteUpdateTests(unittest.TestCase):
             # #454: a passing row names a redirect too, since the site should move.
             ("a" * 40, None, moved, ("same", "AMech", f"still serves aaaaaaa at {url} (redirected to {moved})")),
             ("b" * 40, None, moved, ("redeployed", "AMech", f"{since} at {url} (redirected to {moved})")),
+            # #488: the table takes only https, so a redirect to http is not a move
+            # to make; #491: a URL holding "but" is not a failure.
+            ("a" * 40, None, "http://www.example.org/a/",
+             ("same", "AMech", f"still serves aaaaaaa at {url} (redirected to http://www.example.org/a/)")),
+            ("a" * 40, None, "https://www.example.org/butterfly/",
+             ("same", "AMech", f"still serves aaaaaaa at {url} (redirected to https://www.example.org/butterfly/)")),
             # Published in the second its deployment was created (#448), and one
             # second earlier, which is NOT CHECKED at any revision (#452, #453, #458).
             ("a" * 40, dict(PAGES_ANSWER, **{"Last-Modified": "Mon, 05 Oct 2026 16:00:00 GMT"}), None,
@@ -491,9 +500,11 @@ class SuiteUpdateTests(unittest.TestCase):
                 self.assertEqual(rows, [row])
                 self.assertEqual(requests, [("HEAD", url, 30)])
                 line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
-                # #482: a served site whose URL now redirects should move there; a
-                # failure that came through a redirect is left to a browser check.
-                redirects = row[0] in ("same", "redeployed") and "redirected to" in row[2] and ", but " not in row[2]
+                # #482, #488: a served site whose URL now redirects to https should
+                # move there; an http end stays, and a failure that came through a
+                # redirect is left to a browser check.
+                redirects = (row[0] in ("same", "redeployed") and "redirected to https://" in row[2]
+                             and ", but " not in row[2])
                 if redirects:
                     self.assertIn("website feature sites whose recorded URL now redirects: AMech.", line)
                 else:
@@ -508,6 +519,13 @@ class SuiteUpdateTests(unittest.TestCase):
                 else:
                     self.assertIn("**Not checked:** site deployment AMech.", line)
                     self.assertIn("Refresh would change:** nothing found.", line)
+        # #491: an error the request handling does not expect is no failed
+        # request, so it does not read as not answering, at either revision.
+        for sha in ("a" * 40, "b" * 40):
+            with self.subTest(unexpected="KeyError", sha=sha[:1]):
+                rows = check_updates.site_feature_check(features, api=answers(sha),
+                                                        opener=head_requests(KeyError("k"))[0])
+                self.assertEqual(rows, [("NOT CHECKED", "AMech", "'k'")])
         # #483: a URL urllib cannot build reads as not answering too, so a newer
         # deployment is still reported as redeployed.
         broken = "https://[::1/a/"

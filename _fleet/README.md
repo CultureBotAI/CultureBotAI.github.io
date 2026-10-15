@@ -20,8 +20,9 @@
   for it not to be a website, such as a placeholder, it also carries that deployment's full
   SHA as `deployed_revision` and its `note` says why; the update checker then reports only a
   github-pages deployment of another commit, which most Mechs make on every push to main and
-  some only when site files change; a redeployment of the same commit, such as a scheduled
-  rebuild, is not reported), `repository` (required on every entry, since
+  some only when site files change or on a schedule (deploying main's head); a redeployment
+  of the same commit, such as a re-run or a scheduled run while main has not moved, is not
+  reported), `repository` (required on every entry, since
   the update checker reads it to notice a new site), `deployed_revision` (the full SHA of the
   successful github-pages deployment the browser check saw) and `features`, one verdict per catalogue feature
   with `status` (`present`, `partial`, `missing`, `not_applicable` or `unknown`), `note`

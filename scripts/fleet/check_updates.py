@@ -294,10 +294,12 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     deployed_revision an audit judged not to be a website (#409). That
     judgement holds until a github-pages deployment of another commit, which
     most of these repositories make on every push to main and some only when
-    site files change; that deployment reads as a new site again, to be judged
-    (#447, #465). The comparison is by commit, so a redeployment of the same
-    commit, such as a scheduled rebuild or a re-run, keeps a judged revision
-    and leaves a recorded site same (#484, #487).
+    site files change or on a schedule (a scheduled run deploys main's head, a
+    new commit once main has moved); that deployment reads as a new site
+    again, to be judged (#447, #465, #489). The comparison is by commit, so a
+    redeployment of the same commit, such as a re-run or a scheduled run while
+    main has not moved, keeps a judged revision and leaves a recorded site
+    same (#484, #487).
     NOT CHECKED for either when the served revision cannot be verified or the
     entry is malformed. Read-only: per Mech up to three GETs and a HEAD request
     to its site (urllib follows redirects), plus for a Mech without a site the
@@ -377,7 +379,7 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
             except (OSError, http.client.HTTPException, ValueError, OverflowError) as error:
                 failure = unverified = f"{url} did not answer ({error})"
             if failure is None:
-                # Name where a redirect ended: that is the URL a refresh would record (#434).
+                # Name where a redirect ended, which a refresh may record (#434).
                 shown = url if final == request.full_url else f"{url}{REDIRECTED}{final})"
                 host = urllib.parse.urlsplit(final).hostname or ""
                 # A custom domain can be served by another host while Pages keeps an
@@ -429,7 +431,7 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
             reason = "; ".join(error.args[0]) if error.args and isinstance(error.args[0], list) else str(error)
             rows.append(("NOT CHECKED", mech, reason or "no deployment"))
             continue
-        # A recorded URL that redirects should move to where it ends (#454).
+        # A recorded URL that redirects names where it ends (#454).
         moved = f" at {shown}" if final != request.full_url else ""
         if not has_site:
             earlier = f"; the table judged {recorded[:7]} not to be a website" if recorded else ""
@@ -508,9 +510,11 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
     not_found = [m for s, m, _ in sites if s == "not found"]
     if not_found:
         parts.append("website feature rows whose page GitHub Pages no longer serves: " + ", ".join(not_found))
-    # A served recorded site whose URL now redirects should move there (#454, #482);
-    # a row with a failure (", but") is left to a browser check.
-    moved = [m for s, m, d in sites if s in ("same", "redeployed") and REDIRECTED in d and ", but " not in d]
+    # A served recorded site whose URL now redirects to an https URL should move
+    # there (#454, #482). The table takes only https, so a redirect to http stays
+    # (#488), and a row with a failure (", but") is left to a browser check.
+    moved = [m for s, m, d in sites if s in ("same", "redeployed") and REDIRECTED + "https://" in d
+             and ", but " not in d]
     if moved:
         parts.append("website feature sites whose recorded URL now redirects: " + ", ".join(moved))
     new_sites = [m for s, m, _ in sites if s == "new site"]
