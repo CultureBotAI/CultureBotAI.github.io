@@ -221,10 +221,66 @@ gh api "repos/CultureBotAI/<repo>/deployments/<deployment-id>/statuses?per_page=
 Record the SHA only when the status is `success` and it corresponds to the
 browser review. Queued, pending, failed, inactive or unavailable statuses are
 inconclusive about what is currently served; preserve the prior recorded
-revision and report the deployment as not checked until it can be verified.
+revision and report the deployment as not checked until it can be verified. A
+run that skips publishing also ends in `success` while Pages serves what an
+earlier deployment published, so check too that the site's `Last-Modified`
+date (`curl -sI <site>`) is no earlier than the deployment's `created_at`.
+
+A Mech recorded without a site that the update check reports as a new site
+gets a full entry in place of its site-less one: its `site` URL (https: where
+the check names an http URL, record its https form once it is checked to be
+served by GitHub Pages, or the site's github.io URL), `repository`,
+the `deployed_revision` its browser check saw and a verdict for every catalogue
+feature, with the `note` removed. Judge it with the other sites when the whole
+table is re-judged, or alone as a site-only recheck with its own `checked_on`
+and `scope`. Then correct every statement that it has no website, using the
+list and the searches in check-xmech-updates (step 2). They include places that
+say so only by linking its repository, and CLAW's capability reasons, which are
+reported for CLAW to correct rather than edited here. If the audit finds that
+what the new site serves is not a website in the catalogue's sense (a
+placeholder, a rendered README, a data-only host), keep the site-less entry,
+record the judged deployment's full SHA as its `deployed_revision` and say why
+in its `note`. The judgement holds until a github-pages deployment of another
+commit, which most of these repositories make on every push to main and some
+only when site files change or on a schedule (a scheduled run deploys main's
+head, a new commit once main has moved). The update check reports that
+deployment as a new site again, naming the judged revision, and it needs
+judging in turn. A redeployment of the same commit, such as a re-run or a
+scheduled run while main has not moved, is not reported, though it can change
+what is served (#487).
+
+A recorded site the update check reports as `gone` becomes a site-less entry:
+`site` null, its `repository`, and a `note` giving the date on which the check
+found it no longer published (the check does not say when GitHub Pages was
+turned off; an organization owner may find it in the audit log), with its
+verdicts, `deployed_revision` and any per-site `checked_on` and
+`scope` removed. Then correct the statements and links that present the site,
+using the searches check-xmech-updates gives for a gone site (step 2).
+
+A recorded site reported as `not found` has no page at its recorded URL,
+according to GitHub Pages. If the page moved within the site, record the new
+URL as its `site`, correct the links to the old one, and re-judge its verdicts
+as a site-only recheck. If the whole site is no longer served, make the entry
+site-less as for `gone`, but keep a `deployed_revision`: the latest successful
+deployment's full SHA, with a `note` saying that GitHub Pages answers 404 for
+the site. Pages is still enabled with that deployment, so without it the check
+would read NOT CHECKED on every run; with it, `no site` until a deployment of
+another commit. A `same` or `redeployed` row with no failure (no ", but")
+that names a redirect means the recorded URL now leads elsewhere: record where
+it ends as the `site` if that end is https, since the table accepts only https
+URLs, and otherwise keep the recorded URL. A row whose failure came through a
+redirect needs a browser check before anything is recorded.
 
 `scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
-at a different revision, and marks unverified deployment states `NOT CHECKED`.
+at a different revision (`redeployed`, also when the HEAD request to the site
+fails or another host answers, which its detail names), sites whose repository
+no longer has Pages
+enabled (`gone`), recorded pages that GitHub Pages answers with 404 (`not
+found`), and Mechs recorded without a site whose latest deployment succeeded
+and whose site GitHub Pages serves, confirmed by a HEAD request (`new site`). It
+marks unverified states `NOT CHECKED`, including Pages enabled with no
+deployment record and, at any revision, a site last published before its
+latest deployment was created.
 For a large fleet this fans out well: one read-only
 auditor per Mech, one for fleet-wide claims, one for cross-references, and an
 independent skeptic per auditor who re-derives each proposed change and tries to
@@ -278,7 +334,8 @@ The card figures are repeated across the site. Update every occurrence, and ever
   cards were checked.
 
 Find stragglers by searching the *old* figures across the whole tree, gitignored
-files included (`grep -rn`, not `rg`), excluding `_site/` and generated files.
+files included (`command grep -rn`, not `rg` or Claude Code's plain `grep`, which
+both skip them), excluding `_site/` and generated files.
 A page that still states an old figure contradicts `/mechs/`, which is worse than
 either being stale alone.
 

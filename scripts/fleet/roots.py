@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import glob
 import os
+import re
 import subprocess
 import unicodedata
 
@@ -79,6 +80,13 @@ ORDER = list(RECORD_GLOBS)
 CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "GO_REF", "PO_REF", "WB_REF", "FB", "USGS", "Wikipedia", "Zenodo", "GitHub",
             "PNNLDH", "CELEX", "arXiv"]
+
+# A website feature table site: https, then printable ASCII with no spaces, so
+# that http.client can encode its request line (#439, #456). It does not prove
+# the URL well formed; the update check reports one urllib cannot request as not
+# answering (#483). The validator and the check share it, so they cannot drift
+# (#459).
+SITE_URL = re.compile(r"https://[!-~]+")
 
 
 def mech_root(name: str) -> str:

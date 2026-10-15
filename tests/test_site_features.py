@@ -47,7 +47,8 @@ class SiteFeatureTests(unittest.TestCase):
 
     def without_site(self, name="DUFMech"):
         changed = deepcopy(self.features)
-        changed["mechs"][name] = {"site": None, "note": "No published website yet."}
+        changed["mechs"][name] = {"site": None, "repository": self.features["mechs"][name]["repository"],
+                                  "note": "No published website yet."}
         return changed
 
     def test_every_suite_mech_has_a_row_in_card_order(self):
@@ -155,12 +156,25 @@ class SiteFeatureTests(unittest.TestCase):
         notes = section(page, '<details class="fleet-site-notes">', "</details>")
         self.assertIn("<h4>DUFMech</h4><p>No published website yet.</p>", notes)
 
+    def test_a_mech_without_a_site_can_record_a_deployment_judged_not_a_website(self):
+        # #409: the update check then reports only a later deployment; the page
+        # still shows the entry's note as its one cell.
+        changed = self.without_site()
+        changed["mechs"]["DUFMech"].update(deployed_revision="9d7a87f74786813fcdf65801bdf940d79cc7a56e",
+                                           note="GitHub Pages serves only a placeholder page.")
+        validate_site_features(changed, self.names)
+        table = self.table(changed)
+        row = next(r for r in self.body_rows(table) if ">DUFMech</th>" in r)
+        self.assertEqual(row.count("<td"), 1)
+        notes = section(self.render(changed), '<details class="fleet-site-notes">', "</details>")
+        self.assertIn("<h4>DUFMech</h4><p>GitHub Pages serves only a placeholder page.</p>", notes)
+
     def test_missing_or_invented_entries_fail_closed(self):
         name = next(n for n, m in self.features["mechs"].items() if m.get("site"))
         other = next(n for n, m in self.features["mechs"].items() if m.get("site") and n != name)
         key = next(iter(self.features["catalogue"]))
         extra_mech = lambda f: f["mechs"].__setitem__("PhantomMech", deepcopy(f["mechs"][name]))
-        for change, message in [
+        for case, (change, message) in enumerate([
             (lambda f: f["mechs"][name]["features"].pop(key), "every site feature"),
             (lambda f: f["mechs"][name]["features"].__setitem__("invented", {"status": "present", "note": "x", "url": "https://x"}), "every site feature"),
             (lambda f: f["mechs"][name]["features"][key].update(status="maybe"), "unknown status"),
@@ -170,6 +184,10 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["mechs"][name]["features"][key].update(url="http://example.org"), "https evidence"),
             (lambda f: f["mechs"][name].update(site="http://example.org/"), "https URL"),
             (lambda f: f["mechs"][name].update(site=["https://example.org/"]), "https URL"),
+            # #439: the update check's rule, which reads the site.
+            (lambda f: f["mechs"][name].update(site="https://"), "https URL"),
+            (lambda f: f["mechs"][name].update(site="https://example.org/a b/"), "https URL"),
+            (lambda f: f["mechs"][name].update(site="https://example.org/a/ "), "https URL"),
             (lambda f: f["mechs"][name].pop("repository"), "repository"),
             (lambda f: f["mechs"][name].update(repository=None), "repository"),
             (lambda f: f["mechs"][name].update(repository=["https://github.com/CultureBotAI/AMech"]), "repository"),
@@ -185,13 +203,27 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["catalogue"][key].update(definition=""), "label and a definition"),
             (lambda f: f["catalogue"][key].update(criteria=" "), "empty criteria"),
             (lambda f: f.update(scope=""), "scope"),
-            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "features": deepcopy(f["mechs"][name]["features"])}), "no feature verdicts"),
-            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": None}), "needs a note"),
-        ]:
-            changed = deepcopy(self.features)
-            change(changed)
-            with self.assertRaisesRegex(ValueError, message):
-                validate_site_features(changed, self.names)
+            # Each site-less case keeps the replaced Mech's repository, so it is
+            # invalid in exactly one way whatever order the checks run in (#421).
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": f["mechs"][other]["repository"],
+                                                      "features": deepcopy(f["mechs"][name]["features"])}), "no feature verdicts"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": None, "repository": f["mechs"][other]["repository"]}),
+             "needs a note"),
+            # #410: the update check needs the repository of a Mech without a site.
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x"}), "repository must be"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": "https://example.org/x"}),
+             "repository must be"),
+            # #409: a deployment judged not to be a website is recorded as a full SHA.
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": f["mechs"][other]["repository"],
+                                                      "deployed_revision": "f23f307"}), "deployment judged"),
+            (lambda f: f["mechs"].__setitem__(other, {"site": None, "note": "x", "repository": f["mechs"][other]["repository"],
+                                                      "deployed_revision": None}), "deployment judged"),
+        ]):
+            with self.subTest(case=case, message=message):
+                changed = deepcopy(self.features)
+                change(changed)
+                with self.assertRaisesRegex(ValueError, message):
+                    validate_site_features(changed, self.names)
 
     def test_notes_are_escaped_into_the_tooltip_and_the_list(self):
         changed = deepcopy(self.features)

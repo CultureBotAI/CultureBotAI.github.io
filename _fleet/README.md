@@ -15,14 +15,23 @@
   date), `scope` (what was checked and how), `groups` (each `title` with its `features`, in
   column order; every feature in exactly one group) and `catalogue` (per feature: `label`,
   `definition` and optional `criteria`, shown on the page). `mechs` has one entry per suite
-  Mech: `site` (https URL, or `null` for a Mech without a website, which then carries a
-  `note` and no `features`), `repository`, `deployed_revision` (the full SHA of the
+  Mech: `site` (https URL, or `null` for a Mech without a website, which then carries its
+  `repository` and a `note` but no `features`; if an audit judged what GitHub Pages serves
+  for it not to be a website, such as a placeholder, it also carries that deployment's full
+  SHA as `deployed_revision` and its `note` says why; the update checker then reports only a
+  github-pages deployment of another commit, which most Mechs make on every push to main and
+  some only when site files change or on a schedule (deploying main's head); a redeployment
+  of the same commit, such as a re-run or a scheduled run while main has not moved, is not
+  reported), `repository` (required on every entry, since
+  the update checker reads it to notice a new site), `deployed_revision` (the full SHA of the
   successful github-pages deployment the browser check saw) and `features`, one verdict per catalogue feature
   with `status` (`present`, `partial`, `missing`, `not_applicable` or `unknown`), `note`
   (tooltip text giving the evidence) and `url` (https evidence page). `assemble_page.py`
   fails if any of these is missing or malformed. Confirm the latest status of
   the deployment ID is `success` before recording its SHA; a queued or failed
-  deployment request does not identify the currently served site. The update
+  deployment request does not identify the currently served site. A run that
+  skips publishing also ends in `success`, so confirm too that the site's
+  `Last-Modified` is no earlier than the deployment's `created_at`. The update
   checker reports such unverified states as `NOT CHECKED`.
   For a later site-only recheck, add `checked_on` and `scope` together to that
   Mech's entry, update its `deployed_revision` to the successfully served SHA,
