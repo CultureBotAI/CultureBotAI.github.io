@@ -73,18 +73,22 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   left the recorded one served. A Mech the table records without a site is
   `new site` once its site is served, and `no site` while Pages is not enabled
   or while its latest successful deployment is still the `deployed_revision`
-  an audit judged not to be a website. That judgement holds until the Mech's
-  next github-pages deployment, which most of these repositories make on every
-  push to main and some only when site files change or on a schedule; that
-  deployment reads `new site` again, naming the judged revision. Any other state
+  an audit judged not to be a website. That judgement holds until a
+  github-pages deployment of another commit, which most of these repositories
+  make on every push to main and some only when site files change; that
+  deployment reads `new site` again, naming the judged revision. A redeployment
+  of the same commit, such as a scheduled rebuild or a re-run, is not reported,
+  for a judged revision or a recorded one (#487). Any other state
   is NOT CHECKED: that includes Pages enabled with no deployment record, since a
   deploy job that names no environment records none; at the recorded revision,
   a successful deployment whose site returns an error status, does not answer,
   is served by another host at a custom domain or by a GitHub host, or has no
   valid `Last-Modified`; and a 404 for a new site, whose root can be missing
-  while its pages exist. A detail names where a redirect ended; for a `same` or
-  `redeployed` site that means the recorded `site` should move there. A new
-  site's URL comes from
+  while its pages exist. A detail names where a redirect ended. For a `same` or
+  `redeployed` row with no failure, the recorded `site` should move to an https
+  end, and the closing line lists the site as one whose URL now redirects (the
+  table accepts only https URLs); a row whose failure came through a redirect
+  needs a browser check instead. A new site's URL comes from
   `repos/<repo>/pages`, which needs gh's `repo` scope (Pages read for a
   fine-grained token), even for a public repository; without it these Mechs
   read NOT CHECKED, naming that request;
@@ -167,8 +171,10 @@ Two places join a base URL and a path, so no URL search finds them: the card
 source in `SOURCES` in `scripts/fleet/check_cards.py` and the record-link base in
 `SITE_BASE` in `scripts/fleet/build_subsets.py`, which `build_cells.py` reuses.
 Report both, with the record lists generated from them. Statements that present
-the site in words carry no URL: read the places listed above for a new site,
-now for what says the site is served, among them the Mech's note in
+the site in words carry no URL: read whole every file the URL search returns,
+the Mech's dedicated page if it has one (`culturemech.md`, `communitymech.md`,
+`mediaingredientmech.md`, front matter included), and the places listed above
+for a new site, now for what says the site is served, among them the Mech's note in
 `_fleet/audit_notes.json` and CLAW's capability reasons in
 `_fleet/data/manifest.json` (report those for CLAW to correct; never edit the
 snapshot). Then search the Mech's name with the words that describe a site:
@@ -222,8 +228,8 @@ One short report, in this order:
 3. **Per layer:** card figures; census and overlaps (records added, removed,
    edited per Mech); hand-curated claims that no longer hold, each with evidence;
    membership and capabilities; website feature verdicts that a redeployment
-   moved, new sites the table records as absent, and recorded sites that are
-   `gone` or `not found`; dead links.
+   moved, new sites the table records as absent, recorded sites that are `gone`
+   or `not found`, and recorded URLs that now redirect; dead links.
 4. **What was not checked**, such as files past the API's 300-file cap that were
    not paged through.
 

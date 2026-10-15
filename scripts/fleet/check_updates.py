@@ -76,6 +76,9 @@ PAGES = re.compile(r'https://culturebotai\.github\.io/([A-Za-z]+)/' + _PATH)
 # counted as GitHub Pages (#440), though GitHub serves a few Pages sites of its
 # own there (#455).
 GITHUB_HOSTS = ("github.com", "githubusercontent.com")
+# How a site row names where a redirect ended; URLs hold no spaces, so the
+# summary can find it in a detail (#454, #482).
+REDIRECTED = " (redirected to "
 
 
 class Unchecked(Exception):
@@ -289,10 +292,12 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     without a site: new site once its site is served; no site while Pages is
     not enabled, or while the latest successful deployment is still the
     deployed_revision an audit judged not to be a website (#409). That
-    judgement holds until the Mech's next github-pages deployment, which most
-    of these repositories make on every push to main and some only when site
-    files change or on a schedule; that deployment reads as a new site again,
-    to be judged (#447, #465).
+    judgement holds until a github-pages deployment of another commit, which
+    most of these repositories make on every push to main and some only when
+    site files change; that deployment reads as a new site again, to be judged
+    (#447, #465). The comparison is by commit, so a redeployment of the same
+    commit, such as a scheduled rebuild or a re-run, keeps a judged revision
+    and leaves a recorded site same (#484, #487).
     NOT CHECKED for either when the served revision cannot be verified or the
     entry is malformed. Read-only: per Mech up to three GETs and a HEAD request
     to its site (urllib follows redirects), plus for a Mech without a site the
@@ -358,18 +363,22 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
                 url = pages.get("html_url") if isinstance(pages, dict) else None
                 if not (isinstance(url, str) and re.fullmatch(r"https?://\S+", url)):
                     raise ValueError("Pages response has no site URL")
-            request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "culturebotai-update-check"})
             failure = published = None  # why the answer does not confirm the site; its publish time
             try:
+                request = urllib.request.Request(url, method="HEAD",
+                                                 headers={"User-Agent": "culturebotai-update-check"})
                 with opener(request, timeout=30) as answer:
                     headers, final, code = answer.headers, answer.geturl(), None
             except urllib.error.HTTPError as error:
                 headers, final, code = error.headers or {}, error.geturl(), error.code
-            except (OSError, http.client.HTTPException) as error:  # URLError, timeouts, bad replies
+            # URLError, timeouts, bad replies, and a URL the rule admits that urllib
+            # cannot build or encode: an empty DNS label, a broken IPv6 literal, a
+            # port too large on 3.10 (#483).
+            except (OSError, http.client.HTTPException, ValueError, OverflowError) as error:
                 failure = unverified = f"{url} did not answer ({error})"
             if failure is None:
                 # Name where a redirect ended: that is the URL a refresh would record (#434).
-                shown = url if final == request.full_url else f"{url} (redirected to {final})"
+                shown = url if final == request.full_url else f"{url}{REDIRECTED}{final})"
                 host = urllib.parse.urlsplit(final).hostname or ""
                 # A custom domain can be served by another host while Pages keeps an
                 # old successful deployment. GitHub Pages marks each answer with a
@@ -499,6 +508,11 @@ def summary(rows: list[dict], cards: list[tuple[str, str, str]], manifest: str,
     not_found = [m for s, m, _ in sites if s == "not found"]
     if not_found:
         parts.append("website feature rows whose page GitHub Pages no longer serves: " + ", ".join(not_found))
+    # A served recorded site whose URL now redirects should move there (#454, #482);
+    # a row with a failure (", but") is left to a browser check.
+    moved = [m for s, m, d in sites if s in ("same", "redeployed") and REDIRECTED in d and ", but " not in d]
+    if moved:
+        parts.append("website feature sites whose recorded URL now redirects: " + ", ".join(moved))
     new_sites = [m for s, m, _ in sites if s == "new site"]
     if new_sites:
         parts.append("website feature verdicts to judge on new sites: " + ", ".join(new_sites))

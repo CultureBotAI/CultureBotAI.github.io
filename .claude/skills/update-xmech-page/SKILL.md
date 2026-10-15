@@ -238,11 +238,12 @@ reported for CLAW to correct rather than edited here. If the audit finds that
 what the new site serves is not a website in the catalogue's sense (a
 placeholder, a rendered README, a data-only host), keep the site-less entry,
 record the judged deployment's full SHA as its `deployed_revision` and say why
-in its `note`. The judgement holds until the Mech's next github-pages
-deployment, which most of these repositories make on every push to main and
-some only when site files change or on a schedule. The update check reports
-that deployment as a new site again, naming the judged revision, and it needs
-judging in turn.
+in its `note`. The judgement holds until a github-pages deployment of another
+commit, which most of these repositories make on every push to main and some
+only when site files change. The update check reports that deployment as a new
+site again, naming the judged revision, and it needs judging in turn. A
+redeployment of the same commit, such as a scheduled rebuild or a re-run, is
+not reported, though it can change what is served (#487).
 
 A recorded site the update check reports as `gone` becomes a site-less entry:
 `site` null, its `repository`, and a `note` giving the date on which the check
@@ -259,9 +260,12 @@ as a site-only recheck. If the whole site is no longer served, make the entry
 site-less as for `gone`, but keep a `deployed_revision`: the latest successful
 deployment's full SHA, with a `note` saying that GitHub Pages answers 404 for
 the site. Pages is still enabled with that deployment, so without it the check
-would read NOT CHECKED on every run; with it, `no site` until the next
-deployment. A `same` or `redeployed` row that names a redirect means the
-recorded URL now leads elsewhere: record where it ends as the `site`.
+would read NOT CHECKED on every run; with it, `no site` until a deployment of
+another commit. A `same` or `redeployed` row with no failure (no ", but")
+that names a redirect means the recorded URL now leads elsewhere: record where
+it ends as the `site` if that end is https, since the table accepts only https
+URLs, and otherwise keep the recorded URL. A row whose failure came through a
+redirect needs a browser check before anything is recorded.
 
 `scripts/fleet/check_updates.py` reports sites whose latest deployment succeeded
 at a different revision (`redeployed`, also when the HEAD request to the site

@@ -446,6 +446,10 @@ class SuiteUpdateTests(unittest.TestCase):
             (pages_error("javascript:void(0)", 301), None, f"{url} (redirected to javascript:void(0)) answers 301"),
             (urllib.error.URLError("no route"), None, f"{url} did not answer (<urlopen error no route>)"),
             (TimeoutError("timed out"), None, f"{url} did not answer (timed out)"),
+            # #483: an empty DNS label fails in IDNA encoding; on 3.10 a huge port overflows.
+            (UnicodeError("label empty or too long"), None, f"{url} did not answer (label empty or too long)"),
+            (OverflowError("Python int too large to convert to C long"), None,
+             f"{url} did not answer (Python int too large to convert to C long)"),
             ({"Server": "Netlify"}, None, f"{url} is served by Netlify, not GitHub Pages"),
             ({"Server": "Netlify"}, moved, f"{url} (redirected to {moved}) is served by Netlify, not GitHub Pages"),
             (PAGES_ANSWER, repository, f"{url} (redirected to {repository}) is on github.com, "
@@ -487,15 +491,32 @@ class SuiteUpdateTests(unittest.TestCase):
                 self.assertEqual(rows, [row])
                 self.assertEqual(requests, [("HEAD", url, 30)])
                 line = check_updates.summary([], [], "matches", [], [], ("current", "current"), rows)
+                # #482: a served site whose URL now redirects should move there; a
+                # failure that came through a redirect is left to a browser check.
+                redirects = row[0] in ("same", "redeployed") and "redirected to" in row[2] and ", but " not in row[2]
+                if redirects:
+                    self.assertIn("website feature sites whose recorded URL now redirects: AMech.", line)
+                else:
+                    self.assertNotIn("now redirects", line)
                 if row[0] == "same":
-                    self.assertIn("Refresh would change:** nothing found.", line)
+                    self.assertIn("Refresh would change:** " + ("website feature sites" if redirects else "nothing found."),
+                                  line)
                     self.assertNotIn("Not checked", line)
                 elif row[0] == "redeployed":
-                    self.assertIn("website feature verdicts to re-check on redeployed sites: AMech.", line)
+                    self.assertIn("website feature verdicts to re-check on redeployed sites: AMech", line)
                     self.assertNotIn("Not checked", line)
                 else:
                     self.assertIn("**Not checked:** site deployment AMech.", line)
                     self.assertIn("Refresh would change:** nothing found.", line)
+        # #483: a URL urllib cannot build reads as not answering too, so a newer
+        # deployment is still reported as redeployed.
+        broken = "https://[::1/a/"
+        for sha, row in (("a" * 40, ("NOT CHECKED", "AMech", f"{broken} did not answer (Invalid IPv6 URL)")),
+                         ("b" * 40, ("redeployed", "AMech", f"{since}, but {broken} did not answer (Invalid IPv6 URL)"))):
+            with self.subTest(site=broken, sha=sha[:1]):
+                entry = dict(features["mechs"]["AMech"], site=broken)
+                rows = check_updates.site_feature_check({"mechs": {"AMech": entry}}, api=answers(sha), opener=no_request)
+                self.assertEqual(rows, [row])
         for created in ("?", None, "2026-10-05T16:00:00"):  # the last has no zone
             with self.subTest(created=created):
                 opener, requests = head_requests()
@@ -511,8 +532,9 @@ class SuiteUpdateTests(unittest.TestCase):
                 api.assert_not_called()
 
     def test_the_validator_and_the_check_apply_one_site_url_rule(self):
-        # #439, #456, #459: every site the validator accepts is one the check
-        # can request, and every one it rejects the check rejects too.
+        # #439, #456, #459: the validator and the check accept and reject the
+        # same sites; an accepted one urllib cannot request reads as not
+        # answering (#483).
         from assemble_page import validate_site_features
         table = json.loads((ROOT / "_fleet/data/site_features.json").read_text())
         name = next(n for n, m in table["mechs"].items() if m.get("site"))

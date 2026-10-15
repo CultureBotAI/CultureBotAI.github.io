@@ -82,8 +82,10 @@ CITATION = ["PMID", "DOI", "PMCID", "ISBN", "ISSN", "JSTOR", "OSTI", "patent",
             "PNNLDH", "CELEX", "arXiv"]
 
 # A website feature table site: https, then printable ASCII with no spaces, so
-# that urllib can request every value the validator accepts (#439, #456). The
-# validator and the update check share it, so the two cannot drift (#459).
+# that http.client can encode its request line (#439, #456). It does not prove
+# the URL well formed; the update check reports one urllib cannot request as not
+# answering (#483). The validator and the check share it, so they cannot drift
+# (#459).
 SITE_URL = re.compile(r"https://[!-~]+")
 
 
