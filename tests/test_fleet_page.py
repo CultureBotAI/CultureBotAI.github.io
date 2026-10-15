@@ -1223,7 +1223,12 @@ class UpdateCheckTests(unittest.TestCase):
             self.assertEqual(self.c.pages_check(api_for(build))[0], state, state)
         self.assertIn("main is aaaaaaa", self.c.pages_check(api_for(cases["behind"]))[1])
         self.assertIn("Page build failed.", self.c.pages_check(api_for(cases["errored"]))[1])
-        self.assertEqual(self.c.pages_check(api_for(None)), ("NOT CHECKED", "NOT CHECKED: GitHub Pages (HTTP 404)"))
+        # #449: the build request, unlike commits/main, needs gh's repo scope.
+        self.assertEqual(self.c.pages_check(api_for(None)), (
+            "NOT CHECKED", "NOT CHECKED: GitHub Pages (repos/CultureBotAI/CultureBotAI.github.io/pages/builds/latest "
+                           "failed: HTTP 404; it needs gh's repo scope)"))
+        def no_main(path): raise self.c.Unchecked(["HTTP 502"])
+        self.assertEqual(self.c.pages_check(no_main), ("NOT CHECKED", "NOT CHECKED: GitHub Pages (HTTP 502)"))
         def no_gh(path): raise FileNotFoundError(2, "No such file or directory", "gh")
         self.assertEqual(self.c.pages_check(no_gh)[0], "NOT CHECKED")  # #343
 

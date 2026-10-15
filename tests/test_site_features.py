@@ -184,6 +184,10 @@ class SiteFeatureTests(unittest.TestCase):
             (lambda f: f["mechs"][name]["features"][key].update(url="http://example.org"), "https evidence"),
             (lambda f: f["mechs"][name].update(site="http://example.org/"), "https URL"),
             (lambda f: f["mechs"][name].update(site=["https://example.org/"]), "https URL"),
+            # #439: the update check's rule, which reads the site.
+            (lambda f: f["mechs"][name].update(site="https://"), "https URL"),
+            (lambda f: f["mechs"][name].update(site="https://example.org/a b/"), "https URL"),
+            (lambda f: f["mechs"][name].update(site="https://example.org/a/ "), "https URL"),
             (lambda f: f["mechs"][name].pop("repository"), "repository"),
             (lambda f: f["mechs"][name].update(repository=None), "repository"),
             (lambda f: f["mechs"][name].update(repository=["https://github.com/CultureBotAI/AMech"]), "repository"),

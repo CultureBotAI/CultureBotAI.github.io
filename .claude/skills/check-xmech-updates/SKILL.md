@@ -55,15 +55,28 @@ uses); without PyYAML the membership line says NOT CHECKED. The script prints:
   staleness signal; its evidence URLs are not part of `claims`. A site counts as
   served only while its repository has GitHub Pages enabled, its latest
   deployment has succeeded, and a HEAD request to it succeeds (no HTTP error
-  status after redirects) and is answered by GitHub Pages. A recorded site that
-  is served is `same` or `redeployed`; one whose repository no longer has Pages
-  enabled is `gone`. A Mech the table records without a site is `new site` once
-  its site is served, and `no site` while Pages is not enabled or while Pages
-  still serves the `deployed_revision` an audit judged not to be a website. Any
-  other state is NOT CHECKED: that includes Pages enabled with no deployment
-  record, since a deploy job that names no environment records none, and a
-  successful deployment whose site returns an error status, does not answer,
-  or is served by another host at a custom domain. A new site's URL comes from
+  status after redirects) with an answer from GitHub Pages: one that carries
+  its `X-GitHub-Request-Id` header and does not come from a GitHub page, such
+  as the repository, which carries the header too. The answer's `Last-Modified`
+  date must also be no earlier than the deployment's creation, since a run that
+  skips publishing still ends in success while Pages serves what an earlier
+  deployment published. A recorded site that is served is `same` or
+  `redeployed`; one whose repository no longer has Pages enabled is `gone`; one
+  whose recorded page GitHub Pages answers with 404 is `not found`, which a
+  removed or moved page and an unpublished or transferred site all give. A newer
+  successful deployment reads `redeployed` even when the HEAD request fails, with
+  the failure in its detail. A Mech the table records without a site is `new
+  site` once its site is served, and `no site` while Pages is not enabled or
+  while its latest successful deployment is still the `deployed_revision` an
+  audit judged not to be a website. That judgement covers one deployment, and
+  these repositories deploy on every push, so the next push makes the Mech read
+  `new site` again, naming the judged revision. Any other state is NOT CHECKED:
+  that includes Pages enabled with no deployment record, since a deploy job that
+  names no environment records none; a successful deployment whose site returns
+  an error status, does not answer, is served by another host at a custom domain
+  or by a GitHub page, or was last published before that deployment was
+  created; and a 404 for a new site, whose root can be missing while its pages
+  exist. A detail names where a redirect ended. A new site's URL comes from
   `repos/<repo>/pages`, which needs gh's `repo` scope (Pages read for a
   fine-grained token), even for a public repository; without it these Mechs
   read NOT CHECKED, naming that request;
@@ -91,11 +104,18 @@ about that Mech:
   pages, `CLAUDE.md`);
 - its row of the website feature table: for a site the mechanical pass reports
   as redeployed, re-test the verdicts the changed pages could move, against the
-  criteria in the file's `catalogue`.
+  criteria in the file's `catalogue`. A redeployed row that names a failed
+  request also means the recorded `site` URL needs checking in a browser.
 
 For a Mech the mechanical pass reports as a new site, whether or not its
-repository has `claims` changes, every statement that it has no website no
-longer holds; report each one. Some say so in words: its entry in
+repository has `claims` changes, every statement that it has no website stops
+holding once the new site is judged a website, as `update-xmech-page` does;
+report each one. When the row ends "the table judged `<sha>` not to be a
+website", an audit found an earlier deployment to be a placeholder or similar:
+report the statements as candidates that are stale only if the new deployment
+is a website, and say that it still needs that judgement.
+
+Some statements say so in words: its entry in
 `site_features.json` and the feature table's notes, its card, its `MECHS` entry
 (an empty `site` sends the graph's node and panel links to GitHub, and `extra`
 can say that no website is deployed), its note in `_fleet/audit_notes.json`
@@ -126,8 +146,25 @@ Leave judging the new site's features to `update-xmech-page`.
 
 For a Mech reported as `gone`, the reverse holds: its feature row and every
 statement or link that presents its site describe a site that is no longer
-published. Report them; the same places and the link search, run for the site's
-URL, find them.
+published. Report them. A recorded site is often a deep page (many end in
+`pages/index.html`) while links point at its root and other pages, so search
+for the site's URL prefix, case-insensitive and with no terminator; this also
+finds the generated record lists under `assets/fleet`:
+
+```bash
+command grep -rniE --exclude-dir=.git --exclude-dir=_site 'culturebotai\.github\.io/<repo>/' .
+```
+
+Two places join a base URL and a path, so no URL search finds them: the card
+source in `SOURCES` in `scripts/fleet/check_cards.py` and the record-link base in
+`SITE_BASE` in `scripts/fleet/build_subsets.py`, which `build_cells.py` reuses.
+Report both, with the record lists generated from them.
+
+For a Mech reported as `not found`, GitHub Pages itself has nothing at the
+recorded page. Open the site's root and its Pages URL in a browser and report
+whether the page moved (the feature row's `site` and the links above need the
+new URL, and its verdicts a re-check) or the whole site is no longer served
+(as for `gone`).
 
 Report each claim that no longer holds, with the old statement, the new fact and
 its source. A changed file that leaves every claim true is a no-change finding;
@@ -166,7 +203,8 @@ One short report, in this order:
 3. **Per layer:** card figures; census and overlaps (records added, removed,
    edited per Mech); hand-curated claims that no longer hold, each with evidence;
    membership and capabilities; website feature verdicts that a redeployment
-   moved, and new sites the table records as absent; dead links.
+   moved, new sites the table records as absent, and recorded sites that are
+   `gone` or `not found`; dead links.
 4. **What was not checked**, such as files past the API's 300-file cap that were
    not paged through.
 

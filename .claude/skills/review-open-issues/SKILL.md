@@ -289,7 +289,9 @@ The recurring failure here is mismeasuring evidence, not misreading it. Each of
 these has produced a wrong conclusion in this repository:
 
 - **`rg` does not prove absence.** It skips gitignored files. Any claim of the
-  form "nothing references X" needs `grep -r` or `rg -uu`. Say which you ran.
+  form "nothing references X" needs `command grep -r` or `rg -uu`: in Claude
+  Code's shell a plain `grep` runs a ugrep wrapper that skips ignored files too
+  (#450). Say which you ran.
 - **`grep --no-ignore` is not a `grep` flag.** It is an `rg` flag; BSD `grep`
   fails and the surrounding `&&` chain silently skips the work, which reads as
   "no matches found".
