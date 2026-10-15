@@ -104,11 +104,11 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 - **[PathwayMech](https://culturebotai.github.io/PathwayMech/)** - Microbial pathway mechanisms with participants, reactions, causal edges, and reference-backed evidence
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
-- **[DUFMech](https://github.com/CultureBotAI/DUFMech)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
+- **[DUFMech](https://culturebotai.github.io/DUFMech/)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
-- **[CMMMech](https://github.com/CultureBotAI/CMMMech)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
-- **[AIMech](https://github.com/CultureBotAI/AIMech)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
+- **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
+- **[AIMech](https://culturebotai.github.io/AIMech/)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
 - **[CultureMech](/culturemech/)** - Single-organism media requirements (6,320 canonical media)
 - **[PFASCommunityAgents](/resources/#pfascommunityagents)** - AI-driven consortium design for PFAS biodegradation

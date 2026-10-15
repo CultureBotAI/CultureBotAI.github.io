@@ -20,11 +20,14 @@ from roots import CITATION, ORDER, mech_root, record_documents, record_paths, re
 
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
-# Where each Mech publishes one record. Six serve a page per record; the
-# ProteinTraitsMech browser routes by hash; TaxonMech's by query. The other two
-# link the source file on GitHub: MediaIngredientMech publishes no per-record
-# pages, only a single browser, and CultureMech's pages/media/ pages come and go
-# with its Actions deployment (#175, #223), so they are not a link base yet (#229).
+# Where each Mech publishes one record. Eight serve a page per record
+# (DUFMech's are family pages); the ProteinTraitsMech browser routes by hash;
+# TaxonMech's by query. MediaIngredientMech and CultureMech link the source file
+# on GitHub: MediaIngredientMech publishes no per-record pages, only a single
+# browser, and CultureMech's pages/media/ pages come and go with its Actions
+# deployment (#175, #223), so they are not a link base yet (#229). CMMMech and
+# AIMech publish a page per record since October 12, 2026, after the census
+# pins; prepare() points their links at the scanned commit's files (#479).
 SITE_BASE={
  # One committed page per record, pages/<class>/<slug>.html mirroring
  # data/natural_products/<class>/<slug>.yaml, served by the branch build (#149).
@@ -157,7 +160,8 @@ def prepare():
     Everything here reads the filesystem, which is why it is not at import.
     """
     MECHS.update({name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER})
-    # These Mechs have no website: every record link names the scanned commit.
+    # Every record link names the scanned commit, so it matches the census pin
+    # even where the Mech's website serves a later revision.
     for name, directory in (("CMMMech", "data/records/"), ("AIMech", "data/")):
         pin = revision(name)
         if pin and re.fullmatch(r"[0-9a-f]{40}", pin):
