@@ -465,8 +465,9 @@ shared-term edges, statistics and both support tables. The canonical corpus is
 fixtures, reviews and history sidecars are not additional records. Its 48
 records at `9fa187ff5a455f495cfa2635e60c413b6763370d` have no REVIEWED-bearing
 status slot. A null statistic makes no claim about scientific review artifacts.
-There is no published website, so links use the pinned GitHub records and the
-website-feature row explicitly says so. Its card checker counts a complete Git
+Its record links use the pinned GitHub records, which match the census pin;
+its website first deployed on October 12, 2026, after the pins, and has its own
+website-feature row. Its card checker counts a complete Git
 tree inventory, rejects truncated API responses, and compares canonical paths
 and blob hashes with `git ls-tree` at the pin. It never treats a README's
 hand-maintained list as the live corpus size.

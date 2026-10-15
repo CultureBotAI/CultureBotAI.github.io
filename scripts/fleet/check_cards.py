@@ -99,8 +99,9 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "AIMech":              ("git-tree", "https://api.github.com/repos/CultureBotAI/AIMech/git/trees/main?recursive=1", r"data/(?:aio|curated)/(?!\.)[^/]+\.yaml"),
 }
 
-# Repository directories shown as count-source links for native corpora with
-# no published website. The regex selectors above define the exact inventory.
+# Repository directories shown as count-source links for corpora whose card
+# counts the pinned repository inventory rather than a figure on a website. The
+# regex selectors above define the exact inventory.
 INVENTORY_DIRS = {"CMMMech": "data/records", "AIMech": "data"}
 
 DUF_WORKLISTS = "https://api.github.com/repos/CultureBotAI/DUFMech/contents/data/worklists?ref=main"

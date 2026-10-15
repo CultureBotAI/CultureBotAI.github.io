@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-10-10",
-  "scope": "Each Mech's live GitHub Pages site as checked on October 10, 2026 (US Pacific time), independently of the repository pins used by the census. AI auditors reassessed all 24 catalogue features across the twelve published sites using headless Chrome: identifier and label searches, filters and pagination, URL restoration, page-to-page theme persistence, 390 px layouts, and deliberately aborted data requests where applicable. Evidence was reviewed independently; changed ratings were independently re-tested, and columns were compared across sites against the same catalogue criteria. Notes identify sampled routes rather than claiming an exhaustive check of every record. Each deployed_revision identifies a deployment whose latest status was verified as successful for that site's final browser check; later deployments may differ. CMMMech and AIMech have repository inventories and no published website.",
+  "scope": "Each Mech's live GitHub Pages site as checked on October 10, 2026 (US Pacific time), independently of the repository pins used by the census. AI auditors reassessed all 24 catalogue features across the twelve published sites using headless Chrome: identifier and label searches, filters and pagination, URL restoration, page-to-page theme persistence, 390 px layouts, and deliberately aborted data requests where applicable. Evidence was reviewed independently; changed ratings were independently re-tested, and columns were compared across sites against the same catalogue criteria. Notes identify sampled routes rather than claiming an exhaustive check of every record. Each deployed_revision identifies a deployment whose latest status was verified as successful for that site's final browser check; later deployments may differ. CMMMech and AIMech had no published website when checked; both began publishing on October 12, 2026, and their sites were judged later in site-only rechecks.",
   "groups": [
     {
       "title": "Find records",
@@ -1707,14 +1707,262 @@
       }
     },
     "CMMMech": {
-      "site": null,
+      "site": "https://culturebotai.github.io/CMMMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/CMMMech",
-      "note": "No published website (checked October 11, 2026); records, schema and review artifacts are available in the repository."
+      "deployed_revision": "51adf4be6c544642f6bf54a4e7f514adb84aa34e",
+      "checked_on": "2026-10-14",
+      "scope": "All 24 catalogue features were judged in Chrome by AI auditors for the site's first entry in the table: each verdict by an auditor and an independent skeptic, with an arbiter for disagreements and a comparison against the other sites' verdicts, then a final browser check on the recorded successful deployment that confirmed every status. Checks covered all 403 record pages, identifier and label searches, kind, process and criticality filters with their clear control, URL restoration attempts, the six kind and seven process listings, ChEBI and organism links, saved theme across routes, 390 px layouts in both themes, and aborted data requests.",
+      "features": {
+        "search": {
+          "status": "present",
+          "note": "Browse searches all 403 records: CHEBI:30145 and IMA:2003-042 each return one match, NCBITaxon:920 gives 35 openable matches, and Spodumene two. Record pages do not show their own cmmmech: IDs, which are not indexed.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        "facets": {
+          "status": "present",
+          "note": "Browse offers Material Kind, Mechanism Process and Criticality selectors with Clear filters: Element gives 65, adding bioleaching 15, and Clear filters restores 403. Process options omit recycling.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        "result_counts": {
+          "status": "present",
+          "note": "The live status line changes from 403 of 403 materials shown to 1 for CHEBI:30145, 65 for Element, 15 with bioleaching added, and 0 with a no-match message for an unmatched query.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        "sorting": {
+          "status": "missing",
+          "note": "Browse, kind and process listings offer no sort control. Clicking the Material, Kind and Criticality headings leaves the alphabetical row order unchanged.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        "shareable_state": {
+          "status": "missing",
+          "note": "Search and filter changes leave the URL unchanged and reloading clears them. Opening browse.html?q=Cadmoindite, #q=Cadmoindite or ?kind=element shows all 403 records with empty controls.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=Cadmoindite"
+        },
+        "full_catalogue": {
+          "status": "present",
+          "note": "Browse links 403 record rows, matching the landing total and the 403 deployed record pages, all of which returned 200. The six kind listings partition the same 403 records.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        "record_pages": {
+          "status": "present",
+          "note": "Each material has a static materials/<slug>.html page linked from Browse and the kind and process listings; cobalt, akaganeite, acanthite, uranium and fluorescent-lamp-phosphor opened at their own URLs.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "term_links": {
+          "status": "present",
+          "note": "Element records link labeled ChEBI groundings, and all 317 organism entries show labels with NCBITaxon links to NCBI. The 14 IMA mineral numbers are labeled plain text; 324 records show no own grounding.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+        },
+        "evidence": {
+          "status": "present",
+          "note": "All 1,542 reference entries across the 403 records link a DOI or source URL, and evidence points jump to them in-page. Some secondary PMIDs and DOIs in reference titles remain plain text.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+        },
+        "review_status": {
+          "status": "missing",
+          "note": "Record headers show only kind and criticality badges. Evidence labels such as Support and Context_only and history actions do not state a record curation or review status.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "curation_history": {
+          "status": "present",
+          "note": "All 403 records show a Curation History table with timestamp, curator, action and summary; cobalt lists Codex's 2026-10-08 provenance adoption and 2026-10-09 criticality addition.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "source_link": {
+          "status": "present",
+          "note": "Each record's Record source line links its own data/records YAML on GitHub, such as cobalt.yaml; all 403 linked files exist on main. The links follow main rather than a pinned commit.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "domain_view": {
+          "status": "missing",
+          "note": "No landing, Browse, kind, process or record page renders a diagram, map or network. The deployed HTML contains no SVG, canvas or image elements, and its two scripts only filter rows and set the theme.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "cross_mech_links": {
+          "status": "missing",
+          "note": "Record pages link external resolvers and sources but no specific sibling-Mech or kg-microbe records. The footer links only sibling site roots and the kg-microbe repository.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+        },
+        "corpus_stats": {
+          "status": "present",
+          "note": "The generated landing reports 403 materials, 404 mechanisms, 335 materials with mechanisms and 87 designated critical, plus kind and process counts. Its Biological Mechanisms tile includes 54 abiotic ones.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        "category_browse": {
+          "status": "present",
+          "note": "Landing cards open six kind and seven process listings with counts, search and filters; the kind pages partition all 403 records. Two recycling-only records have no process card or page.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+        },
+        "suite_nav": {
+          "status": "present",
+          "note": "All Mech projects visibly links to culturebotai.github.io/mechs/ in the footer of the landing, Browse, every kind and process page and all 403 record pages.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        "downloads": {
+          "status": "partial",
+          "note": "Pages link the GitHub repository and each record's YAML. The deployed pages/index.json summarizes all 403 records without their full content and is not linked; no complete bulk export is offered.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        "schema_docs": {
+          "status": "missing",
+          "note": "No deployed page mentions or links LinkML schema documentation; the only schema matches are the word schematic in evidence text. The repository holds src/cmmmech/schema/cmmmech.yaml.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        "license": {
+          "status": "present",
+          "note": "Every page footer states data CC BY 4.0 and code BSD-3-Clause, linking the CC license and LICENSE-CODE, consistent with the repository license files. It does not mention third-party terms.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "build_provenance": {
+          "status": "partial",
+          "note": "Footers name scripts/render_pages.py but give no build date, commit or corpus version. Besides curation timestamps, only upstream dates appear: each reference has an access date, such as cobalt's ChEBI entry, 2026-10-06.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "theme_toggle": {
+          "status": "present",
+          "note": "Dark chosen on the landing saved mech-theme=dark and persisted through Browse, kind, process and record pages via link clicks; every deployed page then opened dark with the toggle. Light persisted too.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        "responsive": {
+          "status": "partial",
+          "note": "Landing, Browse and all kind and process pages fit 390 px in both themes, but 364 of 403 record pages overflow: 87 criticality tables widen pages to 597 px and history tables add 3 to 69 px.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        "load_failure": {
+          "status": "not_applicable",
+          "note": "No page makes a fetch or XHR request; listings, search data and records are pre-rendered HTML. Aborting JSON, fetch and XHR matched nothing, and blocking record-browser.js leaves all static rows.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        }
+      }
     },
     "AIMech": {
-      "site": null,
+      "site": "https://culturebotai.github.io/AIMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/AIMech",
-      "note": "No published website. The repository provides 442 imported AIO concepts and 159 maintained concepts at the refresh pin, native LinkML schemas, validation and review artifacts; these are not website features."
+      "deployed_revision": "95b28698f4046f7d9bb6505f5ec2190081b5ac95",
+      "checked_on": "2026-10-14",
+      "scope": "All 24 catalogue features were judged in Chrome by AI auditors for the site's first entry in the table: each verdict by an auditor and an independent skeptic, with an arbiter for disagreements and a comparison against the other sites' verdicts, then a final browser check on the recorded successful deployment that confirmed every status. Checks covered all 1,159 record pages, identifier and label searches, origin, kind and branch filters with reset and cold URL restoration, the 17 kind and branch listings, saved theme across routes, 390 px layouts in both themes, and aborted data requests. The site redeployed during the final check, adding two records; the notes give the counts at the recorded revision.",
+      "features": {
+        "search": {
+          "status": "present",
+          "note": "Browse searches all 1,159 records: AIMech:KernelPCA and AIO:HumanReportingBias each give 1 of 1159, and the label Kernel Principal Component Analysis gives 2. Matching rows open their record pages.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        "facets": {
+          "status": "present",
+          "note": "Origin, Concept Kind and AIO Branch selectors filter Browse, with Reset: Architectures gives 67, AIO plus Layer 168, curated architectures matching attention 16, and Reset restores all 1,159.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        "result_counts": {
+          "status": "present",
+          "note": "Showing N of 1159 updates with search and filters, separately from the total: AIMech:KernelPCA gives 1, Adam 24, Architectures 67 and an unmatched query 0.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        "sorting": {
+          "status": "missing",
+          "note": "Browse, kind and branch listings have no sort control, and clicking each of the five column headings leaves the row order unchanged.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        "shareable_state": {
+          "status": "present",
+          "note": "Search, origin, kind and branch are written to the URL. Reloading ?q=attention&origin=curated&kind=architecture restores all three controls and 16 matches; a cold ?origin=aio&branch=Bias load gives 61.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture"
+        },
+        "full_catalogue": {
+          "status": "present",
+          "note": "Browse links all 1,159 records the landing counts, 717 curated and 442 AIO. All 1,159 record pages returned HTTP 200, and the nine kind and eight branch pages list the same records.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        "record_pages": {
+          "status": "present",
+          "note": "Each record has a stable static URL, curated/<name>.html or aio/<name>.html, linked from Browse. Adam, KernelPCA, AStarSearch, AbstractRNNCell and TrainingStrategy opened, as did all 1,159.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        "term_links": {
+          "status": "present",
+          "note": "All 837 AIO mappings show a labeled CURIE linked to its class page, which links its w3id IRI; parents are labeled links. Rejected candidates on 111 no-match records lack labels; subsets and owl:Thing are plain text.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html"
+        },
+        "evidence": {
+          "status": "present",
+          "note": "All 1,105 sources on the 717 curated records link their documents, and claims link their source rows; DOIs, arXiv IDs and URLs in the ID column are plain text. One source and 11 AIO definition links are dead.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        "review_status": {
+          "status": "present",
+          "note": "Every record header shows its workflow status: all 717 curated concepts are DRAFT and all 442 imported AIO classes NOT_REVIEWED, as on Adam and AbstractRNNCell.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        "curation_history": {
+          "status": "partial",
+          "note": "Curated records show curator Codex, method, model and created and updated times, but no event list or description of what changed. AIO class pages show only import provenance.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        "source_link": {
+          "status": "present",
+          "note": "Every record page links its own YAML on GitHub, data/curated/<name>.yaml or data/aio/<name>.yaml. All 1,159 targets exist at the deployed revision, and the sampled links opened.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        "domain_view": {
+          "status": "missing",
+          "note": "No diagram, map, network or lineage view is offered. AIO pages list only direct parent classes and branch as text links, and the deployed pages contain no svg, canvas or image elements.",
+          "url": "https://culturebotai.github.io/AIMech/pages/aio/AbstractRNNCell.html"
+        },
+        "cross_mech_links": {
+          "status": "missing",
+          "note": "No record body links a sibling-Mech or kg-microbe record. The shared footer links only sibling site home pages and the kg-microbe repository.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        "corpus_stats": {
+          "status": "present",
+          "note": "The landing reports 1,159 concepts, 717 curated, 442 AIO classes, 2,069 claims and 1,105 evidence citations, matching the 2,069 claim cards and 1,105 sources on the record pages.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "category_browse": {
+          "status": "present",
+          "note": "The landing links nine curated-kind pages and eight AIO-branch pages with counts, each a filterable listing; Architectures lists 67 and Biases 61, matching their cards.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "suite_nav": {
+          "status": "present",
+          "note": "Every page footer visibly links All Mech projects to culturebotai.github.io/mechs/, which opened the X-Mech Suite page; checked on landing, Browse, kind, branch and record pages.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "downloads": {
+          "status": "partial",
+          "note": "The header links the GitHub repository and each record links its YAML there, but no bulk export is linked. The served pages/index.json holds 1,159 summary entries and no page links it.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "schema_docs": {
+          "status": "missing",
+          "note": "No deployed page mentions a schema or LinkML. The repository's LinkML schemas under src/aimech/schema are neither linked nor published on the site.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "license": {
+          "status": "partial",
+          "note": "Footers say data CC BY 4.0 / BSD-3-Clause, code BSD-3-Clause, but the data BSD link opens LICENSE-DATA, which grants CC BY 4.0 to AIO-derived records only. The repository states no license for the 717 curated concepts.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "build_provenance": {
+          "status": "partial",
+          "note": "Footers name only the generator script. AIO class pages give the upstream AIO commit 397851c547 and import time 2026-10-10T07:34:10Z; no site build date, deployed commit or corpus version appears.",
+          "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
+        },
+        "theme_toggle": {
+          "status": "present",
+          "note": "Dark chosen on the landing persisted through Browse, Curated, AIO Classes, kind, branch, curated and AIO record pages; switching back to light on a record page also persisted.",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        "responsive": {
+          "status": "partial",
+          "note": "Landing, Browse, its Curated and AIO views, and all kind and branch pages fit 390 px in both themes, but 545 of 1,159 record pages overflow, up to 774 px, from unbroken IDs, IRIs and URLs.",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/StochasticFactorizedVariationalSparseSpectrumGaussianProcessInference.html"
+        },
+        "load_failure": {
+          "status": "not_applicable",
+          "note": "Landing, Browse, kind, branch and record pages request only HTML, style.css and one or two scripts. Record data is pre-rendered; no fetch or XHR occurs, and aborting JSON and XHR requests changes nothing.",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        }
+      }
     }
   }
 }

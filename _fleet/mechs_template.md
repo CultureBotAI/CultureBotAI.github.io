@@ -107,7 +107,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>48</b><span>material records · 42 elements, 4 minerals, 2 secondary resources</span></div>
     <p class="prov"><!--FLEET_STATS:CMMMech--></p>
     <div class="vocab"><span>ChEBI</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/CMMMech/tree/9fa187ff5a455f495cfa2635e60c413b6763370d/data/records">Browse records</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CMMMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CMMMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CMMMech--></div>
   </article>
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
@@ -131,7 +131,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>601</b><span>concept records · 442 AIO imports, 159 maintained</span></div>
     <p class="prov"><!--FLEET_STATS:AIMech--></p>
     <div class="vocab"><span>AIO</span><span>BFO</span><span>DOI</span><span>arXiv</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/AIMech/tree/b797b0f7c64fc69521e66986256e1e055c34e92c/data">Browse records</a><a href="https://github.com/CultureBotAI/AIMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AIMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AIMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/AIMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AIMech--></div>
   </article>
 </div>
 

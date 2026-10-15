@@ -10,7 +10,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from assemble_page import (GROUP_START, MECH_CELL, NO_SITE, SITE_KEY, SITE_STATUSES, assemble,
+from assemble_page import (GROUP_START, MECH_CELL, NO_SITE, SITE_KEY, SITE_STATUSES, assemble, number_word,
                            site_feature_columns, site_feature_key, site_feature_rows,
                            site_feature_totals, validate_site_features)
 from card_markup import card_names
@@ -150,8 +150,10 @@ class SiteFeatureTests(unittest.TestCase):
         self.assertEqual(row.count("<td"), 1)
         self.assertIn(f'colspan="{len(columns)}" class="{NO_SITE} {GROUP_START}"', row)
         self.assertNotIn('role="img"', row)
-        self.assertIn("across the eleven published sites", page)
-        self.assertIn("of 11 sites", table.split("<tfoot>")[1])
+        # One fewer than the table's published sites, whatever that count is (#404).
+        published = sum(m.get("site") is not None for m in self.features["mechs"].values()) - 1
+        self.assertIn(f"across the {number_word(published)} published sites", page)
+        self.assertIn(f"of {published} sites", table.split("<tfoot>")[1])
         notes = section(page, '<details class="fleet-site-notes">', "</details>")
         self.assertIn("<h4>DUFMech</h4><p>No published website yet.</p>", notes)
 

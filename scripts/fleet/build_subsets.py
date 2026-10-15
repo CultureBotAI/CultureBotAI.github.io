@@ -157,7 +157,8 @@ def prepare():
     Everything here reads the filesystem, which is why it is not at import.
     """
     MECHS.update({name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER})
-    # These Mechs have no website: every record link names the scanned commit.
+    # Every record link names the scanned commit, so it matches the census pin
+    # even where the Mech's website serves a later revision.
     for name, directory in (("CMMMech", "data/records/"), ("AIMech", "data/")):
         pin = revision(name)
         if pin and re.fullmatch(r"[0-9a-f]{40}", pin):
