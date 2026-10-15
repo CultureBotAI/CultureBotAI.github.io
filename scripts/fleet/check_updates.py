@@ -386,7 +386,7 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
                 else:
                     published = timestamp(headers.get("Last-Modified"), http_date=True)
                     if published is None:
-                        failure = f"{shown} sends no Last-Modified date"
+                        failure = f"{shown} sends no valid Last-Modified date"
                 if failure is not None:
                     unverified = f"deployment {sha[:7]} succeeded, but {failure}"
             if failure is not None:

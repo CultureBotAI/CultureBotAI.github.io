@@ -428,8 +428,11 @@ class SuiteUpdateTests(unittest.TestCase):
                                        "where GitHub Pages serves no site"),
             (PAGES_ANSWER, readme, f"{url} (redirected to {readme}) is on raw.githubusercontent.com, "
                                    "where GitHub Pages serves no site"),
-            (undated, None, f"{url} sends no Last-Modified date"),
-            (dict(PAGES_ANSWER, **{"Last-Modified": "yesterday"}), None, f"{url} sends no Last-Modified date"),
+            (undated, None, f"{url} sends no valid Last-Modified date"),
+            (dict(PAGES_ANSWER, **{"Last-Modified": "yesterday"}), None, f"{url} sends no valid Last-Modified date"),
+            # An HTTP date must be GMT; "-0000" leaves its zone unknown.
+            (dict(PAGES_ANSWER, **{"Last-Modified": "Thu, 15 Oct 2026 00:48:08 -0000"}), None,
+             f"{url} sends no valid Last-Modified date"),
         ]
         cases = []
         for answer, final, failure in failures:
@@ -459,10 +462,11 @@ class SuiteUpdateTests(unittest.TestCase):
                 else:
                     self.assertIn("**Not checked:** site deployment AMech.", line)
                     self.assertIn("Refresh would change:** nothing found.", line)
-        with self.subTest(created="?"):
-            opener, requests = head_requests()
-            rows = check_updates.site_feature_check(features, api=answers("a" * 40, created="?"), opener=opener)
-            self.assertEqual(rows, [("NOT CHECKED", "AMech", "deployment response has no valid creation time")])
+        for created in ("?", None, "2026-10-05T16:00:00"):  # the last has no zone
+            with self.subTest(created=created):
+                opener, requests = head_requests()
+                rows = check_updates.site_feature_check(features, api=answers("a" * 40, created=created), opener=opener)
+                self.assertEqual(rows, [("NOT CHECKED", "AMech", "deployment response has no valid creation time")])
         for site in ("http://example.org/a/", "example.org/a/", "https://example.org/a b/", 12):
             with self.subTest(site=site):
                 api = mock.Mock(side_effect=AssertionError("an invalid site must not make an API request"))
