@@ -20,11 +20,14 @@ from roots import CITATION, ORDER, mech_root, record_documents, record_paths, re
 
 OUT=os.path.join(REPO,"assets","fleet")
 GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
-# Where each Mech publishes one record. Six serve a page per record; the
-# ProteinTraitsMech browser routes by hash; TaxonMech's by query. The other two
-# link the source file on GitHub: MediaIngredientMech publishes no per-record
-# pages, only a single browser, and CultureMech's pages/media/ pages come and go
-# with its Actions deployment (#175, #223), so they are not a link base yet (#229).
+# Where each Mech publishes one record. Eight serve a page per record
+# (DUFMech's are family pages); the ProteinTraitsMech browser routes by hash;
+# TaxonMech's by query. MediaIngredientMech and CultureMech link the source file
+# on GitHub: MediaIngredientMech publishes no per-record pages, only a single
+# browser, and CultureMech's pages/media/ pages come and go with its Actions
+# deployment (#175, #223), so they are not a link base yet (#229). CMMMech and
+# AIMech publish a page per record since October 12, 2026, after the census
+# pins; prepare() points their links at the scanned commit's files (#479).
 SITE_BASE={
  # One committed page per record, pages/<class>/<slug>.html mirroring
  # data/natural_products/<class>/<slug>.yaml, served by the branch build (#149).

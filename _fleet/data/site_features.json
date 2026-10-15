@@ -1711,11 +1711,11 @@
       "repository": "https://github.com/CultureBotAI/CMMMech",
       "deployed_revision": "51adf4be6c544642f6bf54a4e7f514adb84aa34e",
       "checked_on": "2026-10-14",
-      "scope": "All 24 catalogue features were judged in Chrome by AI auditors for the site's first entry in the table: each verdict by an auditor and an independent skeptic, with an arbiter for disagreements and a comparison against the other sites' verdicts, then a final browser check on the recorded successful deployment that confirmed every status. Checks covered all 403 record pages, identifier and label searches, kind, process and criticality filters with their clear control, URL restoration attempts, the six kind and seven process listings, ChEBI and organism links, saved theme across routes, 390 px layouts in both themes, and aborted data requests.",
+      "scope": "All 24 catalogue features were judged in Chrome by AI auditors for the site's first entry in the table: each verdict by an auditor and an independent skeptic, with an arbiter for disagreements and a comparison against the other sites' verdicts, then a final browser check on the recorded successful deployment that confirmed every status. Checks covered all 403 record pages, identifier and label searches, kind, process and criticality filters with their clear control, URL restoration attempts, the six kind and seven process listings, ChEBI and organism links, saved theme across routes, 390 px layouts in both themes, and aborted data requests. A later review regraded search from present to partial, since the site's own record identifiers are not searchable.",
       "features": {
         "search": {
-          "status": "present",
-          "note": "Browse searches all 403 records: CHEBI:30145 and IMA:2003-042 each return one match, NCBITaxon:920 gives 35 openable matches, and Spodumene two. Record pages do not show their own cmmmech: IDs, which are not indexed.",
+          "status": "partial",
+          "note": "Browse searches all 403 records by label and by the ChEBI, IMA and NCBITaxon identifiers it shows (CHEBI:30145 and IMA:2003-042 one match each, NCBITaxon:920 35), but not by the site's own cmmmech: record identifiers: cmmmech:calcite, shown on vaterite's page, returns 0 of 403, and cmmmech:lithium, shown on Browse, returns only the two records that cite it.",
           "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
         },
         "facets": {

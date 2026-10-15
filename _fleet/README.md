@@ -72,7 +72,7 @@ The card headline figures are hand-curated from each Mech's published browser,
 except CultureMech's committed README inventory, DUFMech's frozen JSON worklist,
 and the canonical Git-tree inventories for CMMMech and AIMech. Nothing regenerates the
 hand-curated card figures. `scripts/fleet/check_cards.py` compares each card
-against the page it cites and is the one script here that needs the network:
+against the source it counts and is the one script here that needs the network:
 
 ```bash
 python3 scripts/fleet/check_cards.py
@@ -272,7 +272,9 @@ TaxonMech's taxon.html route, ProteinTraitsMech hash routes, PathwayMech record
 pages) and to the record's source file on GitHub for CultureMech and
 MediaIngredientMech. DUFMech family links open its native
 `families/PFxxxxx.html` pages, using the family's stable Pfam accession.
-Every measured family has a published page.
+Every measured family has a published page. CMMMech and AIMech have published
+a page per record since October 12, 2026, after the census pins, but their
+record links name the pinned repository files, which match those pins.
 NaturalProductMech's pages are committed under `pages/<class>/<slug>.html`, one per
 record, and served by its branch build (#149). CultureMech's `pages/media/` pages
 come and go with its Actions deployment (#175), so its links stay on GitHub until
@@ -474,8 +476,10 @@ hand-maintained list as the live corpus size.
 
 AIMech uses the same complete-tree count checker over its two canonical record
 directories. Its 601 unique concept IDs are split across AIConcept imports and
-CuratedAIConcept records. There is no REVIEWED-bearing field and no published
-website. Pinned source links preserve the directory and filename for each
+CuratedAIConcept records. There is no REVIEWED-bearing field. It had no
+published website at the pin; its website first deployed on October 12, 2026,
+and has its own website-feature row. Pinned source links preserve the
+directory and filename for each
 record, with labels distinguishing imports from maintained concepts.
 
 All fourteen corpora were rescanned at the common refresh pins. CELEX, AIO,

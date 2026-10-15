@@ -142,7 +142,8 @@ Sources, refreshed differently:
   things (#214). `scripts/fleet/check_cards.py` compares each card figure
   nightly with the source it cites: a Pages URL, or for CultureMech its
   committed README on main, retained as the stable count source after earlier
-  browser deployment drift (see `SOURCES`; #226), or DUFMech's frozen worklist.
+  browser deployment drift (see `SOURCES`; #226), DUFMech's frozen worklist, or
+  for CMMMech and AIMech the record inventory in the repository's main tree.
 - **Website features:** the feature table, `_fleet/data/site_features.json`, is
   hand-curated too, but judged on the live sites on its `checked_on` date rather
   than at the pins: one verdict per feature per site, with criteria in its

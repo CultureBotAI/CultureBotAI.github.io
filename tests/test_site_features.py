@@ -139,6 +139,35 @@ class SiteFeatureTests(unittest.TestCase):
         self.assertNotIn("opacity", rule)
         self.assertNotIn("var(--line)", rule)
 
+    def test_every_judged_site_is_linked_wherever_the_suite_is_listed(self):
+        # #404, #425, #476: a Mech the table judges as a website has that site in
+        # its graph entry, and no list of the suite links its repository instead.
+        mechs = dict(re.findall(r'^\s+(\w+): \{ key: "\w+".*?\bsite: "([^"]*)"', self.fragment, re.M))
+        self.assertEqual(set(mechs), self.names)
+        def between(text, start, end):
+            begin = text.index(start)
+            stop = text.find(end, begin + len(start))
+            return text[begin:stop if stop >= 0 else len(text)]
+        surfaces = {
+            "ladder": between(self.fragment, '<div class="fleet-ladder"', "</div>"),
+            "footer": between((ROOT / "_includes/footer.html").read_text(), '<p class="footer-family">', "</p>"),
+            "index.md": between((ROOT / "index.md").read_text(), "Autonomous Knowledge Factories", "\n### "),
+            "research.md": (ROOT / "research.md").read_text(),
+        }
+        for page in ("culturemech.md", "communitymech.md", "mediaingredientmech.md", "microgrowagents.md"):
+            surfaces[page] = between((ROOT / page).read_text(), "## Related Tools", "\n## ")
+        for name, entry in self.features["mechs"].items():
+            repo = entry["repository"].rstrip("/").rsplit("/", 1)[1]
+            with self.subTest(mech=name):
+                if entry.get("site") is None:
+                    self.assertEqual(mechs[name], "")
+                    continue
+                self.assertTrue(mechs[name] and entry["site"].lower().startswith(mechs[name].lower()),
+                                f"{name}: MECHS site {mechs[name]!r} does not lead to {entry['site']}")
+                for where, text in surfaces.items():
+                    self.assertIsNone(re.search(rf'https://github\.com/CultureBotAI/{re.escape(repo)}/?[)"]', text, re.I),
+                                      f"{where} links {name}'s repository instead of its site")
+
     def test_a_mech_without_a_site_renders_end_to_end(self):
         # #383: DUFMech had no website until October 5, 2026.
         changed = self.without_site()
