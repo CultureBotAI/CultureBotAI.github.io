@@ -460,7 +460,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   <div><b>1</b><span>orchestrator (claw)</span></div>
   <div><b>1</b><span>project website</span></div>
 </div>
-<p class="fleet-heat-note">Entry totals combine the published record counts with DUFMech's 8,296 seed families and AIMech's 601 concept records. DUF seed classifications describe family metadata; AIMech separates ontology imports from maintained concepts. Neither import is a scientific review. PR activity includes all fourteen Mechs, CLAW and this website.</p>
+<p class="fleet-heat-note">Entry totals combine the published record counts with DUFMech's 8,296 seed families and AIMech's 1,217 concept records. DUF seed classifications describe family metadata; AIMech separates ontology imports from maintained concepts. Neither import is a scientific review. PR activity includes all fourteen Mechs, CLAW and this website.</p>
 
 <div class="fleet-ladder" aria-label="Microbial scales and AI concepts; each step opens that Mech">
   <a href="https://culturebotai.github.io/HabitatMech/" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)" title="Open HabitatMech"><b>Habitat</b><span>where it lives</span></a>
