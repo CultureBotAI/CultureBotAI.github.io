@@ -1,25 +1,25 @@
 {
  "_revisions": {
-  "HabitatMech": "853fa61c16adea01016cebc064f5d12f32074712",
-  "CommunityMech": "80049bcc9195480a58633236169b62f86c23489a",
-  "TraitMech": "2dab429bf6f8d0d6764394acde4fec66a0d28f29",
-  "PathwayMech": "720ebcddbc421fbc01a4a82461fcbf13da7ea44f",
-  "CellStructureMech": "617a24ae7989e21e482bb32d3d527b05d5b475b6",
-  "ProteinTraitsMech": "cc99114c452805b289b0b9ebcb19f21284681282",
-  "DUFMech": "9d7a87f74786813fcdf65801bdf940d79cc7a56e",
-  "NaturalProductMech": "8d64e45a2d6aecbd3695a163110fdd8d0a25f070",
-  "AntibioticMech": "0611c4ed87a1d089aea7b1a1f60d3b32b9f57d32",
-  "CMMMech": "9fa187ff5a455f495cfa2635e60c413b6763370d",
-  "MediaIngredientMech": "0eca757f4909b138495661abf75690e0b9feca7f",
-  "CultureMech": "0e409dd9aecf0f51586d0dd418ba9713dd99d0cb",
-  "TaxonMech": "56dcc69ed2a40f8c44a9df07242a39e36fabccf9",
-  "AIMech": "b797b0f7c64fc69521e66986256e1e055c34e92c"
+  "HabitatMech": "a073f8e821a7c095f35501982930cc5a156835c0",
+  "CommunityMech": "6c81bb71692cb460efcf749f92e510fe2d7cd4d9",
+  "TraitMech": "a1db3a44599b96d564d7c3bd5ecc0ace19add76e",
+  "PathwayMech": "dd780ef273323efd638eacd63625963062e0b105",
+  "CellStructureMech": "6c33c1c78494e7f0623cf2b157f4036d737196d7",
+  "ProteinTraitsMech": "4a43f430684d593f730546067608d92432ea0334",
+  "DUFMech": "b4f92772776516dd1c54a26fd836d95f112f3e38",
+  "NaturalProductMech": "eb417939fb7cb0ae03307cd2182dbef8b5ef2515",
+  "AntibioticMech": "a038412403ca98f11b5b2b5c0b217cebfe65f8d3",
+  "CMMMech": "b6831c1da19b475ea048baea4ba5c10b96d678af",
+  "MediaIngredientMech": "3751d80fbd916de878be918aa481371020cc75bb",
+  "CultureMech": "41d4d390123c0d8320cd53e994470c88a1b86d8c",
+  "TaxonMech": "9e35388d8c663fa8b682551efd5c72cc218011bb",
+  "AIMech": "a286cc1329754c54dc6f3fa09dc6b6bc8233b1aa"
  },
  "edges": {
   "HabitatMech|CommunityMech": {
-   "n": 325,
+   "n": 326,
    "by": {
-    "NCBITaxon": 277,
+    "NCBITaxon": 278,
     "ENVO": 42,
     "UBERON": 4,
     "CHEBI": 2
@@ -40,9 +40,9 @@
    ]
   },
   "HabitatMech|TraitMech": {
-   "n": 127,
+   "n": 129,
    "by": {
-    "NCBITaxon": 124,
+    "NCBITaxon": 126,
     "ENVO": 2,
     "CHEBI": 1
    },
@@ -62,9 +62,9 @@
    ]
   },
   "HabitatMech|PathwayMech": {
-   "n": 12,
+   "n": 39,
    "by": {
-    "NCBITaxon": 11,
+    "NCBITaxon": 38,
     "CHEBI": 1
    },
    "ex": [
@@ -73,12 +73,12 @@
      "label": "Escherichia coli"
     },
     {
-     "id": "NCBITaxon:2",
-     "label": "Bacteria"
+     "id": "NCBITaxon:303",
+     "label": "Pseudomonas putida"
     },
     {
-     "id": "NCBITaxon:1773",
-     "label": "Mycobacterium tuberculosis"
+     "id": "NCBITaxon:2",
+     "label": "Bacteria"
     }
    ]
   },
@@ -127,9 +127,9 @@
    ]
   },
   "HabitatMech|NaturalProductMech": {
-   "n": 311,
+   "n": 312,
    "by": {
-    "NCBITaxon": 311
+    "NCBITaxon": 312
    },
    "ex": [
     {
@@ -147,9 +147,9 @@
    ]
   },
   "HabitatMech|AntibioticMech": {
-   "n": 33,
+   "n": 35,
    "by": {
-    "NCBITaxon": 33
+    "NCBITaxon": 35
    },
    "ex": [
     {
@@ -167,9 +167,9 @@
    ]
   },
   "HabitatMech|CMMMech": {
-   "n": 10,
+   "n": 51,
    "by": {
-    "NCBITaxon": 10
+    "NCBITaxon": 51
    },
    "ex": [
     {
@@ -177,12 +177,12 @@
      "label": "Pseudomonas putida"
     },
     {
-     "id": "NCBITaxon:33059",
-     "label": "Acidithiobacillus caldus"
+     "id": "NCBITaxon:1404",
+     "label": "Priestia megaterium"
     },
     {
-     "id": "NCBITaxon:442",
-     "label": "Gluconobacter oxydans"
+     "id": "NCBITaxon:33059",
+     "label": "Acidithiobacillus caldus"
     }
    ]
   },
@@ -195,12 +195,12 @@
    },
    "ex": [
     {
-     "id": "ENVO:00002149",
-     "label": "sea water"
-    },
-    {
      "id": "ENVO:00001998",
      "label": "soil"
+    },
+    {
+     "id": "ENVO:00002149",
+     "label": "sea water"
     },
     {
      "id": "ENVO:00002263",
@@ -251,9 +251,9 @@
    ]
   },
   "CommunityMech|TraitMech": {
-   "n": 155,
+   "n": 154,
    "by": {
-    "NCBITaxon": 68,
+    "NCBITaxon": 67,
     "CHEBI": 60,
     "GO": 27
    },
@@ -273,10 +273,10 @@
    ]
   },
   "CommunityMech|PathwayMech": {
-   "n": 73,
+   "n": 121,
    "by": {
-    "CHEBI": 60,
-    "NCBITaxon": 8,
+    "CHEBI": 96,
+    "NCBITaxon": 20,
     "GO": 5
    },
    "ex": [
@@ -317,10 +317,10 @@
    ]
   },
   "CommunityMech|ProteinTraitsMech": {
-   "n": 647,
+   "n": 649,
    "by": {
     "CHEBI": 261,
-    "NCBITaxon": 236,
+    "NCBITaxon": 238,
     "GO": 149,
     "UBERON": 1
    },
@@ -340,9 +340,9 @@
    ]
   },
   "CommunityMech|NaturalProductMech": {
-   "n": 146,
+   "n": 147,
    "by": {
-    "NCBITaxon": 128,
+    "NCBITaxon": 129,
     "CHEBI": 18
    },
    "ex": [
@@ -361,10 +361,10 @@
    ]
   },
   "CommunityMech|AntibioticMech": {
-   "n": 69,
+   "n": 71,
    "by": {
     "CHEBI": 43,
-    "NCBITaxon": 26
+    "NCBITaxon": 28
    },
    "ex": [
     {
@@ -382,23 +382,23 @@
    ]
   },
   "CommunityMech|CMMMech": {
-   "n": 21,
+   "n": 51,
    "by": {
-    "NCBITaxon": 14,
+    "NCBITaxon": 44,
     "CHEBI": 7
    },
    "ex": [
-    {
-     "id": "NCBITaxon:930",
-     "label": "Acidithiobacillus thiooxidans"
-    },
     {
      "id": "NCBITaxon:920",
      "label": "Acidithiobacillus ferrooxidans"
     },
     {
-     "id": "NCBITaxon:211586",
-     "label": "Shewanella oneidensis MR-1"
+     "id": "NCBITaxon:303",
+     "label": "Pseudomonas putida"
+    },
+    {
+     "id": "NCBITaxon:178606",
+     "label": "Leptospirillum ferriphilum"
     }
    ]
   },
@@ -446,9 +446,9 @@
    ]
   },
   "CommunityMech|TaxonMech": {
-   "n": 1225,
+   "n": 1228,
    "by": {
-    "NCBITaxon": 846,
+    "NCBITaxon": 849,
     "GTDB": 379
    },
    "ex": [
@@ -467,12 +467,12 @@
    ]
   },
   "TraitMech|PathwayMech": {
-   "n": 75,
+   "n": 110,
    "by": {
-    "CHEBI": 51,
-    "NCBITaxon": 13,
-    "GO": 7,
-    "UniProt": 4
+    "CHEBI": 63,
+    "NCBITaxon": 28,
+    "UniProt": 11,
+    "GO": 8
    },
    "ex": [
     {
@@ -490,10 +490,10 @@
    ]
   },
   "TraitMech|CellStructureMech": {
-   "n": 130,
+   "n": 131,
    "by": {
     "GO": 58,
-    "NCBITaxon": 49,
+    "NCBITaxon": 50,
     "CHEBI": 8,
     "UniProt": 6,
     "METPO": 5,
@@ -515,10 +515,10 @@
    ]
   },
   "TraitMech|ProteinTraitsMech": {
-   "n": 692,
+   "n": 694,
    "by": {
     "GO": 205,
-    "NCBITaxon": 163,
+    "NCBITaxon": 165,
     "METPO": 109,
     "CHEBI": 104,
     "UniProt": 61,
@@ -547,9 +547,9 @@
    "ex": []
   },
   "TraitMech|NaturalProductMech": {
-   "n": 73,
+   "n": 74,
    "by": {
-    "NCBITaxon": 60,
+    "NCBITaxon": 61,
     "CHEBI": 13
    },
    "ex": [
@@ -568,9 +568,9 @@
    ]
   },
   "TraitMech|AntibioticMech": {
-   "n": 39,
+   "n": 42,
    "by": {
-    "NCBITaxon": 29,
+    "NCBITaxon": 32,
     "CHEBI": 10
    },
    "ex": [
@@ -589,18 +589,18 @@
    ]
   },
   "TraitMech|CMMMech": {
-   "n": 6,
+   "n": 23,
    "by": {
-    "NCBITaxon": 6
+    "NCBITaxon": 23
    },
    "ex": [
     {
-     "id": "NCBITaxon:211586",
-     "label": "Shewanella oneidensis MR-1"
-    },
-    {
      "id": "NCBITaxon:920",
      "label": "Acidithiobacillus ferrooxidans"
+    },
+    {
+     "id": "NCBITaxon:211586",
+     "label": "Shewanella oneidensis MR-1"
     },
     {
      "id": "NCBITaxon:303",
@@ -650,9 +650,9 @@
    ]
   },
   "TraitMech|TaxonMech": {
-   "n": 320,
+   "n": 325,
    "by": {
-    "NCBITaxon": 320
+    "NCBITaxon": 325
    },
    "ex": [
     {
@@ -670,14 +670,18 @@
    ]
   },
   "PathwayMech|CellStructureMech": {
-   "n": 65,
+   "n": 92,
    "by": {
-    "GO": 33,
-    "CHEBI": 12,
-    "NCBITaxon": 10,
-    "UniProt": 10
+    "GO": 37,
+    "NCBITaxon": 23,
+    "UniProt": 17,
+    "CHEBI": 15
    },
    "ex": [
+    {
+     "id": "NCBITaxon:83333",
+     "label": "Escherichia coli K-12"
+    },
     {
      "id": "NCBITaxon:562",
      "label": "Escherichia coli"
@@ -685,21 +689,18 @@
     {
      "id": "GO:0005737",
      "label": "cytoplasm"
-    },
-    {
-     "id": "NCBITaxon:83333",
-     "label": "Escherichia coli K-12"
     }
    ]
   },
   "PathwayMech|ProteinTraitsMech": {
-   "n": 2158,
+   "n": 2913,
    "by": {
-    "RHEA": 703,
-    "CHEBI": 695,
-    "UniProt": 627,
-    "GO": 121,
-    "NCBITaxon": 12
+    "CHEBI": 928,
+    "RHEA": 912,
+    "UniProt": 882,
+    "GO": 136,
+    "NCBITaxon": 47,
+    "KEGG": 8
    },
    "ex": [
     {
@@ -711,19 +712,19 @@
      "label": "water"
     },
     {
-     "id": "GO:0005829",
-     "label": "cytosol"
+     "id": "CHEBI:30616",
+     "label": "ATP(4-)"
     }
    ]
   },
   "PathwayMech|NaturalProductMech": {
-   "n": 70,
+   "n": 119,
    "by": {
-    "CHEBI": 52,
-    "NCBITaxon": 10,
-    "RHEA": 4,
-    "MIBiG": 2,
-    "UniProt": 2
+    "CHEBI": 69,
+    "NCBITaxon": 24,
+    "UniProt": 16,
+    "RHEA": 8,
+    "MIBiG": 2
    },
    "ex": [
     {
@@ -741,11 +742,11 @@
    ]
   },
   "PathwayMech|AntibioticMech": {
-   "n": 21,
+   "n": 38,
    "by": {
-    "CHEBI": 14,
-    "NCBITaxon": 5,
-    "UniProt": 2
+    "CHEBI": 25,
+    "NCBITaxon": 8,
+    "UniProt": 5
    },
    "ex": [
     {
@@ -763,9 +764,9 @@
    ]
   },
   "PathwayMech|CMMMech": {
-   "n": 2,
+   "n": 6,
    "by": {
-    "NCBITaxon": 2
+    "NCBITaxon": 6
    },
    "ex": [
     {
@@ -775,13 +776,17 @@
     {
      "id": "NCBITaxon:4932",
      "label": "Saccharomyces cerevisiae"
+    },
+    {
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
     }
    ]
   },
   "PathwayMech|MediaIngredientMech": {
-   "n": 105,
+   "n": 175,
    "by": {
-    "CHEBI": 105
+    "CHEBI": 175
    },
    "ex": [
     {
@@ -799,10 +804,10 @@
    ]
   },
   "PathwayMech|CultureMech": {
-   "n": 49,
+   "n": 82,
    "by": {
-    "CHEBI": 48,
-    "NCBITaxon": 1
+    "CHEBI": 80,
+    "NCBITaxon": 2
    },
    "ex": [
     {
@@ -820,9 +825,9 @@
    ]
   },
   "PathwayMech|TaxonMech": {
-   "n": 19,
+   "n": 83,
    "by": {
-    "NCBITaxon": 19
+    "NCBITaxon": 83
    },
    "ex": [
     {
@@ -834,15 +839,15 @@
      "label": "Escherichia coli K-12"
     },
     {
-     "id": "NCBITaxon:4932",
-     "label": "Saccharomyces cerevisiae"
+     "id": "NCBITaxon:303",
+     "label": "Pseudomonas putida"
     }
    ]
   },
   "CellStructureMech|ProteinTraitsMech": {
-   "n": 1822,
+   "n": 1824,
    "by": {
-    "GO": 1168,
+    "GO": 1170,
     "UniProt": 345,
     "InterPro": 179,
     "NCBITaxon": 99,
@@ -877,11 +882,11 @@
    ]
   },
   "CellStructureMech|NaturalProductMech": {
-   "n": 38,
+   "n": 41,
    "by": {
-    "NCBITaxon": 34,
+    "NCBITaxon": 35,
     "CHEBI": 3,
-    "UniProt": 1
+    "UniProt": 3
    },
    "ex": [
     {
@@ -889,12 +894,12 @@
      "label": "Escherichia coli"
     },
     {
-     "id": "NCBITaxon:1423",
-     "label": "Bacillus subtilis"
-    },
-    {
      "id": "NCBITaxon:9606",
      "label": "Homo sapiens"
+    },
+    {
+     "id": "NCBITaxon:1423",
+     "label": "Bacillus subtilis"
     }
    ]
   },
@@ -920,9 +925,9 @@
    ]
   },
   "CellStructureMech|CMMMech": {
-   "n": 3,
+   "n": 10,
    "by": {
-    "NCBITaxon": 2,
+    "NCBITaxon": 9,
     "CHEBI": 1
    },
    "ex": [
@@ -931,12 +936,12 @@
      "label": "Saccharomyces cerevisiae"
     },
     {
-     "id": "NCBITaxon:303",
-     "label": "Pseudomonas putida"
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
     },
     {
-     "id": "CHEBI:18248",
-     "label": "iron atom"
+     "id": "NCBITaxon:1148",
+     "label": "Synechocystis sp. PCC 6803"
     }
    ]
   },
@@ -1023,11 +1028,11 @@
    ]
   },
   "ProteinTraitsMech|NaturalProductMech": {
-   "n": 1226,
+   "n": 1254,
    "by": {
     "NCBITaxon": 498,
-    "UniProt": 313,
-    "CHEBI": 308,
+    "UniProt": 338,
+    "CHEBI": 311,
     "RHEA": 106,
     "GO": 1
    },
@@ -1047,13 +1052,13 @@
    ]
   },
   "ProteinTraitsMech|AntibioticMech": {
-   "n": 2571,
+   "n": 2585,
    "by": {
     "ARO": 1732,
     "CHEBI": 593,
     "PDB": 140,
-    "NCBITaxon": 79,
-    "UniProt": 25,
+    "NCBITaxon": 80,
+    "UniProt": 38,
     "GO": 2
    },
    "ex": [
@@ -1072,12 +1077,16 @@
    ]
   },
   "ProteinTraitsMech|CMMMech": {
-   "n": 50,
+   "n": 111,
    "by": {
-    "CHEBI": 39,
-    "NCBITaxon": 11
+    "CHEBI": 58,
+    "NCBITaxon": 53
    },
    "ex": [
+    {
+     "id": "NCBITaxon:5061",
+     "label": "Aspergillus niger"
+    },
     {
      "id": "NCBITaxon:211586",
      "label": "Shewanella oneidensis MR-1"
@@ -1085,10 +1094,6 @@
     {
      "id": "NCBITaxon:303",
      "label": "Pseudomonas putida"
-    },
-    {
-     "id": "NCBITaxon:920",
-     "label": "Acidithiobacillus ferrooxidans"
     }
    ]
   },
@@ -1156,10 +1161,10 @@
    ]
   },
   "NaturalProductMech|AntibioticMech": {
-   "n": 284,
+   "n": 287,
    "by": {
     "CHEBI": 187,
-    "NCBITaxon": 94,
+    "NCBITaxon": 97,
     "UniProt": 3
    },
    "ex": [
@@ -1178,11 +1183,15 @@
    ]
   },
   "NaturalProductMech|CMMMech": {
-   "n": 5,
+   "n": 32,
    "by": {
-    "NCBITaxon": 5
+    "NCBITaxon": 32
    },
    "ex": [
+    {
+     "id": "NCBITaxon:5061",
+     "label": "Aspergillus niger"
+    },
     {
      "id": "NCBITaxon:380704",
      "label": "Aspergillus niger ATCC 1015"
@@ -1190,10 +1199,6 @@
     {
      "id": "NCBITaxon:303",
      "label": "Pseudomonas putida"
-    },
-    {
-     "id": "NCBITaxon:5061",
-     "label": "Aspergillus niger"
     }
    ]
   },
@@ -1239,9 +1244,9 @@
    ]
   },
   "NaturalProductMech|TaxonMech": {
-   "n": 1697,
+   "n": 1698,
    "by": {
-    "NCBITaxon": 1697
+    "NCBITaxon": 1698
    },
    "ex": [
     {
@@ -1259,14 +1264,22 @@
    ]
   },
   "AntibioticMech|CMMMech": {
-   "n": 1,
+   "n": 9,
    "by": {
-    "NCBITaxon": 1
+    "NCBITaxon": 9
    },
    "ex": [
     {
      "id": "NCBITaxon:4932",
      "label": "Saccharomyces cerevisiae"
+    },
+    {
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
+    },
+    {
+     "id": "NCBITaxon:485",
+     "label": "Neisseria gonorrhoeae"
     }
    ]
   },
@@ -1312,9 +1325,9 @@
    ]
   },
   "AntibioticMech|TaxonMech": {
-   "n": 115,
+   "n": 118,
    "by": {
-    "NCBITaxon": 115
+    "NCBITaxon": 118
    },
    "ex": [
     {
@@ -1332,43 +1345,43 @@
    ]
   },
   "CMMMech|CultureMech": {
-   "n": 4,
+   "n": 11,
    "by": {
-    "CHEBI": 2,
-    "NCBITaxon": 2
+    "NCBITaxon": 9,
+    "CHEBI": 2
    },
    "ex": [
     {
-     "id": "CHEBI:18248",
-     "label": "iron atom"
+     "id": "NCBITaxon:35554",
+     "label": "Geobacter sulfurreducens"
     },
     {
-     "id": "CHEBI:30452",
-     "label": "tellurium atom"
+     "id": "NCBITaxon:1148",
+     "label": "Synechocystis sp. PCC 6803"
     },
     {
-     "id": "NCBITaxon:3077",
-     "label": "Chlorella vulgaris"
+     "id": "NCBITaxon:296543",
+     "label": "Thalassiosira pseudonana CCMP1335"
     }
    ]
   },
   "CMMMech|TaxonMech": {
-   "n": 26,
+   "n": 129,
    "by": {
-    "NCBITaxon": 26
+    "NCBITaxon": 129
    },
    "ex": [
     {
-     "id": "NCBITaxon:930",
-     "label": "Acidithiobacillus thiooxidans"
-    },
-    {
-     "id": "NCBITaxon:118562",
-     "label": "Limnospira platensis"
-    },
-    {
      "id": "NCBITaxon:920",
      "label": "Acidithiobacillus ferrooxidans"
+    },
+    {
+     "id": "NCBITaxon:442",
+     "label": "Gluconobacter oxydans"
+    },
+    {
+     "id": "NCBITaxon:5061",
+     "label": "Aspergillus niger"
     }
    ]
   },
@@ -1418,33 +1431,34 @@
  },
  "cells": {
   "HabitatMech|BTO": 589,
-  "HabitatMech|CHEBI": 14,
-  "HabitatMech|ENVO": 1306,
+  "HabitatMech|CHEBI": 15,
+  "HabitatMech|ENVO": 1314,
   "HabitatMech|FOODON": 85,
   "HabitatMech|GO": 2,
   "HabitatMech|NCBITaxon": 899,
-  "HabitatMech|PATO": 3,
-  "HabitatMech|UBERON": 704,
+  "HabitatMech|PATO": 4,
+  "HabitatMech|UBERON": 706,
   "CommunityMech|CHEBI": 372,
   "CommunityMech|ENVO": 444,
   "CommunityMech|GO": 379,
-  "CommunityMech|GTDB": 381,
+  "CommunityMech|GTDB": 380,
   "CommunityMech|NCBITaxon": 458,
   "CommunityMech|UBERON": 10,
-  "TraitMech|CHEBI": 184,
+  "TraitMech|CHEBI": 185,
   "TraitMech|ENVO": 14,
   "TraitMech|GO": 314,
   "TraitMech|InterPro": 64,
-  "TraitMech|METPO": 1057,
-  "TraitMech|NCBITaxon": 572,
+  "TraitMech|METPO": 1094,
+  "TraitMech|NCBITaxon": 577,
   "TraitMech|PATO": 49,
   "TraitMech|UniProt": 189,
-  "PathwayMech|CHEBI": 198,
-  "PathwayMech|GO": 143,
+  "PathwayMech|CHEBI": 262,
+  "PathwayMech|GO": 176,
+  "PathwayMech|KEGG": 8,
   "PathwayMech|MIBiG": 3,
-  "PathwayMech|NCBITaxon": 198,
-  "PathwayMech|RHEA": 100,
-  "PathwayMech|UniProt": 183,
+  "PathwayMech|NCBITaxon": 261,
+  "PathwayMech|RHEA": 155,
+  "PathwayMech|UniProt": 241,
   "CellStructureMech|CHEBI": 35,
   "CellStructureMech|GO": 902,
   "CellStructureMech|InterPro": 121,
@@ -1459,7 +1473,7 @@
   "ProteinTraitsMech|InterPro": 120090,
   "ProteinTraitsMech|KEGG": 1967,
   "ProteinTraitsMech|METPO": 119,
-  "ProteinTraitsMech|NCBITaxon": 108660,
+  "ProteinTraitsMech|NCBITaxon": 108661,
   "ProteinTraitsMech|PATO": 81,
   "ProteinTraitsMech|PDB": 52174,
   "ProteinTraitsMech|Pfam": 107455,
@@ -1470,26 +1484,26 @@
   "DUFMech|PDB": 63,
   "DUFMech|Pfam": 8296,
   "DUFMech|UniProt": 257,
-  "NaturalProductMech|CHEBI": 459,
+  "NaturalProductMech|CHEBI": 466,
   "NaturalProductMech|GO": 4,
   "NaturalProductMech|MIBiG": 3115,
   "NaturalProductMech|NCBITaxon": 3115,
   "NaturalProductMech|NPAtlas": 1740,
   "NaturalProductMech|PDB": 3,
   "NaturalProductMech|RHEA": 86,
-  "NaturalProductMech|UniProt": 290,
+  "NaturalProductMech|UniProt": 301,
   "AntibioticMech|ARO": 568,
   "AntibioticMech|CAS": 1797,
   "AntibioticMech|CHEBI": 2814,
   "AntibioticMech|GO": 3,
   "AntibioticMech|KEGG": 1154,
-  "AntibioticMech|NCBITaxon": 184,
-  "AntibioticMech|PDB": 331,
-  "AntibioticMech|UniProt": 69,
-  "CMMMech|CHEBI": 42,
-  "CMMMech|NCBITaxon": 43,
+  "AntibioticMech|NCBITaxon": 197,
+  "AntibioticMech|PDB": 332,
+  "AntibioticMech|UniProt": 84,
+  "CMMMech|CHEBI": 66,
+  "CMMMech|NCBITaxon": 274,
   "MediaIngredientMech|BTO": 1,
-  "MediaIngredientMech|CAS": 739,
+  "MediaIngredientMech|CAS": 740,
   "MediaIngredientMech|CHEBI": 2234,
   "MediaIngredientMech|ENVO": 26,
   "MediaIngredientMech|FOODON": 98,

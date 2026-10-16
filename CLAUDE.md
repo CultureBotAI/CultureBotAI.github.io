@@ -78,7 +78,7 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 ### The X-Mech Suite page
 The suite has fourteen Mechs, all under https://github.com/CultureBotAI, plus the
 orchestrator `culturebotai-claw`. Three have pages here; the others link to their
-own GitHub Pages sites. CMMMech and AIMech began publishing theirs on October 12, 2026, after the census pins; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
+own GitHub Pages sites. CMMMech and AIMech began publishing theirs on October 12, 2026; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
 snapshot, the source of its count. Its native FamilyRecord corpus now has a
 LinkML schema, history and individual pages; the census still measures the
 frozen seed worklist. CLAW membership is read from `_fleet/data/manifest.json`, independently of
@@ -154,11 +154,11 @@ Sources, refreshed differently:
   date and other sites unchanged. Schema-documentation prose reflects the
   website verdict, never an inference about whether a repository has a schema.
 
-The October 11, 2026 refresh pins all fourteen Mechs, with a common acquisition
-bound of 2026-10-11 06:57 UTC. All participate in the census, overlap assets and
-repository statistics, including PathwayMech's 198 records, DUFMech's 8,296
-seed families and AIMech's 601 concepts. TraitMech has 1,089 records and
-CellStructureMech 909 at those pins. TaxonMech joined the census in
+The October 15, 2026 refresh pins all fourteen Mechs, with a common acquisition
+bound of 2026-10-15 19:01 UTC. All participate in the census, overlap assets and
+repository statistics, including PathwayMech's 262 records, DUFMech's 8,296
+seed families, CMMMech's 481 material records and AIMech's 1,217 concepts.
+TraitMech has 1,128 records and CellStructureMech 909 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
 committed evidence as described in `_fleet/README.md`. DUFMech's retained
 cross-Mech evidence adds seven directed imports, with source pins and link
@@ -182,10 +182,10 @@ maintained concepts without a source that states it.
 - **DUFMech** (https://culturebotai.github.io/DUFMech/, repository https://github.com/CultureBotAI/DUFMech) - unknown and formerly unknown domains and protein families, with evidence gathering and triage worklists.
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
-- **CMMMech** (https://culturebotai.github.io/CMMMech/, repository https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 48 material records: 42 elements, four minerals and two secondary resources. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
+- **CMMMech** (https://culturebotai.github.io/CMMMech/, repository https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 481 material records: 255 mineral species, 95 secondary resources, 66 elements, 32 commodities, 26 primary resources and seven mineral groups. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
 - **MediaIngredientMech** (`/mediaingredientmech/`) - LLM-assisted curation of media-ingredient mappings; its records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO. Where curation found no ontology term, about 175 mapped ingredients carry kg-microbe registry ids, mostly for preparations and mixtures, and about 85 carry CAS Registry Numbers; about 55 more carry kg-microbe placeholder ids pending curation. None map to PubChem or METPO (#150, #186, #215).
 - **CultureMech** (`/culturemech/`) - versioned, ontology-grounded culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.
-- **AIMech** (https://culturebotai.github.io/AIMech/, repository https://github.com/CultureBotAI/AIMech) - AI concepts, with 442 imported AIO records and 159 maintained concepts. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
+- **AIMech** (https://culturebotai.github.io/AIMech/, repository https://github.com/CultureBotAI/AIMech) - AI concepts, with 442 imported AIO records and 775 maintained concepts. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
 
 Wherever the suite is enumerated (index.md, resources.md, each page's Related
 Tools), list all fourteen and link to `/mechs/`. Name ontologies consistently across
