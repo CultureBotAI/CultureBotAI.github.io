@@ -1,15 +1,15 @@
 {
- "as_of": "2026-10-15",
- "merged_prs_total": 7244,
+ "as_of": "2026-10-18",
+ "merged_prs_total": 7329,
  "mechs": [
   {
    "mech": "HabitatMech",
    "repo": "HabitatMech",
-   "records": 3208,
-   "reviewed": 724,
+   "records": 3209,
+   "reviewed": 735,
    "status_field": "mapping_status",
-   "merged_prs": 1064,
-   "source_revision": "a073f8e821a7c095f35501982930cc5a156835c0"
+   "merged_prs": 1071,
+   "source_revision": "10d1ca44fe2d0ff3749901c51feee335a5b1f52b"
   },
   {
    "mech": "CommunityMech",
@@ -17,26 +17,26 @@
    "records": 462,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 674,
-   "source_revision": "6c81bb71692cb460efcf749f92e510fe2d7cd4d9"
+   "merged_prs": 677,
+   "source_revision": "a4611c913c8da9619673df63a0c2cce3aa206a83"
   },
   {
    "mech": "TraitMech",
    "repo": "TraitMech",
-   "records": 1128,
+   "records": 1130,
    "reviewed": 427,
    "status_field": "mapping_status",
-   "merged_prs": 1049,
-   "source_revision": "a1db3a44599b96d564d7c3bd5ecc0ace19add76e"
+   "merged_prs": 1052,
+   "source_revision": "f25e2af0b38a8303b13f627a9a5c33b36af4b3d2"
   },
   {
    "mech": "PathwayMech",
    "repo": "PathwayMech",
-   "records": 262,
+   "records": 269,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 268,
-   "source_revision": "dd780ef273323efd638eacd63625963062e0b105"
+   "merged_prs": 275,
+   "source_revision": "e48a41b9e1f01356ef135be59d71c4e71d3ce71f"
   },
   {
    "mech": "CellStructureMech",
@@ -44,8 +44,8 @@
    "records": 909,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 1042,
-   "source_revision": "6c33c1c78494e7f0623cf2b157f4036d737196d7"
+   "merged_prs": 1046,
+   "source_revision": "99692a3d5f16a7dcd6db7e3811344c299a977b81"
   },
   {
    "mech": "ProteinTraitsMech",
@@ -53,8 +53,8 @@
    "records": 429293,
    "reviewed": 39591,
    "status_field": "mapping_status",
-   "merged_prs": 407,
-   "source_revision": "4a43f430684d593f730546067608d92432ea0334"
+   "merged_prs": 411,
+   "source_revision": "1c23e2d86d53039f0ebe301e06d5ea80ebb09541"
   },
   {
    "mech": "DUFMech",
@@ -62,8 +62,8 @@
    "records": 8296,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 69,
-   "source_revision": "b4f92772776516dd1c54a26fd836d95f112f3e38"
+   "merged_prs": 78,
+   "source_revision": "6c5277fbd5ab0a7b7f0244f5c248758ac77b3530"
   },
   {
    "mech": "NaturalProductMech",
@@ -71,8 +71,8 @@
    "records": 3115,
    "reviewed": 0,
    "status_field": "curation_status",
-   "merged_prs": 571,
-   "source_revision": "eb417939fb7cb0ae03307cd2182dbef8b5ef2515"
+   "merged_prs": 574,
+   "source_revision": "cd8470e4c2c9f9caef0091f520e8754158bc977f"
   },
   {
    "mech": "AntibioticMech",
@@ -80,17 +80,17 @@
    "records": 2939,
    "reviewed": 80,
    "status_field": "curation_status",
-   "merged_prs": 677,
-   "source_revision": "a038412403ca98f11b5b2b5c0b217cebfe65f8d3"
+   "merged_prs": 684,
+   "source_revision": "baf3b3203d748d098686e166cdb2a6138f47eb59"
   },
   {
    "mech": "CMMMech",
    "repo": "CMMMech",
-   "records": 481,
+   "records": 602,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 119,
-   "source_revision": "b6831c1da19b475ea048baea4ba5c10b96d678af"
+   "merged_prs": 131,
+   "source_revision": "a272f29d32ad36fa0bb398ed866aeb0ab1b3cd8b"
   },
   {
    "mech": "MediaIngredientMech",
@@ -98,8 +98,8 @@
    "records": 2953,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 410,
-   "source_revision": "3751d80fbd916de878be918aa481371020cc75bb"
+   "merged_prs": 415,
+   "source_revision": "692ef38a495508191a493bf57aadea5a3677580b"
   },
   {
    "mech": "CultureMech",
@@ -107,8 +107,8 @@
    "records": 6320,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 279,
-   "source_revision": "41d4d390123c0d8320cd53e994470c88a1b86d8c"
+   "merged_prs": 282,
+   "source_revision": "7c568537897ee4bba1b8e97f8172133c1572aec0"
   },
   {
    "mech": "TaxonMech",
@@ -116,27 +116,27 @@
    "records": 625960,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 35,
-   "source_revision": "9e35388d8c663fa8b682551efd5c72cc218011bb"
+   "merged_prs": 38,
+   "source_revision": "9b5a8fff5185b38dc5c77bb35235152c81ea7765"
   },
   {
    "mech": "AIMech",
    "repo": "AIMech",
-   "records": 1217,
+   "records": 1259,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 300,
-   "source_revision": "a286cc1329754c54dc6f3fa09dc6b6bc8233b1aa"
+   "merged_prs": 313,
+   "source_revision": "d22c95b216054cc3d82f26bc1e7299bbc835aaa0"
   }
  ],
  "additional_repositories": [
   {
    "repo": "culturebotai-claw",
-   "merged_prs": 217
+   "merged_prs": 218
   },
   {
    "repo": "CultureBotAI.github.io",
-   "merged_prs": 63
+   "merged_prs": 64
   }
  ]
 }
