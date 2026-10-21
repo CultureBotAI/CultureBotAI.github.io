@@ -59,7 +59,7 @@ class FleetPageTests(unittest.TestCase):
         self.assertIn(f"<div><b>{total:,}</b><span>records, seed families and concepts</span></div>", page)
 
     def test_a_card_without_a_record_count_cannot_be_left_out_of_the_total(self):
-        self.template = self.template.replace('<div class="num"><b>625,960</b>', '<div class="num"><b>', 1)
+        self.template = self.template.replace('<div class="num"><b>626,048</b>', '<div class="num"><b>', 1)
         with self.assertRaisesRegex(ValueError, "record count"):
             self.render()
 
