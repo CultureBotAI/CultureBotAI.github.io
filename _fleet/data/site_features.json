@@ -138,7 +138,7 @@
     "text_map": {
       "label": "Text embedding map",
       "definition": "A map of the corpus projected from text embeddings (the fleet's shared embedding sets), with search and filters, where clicking a point opens its record.",
-      "criteria": "Present: the map renders, plots every record the site counts or states which are left out, and point clicks open the right record. Partial: renders but clicks fail, records are silently missing, or it does not render for some readers. Does not apply: no text map is published."
+      "criteria": "Present: the map renders, plots every record the site counts or states which are left out, and point clicks open the right record. Partial: renders but clicks fail, records are silently missing, or it does not render for some readers. Missing: a map is published but renders for no reader. Does not apply: no text map is published."
     },
     "discussions": {
       "label": "Open questions",
@@ -2097,7 +2097,7 @@
         },
         "feedback_route": {
           "status": "missing",
-          "note": "Record pages offer no edit link, issue link or other route to report a problem.",
+          "note": "Record pages link their own YAML on GitHub but offer no edit link, issue link or other route to report a problem.",
           "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:562"
         },
         "corpus_stats": {
