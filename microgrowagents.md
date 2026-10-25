@@ -99,7 +99,7 @@ Organism-Specific Media Recommendation
 - **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
 - **[AIMech](https://culturebotai.github.io/AIMech/)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
-- **[CultureMech](/culturemech/)** - Autonomous knowledge factory for microbial culture media (6,320 canonical media)
+- **[CultureMech](/culturemech/)** - Autonomous knowledge factory for microbial culture media (6,325 canonical media)
 - **[MicroGrowLink](/resources/#microgrowlink)** - Graph-based growth media prediction
 - **[kg-microbe](/kg-microbe/)** - Central knowledge graph for microbial cultivation
 
