@@ -1,25 +1,25 @@
 {
  "_revisions": {
-  "HabitatMech": "1fee13bb7d64805ab6477f812cb2b2d0c711ba90",
-  "CommunityMech": "c6e5a9b9af2d05e12eaafb2555a53f3a079268f3",
-  "TraitMech": "8eee04a8c65609fbaff6df7c54597dcaf1b9d282",
-  "PathwayMech": "5454176182fe655d956488b280bf6010dbf4b781",
-  "CellStructureMech": "99692a3d5f16a7dcd6db7e3811344c299a977b81",
-  "ProteinTraitsMech": "6cbcac34bb17f44ea7516dd3308d890367014e2b",
-  "DUFMech": "59f8f2b8a93c2e6373e02dfe0fb289ecbd76feaa",
-  "NaturalProductMech": "10ed28fcdadb3d955c30732ff05b5d0e4adbee3b",
-  "AntibioticMech": "baf3b3203d748d098686e166cdb2a6138f47eb59",
-  "CMMMech": "2da10d95a72146ee0c69cb91fe303348fbadb638",
-  "MediaIngredientMech": "692ef38a495508191a493bf57aadea5a3677580b",
-  "CultureMech": "24a1d277eb7f0437af53af0d178a30f9bfa6374c",
-  "TaxonMech": "01ca63effdf8c03a644df893ba6129b2d8448ea4",
+  "HabitatMech": "07e61ccdcd9d54460f31c292117f1a018e1a41d6",
+  "CommunityMech": "cb7a782c8ba80299dca8761ad0a2c90bccd8a117",
+  "TraitMech": "d624afd2edd2c0d404e148718f1bc1f150686cc4",
+  "PathwayMech": "a066b26f72d8d7ba3a0280adf90653387d26de75",
+  "CellStructureMech": "f97b1abe2d78971b6f66b9083087d7a94cf3c0cc",
+  "ProteinTraitsMech": "b26ee8332ad0c777214edb88b90850dcc662c13c",
+  "DUFMech": "2b49c8729090bbbcbdaa956f770eee0aff153723",
+  "NaturalProductMech": "3fb5cad3cf455c2b38d9d18c5e977991073383b4",
+  "AntibioticMech": "3d1315467ea5a49d11b00d25f83d2c32b6db0985",
+  "CMMMech": "2ca9f7419981c2d0b7a1fe73276c319227fd6ee7",
+  "MediaIngredientMech": "40d1358b1077fb0a69d1b07b4315e10d1efe7184",
+  "CultureMech": "231e0ba71b41d45362168d539efebe7991823464",
+  "TaxonMech": "82a3ece85614bc6b975f7ed01850aa4f57207d71",
   "AIMech": "d22c95b216054cc3d82f26bc1e7299bbc835aaa0"
  },
  "edges": {
   "HabitatMech|CommunityMech": {
-   "n": 330,
+   "n": 331,
    "by": {
-    "NCBITaxon": 282,
+    "NCBITaxon": 283,
     "ENVO": 42,
     "UBERON": 4,
     "CHEBI": 2
@@ -40,9 +40,9 @@
    ]
   },
   "HabitatMech|TraitMech": {
-   "n": 129,
+   "n": 133,
    "by": {
-    "NCBITaxon": 126,
+    "NCBITaxon": 130,
     "ENVO": 2,
     "CHEBI": 1
    },
@@ -62,9 +62,9 @@
    ]
   },
   "HabitatMech|PathwayMech": {
-   "n": 46,
+   "n": 47,
    "by": {
-    "NCBITaxon": 45,
+    "NCBITaxon": 46,
     "CHEBI": 1
    },
    "ex": [
@@ -83,9 +83,9 @@
    ]
   },
   "HabitatMech|CellStructureMech": {
-   "n": 56,
+   "n": 57,
    "by": {
-    "NCBITaxon": 55,
+    "NCBITaxon": 56,
     "GO": 1
    },
    "ex": [
@@ -104,12 +104,13 @@
    ]
   },
   "HabitatMech|ProteinTraitsMech": {
-   "n": 1252,
+   "n": 1257,
    "by": {
-    "NCBITaxon": 1236,
+    "NCBITaxon": 1239,
     "UBERON": 12,
     "CHEBI": 2,
-    "GO": 2
+    "GO": 2,
+    "UniProt": 2
    },
    "ex": [
     {
@@ -127,9 +128,9 @@
    ]
   },
   "HabitatMech|NaturalProductMech": {
-   "n": 312,
+   "n": 313,
    "by": {
-    "NCBITaxon": 312
+    "NCBITaxon": 313
    },
    "ex": [
     {
@@ -147,9 +148,9 @@
    ]
   },
   "HabitatMech|AntibioticMech": {
-   "n": 38,
+   "n": 39,
    "by": {
-    "NCBITaxon": 38
+    "NCBITaxon": 39
    },
    "ex": [
     {
@@ -167,9 +168,9 @@
    ]
   },
   "HabitatMech|CMMMech": {
-   "n": 56,
+   "n": 57,
    "by": {
-    "NCBITaxon": 56
+    "NCBITaxon": 57
    },
    "ex": [
     {
@@ -231,9 +232,10 @@
    ]
   },
   "HabitatMech|TaxonMech": {
-   "n": 6423,
+   "n": 6427,
    "by": {
-    "NCBITaxon": 6423
+    "NCBITaxon": 6426,
+    "CHEBI": 1
    },
    "ex": [
     {
@@ -251,11 +253,11 @@
    ]
   },
   "CommunityMech|TraitMech": {
-   "n": 156,
+   "n": 159,
    "by": {
     "NCBITaxon": 69,
     "CHEBI": 60,
-    "GO": 27
+    "GO": 30
    },
    "ex": [
     {
@@ -317,10 +319,10 @@
    ]
   },
   "CommunityMech|ProteinTraitsMech": {
-   "n": 652,
+   "n": 651,
    "by": {
     "CHEBI": 261,
-    "NCBITaxon": 241,
+    "NCBITaxon": 240,
     "GO": 149,
     "UBERON": 1
    },
@@ -340,9 +342,9 @@
    ]
   },
   "CommunityMech|NaturalProductMech": {
-   "n": 150,
+   "n": 149,
    "by": {
-    "NCBITaxon": 132,
+    "NCBITaxon": 131,
     "CHEBI": 18
    },
    "ex": [
@@ -361,9 +363,9 @@
    ]
   },
   "CommunityMech|AntibioticMech": {
-   "n": 73,
+   "n": 75,
    "by": {
-    "CHEBI": 43,
+    "CHEBI": 45,
     "NCBITaxon": 30
    },
    "ex": [
@@ -446,10 +448,12 @@
    ]
   },
   "CommunityMech|TaxonMech": {
-   "n": 1246,
+   "n": 1250,
    "by": {
     "NCBITaxon": 867,
-    "GTDB": 379
+    "GTDB": 379,
+    "CHEBI": 3,
+    "GO": 1
    },
    "ex": [
     {
@@ -467,10 +471,10 @@
    ]
   },
   "TraitMech|PathwayMech": {
-   "n": 113,
+   "n": 114,
    "by": {
     "CHEBI": 63,
-    "NCBITaxon": 30,
+    "NCBITaxon": 31,
     "UniProt": 11,
     "GO": 9
    },
@@ -480,19 +484,19 @@
      "label": "Escherichia coli"
     },
     {
-     "id": "CHEBI:16526",
-     "label": "carbon dioxide"
-    },
-    {
      "id": "NCBITaxon:83333",
      "label": "Escherichia coli K-12"
+    },
+    {
+     "id": "CHEBI:16526",
+     "label": "carbon dioxide"
     }
    ]
   },
   "TraitMech|CellStructureMech": {
-   "n": 144,
+   "n": 145,
    "by": {
-    "GO": 58,
+    "GO": 59,
     "NCBITaxon": 53,
     "UniProt": 16,
     "CHEBI": 7,
@@ -515,14 +519,14 @@
    ]
   },
   "TraitMech|ProteinTraitsMech": {
-   "n": 695,
+   "n": 722,
    "by": {
-    "GO": 206,
-    "NCBITaxon": 165,
+    "GO": 214,
+    "NCBITaxon": 168,
     "METPO": 109,
     "CHEBI": 104,
-    "UniProt": 61,
-    "InterPro": 50
+    "UniProt": 73,
+    "InterPro": 54
    },
    "ex": [
     {
@@ -547,9 +551,9 @@
    "ex": []
   },
   "TraitMech|NaturalProductMech": {
-   "n": 74,
+   "n": 75,
    "by": {
-    "NCBITaxon": 61,
+    "NCBITaxon": 62,
     "CHEBI": 13
    },
    "ex": [
@@ -590,9 +594,9 @@
    ]
   },
   "TraitMech|CMMMech": {
-   "n": 36,
+   "n": 37,
    "by": {
-    "NCBITaxon": 30,
+    "NCBITaxon": 31,
     "UniProt": 4,
     "InterPro": 2
    },
@@ -653,9 +657,12 @@
    ]
   },
   "TraitMech|TaxonMech": {
-   "n": 325,
+   "n": 335,
    "by": {
-    "NCBITaxon": 325
+    "NCBITaxon": 328,
+    "GO": 4,
+    "UniProt": 2,
+    "CHEBI": 1
    },
    "ex": [
     {
@@ -673,9 +680,9 @@
    ]
   },
   "PathwayMech|CellStructureMech": {
-   "n": 123,
+   "n": 124,
    "by": {
-    "UniProt": 42,
+    "UniProt": 43,
     "GO": 39,
     "NCBITaxon": 27,
     "CHEBI": 15
@@ -696,10 +703,10 @@
    ]
   },
   "PathwayMech|ProteinTraitsMech": {
-   "n": 2979,
+   "n": 3042,
    "by": {
+    "UniProt": 986,
     "CHEBI": 942,
-    "UniProt": 923,
     "RHEA": 914,
     "GO": 138,
     "NCBITaxon": 54,
@@ -721,12 +728,12 @@
    ]
   },
   "PathwayMech|NaturalProductMech": {
-   "n": 120,
+   "n": 121,
    "by": {
     "CHEBI": 69,
     "NCBITaxon": 25,
     "UniProt": 16,
-    "RHEA": 8,
+    "RHEA": 9,
     "MIBiG": 2
    },
    "ex": [
@@ -767,10 +774,10 @@
    ]
   },
   "PathwayMech|CMMMech": {
-   "n": 10,
+   "n": 12,
    "by": {
-    "NCBITaxon": 9,
-    "UniProt": 1
+    "NCBITaxon": 10,
+    "UniProt": 2
    },
    "ex": [
     {
@@ -829,9 +836,10 @@
    ]
   },
   "PathwayMech|TaxonMech": {
-   "n": 104,
+   "n": 105,
    "by": {
-    "NCBITaxon": 104
+    "NCBITaxon": 104,
+    "CHEBI": 1
    },
    "ex": [
     {
@@ -849,9 +857,9 @@
    ]
   },
   "CellStructureMech|ProteinTraitsMech": {
-   "n": 2638,
+   "n": 2681,
    "by": {
-    "GO": 1171,
+    "GO": 1214,
     "UniProt": 1137,
     "InterPro": 180,
     "NCBITaxon": 119,
@@ -898,12 +906,12 @@
      "label": "Escherichia coli"
     },
     {
-     "id": "NCBITaxon:9606",
-     "label": "Homo sapiens"
-    },
-    {
      "id": "NCBITaxon:1423",
      "label": "Bacillus subtilis"
+    },
+    {
+     "id": "NCBITaxon:9606",
+     "label": "Homo sapiens"
     }
    ]
   },
@@ -930,11 +938,12 @@
    ]
   },
   "CellStructureMech|CMMMech": {
-   "n": 13,
+   "n": 16,
    "by": {
-    "NCBITaxon": 11,
+    "NCBITaxon": 12,
+    "InterPro": 2,
     "CHEBI": 1,
-    "InterPro": 1
+    "UniProt": 1
    },
    "ex": [
     {
@@ -942,12 +951,12 @@
      "label": "Saccharomyces cerevisiae"
     },
     {
-     "id": "NCBITaxon:562",
-     "label": "Escherichia coli"
+     "id": "NCBITaxon:243231",
+     "label": "Geobacter sulfurreducens PCA"
     },
     {
-     "id": "NCBITaxon:1148",
-     "label": "Synechocystis sp. PCC 6803"
+     "id": "NCBITaxon:562",
+     "label": "Escherichia coli"
     }
    ]
   },
@@ -993,9 +1002,11 @@
    ]
   },
   "CellStructureMech|TaxonMech": {
-   "n": 168,
+   "n": 170,
    "by": {
-    "NCBITaxon": 168
+    "NCBITaxon": 168,
+    "GO": 1,
+    "UniProt": 1
    },
    "ex": [
     {
@@ -1034,12 +1045,12 @@
    ]
   },
   "ProteinTraitsMech|NaturalProductMech": {
-   "n": 1254,
+   "n": 1270,
    "by": {
     "NCBITaxon": 498,
-    "UniProt": 338,
-    "CHEBI": 311,
-    "RHEA": 106,
+    "UniProt": 344,
+    "CHEBI": 316,
+    "RHEA": 111,
     "GO": 1
    },
    "ex": [
@@ -1058,10 +1069,10 @@
    ]
   },
   "ProteinTraitsMech|AntibioticMech": {
-   "n": 2609,
+   "n": 2616,
    "by": {
     "ARO": 1732,
-    "CHEBI": 593,
+    "CHEBI": 600,
     "PDB": 140,
     "NCBITaxon": 86,
     "UniProt": 56,
@@ -1083,26 +1094,26 @@
    ]
   },
   "ProteinTraitsMech|CMMMech": {
-   "n": 262,
+   "n": 327,
    "by": {
-    "InterPro": 95,
-    "NCBITaxon": 62,
+    "InterPro": 137,
+    "NCBITaxon": 64,
     "CHEBI": 58,
-    "Pfam": 32,
-    "UniProt": 15
+    "Pfam": 51,
+    "UniProt": 17
    },
    "ex": [
     {
-     "id": "InterPro:IPR011047",
-     "label": "Quinoprotein alcohol dehydrogenase-like superfamily"
+     "id": "InterPro:IPR036259",
+     "label": "MFS transporter superfamily"
     },
     {
-     "id": "InterPro:IPR018391",
-     "label": "Pyrrolo-quinoline quinone beta-propeller repeat"
+     "id": "InterPro:IPR020846",
+     "label": "Major facilitator superfamily domain"
     },
     {
-     "id": "InterPro:IPR002372",
-     "label": "Pyrrolo-quinoline quinone repeat domain"
+     "id": "Pfam:PF07690",
+     "label": "Major Facilitator Superfamily"
     }
    ]
   },
@@ -1150,9 +1161,12 @@
    ]
   },
   "ProteinTraitsMech|TaxonMech": {
-   "n": 7456,
+   "n": 7468,
    "by": {
-    "NCBITaxon": 7456
+    "NCBITaxon": 7456,
+    "GO": 5,
+    "UniProt": 5,
+    "CHEBI": 2
    },
    "ex": [
     {
@@ -1169,10 +1183,23 @@
     }
    ]
   },
-  "NaturalProductMech|AntibioticMech": {
-   "n": 289,
+  "DUFMech|CMMMech": {
+   "n": 2,
    "by": {
-    "CHEBI": 187,
+    "InterPro": 1,
+    "Pfam": 1
+   },
+   "ex": [
+    {
+     "id": "Pfam:PF02578",
+     "label": "Multi-copper polyphenol oxidoreductase laccase"
+    }
+   ]
+  },
+  "NaturalProductMech|AntibioticMech": {
+   "n": 290,
+   "by": {
+    "CHEBI": 188,
     "NCBITaxon": 99,
     "UniProt": 3
    },
@@ -1192,9 +1219,9 @@
    ]
   },
   "NaturalProductMech|CMMMech": {
-   "n": 39,
+   "n": 40,
    "by": {
-    "NCBITaxon": 39
+    "NCBITaxon": 40
    },
    "ex": [
     {
@@ -1253,9 +1280,11 @@
    ]
   },
   "NaturalProductMech|TaxonMech": {
-   "n": 1698,
+   "n": 1701,
    "by": {
-    "NCBITaxon": 1698
+    "NCBITaxon": 1698,
+    "UniProt": 2,
+    "CHEBI": 1
    },
    "ex": [
     {
@@ -1273,9 +1302,9 @@
    ]
   },
   "AntibioticMech|CMMMech": {
-   "n": 12,
+   "n": 13,
    "by": {
-    "NCBITaxon": 12
+    "NCBITaxon": 13
    },
    "ex": [
     {
@@ -1293,9 +1322,9 @@
    ]
   },
   "AntibioticMech|MediaIngredientMech": {
-   "n": 461,
+   "n": 469,
    "by": {
-    "CHEBI": 314,
+    "CHEBI": 322,
     "CAS": 147
    },
    "ex": [
@@ -1334,9 +1363,10 @@
    ]
   },
   "AntibioticMech|TaxonMech": {
-   "n": 121,
+   "n": 122,
    "by": {
-    "NCBITaxon": 121
+    "NCBITaxon": 121,
+    "CHEBI": 1
    },
    "ex": [
     {
@@ -1375,9 +1405,9 @@
    ]
   },
   "CMMMech|TaxonMech": {
-   "n": 145,
+   "n": 148,
    "by": {
-    "NCBITaxon": 145
+    "NCBITaxon": 148
    },
    "ex": [
     {
@@ -1417,10 +1447,31 @@
     }
    ]
   },
-  "CultureMech|TaxonMech": {
-   "n": 53,
+  "MediaIngredientMech|TaxonMech": {
+   "n": 3,
    "by": {
-    "NCBITaxon": 53
+    "CHEBI": 3
+   },
+   "ex": [
+    {
+     "id": "CHEBI:17716",
+     "label": "lactose"
+    },
+    {
+     "id": "CHEBI:16183",
+     "label": "methane"
+    },
+    {
+     "id": "CHEBI:8653",
+     "label": "pyocyanine"
+    }
+   ]
+  },
+  "CultureMech|TaxonMech": {
+   "n": 54,
+   "by": {
+    "NCBITaxon": 53,
+    "CHEBI": 1
    },
    "ex": [
     {
@@ -1441,44 +1492,45 @@
  "cells": {
   "HabitatMech|BTO": 616,
   "HabitatMech|CHEBI": 15,
-  "HabitatMech|ENVO": 1562,
+  "HabitatMech|ENVO": 1585,
   "HabitatMech|FOODON": 90,
   "HabitatMech|GO": 2,
   "HabitatMech|NCBITaxon": 899,
   "HabitatMech|PATO": 4,
-  "HabitatMech|UBERON": 778,
+  "HabitatMech|UBERON": 780,
+  "HabitatMech|UniProt": 3,
   "CommunityMech|CHEBI": 384,
   "CommunityMech|ENVO": 459,
   "CommunityMech|GO": 394,
   "CommunityMech|GTDB": 392,
   "CommunityMech|NCBITaxon": 473,
   "CommunityMech|UBERON": 10,
-  "TraitMech|CHEBI": 185,
+  "TraitMech|CHEBI": 186,
   "TraitMech|ENVO": 14,
-  "TraitMech|GO": 314,
-  "TraitMech|InterPro": 64,
-  "TraitMech|METPO": 1096,
-  "TraitMech|NCBITaxon": 577,
+  "TraitMech|GO": 320,
+  "TraitMech|InterPro": 69,
+  "TraitMech|METPO": 1097,
+  "TraitMech|NCBITaxon": 578,
   "TraitMech|PATO": 49,
-  "TraitMech|UniProt": 189,
-  "PathwayMech|CHEBI": 269,
-  "PathwayMech|GO": 179,
+  "TraitMech|UniProt": 194,
+  "PathwayMech|CHEBI": 270,
+  "PathwayMech|GO": 180,
   "PathwayMech|KEGG": 8,
   "PathwayMech|MIBiG": 3,
-  "PathwayMech|NCBITaxon": 269,
-  "PathwayMech|RHEA": 158,
-  "PathwayMech|UniProt": 247,
-  "CellStructureMech|CHEBI": 35,
-  "CellStructureMech|GO": 902,
-  "CellStructureMech|InterPro": 122,
+  "PathwayMech|NCBITaxon": 270,
+  "PathwayMech|RHEA": 159,
+  "PathwayMech|UniProt": 250,
+  "CellStructureMech|CHEBI": 37,
+  "CellStructureMech|GO": 971,
+  "CellStructureMech|InterPro": 128,
   "CellStructureMech|METPO": 5,
-  "CellStructureMech|NCBITaxon": 847,
+  "CellStructureMech|NCBITaxon": 915,
   "CellStructureMech|PDB": 41,
   "CellStructureMech|Pfam": 9,
-  "CellStructureMech|UniProt": 606,
+  "CellStructureMech|UniProt": 654,
   "ProteinTraitsMech|ARO": 7452,
-  "ProteinTraitsMech|CHEBI": 30293,
-  "ProteinTraitsMech|GO": 110747,
+  "ProteinTraitsMech|CHEBI": 30307,
+  "ProteinTraitsMech|GO": 110786,
   "ProteinTraitsMech|InterPro": 120090,
   "ProteinTraitsMech|KEGG": 1967,
   "ProteinTraitsMech|METPO": 119,
@@ -1499,21 +1551,21 @@
   "NaturalProductMech|NCBITaxon": 3116,
   "NaturalProductMech|NPAtlas": 1741,
   "NaturalProductMech|PDB": 3,
-  "NaturalProductMech|RHEA": 86,
-  "NaturalProductMech|UniProt": 304,
+  "NaturalProductMech|RHEA": 89,
+  "NaturalProductMech|UniProt": 306,
   "AntibioticMech|ARO": 568,
   "AntibioticMech|CAS": 1797,
-  "AntibioticMech|CHEBI": 2814,
+  "AntibioticMech|CHEBI": 2844,
   "AntibioticMech|GO": 3,
   "AntibioticMech|KEGG": 1154,
-  "AntibioticMech|NCBITaxon": 208,
+  "AntibioticMech|NCBITaxon": 209,
   "AntibioticMech|PDB": 332,
   "AntibioticMech|UniProt": 106,
   "CMMMech|CHEBI": 67,
-  "CMMMech|InterPro": 42,
-  "CMMMech|NCBITaxon": 281,
-  "CMMMech|Pfam": 42,
-  "CMMMech|UniProt": 42,
+  "CMMMech|InterPro": 86,
+  "CMMMech|NCBITaxon": 282,
+  "CMMMech|Pfam": 86,
+  "CMMMech|UniProt": 86,
   "MediaIngredientMech|BTO": 1,
   "MediaIngredientMech|CAS": 740,
   "MediaIngredientMech|CHEBI": 2234,
@@ -1523,13 +1575,17 @@
   "MediaIngredientMech|NCBITaxon": 1,
   "MediaIngredientMech|UBERON": 9,
   "CultureMech|CAS": 1,
-  "CultureMech|CHEBI": 6141,
+  "CultureMech|CHEBI": 6146,
   "CultureMech|ENVO": 13,
-  "CultureMech|FOODON": 204,
+  "CultureMech|FOODON": 207,
   "CultureMech|KEGG": 329,
   "CultureMech|NCBITaxon": 30,
   "CultureMech|UBERON": 72,
+  "TaxonMech|CHEBI": 7,
+  "TaxonMech|GO": 15,
   "TaxonMech|GTDB": 119248,
-  "TaxonMech|NCBITaxon": 626048
+  "TaxonMech|METPO": 2,
+  "TaxonMech|NCBITaxon": 626048,
+  "TaxonMech|UniProt": 15
  }
 }
