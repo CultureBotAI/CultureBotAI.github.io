@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-10-25",
-  "scope": "Each Mech's live GitHub Pages site as checked on October 25, 2026 (US Pacific time), independently of the repository pins used by the census. One AI reviewer per site reassessed the 24 earlier catalogue features from 18:00 to 21:29 UTC in an isolated headless Chrome profile at 390 and 1,280 px: identifier and label searches, filters, URL restoration, theme persistence across pages, horizontal overflow and deliberately aborted data requests where applicable. Corpus-wide static audits of the committed or deployed pages supplied the corpus-wide counts; notes name the sampled routes rather than claiming an exhaustive check of every record. A separate pass rated the ten newly catalogued features on all fourteen sites from 21:37 to 22:20 UTC. A second reviewer then independently re-tested every changed and every new verdict live from 01:03 to 02:08 UTC on October 26 (October 25, US Pacific time), and an arbiter settled each disagreement. Each deployed_revision is the deployment, verified as successful, that the site's review of the 24 earlier features observed. TraitMech redeployed dcafc9d at 18:28 UTC during its review, and only its keyboard pass ran on that curation-only deployment. AntibioticMech, CellStructureMech and TraitMech had redeployed before the new-feature pass began, and NaturalProductMech redeployed at 22:18 UTC during it with no site file changed. The new-feature and re-test passes rated the live sites, some redeployed since the recorded revisions; later deployments may differ.",
+  "scope": "Each Mech's live GitHub Pages site as checked on October 25, 2026 (US Pacific time), independently of the repository pins used by the census. One AI reviewer per site reassessed the 24 earlier catalogue features from 18:00 to 21:29 UTC in an isolated headless Chrome profile at 390 and 1,280 px: identifier and label searches, filters, URL restoration, theme persistence across pages, horizontal overflow and deliberately aborted data requests where applicable. Corpus-wide static audits of the committed or deployed pages supplied the corpus-wide counts; notes name the sampled routes rather than claiming an exhaustive check of every record. A separate pass rated the ten newly catalogued features on all fourteen sites from 21:37 to 22:20 UTC. A second reviewer then independently re-tested every changed and every new verdict live from 01:03 to 02:08 UTC on October 26 (October 25, US Pacific time), and an arbiter settled each disagreement; the evidence-link counts for DUFMech, PathwayMech and TraitMech were then measured on their main commits 0b3ed0f, 537313d and 5f630a4. Each deployed_revision is the deployment, verified as successful, that the site's review of the 24 earlier features observed. TraitMech redeployed dcafc9d at 18:28 UTC during its review, and only its keyboard pass ran on that curation-only deployment. AntibioticMech, CellStructureMech and TraitMech had redeployed before the new-feature pass began, and NaturalProductMech redeployed at 22:18 UTC during it with no site file changed. The new-feature and re-test passes rated the live sites, some redeployed since the recorded revisions; later deployments may differ.",
   "groups": [
     {
       "title": "Find records",
@@ -110,7 +110,7 @@
     "evidence": {
       "label": "Evidence links",
       "definition": "References (PMID, DOI or URL) shown on record pages are linked.",
-      "criteria": "Partial: references are plain text, or only a minority of the records that cite something link it. A reference counts as linked when its record page links it; an identifier shown inside or beside a linked citation is not a plain-text reference."
+      "criteria": "Partial: references are plain text, or only a minority of the records that cite something link it. A reference counts as linked when its record page links it; an identifier shown inside or beside a linked citation is not a plain-text reference, and a few records with a stray unlinked mention do not make the feature partial."
     },
     "review_status": {
       "label": "Curation status",
@@ -990,8 +990,8 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Description citations, causal-edge evidence and dataset references link wherever checked. But 47 of the 142 curated family pages show a PMID as plain text, mostly in curation-history event text, such as PMID:25114049 on PF01026; none of 202 sampled seeded pages does.",
-          "url": "https://culturebotai.github.io/DUFMech/families/PF01026.html"
+          "note": "Structured references and causal-graph citations are linked, but 17 of the 141 curated family pages show a PMID that is linked nowhere on the page, in curation-history or discussion text, such as the three PMIDs in PF01062's discussions.",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF01062.html"
         },
         "review_status": {
           "status": "present",
@@ -1698,8 +1698,8 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Structured citations are linked: 7,061 of 7,062 References entries link, and edge citations jump to them. But 81 of 274 pages show a PMID or DOI as plain text in prose, such as PMID:11697907 in edge source-assertion text, and many reference links open machine endpoints such as BioCyc XML or UniProt JSON.",
-          "url": "https://culturebotai.github.io/PathwayMech/pages/records/GO_0019305.html"
+          "note": "Each record's References entries are linked, but 255 of 275 record pages show a reference linked nowhere: Rhea and identifiers.org IRIs printed as text in the mechanistic-edge source locations, and PMIDs in edge-evidence prose, as on GO_0019618.",
+          "url": "https://culturebotai.github.io/PathwayMech/pages/records/GO_0019618.html"
         },
         "review_status": {
           "status": "missing",
@@ -2229,8 +2229,8 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Structured citation fields are linked everywhere, but 870 of 1,130 record pages show at least one PMID, DOI or URL as plain text, most often in synonym sources on 547 pages, such as DOI:10.1038/nrmicro.2016.94 on biofilm formation. Fifteen genomics pages also show raw :ref{doi=...} directives.",
-          "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/biofilm_formation.html"
+          "note": "Trait, edge-evidence and provenance citations are linked, but 269 of 1,130 record pages show a reference linked nowhere on the page, mostly PMIDs in Proposed experiments and Synonyms sources, as on animal pathogen.",
+          "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html"
         },
         "review_status": {
           "status": "present",
