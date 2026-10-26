@@ -7,6 +7,8 @@ import io
 import json
 from pathlib import Path
 import sys
+import tarfile
+import tempfile
 import unittest
 from unittest import mock
 
@@ -64,6 +66,7 @@ class KGXTests(unittest.TestCase):
         summary = json.loads((ROOT / '_fleet/data/kg_microbe_census.json').read_text())
         source = json.loads(kg.SOURCE.read_text())
         self.assertEqual({k: v for k, v in summary['source'].items() if k != 'nodes_sha256'}, source)
+        self.assertEqual(summary.get('registry_sha256'), prefix_census.registry_sha256())
         build_data.validate_comparison(summary)
         expected = {key.replace('|', '--') + '.json' for key in summary['cells']}
         self.assertEqual({p.name for p in kg.ASSETS.glob('*.json')}, expected)
@@ -75,6 +78,40 @@ class KGXTests(unittest.TestCase):
             self.assertEqual((doc['total'], doc['occurrences']), (row['records'], row['occurrences']))
             self.assertEqual(len(doc['records']), min(300, row['records']))
             self.assertTrue(all(link[2].startswith('https://') for link in doc['records']))
+
+    def test_registry_or_source_drift_requires_rescanning_kg_microbe_census(self):
+        summary = json.loads((ROOT / '_fleet/data/kg_microbe_census.json').read_text())
+        for bad in (None, '', '0' * 64):
+            broken = copy.deepcopy(summary)
+            broken['registry_sha256'] = bad
+            with self.assertRaises(ValueError):
+                build_data.validate_comparison(broken)
+        with mock.patch.object(prefix_census, 'P', prefix_census.P + '|NewVocabulary'):
+            with self.assertRaises(ValueError):
+                build_data.validate_comparison(summary)
+        with mock.patch.dict(prefix_census.norm, {'CHEBI': 'OtherVocabulary'}):
+            with self.assertRaises(ValueError):
+                build_data.validate_comparison(summary)
+        nodes = b'id\tname\txref\tdescription\tiri\nCHEBI:1\tFirst\t\t\thttps://example.org/1\n'
+        inner_buf = io.BytesIO()
+        with tarfile.open(fileobj=inner_buf, mode='w:gz') as inner_tar:
+            info = tarfile.TarInfo('merged-kg_nodes.tsv')
+            info.size = len(nodes)
+            inner_tar.addfile(info, io.BytesIO(nodes))
+        inner_bytes = inner_buf.getvalue()
+        with tempfile.TemporaryDirectory() as tmp:
+            archive = Path(tmp) / 'kg-microbe-core.tar.gz'
+            with tarfile.open(archive, mode='w:gz') as outer_tar:
+                info = tarfile.TarInfo('./merged-kg.tar.gz')
+                info.size = len(inner_bytes)
+                outer_tar.addfile(info, io.BytesIO(inner_bytes))
+            source = dict(
+                json.loads(kg.SOURCE.read_text()),
+                sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
+            )
+            rebuilt, _ = kg.build(archive, source)
+        self.assertEqual(rebuilt['registry_sha256'], prefix_census.registry_sha256())
+        build_data.validate_comparison(rebuilt)
 
     def test_comparison_only_affects_heatmap_not_fleet_or_graph(self):
         read = lambda name: json.loads((ROOT / '_fleet/data' / name).read_text())

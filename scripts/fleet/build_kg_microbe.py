@@ -22,7 +22,7 @@ import tempfile
 from urllib.parse import quote, urlsplit
 
 from build_cells import encoded
-from prefix_census import norm, rx
+from prefix_census import norm, registry_sha256, rx
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / '_fleet/kg_microbe_source.json'
@@ -105,6 +105,7 @@ def build(archive, source):
     summary = {
         'name': 'kg-microbe', 'key': 'kgmicrobe', 'site': '/kg-microbe/',
         'source': dict(source, nodes_sha256=node_hash),
+        'registry_sha256': registry_sha256(),
         'as_of': datetime.date.today().isoformat(), 'records': records,
         'method': 'Identifier occurrences in all KGX node fields, including xrefs and descriptions, '
                   'using the suite namespace registry. Edges, graph-local identifiers and '

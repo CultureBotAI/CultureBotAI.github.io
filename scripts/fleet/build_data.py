@@ -25,6 +25,7 @@ def vocabularies(census):
 
 def validate_comparison(comparison):
     """A graph comparison has its own provenance and never joins the fleet."""
+    from prefix_census import registry_sha256
     if comparison.get("name") != "kg-microbe" or comparison.get("key") != "kgmicrobe" or comparison.get("site") != "/kg-microbe/":
         raise ValueError("Invalid kg-microbe comparison identity")
     source = comparison.get("source", {})
@@ -35,6 +36,8 @@ def validate_comparison(comparison):
         raise ValueError("Missing kg-microbe release date")
     if source.get("release_url") != "https://github.com/Knowledge-Graph-Hub/kg-microbe/releases/tag/" + source["release"]:
         raise ValueError("Invalid kg-microbe release source")
+    if comparison.get("registry_sha256") != registry_sha256():
+        raise ValueError("kg-microbe census does not match the prefix_census namespace registry; rerun build_kg_microbe.py")
     if type(comparison.get("records")) is not int or comparison["records"] < 1:
         raise ValueError("Invalid kg-microbe node count")
     expected = {"kg-microbe|" + v: n for v, n in comparison["prefixes"].items()}
