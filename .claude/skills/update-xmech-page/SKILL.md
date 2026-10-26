@@ -27,7 +27,11 @@ procedure around it.
 
 **When NOT to use:** adding prefixes to the census or columns to the heatmap
 (#84), adding a Mech to the census (#87), or redesigning the page. Those change
-what the page measures, need their own decision, and belong in their own PR.
+what the page measures, need their own decision, and belong in their own PR
+(when `prefix_census.py` or `_fleet/kg_microbe_source.json` changes, also rerun
+`python3 scripts/fleet/build_kg_microbe.py /path/to/kg-microbe-core.tar.gz` before
+`build_data.py`, since `validate_comparison` checks both `registry_sha256` and the
+release source manifest).
 A refresh that also changes methodology cannot be reviewed, because every number
 moves for two reasons at once.
 

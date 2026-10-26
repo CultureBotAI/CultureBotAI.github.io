@@ -369,7 +369,8 @@ fetching an asset.
 `fleet_data.json` keeps its graph-filter vocabularies in `indexed_voc`, separately
 from the complete cell lists. Additional record lists do not add graph filters
 or change which terms make overlaps. Adding a namespace to the census requires
-a full rescan; displaying the saved census does not.
+a full rescan of both the Mech corpora and the `kg-microbe` release archive
+(`build_kg_microbe.py`); displaying the saved census does not.
 
 The October 1 namespace audit adds SGD, WikiPathways, Rfam and GO-CAM's
 `gomodel`, and folds uppercase HMDB and the additional case spellings found in
@@ -518,8 +519,12 @@ the tracked namespaces, not an exhaustive inventory of graph namespaces or a
 count of distinct ontology terms. The release has 1,379,336 node records;
 headers and blank lines are not nodes.
 
-`data/kg_microbe_census.json` records the counts and source, independently of
-Mech commit pins. `assets/fleet/comparison-cells/` contains up to 300 node links
+`data/kg_microbe_census.json` records the counts, source and `registry_sha256`
+(the digest of `prefix_census.py`'s matched spellings and normalizations), independently of
+Mech commit pins. Rerun `build_kg_microbe.py` whenever prefixes or aliases change
+in `prefix_census.py` or `_fleet/kg_microbe_source.json` pins a newer `kg-microbe`
+release; `build_data.validate_comparison()` and `tests/test_kg_microbe.py` reject a
+census whose `registry_sha256` or `source` does not match. `assets/fleet/comparison-cells/` contains up to 300 node links
 per populated cell with total counts and hashes, following the same cell format
 as Mech records. Links open external term pages where available, otherwise the
 source release with the node identifier shown in the label. Mech cell rebuilds
@@ -531,5 +536,5 @@ own only `assets/fleet/cells/` and cannot delete comparison assets.
 by dataset coverage after DOI/PMID; Mech rows sort by tracked vocabulary count, with
 biological-order ties. kg-microbe is always the final row, with a small gap
 above it. Tests check
-source hashes, complete cell coverage, matching counts and isolation from
+source and namespace-registry hashes, complete cell coverage, matching counts and isolation from
 fleet membership and graph indexes.

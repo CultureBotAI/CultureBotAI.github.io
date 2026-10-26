@@ -9,6 +9,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 DATA = os.path.join(REPO, "_fleet", "data")
 import collections
 import datetime
+import hashlib
 import json
 import re
 
@@ -149,6 +150,16 @@ norm.update({"DSM": "CultureCollection"})
 # took three times as long over the same records.
 LOOKAHEAD=40
 rx=re.compile(r"\b(?=[\w.\-]{1,%d}:)("%LOOKAHEAD+P+r"):[A-Za-z0-9_.\-]+")
+
+
+def registry_sha256():
+    """Digest of the matched prefix spellings and their normalized vocabulary names."""
+    mapping = {
+        re.sub(r"\\(.)", r"\1", sp): norm.get(re.sub(r"\\(.)", r"\1", sp), re.sub(r"\\(.)", r"\1", sp))
+        for sp in P.split("|")
+    }
+    payload = json.dumps(mapping, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def census():
