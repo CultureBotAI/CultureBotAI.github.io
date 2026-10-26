@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-10-25",
-  "scope": "Each Mech's live GitHub Pages site as checked on October 25, 2026, between 18:00 and 22:20 UTC, independently of the repository pins used by the census. One AI reviewer per site reassessed the 24 earlier catalogue features in an isolated headless Chrome profile at 390 and 1,280 px: identifier and label searches, filters, URL restoration, theme persistence across pages, horizontal overflow and deliberately aborted data requests where applicable. Corpus-wide static audits of the committed or deployed pages supplied the corpus-wide counts in the notes, and the ten newly catalogued features were rated in a separate pass on all fourteen sites between 21:37 and 22:20 UTC; AntibioticMech, CellStructureMech and TraitMech had redeployed by then, so their ratings for those ten features describe the later deployment. Notes name the sampled routes rather than claiming an exhaustive check of every record, and ratings were not independently re-tested. Each deployed_revision identifies the deployment whose latest status was verified as successful and which that site's review of the 24 earlier features observed; later deployments may differ.",
+  "scope": "Each Mech's live GitHub Pages site as checked on October 25, 2026 (US Pacific time), independently of the repository pins used by the census. One AI reviewer per site reassessed the 24 earlier catalogue features from 18:00 to 21:29 UTC in an isolated headless Chrome profile at 390 and 1,280 px: identifier and label searches, filters, URL restoration, theme persistence across pages, horizontal overflow and deliberately aborted data requests where applicable. Corpus-wide static audits of the committed or deployed pages supplied the corpus-wide counts; notes name the sampled routes rather than claiming an exhaustive check of every record. A separate pass rated the ten newly catalogued features on all fourteen sites from 21:37 to 22:20 UTC. A second reviewer then independently re-tested every changed and every new verdict live from 01:03 to 02:08 UTC on October 26 (October 25, US Pacific time), and an arbiter settled each disagreement. Each deployed_revision is the deployment, verified as successful, that the site's review of the 24 earlier features observed. TraitMech redeployed dcafc9d at 18:28 UTC during its review, and only its keyboard pass ran on that curation-only deployment. AntibioticMech, CellStructureMech and TraitMech had redeployed before the new-feature pass began, and NaturalProductMech redeployed at 22:18 UTC during it with no site file changed. The new-feature and re-test passes rated the live sites, some redeployed since the recorded revisions; later deployments may differ.",
   "groups": [
     {
       "title": "Find records",
@@ -110,7 +110,7 @@
     "evidence": {
       "label": "Evidence links",
       "definition": "References (PMID, DOI or URL) shown on record pages are linked.",
-      "criteria": "Partial: references are plain text, or only a minority of the records that cite something link it."
+      "criteria": "Partial: references are plain text, or only a minority of the records that cite something link it. A reference counts as linked when its record page links it; an identifier shown inside or beside a linked citation is not a plain-text reference."
     },
     "review_status": {
       "label": "Curation status",
@@ -221,7 +221,7 @@
     "visual_alternative": {
       "label": "Text alternative for visuals",
       "definition": "Every map, diagram or graph has a table or list alternative a keyboard or screen-reader user can reach, listing what the visual shows with record links.",
-      "criteria": "Present: every visual on the site has one. Partial: some visuals only. Does not apply: the site has no maps, diagrams or graphs."
+      "criteria": "Present: every visual on the site has one. Partial: some visuals only. A link to the general listing does not count: the alternative must list what that visual shows. Does not apply: the site has no maps, diagrams or graphs."
     },
     "no_js_fallback": {
       "label": "Works without JavaScript",
@@ -402,7 +402,7 @@
         },
         "no_js_fallback": {
           "status": "partial",
-          "note": "With JavaScript off, record and activity pages render and static class listings reach every record, but the search-first Browse page silently does nothing, with no noscript message.",
+          "note": "With JavaScript off, record and activity pages render, but class pages show only their first 300 records, such as 300 of 1,108 antibacterial, and the search-first Browse page shows no records and no noscript message.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html"
         }
       }
@@ -428,8 +428,8 @@
           "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
         },
         "sorting": {
-          "status": "partial",
-          "note": "A labeled Sort by control offers six orders kept in ?sort=, and Label (Z-A), Identifier, Category and Kind reorder all 1,001 rows correctly. But the default Label (A-Z) keeps the category-then-file order, with 24 adjacent label inversions such as y-shaped link before a axonemal microtubule, and column headings are not sortable.",
+          "status": "present",
+          "note": "A labeled Sort by control offers six orders kept in ?sort=, and Label (Z-A), Identifier, Category, Kind and Mapping status order all 1,001 rows correctly. The default Label (A-Z) keeps the category-grouped order instead, with 24 adjacent label inversions such as Y-shaped link before A axonemal microtubule, and column headings are not sortable.",
           "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=label-desc"
         },
         "shareable_state": {
@@ -454,7 +454,7 @@
         },
         "term_links": {
           "status": "partial",
-          "note": "Own GO identities, mechanism Subject and Object groundings, and component, function, taxon, UniProt, InterPro and Complex Portal terms are labeled links. Still plain code: 379 cellstructuremech: groundings in mechanism graphs on 125 pages, each naming a record with a page on this site, the 149 minted own identifiers and a few NCBIfam and RCSB_PDB CURIEs.",
+          "note": "Own GO identities, mechanism Subject and Object groundings, and component, function, taxon, UniProt, InterPro and Complex Portal terms are linked. Still plain code: 379 cellstructuremech: groundings in mechanism graphs on 125 pages, each naming a record with a page on this site, the 149 minted own identifiers and a few NCBIfam and RCSB_PDB CURIEs.",
           "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/inclusion/insoluble_protein_deposit.html"
         },
         "evidence": {
@@ -611,7 +611,7 @@
         },
         "shareable_state": {
           "status": "present",
-          "note": "The query, sort and every facet are written to the query string, and a methane search in SYNTROPHY and STABLE sorted by members restores the box, both checkboxes, the sort and 12 results in a fresh browser and after reload. The map pages also keep ?q=.",
+          "note": "The query, sort and every facet are written to the query string, and a methane search in SYNTROPHY and STABLE sorted by members restores the box, both checkboxes, the sort and 12 results in a fresh browser and after reload. The text map, UMAP and graph pages also keep ?q=.",
           "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=methane&category=SYNTROPHY&state=STABLE&sort=members-desc"
         },
         "full_catalogue": {
@@ -635,9 +635,9 @@
           "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
         },
         "evidence": {
-          "status": "partial",
-          "note": "Structured evidence is linked, with 6,636 PubMed and 1,121 DOI links carrying support labels and snippets. But 86 of 477 pages show a PMID, DOI or URL as plain text, mostly in the discussion rationale on 66 pages, such as PMID:10427060 on AMD Acidophile Heterotroph Network.",
-          "url": "https://culturebotai.github.io/CommunityMech/communities/AMD_Acidophile_Heterotroph_Network.html"
+          "status": "present",
+          "note": "Structured evidence is linked, with 6,636 PubMed and 1,121 DOI links carrying support labels and snippets, and on 130 of the 147 pages with a plain-text PMID or DOI the same reference is linked elsewhere on the page. 17 of 477 pages show a reference linked nowhere, 21 identifiers in all, such as doi:10.4014/jmb.2501.01047 in the External Resources of the Apple_Fire_Blight_ANP_SynCom page.",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Apple_Fire_Blight_ANP_SynCom.html"
         },
         "review_status": {
           "status": "missing",
@@ -706,7 +706,7 @@
         },
         "not_found_page": {
           "status": "partial",
-          "note": "Missing paths return 404 with CommunityMech's own page, whose search box and nine links all work at the site root, but under /communities/ all nine relative links and the theme script resolve to 404.",
+          "note": "Missing paths return 404 with CommunityMech's own page, with a search box and nine links; all nine links work at the site root, but under /communities/ all nine relative links and the theme script resolve to 404.",
           "url": "https://culturebotai.github.io/CommunityMech/communities/no-such-page-q7.html"
         },
         "downloads": {
@@ -808,7 +808,7 @@
         },
         "term_links": {
           "status": "partial",
-          "note": "Ingredient terms show a label beside a CURIE linked to OLS, and TOGO media link togomedium. But the record's own source-medium grounding prints source link unavailable on about 7,650 of 15,915 normalized pages, such as mediadive.medium:1399 on 000252, and MICRO, mediadive.compound and KEGG ingredient identifiers are unlinked.",
+          "note": "Ingredient terms show a label beside a CURIE linked to OLS, and TOGO media link togomedium. But the record's own source-medium grounding prints source link unavailable on about 7,650 of 15,915 normalized pages, such as mediadive.medium:1399 on 000252, MICRO and mediadive.compound ingredient terms are unlinked, and KEGG identifiers are plain text.",
           "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
         },
         "evidence": {
@@ -985,7 +985,7 @@
         },
         "term_links": {
           "status": "partial",
-          "note": "Own Pfam and InterPro grounding is labeled and linked on all 344 sampled pages. But the causal-graph node lists added to 134 families print 1,770 grounding CURIEs, mostly UniProtKB, as plain text, as on PF00563.",
+          "note": "Own grounding is labeled and linked on all 344 sampled pages: Pfam on every one and InterPro on the 343 families that have an InterPro entry. But the causal-graph node lists added to 134 families print 1,770 grounding CURIEs, mostly UniProtKB, as plain text, as on PF00563.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF00563.html#causal-graphs"
         },
         "evidence": {
@@ -1287,7 +1287,7 @@
         },
         "no_js_fallback": {
           "status": "partial",
-          "note": "With JavaScript off, record pages render and category pages reach every record through static pages, but the search-first Browse page silently does nothing, with no noscript message.",
+          "note": "With JavaScript off, record pages render, but category pages show only their first 300 records, such as 300 of 468 on Aquatic, and the search-first Browse page shows no records and no noscript message.",
           "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
         }
       }
@@ -1344,7 +1344,7 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Structured citations link, with 61 PubMed and 14 DOI anchors, but 28 of the 172 record pages that show a reference print at least one as text, 74 mentions in evidence sources, notes and curation history, such as two DOIs on Bacteriocin Isk 1. Four links on three pages keep a trailing parenthesis.",
+          "note": "Structured citations link, with 61 PubMed and 14 DOI anchors, but 28 of the 172 record pages that show a reference print at least one as text: 66 mentions in evidence sources, notes and curation history, such as two DOIs on Bacteriocin Isk 1, and 8 in chemical-property sources, components and a synonym. Four links on three pages keep a trailing parenthesis.",
           "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/05_M_Nitrilotriacetic_Acid_Disodium_Salt.html"
         },
         "review_status": {
@@ -1369,7 +1369,7 @@
         },
         "cross_mech_links": {
           "status": "partial",
-          "note": "BHI and GYPS link specific CultureMech recipes, such as CultureMech:002799 from GYPS, and the links open. But the new Cross-Mech section on all 2,953 records links CultureMech/app.html?q=, which returns 404, its PathwayMech, CMMMech and NaturalProductMech links drop the query, and kg-microbe node identifiers stay plain text.",
+          "note": "BHI and GYPS link specific CultureMech recipes, and GYPS's link to CultureMech:002799 opens. But the new Cross-Mech section on all 2,953 records links CultureMech/app.html?q=, which returns 404, its PathwayMech, CMMMech and NaturalProductMech links drop the query, and kg-microbe node identifiers stay plain text.",
           "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
         },
         "text_map": {
@@ -1743,7 +1743,7 @@
         },
         "feedback_route": {
           "status": "missing",
-          "note": "Record pages link the YAML file and curation-session files on GitHub; no edit link, issue link or other route to report a problem is offered.",
+          "note": "Record pages link their YAML file on GitHub and their curation-session files; no edit link, issue link or other route to report a problem is offered.",
           "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html"
         },
         "corpus_stats": {
@@ -1950,7 +1950,7 @@
         },
         "downloads": {
           "status": "partial",
-          "note": "Browse links only data/facets.json, the record-shard manifest and facet counts; the maps offer CSVs of plotted points and SLC10 its evidence JSON. The landing links no data, and no bulk export of complete records exists.",
+          "note": "Browse's only data link is data/facets.json, labeled record-shard manifest and facet counts; the maps offer CSVs of plotted points and SLC10 its evidence JSON. The landing links no data, and no bulk export of complete records exists.",
           "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
         },
         "schema_docs": {
@@ -1980,7 +1980,7 @@
         },
         "load_failure": {
           "status": "present",
-          "note": "Every injected failure shows an explicit error with a Retry that recovers: an aborted facets.json says Failed to load index, an aborted shard or lookup bucket says Records could not be loaded, aborted map data says This map could not be loaded, and an aborted SLC10 bundle says Cannot display verified evidence.",
+          "note": "Every injected failure shows an explicit error, and every Retry offered recovers: an aborted facets.json says Failed to load index, an aborted shard or lookup bucket says Records could not be loaded, aborted map data says This map could not be loaded, and an aborted SLC10 bundle says Cannot display verified evidence. The map-coverage failure shows a message without Retry.",
           "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
         },
         "skip_link": {
@@ -1990,7 +1990,7 @@
         },
         "visual_alternative": {
           "status": "missing",
-          "note": "The corpus, protein and sequence maps are canvases that offer only a CSV download of their points, with no on-page table or list.",
+          "note": "The corpus, protein and sequence maps are canvases that offer only a CSV download of their points, with no on-page table or list. The sequence-feature viewer on example proteins was not assessed.",
           "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
         },
         "no_js_fallback": {
@@ -2071,9 +2071,9 @@
           "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:2173"
         },
         "domain_view": {
-          "status": "partial",
-          "note": "All 626,048 records show a labeled, linked root-to-parent lineage and a child-taxa list, 3,175 children for E. coli. But the new Text map, linked from every page's navigation, never draws: its script fails before requesting its data, and the page stays at Loading text embedding map… at 1,280 and 390 px.",
-          "url": "https://culturebotai.github.io/TaxonMech/pages/map.html"
+          "status": "present",
+          "note": "All 626,048 records show a labeled, linked root-to-parent lineage and a child-taxa list, 3,175 linked children for E. coli, and a sampled child link opened its record. The new text map, which never renders, is judged under Text embedding map.",
+          "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:562"
         },
         "cross_mech_links": {
           "status": "partial",
@@ -2152,7 +2152,7 @@
         },
         "responsive": {
           "status": "partial",
-          "note": "At 390 px the landing, Browse, type-strain and domain listings, Sources, map and error states fit, and wide tables scroll in labeled regions. But 22 of 413 sampled records overflow, up to 928 px, from long unbroken taxon names in the heading, and measuring every label puts 7,795 of 626,048 record headings wider than the content box.",
+          "note": "At 390 px the landing, Browse, type-strain and domain listings, Sources, map and error states fit, and wide tables scroll in labeled regions. But 22 of 413 sampled records overflow, up to 928 px, from long unbroken taxon names in the heading, and measuring the 169,495 labels with a token of 14 or more characters puts 7,795 of 626,048 record headings wider than the content box.",
           "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:2014251"
         },
         "load_failure": {
@@ -2254,7 +2254,7 @@
         },
         "cross_mech_links": {
           "status": "present",
-          "note": "11 records link 15 specific PathwayMech record pages, such as Wood-Ljungdahl pathway to WikiPathways WP5019 Acetogenesis, and all 15 open with matching titles and state their pinned source version. Coverage is 11 of 1,130 records, and kg-microbe node identifiers remain plain text.",
+          "note": "11 records link 15 specific PathwayMech record pages, such as Wood-Ljungdahl pathway to WikiPathways WP5019 Acetogenesis, and all 15 open with matching titles; each link states the pinned PathwayMech source version. Coverage is 11 of 1,130 records, and kg-microbe node identifiers remain plain text.",
           "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html"
         },
         "text_map": {
@@ -2339,7 +2339,7 @@
         },
         "skip_link": {
           "status": "missing",
-          "note": "The first Tab stop on the landing, Browse, record, category and all four map pages is a navigation or logo link; no page has a skip link.",
+          "note": "The first Tab stop on the landing, Browse, record, category and all four map pages is a navigation or logo link, with no skip link; only the discussions index starts with one.",
           "url": "https://culturebotai.github.io/TraitMech/pages/browse.html"
         },
         "visual_alternative": {
@@ -2405,8 +2405,8 @@
           "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
         },
         "evidence": {
-          "status": "partial",
-          "note": "Every one of the 2,366 source entries on 663 pages links its URL, and evidence points jump to in-page sources. But 406 of 663 pages show a PMID, DOI or PMCID as plain text, mostly in source titles, such as DOI 10.2113/gscanmin.38.6.1457 on the adamsite-y page.",
+          "status": "present",
+          "note": "All 2,366 source entries on the 663 pages link their URL, and evidence points jump to in-page sources; most DOIs shown as text caption a linked citation, such as DOI 10.2113/gscanmin.38.6.1457 beside the linked RRUFF PDF on the adamsite-y page. At most 4 of 663 pages show a reference linked nowhere, in prose outside the source list.",
           "url": "https://culturebotai.github.io/CMMMech/pages/materials/adamsite-y.html"
         },
         "review_status": {
@@ -2425,9 +2425,9 @@
           "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
         },
         "domain_view": {
-          "status": "partial",
-          "note": "The Mechanism graph draws 653 nodes and 968 edges with search, filters and URL state, its nodes open process, material and taxonomy pages, and 499 record pages draw a mechanism-flow SVG. But the Text map, in the main navigation, ignores point clicks although it says a click opens the record, and it omits 61 of the 663 records.",
-          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+          "status": "present",
+          "note": "The Mechanism graph draws 653 nodes and 968 edges with search, filters and URL state, and its nodes open process pages, material records and NCBI Taxonomy; 499 record pages draw a mechanism-flow SVG. The text map's failing point clicks are judged under Text embedding map.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
         },
         "cross_mech_links": {
           "status": "partial",
@@ -2582,8 +2582,8 @@
           "url": "https://culturebotai.github.io/AIMech/pages/curated/WNGrad.html"
         },
         "evidence": {
-          "status": "partial",
-          "note": "Each of the 3,269 evidence sources links its document from its title, and claim evidence links its source row. But 1,248 of 1,487 curated pages show a DOI, arXiv ID or URL as plain text, mostly the Reference column's persistent ID, such as arXiv:1412.6980v9 on Adam, and the definition evidence on every curated record is not rendered.",
+          "status": "present",
+          "note": "Each of the 3,269 evidence sources links its document from its title, claim evidence links its source row, and the persistent ID beside each source, such as arXiv:1412.6980v9 on Adam, captions a linked citation. In a sample of 301 curated pages, 9 show an identifier in prose that is linked nowhere on the page; definition evidence is not rendered.",
           "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
         },
         "review_status": {
