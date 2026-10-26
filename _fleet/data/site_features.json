@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-10-25",
-  "scope": "Each Mech's live GitHub Pages site as checked on October 25, 2026 (US Pacific time), independently of the repository pins used by the census. One AI reviewer per site reassessed the 24 earlier catalogue features from 18:00 to 21:29 UTC in an isolated headless Chrome profile at 390 and 1,280 px: identifier and label searches, filters, URL restoration, theme persistence across pages, horizontal overflow and deliberately aborted data requests where applicable. Corpus-wide static audits of the committed or deployed pages supplied the corpus-wide counts; notes name the sampled routes rather than claiming an exhaustive check of every record. A separate pass rated the ten newly catalogued features on all fourteen sites from 21:37 to 22:20 UTC. A second reviewer then independently re-tested every changed and every new verdict live from 01:03 to 02:08 UTC on October 26 (October 25, US Pacific time), and an arbiter settled each disagreement; the evidence-link counts for DUFMech, PathwayMech and TraitMech were then measured on their main commits 0b3ed0f, 537313d and 5f630a4. Each deployed_revision is the deployment, verified as successful, that the site's review of the 24 earlier features observed. TraitMech redeployed dcafc9d at 18:28 UTC during its review, and only its keyboard pass ran on that curation-only deployment. AntibioticMech, CellStructureMech and TraitMech had redeployed before the new-feature pass began, and NaturalProductMech redeployed at 22:18 UTC during it with no site file changed. The new-feature and re-test passes rated the live sites, some redeployed since the recorded revisions; later deployments may differ.",
+  "scope": "Each Mech's live GitHub Pages site as checked on October 25, 2026 (US Pacific time), independently of the repository pins used by the census. One AI reviewer per site reassessed the 24 earlier catalogue features from 18:00 to 21:29 UTC in an isolated headless Chrome profile at 390 and 1,280 px: identifier and label searches, filters, URL restoration, theme persistence across pages, horizontal overflow and deliberately aborted data requests where applicable. Corpus-wide static audits of the committed or deployed pages supplied the corpus-wide counts; notes name the sampled routes rather than claiming an exhaustive check of every record. A separate pass rated the ten newly catalogued features on all fourteen sites from 21:37 to 22:20 UTC. A second reviewer then independently re-tested every changed and every new verdict live from 01:03 to 02:08 UTC on October 26 (October 25, US Pacific time), and an arbiter settled each disagreement; the evidence-link counts for DUFMech, PathwayMech and TraitMech were then measured on their main commits 0b3ed0f, 537313d and 5f630a4. Each deployed_revision is the deployment, verified as successful, that the site's review of the 24 earlier features observed. TraitMech redeployed dcafc9d at 18:28 UTC during its review, and only its keyboard pass ran on that curation-only deployment. AntibioticMech, CellStructureMech and TraitMech had redeployed before the new-feature pass began, and NaturalProductMech redeployed at 22:18 UTC during it, adding review files under reviews/ but changing no page. The new-feature and re-test passes rated the live sites, some redeployed since the recorded revisions; later deployments may differ.",
   "groups": [
     {
       "title": "Find records",
@@ -990,7 +990,7 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Structured references and causal-graph citations are linked, but 17 of the 141 curated family pages show a PMID that is linked nowhere on the page, in curation-history or discussion text, such as the three PMIDs in PF01062's discussions.",
+          "note": "Structured references and causal-graph citations are linked, but 16 of the 141 curated family pages show a PMID linked nowhere on the page, in curation-history or discussion text, such as the three PMIDs in PF01062's discussions. One seeded family, PF10350, also prints a preprint DOI in its source description.",
           "url": "https://culturebotai.github.io/DUFMech/families/PF01062.html"
         },
         "review_status": {
@@ -1698,7 +1698,7 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Each record's References entries are linked, but 255 of 275 record pages show a reference linked nowhere: Rhea and identifiers.org IRIs printed as text in the mechanistic-edge source locations, and PMIDs in edge-evidence prose, as on GO_0019618.",
+          "note": "201 of 275 record pages show a reference linked nowhere: Rhea, identifiers.org and OBO IRIs printed as text in mechanistic-edge source locations, not counting Rhea locators beside a linked Rhea entry, and on 38 pages a PMID or DOI, 28 of them in prose, as on GO_0019618. Only 1 of the 7,082 References entries is unlinked.",
           "url": "https://culturebotai.github.io/PathwayMech/pages/records/GO_0019618.html"
         },
         "review_status": {
@@ -2229,7 +2229,7 @@
         },
         "evidence": {
           "status": "partial",
-          "note": "Trait, edge-evidence and provenance citations are linked, but 269 of 1,130 record pages show a reference linked nowhere on the page, mostly PMIDs in Proposed experiments and Synonyms sources, as on animal pathogen.",
+          "note": "Trait-evidence citations link their DOIs, but 172 of 1,130 record pages show a reference linked nowhere on the page, mostly DOIs and URLs in the Deep research, kg-microbe context and Discussions sections, such as the DOI in animal pathogen's Deep research text.",
           "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html"
         },
         "review_status": {
@@ -2338,8 +2338,8 @@
           "url": "https://culturebotai.github.io/TraitMech/pages/map.html"
         },
         "skip_link": {
-          "status": "missing",
-          "note": "The first Tab stop on the landing, Browse, record, category and all four map pages is a navigation or logo link, with no skip link; only the discussions index starts with one.",
+          "status": "partial",
+          "note": "Only the discussions index and the priority dashboard start with a skip link; the first Tab stop on the landing, Browse, record, category and all four map pages is a navigation or logo link.",
           "url": "https://culturebotai.github.io/TraitMech/pages/browse.html"
         },
         "visual_alternative": {
