@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on October 25, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
+The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on October 26, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
 
 ### Pipeline Overview
 
@@ -182,7 +182,7 @@ CMMMech curates evidence-backed microbial extraction, transformation and recover
 ### CommunityMech - Microbial Community Interaction Modeling
 **[Dedicated Page](/communitymech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CommunityMech)** | **[Web Interface](https://culturebotai.github.io/CommunityMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-477 curated communities across 16 categories, modeled in LinkML with evidence-based ecological interactions for consortium design and multi-organism cultivation.
+480 curated communities across 16 categories, modeled in LinkML with evidence-based ecological interactions for consortium design and multi-organism cultivation.
 
 **What it does**: Provides structured representation of community composition, syntrophic interactions, and cultivation requirements for multi-species systems.
 
@@ -209,7 +209,7 @@ Curates 275 pathway-level microbial mechanisms across 105 taxa, with explicit pa
 ### ProteinTraitsMech - Protein Sequence & Structure Traits
 **[GitHub Repository](https://github.com/CultureBotAI/proteintraitsmech)** | **[Web Interface](https://culturebotai.github.io/proteintraitsmech/)** | CC BY 4.0 data · BSD-3-Clause code (upstream sources retain their own terms)
 
-Autonomous knowledge factory for protein sequence, structure, and function traits — 429,377 LinkML-validated records grouped under 34 browser source labels, one YAML per trait. These labels include imported sources and curation groupings; most records are imported and not yet reviewed. Reviewed records carry evidence-backed causal graphs.
+Autonomous knowledge factory for protein sequence, structure, and function traits — 429,394 LinkML-validated records grouped under 34 browser source labels, one YAML per trait. These labels include imported sources and curation groupings; most records are imported and not yet reviewed. Reviewed records carry evidence-backed causal graphs.
 
 **What it does**: Extends trait curation from the organism level to the molecular level, connecting protein features to the phenotypes they help explain. Explore the [corpus, protein and ESM-2 sequence maps](https://culturebotai.github.io/proteintraitsmech/map.html).
 
@@ -249,7 +249,7 @@ Provides a seed worklist of 8,296 Pfam families: 6,127 unknown candidates, 373 h
 
 3,012 antimicrobial chemical structures, 2,702 ontology-grounded, harmonizing ChEBI's antimicrobial roles with CARD/ARO molecules, targets and resistance determinants.
 
-**What it does**: Records one entry per antimicrobial structure, carrying its mode of action, molecular targets and the evidence for both where sources or curation have supplied them — 492 records have a mode of action and 299 a molecular target so far — and places all 3,012 on a chemical map by molecular fingerprint.
+**What it does**: Records one entry per antimicrobial structure, carrying its mode of action, molecular targets and the evidence for both where sources or curation have supplied them — 492 records have a mode of action and 309 a molecular target so far — and places all 3,012 on a chemical map by molecular fingerprint.
 
 ---
 

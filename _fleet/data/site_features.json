@@ -1,6 +1,6 @@
 {
-  "checked_on": "2026-10-25",
-  "scope": "Live GitHub Pages sites and their site-generator sources fetched 2026-10-25 across all fourteen published Mech sites.",
+  "checked_on": "2026-10-26",
+  "scope": "Live GitHub Pages sites and their site-generator sources fetched 2026-10-26 across all fourteen published Mech sites.",
   "groups": [
     {
       "title": "Find records",
@@ -173,7 +173,7 @@
     "AntibioticMech": {
       "site": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/AntibioticMech",
-      "deployed_revision": "2cc3ea13020683af56460711fbff425aa2dad456",
+      "deployed_revision": "dba9a8a6efb9d6f5ea4b7c0df1e959f36b7f365c",
       "features": {
         "search": {
           "status": "present",
@@ -456,7 +456,7 @@
         },
         "full_catalogue": {
           "status": "present",
-          "note": "The browser exposes all 480 published community cards in a responsive filterable, sortable grid (7 repository isolate records remain outside the published community total).",
+          "note": "The browser exposes all 480 published community cards in a responsive filterable, sortable grid (9 repository isolate records remain outside the published community total).",
           "url": "https://culturebotai.github.io/CommunityMech/browser.html"
         },
         "record_pages": {
@@ -501,7 +501,7 @@
         },
         "corpus_stats": {
           "status": "present",
-          "note": "Home page reports 480 published communities across 16 categories with category distribution badges (487 YAML files in kb/communities including 7 isolate scaffolds; 484 YAML files at our pinned corpus revision).",
+          "note": "Home page reports 480 published communities across 16 categories with category distribution badges (487 YAML files at the deployed site revision including 7 isolate scaffolds; 489 YAML files at our pinned corpus revision including 9 isolate records).",
           "url": "https://culturebotai.github.io/CommunityMech/"
         },
         "category_browse": {
@@ -808,7 +808,7 @@
     "HabitatMech": {
       "site": "https://culturebotai.github.io/HabitatMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/HabitatMech",
-      "deployed_revision": "92efe06f2c225746b194e016157e3a43956b4c73",
+      "deployed_revision": "e4e1a0c35bcb4beae38bc417176eb90b5c3e4f08",
       "features": {
         "search": {
           "status": "present",
@@ -857,7 +857,7 @@
         },
         "review_status": {
           "status": "present",
-          "note": "Record headers show SEEDED or REVIEWED. The landing page reports 1,923 SEEDED and 1,286 REVIEWED records (1,283 REVIEWED mapping_status at our pinned YAML revision) and explicitly distinguishes workflow status from human review.",
+          "note": "Record headers show SEEDED or REVIEWED. The landing page reports 1,923 SEEDED and 1,286 REVIEWED records and explicitly distinguishes workflow status from human review.",
           "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
         },
         "curation_history": {
@@ -1316,7 +1316,7 @@
     "ProteinTraitsMech": {
       "site": "https://culturebotai.github.io/proteintraitsmech/",
       "repository": "https://github.com/CultureBotAI/proteintraitsmech",
-      "deployed_revision": "fcd963db8c72a14ba9c49df60e4f1fbf2f2b6cd2",
+      "deployed_revision": "c4147394c698324ae537c0c63c2c9f6647c4f4fc",
       "features": {
         "search": {
           "status": "present",
@@ -1330,7 +1330,7 @@
         },
         "result_counts": {
           "status": "present",
-          "note": "The results count updates independently of the 429,377-record badge. STRUCT_ACTIVE_SITE plus racemase shows nine matches, an unmatched query shows zero, and facet counts explicitly state whether they include search text.",
+          "note": "The results count updates independently of the 429,394-record badge. STRUCT_ACTIVE_SITE plus racemase shows nine matches, an unmatched query shows zero, and facet counts explicitly state whether they include search text.",
           "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
         },
         "sorting": {
@@ -1345,7 +1345,7 @@
         },
         "full_catalogue": {
           "status": "present",
-          "note": "Selecting all five axes exposes all 429,377 records across paged result shards, matching the site total; hash routes open individual records.",
+          "note": "Selecting all five axes exposes all 429,394 records across paged result shards, matching the site total; hash routes open individual records.",
           "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
         },
         "record_pages": {
@@ -1390,7 +1390,7 @@
         },
         "corpus_stats": {
           "status": "present",
-          "note": "The landing page reports 429,377 records (39,591 REVIEWED), five trait axes, 56 categories, and 34 source labels. The corpus map states that 344,881 current records are plotted; the protein and sequence maps show 68,657 and 12,705 proteins.",
+          "note": "The landing page reports 429,394 records (39,591 REVIEWED), five trait axes, 56 categories, and 34 source labels. The corpus map states that 344,881 current records are plotted; the protein and sequence maps show 68,657 and 12,705 proteins.",
           "url": "https://culturebotai.github.io/proteintraitsmech/"
         },
         "category_browse": {
@@ -1443,7 +1443,7 @@
     "TaxonMech": {
       "site": "https://culturebotai.github.io/TaxonMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/TaxonMech",
-      "deployed_revision": "150868ac3b18469664d7924b26a7a7ba274817ef",
+      "deployed_revision": "c25b3100c5f5640453a1b3d59a11f8c7cf3250c9",
       "features": {
         "search": {
           "status": "present",
@@ -1570,7 +1570,7 @@
     "TraitMech": {
       "site": "https://culturebotai.github.io/TraitMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/TraitMech",
-      "deployed_revision": "ba0670a5f7d391c83999011162d160bf04eff308",
+      "deployed_revision": "e4556be39a8f39f9171da3c4bad822a9c2652634",
       "features": {
         "search": {
           "status": "present",
