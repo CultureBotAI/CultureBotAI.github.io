@@ -20,6 +20,18 @@ permalink: /culturemech/
 
 Counts were checked on October 26, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,915 normalized records from 6,325 merged records.
 
+## Recent Additions
+
+Five most recently added merged canonical media in the pinned repository snapshot ([`9ea7ff3`](https://github.com/CultureBotAI/CultureMech/tree/9ea7ff33d354e37b791df96a880005153e446ce3)):
+
+1. **[AMMONIA OXIDIZING BACTERIA MEDIUM](https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/ammonia_oxidizing_bacteria_medium.yaml)** (`CultureMech:015918`, added 2026-10-22)
+2. **[AUTOTROPHIC NITROBACTER MEDIUM](https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/autotrophic_nitrobacter_medium_jcm_1503.yaml)** (`CultureMech:015920`, added 2026-10-22)
+3. **[BAP+ MEDIUM FOR FRANKIA](https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/bap_medium_for_frankia_jcm_1492.yaml)** (`CultureMech:015919`, added 2026-10-22)
+4. **[METHANOCORPUSCULUM AGGREGANS MEDIUM](https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/methanocorpusculum_aggregans_medium_jcm_1422.yaml)** (`CultureMech:015916`, added 2026-10-22)
+5. **[MODIFIED UREAPLASMA MEDIUM](https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/modified_ureaplasma_medium.yaml)** (`CultureMech:015917`, added 2026-10-22)
+
+See all fourteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
+
 ## Data Architecture
 
 | Layer | Location | Purpose |

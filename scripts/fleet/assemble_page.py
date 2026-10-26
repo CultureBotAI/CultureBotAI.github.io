@@ -376,7 +376,100 @@ def pr_activity(stats):
     return total, len(repos)
 
 
-def assemble(template, fragment, data, snapshot, stats, census, features):
+def validate_recent_terms(recent, names, stats=None):
+    """Verify that recent_terms.json covers every suite Mech with 5 valid records."""
+    count = recent.get("count_per_mech")
+    if type(count) is not int or count != 5:
+        raise ValueError("Recent terms count_per_mech must be 5")
+    mechs = recent.get("mechs")
+    if not isinstance(mechs, list):
+        raise ValueError("Recent terms must include a list of Mechs")
+    by_name = {entry.get("mech"): entry for entry in mechs if isinstance(entry, dict)}
+    if len(by_name) != len(mechs) or set(by_name) != set(names):
+        raise ValueError("Recent terms must cover every suite Mech exactly once")
+    stats_rev = {}
+    if stats and isinstance(stats.get("mechs"), list):
+        stats_rev = {m["mech"]: m["source_revision"] for m in stats["mechs"]
+                     if isinstance(m, dict) and "mech" in m and "source_revision" in m}
+    for name, entry in by_name.items():
+        if entry.get("repo") != GH_REPO.get(name, name):
+            raise ValueError(f"{name}: recent terms repo must match its Mech")
+        rev = entry.get("source_revision")
+        if not (isinstance(rev, str) and SHA.fullmatch(rev)):
+            raise ValueError(f"{name}: recent terms source_revision must be a 40-char SHA")
+        if name in stats_rev and stats_rev[name] != rev:
+            raise ValueError(f"{name}: recent terms source_revision must match mech_stats.json")
+        records = entry.get("records")
+        if not isinstance(records, list) or len(records) != count:
+            raise ValueError(f"{name}: recent terms must list {count} records")
+        for rec in records:
+            if not (_text(rec.get("id")) and _text(rec.get("label")) and _text(rec.get("path"))):
+                raise ValueError(f"{name}: every recent record needs id, label and path")
+            if not (isinstance(rec.get("url"), str) and SITE_URL.fullmatch(rec["url"])):
+                raise ValueError(f"{name}: recent record URL must be a valid https URL")
+            _audit_date(rec.get("added_date"), f"{name} recent record")
+    latest = recent.get("latest_across_suite")
+    if not isinstance(latest, list) or len(latest) != count:
+        raise ValueError(f"Recent terms latest_across_suite must list {count} records")
+    for rec in latest:
+        if rec.get("mech") not in by_name:
+            raise ValueError("Recent terms latest_across_suite must reference a suite Mech")
+        if not (_text(rec.get("id")) and _text(rec.get("label"))):
+            raise ValueError("Recent terms latest_across_suite entry needs id and label")
+        if not (isinstance(rec.get("url"), str) and SITE_URL.fullmatch(rec["url"])):
+            raise ValueError("Recent terms latest_across_suite entry needs an https URL")
+        _audit_date(rec.get("added_date"), "latest_across_suite")
+    return by_name
+
+
+def recent_terms_markup(recent, suite_order, stats=None):
+    """Render the suite-wide latest 5 highlight and the 14 per-Mech recent-addition cards."""
+    by_name = validate_recent_terms(recent, suite_order, stats=stats)
+    suite_items = []
+    for rec in recent["latest_across_suite"]:
+        mech = rec["mech"]
+        slug = mech.lower()
+        suite_items.append(
+            f'<li><span class="fleet-recent-pill" style="--c: var(--mech-{slug}); --ci: var(--mech-{slug}-ink)">'
+            f'{escape(mech)}</span> '
+            f'<a href="{escape(rec["url"], quote=True)}">{escape(rec["label"])}</a> '
+            f'<code>{escape(rec["id"])}</code> '
+            f'<time datetime="{escape(rec["added_date"], quote=True)}">({escape(rec["added_date"])})</time></li>'
+        )
+    suite_box = (
+        '<div class="fleet-recent-suite" role="region" aria-label="Five most recent additions across the X-Mech suite">\n'
+        '  <h3>Latest 5 additions across the suite</h3>\n'
+        '  <ol>\n    ' + "\n    ".join(suite_items) + '\n  </ol>\n'
+        '</div>'
+    )
+    cards = []
+    for name in suite_order:
+        entry = by_name[name]
+        slug = name.lower()
+        rev = entry["source_revision"]
+        repo = entry["repo"]
+        tree_url = f"https://github.com/CultureBotAI/{repo}/tree/{rev}"
+        items = []
+        for rec in entry["records"]:
+            items.append(
+                f'<li><a href="{escape(rec["url"], quote=True)}">{escape(rec["label"])}</a> '
+                f'<code>{escape(rec["id"])}</code> '
+                f'<time datetime="{escape(rec["added_date"], quote=True)}">({escape(rec["added_date"])})</time></li>'
+            )
+        cards.append(
+            f'<article class="fleet-recent-card" data-recent-mech="{escape(name, quote=True)}" '
+            f'style="--c: var(--mech-{slug}); --ci: var(--mech-{slug}-ink)">\n'
+            f'  <header><h3>{escape(name)}</h3>'
+            f'<span><a href="{escape(tree_url, quote=True)}">{escape(rev[:7])}</a> · latest {len(entry["records"])}</span></header>\n'
+            f'  <ol class="fleet-recent-list">\n    ' + "\n    ".join(items) + '\n  </ol>\n'
+            f'</article>'
+        )
+    return suite_box + '\n<div class="fleet-recent-grid">\n' + "\n".join(cards) + '\n</div>'
+
+
+def assemble(template, fragment, data, snapshot, stats, census, features, recent=None):
+    if recent is None:
+        recent = json.loads((FLEET / "data/recent_terms.json").read_text())
     validate(snapshot)
     members = set(snapshot["mechs"])
     # The site measures the suite; CLAW declares its governed members. A new
@@ -485,6 +578,7 @@ def assemble(template, fragment, data, snapshot, stats, census, features):
         "<!--FLEET_DUF_SCHEMA_NOTE-->": site_schema_note(features, "DUFMech"),
         "<!--FLEET_SITE_COUNT_WORD-->": number_word(sum(m.get("site") is not None for m in features["mechs"].values())),
         "<!--FLEET_SITE_FEATURE_COUNT_WORD-->": number_word(len(features["catalogue"])),
+        "<!--FLEET_RECENT_TERMS-->": recent_terms_markup(recent, cards, stats=stats),
     }
     tokens.update({f"<!--FLEET_BADGE:{name}-->": '<span class="badge">' +
                    ('in fleet manifest' if name in members else 'not yet in fleet manifest') + '</span>'
@@ -517,7 +611,8 @@ def main():
                     json.loads((FLEET / "data/manifest.json").read_text()),
                     json.loads((FLEET / "data/mech_stats.json").read_text()),
                     json.loads((FLEET / "data/prefix_census.json").read_text()),
-                    json.loads((FLEET / "data/site_features.json").read_text()))
+                    json.loads((FLEET / "data/site_features.json").read_text()),
+                    json.loads((FLEET / "data/recent_terms.json").read_text()))
     target = REPO / "mechs.md"
     if args.check:
         if target.read_text() != page:

@@ -19,6 +19,18 @@ The published browser contains **2,953 ingredients: 2,611 MAPPED, 260 UNMAPPED, 
 - **[Mapped ingredients](https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED)** — browse the mapped subset.
 - **[Embedding map](https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html)** and **[graph layout](https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html)** — explore ingredient relationships in KG-Microbe embedding space.
 
+## Recent Additions
+
+Five most recently added ingredient records in the pinned repository snapshot ([`dc832fa`](https://github.com/CultureBotAI/MediaIngredientMech/tree/dc832fa2c9be609f58eefd02c3aa4a484790837f)):
+
+1. **[Na2-citrate](https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Na2-citrate.yaml)** (`cas:144-33-2`, added 2026-09-24)
+2. **[Nitrilotriacetic acid, trisodium salt](https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml)** (`CHEBI:132766`, added 2026-09-22)
+3. **[Dichloran (0.2% in ethanol)](https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Dichloran_02_in_ethanol.yaml)** (`CHEBI:27864`, added 2026-09-02)
+4. **[hydroxocobalamin hydrochloride](https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Hydroxocobalamin_hydrochloride.yaml)** (`NCIT:C217966`, added 2026-09-02)
+5. **[Sodium glycerophosphate](https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Sodium_glycerophosphate.yaml)** (`NCIT:C120561`, added 2026-09-02)
+
+See all fourteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
+
 ## What a Record Represents
 
 An ingredient record identifies a practical reagent or formulation used in media. Curation distinguishes salts, hydrates, mixtures, and other forms, preserves raw names as synonyms, and records the convention used when sources are ambiguous. Mapping quality and curation status are separate fields. [Mapping semantics](https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/MAPPING_SEMANTICS.md).

@@ -26,7 +26,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>3,209</b><span>habitat records · 1,286 reviewed</span></div>
     <p class="prov"><!--FLEET_STATS:HabitatMech--></p>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:HabitatMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://culturebotai.github.io/HabitatMech/pages/text-map/">Text map</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:HabitatMech--></div>
   </article>
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
@@ -34,7 +34,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>480</b><span>community records · 16 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CommunityMech--></p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
-    <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CommunityMech--></div>
+    <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://culturebotai.github.io/CommunityMech/text_map.html">Text map</a><a href="https://culturebotai.github.io/CommunityMech/community_umap.html">Taxonomic UMAP</a><a href="https://culturebotai.github.io/CommunityMech/sequence_map.html">Sequence map</a><a href="https://culturebotai.github.io/CommunityMech/community_graph.html">Network graph</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CommunityMech--></div>
   </article>
   <article class="mech-card" data-mech="TaxonMech" style="--c: var(--mech-taxonmech); --ci: var(--mech-taxonmech-ink)">
     <header><h3>TaxonMech</h3><span class="scale">Taxa and strains</span></header>
@@ -42,7 +42,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>626,048</b><span>taxon records · 100,745 listed strains</span></div>
     <p class="prov"><!--FLEET_STATS:TaxonMech--></p>
     <div class="vocab"><span>NCBITaxon</span><span>GTDB</span><span>LPSN</span><span>BacDive</span><span>NCBI Assembly</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/TaxonMech/">Browse</a><a href="https://github.com/CultureBotAI/TaxonMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TaxonMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/TaxonMech/">Browse</a><a href="https://culturebotai.github.io/TaxonMech/pages/map.html">Text map</a><a href="https://github.com/CultureBotAI/TaxonMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TaxonMech--></div>
   </article>
   <article class="mech-card" data-mech="TraitMech" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)">
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
@@ -50,7 +50,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>1,130</b><span>trait records · 10 categories</span></div>
     <p class="prov"><!--FLEET_STATS:TraitMech--></p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TraitMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://culturebotai.github.io/TraitMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/TraitMech/pages/sequence-map.html">Sequence map</a><a href="https://culturebotai.github.io/TraitMech/pages/umap.html">Embedding space</a><a href="https://culturebotai.github.io/TraitMech/pages/graph.html">Graph layout</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:TraitMech--></div>
   </article>
   <article class="mech-card" data-mech="PathwayMech" style="--c: var(--mech-pathwaymech); --ci: var(--mech-pathwaymech-ink)">
     <header><h3>PathwayMech</h3><span class="scale">Pathways</span></header>
@@ -58,7 +58,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>275</b><span>pathway records · 105 taxa</span></div>
     <p class="prov"><!--FLEET_STATS:PathwayMech--></p>
     <div class="vocab"><span>ChEBI</span><span>NCBITaxon</span><span>Rhea</span><span>EC</span><span>UniProtKB</span><span>MetaCyc</span><span>WikiPathways</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/PathwayMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/PathwayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:PathwayMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/PathwayMech/pages/browse.html">Browse</a><a href="https://culturebotai.github.io/PathwayMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/PathwayMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/PathwayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:PathwayMech--></div>
   </article>
   <article class="mech-card" data-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)">
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
@@ -66,7 +66,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>1,001</b><span>structure records · 852 GO-grounded</span></div>
     <p class="prov"><!--FLEET_STATS:CellStructureMech--></p>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CellStructureMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html">Text map</a><a href="https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CellStructureMech--></div>
   </article>
   <article class="mech-card" data-mech="ProteinTraitsMech" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)">
     <header><h3>ProteinTraitsMech</h3><span class="scale">Protein traits</span></header>
@@ -74,16 +74,15 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>429,394</b><span>protein trait records · 34 source labels</span></div>
     <p class="prov"><!--FLEET_STATS:ProteinTraitsMech--></p>
     <div class="vocab"><span>InterPro</span><span>UniProt</span><span>Rhea</span><span>Pfam</span><span>GO</span><span>ChEBI</span><span>ARO</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:ProteinTraitsMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html">Corpus map</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html#definitions">Definition map</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html#proteins">Protein map</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html#sequences">Sequence map</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:ProteinTraitsMech--></div>
   </article>
   <article class="mech-card" data-mech="DUFMech" style="--c: var(--mech-dufmech); --ci: var(--mech-dufmech-ink)">
     <header><h3>DUFMech</h3><span class="scale">Unknown functions</span></header>
     <p class="tag">Evidence gathering for unknown and formerly unknown domains and protein families.</p>
     <div class="num"><b>8,296</b><span>seed families · 6,127 unknown candidates</span></div>
-    <p>The worklist separates 6,127 unknown candidates, 373 historical DUFs and 1,796 renamed EX_DUF families. Seed labels describe frozen metadata and naming history; they do not establish functional validation.</p>
     <p class="prov"><!--FLEET_STATS:DUFMech--></p>
     <div class="vocab"><span>Pfam</span><span>InterPro</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/DUFMech/">Browse dashboard</a><a href="https://github.com/CultureBotAI/DUFMech/blob/0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4/data/worklists/interpro-pfam-duf-2026-10-10.manifest.json">Seed snapshot</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:DUFMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/DUFMech/">Browse dashboard</a><a href="https://culturebotai.github.io/DUFMech/map.html">Text map</a><a href="https://culturebotai.github.io/DUFMech/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/DUFMech/blob/0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4/data/worklists/interpro-pfam-duf-2026-10-10.manifest.json">Seed snapshot</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:DUFMech--></div>
   </article>
   <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)">
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
@@ -91,7 +90,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>3,116</b><span>natural product structures · 10 sources</span></div>
     <p class="prov"><!--FLEET_STATS:NaturalProductMech--></p>
     <div class="vocab"><span>MIBiG</span><span>NCBITaxon</span><span>ChEBI</span><span>NPAtlas</span><span>PubChem</span><span>UniProt</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/NaturalProductMech/">Browse</a><a href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:NaturalProductMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/NaturalProductMech/">Browse</a><a href="https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html">Structure map</a><a href="https://culturebotai.github.io/NaturalProductMech/pages/map.html">Corpus map</a><a href="https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:NaturalProductMech--></div>
   </article>
   <article class="mech-card" data-mech="AntibioticMech" style="--c: var(--mech-antibioticmech); --ci: var(--mech-antibioticmech-ink)">
     <header><h3>AntibioticMech</h3><span class="scale">Antibiotics</span></header>
@@ -99,7 +98,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>3,012</b><span>antimicrobial structures · 2,702 grounded</span></div>
     <p class="prov"><!--FLEET_STATS:AntibioticMech--></p>
     <div class="vocab"><span>ChEBI</span><span>ARO</span><span>CAS</span><span>PubChem</span><span>DrugBank</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AntibioticMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://culturebotai.github.io/AntibioticMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html">Chemical map</a><a href="https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AntibioticMech--></div>
   </article>
   <article class="mech-card" data-mech="CMMMech" style="--c: var(--mech-cmmmech); --ci: var(--mech-cmmmech-ink)">
     <header><h3>CMMMech</h3><span class="scale">Critical minerals</span></header>
@@ -107,7 +106,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>663</b><span>material records · 6 material kinds, 499 with mechanisms</span></div>
     <p class="prov"><!--FLEET_STATS:CMMMech--></p>
     <div class="vocab"><span>ChEBI</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/CMMMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/CMMMech/tree/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records">Records at pin</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CMMMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CMMMech/pages/browse.html">Browse</a><a href="https://culturebotai.github.io/CMMMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/CMMMech/pages/graph.html">Mechanism graph</a><a href="https://github.com/CultureBotAI/CMMMech/tree/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records">Records at pin</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CMMMech--></div>
   </article>
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
@@ -115,7 +114,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>2,953</b><span>ingredient records · 2,611 mapped</span></div>
     <p class="prov"><!--FLEET_STATS:MediaIngredientMech--></p>
     <div class="vocab"><span>ChEBI</span><span>CAS</span><span>NCIT</span><span>FOODON</span><span>ENVO</span><span>MeSH</span></div>
-    <div class="row"><a class="primary" href="/mediaingredientmech/">Page</a><a href="https://culturebotai.github.io/MediaIngredientMech/">Browse</a><a href="https://github.com/CultureBotAI/MediaIngredientMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:MediaIngredientMech--></div>
+    <div class="row"><a class="primary" href="/mediaingredientmech/">Page</a><a href="https://culturebotai.github.io/MediaIngredientMech/">Browse</a><a href="https://culturebotai.github.io/MediaIngredientMech/text_map.html">Text map</a><a href="https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html">KG PaCMAP</a><a href="https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html">Graph layout</a><a href="https://github.com/CultureBotAI/MediaIngredientMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:MediaIngredientMech--></div>
   </article>
   <article class="mech-card" data-mech="CultureMech" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)">
     <header><h3>CultureMech</h3><span class="scale">Media</span></header>
@@ -123,7 +122,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>6,325</b><span>canonical media · 5 categories</span></div>
     <p class="prov"><!--FLEET_STATS:CultureMech--></p>
     <div class="vocab"><span>ChEBI</span><span>KEGG</span><span>FOODON</span><span>UBERON</span><span>CAS</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CultureMech--></div>
+    <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://culturebotai.github.io/CultureMech/app/text_map.html">Text map</a><a href="https://culturebotai.github.io/CultureMech/app/umap.html">Media PaCMAP</a><a href="https://culturebotai.github.io/CultureMech/app/umap_graph.html">Media graph</a><a href="https://culturebotai.github.io/CultureMech/app/ingredient_umap.html">Ingredient PaCMAP</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CultureMech--></div>
   </article>
   <article class="mech-card" data-mech="AIMech" style="--c: var(--mech-aimech); --ci: var(--mech-aimech-ink)">
     <header><h3>AIMech</h3><span class="scale">AI concepts</span></header>
@@ -131,9 +130,16 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>1,929</b><span>concept records · 442 AIO imports, 1,487 maintained</span></div>
     <p class="prov"><!--FLEET_STATS:AIMech--></p>
     <div class="vocab"><span>AIO</span><span>BFO</span><span>DOI</span><span>arXiv</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/AIMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/AIMech/tree/621a86ea8e79b0c97585f978b771f5b024a8f691/data">Records at pin</a><a href="https://github.com/CultureBotAI/AIMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AIMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AIMech/pages/browse.html">Browse</a><a href="https://culturebotai.github.io/AIMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/AIMech/pages/graph.html">Network graph</a><a href="https://github.com/CultureBotAI/AIMech/tree/621a86ea8e79b0c97585f978b771f5b024a8f691/data">Records at pin</a><a href="https://github.com/CultureBotAI/AIMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AIMech--></div>
   </article>
 </div>
+
+## Recent additions
+{: .fleet-section-target}
+
+The five most recently added records in each Mech at its pinned revision, derived from commit history and worklist snapshots (`_fleet/data/recent_terms.json`). Each entry links directly to the published record page or pinned YAML record:
+
+<!--FLEET_RECENT_TERMS-->
 
 ## Explore the current sites
 {: .fleet-section-target}

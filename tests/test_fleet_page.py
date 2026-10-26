@@ -1661,5 +1661,125 @@ class SubsetDeterminismTests(unittest.TestCase):
             self.assertEqual(run, runs[0], f"output under PYTHONHASHSEED={seed} differs from seed 1")
 
 
+class RecentTermsAndCardLinksTests(unittest.TestCase):
+    """Tests for DUFMech card cleanup, Mech card map/graph/embedding links, and Recent additions."""
+
+    def test_dufmech_card_omits_redundant_worklist_paragraph(self):
+        html = (ROOT / "mechs.md").read_text(encoding="utf-8")
+        card_match = re.search(
+            r'<article class="mech-card" data-mech="DUFMech"[^>]*>(.*?)</article>',
+            html,
+            re.DOTALL,
+        )
+        self.assertIsNotNone(card_match)
+        card = card_match.group(1)
+        self.assertNotIn("The worklist separates 6,127 unknown candidates", card)
+        self.assertNotIn("Seed labels describe frozen metadata and naming history", card)
+
+    def test_every_mech_card_links_its_map_graph_or_embedding_views(self):
+        html = (ROOT / "mechs.md").read_text(encoding="utf-8")
+        expected_links = {
+            "HabitatMech": ["https://culturebotai.github.io/HabitatMech/pages/text-map/"],
+            "CommunityMech": [
+                "https://culturebotai.github.io/CommunityMech/text_map.html",
+                "https://culturebotai.github.io/CommunityMech/community_umap.html",
+                "https://culturebotai.github.io/CommunityMech/sequence_map.html",
+                "https://culturebotai.github.io/CommunityMech/community_graph.html",
+            ],
+            "TaxonMech": ["https://culturebotai.github.io/TaxonMech/pages/map.html"],
+            "TraitMech": [
+                "https://culturebotai.github.io/TraitMech/pages/map.html",
+                "https://culturebotai.github.io/TraitMech/pages/sequence-map.html",
+                "https://culturebotai.github.io/TraitMech/pages/umap.html",
+                "https://culturebotai.github.io/TraitMech/pages/graph.html",
+            ],
+            "PathwayMech": [
+                "https://culturebotai.github.io/PathwayMech/pages/map.html",
+                "https://culturebotai.github.io/PathwayMech/pages/sequence-map.html",
+            ],
+            "CellStructureMech": [
+                "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html",
+                "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html",
+            ],
+            "ProteinTraitsMech": [
+                "https://culturebotai.github.io/proteintraitsmech/map.html",
+                "https://culturebotai.github.io/proteintraitsmech/map.html#definitions",
+                "https://culturebotai.github.io/proteintraitsmech/map.html#proteins",
+                "https://culturebotai.github.io/proteintraitsmech/map.html#sequences",
+            ],
+            "DUFMech": [
+                "https://culturebotai.github.io/DUFMech/map.html",
+                "https://culturebotai.github.io/DUFMech/sequence-map.html",
+            ],
+            "NaturalProductMech": [
+                "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html",
+                "https://culturebotai.github.io/NaturalProductMech/pages/map.html",
+                "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html",
+            ],
+            "AntibioticMech": [
+                "https://culturebotai.github.io/AntibioticMech/pages/map.html",
+                "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html",
+                "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html",
+            ],
+            "CMMMech": [
+                "https://culturebotai.github.io/CMMMech/pages/map.html",
+                "https://culturebotai.github.io/CMMMech/pages/graph.html",
+            ],
+            "MediaIngredientMech": [
+                "https://culturebotai.github.io/MediaIngredientMech/text_map.html",
+                "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html",
+                "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html",
+            ],
+            "CultureMech": [
+                "https://culturebotai.github.io/CultureMech/app/text_map.html",
+                "https://culturebotai.github.io/CultureMech/app/umap.html",
+                "https://culturebotai.github.io/CultureMech/app/umap_graph.html",
+                "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html",
+            ],
+            "AIMech": [
+                "https://culturebotai.github.io/AIMech/pages/map.html",
+                "https://culturebotai.github.io/AIMech/pages/graph.html",
+            ],
+        }
+        for mech, urls in expected_links.items():
+            card_match = re.search(
+                rf'<article class="mech-card" data-mech="{re.escape(mech)}"[^>]*>(.*?)</article>',
+                html,
+                re.DOTALL,
+            )
+            self.assertIsNotNone(card_match, f"Missing mech card for {mech}")
+            card = card_match.group(1)
+            for url in urls:
+                self.assertIn(f'href="{url}"', card, f"{mech} card is missing link {url}")
+
+    def test_recent_terms_section_and_nav_icon_are_present(self):
+        from assemble_page import validate_recent_terms
+        html = (ROOT / "mechs.md").read_text(encoding="utf-8")
+        recent = json.loads((ROOT / "_fleet/data/recent_terms.json").read_text(encoding="utf-8"))
+        stats = json.loads((ROOT / "_fleet/data/mech_stats.json").read_text(encoding="utf-8"))
+        names = list(roots.ORDER)
+
+        mechs = validate_recent_terms(recent, names, stats=stats)
+        self.assertEqual(set(mechs), set(names))
+
+        self.assertIn('<a href="#recent-additions" aria-label="Recent additions">', html)
+        self.assertIn("## Recent additions\n{: .fleet-section-target}", html)
+        self.assertIn('<div class="fleet-recent-suite"', html)
+        for mech in names:
+            card_match = re.search(
+                rf'<article class="fleet-recent-card" data-recent-mech="{re.escape(mech)}"[^>]*>(.*?)</article>',
+                html,
+                re.DOTALL,
+            )
+            self.assertIsNotNone(card_match, f"Missing recent-additions card for {mech}")
+            items = re.findall(r"<li><a href=\"https://[^\"]+\">", card_match.group(1))
+            self.assertEqual(len(items), 5, f"{mech} recent card should list 5 terms")
+
+    def test_individual_mech_pages_include_recent_additions(self):
+        for page in ("culturemech.md", "communitymech.md", "mediaingredientmech.md"):
+            text = (ROOT / page).read_text(encoding="utf-8")
+            self.assertIn("## Recent Additions", text, f"{page} is missing ## Recent Additions")
+
+
 if __name__ == '__main__':
     unittest.main()

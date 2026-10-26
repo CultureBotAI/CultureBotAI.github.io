@@ -18,6 +18,19 @@ The repository contains **480 community records** and **nine additional isolate 
 - **[Record browser](https://culturebotai.github.io/CommunityMech/browser.html)** — filter communities by category, ecological state, metals, and rare-earth elements.
 - **[PaCMAP embedding map](https://culturebotai.github.io/CommunityMech/community_umap.html)** — explore similarity based on community taxonomic composition.
 - **[Graph layout](https://culturebotai.github.io/CommunityMech/community_graph.html)** — explore another layout of the community embedding space.
+- **[Text map](https://culturebotai.github.io/CommunityMech/text_map.html)** and **[sequence map](https://culturebotai.github.io/CommunityMech/sequence_map.html)** — explore text-embedding and sequence-embedding views across communities.
+
+## Recent Additions
+
+Five most recently added community and isolate records in the pinned repository snapshot ([`d43278b`](https://github.com/CultureBotAI/CommunityMech/tree/d43278b7c3965f9d922ad0bcf40502d6185fa8cc)):
+
+1. **[Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate](https://github.com/CultureBotAI/CommunityMech/blob/d43278b7c3965f9d922ad0bcf40502d6185fa8cc/data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml)** (`CommunityMech:000495`, added 2026-10-26)
+2. **[Intrasporangium chromatireducens Q5-1 Chromate Reduction Isolate](https://github.com/CultureBotAI/CommunityMech/blob/d43278b7c3965f9d922ad0bcf40502d6185fa8cc/data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml)** (`CommunityMech:000492`, added 2026-10-26)
+3. **[Magnetite-Mediated Thiobacillus Sulfur-Cycle Phenol and Chromate Bioreactor](https://culturebotai.github.io/CommunityMech/communities/Magnetite_Thiobacillus_Sulfur_Cycle_Phenol_Chromate_Reactor.html)** (`CommunityMech:000493`, added 2026-10-26)
+4. **[Tunisian Sahara Saline Spore-Forming Halophile Community](https://culturebotai.github.io/CommunityMech/communities/Tunisian_Sahara_Saline_Spore_Forming_Halophile_Community.html)** (`CommunityMech:000494`, added 2026-10-26)
+5. **[Two-Step PCB Copper and Gold Bioleaching Consortium](https://culturebotai.github.io/CommunityMech/communities/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium.html)** (`CommunityMech:000491`, added 2026-10-26)
+
+See all fourteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
 
 ## Data Architecture
 

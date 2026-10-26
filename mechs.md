@@ -127,7 +127,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   @media (max-width: 640px) { .fleet-stats { grid-template-columns: repeat(2, 1fr); } .fleet-stats b { font-size: 1.45rem; } }
 
   /* ---- On-page section links ---- */
-  .fleet-section-nav { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: .5rem; margin: 1rem 0; }
+  .fleet-section-nav { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: .5rem; margin: 1rem 0; }
   .page-content .fleet-section-nav + h2 { margin-top: 1.6rem; }
   .page-content .fleet-section-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; min-width: 0; padding: .8rem .25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font-size: .75rem; font-weight: 650; line-height: 1.3; text-align: center; }
   .fleet-section-nav svg { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--accent-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -280,6 +280,24 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   .mech-card .badge.adj { color: var(--accent); }
   .page-content .mech-card ul { list-style: none; padding: 0; margin: 0; }
   .page-content .mech-card ul > li::before { display: none; }
+
+  /* ---- Recent additions ---- */
+  .fleet-recent-suite { margin: 1rem 0 1.4rem; padding: 1rem 1.2rem; background: var(--wash-b); border: 1px solid var(--line); border-radius: var(--radius); }
+  .fleet-recent-suite h3 { margin: 0 0 .5rem; font-size: .95rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .page-content .fleet-recent-suite ol { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; }
+  .fleet-recent-suite li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .55rem; font-size: .88rem; }
+  .fleet-recent-pill { font-size: .72rem; font-weight: 750; padding: .15em .55em; border-radius: 999px; background: var(--card); border: 1px solid var(--c); color: var(--ci); }
+  .fleet-recent-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; margin: 1rem 0 1.6rem; }
+  @media (max-width: 720px) { .fleet-recent-grid { grid-template-columns: 1fr; } }
+  .fleet-recent-card { position: relative; padding: .9rem 1rem .9rem 1.15rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .fleet-recent-card::before { content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 4px; border-radius: 0 4px 4px 0; background: var(--c); }
+  .fleet-recent-card header { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin-bottom: .45rem; }
+  .fleet-recent-card h3 { margin: 0; padding: 0; border: 0; font-size: 1rem; color: var(--ci); }
+  .fleet-recent-card header span { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .page-content .fleet-recent-list { margin: 0; padding-left: 1.15rem; font-size: .83rem; line-height: 1.4; }
+  .page-content .fleet-recent-list > li { margin-bottom: .32rem; }
+  .fleet-recent-list code, .fleet-recent-suite code { font-size: .76em; color: var(--muted); }
+  .fleet-recent-list time, .fleet-recent-suite time { font-size: .75rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
   /* ---- Scale ladder ---- */
   .fleet-ladder { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin: 1rem 0 .2rem; }
@@ -483,6 +501,7 @@ Each X-Mech is an **autonomous knowledge factory** that curates, validates, and 
   <a href="#shared-vocabulary"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path></svg><span>Vocabulary</span></a>
   <a href="#fleet-graph"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 6 10 2M6 8l4 10m8-8-6 8"></path><circle cx="5" cy="5" r="3"></circle><circle cx="19" cy="8" r="3"></circle><circle cx="11" cy="20" r="2"></circle></svg><span>Graph</span></a>
   <a href="#the-fourteen-mechs"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span>Mechs</span></a>
+  <a href="#recent-additions" aria-label="Recent additions"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2M19 4v4M17 6h4"></path></svg><span>Recent</span></a>
   <a href="#explore-the-current-sites"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 6h14M5 18h14"></path></svg><span>Sites</span></a>
   <a href="#website-features"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="m6 9 2 2 3-4m-5 9 2 2 3-4m3-5h4m-4 7h4"></path></svg><span>Features</span></a>
   <a href="#how-the-mechs-reference-each-other" aria-label="Mech cross-references"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 14 4-4m-6 6-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0m2 10a4.2 4.2 0 0 0 6 0l4-4a4.2 4.2 0 0 0-6-6l-1 1" transform="translate(1 0) scale(.92)"></path></svg><span>Cross-refs</span></a>
@@ -1228,7 +1247,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>3,209</b><span>habitat records · 1,286 reviewed</span></div>
     <p class="prov">1,286 reviewed · 1,088 merged PRs</p>
     <div class="vocab"><span>ENVO</span><span>NCBITaxon</span><span>BTO</span><span>UBERON</span><span>FOODON</span><span>GOLD</span><span>BacDive</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/HabitatMech/">Browse</a><a href="https://culturebotai.github.io/HabitatMech/pages/text-map/">Text map</a><a href="https://github.com/CultureBotAI/HabitatMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="CommunityMech" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">
     <header><h3>CommunityMech</h3><span class="scale">Community</span></header>
@@ -1236,7 +1255,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>480</b><span>community records · 16 categories</span></div>
     <p class="prov">695 merged PRs</p>
     <div class="vocab"><span>NCBITaxon</span><span>ChEBI</span><span>GO</span><span>ENVO</span><span>GTDB</span><span>PMID</span></div>
-    <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="/communitymech/">Page</a><a href="https://culturebotai.github.io/CommunityMech/">Browse</a><a href="https://culturebotai.github.io/CommunityMech/text_map.html">Text map</a><a href="https://culturebotai.github.io/CommunityMech/community_umap.html">Taxonomic UMAP</a><a href="https://culturebotai.github.io/CommunityMech/sequence_map.html">Sequence map</a><a href="https://culturebotai.github.io/CommunityMech/community_graph.html">Network graph</a><a href="https://github.com/CultureBotAI/CommunityMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="TaxonMech" style="--c: var(--mech-taxonmech); --ci: var(--mech-taxonmech-ink)">
     <header><h3>TaxonMech</h3><span class="scale">Taxa and strains</span></header>
@@ -1244,7 +1263,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>626,048</b><span>taxon records · 100,745 listed strains</span></div>
     <p class="prov">0 reviewed · 61 merged PRs</p>
     <div class="vocab"><span>NCBITaxon</span><span>GTDB</span><span>LPSN</span><span>BacDive</span><span>NCBI Assembly</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/TaxonMech/">Browse</a><a href="https://github.com/CultureBotAI/TaxonMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/TaxonMech/">Browse</a><a href="https://culturebotai.github.io/TaxonMech/pages/map.html">Text map</a><a href="https://github.com/CultureBotAI/TaxonMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="TraitMech" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)">
     <header><h3>TraitMech</h3><span class="scale">Traits</span></header>
@@ -1252,7 +1271,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>1,130</b><span>trait records · 10 categories</span></div>
     <p class="prov">427 reviewed · 1,086 merged PRs</p>
     <div class="vocab"><span>METPO</span><span>GO</span><span>NCBITaxon</span><span>ChEBI</span><span>UniProt</span><span>PATO</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/TraitMech/">Browse</a><a href="https://culturebotai.github.io/TraitMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/TraitMech/pages/sequence-map.html">Sequence map</a><a href="https://culturebotai.github.io/TraitMech/pages/umap.html">Embedding space</a><a href="https://culturebotai.github.io/TraitMech/pages/graph.html">Graph layout</a><a href="https://github.com/CultureBotAI/TraitMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="PathwayMech" style="--c: var(--mech-pathwaymech); --ci: var(--mech-pathwaymech-ink)">
     <header><h3>PathwayMech</h3><span class="scale">Pathways</span></header>
@@ -1260,7 +1279,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>275</b><span>pathway records · 105 taxa</span></div>
     <p class="prov">307 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>NCBITaxon</span><span>Rhea</span><span>EC</span><span>UniProtKB</span><span>MetaCyc</span><span>WikiPathways</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/PathwayMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/PathwayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/PathwayMech/pages/browse.html">Browse</a><a href="https://culturebotai.github.io/PathwayMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/PathwayMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/PathwayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)">
     <header><h3>CellStructureMech</h3><span class="scale">Cell structures</span></header>
@@ -1268,7 +1287,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>1,001</b><span>structure records · 852 GO-grounded</span></div>
     <p class="prov">0 reviewed · 1,067 merged PRs</p>
     <div class="vocab"><span>GO</span><span>NCBITaxon</span><span>UniProt</span><span>METPO</span><span>Pfam</span><span>PDB</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CellStructureMech/">Browse</a><a href="https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html">Text map</a><a href="https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/CellStructureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="ProteinTraitsMech" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)">
     <header><h3>ProteinTraitsMech</h3><span class="scale">Protein traits</span></header>
@@ -1276,16 +1295,15 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>429,394</b><span>protein trait records · 34 source labels</span></div>
     <p class="prov">39,591 reviewed · 426 merged PRs</p>
     <div class="vocab"><span>InterPro</span><span>UniProt</span><span>Rhea</span><span>Pfam</span><span>GO</span><span>ChEBI</span><span>ARO</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/proteintraitsmech/">Browse</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html">Corpus map</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html#definitions">Definition map</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html#proteins">Protein map</a><a href="https://culturebotai.github.io/proteintraitsmech/map.html#sequences">Sequence map</a><a href="https://github.com/CultureBotAI/proteintraitsmech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="DUFMech" style="--c: var(--mech-dufmech); --ci: var(--mech-dufmech-ink)">
     <header><h3>DUFMech</h3><span class="scale">Unknown functions</span></header>
     <p class="tag">Evidence gathering for unknown and formerly unknown domains and protein families.</p>
     <div class="num"><b>8,296</b><span>seed families · 6,127 unknown candidates</span></div>
-    <p>The worklist separates 6,127 unknown candidates, 373 historical DUFs and 1,796 renamed EX_DUF families. Seed labels describe frozen metadata and naming history; they do not establish functional validation.</p>
     <p class="prov">96 merged PRs</p>
     <div class="vocab"><span>Pfam</span><span>InterPro</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/DUFMech/">Browse dashboard</a><a href="https://github.com/CultureBotAI/DUFMech/blob/0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4/data/worklists/interpro-pfam-duf-2026-10-10.manifest.json">Seed snapshot</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/DUFMech/">Browse dashboard</a><a href="https://culturebotai.github.io/DUFMech/map.html">Text map</a><a href="https://culturebotai.github.io/DUFMech/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/DUFMech/blob/0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4/data/worklists/interpro-pfam-duf-2026-10-10.manifest.json">Seed snapshot</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)">
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
@@ -1293,7 +1311,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>3,116</b><span>natural product structures · 10 sources</span></div>
     <p class="prov">0 reviewed · 590 merged PRs</p>
     <div class="vocab"><span>MIBiG</span><span>NCBITaxon</span><span>ChEBI</span><span>NPAtlas</span><span>PubChem</span><span>UniProt</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/NaturalProductMech/">Browse</a><a href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/NaturalProductMech/">Browse</a><a href="https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html">Structure map</a><a href="https://culturebotai.github.io/NaturalProductMech/pages/map.html">Corpus map</a><a href="https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/NaturalProductMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="AntibioticMech" style="--c: var(--mech-antibioticmech); --ci: var(--mech-antibioticmech-ink)">
     <header><h3>AntibioticMech</h3><span class="scale">Antibiotics</span></header>
@@ -1301,7 +1319,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>3,012</b><span>antimicrobial structures · 2,702 grounded</span></div>
     <p class="prov">96 reviewed · 701 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>ARO</span><span>CAS</span><span>PubChem</span><span>DrugBank</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AntibioticMech/">Browse</a><a href="https://culturebotai.github.io/AntibioticMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html">Chemical map</a><a href="https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html">Sequence map</a><a href="https://github.com/CultureBotAI/AntibioticMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="CMMMech" style="--c: var(--mech-cmmmech); --ci: var(--mech-cmmmech-ink)">
     <header><h3>CMMMech</h3><span class="scale">Critical minerals</span></header>
@@ -1309,7 +1327,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>663</b><span>material records · 6 material kinds, 499 with mechanisms</span></div>
     <p class="prov">152 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/CMMMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/CMMMech/tree/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records">Records at pin</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CMMMech/pages/browse.html">Browse</a><a href="https://culturebotai.github.io/CMMMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/CMMMech/pages/graph.html">Mechanism graph</a><a href="https://github.com/CultureBotAI/CMMMech/tree/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records">Records at pin</a><a href="https://github.com/CultureBotAI/CMMMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
@@ -1317,7 +1335,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>2,953</b><span>ingredient records · 2,611 mapped</span></div>
     <p class="prov">453 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>CAS</span><span>NCIT</span><span>FOODON</span><span>ENVO</span><span>MeSH</span></div>
-    <div class="row"><a class="primary" href="/mediaingredientmech/">Page</a><a href="https://culturebotai.github.io/MediaIngredientMech/">Browse</a><a href="https://github.com/CultureBotAI/MediaIngredientMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="/mediaingredientmech/">Page</a><a href="https://culturebotai.github.io/MediaIngredientMech/">Browse</a><a href="https://culturebotai.github.io/MediaIngredientMech/text_map.html">Text map</a><a href="https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html">KG PaCMAP</a><a href="https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html">Graph layout</a><a href="https://github.com/CultureBotAI/MediaIngredientMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="CultureMech" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)">
     <header><h3>CultureMech</h3><span class="scale">Media</span></header>
@@ -1325,7 +1343,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>6,325</b><span>canonical media · 5 categories</span></div>
     <p class="prov">289 merged PRs</p>
     <div class="vocab"><span>ChEBI</span><span>KEGG</span><span>FOODON</span><span>UBERON</span><span>CAS</span><span>NCBITaxon</span></div>
-    <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="/culturemech/">Page</a><a href="https://culturebotai.github.io/CultureMech/">Browse</a><a href="https://culturebotai.github.io/CultureMech/app/text_map.html">Text map</a><a href="https://culturebotai.github.io/CultureMech/app/umap.html">Media PaCMAP</a><a href="https://culturebotai.github.io/CultureMech/app/umap_graph.html">Media graph</a><a href="https://culturebotai.github.io/CultureMech/app/ingredient_umap.html">Ingredient PaCMAP</a><a href="https://github.com/CultureBotAI/CultureMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
   <article class="mech-card" data-mech="AIMech" style="--c: var(--mech-aimech); --ci: var(--mech-aimech-ink)">
     <header><h3>AIMech</h3><span class="scale">AI concepts</span></header>
@@ -1333,8 +1351,166 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>1,929</b><span>concept records · 442 AIO imports, 1,487 maintained</span></div>
     <p class="prov">314 merged PRs</p>
     <div class="vocab"><span>AIO</span><span>BFO</span><span>DOI</span><span>arXiv</span></div>
-    <div class="row"><a class="primary" href="https://culturebotai.github.io/AIMech/pages/browse.html">Browse</a><a href="https://github.com/CultureBotAI/AIMech/tree/621a86ea8e79b0c97585f978b771f5b024a8f691/data">Records at pin</a><a href="https://github.com/CultureBotAI/AIMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AIMech/pages/browse.html">Browse</a><a href="https://culturebotai.github.io/AIMech/pages/map.html">Text map</a><a href="https://culturebotai.github.io/AIMech/pages/graph.html">Network graph</a><a href="https://github.com/CultureBotAI/AIMech/tree/621a86ea8e79b0c97585f978b771f5b024a8f691/data">Records at pin</a><a href="https://github.com/CultureBotAI/AIMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><span class="badge">in fleet manifest</span></div>
   </article>
+</div>
+
+## Recent additions
+{: .fleet-section-target}
+
+The five most recently added records in each Mech at its pinned revision, derived from commit history and worklist snapshots (`_fleet/data/recent_terms.json`). Each entry links directly to the published record page or pinned YAML record:
+
+<div class="fleet-recent-suite" role="region" aria-label="Five most recent additions across the X-Mech suite">
+  <h3>Latest 5 additions across the suite</h3>
+  <ol>
+    <li><span class="fleet-recent-pill" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)">ProteinTraitsMech</span> <a href="https://culturebotai.github.io/proteintraitsmech/browse.html#record=proteintraitsmech%3AINIT_METHIONINE_N_DEGRON">initiator-methionine N-degron recognition site</a> <code>proteintraitsmech:INIT_METHIONINE_N_DEGRON</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><span class="fleet-recent-pill" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">CommunityMech</span> <a href="https://github.com/CultureBotAI/CommunityMech/blob/d43278b7c3965f9d922ad0bcf40502d6185fa8cc/data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml">Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate</a> <code>CommunityMech:000495</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><span class="fleet-recent-pill" style="--c: var(--mech-pathwaymech); --ci: var(--mech-pathwaymech-ink)">PathwayMech</span> <a href="https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0000991.html">Secondary Metabolites: Isoprenoid Biosynthesis (Nonmevalonate Pathway)</a> <code>PathBank:SMP0000991</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><span class="fleet-recent-pill" style="--c: var(--mech-antibioticmech); --ci: var(--mech-antibioticmech-ink)">AntibioticMech</span> <a href="https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amicoumacin-a.html">amicoumacin A</a> <code>antibioticmech:curator-7e608b0982</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><span class="fleet-recent-pill" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)">CellStructureMech</span> <a href="https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/aim21_tda2_complex.html">Aim21-Tda2 complex</a> <code>GO:0110131</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+  </ol>
+</div>
+<div class="fleet-recent-grid">
+<article class="fleet-recent-card" data-recent-mech="HabitatMech" style="--c: var(--mech-habitatmech); --ci: var(--mech-habitatmech-ink)">
+  <header><h3>HabitatMech</h3><span><a href="https://github.com/CultureBotAI/HabitatMech/tree/e4e1a0c35bcb4beae38bc417176eb90b5c3e4f08">e4e1a0c</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/HabitatMech/pages/habitats/plant-stem-or-bark-canker-lesion-habitatmech-bacdive-0f078d72a7.html">plant stem or bark canker lesion</a> <code>habitatmech:BACDIVE.0f078d72a7</code> <time datetime="2026-10-19">(2026-10-19)</time></li>
+    <li><a href="https://culturebotai.github.io/HabitatMech/pages/habitats/endosphere-environment-habitatmech-bacdive-3e4680f074.html">endosphere environment</a> <code>habitatmech:BACDIVE.3e4680f074</code> <time datetime="2026-10-19">(2026-10-19)</time></li>
+    <li><a href="https://culturebotai.github.io/HabitatMech/pages/habitats/wilted-plant-vascular-tissue-environment-habitatmech-bacdive-4c48b5114d.html">wilted plant vascular tissue environment</a> <code>habitatmech:BACDIVE.4c48b5114d</code> <time datetime="2026-10-19">(2026-10-19)</time></li>
+    <li><a href="https://culturebotai.github.io/HabitatMech/pages/habitats/cecum-intestinal-cecum-habitatmech-gold-37d9cdc188.html">Cecum/Intestinal cecum</a> <code>habitatmech:GOLD.37d9cdc188</code> <time datetime="2026-10-15">(2026-10-15)</time></li>
+    <li><a href="https://culturebotai.github.io/HabitatMech/pages/habitats/abdomen-pleon-habitatmech-gold-1e0a05a113.html">Abdomen/Pleon</a> <code>habitatmech:GOLD.1e0a05a113</code> <time datetime="2026-10-14">(2026-10-14)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="CommunityMech" style="--c: var(--mech-communitymech); --ci: var(--mech-communitymech-ink)">
+  <header><h3>CommunityMech</h3><span><a href="https://github.com/CultureBotAI/CommunityMech/tree/d43278b7c3965f9d922ad0bcf40502d6185fa8cc">d43278b</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://github.com/CultureBotAI/CommunityMech/blob/d43278b7c3965f9d922ad0bcf40502d6185fa8cc/data/isolates/Ferroplasma_Acidiphilum_ZJ_AMD_Genomic_Island_Adaptation.yaml">Ferroplasma acidiphilum ZJ Acid Mine Drainage Isolate</a> <code>CommunityMech:000495</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CommunityMech/blob/d43278b7c3965f9d922ad0bcf40502d6185fa8cc/data/isolates/Intrasporangium_Chromatireducens_Q5_1_Chromate_Reduction.yaml">Intrasporangium chromatireducens Q5-1 Chromate Reduction Isolate</a> <code>CommunityMech:000492</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/CommunityMech/communities/Magnetite_Thiobacillus_Sulfur_Cycle_Phenol_Chromate_Reactor.html">Magnetite-Mediated Thiobacillus Sulfur-Cycle Phenol and Chromate Bioreactor</a> <code>CommunityMech:000493</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/CommunityMech/communities/Tunisian_Sahara_Saline_Spore_Forming_Halophile_Community.html">Tunisian Sahara Saline Spore-Forming Halophile Community</a> <code>CommunityMech:000494</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/CommunityMech/communities/TwoStep_PCB_Copper_Gold_Bioleaching_Consortium.html">Two-Step PCB Copper and Gold Bioleaching Consortium</a> <code>CommunityMech:000491</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="TaxonMech" style="--c: var(--mech-taxonmech); --ci: var(--mech-taxonmech-ink)">
+  <header><h3>TaxonMech</h3><span><a href="https://github.com/CultureBotAI/TaxonMech/tree/c25b3100c5f5640453a1b3d59a11f8c7cf3250c9">c25b310</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon%3A5755">Acanthamoeba castellanii</a> <code>NCBITaxon:5755</code> <time datetime="2026-10-21">(2026-10-21)</time></li>
+    <li><a href="https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon%3A192523">Agaricus bisporus var. bisporus</a> <code>NCBITaxon:192523</code> <time datetime="2026-10-21">(2026-10-21)</time></li>
+    <li><a href="https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon%3A326616">Annulohypoxylon bovei</a> <code>NCBITaxon:326616</code> <time datetime="2026-10-21">(2026-10-21)</time></li>
+    <li><a href="https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon%3A5105">Ascosphaera apis</a> <code>NCBITaxon:5105</code> <time datetime="2026-10-21">(2026-10-21)</time></li>
+    <li><a href="https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon%3A36642">Aspergillus terricola</a> <code>NCBITaxon:36642</code> <time datetime="2026-10-21">(2026-10-21)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="TraitMech" style="--c: var(--mech-traitmech); --ci: var(--mech-traitmech-ink)">
+  <header><h3>TraitMech</h3><span><a href="https://github.com/CultureBotAI/TraitMech/tree/e4556be39a8f39f9171da3c4bad822a9c2652634">e4556be</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/TraitMech/pages/traits/physiology/bacterial_flagellar_filament_internalization.html">bacterial flagellar filament internalization</a> <code>traitmech:000735</code> <time datetime="2026-10-16">(2026-10-16)</time></li>
+    <li><a href="https://culturebotai.github.io/TraitMech/pages/traits/physiology/eukaryotic_flagellar_axoneme_internalization.html">eukaryotic flagellar axoneme internalization</a> <code>traitmech:000734</code> <time datetime="2026-10-15">(2026-10-15)</time></li>
+    <li><a href="https://culturebotai.github.io/TraitMech/pages/traits/physiology/eukaryotic_flagellar_resorption.html">eukaryotic flagellar resorption</a> <code>traitmech:000733</code> <time datetime="2026-10-15">(2026-10-15)</time></li>
+    <li><a href="https://culturebotai.github.io/TraitMech/pages/traits/physiology/bacterial_polar_flagellar_ejection.html">bacterial polar flagellar ejection</a> <code>traitmech:000732</code> <time datetime="2026-10-15">(2026-10-15)</time></li>
+    <li><a href="https://culturebotai.github.io/TraitMech/pages/traits/physiology/eukaryotic_flagellar_autotomy.html">eukaryotic flagellar autotomy</a> <code>traitmech:000731</code> <time datetime="2026-10-15">(2026-10-15)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="PathwayMech" style="--c: var(--mech-pathwaymech); --ci: var(--mech-pathwaymech-ink)">
+  <header><h3>PathwayMech</h3><span><a href="https://github.com/CultureBotAI/PathwayMech/tree/537313d58ad95c407741efc2adb52400ce6eb873">537313d</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0000991.html">Secondary Metabolites: Isoprenoid Biosynthesis (Nonmevalonate Pathway)</a> <code>PathBank:SMP0000991</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002055.html">Thiazole Biosynthesis I</a> <code>PathBank:SMP0002055</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002042.html">Thiamin Diphosphate Biosynthesis</a> <code>PathBank:SMP0002042</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0000993.html">Secondary Metabolites: Cysteine Biosynthesis from Serine</a> <code>PathBank:SMP0000993</code> <time datetime="2026-10-23">(2026-10-23)</time></li>
+    <li><a href="https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0000992.html">Secondary Metabolites: Threonine Biosynthesis from Aspartate</a> <code>PathBank:SMP0000992</code> <time datetime="2026-10-22">(2026-10-22)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="CellStructureMech" style="--c: var(--mech-cellstructuremech); --ci: var(--mech-cellstructuremech-ink)">
+  <header><h3>CellStructureMech</h3><span><a href="https://github.com/CultureBotAI/CellStructureMech/tree/66f79e5474e4baa29c40339e0b69205d29af751c">66f79e5</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/aim21_tda2_complex.html">Aim21-Tda2 complex</a> <code>GO:0110131</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/CellStructureMech/pages/structures/division_machinery/ftsbl_complex.html">FtsBL complex</a> <code>GO:1990588</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/CellStructureMech/pages/structures/division_machinery/ftsqbl_complex.html">FtsQBL complex</a> <code>GO:1990587</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/CellStructureMech/pages/structures/energy_complex/archaeal_proton_transporting_a_type_atpase_complex.html">archaeal proton-transporting A-type ATPase complex</a> <code>GO:1990490</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/CellStructureMech/pages/structures/membrane_organelle/asi_complex.html">Asi complex</a> <code>GO:0097658</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="ProteinTraitsMech" style="--c: var(--mech-proteintraitsmech); --ci: var(--mech-proteintraitsmech-ink)">
+  <header><h3>ProteinTraitsMech</h3><span><a href="https://github.com/CultureBotAI/proteintraitsmech/tree/c4147394c698324ae537c0c63c2c9f6647c4f4fc">c414739</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/proteintraitsmech/browse.html#record=proteintraitsmech%3AINIT_METHIONINE_N_DEGRON">initiator-methionine N-degron recognition site</a> <code>proteintraitsmech:INIT_METHIONINE_N_DEGRON</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/proteintraitsmech/browse.html#record=proteintraitsmech%3ALOWCOMP_FG_NUCLEOPORIN_REPEAT_REGION">phenylalanine-glycine (FG)-repeat low-complexity region</a> <code>proteintraitsmech:LOWCOMP_FG_NUCLEOPORIN_REPEAT_REGION</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/proteintraitsmech/browse.html#record=proteintraitsmech%3ALOWCOMP_POLYAMPHOLYTIC_CHARGE_BLOCK">polyampholytic mixed-charge-block low-complexity region</a> <code>proteintraitsmech:LOWCOMP_POLYAMPHOLYTIC_CHARGE_BLOCK</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/proteintraitsmech/browse.html#record=proteintraitsmech%3AMATURE_CHAIN_AUTOCATALYTIC_CLEAVED">autocatalytically cleaved mature polypeptide chain</a> <code>proteintraitsmech:MATURE_CHAIN_AUTOCATALYTIC_CLEAVED</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+    <li><a href="https://culturebotai.github.io/proteintraitsmech/browse.html#record=proteintraitsmech%3AALLOSTERIC_COVALENT_REGULATORY_SITE">covalent allosteric regulatory site</a> <code>proteintraitsmech:ALLOSTERIC_COVALENT_REGULATORY_SITE</code> <time datetime="2026-10-26">(2026-10-26)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="DUFMech" style="--c: var(--mech-dufmech); --ci: var(--mech-dufmech-ink)">
+  <header><h3>DUFMech</h3><span><a href="https://github.com/CultureBotAI/DUFMech/tree/0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4">0b3ed0f</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/DUFMech/families/PF18141.html">RNA helicase UPF1, 1B domain</a> <code>Pfam:PF18141</code> <time datetime="2026-10-10">(2026-10-10)</time></li>
+    <li><a href="https://culturebotai.github.io/DUFMech/families/PF08949.html">Bacteriophage PRD1, spike protein P5, C-terminal</a> <code>Pfam:PF08949</code> <time datetime="2026-10-08">(2026-10-08)</time></li>
+    <li><a href="https://culturebotai.github.io/DUFMech/families/PF20834.html">Dot/Icm T4SS effector Lem25 domain</a> <code>Pfam:PF20834</code> <time datetime="2026-10-08">(2026-10-08)</time></li>
+    <li><a href="https://culturebotai.github.io/DUFMech/families/PF11330.html">C-Terminal of 30K viral movement proteins</a> <code>Pfam:PF11330</code> <time datetime="2026-10-08">(2026-10-08)</time></li>
+    <li><a href="https://culturebotai.github.io/DUFMech/families/PF19151.html">Sublancin</a> <code>Pfam:PF19151</code> <time datetime="2026-10-08">(2026-10-08)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)">
+  <header><h3>NaturalProductMech</h3><span><a href="https://github.com/CultureBotAI/NaturalProductMech/tree/14373517042b407747272446f79953ae86d51fa4">1437351</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/NaturalProductMech/pages/carbohydrates/desosamine-2.html">desosamine</a> <code>CHEBI:32540</code> <time datetime="2026-10-21">(2026-10-21)</time></li>
+    <li><a href="https://culturebotai.github.io/NaturalProductMech/pages/carbohydrates/validamycin-a-2.html">validamycin A</a> <code>naturalproductmech:mibig-bba7e7bd7d</code> <time datetime="2026-09-08">(2026-09-08)</time></li>
+    <li><a href="https://culturebotai.github.io/NaturalProductMech/pages/polyketides/c-1027-chromophore.html">C-1027 chromophore</a> <code>CHEBI:3252</code> <time datetime="2026-09-08">(2026-09-08)</time></li>
+    <li><a href="https://culturebotai.github.io/NaturalProductMech/pages/polyketides/rosaramicin.html">rosaramicin</a> <code>CHEBI:87084</code> <time datetime="2026-09-08">(2026-09-08)</time></li>
+    <li><a href="https://culturebotai.github.io/NaturalProductMech/pages/unclassified/6ar-11as-11br-10-acetyl-11-hydroxy-7-7-dimethyl-2-6-6a-7-11a-11b-hexahydro-9h-py.html">(6aR,11aS,11bR)-10-acetyl-11-hydroxy-7,7-dimethyl-2,6,6a,7,11a,11b-hexahydro-9H-pyrrolo[1&#x27;,2&#x27;:2,3]isoindolo[4,5,6-cd]indol-9-one</a> <code>CHEBI:22450</code> <time datetime="2026-09-08">(2026-09-08)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="AntibioticMech" style="--c: var(--mech-antibioticmech); --ci: var(--mech-antibioticmech-ink)">
+  <header><h3>AntibioticMech</h3><span><a href="https://github.com/CultureBotAI/AntibioticMech/tree/dba9a8a6efb9d6f5ea4b7c0df1e959f36b7f365c">dba9a8a</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amicoumacin-a.html">amicoumacin A</a> <code>antibioticmech:curator-7e608b0982</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/AntibioticMech/pages/antibacterial/bactobolin-a.html">bactobolin A</a> <code>CHEBI:138579</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/AntibioticMech/pages/antibacterial/besifloxacin.html">besifloxacin</a> <code>CHEBI:135622</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/AntibioticMech/pages/antibacterial/btz043.html">BTZ043</a> <code>antibioticmech:curator-20568fed2e</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://culturebotai.github.io/AntibioticMech/pages/antibacterial/cadazolid.html">cadazolid</a> <code>antibioticmech:curator-975acd7c4d</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="CMMMech" style="--c: var(--mech-cmmmech); --ci: var(--mech-cmmmech-ink)">
+  <header><h3>CMMMech</h3><span><a href="https://github.com/CultureBotAI/CMMMech/tree/2d8ce7a1fee97b74098a1faf5a82481ee115123d">2d8ce7a</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://github.com/CultureBotAI/CMMMech/blob/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records/monteregianite-y.yaml">Monteregianite-(Y)</a> <code>cmmmech:monteregianite-y</code> <time datetime="2026-10-25">(2026-10-25)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CMMMech/blob/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records/bario-orthojoaquinite.yaml">Bario-orthojoaquinite</a> <code>cmmmech:bario-orthojoaquinite</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CMMMech/blob/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records/behoite.yaml">Behoite</a> <code>cmmmech:behoite</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CMMMech/blob/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records/calciohilairite.yaml">Calciohilairite</a> <code>cmmmech:calciohilairite</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CMMMech/blob/2d8ce7a1fee97b74098a1faf5a82481ee115123d/data/records/cassidyite.yaml">Cassidyite</a> <code>cmmmech:cassidyite</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
+  <header><h3>MediaIngredientMech</h3><span><a href="https://github.com/CultureBotAI/MediaIngredientMech/tree/dc832fa2c9be609f58eefd02c3aa4a484790837f">dc832fa</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Na2-citrate.yaml">Na2-citrate</a> <code>cas:144-33-2</code> <time datetime="2026-09-24">(2026-09-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml">Nitrilotriacetic acid, trisodium salt</a> <code>CHEBI:132766</code> <time datetime="2026-09-22">(2026-09-22)</time></li>
+    <li><a href="https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Dichloran_02_in_ethanol.yaml">Dichloran (0.2% in ethanol)</a> <code>CHEBI:27864</code> <time datetime="2026-09-02">(2026-09-02)</time></li>
+    <li><a href="https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Hydroxocobalamin_hydrochloride.yaml">hydroxocobalamin hydrochloride</a> <code>NCIT:C217966</code> <time datetime="2026-09-02">(2026-09-02)</time></li>
+    <li><a href="https://github.com/CultureBotAI/MediaIngredientMech/blob/dc832fa2c9be609f58eefd02c3aa4a484790837f/data/ingredients/mapped/Sodium_glycerophosphate.yaml">Sodium glycerophosphate</a> <code>NCIT:C120561</code> <time datetime="2026-09-02">(2026-09-02)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="CultureMech" style="--c: var(--mech-culturemech); --ci: var(--mech-culturemech-ink)">
+  <header><h3>CultureMech</h3><span><a href="https://github.com/CultureBotAI/CultureMech/tree/9ea7ff33d354e37b791df96a880005153e446ce3">9ea7ff3</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/ammonia_oxidizing_bacteria_medium.yaml">AMMONIA OXIDIZING BACTERIA MEDIUM</a> <code>CultureMech:015918</code> <time datetime="2026-10-22">(2026-10-22)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/autotrophic_nitrobacter_medium_jcm_1503.yaml">AUTOTROPHIC NITROBACTER MEDIUM</a> <code>CultureMech:015920</code> <time datetime="2026-10-22">(2026-10-22)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/bap_medium_for_frankia_jcm_1492.yaml">BAP+ MEDIUM FOR FRANKIA</a> <code>CultureMech:015919</code> <time datetime="2026-10-22">(2026-10-22)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/methanocorpusculum_aggregans_medium_jcm_1422.yaml">METHANOCORPUSCULUM AGGREGANS MEDIUM</a> <code>CultureMech:015916</code> <time datetime="2026-10-22">(2026-10-22)</time></li>
+    <li><a href="https://github.com/CultureBotAI/CultureMech/blob/9ea7ff33d354e37b791df96a880005153e446ce3/data/merge_yaml/merged/modified_ureaplasma_medium.yaml">MODIFIED UREAPLASMA MEDIUM</a> <code>CultureMech:015917</code> <time datetime="2026-10-22">(2026-10-22)</time></li>
+  </ol>
+</article>
+<article class="fleet-recent-card" data-recent-mech="AIMech" style="--c: var(--mech-aimech); --ci: var(--mech-aimech-ink)">
+  <header><h3>AIMech</h3><span><a href="https://github.com/CultureBotAI/AIMech/tree/621a86ea8e79b0c97585f978b771f5b024a8f691">621a86e</a> · latest 5</span></header>
+  <ol class="fleet-recent-list">
+    <li><a href="https://github.com/CultureBotAI/AIMech/blob/621a86ea8e79b0c97585f978b771f5b024a8f691/data/curated/ACPropMomentumCenteringAsynchronousAdaptiveGradientOptimization.yaml">ACProp Momentum-Centered Asynchronous Adaptive Gradient Optimization</a> <code>AIMech:ACPropMomentumCenteringAsynchronousAdaptiveGradientOptimization</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/AIMech/blob/621a86ea8e79b0c97585f978b771f5b024a8f691/data/curated/ADOREOptimizingDenseRetrievalModelTrainingWithHardNegatives.yaml">ADORE and STAR Hard-Negative Dense Retrieval Training Framework</a> <code>AIMech:ADOREOptimizingDenseRetrievalModelTrainingWithHardNegatives</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/AIMech/blob/621a86ea8e79b0c97585f978b771f5b024a8f691/data/curated/AMCAccelerationAndModelCompressionOnMobileDevicesWithRL.yaml">AMC (AutoML for Model Compression and Acceleration on Mobile Devices)</a> <code>AIMech:AMCAccelerationAndModelCompressionOnMobileDevicesWithRL</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/AIMech/blob/621a86ea8e79b0c97585f978b771f5b024a8f691/data/curated/AMISAdaptiveMultipleImportanceSamplingWithPastWeightRecycling.yaml">AMIS Adaptive Multiple Importance Sampling with Past-Weight Recycling</a> <code>AIMech:AMISAdaptiveMultipleImportanceSamplingWithPastWeightRecycling</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+    <li><a href="https://github.com/CultureBotAI/AIMech/blob/621a86ea8e79b0c97585f978b771f5b024a8f691/data/curated/ANCEApproximateNearestNeighborNegativeContrastiveLearning.yaml">ANCE Approximate Nearest Neighbor Negative Contrastive Learning</a> <code>AIMech:ANCEApproximateNearestNeighborNegativeContrastiveLearning</code> <time datetime="2026-10-24">(2026-10-24)</time></li>
+  </ol>
+</article>
 </div>
 
 ## Explore the current sites
