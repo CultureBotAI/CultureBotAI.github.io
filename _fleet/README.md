@@ -209,7 +209,7 @@ These evidence leads do not establish functional validation or kg-microbe ingest
 ## Vocabulary census updates
 
 The October 25, 2026 census measures all fourteen Mechs. PathwayMech contributes
-274 pathway records. DUFMech contributes 8,296 seed-family rows from its frozen
+275 pathway records. DUFMech contributes 8,296 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
 A worklist row is one measured family; the JSON container and its redundant TSV
 copy are not additional records. TaxonMech joined the census in #87; its 626,048 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
@@ -383,7 +383,7 @@ terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 ## Published-site refresh (October 25, 2026)
 
 All fourteen Mechs were pinned at their published `main` revisions, with a
-common acquisition bound of 2026-10-25 11:23 UTC. The census, shared-term subsets, heatmap record lists,
+common acquisition bound of 2026-10-25 22:37 UTC. The census, shared-term subsets, heatmap record lists,
 repository statistics and `data/site_audit.json` record the same revisions; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
@@ -412,12 +412,12 @@ remain UNSCORED. Native family records with schema, evidence and history do
 not replace the worklist in this census. AIMech counts 442 imported AIO concepts
 and 1,487 maintained concepts; their NOT_REVIEWED/DRAFT states do not imply
 scientific review. The aggregate label includes records, seed families and concepts.
-PathwayMech contributes 274 records,
-14,600 mechanistic edges and 105 taxa. Its KGX and SSSOM products are available in
+PathwayMech contributes 275 records,
+14,691 mechanistic edges and 105 taxa. Its KGX and SSSOM products are available in
 the repository; their existence does not establish ingestion into kg-microbe.
 
-CellStructureMech's pin contains 993 records, 844 GO-grounded, and TraitMech's
-contains 1,130 records with 100.0% embedding coverage and 745 graph-bearing records.
+CellStructureMech's pin contains 1,001 records, 852 GO-grounded, and TraitMech's
+contains 1,130 records with 100.0% embedding coverage and 748 graph-bearing records.
 NaturalProductMech records 806 evidence-supported producer claims; 185 records
 describe biosynthetic pathways and 297 have causal graphs (795 individual
 graphs after resolving 246 referenced components). The census keeps its existing

@@ -155,10 +155,10 @@ Sources, refreshed differently:
   website verdict, never an inference about whether a repository has a schema.
 
 The October 25, 2026 refresh pins all fourteen Mechs, with a common acquisition
-bound of 2026-10-25 11:23 UTC. All participate in the census, overlap assets and
-repository statistics, including PathwayMech's 274 records, DUFMech's 8,296
+bound of 2026-10-25 22:37 UTC. All participate in the census, overlap assets and
+repository statistics, including PathwayMech's 275 records, DUFMech's 8,296
 seed families, CMMMech's 663 material records and AIMech's 1,929 concepts.
-TraitMech has 1,130 records and CellStructureMech 993 at those pins. TaxonMech joined the census in
+TraitMech has 1,130 records and CellStructureMech 1,001 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
 committed evidence as described in `_fleet/README.md`. DUFMech's retained
 cross-Mech evidence adds seven directed imports, with source pins and link

@@ -1,16 +1,16 @@
 {
  "_revisions": {
-  "HabitatMech": "395f4605d8ae0a3d9ed9e381a4108f4a9681865c",
-  "CommunityMech": "9e6356de530ea961259cb5b8c93e5da4b44f5660",
-  "TraitMech": "3f1e952d2c1f34ccc2c5a8647f908049a9bb95c5",
-  "PathwayMech": "912ddf61f08cd8df40815954d87576a11db1dee8",
-  "CellStructureMech": "83ec9d5184fb203d87d8c3bd7043792d385193bf",
+  "HabitatMech": "d4fc535d46ac0325a2ba7b6693c63380ae2c2edb",
+  "CommunityMech": "9a08192a4e50a3fe1b35dbf57c325c5adf48f9a2",
+  "TraitMech": "d5a179ca03aceaf74255d107b759cd99c4d9a7ec",
+  "PathwayMech": "537313d58ad95c407741efc2adb52400ce6eb873",
+  "CellStructureMech": "66f79e5474e4baa29c40339e0b69205d29af751c",
   "ProteinTraitsMech": "66e8f479733907dc0792e481f41bb2f0fbb9dc27",
-  "DUFMech": "c73e2cff9e4ad7abd9974ab1dde580c7803aba5c",
-  "NaturalProductMech": "d14547bc76e0582aca15eeb073e203d28ea7548e",
-  "AntibioticMech": "7f7b25d43a2056b0269569b64b732f865634b072",
+  "DUFMech": "0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4",
+  "NaturalProductMech": "14373517042b407747272446f79953ae86d51fa4",
+  "AntibioticMech": "0781956b7cf6b3445f2fa4376d532b02e16836b8",
   "CMMMech": "2d8ce7a1fee97b74098a1faf5a82481ee115123d",
-  "MediaIngredientMech": "9589695f894db209ff85f38ddfc213269a90c9bf",
+  "MediaIngredientMech": "7c657bf1df19a2d1acc88f0157959281aab655c3",
   "CultureMech": "9ea7ff33d354e37b791df96a880005153e446ce3",
   "TaxonMech": "e4d6906567eb89c20df692738834dd528a334300",
   "AIMech": "621a86ea8e79b0c97585f978b771f5b024a8f691"
@@ -83,9 +83,9 @@
    ]
   },
   "HabitatMech|CellStructureMech": {
-   "n": 57,
+   "n": 59,
    "by": {
-    "NCBITaxon": 56,
+    "NCBITaxon": 58,
     "GO": 1
    },
    "ex": [
@@ -148,9 +148,9 @@
    ]
   },
   "HabitatMech|AntibioticMech": {
-   "n": 41,
+   "n": 42,
    "by": {
-    "NCBITaxon": 41
+    "NCBITaxon": 42
    },
    "ex": [
     {
@@ -253,10 +253,10 @@
    ]
   },
   "CommunityMech|TraitMech": {
-   "n": 165,
+   "n": 166,
    "by": {
     "NCBITaxon": 69,
-    "CHEBI": 65,
+    "CHEBI": 66,
     "GO": 31
    },
    "ex": [
@@ -297,9 +297,9 @@
    ]
   },
   "CommunityMech|CellStructureMech": {
-   "n": 73,
+   "n": 74,
    "by": {
-    "NCBITaxon": 48,
+    "NCBITaxon": 49,
     "CHEBI": 13,
     "GO": 12
    },
@@ -471,9 +471,9 @@
    ]
   },
   "TraitMech|PathwayMech": {
-   "n": 120,
+   "n": 122,
    "by": {
-    "CHEBI": 68,
+    "CHEBI": 70,
     "NCBITaxon": 31,
     "UniProt": 11,
     "GO": 10
@@ -494,10 +494,10 @@
    ]
   },
   "TraitMech|CellStructureMech": {
-   "n": 146,
+   "n": 148,
    "by": {
-    "GO": 59,
-    "NCBITaxon": 53,
+    "GO": 60,
+    "NCBITaxon": 54,
     "UniProt": 16,
     "CHEBI": 7,
     "InterPro": 6,
@@ -519,14 +519,14 @@
    ]
   },
   "TraitMech|ProteinTraitsMech": {
-   "n": 765,
+   "n": 776,
    "by": {
-    "GO": 228,
+    "GO": 230,
     "NCBITaxon": 168,
-    "CHEBI": 115,
+    "CHEBI": 119,
     "METPO": 109,
-    "UniProt": 81,
-    "InterPro": 64
+    "UniProt": 84,
+    "InterPro": 66
    },
    "ex": [
     {
@@ -616,9 +616,9 @@
    ]
   },
   "TraitMech|MediaIngredientMech": {
-   "n": 65,
+   "n": 68,
    "by": {
-    "CHEBI": 65
+    "CHEBI": 68
    },
    "ex": [
     {
@@ -636,9 +636,9 @@
    ]
   },
   "TraitMech|CultureMech": {
-   "n": 42,
+   "n": 43,
    "by": {
-    "CHEBI": 31,
+    "CHEBI": 32,
     "NCBITaxon": 11
    },
    "ex": [
@@ -752,11 +752,12 @@
    ]
   },
   "PathwayMech|AntibioticMech": {
-   "n": 41,
+   "n": 42,
    "by": {
     "CHEBI": 25,
     "NCBITaxon": 9,
-    "UniProt": 7
+    "UniProt": 7,
+    "GO": 1
    },
    "ex": [
     {
@@ -857,12 +858,12 @@
    ]
   },
   "CellStructureMech|ProteinTraitsMech": {
-   "n": 2736,
+   "n": 2786,
    "by": {
-    "GO": 1216,
-    "UniProt": 1190,
-    "InterPro": 180,
-    "NCBITaxon": 119,
+    "GO": 1234,
+    "UniProt": 1206,
+    "InterPro": 194,
+    "NCBITaxon": 121,
     "CHEBI": 22,
     "Pfam": 9
    },
@@ -882,9 +883,9 @@
    ]
   },
   "CellStructureMech|DUFMech": {
-   "n": 3,
+   "n": 4,
    "by": {
-    "InterPro": 3
+    "InterPro": 4
    },
    "ex": [
     {
@@ -916,9 +917,9 @@
    ]
   },
   "CellStructureMech|AntibioticMech": {
-   "n": 40,
+   "n": 41,
    "by": {
-    "NCBITaxon": 24,
+    "NCBITaxon": 25,
     "UniProt": 11,
     "CHEBI": 5
    },
@@ -938,10 +939,10 @@
    ]
   },
   "CellStructureMech|CMMMech": {
-   "n": 16,
+   "n": 17,
    "by": {
     "NCBITaxon": 12,
-    "InterPro": 2,
+    "InterPro": 3,
     "CHEBI": 1,
     "UniProt": 1
    },
@@ -1002,9 +1003,9 @@
    ]
   },
   "CellStructureMech|TaxonMech": {
-   "n": 170,
+   "n": 174,
    "by": {
-    "NCBITaxon": 168,
+    "NCBITaxon": 172,
     "GO": 1,
     "UniProt": 1
    },
@@ -1069,14 +1070,14 @@
    ]
   },
   "ProteinTraitsMech|AntibioticMech": {
-   "n": 2644,
+   "n": 2647,
    "by": {
     "ARO": 1732,
     "CHEBI": 602,
-    "PDB": 140,
-    "NCBITaxon": 94,
+    "PDB": 141,
+    "NCBITaxon": 95,
     "UniProt": 74,
-    "GO": 2
+    "GO": 3
    },
    "ex": [
     {
@@ -1197,10 +1198,10 @@
    ]
   },
   "NaturalProductMech|AntibioticMech": {
-   "n": 291,
+   "n": 292,
    "by": {
     "CHEBI": 188,
-    "NCBITaxon": 100,
+    "NCBITaxon": 101,
     "UniProt": 3
    },
    "ex": [
@@ -1500,34 +1501,34 @@
   "HabitatMech|UBERON": 780,
   "HabitatMech|UniProt": 7,
   "CommunityMech|CHEBI": 388,
-  "CommunityMech|ENVO": 463,
+  "CommunityMech|ENVO": 467,
   "CommunityMech|GO": 398,
   "CommunityMech|GTDB": 396,
   "CommunityMech|NCBITaxon": 477,
   "CommunityMech|UBERON": 10,
-  "TraitMech|CHEBI": 200,
+  "TraitMech|CHEBI": 203,
   "TraitMech|ENVO": 14,
   "TraitMech|GO": 329,
-  "TraitMech|InterPro": 82,
+  "TraitMech|InterPro": 85,
   "TraitMech|METPO": 1097,
   "TraitMech|NCBITaxon": 579,
   "TraitMech|PATO": 49,
-  "TraitMech|UniProt": 210,
-  "PathwayMech|CHEBI": 273,
-  "PathwayMech|GO": 183,
+  "TraitMech|UniProt": 213,
+  "PathwayMech|CHEBI": 274,
+  "PathwayMech|GO": 184,
   "PathwayMech|KEGG": 8,
   "PathwayMech|MIBiG": 3,
-  "PathwayMech|NCBITaxon": 273,
-  "PathwayMech|RHEA": 162,
-  "PathwayMech|UniProt": 253,
+  "PathwayMech|NCBITaxon": 274,
+  "PathwayMech|RHEA": 163,
+  "PathwayMech|UniProt": 254,
   "CellStructureMech|CHEBI": 37,
-  "CellStructureMech|GO": 986,
-  "CellStructureMech|InterPro": 135,
+  "CellStructureMech|GO": 994,
+  "CellStructureMech|InterPro": 143,
   "CellStructureMech|METPO": 5,
-  "CellStructureMech|NCBITaxon": 930,
+  "CellStructureMech|NCBITaxon": 938,
   "CellStructureMech|PDB": 42,
   "CellStructureMech|Pfam": 9,
-  "CellStructureMech|UniProt": 677,
+  "CellStructureMech|UniProt": 685,
   "ProteinTraitsMech|ARO": 7452,
   "ProteinTraitsMech|CHEBI": 30313,
   "ProteinTraitsMech|GO": 110795,
@@ -1555,10 +1556,10 @@
   "NaturalProductMech|UniProt": 321,
   "AntibioticMech|ARO": 568,
   "AntibioticMech|CAS": 1797,
-  "AntibioticMech|CHEBI": 2867,
-  "AntibioticMech|GO": 3,
+  "AntibioticMech|CHEBI": 2887,
+  "AntibioticMech|GO": 12,
   "AntibioticMech|KEGG": 1154,
-  "AntibioticMech|NCBITaxon": 230,
+  "AntibioticMech|NCBITaxon": 231,
   "AntibioticMech|PDB": 338,
   "AntibioticMech|UniProt": 128,
   "CMMMech|CHEBI": 67,
