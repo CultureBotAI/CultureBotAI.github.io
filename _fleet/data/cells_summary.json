@@ -1,18 +1,18 @@
 {
  "_revisions": {
-  "HabitatMech": "395f4605d8ae0a3d9ed9e381a4108f4a9681865c",
-  "CommunityMech": "9e6356de530ea961259cb5b8c93e5da4b44f5660",
-  "TraitMech": "3f1e952d2c1f34ccc2c5a8647f908049a9bb95c5",
-  "PathwayMech": "912ddf61f08cd8df40815954d87576a11db1dee8",
-  "CellStructureMech": "83ec9d5184fb203d87d8c3bd7043792d385193bf",
-  "ProteinTraitsMech": "66e8f479733907dc0792e481f41bb2f0fbb9dc27",
-  "DUFMech": "c73e2cff9e4ad7abd9974ab1dde580c7803aba5c",
-  "NaturalProductMech": "d14547bc76e0582aca15eeb073e203d28ea7548e",
-  "AntibioticMech": "7f7b25d43a2056b0269569b64b732f865634b072",
+  "HabitatMech": "e4e1a0c35bcb4beae38bc417176eb90b5c3e4f08",
+  "CommunityMech": "d43278b7c3965f9d922ad0bcf40502d6185fa8cc",
+  "TraitMech": "e4556be39a8f39f9171da3c4bad822a9c2652634",
+  "PathwayMech": "537313d58ad95c407741efc2adb52400ce6eb873",
+  "CellStructureMech": "66f79e5474e4baa29c40339e0b69205d29af751c",
+  "ProteinTraitsMech": "c4147394c698324ae537c0c63c2c9f6647c4f4fc",
+  "DUFMech": "0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4",
+  "NaturalProductMech": "14373517042b407747272446f79953ae86d51fa4",
+  "AntibioticMech": "dba9a8a6efb9d6f5ea4b7c0df1e959f36b7f365c",
   "CMMMech": "2d8ce7a1fee97b74098a1faf5a82481ee115123d",
-  "MediaIngredientMech": "9589695f894db209ff85f38ddfc213269a90c9bf",
+  "MediaIngredientMech": "dc832fa2c9be609f58eefd02c3aa4a484790837f",
   "CultureMech": "9ea7ff33d354e37b791df96a880005153e446ce3",
-  "TaxonMech": "e4d6906567eb89c20df692738834dd528a334300",
+  "TaxonMech": "c25b3100c5f5640453a1b3d59a11f8c7cf3250c9",
   "AIMech": "621a86ea8e79b0c97585f978b771f5b024a8f691"
  },
  "cells": {
@@ -23,8 +23,8 @@
   },
   "HabitatMech|BTO": {
    "records": 616,
-   "occurrences": 1505,
-   "sha256": "df2b8e4ad920a9bbce21d857640bdaa6f235a5753415972d64f8fbaa97772937"
+   "occurrences": 1509,
+   "sha256": "29aac571c7efd75f1422527339cbdee850aff2368cde95b8584b1ff996b72f31"
   },
   "HabitatMech|BacDive": {
    "records": 165,
@@ -42,14 +42,14 @@
    "sha256": "e7ae6da05fa33b9baf74d5226e9dab6ed65562d2a17d0b28b4e87fcfc01705d4"
   },
   "HabitatMech|DOI": {
-   "records": 527,
-   "occurrences": 1150,
-   "sha256": "6215c7895e7bec5094d5766d1c5be929009e1b25f537828e2f795a6644e0f8c6"
+   "records": 530,
+   "occurrences": 1156,
+   "sha256": "ff15666c755525ea3091d69bebc5010156fe9f9a5fd0e03f65864e6a31be0c25"
   },
   "HabitatMech|ENVO": {
-   "records": 1585,
-   "occurrences": 5101,
-   "sha256": "42f42a964eb5ab4a62f3e3f7ac76c7670c6c4baadaff8d27be48efb33dae7af2"
+   "records": 1586,
+   "occurrences": 5127,
+   "sha256": "687a64dff0d7c5567c2020592e92ad7b4376308ad415c7d6a207bacea88037ad"
   },
   "HabitatMech|FOODON": {
    "records": 90,
@@ -64,7 +64,7 @@
   "HabitatMech|GOLD": {
    "records": 2465,
    "occurrences": 2562,
-   "sha256": "004f3584df0e0ace33640c6915ab42a43f94c8d4f3ac74eb3ed4155b4a51c801"
+   "sha256": "feec56c03996683603fbed9d46fbd04a5c8a6003e073db498092a436e9aa255c"
   },
   "HabitatMech|HAO": {
    "records": 2,
@@ -78,8 +78,8 @@
   },
   "HabitatMech|NCBITaxon": {
    "records": 899,
-   "occurrences": 13273,
-   "sha256": "6c6dae82a6f8fa5fd6e89a2bb497a78f7c3209c9dd511dc3ed635eff9ad7b828"
+   "occurrences": 13290,
+   "sha256": "e29e09903367d882cac05993f2b2ed82808b0541087828f18edca3c05e068457"
   },
   "HabitatMech|NCIT": {
    "records": 29,
@@ -92,9 +92,9 @@
    "sha256": "8aa7c86fd667cd50deadb40e715fd4dae535beb6ada989f22ba6c9a6bf34a0af"
   },
   "HabitatMech|PMID": {
-   "records": 70,
-   "occurrences": 742,
-   "sha256": "bdcfa3a1df1f058b238c05538c47a7ef02fa234b090ba77a4559939002a47ec5"
+   "records": 80,
+   "occurrences": 933,
+   "sha256": "1f7d4f133b4ae4cfe1031488a592c544e7c9c9691519820e66dde04cd77048d9"
   },
   "HabitatMech|PO": {
    "records": 41,
@@ -103,13 +103,13 @@
   },
   "HabitatMech|UBERON": {
    "records": 780,
-   "occurrences": 1464,
-   "sha256": "16225a4ac3a948932d41ff7039d0d82b51356424702b63857b2307ca2bdb1c53"
+   "occurrences": 1466,
+   "sha256": "859063eb28ff0b3b28f505be7afe6c8b71aacdb08a69701257db846baa23444e"
   },
   "HabitatMech|UniProt": {
-   "records": 7,
-   "occurrences": 108,
-   "sha256": "5deed44cdb75fb6e8aac703df695cf705d46d7cf1325fffac680fbf86d57fc98"
+   "records": 9,
+   "occurrences": 144,
+   "sha256": "e22aefad17cac71b1c5a6e8a0623fe4a3a79cc8b3d170a5d9e1d68d8a689b10a"
   },
   "CommunityMech|BCO-DMO": {
    "records": 1,
@@ -122,19 +122,19 @@
    "sha256": "740c85a5b1bf99e3632f7cf35de5137c4d3c3a445860aef99fb804d1e9272118"
   },
   "CommunityMech|CHEBI": {
-   "records": 395,
-   "occurrences": 2847,
-   "sha256": "2db168ced2c4f43ef4ed113c664e01e3374b02ffac7be8a185477436bc4fe482"
+   "records": 400,
+   "occurrences": 2868,
+   "sha256": "e92bab136ea7096271580d19729cb525a8c010bba6175b40db147707a390c330"
   },
   "CommunityMech|DOI": {
-   "records": 232,
-   "occurrences": 1424,
-   "sha256": "b347e3ddfe831ebf3cf7ad5b147c9d3912f91806f300491ca6e3c98b3f98ebdc"
+   "records": 234,
+   "occurrences": 1450,
+   "sha256": "08f016613015d2d71cbbd902201440c486821cb3d2a4567fed6eeed35529a688"
   },
   "CommunityMech|ENVO": {
-   "records": 470,
-   "occurrences": 618,
-   "sha256": "acc81daee9540ad389d917249065b3a945349876f1ba1e271177f77a11275961"
+   "records": 479,
+   "occurrences": 631,
+   "sha256": "f80633ec11f18227b85e41544c28c02f3d2e869e41e2c4121cbe1b5ecc57b7c3"
   },
   "CommunityMech|GNPS": {
    "records": 1,
@@ -142,14 +142,14 @@
    "sha256": "8e9be4472eb30833df9e8609ee5c3d801ea53c1d5ff28d1e48fec88ca4117b51"
   },
   "CommunityMech|GO": {
-   "records": 405,
-   "occurrences": 1253,
-   "sha256": "4bfb9075f830a0a1aab7ce5d01dc2d543a768b5575c9e3f0ad189e71cfec4e61"
+   "records": 410,
+   "occurrences": 1270,
+   "sha256": "ac0f50ce9fd45a1a2950e97f6754102054f9f52d451c46e2c4224c55178a0bc1"
   },
   "CommunityMech|GTDB": {
-   "records": 402,
-   "occurrences": 2127,
-   "sha256": "057f5c2f8634e9fa1f86b1bec51cb1c56e00baa32fb529fdabea0ad871991751"
+   "records": 406,
+   "occurrences": 2201,
+   "sha256": "0a2d14a0f3855ca924bfb913f09f09554e8d4b94b5659dd373090e4b0c77a9aa"
   },
   "CommunityMech|GitHub": {
    "records": 5,
@@ -167,9 +167,9 @@
    "sha256": "7c54865cb4bd206c3d06b6ae1058e423798bfc05ed6a14669d41bcca1d5fb804"
   },
   "CommunityMech|NCBITaxon": {
-   "records": 484,
-   "occurrences": 5596,
-   "sha256": "173ec2cc8a051250e94edf58bc1004727e9fd04e63cd451721d14f46edf4457a"
+   "records": 489,
+   "occurrences": 5653,
+   "sha256": "478bf6f8d7d6db1b47e718e8c38aefbfac43677bdf606a4b80e3e73537299178"
   },
   "CommunityMech|NMDC": {
    "records": 1,
@@ -187,9 +187,9 @@
    "sha256": "4d894d9dd021d4f8dfca94b4d2499d3cfce177547a5d43e6d0a35b041aac396b"
   },
   "CommunityMech|PMID": {
-   "records": 443,
-   "occurrences": 8567,
-   "sha256": "551f7e7e46027a456d9c42c000061964606a0f3f27d4475e8267f2f44bcc4574"
+   "records": 447,
+   "occurrences": 8638,
+   "sha256": "36affd0c51c8f3bcd307928170c763aa4f95f07ef6360c34b934a251149b69bf"
   },
   "CommunityMech|PNNLDH": {
    "records": 1,
@@ -222,14 +222,14 @@
    "sha256": "151fa2626399e72434d82f002ac2ec553799d6e76c80b60841246cf600afa1ab"
   },
   "TraitMech|CHEBI": {
-   "records": 200,
-   "occurrences": 696,
-   "sha256": "78f306dbcdaefb3cfa2a430ebe1f1d45ba24a3d00154103dfc64f47e3a6524ea"
+   "records": 205,
+   "occurrences": 702,
+   "sha256": "8ee067290589642b6b0e149d808db008de06c65cbf275a8bcaa97b50c095c4a4"
   },
   "TraitMech|DOI": {
    "records": 1052,
-   "occurrences": 10204,
-   "sha256": "02e5363bf0bae335d1c28bdb75f5fa7f66b4b02079283b3e7bd3586933d2463d"
+   "occurrences": 10330,
+   "sha256": "52395bb7c68cb03e7942a0656c8dedd5e08fba6b3b18d3aa1f1892a6e3fd65e6"
   },
   "TraitMech|ENVO": {
    "records": 14,
@@ -238,8 +238,8 @@
   },
   "TraitMech|GO": {
    "records": 329,
-   "occurrences": 963,
-   "sha256": "20a5f450883707ac4748d9ad3d0b8490a8c68cd026c7a318110d97e2d9f71a22"
+   "occurrences": 969,
+   "sha256": "0dad0e4294d4a1d4e9545a75317d19b8b07d405b3a991c4c0e6f822bd32a6cae"
   },
   "TraitMech|IAO": {
    "records": 6,
@@ -247,14 +247,14 @@
    "sha256": "9e69c402003d4faed950b6f396b629592c095780531f27fadfdf2540612e0ef7"
   },
   "TraitMech|InterPro": {
-   "records": 82,
-   "occurrences": 173,
-   "sha256": "c3a74c3d793fc421d0acdf818d0b0de6e1ea376ed082b13d9d25fbc0cffc63ea"
+   "records": 88,
+   "occurrences": 191,
+   "sha256": "44a2388fdfb7e468a1fefd25d34d9f94744d442195d979e4ea6687a8bd2c4a2d"
   },
   "TraitMech|METPO": {
    "records": 1097,
-   "occurrences": 4380,
-   "sha256": "f6f66c3302ab61d0b9c32908c1843f1a3579680b7a350f3b1802ec8fe7092f39"
+   "occurrences": 4387,
+   "sha256": "3d0c786932f1e842a377506e386ed35049b1f39405a1195e9a433d0f81512c5a"
   },
   "TraitMech|MICRO": {
    "records": 6,
@@ -268,8 +268,8 @@
   },
   "TraitMech|NCBITaxon": {
    "records": 579,
-   "occurrences": 1239,
-   "sha256": "4a4d1ef842a551e130ebcb256e0b33dff07647d66b3cee9a27bd622cc444001f"
+   "occurrences": 1279,
+   "sha256": "cc6888840888512d9e7396510511d9dcaea821f2f974da6db03e72ac9ec974fd"
   },
   "TraitMech|OBI": {
    "records": 1,
@@ -288,13 +288,13 @@
   },
   "TraitMech|PMID": {
    "records": 385,
-   "occurrences": 1052,
-   "sha256": "416926ee08742c50424fb4d4a7bc913b6ac4a04e69074897aedb06658e935deb"
+   "occurrences": 1064,
+   "sha256": "9021a5916c25d5b29f822e8b3d3aa6f8d3646a97838f272c8b3c531aa77f8f4e"
   },
   "TraitMech|RO": {
-   "records": 729,
-   "occurrences": 2947,
-   "sha256": "1384be11160a1103ba89ae29d7672ac561799656c4ef0c1a9545b6fef4ef5da5"
+   "records": 735,
+   "occurrences": 2958,
+   "sha256": "8f4ba02b952cb9c73ee77c565941c411114dfa63b72d53558b78caaf709367aa"
   },
   "TraitMech|SGD": {
    "records": 1,
@@ -302,9 +302,9 @@
    "sha256": "140c7b0dcd5618f23c3b60d01c514c5648a598dbb9555e60df33d2e23feddf2a"
   },
   "TraitMech|UniProt": {
-   "records": 210,
-   "occurrences": 667,
-   "sha256": "26eef785fd5bc19974815fe3a4310dc1cfd46d4edc2f59b4186619624bea4f21"
+   "records": 216,
+   "occurrences": 706,
+   "sha256": "ea7624f76f97b61b00174c9ea93db9459cad00ace46b8a3cf4b9353c8609d138"
   },
   "TraitMech|WikiPathways": {
    "records": 6,
@@ -322,14 +322,14 @@
    "sha256": "eaefd734e5077d294f70d58849bb50f2f09242cac3d0dc479073cf4e3ad3441f"
   },
   "PathwayMech|CHEBI": {
-   "records": 273,
-   "occurrences": 18147,
-   "sha256": "2b0a35852af422104aefce043ce4b432fa0898e865d6b062f62cc14dbfbb08b8"
+   "records": 274,
+   "occurrences": 18336,
+   "sha256": "b8d66b4f06cb6fa9fdeed5c2f0063b0eec982a9800d3ec250b83bbedb9d1be01"
   },
   "PathwayMech|DOI": {
-   "records": 37,
-   "occurrences": 211,
-   "sha256": "5497488ece2a4ede4a58a2b512c2f3ccf0f2a730247170070ab3799035042606"
+   "records": 38,
+   "occurrences": 213,
+   "sha256": "221c7e26cf73c587ee06804058b788a09c0960140305f5f3fcdef809c71edf1d"
   },
   "PathwayMech|EC": {
    "records": 59,
@@ -337,14 +337,14 @@
    "sha256": "93798774ee4333050fcb472cc201d6bd48e3b248def372b0c908ea6ff20026cb"
   },
   "PathwayMech|ECO": {
-   "records": 223,
-   "occurrences": 2739,
-   "sha256": "5c364ab0b8946373a9164c9f27220227d7c0caebb1aa4598a697b1d0c8bcd29b"
+   "records": 224,
+   "occurrences": 2853,
+   "sha256": "892a2bfed960174d7ec18f1b121749970358eb7c0edbeeeb02b219db9133cf8b"
   },
   "PathwayMech|GO": {
-   "records": 183,
-   "occurrences": 2593,
-   "sha256": "0f10f225e6d782f395afe2292ea1470360d500619b484c3daf2b32539191b440"
+   "records": 184,
+   "occurrences": 2605,
+   "sha256": "5ce7bd898526d1edd155fccba84b3912c489b17d1836879cdbb12f8ceb250acf"
   },
   "PathwayMech|HMDB": {
    "records": 1,
@@ -368,18 +368,18 @@
   },
   "PathwayMech|MetaCyc": {
    "records": 154,
-   "occurrences": 15010,
-   "sha256": "1b359a3c5c654f1de09448f32fe65b910be0b2def328fdd2e785eac65d2e71f9"
+   "occurrences": 15057,
+   "sha256": "444e02c3b985f4261d21bc47ea24699666d2c1b2f124cc39efddd67cd21d7489"
   },
   "PathwayMech|NCBITaxon": {
-   "records": 273,
-   "occurrences": 1116,
-   "sha256": "673bc1394e583703716b1c19fc1ca3d31e305f5d17c2c2a928de6d0d5bbd44f9"
+   "records": 274,
+   "occurrences": 1283,
+   "sha256": "02ffce83eceacf1eadfe10b23b4bd025fd4a74296c3217076a70fa2c7f386298"
   },
   "PathwayMech|PMID": {
-   "records": 242,
-   "occurrences": 5509,
-   "sha256": "d090fb4352696df1921c1beddada1c4a5a3ffa4899b69e9c74b1645610c40a56"
+   "records": 243,
+   "occurrences": 5525,
+   "sha256": "d8fecb864a746e0478a738a60c96aa3d6adbc98d6f2d0c30e7c3f1faa92ba6ff"
   },
   "PathwayMech|PubChem": {
    "records": 10,
@@ -387,14 +387,14 @@
    "sha256": "cca2fff1b607375cd56b52d3334ef7197fb80f9532a9921f984d4af8878fe0d1"
   },
   "PathwayMech|RHEA": {
-   "records": 162,
-   "occurrences": 17563,
-   "sha256": "58cb23536636c951ef36371239160660932d02b393b3ea25d12f40e66d65b179"
+   "records": 163,
+   "occurrences": 17778,
+   "sha256": "65d1e551c2bbf4383cb392f7f221ffe1b78ba24b1e7c75482cca673db2792e92"
   },
   "PathwayMech|RO": {
    "records": 88,
-   "occurrences": 2916,
-   "sha256": "60ef2b747b16e2dd74ccbb659c6e53215328fd8168895ed1bf2bec2817b9ee01"
+   "occurrences": 2915,
+   "sha256": "f767940dbdcee1df83418a450878717983940f859860e977ad2408509980712b"
   },
   "PathwayMech|Reactome": {
    "records": 6,
@@ -407,9 +407,9 @@
    "sha256": "3e068c62a1b082ec889310b696bf6f0a645c62982f43720b92a4dcadba3557ae"
   },
   "PathwayMech|UniProt": {
-   "records": 253,
-   "occurrences": 11819,
-   "sha256": "0c49516a4ada9db5d661b628990fa4030f8a6959822fee183ef8b50d37f2d67f"
+   "records": 254,
+   "occurrences": 11984,
+   "sha256": "777cb61c7d0bcc9fc12af21cddf39c7f17a5f5b37d4adf4073383e8a0abd6030"
   },
   "PathwayMech|WikiPathways": {
    "records": 12,
@@ -418,18 +418,18 @@
   },
   "PathwayMech|gomodel": {
    "records": 86,
-   "occurrences": 16213,
-   "sha256": "185cfe075d4134612c51b863430e5ef232168a768129fee41c8f4f78730be9c2"
+   "occurrences": 16210,
+   "sha256": "e99cf7ac19d87a9d6fd2d1e5381f83ff2065d8b3a9d8719788059ed167b9e476"
   },
   "CellStructureMech|BFO": {
-   "records": 2,
-   "occurrences": 2,
-   "sha256": "e488fe3df4309b65045425a385c096da46e66f5586043e4d0075091f4ecf7ca0"
+   "records": 4,
+   "occurrences": 4,
+   "sha256": "a5b2c0d2b048637964936104ac78b7ec7ef75d17c38f2deb9f09845ade964b16"
   },
   "CellStructureMech|CHEBI": {
    "records": 37,
-   "occurrences": 116,
-   "sha256": "3caef7868d336a442c7c920728d665d60f0b20218efb128dd789154a9afcefd9"
+   "occurrences": 120,
+   "sha256": "25978079344574edc6e2733818e779b8996567269005f3ae3b986b5cf27564a5"
   },
   "CellStructureMech|ComplexPortal": {
    "records": 23,
@@ -442,9 +442,9 @@
    "sha256": "9439dee8f45ff4b2acf607a8599ef5ae6ec02072d787ec80f58eee8addc89965"
   },
   "CellStructureMech|DOI": {
-   "records": 895,
-   "occurrences": 11805,
-   "sha256": "b1c51f71623baa45547d1a9ea698a63c7bd3d9662400909e83d879e4eb4089ef"
+   "records": 903,
+   "occurrences": 11842,
+   "sha256": "4da2c3b4194bc51e1dbc49d80877ce862517aa568038a2773db510ba3f87a626"
   },
   "CellStructureMech|EC": {
    "records": 1,
@@ -462,14 +462,14 @@
    "sha256": "96614e43565568411c781681888f7ff6c31e34c28caed7a0d19efc58bd6a9f1c"
   },
   "CellStructureMech|GO": {
-   "records": 986,
-   "occurrences": 24424,
-   "sha256": "022c25672d970366a9994949659c818b2b85e07b117495bdb1eed7d92a7331d7"
+   "records": 994,
+   "occurrences": 24626,
+   "sha256": "48e9309a7d4245d9d4c148469f7ba47985184238ae00aa07f1c534787d65aed4"
   },
   "CellStructureMech|InterPro": {
-   "records": 135,
-   "occurrences": 741,
-   "sha256": "eb30616c34ccb1e290719726ee3e10c0c4f26a2b597fbd0aa1320cf25499df0b"
+   "records": 143,
+   "occurrences": 845,
+   "sha256": "516917fb4758cd6aaf67d84b41ba879e07707f5247cb6ca450c82b5af45b4d32"
   },
   "CellStructureMech|METPO": {
    "records": 5,
@@ -482,9 +482,9 @@
    "sha256": "1679299cdf958655ecdb667baef001b59d9026ef6c33c0f87eb7f5f66cdcfda1"
   },
   "CellStructureMech|NCBITaxon": {
-   "records": 930,
-   "occurrences": 4422,
-   "sha256": "b22320005bf2aefaff3937798b552fa339a95a951e4f46ab4ad130b8dd726e3b"
+   "records": 938,
+   "occurrences": 4464,
+   "sha256": "e1d1afebf446c27ca987e5ba28e7367f4d91fb3400b79ffff25b11f4041c55f0"
   },
   "CellStructureMech|NCBIfam": {
    "records": 3,
@@ -497,14 +497,14 @@
    "sha256": "604c878fe1a7cc16a3d0551b0f8d3f5d0f86488c245b81e34a3f3aecdcf9b7b8"
   },
   "CellStructureMech|PMID": {
-   "records": 503,
-   "occurrences": 3074,
-   "sha256": "4d5712de73ce9d1f295584cb047eb2fbb70cb181c336a13d7a4ab060fdf7138f"
+   "records": 511,
+   "occurrences": 3221,
+   "sha256": "b6b57f10061092178f42bac05f9308f4b88af3fbf15c843a5fd37aab7f048ff4"
   },
   "CellStructureMech|Pfam": {
    "records": 9,
-   "occurrences": 26,
-   "sha256": "8858e63ceed93a7b77eafb5f827fcb3f5c23b837760bdfea1010b5419569f7fb"
+   "occurrences": 28,
+   "sha256": "c56c6a551c12662646e882f221fd42a7e3966ddcbcfb12e5bfade78aefbfc1aa"
   },
   "CellStructureMech|RNAcentral": {
    "records": 1,
@@ -512,9 +512,9 @@
    "sha256": "734d0e25fd3d12eb24b602077a67fda2095fb6dda5413434f892934fe9855d77"
   },
   "CellStructureMech|RO": {
-   "records": 6,
-   "occurrences": 6,
-   "sha256": "8348b8773bacf45c1cc2912d8650288867170ab0948ea34ac18d9d0743f4f2f3"
+   "records": 14,
+   "occurrences": 45,
+   "sha256": "cdf5ce4931f4c05e12f25abbc5e831c82dcaa30226c00469b2c65ee82d108b77"
   },
   "CellStructureMech|SO": {
    "records": 37,
@@ -527,9 +527,9 @@
    "sha256": "27e1773f4fbd06b4844181bbe7bc4525f468f6d4d6478287e55dd37c662702d1"
   },
   "CellStructureMech|UniProt": {
-   "records": 677,
-   "occurrences": 3794,
-   "sha256": "2bccd4639b9f28d7bd9103d560864948d3e3b646cec0fb8a9f1d556a43c9fcdc"
+   "records": 685,
+   "occurrences": 3840,
+   "sha256": "c823339eb9b3573273a5ef717544c88f887f46e30101b197e436a670a0bb2c6a"
   },
   "CellStructureMech|WikiPathways": {
    "records": 3,
@@ -568,13 +568,13 @@
   },
   "ProteinTraitsMech|CDD": {
    "records": 79475,
-   "occurrences": 435160,
-   "sha256": "fcf7fd8c3eaa394b360ef2d189a6d450b53b46d2a2c3e59ee7787fb99975b4f2"
+   "occurrences": 435170,
+   "sha256": "03236ae653fa7c79b69730a7f966f82f68ec4dad8dc43a0bf5d40d8e9df30f7d"
   },
   "ProteinTraitsMech|CHEBI": {
-   "records": 30313,
-   "occurrences": 374719,
-   "sha256": "ede4260443f376f4d4f12b9ba1d92063a79d111c32138b3cfb0743e3442d025f"
+   "records": 30323,
+   "occurrences": 374760,
+   "sha256": "2d51f2b4f1ed816b6d2a9c7acd27a1a439bfea130ec80d1089f0b51c2e779198"
   },
   "ProteinTraitsMech|CL": {
    "records": 258,
@@ -617,9 +617,9 @@
    "sha256": "05e747f8c49e1ff200f071f5110df0d02e0a408144c60857dd49f0dbaa1b6fa0"
   },
   "ProteinTraitsMech|ECO": {
-   "records": 95,
-   "occurrences": 257,
-   "sha256": "5ae7514651615aa6f6146bf3005a9c81a5ba0d7a9ea81edacf0bb0eba1cd9967"
+   "records": 112,
+   "occurrences": 329,
+   "sha256": "09f752d2689c35bba398b78bf23adc32196cca6b57f1d850bce4ed787aa55cce"
   },
   "ProteinTraitsMech|ECOD": {
    "records": 45222,
@@ -652,9 +652,9 @@
    "sha256": "a53a135b95bdddb14a0dc814d2d340e928b1b4dfdb41f6d074ec625048fc96dd"
   },
   "ProteinTraitsMech|GO": {
-   "records": 110795,
-   "occurrences": 422920,
-   "sha256": "02d819c5ad6cda78179c26618773a008853da90d1f7b419debab5d58beb2f939"
+   "records": 110812,
+   "occurrences": 423102,
+   "sha256": "93ae7ab4f7f68d95f761d216c9861a9baad57c8b0143305115f1b07119cfc664"
   },
   "ProteinTraitsMech|GO_REF": {
    "records": 3031,
@@ -742,9 +742,9 @@
    "sha256": "e82d14b1df4a37080a0bedb551c704712f9b84277c4340eae854af9ed1845bf7"
   },
   "ProteinTraitsMech|MOD": {
-   "records": 1988,
-   "occurrences": 5566,
-   "sha256": "b39006af489c4f67d6d8b5313fbf728d722f82896a2b608fc6ee66c04c83737a"
+   "records": 1990,
+   "occurrences": 5574,
+   "sha256": "653b9c82fcebf8facd5b1d09d89111bc6a1a2fb2bd7e73c71a5662eba99a151a"
   },
   "ProteinTraitsMech|MP": {
    "records": 10,
@@ -802,9 +802,9 @@
    "sha256": "66b029880fabaa9e973bf00a285ae9bcee86cf1a2f67e44327fd6c1747834658"
   },
   "ProteinTraitsMech|PATO": {
-   "records": 81,
-   "occurrences": 124,
-   "sha256": "89d17563ddbcb3ed542cdd5cb15d5b9a5afde637f4db44267d8ef5897a093c5a"
+   "records": 91,
+   "occurrences": 183,
+   "sha256": "b2288295325748b6a5780388b2324810a6ce8fb1fa342960269f66412a175cd8"
   },
   "ProteinTraitsMech|PDB": {
    "records": 52174,
@@ -817,9 +817,9 @@
    "sha256": "431916312d61a8fa48dc92e2a016241ef245a76281920f547487ae8ebe55e061"
   },
   "ProteinTraitsMech|PMID": {
-   "records": 95164,
-   "occurrences": 658132,
-   "sha256": "e171c79f54f7049110d44ba745d00ec8853ed5f8879d75f056b23a43bbda70fe"
+   "records": 95185,
+   "occurrences": 658253,
+   "sha256": "e5f9cec1312d5441c012ba54d1101d0cb867e2f25d1c7c860540d5a6de9637bb"
   },
   "ProteinTraitsMech|PO": {
    "records": 47,
@@ -872,9 +872,9 @@
    "sha256": "732df7bddc29fe742e3f0e364082ee0b3e01630d1c871e140fbf49389e7f2dbd"
   },
   "ProteinTraitsMech|RO": {
-   "records": 39605,
-   "occurrences": 278569,
-   "sha256": "997df83a567a0df0085d0ce025857db7485a14b9e57a793c0fb69bb8ef37916e"
+   "records": 39622,
+   "occurrences": 278620,
+   "sha256": "6482603c47ddf27406f586a49c4a8ec4b221a44791cf8b4981d2dba912b7e868"
   },
   "ProteinTraitsMech|Reactome": {
    "records": 2883,
@@ -912,9 +912,9 @@
    "sha256": "fcae15109446b1343a90a31b737b9e6e1dc4d79e604ad4ad9bae32ca53ec57d7"
   },
   "ProteinTraitsMech|SO": {
-   "records": 18326,
-   "occurrences": 19467,
-   "sha256": "1df22bdd293b3bf92134108fe90ccc10de91842a63edfc212106e621700082e1"
+   "records": 18332,
+   "occurrences": 19493,
+   "sha256": "6c54a9d2a8b661157ab27f42631ce275ba5625f8b8a7e8ee2d196f901384cd93"
   },
   "ProteinTraitsMech|TCDB": {
    "records": 2598,
@@ -943,8 +943,8 @@
   },
   "ProteinTraitsMech|UniProt": {
    "records": 169948,
-   "occurrences": 690348,
-   "sha256": "0bf967b673b51fa2f45178249c7ab665efd3d2e320d43bed4134938a76e7b9a4"
+   "occurrences": 690367,
+   "sha256": "0c384cd45cf11c1b26ed146e8fcfde74a5bf81697c767669e0aec8d80c116977"
   },
   "ProteinTraitsMech|Unimod": {
    "records": 757,
@@ -1177,9 +1177,9 @@
    "sha256": "3ebea1e8c0e34271ef10a467e47d33c94dc8182709fa874fb37561ce7edd250f"
   },
   "AntibioticMech|CHEBI": {
-   "records": 2867,
-   "occurrences": 22309,
-   "sha256": "73498fc0620b825f9f1b23af2d5b421ef55fc55ddd5bdf032d748d36e6de0bd8"
+   "records": 2887,
+   "occurrences": 22364,
+   "sha256": "c41879ac50de925bae0f35d5789b62ac7f2c4a412e01eee6aba4f7e0ded5bb64"
   },
   "AntibioticMech|ChEMBL": {
    "records": 411,
@@ -1192,9 +1192,9 @@
    "sha256": "8bb9d025e67a89e0001f6451f4ef23cb69daf1480215dbd81446b9d7b03f1cf2"
   },
   "AntibioticMech|DOI": {
-   "records": 227,
-   "occurrences": 4750,
-   "sha256": "3b36c5a5034cdbc85a00d175705cdf27ebefe455b75d4be6577b7b7431e62e9b"
+   "records": 250,
+   "occurrences": 4926,
+   "sha256": "ceca40b96f46c2c5be982324ef9a7c1b09106dfaed919ad7891ade851ed4ce80"
   },
   "AntibioticMech|DrugBank": {
    "records": 508,
@@ -1212,9 +1212,9 @@
    "sha256": "09ebc1fb0652ac1655cd02fcc83f27078eedc7ebe45014aa6cf7530db9a25b3f"
   },
   "AntibioticMech|GO": {
-   "records": 3,
-   "occurrences": 3,
-   "sha256": "acdc766f68d7623e748a1a4937c92ca4a3ea566267fc29ec1d32223e3084f29e"
+   "records": 12,
+   "occurrences": 12,
+   "sha256": "3149b8e106984704020f0bb293c5d4013db1a52f86f5ca5dc760c8c70c98fd0c"
   },
   "AntibioticMech|GlyTouCan": {
    "records": 3,
@@ -1247,14 +1247,14 @@
    "sha256": "de0630a5760873c24365c79edc2ceeb73d361fbd6a09ca884a495fdfaafe557c"
   },
   "AntibioticMech|NCBITaxon": {
-   "records": 230,
-   "occurrences": 1490,
-   "sha256": "b54abf427320665e822b5cebbb3effeea721dfa4d8adf9e01b13aed61ada38c0"
+   "records": 241,
+   "occurrences": 1520,
+   "sha256": "511810a00334c5368383c2b6230ba7f13f9fa1c98820267b14c639361073c253"
   },
   "AntibioticMech|PDB": {
-   "records": 338,
-   "occurrences": 366,
-   "sha256": "f961efae8b928180c927434781cae5313dd5b09e67c560e172ea56b1b8abd9ac"
+   "records": 343,
+   "occurrences": 399,
+   "sha256": "40837c94e583ee34a101f327a1c026865bed57178021cd4f372cb6b7c94b6082"
   },
   "AntibioticMech|PHI-base": {
    "records": 23,
@@ -1267,14 +1267,14 @@
    "sha256": "e2e66c9c6039c4abffc2386c4a29ebcc33636daa0fb916a87e2932f13c6b93ed"
   },
   "AntibioticMech|PMID": {
-   "records": 519,
-   "occurrences": 1859,
-   "sha256": "2554ea91deb7043aff6cc5c551593658918eaffa7a6655c000c8a22b24336d2b"
+   "records": 542,
+   "occurrences": 1969,
+   "sha256": "28e8f64b14a6fc7f996580efcca46f411fac0c5f6fc720c019f8c8ba0cfc1d47"
   },
   "AntibioticMech|PubChem": {
-   "records": 641,
-   "occurrences": 643,
-   "sha256": "139ce16c71382fd99847173b452650aaa74f7f5f858c6779bfd4b90b93fcbbad"
+   "records": 660,
+   "occurrences": 662,
+   "sha256": "fa2ec8600568d25307e433fe6ebfac6cf15a7defd290379a3bebb010b33ab0e6"
   },
   "AntibioticMech|SGD": {
    "records": 3,
@@ -1292,9 +1292,9 @@
    "sha256": "1577399ba3b6607a57b27e912ec11c24a560e1b5ea98c7bac67fd28afb662405"
   },
   "AntibioticMech|UniProt": {
-   "records": 128,
-   "occurrences": 765,
-   "sha256": "8ffb12f7a900e2144600de716bb4ce62dfa7663b7447340316f12784d0c3f367"
+   "records": 136,
+   "occurrences": 815,
+   "sha256": "1852b4a988086ee44f519232fed838aaa417d23d0940ddce154eeecd898ed41e"
   },
   "AntibioticMech|WikiPathways": {
    "records": 5,
@@ -1608,13 +1608,13 @@
   },
   "TaxonMech|EC": {
    "records": 13,
-   "occurrences": 42,
-   "sha256": "59a6aecaee5f264318b23b26d8040ebbec231134f60d655da41c154f31f7877d"
+   "occurrences": 68,
+   "sha256": "c0d153d28016e2314ec9b25866e3ef381efc6e902cffc050903bb20053eec833"
   },
   "TaxonMech|GO": {
    "records": 15,
-   "occurrences": 54,
-   "sha256": "5d6e7cea0a9c2bedaa3155e85708e13a8e999bdfbc05f217101a0aa08c8f4410"
+   "occurrences": 67,
+   "sha256": "857254a7728e004197421f5b09aa8346ad820e70b41cd2ef3436b2feaf4e446f"
   },
   "TaxonMech|GOLD": {
    "records": 18890,
@@ -1648,18 +1648,18 @@
   },
   "TaxonMech|NCBITaxon": {
    "records": 626048,
-   "occurrences": 9251874,
-   "sha256": "14b2a8a0e55ac10cbb69824499307f5c06cdedbe593087d8472c71bf6524436a"
+   "occurrences": 9251887,
+   "sha256": "1cc64c9eaa606a0e60eb639c9466e35e5d25573e05a4cb89b23607d1046e19db"
   },
   "TaxonMech|PMID": {
    "records": 20543,
-   "occurrences": 20737,
-   "sha256": "c61e58fe09d3347b8a1b0743d184ced3cc99bd84e63017ea26359b0b2033c3a2"
+   "occurrences": 20873,
+   "sha256": "e91656b331750349f9a8021781ed604be827fa65e639193fb98f505c66133c91"
   },
   "TaxonMech|RO": {
    "records": 15,
-   "occurrences": 110,
-   "sha256": "0487c0a40a464e4a574995e2d5a783ef051d3951224fc5de905de6e0f543dcd0"
+   "occurrences": 174,
+   "sha256": "b3f2f9fa42fd51f1e92866837c08a2b36a80040855c32691dfe5836cace54b52"
   },
   "TaxonMech|StrainInfo": {
    "records": 20253,
@@ -1668,8 +1668,8 @@
   },
   "TaxonMech|UniProt": {
    "records": 15,
-   "occurrences": 100,
-   "sha256": "e33dc72d5a6c6dad6880c26c9c57b45c1503a581c0ca7e23cd04e0ab6e992c9a"
+   "occurrences": 164,
+   "sha256": "cf64e6513ca1747e2fb3af1a348b86e79f800dacf7214467819795d47950d5f6"
   },
   "TaxonMech|atb.assembly": {
    "records": 5442,
