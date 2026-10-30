@@ -55,7 +55,7 @@ The site lists fourteen Mechs. Membership counts, badges and prose about
 undeclared projects come from `data/manifest.json`; suite coverage does not
 imply CLAW admission. A project's capability row remains undeclared until the
 snapshot contains its declaration. Tests exercise undeclared and declared
-membership independently of the current snapshot. The October 26 refresh
+membership independently of the current snapshot. The October 29 refresh
 includes AIMech in the census, shared-term assets and statistics, and updates
 all fourteen source pins together.
 DUFMech's contribution to that census is a measured seed worklist, labeled as
@@ -192,7 +192,7 @@ credited to it in the file that implements it. Rules that have come up:
   "Ported from TraitMech's" but match HabitatMech's copies, so the credit sits on
   HabitatMech to AntibioticMech (#159).
 
-The October 26 sweep over records, schemas, scripts, config, vendored data,
+The October 29 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators records 59 directed references.
 TaxonMech supplies history machinery used by 99 PathwayMech records carrying
 122 events. PathwayMech's typed links and candidate reports, and
@@ -208,7 +208,7 @@ These evidence leads do not establish functional validation or kg-microbe ingest
 
 ## Vocabulary census updates
 
-The October 26, 2026 census measures all fourteen Mechs. PathwayMech contributes
+The October 29, 2026 census measures all fourteen Mechs. PathwayMech contributes
 275 pathway records. DUFMech contributes 8,296 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
 A worklist row is one measured family; the JSON container and its redundant TSV
@@ -360,7 +360,7 @@ retaining the biological scale order.
 The table includes measured numeric rows for every suite member, including
 PathwayMech and DUFMech.
 Every cell opens the summary below the table. All 342 populated cells across 163 vocabularies at the
-October 26 pins have record-list assets, including DOI,
+October 29 pins have record-list assets, including DOI,
 PMID and other citation namespaces. Each list reports the full distinct-record
 total and shows up to 300 record links; repeated occurrences in one record still
 count separately in the heatmap. Zero cells show an empty summary without
@@ -381,10 +381,10 @@ defines the namespace and the same model/reaction identifiers carried by
 PathwayMech. The identifier namespace is counted separately from ontology
 terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-## Published-site refresh (October 26, 2026)
+## Published-site refresh (October 29, 2026)
 
 All fourteen Mechs were pinned at their published `main` revisions, with a
-common acquisition bound of 2026-10-26 10:27 UTC. The census, shared-term subsets, heatmap record lists,
+common acquisition bound of 2026-10-30 04:50 UTC. The census, shared-term subsets, heatmap record lists,
 repository statistics and `data/site_audit.json` record the same revisions; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
@@ -445,7 +445,7 @@ REVIEWED-bearing status still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All fourteen repositories
 participate in statistics collection.
 
-The CLAW governance snapshot at 432f4ec declares all fourteen members, 24
+The CLAW governance snapshot at 1877438 declares all fourteen members, 24
 governed artifacts and 27 capabilities, including record-review declarations.
 The capability table preserves CLAW's full
 catalogue and recorded reasons. Capability adoption does not establish that all
@@ -475,7 +475,7 @@ CMMMech joins every Mech surface: ladder, card, graph node, vocabulary census,
 shared-term edges, statistics and both support tables. The canonical corpus is
 `data/records/**/*.yaml` and `*.yml`, matching its native CLI and CLAW manifest;
 fixtures, reviews and history sidecars are not additional records. Its 663
-records at `2d8ce7a1fee97b74098a1faf5a82481ee115123d` have no REVIEWED-bearing
+records at `4f543693bee75b97389de4d4c915a1e451297f1f` have no REVIEWED-bearing
 status slot. A null statistic makes no claim about scientific review artifacts.
 Its record links use the pinned GitHub records, which match the census pin;
 its website first deployed on October 12, 2026, and has its own
