@@ -1,8 +1,8 @@
 {
- "checked_at_utc": "2026-10-30T06:41:19+00:00",
- "local_date": "2026-10-29",
+ "checked_at_utc": "2026-10-31T00:54:45+00:00",
+ "local_date": "2026-10-30",
  "pinned_at_utc": "2026-10-30T04:50:55+00:00",
- "scope": "All fourteen Mechs and culturebotai-claw were pinned at their public main revisions for the October 29, 2026 refresh. The common pin-time bound is 2026-10-30T04:50:55+00:00. Census occurrences, shared-term overlap assets, complete heatmap record lists and record statistics use those same immutable revisions. AIMech joins with imported AIO classes and maintained native concepts counted separately in its card description. AIO and arXiv are newly recognized external namespaces and are rescanned consistently across every Mech and the unchanged pinned kg-microbe release. The graph shared-term vocabulary rules are unchanged. Card figures and secondary claims were rechecked against pinned source files and live sites; repository and published-browser totals retain their stated distinctions. Merged-PR counts are all-time totals queried during this refresh for fourteen Mechs, CLAW and this website. Website features were reassessed on live sites independently of source pins, using headless Chrome and successful deployment statuses. CMMMech and AIMech began publishing their websites on October 12, 2026, and their website features were judged in site-only rechecks. The separately versioned kg-microbe core release comparison is recorded in kg_microbe_census.json and is excluded from Mech record totals and shared-term graph indexes.",
+ "scope": "All fourteen Mechs and culturebotai-claw were pinned at their public main revisions for the October 29, 2026 refresh. The common pin-time bound is 2026-10-30T04:50:55+00:00. Census occurrences, shared-term overlap assets, complete heatmap record lists and record statistics use those same immutable revisions. AIMech joins with imported AIO classes and maintained native concepts counted separately in its card description. AIO and arXiv are newly recognized external namespaces and are rescanned consistently across every Mech and the unchanged pinned kg-microbe release. The graph shared-term vocabulary rules are unchanged. Card figures and secondary claims were rechecked against pinned source files and live sites; repository and published-browser totals retain their stated distinctions. Merged-PR counts are all-time totals queried during this refresh for fourteen Mechs, CLAW and this website. Website feature verdicts retain their separately recorded October 26, 2026 browser-audit baseline. This corpus refresh and the October 30 deployment-freshness check do not constitute a new feature-by-feature browser review. CMMMech and AIMech began publishing their websites on October 12, 2026, and their website features were judged in site-only rechecks. The separately versioned kg-microbe core release comparison is recorded in kg_microbe_census.json and is excluded from Mech record totals and shared-term graph indexes.",
  "repositories": [
   {
    "repo": "AIMech",
@@ -40,9 +40,10 @@
    "figure_at_pin": 1001,
    "merged_prs": 1068,
    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
-   "site_html_sha256": "e40a87663b9eaeb4e5ccd0627a4dbd18e78b9322f34ad5c561b2ada16ca3133e",
+   "site_html_sha256": "210b6ae3f9af6105ae40ff63772fb3dc71febe05246c91249697297bb6512ecf",
    "site_html_sha256_at_pin": "2cb71f0690d7500d0e27bd20361723dd03fa5ce6c0b434415f710dfd12c3af02",
-   "notes": "1,001 data/structures records at the pin, equal to the stat tile: 13 categories, 852 GO-grounded, 149 minted and 226 membrane organelles. All 1,001 are PROPOSED. The generated README and corpus contain 827 records with components and 970 with causal graphs (1,002 individual graphs and 4,336 evidence-backed edges); 74 records have imaging data. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin."
+   "notes": "1,001 data/structures records at the pin, equal to the stat tile: 13 categories, 852 GO-grounded, 149 minted and 226 membrane organelles. All 1,001 are PROPOSED. The generated README and corpus contain 827 records with components and 970 with causal graphs (1,002 individual graphs and 4,336 evidence-backed edges); 74 records have imaging data. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 1,008 when this audit was written; the card keeps the pinned figure, 1,001.",
+   "site_figure_at_check": 1008
   },
   {
    "repo": "CMMMech",
@@ -54,9 +55,10 @@
    "merged_prs": 153,
    "site": "https://github.com/CultureBotAI/CMMMech/tree/4f543693bee75b97389de4d4c915a1e451297f1f/data/records",
    "data_url": "https://api.github.com/repos/CultureBotAI/CMMMech/git/trees/main?recursive=1",
-   "data_sha256": "29ef9388f456069dc6c55b3ec065ab578f5f8b6c4067f58c157e1e5741c0337f",
+   "data_sha256": "c7c8d44f0489bb14c95a963d990e74dd07acd64d2ecfdb5a521cc6992e1e44dc",
    "data_sha256_at_pin": "29ef9388f456069dc6c55b3ec065ab578f5f8b6c4067f58c157e1e5741c0337f",
-   "notes": "663 canonical data/records material records: 412 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. The 66 element records carry ChEBI identities; 282 records carry NCBITaxon organism identifiers. 499 records describe 607 mechanisms with cited evidence, assay context and limitations; 164 remain identity and characterization records without assigned microbial mechanisms or inherited criticality. Scientific review artifacts and append-only curation history are committed. The LinkML CriticalMineralRecord schema and native strict validator exist, but there is no top-level REVIEWED-bearing status slot, so review-status statistics remain null. Counts come from the complete Git tree inventory of data/records YAML files, excluding tests and review artifacts. Record links point to pinned repository files; its website first deployed on October 12, 2026. The pin contains CC BY 4.0 project-data and BSD-3-Clause code licenses, retaining upstream terms. The live records inventory is byte-identical to data/records inventory at the pin."
+   "notes": "663 canonical data/records material records: 412 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. The 66 element records carry ChEBI identities; 282 records carry NCBITaxon organism identifiers. 499 records describe 607 mechanisms with cited evidence, assay context and limitations; 164 remain identity and characterization records without assigned microbial mechanisms or inherited criticality. Scientific review artifacts and append-only curation history are committed. The LinkML CriticalMineralRecord schema and native strict validator exist, but there is no top-level REVIEWED-bearing status slot, so review-status statistics remain null. Counts come from the complete Git tree inventory of data/records YAML files, excluding tests and review artifacts. Record links point to pinned repository files; its website first deployed on October 12, 2026. The pin contains CC BY 4.0 project-data and BSD-3-Clause code licenses, retaining upstream terms. The live records inventory had moved past the pin when this audit was written; data_sha256 is the live copy and data_sha256_at_pin is data/records inventory at the pin. The site moved past the pin during the refresh and showed 668 when this audit was written; the card keeps the pinned figure, 663.",
+   "site_figure_at_check": 668
   },
   {
    "repo": "CommunityMech",
@@ -142,9 +144,9 @@
    "figure_at_pin": 3116,
    "merged_prs": 591,
    "site": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
-   "site_html_sha256": "77087cec862d06202b00e32e9b2308cfa56c9fd22eb460fcb6905d0a8ef2726f",
+   "site_html_sha256": "ce2aed8bc3e640dc99087764db4c00bfa4306676d182fe4349cdc0b20cd4cdf6",
    "site_html_sha256_at_pin": "77087cec862d06202b00e32e9b2308cfa56c9fd22eb460fcb6905d0a8ef2726f",
-   "notes": "3,116 natural product structures at the pin, matching the landing prose, with ten adopted sources including PathwayMech. The README and page report 3,407 producer claims, 806 supported by evidence addressing the organism, and 2,341 records with cited occurrences. The corpus has 185 records describing biosynthetic pathways. Resolving the pinned causal_graph_refs gives 297 graph-bearing records and 795 individual graphs: 549 inline graphs plus 246 referenced components. Every referenced component matches its owner’s record ID and InChIKey. The vocabulary census retains its existing owner-record globs and does not separately scan these component files. The live index.html is byte-identical to pages/index.html at the pin."
+   "notes": "3,116 natural product structures at the pin, matching the landing prose, with ten adopted sources including PathwayMech. The README and page report 3,407 producer claims, 806 supported by evidence addressing the organism, and 2,341 records with cited occurrences. The corpus has 185 records describing biosynthetic pathways. Resolving the pinned causal_graph_refs gives 297 graph-bearing records and 795 individual graphs: 549 inline graphs plus 246 referenced components. Every referenced component matches its owner’s record ID and InChIKey. The vocabulary census retains its existing owner-record globs and does not separately scan these component files. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin."
   },
   {
    "repo": "PathwayMech",
@@ -155,9 +157,10 @@
    "figure_at_pin": 275,
    "merged_prs": 308,
    "site": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
-   "site_html_sha256": "fcf7b6776c7dc19312ae7cbedf75b3c329c3a01fcc5329c7de427edd59a589ab",
+   "site_html_sha256": "8ef2b8cc06b4afd0c215f61648f8bd91cdc275bd28c60b3bda3355eea7f4881f",
    "site_html_sha256_at_pin": "fcf7b6776c7dc19312ae7cbedf75b3c329c3a01fcc5329c7de427edd59a589ab",
-   "notes": "275 data/pathways records at the pin, matching 275 links in its committed browser. They contain 14,691 mechanistic edges across 105 taxa, with 5,912 distinct reference IDs. The corpus contains 21,871 structured source assertions and 879 quoted evidence items. Current complete KGX downloads under pages/downloads match all 275 records; separate SSSOM source mappings remain available in the repository. Export availability does not establish kg-microbe ingestion. The optional curation_history schema retains its explicit TaxonMech CurationEvent reference; 99 YAML records contain 122 inline events, with additional canonical history stored separately. PathwayMech is measured by the common census, subset and statistics pipeline. The live browse.html is byte-identical to pages/browse.html at the pin."
+   "notes": "275 data/pathways records at the pin, matching 275 links in its committed browser. They contain 14,691 mechanistic edges across 105 taxa, with 5,912 distinct reference IDs. The corpus contains 21,871 structured source assertions and 879 quoted evidence items. Current complete KGX downloads under pages/downloads match all 275 records; separate SSSOM source mappings remain available in the repository. Export availability does not establish kg-microbe ingestion. The optional curation_history schema retains its explicit TaxonMech CurationEvent reference; 99 YAML records contain 122 inline events, with additional canonical history stored separately. PathwayMech is measured by the common census, subset and statistics pipeline. The live browse.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/browse.html at the pin. The site moved past the pin during the refresh and showed 276 when this audit was written; the card keeps the pinned figure, 275.",
+   "site_figure_at_check": 276
   },
   {
    "repo": "proteintraitsmech",
@@ -167,10 +170,11 @@
    "card_records": 429394,
    "merged_prs": 428,
    "site": "https://culturebotai.github.io/proteintraitsmech/",
-   "site_html_sha256": "a2ad48d1ae0de9d0e5b9818b048c9fac81a8a1830fba1878aeb93f673208c899",
+   "site_html_sha256": "ea27035da6b78f485ae3a3c133d58ec55cf6736a8d68abbd4b55605f9f616579",
    "data_url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json",
-   "data_sha256": "44931ab8a3df58cd9d59d68aeb9f147b5659185fdc09dd09f16519c54001e334",
-   "notes": "429,394 records and 34 browser source labels in runtime data/facets.json and the YAML corpus (the static landing HTML states 429,291). The source-label fallback manual groups several imported sources; it is not a distinct evidence source. The retained corpus map covers 344,797 current records, with 84,597 outside that snapshot. The protein map covers 68,657 Swiss-Prot proteins and the sequence map covers 12,705; these derived views are distinct from the complete record browser. The committed cross-Mech snapshot scans thirteen sibling repositories and retains 16,082 recognized UniProt mentions from six of them, including structured fields and prose references. These discovery records are separate from the measured data/traits corpus. Its protein inventory distinguishes 949 proteins with qualified examples, 657 with legacy examples only and 996 discovery-only proteins; those qualifications are not whole-record REVIEWED statuses, and sibling assertions alone do not qualify examples. The served file is built in CI rather than committed, so there is no copy at the pin to compare."
+   "data_sha256": "3cbbe3172c506cecc8cb9d6f740b7a20b23e34b66ff5edfaf351600e05c5f032",
+   "notes": "429,394 records and 34 browser source labels in runtime data/facets.json and the YAML corpus (the static landing HTML states 429,291). The source-label fallback manual groups several imported sources; it is not a distinct evidence source. The retained corpus map covers 344,797 current records, with 84,597 outside that snapshot. The protein map covers 68,657 Swiss-Prot proteins and the sequence map covers 12,705; these derived views are distinct from the complete record browser. The committed cross-Mech snapshot scans thirteen sibling repositories and retains 16,082 recognized UniProt mentions from six of them, including structured fields and prose references. These discovery records are separate from the measured data/traits corpus. Its protein inventory distinguishes 949 proteins with qualified examples, 657 with legacy examples only and 996 discovery-only proteins; those qualifications are not whole-record REVIEWED statuses, and sibling assertions alone do not qualify examples. The served file is built in CI rather than committed, so there is no copy at the pin to compare. The site moved past the pin during the refresh and showed 429,406 when this audit was written; the card keeps the pinned figure, 429,394.",
+   "site_figure_at_check": 429406
   },
   {
    "repo": "TaxonMech",
@@ -194,7 +198,7 @@
    "figure_at_pin": 1130,
    "merged_prs": 1087,
    "site": "https://culturebotai.github.io/TraitMech/pages/index.html",
-   "site_html_sha256": "e6775cc549b69f9ff9c5901e5f66a4972f0b63298caa2cb401a20c35359ba016",
+   "site_html_sha256": "780461edebf184c53b42d533582b94da116753ab94a69ed8802e191a6ee68b3b",
    "site_html_sha256_at_pin": "83379a731514e79e86e2c08bdb2312d975b3ed3ef7f68e010be337bd920eae92",
    "notes": "1,130 data/traits records at the pin: 427 REVIEWED, 615 PROPOSED, 50 DEPRECATED and 38 SEEDED. The README and corpus contain 748 records with causal graphs. The pinned page shows 10 populated categories and 100.0% embedded (1,130 of 1,130). The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin."
   }

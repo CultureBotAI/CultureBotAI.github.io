@@ -1,0 +1,1190 @@
+{
+  "claw_sha": "18774380e032acb6da0d195214c59368cd47594f",
+  "manifest_sha256": "9fa51f0f3bbd8e2e15271d7189364fc9d8caaca87e4357e988adbd67900e7cc4",
+  "scope": "Deployment freshness and landing-page smoke checks only; no new feature-by-feature audit.",
+  "mechs": [
+    {
+      "mech": "CultureMech",
+      "repository": "CultureBotAI/CultureMech",
+      "checked_at": "2026-10-31T00:56:12.453179+00:00",
+      "main": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+      "deployment": {
+        "id": 7332882663,
+        "sha": "9ea7ff33d354e37b791df96a880005153e446ce3",
+        "created_at": "2026-10-26T13:20:41Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-26T13:20:55Z",
+            "environment_url": "https://culturebotai.github.io/CultureMech/",
+            "log_url": "https://github.com/CultureBotAI/CultureMech/actions/runs/40327252652/job/121595740642",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-26T13:20:45Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CultureMech/actions/runs/40327252652/job/121595740642",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-26T13:20:43Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CultureMech/actions/runs/40327252652/job/121595740642",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-26T13:20:42Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CultureMech/actions/runs/40327252652/job/121595740642",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/CultureMech/",
+        "status": 200,
+        "last_modified": "Mon, 26 Oct 2026 13:20:54 GMT",
+        "github_request_id": "4532:151206:AF17F:C40F3:6AE53CB4",
+        "bytes_read": 64
+      },
+      "publication": "unchanged public inputs",
+      "source_review": "No changed site inputs. Shared claw builder also unchanged; its deployed build used 432f4ecffa33fef3d3e4543bcd9bd3c00131408c, whose difference to the current claw pin is agent instructions only.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:54:58.389649+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/CultureMech/app/",
+          "status": 200,
+          "title": "CultureMech \u2014 culture media",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/CultureMech/app/",
+          "status": 200,
+          "title": "CultureMech \u2014 culture media",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "MediaIngredientMech",
+      "repository": "CultureBotAI/MediaIngredientMech",
+      "checked_at": "2026-10-31T00:56:20.960266+00:00",
+      "main": "014fe04ff7395ea1f1c1e71c61123089986d0158",
+      "deployment": {
+        "id": 7160927021,
+        "sha": "bd9e7304b96082601e804aed1d0f170be589a2c5",
+        "created_at": "2026-10-18T21:22:25Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-18T21:24:58Z",
+            "environment_url": "https://culturebotai.github.io/MediaIngredientMech/",
+            "log_url": "https://github.com/CultureBotAI/MediaIngredientMech/actions/runs/39167541833/job/117793532400",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-18T21:23:16Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/MediaIngredientMech/actions/runs/39167541833/job/117793532400",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-18T21:22:27Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/MediaIngredientMech/actions/runs/39167541833/job/117793532400",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-18T21:22:26Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/MediaIngredientMech/actions/runs/39167541833/job/117793532400",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/MediaIngredientMech/",
+        "status": 200,
+        "last_modified": "Sun, 18 Oct 2026 21:23:58 GMT",
+        "github_request_id": "842A:16D9D0:AEE2B:C3C67:6AE53C57",
+        "bytes_read": 12953
+      },
+      "publication": "unchanged public inputs",
+      "source_review": "No changed inputs consumed by scripts/build_pages_site.py; intervening commits change reviews, reports and agent workflow files.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:00.294317+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/MediaIngredientMech/",
+          "status": 200,
+          "title": "MediaIngredientMech \u2014 ingredient mappings",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/MediaIngredientMech/",
+          "status": 200,
+          "title": "MediaIngredientMech \u2014 ingredient mappings",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "CommunityMech",
+      "repository": "CultureBotAI/CommunityMech",
+      "checked_at": "2026-10-31T00:56:31.033248+00:00",
+      "main": "a0631777d79ffe10235c6022408c58084a9e3283",
+      "deployment": {
+        "id": 7323956638,
+        "sha": "060b1f3a4efadefc253f67328748dec22239bf33",
+        "created_at": "2026-10-26T04:16:34Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-26T04:16:57Z",
+            "environment_url": "https://culturebotai.github.io/CommunityMech/",
+            "log_url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/40268222406/job/121395162697",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-26T04:16:39Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/40268222406/job/121395162697",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-26T04:16:36Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/40268222406/job/121395162697",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-26T04:16:35Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/40268222406/job/121395162697",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/CommunityMech/",
+        "status": 200,
+        "last_modified": "Mon, 26 Oct 2026 04:16:52 GMT",
+        "github_request_id": "9A90:0CBB:B2455:C72EB:6AE53C57",
+        "bytes_read": 11924
+      },
+      "publication": "unchanged public inputs",
+      "source_review": "No changed community-renderer inputs or docs files. The intervening kb/taxa record is outside its kb/communities input.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:02.430325+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/CommunityMech/",
+          "status": 200,
+          "title": "CommunityMech \u2014 microbial communities",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/CommunityMech/",
+          "status": 200,
+          "title": "CommunityMech \u2014 microbial communities",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "TraitMech",
+      "repository": "CultureBotAI/TraitMech",
+      "checked_at": "2026-10-31T00:56:43.150855+00:00",
+      "main": "631087f24fec9e00bd969d8827fd642207b61f9b",
+      "deployment": {
+        "id": 7451494920,
+        "sha": "631087f24fec9e00bd969d8827fd642207b61f9b",
+        "created_at": "2026-10-31T00:10:22Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-31T00:10:44Z",
+            "environment_url": "https://culturebotai.github.io/TraitMech/",
+            "log_url": "https://github.com/CultureBotAI/TraitMech/actions/runs/41148532360/job/124379739472",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-31T00:10:26Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TraitMech/actions/runs/41148532360/job/124379739472",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:10:24Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TraitMech/actions/runs/41148532360/job/124379739472",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:10:24Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TraitMech/actions/runs/41148532360/job/124379739472",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-31T00:10:23Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TraitMech/actions/runs/41148532360/job/124379739472",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/TraitMech/",
+        "status": 200,
+        "last_modified": "Sat, 31 Oct 2026 00:10:37 GMT",
+        "github_request_id": "0872:153937:AF31F:C4214:6AE53CD2",
+        "bytes_read": 294
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:03.969689+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+          "status": 200,
+          "title": "TraitMech \u2014 microbial traits",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+          "status": 200,
+          "title": "TraitMech \u2014 microbial traits",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "ProteinTraitsMech",
+      "repository": "CultureBotAI/proteintraitsmech",
+      "checked_at": "2026-10-31T00:56:51.294127+00:00",
+      "main": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+      "deployment": {
+        "id": 7452027092,
+        "sha": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+        "created_at": "2026-10-31T00:54:14Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-31T00:54:37Z",
+            "environment_url": "https://culturebotai.github.io/proteintraitsmech/",
+            "log_url": "https://github.com/CultureBotAI/proteintraitsmech/actions/runs/41152074319/job/124392463092",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-31T00:54:18Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/proteintraitsmech/actions/runs/41152074319/job/124392463092",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:54:16Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/proteintraitsmech/actions/runs/41152074319/job/124392463092",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:54:16Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/proteintraitsmech/actions/runs/41152074319/job/124392463092",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-31T00:54:15Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/proteintraitsmech/actions/runs/41152074319/job/124392463092",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/proteintraitsmech/",
+        "status": 200,
+        "last_modified": "Sat, 31 Oct 2026 00:54:32 GMT",
+        "github_request_id": "6BB2:32889A:A767F:BC442:6AE53C5A",
+        "bytes_read": 36350
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:05.626139+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/proteintraitsmech/",
+          "status": 200,
+          "title": "ProteinTraitsMech \u2014 protein sequence & structure traits",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/proteintraitsmech/",
+          "status": 200,
+          "title": "ProteinTraitsMech \u2014 protein sequence & structure traits",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "AntibioticMech",
+      "repository": "CultureBotAI/AntibioticMech",
+      "checked_at": "2026-10-31T00:57:01.891549+00:00",
+      "main": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+      "deployment": {
+        "id": 7432124591,
+        "sha": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+        "created_at": "2026-10-30T06:19:39Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-30T06:20:58Z",
+            "environment_url": "https://culturebotai.github.io/AntibioticMech/",
+            "log_url": "https://github.com/CultureBotAI/AntibioticMech/actions/runs/41013365728/job/123924209798",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-30T06:19:43Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/AntibioticMech/actions/runs/41013365728/job/123924209798",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-30T06:19:41Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/AntibioticMech/actions/runs/41013365728/job/123924209798",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-30T06:19:40Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/AntibioticMech/actions/runs/41013365728/job/123924209798",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/AntibioticMech/",
+        "status": 200,
+        "last_modified": "Fri, 30 Oct 2026 06:20:35 GMT",
+        "github_request_id": "F64C:16F08E:B277D:C76ED:6AE53CE3",
+        "bytes_read": 478
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:07.687587+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+          "status": 200,
+          "title": "AntibioticMech \u2014 antimicrobial chemical structures",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+          "status": 200,
+          "title": "AntibioticMech \u2014 antimicrobial chemical structures",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "CellStructureMech",
+      "repository": "CultureBotAI/CellStructureMech",
+      "checked_at": "2026-10-31T00:57:08.358442+00:00",
+      "main": "eaaef6a23e4fecacb058e320d423098be4592def",
+      "deployment": {
+        "id": 7452030957,
+        "sha": "eaaef6a23e4fecacb058e320d423098be4592def",
+        "created_at": "2026-10-31T00:54:31Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-31T00:54:44Z",
+            "environment_url": "https://culturebotai.github.io/CellStructureMech/",
+            "log_url": "https://github.com/CultureBotAI/CellStructureMech/actions/runs/41152653330/job/124392535556",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-31T00:54:34Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CellStructureMech/actions/runs/41152653330/job/124392535556",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:54:33Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CellStructureMech/actions/runs/41152653330/job/124392535556",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-31T00:54:32Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CellStructureMech/actions/runs/41152653330/job/124392535556",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/CellStructureMech/",
+        "status": 200,
+        "last_modified": "Sat, 31 Oct 2026 00:54:39 GMT",
+        "github_request_id": "A5AE:3F70B3:AD1BA:C2046:6AE53CE9",
+        "bytes_read": 254
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:09.561847+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+          "status": 200,
+          "title": "CellStructureMech \u2014 microbial cell structures",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+          "status": 200,
+          "title": "CellStructureMech \u2014 microbial cell structures",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "HabitatMech",
+      "repository": "CultureBotAI/HabitatMech",
+      "checked_at": "2026-10-31T00:57:14.141974+00:00",
+      "main": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+      "deployment": {
+        "id": 7433838092,
+        "sha": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+        "created_at": "2026-10-30T08:19:50Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-30T08:20:23Z",
+            "environment_url": "https://culturebotai.github.io/HabitatMech/",
+            "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/41025146074/job/123963196839",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-30T08:19:55Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/41025146074/job/123963196839",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-30T08:19:52Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/41025146074/job/123963196839",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-30T08:19:52Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/41025146074/job/123963196839",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-30T08:19:51Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/41025146074/job/123963196839",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/HabitatMech/",
+        "status": 200,
+        "last_modified": "Fri, 30 Oct 2026 08:20:16 GMT",
+        "github_request_id": "9926:14E6:C81E1:E03B4:6AE53CF2",
+        "bytes_read": 469
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:11.355044+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+          "status": 200,
+          "title": "HabitatMech \u2014 microbial habitats, harmonized",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+          "status": 200,
+          "title": "HabitatMech \u2014 microbial habitats, harmonized",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "NaturalProductMech",
+      "repository": "CultureBotAI/NaturalProductMech",
+      "checked_at": "2026-10-31T00:57:22.401717+00:00",
+      "main": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+      "deployment": {
+        "id": 7438700154,
+        "sha": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+        "created_at": "2026-10-30T12:51:18Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-30T12:51:32Z",
+            "environment_url": "https://culturebotai.github.io/NaturalProductMech/",
+            "log_url": "https://github.com/CultureBotAI/NaturalProductMech/actions/runs/41058469670/job/124071999764",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-30T12:51:22Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/NaturalProductMech/actions/runs/41058469670/job/124071999764",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-30T12:51:21Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/NaturalProductMech/actions/runs/41058469670/job/124071999764",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-30T12:51:20Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/NaturalProductMech/actions/runs/41058469670/job/124071999764",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/",
+        "status": 200,
+        "last_modified": "Fri, 30 Oct 2026 12:51:29 GMT",
+        "github_request_id": "CC90:3140:1654C3:187A68:6AE53CF7",
+        "bytes_read": 508
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:13.048934+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
+          "status": 200,
+          "title": "NaturalProductMech",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
+          "status": 200,
+          "title": "NaturalProductMech",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "TaxonMech",
+      "repository": "CultureBotAI/TaxonMech",
+      "checked_at": "2026-10-31T00:57:27.876167+00:00",
+      "main": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+      "deployment": {
+        "id": 7399051807,
+        "sha": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+        "created_at": "2026-10-28T22:36:21Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-28T22:39:58Z",
+            "environment_url": "https://culturebotai.github.io/TaxonMech/",
+            "log_url": "https://github.com/CultureBotAI/TaxonMech/actions/runs/40781246311/job/123143179228",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-28T22:36:25Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TaxonMech/actions/runs/40781246311/job/123143179228",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-28T22:36:23Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TaxonMech/actions/runs/40781246311/job/123143179228",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-28T22:36:22Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/TaxonMech/actions/runs/40781246311/job/123143179228",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/TaxonMech/",
+        "status": 200,
+        "last_modified": "Wed, 28 Oct 2026 22:39:46 GMT",
+        "github_request_id": "1958:3140:16563E:187C00:6AE53CFE",
+        "bytes_read": 443
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:14.884145+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+          "status": 200,
+          "title": "TaxonMech \u2014 microbial taxa and strains",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+          "status": 200,
+          "title": "TaxonMech \u2014 microbial taxa and strains",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "PathwayMech",
+      "repository": "CultureBotAI/PathwayMech",
+      "checked_at": "2026-10-31T00:57:34.433833+00:00",
+      "main": "d869d5be1629128e1f6bb116eb9d30f767bf2682",
+      "deployment": {
+        "id": 7451391621,
+        "sha": "a2dc85419c61943c2603b2e7059b3a7032292a58",
+        "created_at": "2026-10-31T00:01:36Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-31T00:03:28Z",
+            "environment_url": "https://culturebotai.github.io/PathwayMech/",
+            "log_url": "https://github.com/CultureBotAI/PathwayMech/actions/runs/41147845047/job/124377040544",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-31T00:01:39Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/PathwayMech/actions/runs/41147845047/job/124377040544",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:01:38Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/PathwayMech/actions/runs/41147845047/job/124377040544",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-31T00:01:37Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/PathwayMech/actions/runs/41147845047/job/124377040544",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/PathwayMech/",
+        "status": 200,
+        "last_modified": "Sat, 31 Oct 2026 00:03:21 GMT",
+        "github_request_id": "3C60:390CED:179183:19CCCD:6AE53D03",
+        "bytes_read": 486
+      },
+      "publication": "unchanged public inputs",
+      "source_review": "Latest change is PathBank provenance validation and review records; committed pages unchanged. Automatic Build and test must pass before its publish workflow runs.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:16.843964+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+          "status": 200,
+          "title": "PathwayMech",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+          "status": 200,
+          "title": "PathwayMech",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "DUFMech",
+      "repository": "CultureBotAI/DUFMech",
+      "checked_at": "2026-10-31T00:57:39.790098+00:00",
+      "main": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+      "deployment": {
+        "id": 7397059007,
+        "sha": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+        "created_at": "2026-10-28T20:53:48Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-28T20:54:08Z",
+            "environment_url": "https://culturebotai.github.io/DUFMech/",
+            "log_url": "https://github.com/CultureBotAI/DUFMech/actions/runs/40766159830/job/123094808801",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-28T20:53:52Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/DUFMech/actions/runs/40766159830/job/123094808801",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-28T20:53:50Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/DUFMech/actions/runs/40766159830/job/123094808801",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-28T20:53:49Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/DUFMech/actions/runs/40766159830/job/123094808801",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/DUFMech/",
+        "status": 200,
+        "last_modified": "Wed, 28 Oct 2026 20:54:04 GMT",
+        "github_request_id": "F3F8:39C610:17BE5D:19F99A:6AE53D09",
+        "bytes_read": 45055
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:18.508117+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/DUFMech/",
+          "status": 200,
+          "title": "Family catalogue | DUFMech",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/DUFMech/",
+          "status": 200,
+          "title": "Family catalogue | DUFMech",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "CMMMech",
+      "repository": "CultureBotAI/CMMMech",
+      "checked_at": "2026-10-31T00:57:46.235614+00:00",
+      "main": "b9ef4149f461d261ee2c82a4f0ab1c7c6c023b57",
+      "deployment": {
+        "id": 7451469149,
+        "sha": "b9ef4149f461d261ee2c82a4f0ab1c7c6c023b57",
+        "created_at": "2026-10-31T00:08:11Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-31T00:08:33Z",
+            "environment_url": "https://culturebotai.github.io/CMMMech/",
+            "log_url": "https://github.com/CultureBotAI/CMMMech/actions/runs/41148481699/job/124379082062",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-31T00:08:15Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CMMMech/actions/runs/41148481699/job/124379082062",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-31T00:08:13Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CMMMech/actions/runs/41148481699/job/124379082062",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-31T00:08:12Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/CMMMech/actions/runs/41148481699/job/124379082062",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/CMMMech/",
+        "status": 200,
+        "last_modified": "Sat, 31 Oct 2026 00:08:27 GMT",
+        "github_request_id": "7ABC:15B0AE:AD3D3:C23E9:6AE53D13",
+        "bytes_read": 308
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:20.527745+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+          "status": 200,
+          "title": "CMMMech \u00b7 Critical Materials, Minerals & Microbial Mechanisms",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+          "status": 200,
+          "title": "CMMMech \u00b7 Critical Materials, Minerals & Microbial Mechanisms",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    },
+    {
+      "mech": "AIMech",
+      "repository": "CultureBotAI/AIMech",
+      "checked_at": "2026-10-31T00:57:55.717927+00:00",
+      "main": "97c308f4a2560523cbabe9834fc9db7430073727",
+      "deployment": {
+        "id": 7396467808,
+        "sha": "97c308f4a2560523cbabe9834fc9db7430073727",
+        "created_at": "2026-10-28T20:25:11Z",
+        "statuses": [
+          {
+            "state": "success",
+            "created_at": "2026-10-28T20:32:21Z",
+            "environment_url": "https://culturebotai.github.io/AIMech/",
+            "log_url": "https://github.com/CultureBotAI/AIMech/actions/runs/40763104389/job/123079966694",
+            "description": ""
+          },
+          {
+            "state": "in_progress",
+            "created_at": "2026-10-28T20:31:32Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/AIMech/actions/runs/40763104389/job/123079966694",
+            "description": ""
+          },
+          {
+            "state": "queued",
+            "created_at": "2026-10-28T20:25:14Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/AIMech/actions/runs/40763104389/job/123079966694",
+            "description": ""
+          },
+          {
+            "state": "waiting",
+            "created_at": "2026-10-28T20:25:13Z",
+            "environment_url": "",
+            "log_url": "https://github.com/CultureBotAI/AIMech/actions/runs/40763104389/job/123079966694",
+            "description": ""
+          }
+        ]
+      },
+      "live": {
+        "url": "https://culturebotai.github.io/AIMech/",
+        "status": 200,
+        "last_modified": "Wed, 28 Oct 2026 20:32:16 GMT",
+        "github_request_id": "4B96:153D8F:AF481:C44ED:6AE53D18",
+        "bytes_read": 306
+      },
+      "publication": "current main",
+      "source_review": "Successful deployment of the acquired main revision.",
+      "comparison_files_may_be_capped": false,
+      "browser_checked_at": "2026-10-31T00:55:22.391248+00:00",
+      "display": "Landing renders at 1440 and 390 px without horizontal overflow.",
+      "navigation": "Declared landing route loaded; nested routes not re-audited.",
+      "interaction": "Not re-audited; retain the separately dated feature baseline.",
+      "views": [
+        {
+          "width": 1440,
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+          "status": 200,
+          "title": "AIMech \u00b7 AI Ontology Grounding & Curated Claim Evidence",
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        },
+        {
+          "width": 390,
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+          "status": 200,
+          "title": "AIMech \u00b7 AI Ontology Grounding & Curated Claim Evidence",
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "main": 1
+          },
+          "page_errors": [],
+          "http_errors": []
+        }
+      ]
+    }
+  ]
+}
