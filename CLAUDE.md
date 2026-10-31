@@ -154,8 +154,8 @@ Sources, refreshed differently:
   date and other sites unchanged. Schema-documentation prose reflects the
   website verdict, never an inference about whether a repository has a schema.
 
-The October 26, 2026 refresh pins all fourteen Mechs, with a common acquisition
-bound of 2026-10-26 10:27 UTC. All participate in the census, overlap assets and
+The October 29, 2026 refresh pins all fourteen Mechs, with a common acquisition
+bound of 2026-10-30 04:50 UTC. All participate in the census, overlap assets and
 repository statistics, including PathwayMech's 275 records, DUFMech's 8,296
 seed families, CMMMech's 663 material records and AIMech's 1,929 concepts.
 TraitMech has 1,130 records and CellStructureMech 1,001 at those pins. TaxonMech joined the census in

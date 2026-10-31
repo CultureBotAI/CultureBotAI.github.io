@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on October 26, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
+The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on October 29, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
 
 ### Pipeline Overview
 
@@ -161,7 +161,7 @@ AI Predictions (MicroGrowAgents, MicroGrowLink), drawing on the Mechs and KG-Mic
 ### AIMech
 **[GitHub Repository](https://github.com/CultureBotAI/AIMech)** | **[Web Interface](https://culturebotai.github.io/AIMech/)** | CC BY 4.0 AIO imports · BSD-3-Clause code
 
-AIMech extends the suite's curation workflow to artificial intelligence concepts. Its [pinned repository](https://github.com/CultureBotAI/AIMech/tree/621a86ea8e79b0c97585f978b771f5b024a8f691/data) contains **1,929 concept records: 442 imported AIO classes and 1,487 maintained concepts** with claim-specific citations and explicit AIO mappings or documented no-match assessments. Imported records are NOT_REVIEWED and maintained concepts are DRAFT; separate scientific review artifacts do not change those statuses. The repository provides native LinkML schemas and validation. Its [data-license notice](https://github.com/CultureBotAI/AIMech/blob/621a86ea8e79b0c97585f978b771f5b024a8f691/LICENSE-DATA) covers the AIO imports under CC BY 4.0; it does not specify a grant for maintained concepts. Code is BSD-3-Clause. Its [website](https://culturebotai.github.io/AIMech/pages/browse.html) browses the current imported and maintained concepts by kind and AIO branch, with a page per concept.
+AIMech extends the suite's curation workflow to artificial intelligence concepts. Its [pinned repository](https://github.com/CultureBotAI/AIMech/tree/97c308f4a2560523cbabe9834fc9db7430073727/data) contains **1,929 concept records: 442 imported AIO classes and 1,487 maintained concepts** with claim-specific citations and explicit AIO mappings or documented no-match assessments. Imported records are NOT_REVIEWED and maintained concepts are DRAFT; separate scientific review artifacts do not change those statuses. The repository provides native LinkML schemas and validation. Its [data-license notice](https://github.com/CultureBotAI/AIMech/blob/97c308f4a2560523cbabe9834fc9db7430073727/LICENSE-DATA) covers the AIO imports under CC BY 4.0; it does not specify a grant for maintained concepts. Code is BSD-3-Clause. Its [website](https://culturebotai.github.io/AIMech/pages/browse.html) browses the current imported and maintained concepts by kind and AIO branch, with a page per concept.
 
 ### CMMMech
 **[GitHub Repository](https://github.com/CultureBotAI/CMMMech)** | **[Web Interface](https://culturebotai.github.io/CMMMech/)** | CC BY 4.0 data · BSD-3-Clause code
@@ -202,7 +202,7 @@ Autonomous knowledge factory for microbial ecophysiological traits, seeded from 
 ### PathwayMech - Microbial Pathway Mechanisms
 **[GitHub Repository](https://github.com/CultureBotAI/PathwayMech)** | **[Web Interface](https://culturebotai.github.io/PathwayMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Curates 275 pathway-level microbial mechanisms across 105 taxa, with explicit participants, reactions, 14,691 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/537313d58ad95c407741efc2adb52400ce6eb873/README.md).
+Curates 275 pathway-level microbial mechanisms across 105 taxa, with explicit participants, reactions, 14,691 causal edges, and reference-backed evidence. Its KGX graph and SSSOM source mappings support reuse of pathway assertions and normalized identifiers. See the [repository overview](https://github.com/CultureBotAI/PathwayMech/blob/a1e182c64645f53884173356b0505bc77b68d584/README.md).
 
 ---
 
@@ -218,7 +218,7 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 ### DUFMech - Domains and Families of Unknown Function
 **[GitHub Repository](https://github.com/CultureBotAI/DUFMech)** | **[Web Interface](https://culturebotai.github.io/DUFMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
-Provides a seed worklist of 8,296 Pfam families: 6,127 unknown candidates, 373 historical DUFs and 1,796 EX_DUF families renamed away from former DUF/UPF names. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/0b3ed0fb1dcbba49fff4f3123806aa8b7f3663e4/README.md); the published browser now offers individual family pages, search, filters, evidence, curation history and cross-Mech leads. Native family records validate against a LinkML schema. Seed labels describe frozen metadata and naming history, not functional validation; all 8,296 families remain unscored.
+Provides a seed worklist of 8,296 Pfam families: 6,127 unknown candidates, 373 historical DUFs and 1,796 EX_DUF families renamed away from former DUF/UPF names. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b/README.md); the published browser now offers individual family pages, search, filters, evidence, curation history and cross-Mech leads. Native family records validate against a LinkML schema. Seed labels describe frozen metadata and naming history, not functional validation; all 8,296 families remain unscored.
 
 ---
 
