@@ -1,0 +1,1070 @@
+{
+  "reviewer": "deployment_review independent CMM redeployment skeptic",
+  "started_at": "2026-11-04T12:31:11.754120+00:00",
+  "corpus_pin": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+  "served_revision": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+  "source_diff": {
+    "object_repository": "/private/tmp/cmm-redeployment-20261104-objects.git",
+    "changed_count": 735,
+    "record_count": 10,
+    "production_changes": [],
+    "unchanged_root_objects": {
+      ".agents": "db97ca74a08f1490534f662a2663d66e3e2f808d",
+      ".claude": "57d2ea290e79102c4da144f5cc5f79e3436cf880",
+      ".github": "9f7d4c5657933d6e2949b6fa925df9fee125fb9d",
+      ".gitignore": "587dbf3130dce3890a79bbe129bf415eb7b5d0f6",
+      ".nojekyll": "97da701f354f1bc8692680337fa1bfff3384f8f2",
+      "AGENTS.md": "c3c4e1d18db90c001554c7000540fc4fc54c5598",
+      "CLAUDE.md": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+      "INFRA_TASKS.md": "da264fedaa2c1ca9267bdb1f270e85ba5aa19f90",
+      "LICENSE": "1fe9814d673074578fbf8eb4fe33702dd1f448f0",
+      "LICENSE-CODE": "7395d0952226e91f125e433c6128bed4e4b6c99d",
+      "LICENSE-DATA": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+      "MANIFEST.in": "b1db8edb76c9e86e1c5d5e2f87e9bdf3c9eaedc0",
+      "README.md": "d909443cd28d74069ec310cf6ea1d424fc9452ea",
+      "conf": "225e1ca465ab82f281bd55bae53d3af9e73d3b8c",
+      "docs": "f495645c89a2c7cf985d7d7c81ca93ffc3470fd8",
+      "index.html": "d9f9a74272514d911bbae6c41d4847c9d1d26dde",
+      "justfile": "43b4b754939fe7aae8b5ecfdc100419a0f92b392",
+      "prompts": "7b2d1c59d72df04ce26eb6db92e1f365f0528d34",
+      "pyproject.toml": "f221310a38f0b090e79c8dca46696d1802e1520d",
+      "research": "164bc9dc6102cc696b32691001b8493f76f94e75",
+      "schema": "e4a6a9f172080b7118cc1b6b73014a29e58e044a",
+      "scripts": "a3f5dbb997b3225ceec005f280d188d6eb8e379c",
+      "src": "13d904066a7086e9fcf54a6cc933232000df15c5",
+      "tests": "d032d9d202a1faf883984c010119b775192c21a5",
+      "uv.lock": "78d36ffc5a4d82a74e048ec63c390d1ba4950c47",
+      "workflow": "75f0df9bf716264954b7d632bf1b25643d88c6ff"
+    },
+    "method": "Independent git diff and tree comparison on exact commits; complete file list, not truncated compare API.",
+    "changed_list_sha256": "9b175a37297ce24c48c7b2eb370dec91b459ada9b67cbc0c887df54c70564eff"
+  },
+  "changed_records": {
+    "cassiterite-polymetallic-sulfide-ore": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cassiterite-polymetallic-sulfide-ore.html",
+      "http_status": 200,
+      "source": "data/records/cassiterite-polymetallic-sulfide-ore.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A1W1W805",
+        "UniProtKB:A4ZV25"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        },
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (6):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:F9ZQD6\nF9ZQD6_ACICS\nTREMBL\tSulfide-quinone reductase\nGene: Atc_1705\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; Atc_1705) in Acidithiobacillus caldus SM-1 catalyzing sulfide oxidation coupled to quinone reduction during moderately thermophilic bioleaching. [wang2025]\nGrounded to reference-proteome entry UP000006135 for sequenced strain Acidithiobacillus caldus SM-1 (NCBITaxon:990288), representing the Central South University Acidithiobacillus caldus isolate (NCBITaxon:33059) used in single-culture and 1:1:1 mixed-culture bio-desulfurization of Myanmar cassiterite-polymetallic sulfide ore in Wang et al. (2025).\nUniProtKB:F9ZN43\nF9ZN43_ACICS\nTREMBL\tSulfide-quinone reductase, putative\nGene: Atc_1437\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tInterPro:IPR036188, InterPro:IPR052541\tPutative membrane-bound sulfide-quinone reductase paralog (Atc_1437; 400 aa) in Acidithiobacillus caldus SM-1 oxidizing reduced sulfur speci",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    },
+    "chalcopyrite-enargite-concentrate": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/chalcopyrite-enargite-concentrate.html",
+      "http_status": 200,
+      "source": "data/records/chalcopyrite-enargite-concentrate.yaml",
+      "added_accessions": [
+        "UniProtKB:A4ZV25"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        },
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (4):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:F9ZQD6\nF9ZQD6_ACICS\nTREMBL\tSulfide-quinone reductase\nGene: Atc_1705\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; Atc_1705) in Acidithiobacillus caldus SM-1 catalyzing sulfide oxidation coupled to quinone reduction during chemolithoautotrophic sulfur bioleaching. [oyama_2021]\nGrounded to reference-proteome entry UP000006135 for sequenced strain Acidithiobacillus caldus SM-1 (NCBITaxon:990288), representing moderately thermophilic sulfur-oxidizer Acidithiobacillus caldus KU (DSM 8584; NCBITaxon:33059) within a four-member consortium (Acidiplasma sp. Fv-Ap, Acidimicrobium ferrooxidans ICP, Sulfobacillus sibiricus N1, and Acidithiobacillus caldus KU) in Oyama et al. (2021).\nUniProtKB:F9ZN43\nF9ZN43_ACICS\nTREMBL\tSulfide-quinone reductase, putative\nGene: Atc_1437\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tInterPro:IPR036188, InterPro:IPR052541\tPutative membrane-bound sulfide-quinone reductase paralog (Atc_1437; 400 aa) in A",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    },
+    "chalcopyrite": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/chalcopyrite.html",
+      "http_status": 200,
+      "source": "data/records/chalcopyrite.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A1W1W805",
+        "UniProtKB:A4ZV25"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        },
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (6):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:F9ZQD6\nF9ZQD6_ACICS\nTREMBL\tSulfide-quinone reductase\nGene: Atc_1705\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; Atc_1705) in Acidithiobacillus caldus SM-1 catalyzing sulfide oxidation coupled to quinone reduction during moderately thermophilic bioleaching. [christel_2018]\nGrounded to reference-proteome entry UP000006135 for sequenced strain Acidithiobacillus caldus SM-1 (NCBITaxon:990288), representing Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) tested singly and in binary/ternary combinations with Sulfobacillus thermosulfidooxidans DSM 9293 and Leptospirillum ferriphilum DSM 14647 on Aitik chalcopyrite concentrate in Christel et al. (2018).\nUniProtKB:F9ZN43\nF9ZN43_ACICS\nTREMBL\tSulfide-quinone reductase, putative\nGene: Atc_1437\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tInterPro:IPR036188, InterPro:IPR052541\tPutative membrane-bound sulfide-quinone reductase paralog (Atc_1437; 400 aa) in Acidithiobacillus cal",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    },
+    "coal-beneficiation-waste": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/coal-beneficiation-waste.html",
+      "http_status": 200,
+      "source": "data/records/coal-beneficiation-waste.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A2W1K175"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:B7JBP8",
+          "href": "https://www.uniprot.org/uniprotkb/B7JBP8"
+        },
+        {
+          "text": "UniProtKB:B7J411",
+          "href": "https://www.uniprot.org/uniprotkb/B7J411"
+        },
+        {
+          "text": "UniProtKB:B7J3C9",
+          "href": "https://www.uniprot.org/uniprotkb/B7J3C9"
+        },
+        {
+          "text": "UniProtKB:A0A2W1K175",
+          "href": "https://www.uniprot.org/uniprotkb/A0A2W1K175"
+        },
+        {
+          "text": "UniProtKB:B7JBP8",
+          "href": "https://www.uniprot.org/uniprotkb/B7JBP8"
+        },
+        {
+          "text": "UniProtKB:B7J411",
+          "href": "https://www.uniprot.org/uniprotkb/B7J411"
+        },
+        {
+          "text": "UniProtKB:B7J3C9",
+          "href": "https://www.uniprot.org/uniprotkb/B7J3C9"
+        },
+        {
+          "text": "UniProtKB:A0A2W1K175",
+          "href": "https://www.uniprot.org/uniprotkb/A0A2W1K175"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (4):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:B7JBP8\nSQRD_ACIF2\nSWISS_PROT\tSulfide-quinone reductase\nGene: AFE_1792\tAcidithiobacillus ferrooxidans ATCC 23270\nNCBITaxon:243159 \u00b7 UP000001362\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR051169\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; AFE_1792) in Acidithiobacillus ferrooxidans ATCC 23270 catalyzing oxidation of sulfide to elemental sulfur and polysulfide/polythionate intermediates coupled to quinone reduction during chemolithoautotrophic sulfur/sulfide bioleaching. [blayda2018]\nGrounded to reviewed Swiss-Prot reference-proteome entry UP000001362 for Acidithiobacillus ferrooxidans ATCC 23270 (NCBITaxon:243159), representing source-identified Acidithiobacillus ferrooxidans isolates Lv black 37 and Lv red 9 (NCBITaxon:920) added in the 6 L bacterial preparation with 194 L of 5.0 g/L Na2S2O3 medium per 20 kg vessel in the three-stage experimental cascade of Blayda et al. (2018).\nUniProtKB:B7J411\nB7J411_ACIF2\nTREMBL\tSulfide quinone reductase, putative\nGene: sqr\tAcidithiobacillus ferrooxidans ATCC 23270\nNCBITaxon:243159 \u00b7 UP000001362\tInterPro:IP",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 669,
+      "has_own_yaml_link": true
+    },
+    "copper-smelter-flue-dust": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/copper-smelter-flue-dust.html",
+      "http_status": 200,
+      "source": "data/records/copper-smelter-flue-dust.yaml",
+      "added_accessions": [
+        "UniProtKB:I0IN58"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:B7JBP8",
+          "href": "https://www.uniprot.org/uniprotkb/B7JBP8"
+        },
+        {
+          "text": "UniProtKB:B7J411",
+          "href": "https://www.uniprot.org/uniprotkb/B7J411"
+        },
+        {
+          "text": "UniProtKB:A0A543Q349",
+          "href": "https://www.uniprot.org/uniprotkb/A0A543Q349"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XUB1",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XUB1"
+        },
+        {
+          "text": "UniProtKB:I0IN58",
+          "href": "https://www.uniprot.org/uniprotkb/I0IN58"
+        },
+        {
+          "text": "UniProtKB:B7J3C9",
+          "href": "https://www.uniprot.org/uniprotkb/B7J3C9"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XPU3",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XPU3"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XS05",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XS05"
+        },
+        {
+          "text": "UniProtKB:B7JBP8",
+          "href": "https://www.uniprot.org/uniprotkb/B7JBP8"
+        },
+        {
+          "text": "UniProtKB:B7J411",
+          "href": "https://www.uniprot.org/uniprotkb/B7J411"
+        },
+        {
+          "text": "UniProtKB:A0A543Q349",
+          "href": "https://www.uniprot.org/uniprotkb/A0A543Q349"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XUB1",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XUB1"
+        },
+        {
+          "text": "UniProtKB:I0IN58",
+          "href": "https://www.uniprot.org/uniprotkb/I0IN58"
+        },
+        {
+          "text": "UniProtKB:B7J3C9",
+          "href": "https://www.uniprot.org/uniprotkb/B7J3C9"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XPU3",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XPU3"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XS05",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XS05"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (8):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:B7JBP8\nSQRD_ACIF2\nSWISS_PROT\tSulfide-quinone reductase\nGene: AFE_1792\tAcidithiobacillus ferrooxidans ATCC 23270\nNCBITaxon:243159 \u00b7 UP000001362\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR051169\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; AFE_1792) in Acidithiobacillus ferrooxidans ATCC 23270 catalyzing oxidation of sulfide to elemental sulfur and polysulfide/polythionate intermediates coupled to quinone reduction during chemolithoautotrophic sulfur/sulfide bioleaching. [bakhtiari2008]\nGrounded to reviewed Swiss-Prot reference-proteome entry UP000001362 for Acidithiobacillus ferrooxidans ATCC 23270 (NCBITaxon:243159), representing the Sarcheshmeh acid-mine-drainage Acidithiobacillus ferrooxidans isolate (NCBITaxon:920) in the adapted mesophilic consortium (with A. thiooxidans and L. ferrooxidans) leaching acid-pretreated copper-smelter flue dust in Bakhtiari et al. (2008).\nUniProtKB:B7J411\nB7J411_ACIF2\nTREMBL\tSulfide quinone reductase, putative\nGene: sqr\tAcidithiobacillus ferrooxidans ATCC 23270\nNCBITaxon:243159 \u00b7 UP000001362\tInterPro:IPR036188",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 669,
+      "has_own_yaml_link": true
+    },
+    "copper": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/copper.html",
+      "http_status": 200,
+      "source": "data/records/copper.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A1W1W805",
+        "UniProtKB:A4ZV25"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        },
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (6):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:F9ZQD6\nF9ZQD6_ACICS\nTREMBL\tSulfide-quinone reductase\nGene: Atc_1705\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; Atc_1705) in Acidithiobacillus caldus SM-1 catalyzing sulfide oxidation coupled to quinone reduction during moderately thermophilic bioleaching. [christel_2018]\nGrounded to reference-proteome entry UP000006135 for sequenced strain Acidithiobacillus caldus SM-1 (NCBITaxon:990288), representing Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) tested singly and in binary/ternary combinations with Sulfobacillus thermosulfidooxidans DSM 9293 and Leptospirillum ferriphilum DSM 14647 on Aitik chalcopyrite concentrate in Christel et al. (2018).\nUniProtKB:F9ZN43\nF9ZN43_ACICS\nTREMBL\tSulfide-quinone reductase, putative\nGene: Atc_1437\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tInterPro:IPR036188, InterPro:IPR052541\tPutative membrane-bound sulfide-quinone reductase paralog (Atc_1437; 400 aa) in Acidithiobacillus cal",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    },
+    "molybdenite": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/molybdenite.html",
+      "http_status": 200,
+      "source": "data/records/molybdenite.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A2W1K175"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:B7JBP8",
+          "href": "https://www.uniprot.org/uniprotkb/B7JBP8"
+        },
+        {
+          "text": "UniProtKB:B7J411",
+          "href": "https://www.uniprot.org/uniprotkb/B7J411"
+        },
+        {
+          "text": "UniProtKB:B7J3C9",
+          "href": "https://www.uniprot.org/uniprotkb/B7J3C9"
+        },
+        {
+          "text": "UniProtKB:A0A2W1K175",
+          "href": "https://www.uniprot.org/uniprotkb/A0A2W1K175"
+        },
+        {
+          "text": "UniProtKB:B7JBP8",
+          "href": "https://www.uniprot.org/uniprotkb/B7JBP8"
+        },
+        {
+          "text": "UniProtKB:B7J411",
+          "href": "https://www.uniprot.org/uniprotkb/B7J411"
+        },
+        {
+          "text": "UniProtKB:B7J3C9",
+          "href": "https://www.uniprot.org/uniprotkb/B7J3C9"
+        },
+        {
+          "text": "UniProtKB:A0A2W1K175",
+          "href": "https://www.uniprot.org/uniprotkb/A0A2W1K175"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (4):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:B7JBP8\nSQRD_ACIF2\nSWISS_PROT\tSulfide-quinone reductase\nGene: AFE_1792\tAcidithiobacillus ferrooxidans ATCC 23270\nNCBITaxon:243159 \u00b7 UP000001362\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR051169\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; AFE_1792) in Acidithiobacillus ferrooxidans ATCC 23270 catalyzing oxidation of sulfide to elemental sulfur and polysulfide/polythionate intermediates coupled to quinone reduction during chemolithoautotrophic sulfur/sulfide bioleaching. [francisco2007]\nGrounded to reviewed Swiss-Prot reference-proteome entry UP000001362 for Acidithiobacillus ferrooxidans ATCC 23270 (NCBITaxon:243159), representing the Lagoa Real Acidithiobacillus ferrooxidans isolate LR (NCBITaxon:920) adapted to the Ward's Natural Science mixed molybdenite/pyrite/pyrrhotite specimen in Francisco Jr. et al. (2007).\nUniProtKB:B7J411\nB7J411_ACIF2\nTREMBL\tSulfide quinone reductase, putative\nGene: sqr\tAcidithiobacillus ferrooxidans ATCC 23270\nNCBITaxon:243159 \u00b7 UP000001362\tInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembr",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 669,
+      "has_own_yaml_link": true
+    },
+    "pyrite-roasting-cinder": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/pyrite-roasting-cinder.html",
+      "http_status": 200,
+      "source": "data/records/pyrite-roasting-cinder.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A1W1W805",
+        "UniProtKB:A4ZV25"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        },
+        {
+          "text": "UniProtKB:F9ZQD6",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZQD6"
+        },
+        {
+          "text": "UniProtKB:F9ZN43",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZN43"
+        },
+        {
+          "text": "UniProtKB:A0A059XTE6",
+          "href": "https://www.uniprot.org/uniprotkb/A0A059XTE6"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:F9ZNI0",
+          "href": "https://www.uniprot.org/uniprotkb/F9ZNI0"
+        },
+        {
+          "text": "UniProtKB:A4ZV25",
+          "href": "https://www.uniprot.org/uniprotkb/A4ZV25"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (6):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:F9ZQD6\nF9ZQD6_ACICS\nTREMBL\tSulfide-quinone reductase\nGene: Atc_1705\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tEC:1.8.5.4\nInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (EC 1.8.5.4; Atc_1705) in Acidithiobacillus caldus SM-1 catalyzing sulfide oxidation coupled to quinone reduction during moderately thermophilic bioleaching. [pereira2025]\nGrounded to reference-proteome entry UP000006135 for sequenced strain Acidithiobacillus caldus SM-1 (NCBITaxon:990288), representing Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) in the SLA consortium (with Sulfobacillus thermosulfidooxidans DSM 9293T and Leptospirillum ferriphilum DSM 14647) tested on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025).\nUniProtKB:F9ZN43\nF9ZN43_ACICS\nTREMBL\tSulfide-quinone reductase, putative\nGene: Atc_1437\tAcidithiobacillus caldus SM-1\nNCBITaxon:990288 \u00b7 UP000006135\tInterPro:IPR036188, InterPro:IPR052541\tPutative membrane-bound sulfide-quinone reductase paralog (Atc_1437; 400 aa) in Acidithiobacillus caldus SM-1 o",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    },
+    "skutterudite": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/skutterudite.html",
+      "http_status": 200,
+      "source": "data/records/skutterudite.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A1W1W805"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:A0A543Q349",
+          "href": "https://www.uniprot.org/uniprotkb/A0A543Q349"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XUB1",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XUB1"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XPU3",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XPU3"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XS05",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XS05"
+        },
+        {
+          "text": "UniProtKB:A0A543Q349",
+          "href": "https://www.uniprot.org/uniprotkb/A0A543Q349"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XUB1",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XUB1"
+        },
+        {
+          "text": "UniProtKB:A0A1W1W805",
+          "href": "https://www.uniprot.org/uniprotkb/A0A1W1W805"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XPU3",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XPU3"
+        },
+        {
+          "text": "UniProtKB:A0A5P9XS05",
+          "href": "https://www.uniprot.org/uniprotkb/A0A5P9XS05"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (5):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:A0A543Q349\nA0A543Q349_ACITH\nTREMBL\tPyridine nucleotide-disulfide oxidoreductase\nGene: sqr\tAcidithiobacillus thiooxidans ATCC 19377\nNCBITaxon:637390 \u00b7 UP000363590\tInterPro:IPR036188, InterPro:IPR023753, InterPro:IPR052541\nPfam:PF07992\tMembrane-bound sulfide-quinone reductase (sqr, locus GCD22_02301) in Acidithiobacillus thiooxidans ATCC 19377 oxidizing reduced sulfur species to elemental sulfur and polythionate intermediates during acidophilic bioleaching. [johnson2020]\nGrounded to reference-proteome entry UP000363590 for type strain Acidithiobacillus thiooxidans ATCC 19377 (NCBITaxon:637390), representing Acidithiobacillus thiooxidans (NCBITaxon:930), identified by colony 16S rRNA sequencing as a significant viable consortium member after 16-day bioreactor bioleaching of Bou Azzer skutterudite-dominated concentrate with 0.5% w/v elemental sulfur in Johnson et al. (2020).\nUniProtKB:A0A5P9XUB1\nA0A5P9XUB1_ACITH\nTREMBL\tPyridine nucleotide-disulfide oxidoreductase\nGene: sqor\tAcidithiobacillus thiooxidans ATCC 19377\nNCBITaxon:637390 \u00b7 UP000363590\tInterPro:IPR036188, InterPro:IPR023753, Inte",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    },
+    "waste-x-ray-films": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/waste-x-ray-films.html",
+      "http_status": 200,
+      "source": "data/records/waste-x-ray-films.yaml",
+      "added_accessions": [
+        "UniProtKB:A0A137NYS1"
+      ],
+      "missing_resolver_anchors": [],
+      "protein_anchors": [
+        {
+          "text": "UniProtKB:A0A137NYV2",
+          "href": "https://www.uniprot.org/uniprotkb/A0A137NYV2"
+        },
+        {
+          "text": "UniProtKB:A0A137NYS1",
+          "href": "https://www.uniprot.org/uniprotkb/A0A137NYS1"
+        },
+        {
+          "text": "UniProtKB:F1DKR8",
+          "href": "https://www.uniprot.org/uniprotkb/F1DKR8"
+        },
+        {
+          "text": "UniProtKB:A0A137NYV2",
+          "href": "https://www.uniprot.org/uniprotkb/A0A137NYV2"
+        },
+        {
+          "text": "UniProtKB:A0A137NYS1",
+          "href": "https://www.uniprot.org/uniprotkb/A0A137NYS1"
+        },
+        {
+          "text": "UniProtKB:F1DKR8",
+          "href": "https://www.uniprot.org/uniprotkb/F1DKR8"
+        }
+      ],
+      "protein_excerpt": "PROTEIN EXAMPLES (2):\nUniProtKB\tProtein & Gene\tOrganism\tCross-References\tFunctional Role\nUniProtKB:A0A137NYV2\nA0A137NYV2_CONC2\nTREMBL\tSubtilisin-like protease\tConidiobolus coronatus NRRL 28638\nNCBITaxon:796925 \u00b7 UP000070444\tInterPro:IPR034193, InterPro:IPR000209, InterPro:IPR036852, InterPro:IPR023827, InterPro:IPR022398, InterPro:IPR023828, InterPro:IPR050131, InterPro:IPR015500\nPfam:PF00082\tSecreted subtilisin-like serine alkaline protease (peptidase S8 family; locus CONCODRAFT_77703) in Conidiobolus coronatus capable of hydrolyzing extracellular protein/gelatin substrates. [shankar2010]\nGrounded to reference-proteome entry UP000070444 (UniProtKB:A0A137NYV2; locus CONCODRAFT_77703) for Conidiobolus coronatus NRRL 28638 (NCBITaxon:796925), representing the extracellular alkaline protease activity in crude supernatant of experimental strain Conidiobolus coronatus ATCC PTA-4132 (NCBITaxon:34488).\nUniProtKB:A0A137NYS1\nA0A137NYS1_CONC2\nTREMBL\tSubtilisin-like protease\tConidiobolus coronatus NRRL 28638\nNCBITaxon:796925 \u00b7 UP000070444\tInterPro:IPR034193, InterPro:IPR000209, InterPro:IPR036852, InterPro:IPR023827, InterPro:IPR022398, InterPro:IPR023828, InterPro:IPR050131, InterPro:IPR0155",
+      "current_footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "theme": "dark",
+      "width_390": 652,
+      "has_own_yaml_link": true
+    }
+  },
+  "controls": {
+    "query:CHEBI:27638": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=CHEBI%3A27638",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "1 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Cobalt\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\n\tElement\tCritical\nEuropean Union Regulation (EU) 2024/1252, Annex II, Section 1, List of critical raw materials (critical); United States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\u2014\t\nCHEBI:27638"
+      ],
+      "visibleRows": 1
+    },
+    "query:cmmmech:copper": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=cmmmech%3Acopper",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "1 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Chalcopyrite\n\nChalcopyrite is the mineral species with IMA-approved formula CuFeS2. The September 2026 IMA list records status G (grandfathered) and the uncertain original-description year 1725 ?. That year is not an IMA approval number. This mineral species is distinct from elemental copper, the copper commodity, and an impure flotation concentrate. The curated bioleaching experiment concerns an Aitik concentrate; its copper-element representation in cmmmech:copper is the same experiment, not an independent replication. No constituent-element criticality is inherited.\n\n\tMineral\t\u2014\t1\nBioleaching\n\t\nAcidithiobacillus caldus\nSulfobacillus thermosulfidooxidans\nLeptospirillum ferriphilum\n\t\u2014"
+      ],
+      "visibleRows": 1
+    },
+    "query:Cobalt": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=Cobalt",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "23 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Asbolane\n\nAsbolane is a hydrous manganese oxide mineral with variable associated hydroxide cations, listed as grandfathered with historical year 1841 in the September 2026 IMA-CNMNC list. Its listed formula is Mn4+(O,OH)2\u00b7(Co,Ni,Mg,Ca)x(OH)2x\u00b7nH2O. It is distinct from elemental manganese, cobalt and nickel, from lateritic ore, and from an arbitrary cobalt-doped birnessite preparation. The experiment below uses a synthetic Co/Ni-bearing powder that the source assigns to asbolane by XRD; no independent refinement establishes ideal composition or complete phase purity. No commodity criticality is inherited.\n\n\tMineral\t\u2014\t1\nRedox Transformation\n\t\nGeobacter sulfurreducens\n\t\u2014",
+        "Birnessite\n\nBirnessite is a layered manganese oxide mineral, listed as grandfathered in the September 2026 IMA-CNMNC list with formula (Na,Ca,K)0.6(Mn4+,Mn3+)2O4(H2O)1.5. Its composition and polytype vary. It is distinct from elemental manganese, mixed manganese ore and nodules, the buserite precursor used to prepare some synthetic analogues, and manganese oxalate products. The mechanisms below concern separately prepared synthetic sodium and cobalt-bearing forms, and a source-assigned poorly crystalline biogenic Mn-oxide/fungal composite. They do not establish behavior for natural ore or every birnessite polytype. No criticality designation is inherited from manganese.\n\n\tMineral\t\u2014\t4\nBioleaching Biomineralization Biosorption\n\t\nAspergillus niger\nSerpula himantioides\nParaconiothyrium sp. WL-2\n\t\u2014",
+        "Carrollite\n\nCarrollite is the CuCo2S4 mineral species, listed as grandfathered with original-description year 1852 in the September 2026 IMA list. It is distinct from elemental cobalt or copper, dissolved metal ions, mixed cobalt-bearing ores and mine tailings. The evidence below concerns laboratory surface alteration of source-identified natural carrollite crystals in an acidophile culture system. It does not establish an isolated-metal recovery yield or industrial deployment. No criticality designation is inherited from constituent elements.\n\n\tMineral\t\u2014\t1\nBioleaching\n\t\u2014\t\u2014"
+      ],
+      "visibleRows": 23
+    },
+    "query:no-such-cmm-skeptic": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=no-such-cmm-skeptic",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "0 of 678 materials shown"
+        }
+      ],
+      "firstRows": [],
+      "visibleRows": 0
+    },
+    "select:record-kind": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?kind=element",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "66 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Aluminium\n\nAluminium (Al), the chemical element, distinct from its ions, alumina, bauxite ores and red-mud wastes. The dated US designation maps the named aluminum commodity to this element without assigning criticality to every Al-bearing material. The curated mechanism concerns laboratory aluminium mobilization from a mixed red-mud sample, not production of aluminium metal.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAspergillus niger\n\t\nCHEBI:28984",
+        "Antimony\n\nAntimony (Sb), represented as an element distinct from antimonate feed, sorbed antimonite and sulfide-bearing products. A sediment-inoculated laboratory experiment supports transformation through coupled microbial and chemical reactions under sulfidogenic conditions. The United States 2025 critical-mineral designation names the antimony commodity; it does not designate every Sb compound, host mineral or secondary resource.\n\n\tElement\tCritical\nUnited States of America U.S. Department of the Interior Final List of Critical Minerals (critical)\n\t1\nRedox Transformation\n\t\u2014\t\nCHEBI:30513",
+        "Arsenic\n\nArsenic (As), grounded by the neutral-atom ChEBI identifier. Arsenate, arsenite, gallium arsenide and metal hydroxide sludge are different chemical or resource entities. The US designation maps the listed arsenic commodity to this element without designating all arsenic-bearing wastes. Arsenic was retained in the final 2025 list despite proposed removal in the draft. The mechanism concerns co-mobilization from sludge in the same experiment curated for gallium, not an independent replication or an arsenic detoxification process.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAcidithiobacillus thiooxidans\n\t\nCHEBI:27563"
+      ],
+      "visibleRows": 66
+    },
+    "select:record-mechanism": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?kind=element&process=bioleaching",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "15 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Aluminium\n\nAluminium (Al), the chemical element, distinct from its ions, alumina, bauxite ores and red-mud wastes. The dated US designation maps the named aluminum commodity to this element without assigning criticality to every Al-bearing material. The curated mechanism concerns laboratory aluminium mobilization from a mixed red-mud sample, not production of aluminium metal.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAspergillus niger\n\t\nCHEBI:28984",
+        "Arsenic\n\nArsenic (As), grounded by the neutral-atom ChEBI identifier. Arsenate, arsenite, gallium arsenide and metal hydroxide sludge are different chemical or resource entities. The US designation maps the listed arsenic commodity to this element without designating all arsenic-bearing wastes. Arsenic was retained in the final 2025 list despite proposed removal in the draft. The mechanism concerns co-mobilization from sludge in the same experiment curated for gallium, not an independent replication or an arsenic detoxification process.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAcidithiobacillus thiooxidans\n\t\nCHEBI:27563",
+        "Cobalt\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\n\tElement\tCritical\nEuropean Union Regulation (EU) 2024/1252, Annex II, Section 1, List of critical raw materials (critical); United States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\u2014\t\nCHEBI:27638"
+      ],
+      "visibleRows": 15
+    },
+    "select:record-criticality": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?kind=element&process=bioleaching&criticality=critical",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "15 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Aluminium\n\nAluminium (Al), the chemical element, distinct from its ions, alumina, bauxite ores and red-mud wastes. The dated US designation maps the named aluminum commodity to this element without assigning criticality to every Al-bearing material. The curated mechanism concerns laboratory aluminium mobilization from a mixed red-mud sample, not production of aluminium metal.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAspergillus niger\n\t\nCHEBI:28984",
+        "Arsenic\n\nArsenic (As), grounded by the neutral-atom ChEBI identifier. Arsenate, arsenite, gallium arsenide and metal hydroxide sludge are different chemical or resource entities. The US designation maps the listed arsenic commodity to this element without designating all arsenic-bearing wastes. Arsenic was retained in the final 2025 list despite proposed removal in the draft. The mechanism concerns co-mobilization from sludge in the same experiment curated for gallium, not an independent replication or an arsenic detoxification process.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAcidithiobacillus thiooxidans\n\t\nCHEBI:27563",
+        "Cobalt\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\n\tElement\tCritical\nEuropean Union Regulation (EU) 2024/1252, Annex II, Section 1, List of critical raw materials (critical); United States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\u2014\t\nCHEBI:27638"
+      ],
+      "visibleRows": 15
+    },
+    "select:record-sort": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?kind=element&process=bioleaching&criticality=critical&sort=name-desc",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "15 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Zinc\n\nZinc (Zn), atomic number 30. The zinc-atom identifier grounds this element record, not dissolved Zn(II), zinc sulfide, sphalerite, or a zinc concentrate. The United States designation maps the listed zinc commodity to this element; it does not designate every zinc-bearing mineral or waste. The curated experiments concern laboratory dissolution of a sphalerite concentrate.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAcidithiobacillus ferrooxidans\n\t\nCHEBI:27363",
+        "Tungsten\n\nThe element W, distinct from tungstate ions, scheelite and wolframite, tungsten carbides, experimental concentrates and mining wastes. The dated US designation concerns the named tungsten mineral commodity rather than every W-bearing material. A laboratory study supports enhanced tungsten release from an impure scheelite concentrate in Metallosphaera sedula cultures; it does not establish an isolated tungsten product, a specific tungsten redox pathway or industrial recovery.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nMetallosphaera sedula\n\t\nCHEBI:27998",
+        "Tantalum\n\nThe element Ta, distinct from tantalum ions, oxides, mineral species, capacitor components and mixed electronic scrap. The United States 2025 list's Tantalum entry is mapped to this element; that designation is not inherited by every capacitor or waste feed. The curated primary study documents an unsuccessful acidophile leaching attempt for Ta under specified conditions, preserving a useful limitation rather than asserting recovery.\n\n\tElement\tCritical\nUnited States Department of the Interior Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\u2014\t\nCHEBI:33348"
+      ],
+      "visibleRows": 15
+    },
+    "before_reload": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?kind=element&process=bioleaching&criticality=critical&sort=name-desc",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "15 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Zinc\n\nZinc (Zn), atomic number 30. The zinc-atom identifier grounds this element record, not dissolved Zn(II), zinc sulfide, sphalerite, or a zinc concentrate. The United States designation maps the listed zinc commodity to this element; it does not designate every zinc-bearing mineral or waste. The curated experiments concern laboratory dissolution of a sphalerite concentrate.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAcidithiobacillus ferrooxidans\n\t\nCHEBI:27363",
+        "Tungsten\n\nThe element W, distinct from tungstate ions, scheelite and wolframite, tungsten carbides, experimental concentrates and mining wastes. The dated US designation concerns the named tungsten mineral commodity rather than every W-bearing material. A laboratory study supports enhanced tungsten release from an impure scheelite concentrate in Metallosphaera sedula cultures; it does not establish an isolated tungsten product, a specific tungsten redox pathway or industrial recovery.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nMetallosphaera sedula\n\t\nCHEBI:27998",
+        "Tantalum\n\nThe element Ta, distinct from tantalum ions, oxides, mineral species, capacitor components and mixed electronic scrap. The United States 2025 list's Tantalum entry is mapped to this element; that designation is not inherited by every capacitor or waste feed. The curated primary study documents an unsuccessful acidophile leaching attempt for Ta under specified conditions, preserving a useful limitation rather than asserting recovery.\n\n\tElement\tCritical\nUnited States Department of the Interior Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\u2014\t\nCHEBI:33348"
+      ],
+      "visibleRows": 15
+    },
+    "after_reload": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?kind=element&process=bioleaching&criticality=critical&sort=name-desc",
+      "statuses": [
+        {
+          "id": "record-count",
+          "text": "15 of 678 materials shown"
+        }
+      ],
+      "firstRows": [
+        "Zinc\n\nZinc (Zn), atomic number 30. The zinc-atom identifier grounds this element record, not dissolved Zn(II), zinc sulfide, sphalerite, or a zinc concentrate. The United States designation maps the listed zinc commodity to this element; it does not designate every zinc-bearing mineral or waste. The curated experiments concern laboratory dissolution of a sphalerite concentrate.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAcidithiobacillus ferrooxidans\n\t\nCHEBI:27363",
+        "Tungsten\n\nThe element W, distinct from tungstate ions, scheelite and wolframite, tungsten carbides, experimental concentrates and mining wastes. The dated US designation concerns the named tungsten mineral commodity rather than every W-bearing material. A laboratory study supports enhanced tungsten release from an impure scheelite concentrate in Metallosphaera sedula cultures; it does not establish an isolated tungsten product, a specific tungsten redox pathway or industrial recovery.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nMetallosphaera sedula\n\t\nCHEBI:27998",
+        "Tantalum\n\nThe element Ta, distinct from tantalum ions, oxides, mineral species, capacitor components and mixed electronic scrap. The United States 2025 list's Tantalum entry is mapped to this element; that designation is not inherited by every capacitor or waste feed. The curated primary study documents an unsuccessful acidophile leaching attempt for Ta under specified conditions, preserving a useful limitation rather than asserting recovery.\n\n\tElement\tCritical\nUnited States Department of the Interior Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\u2014\t\nCHEBI:33348"
+      ],
+      "visibleRows": 15
+    }
+  },
+  "deployment_before": {
+    "id": 7545798616,
+    "sha": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+    "created_at": "2026-11-04T12:22:25Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T12:22:49Z",
+      "environment_url": "https://culturebotai.github.io/CMMMech/"
+    },
+    "header_url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:22:42 GMT"
+  },
+  "landing": {
+    "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+    "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 92117fbb1ec5)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+    "excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCritical Materials, Minerals & Microbial Mechanisms\n\nAn evidence-backed knowledge base for critical minerals and materials, connecting strategic commodities and mineral hosts to microbial extraction, biomineralization, and recovery mechanisms.\n\nSearch\n678\nMaterials & Commodities\n609\nCurated Mechanisms\n500\nMaterials with Mechanisms\n90\nDesignated Critical Materials\nMaterial Kinds\n\nRecords distinguish chemical elements, mineral species and groups, commodities, and primary and secondary resources.\n\nElements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.\n\nMinerals\n427 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nSecondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.\n\nCommodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.\n\nPrimary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, a"
+  },
+  "width_boundary": {
+    "cobalt": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "width": 390,
+      "document_width": 597
+    },
+    "akaganeite": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html",
+      "width": 390,
+      "document_width": 669
+    }
+  },
+  "selects": [
+    {
+      "id": "record-kind",
+      "options": [
+        {
+          "value": "",
+          "text": "All kinds (678)"
+        },
+        {
+          "value": "element",
+          "text": "Element (66)"
+        },
+        {
+          "value": "mineral",
+          "text": "Mineral (427)"
+        },
+        {
+          "value": "secondary_resource",
+          "text": "Secondary resource (111)"
+        },
+        {
+          "value": "commodity",
+          "text": "Commodity (36)"
+        },
+        {
+          "value": "primary_resource",
+          "text": "Primary resource (31)"
+        },
+        {
+          "value": "mineral_group",
+          "text": "Mineral group (7)"
+        }
+      ]
+    },
+    {
+      "id": "record-mechanism",
+      "options": [
+        {
+          "value": "",
+          "text": "All processes"
+        },
+        {
+          "value": "bioleaching",
+          "text": "Bioleaching (157)"
+        },
+        {
+          "value": "biomineralization",
+          "text": "Biomineralization (95)"
+        },
+        {
+          "value": "redox_transformation",
+          "text": "Redox transformation (58)"
+        },
+        {
+          "value": "biosorption",
+          "text": "Biosorption (16)"
+        },
+        {
+          "value": "separation",
+          "text": "Separation (29)"
+        },
+        {
+          "value": "recovery",
+          "text": "Recovery (19)"
+        },
+        {
+          "value": "other",
+          "text": "Other (160)"
+        }
+      ]
+    },
+    {
+      "id": "record-criticality",
+      "options": [
+        {
+          "value": "",
+          "text": "All criticality"
+        },
+        {
+          "value": "critical",
+          "text": "Designated Critical"
+        }
+      ]
+    },
+    {
+      "id": "record-sort",
+      "options": [
+        {
+          "value": "name-asc",
+          "text": "Material name (A\u2013Z)"
+        },
+        {
+          "value": "name-desc",
+          "text": "Material name (Z\u2013A)"
+        },
+        {
+          "value": "mechs-desc",
+          "text": "Mechanisms (high\u2013low)"
+        },
+        {
+          "value": "orgs-desc",
+          "text": "Microbial agents (high\u2013low)"
+        },
+        {
+          "value": "kind-asc",
+          "text": "Material kind (A\u2013Z)"
+        },
+        {
+          "value": "crit-desc",
+          "text": "Criticality (critical first)"
+        }
+      ]
+    }
+  ],
+  "download": {
+    "url": "https://culturebotai.github.io/CMMMech/pages/index.json",
+    "status": 200,
+    "rows": 678,
+    "first_row_fields": [
+      "slug",
+      "name",
+      "material_kind",
+      "is_critical",
+      "criticality",
+      "mechanisms_count",
+      "processes",
+      "organisms",
+      "page"
+    ],
+    "assessment": "Navigation fields only; no full substantive record corpus. Partial download criterion retained."
+  },
+  "deployment_after": {
+    "id": 7545798616,
+    "sha": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+    "created_at": "2026-11-04T12:22:25Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T12:22:49Z",
+      "environment_url": "https://culturebotai.github.io/CMMMech/"
+    },
+    "header_url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:22:42 GMT"
+  },
+  "criterion_reconciliation": {
+    "search": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/search",
+      "agree": true
+    },
+    "facets": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/facets",
+      "agree": true
+    },
+    "result_counts": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/result_counts",
+      "agree": true
+    },
+    "sorting": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/sorting",
+      "agree": true
+    },
+    "shareable_state": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/shareable_state",
+      "agree": true
+    },
+    "full_catalogue": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/full_catalogue",
+      "agree": true
+    },
+    "suite_nav": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/suite_nav",
+      "agree": true
+    },
+    "record_pages": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/record_pages",
+      "agree": true
+    },
+    "term_links": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/term_links",
+      "agree": true
+    },
+    "evidence": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/evidence",
+      "agree": true
+    },
+    "review_status": {
+      "status": "missing",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/review_status",
+      "agree": true
+    },
+    "curation_history": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/curation_history",
+      "agree": true
+    },
+    "source_link": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/source_link",
+      "agree": true
+    },
+    "domain_view": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/domain_view",
+      "agree": true
+    },
+    "cross_mech_links": {
+      "status": "missing",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/cross_mech_links",
+      "agree": true
+    },
+    "corpus_stats": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/corpus_stats",
+      "agree": true
+    },
+    "category_browse": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/category_browse",
+      "agree": true
+    },
+    "downloads": {
+      "status": "partial",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/downloads",
+      "agree": true
+    },
+    "schema_docs": {
+      "status": "partial",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/schema_docs",
+      "agree": true
+    },
+    "license": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/license",
+      "agree": true
+    },
+    "build_provenance": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/build_provenance",
+      "agree": true
+    },
+    "theme_toggle": {
+      "status": "present",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/theme_toggle",
+      "agree": true
+    },
+    "responsive": {
+      "status": "partial",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/responsive",
+      "agree": true
+    },
+    "load_failure": {
+      "status": "not_applicable",
+      "auditor_evidence": "cmmmech-auditor-b.json#/features/load_failure",
+      "agree": true
+    }
+  },
+  "assessment": "All 24 verdicts remain valid. New protein examples retain labeled context, UniProt resolver links, citations, own-source access and curation history; current build digest is 92117fbb1ec5. Existing responsive, schema and export limitations remain.",
+  "finished_at": "2026-11-04T12:31:28.548272+00:00",
+  "raw_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/cmm-redeployment-independent-raw.json",
+    "sha256": "f7d483a59338063e1133643f721f9e38f4c0d214dc71f1b8000c8f8c59fbe4a0"
+  }
+}

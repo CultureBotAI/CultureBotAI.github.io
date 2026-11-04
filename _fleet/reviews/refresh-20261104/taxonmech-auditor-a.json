@@ -4,7 +4,7 @@
   "pin": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
   "started_at": "2026-11-04T11:50:29.630648+00:00",
   "finished_at": "2026-11-04T11:51:49.680714+00:00",
-  "supplemented_at": null,
+  "supplemented_at": "2026-11-04T12:36:39.816295+00:00",
   "deployment_before": {
     "id": 7538952744,
     "sha": "b04590a7a416eb934f67e7c04416e37924f10ec8",
@@ -17,15 +17,17 @@
     "last_modified": "Wed, 04 Nov 2026 05:47:18 GMT"
   },
   "deployment_after": {
-    "id": 7538952744,
-    "sha": "b04590a7a416eb934f67e7c04416e37924f10ec8",
-    "created_at": "2026-11-04T05:44:04Z",
+    "id": 7545963468,
+    "sha": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+    "created_at": "2026-11-04T12:29:37Z",
     "latest_status": {
       "state": "success",
-      "created_at": "2026-11-04T05:47:31Z",
+      "created_at": "2026-11-04T12:33:26Z",
       "environment_url": "https://culturebotai.github.io/TaxonMech/"
     },
-    "last_modified": "Wed, 04 Nov 2026 05:47:18 GMT"
+    "header_url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:33:12 GMT"
   },
   "features": {
     "search": {
@@ -1817,5 +1819,37 @@
     "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/taxonmech-auditor-a.json",
     "sha256": "619e5e2505089d1b614ca93fd522a567132cda2253360d6e868344628fe0d3e7",
     "bytes": 315113
+  },
+  "initial_deployment_after": {
+    "id": 7538952744,
+    "sha": "b04590a7a416eb934f67e7c04416e37924f10ec8",
+    "created_at": "2026-11-04T05:44:04Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T05:47:31Z",
+      "environment_url": "https://culturebotai.github.io/TaxonMech/"
+    },
+    "last_modified": "Wed, 04 Nov 2026 05:47:18 GMT"
+  },
+  "redeployment_followup": {
+    "receipt": "taxonmech-redeployment-20261104.json",
+    "verified_at": "2026-11-04T12:36:39.816295+00:00",
+    "served_revision": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+    "status_changes": 0,
+    "public_tree_hashes_unchanged": true,
+    "independent_review": "taxonmech-redeployment-skeptic.json; all 24 criteria agreed",
+    "deployment_after": {
+      "id": 7545963468,
+      "sha": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+      "created_at": "2026-11-04T12:29:37Z",
+      "latest_status": {
+        "state": "success",
+        "created_at": "2026-11-04T12:33:26Z",
+        "environment_url": "https://culturebotai.github.io/TaxonMech/"
+      },
+      "header_url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 12:33:12 GMT"
+    }
   }
 }

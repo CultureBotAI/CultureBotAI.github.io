@@ -1091,5 +1091,28 @@
     "schema_enums": 34,
     "criteria_reconciled": 24,
     "status_disagreements": 0
+  },
+  "cmm_redeployment": {
+    "receipt": "cmmmech-redeployment-skeptic.json",
+    "verified_at": "2026-11-04T12:31:28.548272+00:00",
+    "corpus_pin": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "served_revision": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+    "deployment": {
+      "id": 7545798616,
+      "sha": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+      "created_at": "2026-11-04T12:22:25Z",
+      "latest_status": {
+        "state": "success",
+        "created_at": "2026-11-04T12:22:49Z",
+        "environment_url": "https://culturebotai.github.io/CMMMech/"
+      },
+      "header_url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 12:22:42 GMT"
+    },
+    "criteria_reconciled": 24,
+    "status_disagreements": 0,
+    "changed_records_checked": 10,
+    "digest": "92117fbb1ec5"
   }
 }

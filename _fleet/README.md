@@ -495,9 +495,10 @@ directory and filename for each
 record, with labels distinguishing imports from maintained concepts.
 
 All fourteen corpora were rescanned at the common refresh pins. CELEX, AIO,
-arXiv and the registry aliases apply consistently to every row. The unchanged
-kg-microbe archive was rescanned with the same expanded namespace registry;
-its counts remain 1,379,336 nodes and 64 tracked vocabularies.
+arXiv and the registry aliases apply consistently to every row. The November 4
+refresh reused the existing kg-microbe comparison after verifying its source
+and namespace-registry hashes; it did not rescan the archive. Its counts remain
+1,379,336 nodes and 64 tracked vocabularies.
 
 kg-microbe is a **heatmap comparison**, outside Mech membership. It never joins
 `roots.ORDER`, the Mech statistics, cards, capability table or shared-term edge

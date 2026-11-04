@@ -647,9 +647,9 @@
   "CMMMech": {
     "site": "https://culturebotai.github.io/CMMMech/pages/index.html",
     "repository": "https://github.com/CultureBotAI/CMMMech",
-    "deployed_revision": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "deployed_revision": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
     "checked_on": "2026-11-04",
-    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "scope": "All 24 catalogue features re-exercised after the concurrent ff4a984 deployment, including ten changed records, controls, narrow views and data-request checks; the corpus pin remains 8bf82c8d.",
     "features": {
       "search": {
         "status": "present",
@@ -753,7 +753,7 @@
       },
       "build_provenance": {
         "status": "present",
-        "note": "Footers now state 678 materials, 609 mechanisms, latest curation 2026-11-04 and corpus digest 0e188cbbc0a4.",
+        "note": "Footers state 678 materials, 609 mechanisms, latest curation 2026-11-04 and corpus digest 92117fbb1ec5.",
         "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
       },
       "theme_toggle": {
@@ -763,7 +763,7 @@
       },
       "responsive": {
         "status": "partial",
-        "note": "At 390px, cobalt widens the document to 597px and akaganeite to 669px; both overflow on fresh and resized views.",
+        "note": "At 390px, cobalt widens the document to 597px and akaganeite to 669px. The ten newly curated records reach 652\u2013669px, including copper at 652px, on fresh and resized views.",
         "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
       },
       "load_failure": {

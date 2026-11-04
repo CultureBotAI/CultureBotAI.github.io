@@ -1,0 +1,3957 @@
+{
+  "pin": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+  "deployed_revision": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+  "commit": "Curate Cycle 7 Stage 3 UniProtKB protein examples across 10 multi-organism records (#915)",
+  "changed_file_count": 735,
+  "changed_file_groups": {
+    "data/records": 10,
+    "history/records": 10,
+    "pages/browse.html": 1,
+    "pages/graph.html": 1,
+    "pages/index.html": 1,
+    "pages/kinds": 6,
+    "pages/map.html": 1,
+    "pages/materials": 678,
+    "pages/processes": 7,
+    "reviews/structured": 20
+  },
+  "production_code_changes": [],
+  "record_paths": [
+    "data/records/cassiterite-polymetallic-sulfide-ore.yaml",
+    "data/records/chalcopyrite-enargite-concentrate.yaml",
+    "data/records/chalcopyrite.yaml",
+    "data/records/coal-beneficiation-waste.yaml",
+    "data/records/copper-smelter-flue-dust.yaml",
+    "data/records/copper.yaml",
+    "data/records/molybdenite.yaml",
+    "data/records/pyrite-roasting-cinder.yaml",
+    "data/records/skutterudite.yaml",
+    "data/records/waste-x-ray-films.yaml"
+  ],
+  "changed_files": [
+    {
+      "path": "data/records/cassiterite-polymetallic-sulfide-ore.yaml",
+      "added": "96",
+      "deleted": "7"
+    },
+    {
+      "path": "data/records/chalcopyrite-enargite-concentrate.yaml",
+      "added": "52",
+      "deleted": "5"
+    },
+    {
+      "path": "data/records/chalcopyrite.yaml",
+      "added": "96",
+      "deleted": "7"
+    },
+    {
+      "path": "data/records/coal-beneficiation-waste.yaml",
+      "added": "54",
+      "deleted": "5"
+    },
+    {
+      "path": "data/records/copper-smelter-flue-dust.yaml",
+      "added": "56",
+      "deleted": "5"
+    },
+    {
+      "path": "data/records/copper.yaml",
+      "added": "96",
+      "deleted": "7"
+    },
+    {
+      "path": "data/records/molybdenite.yaml",
+      "added": "54",
+      "deleted": "5"
+    },
+    {
+      "path": "data/records/pyrite-roasting-cinder.yaml",
+      "added": "96",
+      "deleted": "7"
+    },
+    {
+      "path": "data/records/skutterudite.yaml",
+      "added": "51",
+      "deleted": "4"
+    },
+    {
+      "path": "data/records/waste-x-ray-films.yaml",
+      "added": "58",
+      "deleted": "1"
+    },
+    {
+      "path": "history/records/cassiterite-polymetallic-sulfide-ore/2026-11-04T113741Z-marcin-121fc3.yaml",
+      "added": "28",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/chalcopyrite-enargite-concentrate/2026-11-04T113741Z-marcin-a47150.yaml",
+      "added": "26",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/chalcopyrite/2026-11-04T113741Z-marcin-0942cf.yaml",
+      "added": "27",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/coal-beneficiation-waste/2026-11-04T113741Z-marcin-b18f5d.yaml",
+      "added": "26",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/copper-smelter-flue-dust/2026-11-04T113741Z-marcin-7fadf7.yaml",
+      "added": "26",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/copper/2026-11-04T113742Z-marcin-29bb2e.yaml",
+      "added": "27",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/molybdenite/2026-11-04T113742Z-marcin-beb7da.yaml",
+      "added": "26",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/pyrite-roasting-cinder/2026-11-04T113742Z-marcin-c4162b.yaml",
+      "added": "28",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/skutterudite/2026-11-04T113742Z-marcin-2d9ab0.yaml",
+      "added": "26",
+      "deleted": "0"
+    },
+    {
+      "path": "history/records/waste-x-ray-films/2026-11-04T113920Z-marcin-598caa.yaml",
+      "added": "26",
+      "deleted": "0"
+    },
+    {
+      "path": "pages/browse.html",
+      "added": "11",
+      "deleted": "11"
+    },
+    {
+      "path": "pages/graph.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/index.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/kinds/commodity.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/kinds/element.html",
+      "added": "2",
+      "deleted": "2"
+    },
+    {
+      "path": "pages/kinds/mineral.html",
+      "added": "4",
+      "deleted": "4"
+    },
+    {
+      "path": "pages/kinds/mineral_group.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/kinds/primary_resource.html",
+      "added": "3",
+      "deleted": "3"
+    },
+    {
+      "path": "pages/kinds/secondary_resource.html",
+      "added": "5",
+      "deleted": "5"
+    },
+    {
+      "path": "pages/map.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/acanthite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/acid-mine-drainage.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/adamsite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/akaganeite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/alabandite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/albite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/alburnite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/alicewilsonite-yce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/alicewilsonite-yla.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/allanite-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/allanite-leachate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/alumina.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/aluminium-salt-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/aluminium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/aluminosugilite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/alunite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/amblygonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ameghinite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ammonioborite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ammoniojarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/anatase.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ancylite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/andersonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/andreybulakhite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/anglesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/anhydrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/anilite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/annabergite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/anorthite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/antimony.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/aragonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/argentojarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/argyrodite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/aristarainite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/arsenic.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/arsenopyrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/artinite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/asbolane.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/atacamite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/automotive-wastewater-treatment-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/autunite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/azurite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/baddeleyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bainbridgeite-ndce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bainbridgeite-yce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/baricite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bario-orthojoaquinite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/baryte.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/basalt.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/basic-oxygen-furnace-steel-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/basic-oxygen-furnace-steelmaking-dust.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bassanite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bastnaesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/battery-black-mass.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bauxite-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bauxite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/becquerelite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/behoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/beryllium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/beudantite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/beverage-carton-hydropulping-reject.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bijvoetite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/billietite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/biogas-desulfurization-sulfur-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/biotite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/birnessite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bismuth.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bismuthinite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bixbyite-mn.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/blast-furnace-cast-house-dust.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bobierrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/boehmite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/boltwoodite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/boracite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/borates.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/borax.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/bornite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/boron-ore-concentration-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/boron.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/briartite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/brochantite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/brookite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/brucite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/brushite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/burbankite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/burtite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cabalzarite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cabriite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cadmium-telluride-photovoltaic-module-scrap.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cadmium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cadmoindite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/calcioancylite-la.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/calcioburbankite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/calciohilairite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/calcioveatchite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/calcite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/calkinsite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/carbonatite-associated-rare-earth-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/carnotite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/carrollite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cassidyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cassiterite-polymetallic-sulfide-ore.html",
+      "added": "65",
+      "deleted": "9"
+    },
+    {
+      "path": "pages/materials/cassiterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/catapleiite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cathode-ray-tube-glass.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cattiite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cavansite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/caysichite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/celestine.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cemented-tungsten-carbide-scrap.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cerianite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cerium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cerussite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cesium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chalcocite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chalcopyrite-enargite-concentrate.html",
+      "added": "38",
+      "deleted": "7"
+    },
+    {
+      "path": "pages/materials/chalcopyrite.html",
+      "added": "65",
+      "deleted": "9"
+    },
+    {
+      "path": "pages/materials/chernikovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/childrenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chlorapatite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chlorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chromite-beneficiation-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chromite-ore-processing-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chromite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chromium-tanned-leather-shavings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chromium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chrysotile-asbestos-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chrysotile.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/chukanovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/churchite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cinnabar.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coal-beneficiation-waste.html",
+      "added": "38",
+      "deleted": "7"
+    },
+    {
+      "path": "pages/materials/coal-fly-ash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coal-gasification-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coal-mine-drainage-treatment-solids.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cobalt-rich-ferromanganese-crusts.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cobalt.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cobaltite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coconinoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coffinite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coking-coal.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/colemanite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/compreignacite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/copper-anode-slime.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/copper-autoclave-slime.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/copper-flotation-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/copper-smelter-flue-dust.html",
+      "added": "38",
+      "deleted": "7"
+    },
+    {
+      "path": "pages/materials/copper-smelter-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/copper.html",
+      "added": "65",
+      "deleted": "9"
+    },
+    {
+      "path": "pages/materials/coquimbite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cordylite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/corkite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/coutinhoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/covellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/crandallite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cryptomelane.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cuprite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/cuprosklodowskite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/curite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/digenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/diopside.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/discarded-led-lamps.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dissakisite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dittmarite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/djurleite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dolomite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/donnayite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dunite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dypingite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dysprosium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/dzhalindite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electric-arc-furnace-dust.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electrical-cable-recycling-residues.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electrical-steel.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electroformed-copper-silver-manufacturing-scrap.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electrolytic-manganese-dioxide.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electrolytic-manganese-metal.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electrolytic-manganese-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electroplating-bath-effluents.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/electroplating-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/elpidite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/enargite-pyrite-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/end-of-life-cigs-photovoltaic-modules.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/end-of-life-crystalline-silicon-photovoltaic-modules.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/enstatite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/eosphorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/erbium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/erythrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/eucrite-meteorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/eudialyte-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/eudialyte-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/europium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ezcurrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/falcondoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/falottaite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/feitknechtite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/feldspar.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/felsobanyaite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fengruiite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/feroxyhyte.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferricopiapite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferrihydrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferroboron.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferrochrome-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferrokesterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferrotitanowodginite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ferrowodginite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fetiasite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fish-bone-residues.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/florencite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/florencite-la.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/flue-gas-desulfurization-wastewater.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fluorapatite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fluorescent-lamp-phosphor.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fluorine.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fluorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fluorspar.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/forsterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/franciscanite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/fritzscheite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gaas-production-hydroxide-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gadolinium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gaidonnayite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/galena.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gallium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gatelite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/germanite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/germanium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gersdorffite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gibbsite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ginorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gittinsite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/glushinskite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/goethite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gold-mine-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gold.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/goldmanite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gorceixite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gowerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/goyazite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/graphite-anode-material.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/graphite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/greenockite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/greigite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/grimmite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ground-waste-tire-rubber.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gypsum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/gysinite-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hafnium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hafnon.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hannayite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/haradaite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hauerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hausmannite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hawleyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hazenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/heavy-fuel-oil-combustion-ash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/heavy-rare-earth-elements.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/heazlewoodite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/helium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hematite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hemimorphite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/heterogenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/heterosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/high-purity-alumina.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/high-purity-iron-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hollandite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/holmium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hopeite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/horvathite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/humboldtine.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/huntite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hureaulite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydroboracite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydrocerussite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydromagnesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydroniumjarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydrotalcite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydroxylapatite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/hydrozincite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/igelstromite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/illite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ilmenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/inderborite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/inderite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/indite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/indium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/inyoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ion-adsorption-rare-earth-clay.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ion-adsorption-rare-earth-leach-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/iridium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/iron-ore-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/iron.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/jadarite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/jarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/johanngeorgenstadtite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kaliborite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kaolin-mine-waste.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kaolin.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kaolinite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/katsarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kernite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kesterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/khomyakovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kimrobinsonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kimuraite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kornelite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kozoite-la.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kozoite-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kukharenkoite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kuliokite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kurnakovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/kutnohorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/l-chondrite-meteorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/laforetite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lansfordite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lanthanite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lanthanite-la.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lanthanite-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lanthanum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/larderellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/laueite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/laurentthomasite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lazerckerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lead-blast-furnace-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lead.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lemoynite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lepidocrocite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/liandratite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/libethenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/light-rare-earth-elements.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/liguowuite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lindbergite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lithiophilite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lithium-bearing-geothermal-brine.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lithium-carbonate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lithium-hydroxide-monohydrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lithium-mica-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lithium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lizardite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/loellingite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lorenzenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lucasite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ludlamite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ludwigite-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lukechangite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/lutetium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/mackinawite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/maghemite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/magnesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/magnesium-metal.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/magnesium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/magnetite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/malachite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/manganese-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/manganese-sulfate-monohydrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/manganese.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/manganite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/manganokhomyakovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/manganokukisvumite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/marcasite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/margaritasite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/mcallisterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/mckelveyite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/melanterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/meta-ankoleite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metacinnabar.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metal-grinding-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metallic-machining-burrs.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metalliferous-black-shale.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metallurgical-coal.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metaschoepite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metastudtite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metatorbernite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metatyuyamunite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metavivianite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metazellerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/metazeunerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/meyerhofferite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/microcline.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/millerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/mimetite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/moabite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/molybdenite.html",
+      "added": "38",
+      "deleted": "7"
+    },
+    {
+      "path": "pages/materials/molybdenum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monazite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monazite-gd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monazite-la.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monazite-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monazite-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monazite-sm.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monetite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monohydrocalcite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/montebrasite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/monteregianite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/montmorillonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/montroseite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/moolooite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/municipal-sewage-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/municipal-waste-incineration-ash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/muscovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/natroboltwoodite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/natrojarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/natrolemoynite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/natural-graphite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/navajoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/neodymium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nepheline.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nesquehonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/newberyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickel-based-superalloy-residue-powders.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickel-flotation-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickel-laterite-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickel-smelter-slag.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickel-sulfate-hexahydrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickel.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nickeline-bearing-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ningyoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/niobium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nobleite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/nontronite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/oil-and-gas-produced-water.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/oil-sands-froth-treatment-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/okanoganite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/olivine-group.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/olmsteadite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/orpiment.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/orthoclase.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/osmium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/otavite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/oxidized-zinc-ore.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/palladium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/palygorskite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/paracoquimbite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/paramontroseite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/parasymplesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/parauranophane.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pascoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pentagonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pentlandite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/perovskite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pertlikite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/petalite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/petersenite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/petroleum-coke.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/petroleum-oily-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/petrukite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/petscheckite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pharmaceutical-blister-packaging-waste.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phlogopite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phosphate-ore-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phosphate-rock.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phosphoferrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phosphogypsum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phosphophyllite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/phosphorus.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pig-manure.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/piilonenite-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pinnoite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/platinum-group-commodities.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/platinum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/plumbogottlobite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/plumbojarosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/polydymite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/polylithionite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/polymetallic-nodules.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ponded-coal-ash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/potash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/potassium-feldspar.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/poultry-bone-residues.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/powellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/praseodymium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/preobrazhenskite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/priceite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/probertite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/promethium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pyrite-roasting-cinder.html",
+      "added": "65",
+      "deleted": "9"
+    },
+    {
+      "path": "pages/materials/pyrite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pyroaurite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pyrochroite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pyrolusite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pyromorphite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/pyrrhotite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/qaqarssukite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/quenstedtite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ramsdellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rare-earth-element-commodities.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rare-earth-permanent-magnet-materials.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rare-earth-rich-deep-sea-mud.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/realgar.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/regerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/renierite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/retzian-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/reverse-osmosis-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rhabdophane-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rhabdophane-la.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rhenium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rhodium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rhodochrosite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rhomboclase.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/richetite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/riebeckite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rivadavite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/romanechite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/roquesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/roscoelite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rozenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rubidium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ruthenium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rutherfordine.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/rutile.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sabinaite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sabugalite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sakuraiite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/saleeite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/samarium-cobalt-magnet-scrap.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/samarium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/saponite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sauconite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/scandium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/scheelite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/schertelite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/schoepite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/schwertmannite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/scorodite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/seafloor-massive-sulfides.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/seawater.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/secondary-aluminium-dross.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/selenium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/senarmontite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sepiolite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sewage-sludge-incineration-ash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sheldrickite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/siderite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/silica-sand.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/silicon-carbide.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/silicon-metal.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/silicon.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/silver.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/simonkolleite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sklodowskite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/skutterudite.html",
+      "added": "37",
+      "deleted": "6"
+    },
+    {
+      "path": "pages/materials/smithsonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/soddyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sodium-compounds.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-alkaline-zinc-carbon-batteries.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-automotive-three-way-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-cerium-glass-polishing-slurry.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-copper-zinc-alumina-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-fluid-catalytic-cracking-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-hydrocracking-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-hydrodesulfurization-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-iron-molybdate-oxidation-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-ito-targets.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-lead-acid-battery-electrolyte.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-ndfeb-magnets.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-nickel-cadmium-batteries.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-nickel-metal-hydride-batteries.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-nickel-steam-reforming-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-platinum-petroleum-reforming-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-potlining.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-selective-catalytic-reduction-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-silver-oxide-zinc-button-cell-batteries.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-steel-pickling-liquors.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-sulfuric-acid-production-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-tantalum-capacitors.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-vanadium-flow-battery-electrolyte.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-vegetable-oil-hydrogenation-catalyst.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spent-zinc-manganese-button-cell-batteries.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sphalerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/spodumene.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/stannite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/stevensite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/stibnite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/stolzite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/strengite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/strontianite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/strontium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/struvite-k.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/struvite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/studtite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/sulfoborite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/svanbergite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/switzerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/synchysite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/synthetic-graphite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/szaibelyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/szomolnokite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/talc.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tannery-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tannery-wastewater.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tantalum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tellurium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tennantite-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tennantite-in.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tenorite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/terbium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tetrahedrite-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/thallium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/theisen-sludge.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/thomasclarkite-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/thulium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tin-copper-solder.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tin.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tincalconite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/titanite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/titanium-metal.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/titanium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/titanogypsum.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/titanowodginite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/todorokite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/torbernite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/traction-battery-hydrometallurgical-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/triphylite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/troilite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tunellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tungsten-nickel-iron-alloy-scrap.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tungsten-skarn-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/tungsten.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ulexite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/uramphite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/uraninite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/uranium-mine-tailings.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/uranium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/uranophane.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/uranopilite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/used-photographic-fixer-solutions.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vaesite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vanadium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vandenbrandeite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/variscite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vaterite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/veatchite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vermiculite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vielleaureite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/violarite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/virgilite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/vivianite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/voltaite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/waste-liquid-crystal-display-panels.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/waste-multilayer-ceramic-capacitors.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/waste-printed-circuit-boards.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/waste-x-ray-films.html",
+      "added": "34",
+      "deleted": "3"
+    },
+    {
+      "path": "pages/materials/weddellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/weeksite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/weloganite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/wheatleyite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/whewellite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/whitlockite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/widgiemoolthalite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/willemite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/wollastonite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/wood-ash.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/woodhouseite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/wulfenite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/wumuite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/wurtzite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/xenotime-concentrate.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/xenotime-gd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/xenotime-y.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/xenotime-yb.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/xianhuaite-ce.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/yanomamite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/ytterbium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/yttrium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/yttrotungstite-nd.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/yusupovite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zektzerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zeunerite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zinc-leach-residue.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zinc-purification-hot-filter-cake.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zinc.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zincite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zincobriartite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zippeite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zircon.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zirconium.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/materials/zirconolite.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/processes/bioleaching.html",
+      "added": "10",
+      "deleted": "10"
+    },
+    {
+      "path": "pages/processes/biomineralization.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/processes/biosorption.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/processes/other.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/processes/recovery.html",
+      "added": "2",
+      "deleted": "2"
+    },
+    {
+      "path": "pages/processes/redox_transformation.html",
+      "added": "1",
+      "deleted": "1"
+    },
+    {
+      "path": "pages/processes/separation.html",
+      "added": "2",
+      "deleted": "2"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-cassiterite-polymetallic-sulfide-ore-cycle7-stage3-protein-examples-review/review.md",
+      "added": "329",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-cassiterite-polymetallic-sulfide-ore-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "251",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-chalcopyrite-cycle7-stage3-protein-examples-review/review.md",
+      "added": "326",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-chalcopyrite-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "248",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-chalcopyrite-enargite-concentrate-cycle7-stage3-protein-examples-review/review.md",
+      "added": "300",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-chalcopyrite-enargite-concentrate-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "222",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-coal-beneficiation-waste-cycle7-stage3-protein-examples-review/review.md",
+      "added": "304",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-coal-beneficiation-waste-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "226",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-copper-cycle7-stage3-protein-examples-review/review.md",
+      "added": "326",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-copper-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "248",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-copper-smelter-flue-dust-cycle7-stage3-protein-examples-review/review.md",
+      "added": "342",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-copper-smelter-flue-dust-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "264",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-molybdenite-cycle7-stage3-protein-examples-review/review.md",
+      "added": "302",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-molybdenite-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "224",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-pyrite-roasting-cinder-cycle7-stage3-protein-examples-review/review.md",
+      "added": "327",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-pyrite-roasting-cinder-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "249",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-skutterudite-cycle7-stage3-protein-examples-review/review.md",
+      "added": "317",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-skutterudite-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "239",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-waste-x-ray-films-cycle7-stage3-protein-examples-review/review.md",
+      "added": "283",
+      "deleted": "0"
+    },
+    {
+      "path": "reviews/structured/20261104T114000Z-waste-x-ray-films-cycle7-stage3-protein-examples-review/review.yaml",
+      "added": "205",
+      "deleted": "0"
+    }
+  ],
+  "source_excerpts": {
+    "data/records/cassiterite-polymetallic-sulfide-ore.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/cassiterite-polymetallic-sulfide-ore.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+    protein_name: Sulfide-quinone oxidoreductase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000192660",
+        "+    annotation_note: Grounded to reference-proteome entry UP000192660 for sequenced type strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705), representing the Central South University Sulfobacillus thermosulfidooxidans isolate (NCBITaxon:28034) used in single-culture and 1:1:1 mixed-culture bio-desulfurization of Myanmar cassiterite-polymetallic sulfide ore in Wang et al. (2025).",
+        "+    evidence:",
+        "+  - uniprot_accession: UniProtKB:A4ZV25",
+        "+    protein_name: TetH",
+        "+    target_organism:",
+        "+    annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for the Central South University Acidithiobacillus caldus isolate (NCBITaxon:33059) in Wang et al. (2025).",
+        "+    evidence:",
+        "+    - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+      protein_name: Sulfide-quinone oxidoreductase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000192660",
+        "+      annotation_note: Grounded to reference-proteome entry UP000192660 for sequenced type strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705), representing the Central South University Sulfobacillus thermosulfidooxidans isolate (NCBITaxon:28034) used in single-culture and 1:1:1 mixed-culture bio-desulfurization of Myanmar cassiterite-polymetallic sulfide ore in Wang et al. (2025).",
+        "+      evidence:",
+        "+    - uniprot_accession: UniProtKB:A4ZV25",
+        "+      protein_name: TetH",
+        "+      target_organism:",
+        "+      annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for the Central South University Acidithiobacillus caldus isolate (NCBITaxon:33059) in Wang et al. (2025).",
+        "+      evidence:",
+        "+  summary: Enrich cassiterite-polymetallic-sulfide-ore protein_examples with Sulfobacillus thermosulfidooxidans DSM 9293 Sqr (UniProtKB:A0A1W1W805) and Acidithiobacillus caldus TetH (UniProtKB:A4ZV25)"
+      ],
+      "diff_sha256": "29c3264208ff7843cd1fd0a6e6a155c425fa56e17d451388755d1fbaebac0ad6"
+    },
+    "data/records/chalcopyrite-enargite-concentrate.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/chalcopyrite-enargite-concentrate.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A4ZV25",
+        "+    protein_name: TetH",
+        "+    target_organism:",
+        "+    annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for moderately thermophilic sulfur-oxidizer Acidithiobacillus caldus KU (DSM 8584; NCBITaxon:33059) within the four-member consortium in Oyama et al. (2021).",
+        "+    evidence:",
+        "+    - uniprot_accession: UniProtKB:A4ZV25",
+        "+      protein_name: TetH",
+        "+      target_organism:",
+        "+      annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for moderately thermophilic sulfur-oxidizer Acidithiobacillus caldus KU (DSM 8584; NCBITaxon:33059) within the four-member consortium in Oyama et al. (2021).",
+        "+      evidence:",
+        "+  summary: Enrich chalcopyrite-enargite-concentrate tth_hydrolase protein_examples with second Acidithiobacillus caldus TetH ortholog (UniProtKB:A4ZV25)"
+      ],
+      "diff_sha256": "721db8be3b2ed8970cd8e6ce4e4fff707b84e3cd615e16fdbb71b26159e22d16"
+    },
+    "data/records/chalcopyrite.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/chalcopyrite.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+    protein_name: Sulfide-quinone oxidoreductase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000192660",
+        "+    annotation_note: Grounded directly to reference-proteome entry UP000192660 for the exact experimental strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705) tested singly and in binary/ternary combinations with Acidithiobacillus caldus DSM 8584 and Leptospirillum ferriphilum DSM 14647 on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+    evidence:",
+        "+      explanation: Strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 sulfide-quinone oxidoreductase (SAMN00768000_0580) for the S. thermosulfidooxidans DSM 9293 single, binary, and ternary treatments at 38 C in Christel et al. (2018); individual genes were not mutated.",
+        "+  - uniprot_accession: UniProtKB:A4ZV25",
+        "+    protein_name: TetH",
+        "+    target_organism:",
+        "+    annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) tested on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+    evidence:",
+        "+  description: Causal pathway linking representative Acidithiobacillus caldus (Atc_1705, Atc_1437, Atc_1595, tetH BAE30_05680), Leptospirillum ferriphilum (Y981_02650), and strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 (SAMN00768000_0580) sulfur-oxidation enzymes alongside S. thermosulfidooxidans DSM 9293 weak iron oxidation to redox-dependent copper release from 2% w/v Aitik chalcopyrite concentrate at 38 C in Christel et al. (2018).",
+        "+    - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+      protein_name: Sulfide-quinone oxidoreductase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000192660",
+        "+      annotation_note: Grounded directly to reference-proteome entry UP000192660 for the exact experimental strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705) tested singly and in binary/ternary combinations with Acidithiobacillus caldus DSM 8584 and Leptospirillum ferriphilum DSM 14647 on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+      evidence:",
+        "+        explanation: Strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 sulfide-quinone oxidoreductase (SAMN00768000_0580) for the S. thermosulfidooxidans DSM 9293 single, binary, and ternary treatments at 38 C in Christel et al. (2018); individual genes were not mutated.",
+        "+    - uniprot_accession: UniProtKB:A4ZV25",
+        "+      protein_name: TetH",
+        "+      target_organism:",
+        "+      annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) tested on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+      evidence:",
+        "+  summary: Enrich chalcopyrite protein_examples with strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 Sqr (UniProtKB:A0A1W1W805) and Acidithiobacillus caldus TetH (UniProtKB:A4ZV25)"
+      ],
+      "diff_sha256": "2a29ab627209625f2f663d0a9bceda54007b0edc6ff0d5853531e4e5ee0a3709"
+    },
+    "data/records/coal-beneficiation-waste.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/coal-beneficiation-waste.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A2W1K175",
+        "+    protein_name: Tetrathionate hydrolase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000248886",
+        "+    annotation_note: Grounded to reference-proteome entry UP000248886 for sequenced strain Acidithiobacillus ferrooxidans DSM 16523 (DN052_12875; NCBITaxon:920), providing a second species-matched tetrathionate hydrolase ortholog alongside ATCC 23270 tth (AFE_0029) for source-identified Acidithiobacillus ferrooxidans isolates Lv black 37 and Lv red 9 (NCBITaxon:920) in the three-stage experimental cascade of Blayda et al. (2018).",
+        "+    evidence:",
+        "+    - uniprot_accession: UniProtKB:A0A2W1K175",
+        "+      protein_name: Tetrathionate hydrolase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000248886",
+        "+      annotation_note: Grounded to reference-proteome entry UP000248886 for sequenced strain Acidithiobacillus ferrooxidans DSM 16523 (DN052_12875; NCBITaxon:920), providing a second species-matched tetrathionate hydrolase ortholog alongside ATCC 23270 tth (AFE_0029) for source-identified Acidithiobacillus ferrooxidans isolates Lv black 37 and Lv red 9 (NCBITaxon:920) in the three-stage experimental cascade of Blayda et al. (2018).",
+        "+      evidence:",
+        "+  summary: Enrich coal-beneficiation-waste tth_hydrolase protein_examples with second Acidithiobacillus ferrooxidans Tth ortholog (UniProtKB:A0A2W1K175)"
+      ],
+      "diff_sha256": "c48f9dda1695adb4f117be61341e9782083e1309535d61644c8c9f20b2aef9b4"
+    },
+    "data/records/copper-smelter-flue-dust.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/copper-smelter-flue-dust.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:I0IN58",
+        "+    protein_name: Sulfide-quinone reductase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000007382",
+        "+    functional_role: Membrane-bound sulfide-quinone reductase (EC 1.8.5.4; LFE_1004; 391 aa) in Leptospirillum ferrooxidans C2-3 annotated in the reference proteome of this mesophilic acidophilic bioleaching consortium member.",
+        "+    annotation_note: Grounded to reference-proteome entry UP000007382 for sequenced strain Leptospirillum ferrooxidans C2-3 (NCBITaxon:1162668), representing the Sarcheshmeh acid-mine-drainage Leptospirillum ferrooxidans isolate (NCBITaxon:180) in the three-species adapted mesophilic consortium (with A. ferrooxidans and A. thiooxidans) in Bakhtiari et al. (2008).",
+        "+    evidence:",
+        "+    - uniprot_accession: UniProtKB:I0IN58",
+        "+      protein_name: Sulfide-quinone reductase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000007382",
+        "+      functional_role: Membrane-bound sulfide-quinone reductase (EC 1.8.5.4; LFE_1004; 391 aa) in Leptospirillum ferrooxidans C2-3 annotated in the reference proteome of this mesophilic acidophilic bioleaching consortium member.",
+        "+      annotation_note: Grounded to reference-proteome entry UP000007382 for sequenced strain Leptospirillum ferrooxidans C2-3 (NCBITaxon:1162668), representing the Sarcheshmeh acid-mine-drainage Leptospirillum ferrooxidans isolate (NCBITaxon:180) in the three-species adapted mesophilic consortium (with A. ferrooxidans and A. thiooxidans) in Bakhtiari et al. (2008).",
+        "+      evidence:",
+        "+  summary: Enrich copper-smelter-flue-dust sqr_reductase protein_examples with Leptospirillum ferrooxidans C2-3 Sqr (UniProtKB:I0IN58) and align node.gene_symbol to AFE_1792"
+      ],
+      "diff_sha256": "528830164103231fcd215c8c2c506ac9d0b2e133f2eac9c3051c715372cfa30e"
+    },
+    "data/records/copper.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/copper.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+    protein_name: Sulfide-quinone oxidoreductase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000192660",
+        "+    annotation_note: Grounded directly to reference-proteome entry UP000192660 for the exact experimental strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705) tested singly and in binary/ternary combinations with Acidithiobacillus caldus DSM 8584 and Leptospirillum ferriphilum DSM 14647 on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+    evidence:",
+        "+      explanation: Strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 sulfide-quinone oxidoreductase (SAMN00768000_0580) for the S. thermosulfidooxidans DSM 9293 single, binary, and ternary treatments at 38 C in Christel et al. (2018); individual genes were not mutated.",
+        "+  - uniprot_accession: UniProtKB:A4ZV25",
+        "+    protein_name: TetH",
+        "+    target_organism:",
+        "+    annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) tested on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+    evidence:",
+        "+  description: Causal pathway linking representative Acidithiobacillus caldus (Atc_1705, Atc_1437, Atc_1595, tetH BAE30_05680), Leptospirillum ferriphilum (Y981_02650), and strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 (SAMN00768000_0580) sulfur-oxidation enzymes alongside S. thermosulfidooxidans DSM 9293 iron oxidation to conditional copper release from 2% w/v Aitik chalcopyrite concentrate at 38 C in Christel et al. (2018).",
+        "+    - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+      protein_name: Sulfide-quinone oxidoreductase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000192660",
+        "+      annotation_note: Grounded directly to reference-proteome entry UP000192660 for the exact experimental strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705) tested singly and in binary/ternary combinations with Acidithiobacillus caldus DSM 8584 and Leptospirillum ferriphilum DSM 14647 on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+      evidence:",
+        "+        explanation: Strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 sulfide-quinone oxidoreductase (SAMN00768000_0580) for the S. thermosulfidooxidans DSM 9293 single, binary, and ternary treatments at 38 C in Christel et al. (2018); individual genes were not mutated.",
+        "+    - uniprot_accession: UniProtKB:A4ZV25",
+        "+      protein_name: TetH",
+        "+      target_organism:",
+        "+      annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) tested on Aitik chalcopyrite concentrate in Christel et al. (2018).",
+        "+      evidence:",
+        "+  summary: Enrich copper protein_examples with strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 Sqr (UniProtKB:A0A1W1W805) and Acidithiobacillus caldus TetH (UniProtKB:A4ZV25)"
+      ],
+      "diff_sha256": "131e40d9b35025f56bad9a55d84e7ef746e2b60f1582f8330cf338b7f91ece61"
+    },
+    "data/records/molybdenite.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/molybdenite.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A2W1K175",
+        "+    protein_name: Tetrathionate hydrolase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000248886",
+        "+    annotation_note: Grounded to reference-proteome entry UP000248886 for sequenced strain Acidithiobacillus ferrooxidans DSM 16523 (DN052_12875; NCBITaxon:920), providing a second species-matched tetrathionate hydrolase ortholog alongside ATCC 23270 tth (AFE_0029) for the Lagoa Real Acidithiobacillus ferrooxidans isolate LR (NCBITaxon:920) in Francisco Jr. et al. (2007).",
+        "+    evidence:",
+        "+    - uniprot_accession: UniProtKB:A0A2W1K175",
+        "+      protein_name: Tetrathionate hydrolase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000248886",
+        "+      annotation_note: Grounded to reference-proteome entry UP000248886 for sequenced strain Acidithiobacillus ferrooxidans DSM 16523 (DN052_12875; NCBITaxon:920), providing a second species-matched tetrathionate hydrolase ortholog alongside ATCC 23270 tth (AFE_0029) for the Lagoa Real Acidithiobacillus ferrooxidans isolate LR (NCBITaxon:920) in Francisco Jr. et al. (2007).",
+        "+      evidence:",
+        "+  summary: Enrich molybdenite tth_hydrolase protein_examples with second Acidithiobacillus ferrooxidans Tth ortholog (UniProtKB:A0A2W1K175)"
+      ],
+      "diff_sha256": "cca31206cab3bc8df2261ac79f81ecacb49c2c20e42008515d32f21139aec8b1"
+    },
+    "data/records/pyrite-roasting-cinder.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/pyrite-roasting-cinder.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+    protein_name: Sulfide-quinone oxidoreductase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000192660",
+        "+    annotation_note: Grounded directly to reference-proteome entry UP000192660 for the exact experimental type strain Sulfobacillus thermosulfidooxidans DSM 9293 (reported as DSM 9293T; NCBITaxon:929705) in the SLA consortium (with Leptospirillum ferriphilum DSM 14647 and Acidithiobacillus caldus DSM 8584) tested on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025).",
+        "+    evidence:",
+        "+      explanation: Strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 sulfide-quinone oxidoreductase (SAMN00768000_0580) for the S. thermosulfidooxidans DSM 9293T SLA consortium member in the 9-day assay on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025); individual genes were not mutated.",
+        "+  - uniprot_accession: UniProtKB:A4ZV25",
+        "+    protein_name: TetH",
+        "+    target_organism:",
+        "+    annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) in the SLA consortium tested on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025).",
+        "+    evidence:",
+        "+  description: Causal pathway linking representative Acidithiobacillus caldus (Atc_1705, Atc_1437, Atc_1595, tetH BAE30_05680), Leptospirillum ferriphilum (Y981_02650), and strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 (SAMN00768000_0580) sulfur-oxidation enzymes in the SLA consortium (with 1% wt/vol elemental sulfur and 54 mM Fe2+ at 42 C) to the 9-day batch assay on weathered Sao Domingos roasted pyrite ash (SD-BIO-2), where pH/redox trajectories largely overlapped the control without establishing a microbial leaching advantage in Pereira da Luz (2025).",
+        "+    - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+      protein_name: Sulfide-quinone oxidoreductase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000192660",
+        "+      annotation_note: Grounded directly to reference-proteome entry UP000192660 for the exact experimental type strain Sulfobacillus thermosulfidooxidans DSM 9293 (reported as DSM 9293T; NCBITaxon:929705) in the SLA consortium (with Leptospirillum ferriphilum DSM 14647 and Acidithiobacillus caldus DSM 8584) tested on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025).",
+        "+      evidence:",
+        "+        explanation: Strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 sulfide-quinone oxidoreductase (SAMN00768000_0580) for the S. thermosulfidooxidans DSM 9293T SLA consortium member in the 9-day assay on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025); individual genes were not mutated.",
+        "+    - uniprot_accession: UniProtKB:A4ZV25",
+        "+      protein_name: TetH",
+        "+      target_organism:",
+        "+      annotation_note: Grounded to Acidithiobacillus caldus strain ZBY tetrathionate hydrolase TetH (tetH, locus BAE30_05680; NCBITaxon:33059), providing a second species-matched TetH ortholog alongside SM-1 Atc_1595 for Acidithiobacillus caldus DSM 8584 (NCBITaxon:33059) in the SLA consortium tested on Sao Domingos SD-BIO-2 roasted pyrite ash in Pereira da Luz (2025).",
+        "+      evidence:",
+        "+  summary: Enrich pyrite-roasting-cinder protein_examples with strain-matched Sulfobacillus thermosulfidooxidans DSM 9293 Sqr (UniProtKB:A0A1W1W805) and Acidithiobacillus caldus TetH (UniProtKB:A4ZV25)"
+      ],
+      "diff_sha256": "e236eda7301037fefe1562ea483fdc48c86708e01b4e62dd4be162d0914a6b93"
+    },
+    "data/records/skutterudite.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/skutterudite.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+    protein_name: Sulfide-quinone oxidoreductase",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000192660",
+        "+    annotation_note: Grounded to reference-proteome entry UP000192660 for sequenced type strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705), representing Sulfobacillus thermosulfidooxidans (NCBITaxon:28034), identified alongside Acidithiobacillus thiooxidans by colony 16S rRNA sequencing as a dominant viable consortium member after 16-day bioreactor bioleaching of Bou Azzer skutterudite-dominated concentrate in Johnson et al. (2020).",
+        "+    evidence:",
+        "+    - uniprot_accession: UniProtKB:A0A1W1W805",
+        "+      protein_name: Sulfide-quinone oxidoreductase",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000192660",
+        "+      annotation_note: Grounded to reference-proteome entry UP000192660 for sequenced type strain Sulfobacillus thermosulfidooxidans DSM 9293 (NCBITaxon:929705), representing Sulfobacillus thermosulfidooxidans (NCBITaxon:28034), identified alongside Acidithiobacillus thiooxidans by colony 16S rRNA sequencing as a dominant viable consortium member after 16-day bioreactor bioleaching of Bou Azzer skutterudite-dominated concentrate in Johnson et al. (2020).",
+        "+      evidence:",
+        "+  summary: Enrich skutterudite sqr_reductase protein_examples with Sulfobacillus thermosulfidooxidans DSM 9293 Sqr (UniProtKB:A0A1W1W805)"
+      ],
+      "diff_sha256": "b7df64f3d5aebc51339b2ff7bc0c75ee7f0cb2f9eb76b0870a9839d579628217"
+    },
+    "data/records/waste-x-ray-films.yaml": {
+      "source_url": "https://github.com/CultureBotAI/CMMMech/blob/ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c/data/records/waste-x-ray-films.yaml",
+      "new_protein_lines": [
+        "+  - uniprot_accession: UniProtKB:A0A137NYS1",
+        "+    protein_name: Subtilisin-like protease",
+        "+    target_organism:",
+        "+    reference_proteome_id: UP000070444",
+        "+    functional_role: Secreted subtilisin-like serine alkaline protease paralog (peptidase S8 family; locus CONCODRAFT_9891; 420 aa) in Conidiobolus coronatus capable of hydrolyzing extracellular protein/gelatin substrates.",
+        "+    annotation_note: Grounded to tandem reference-proteome subtilisin-like protease paralog in UP000070444 (UniProtKB:A0A137NYS1; locus CONCODRAFT_9891; 420 aa; UniProt partial EC 3.4.-.- omitted per schema 3-level numeric EC pattern) for Conidiobolus coronatus NRRL 28638 (NCBITaxon:796925), alongside CONCODRAFT_77703 (UniProtKB:A0A137NYV2), representing the extracellular alkaline protease activity in crude supernatant of experimental strain Conidiobolus coronatus ATCC PTA-4132 (NCBITaxon:34488).",
+        "+    evidence:",
+        "+      explanation: Shankar et al. (2010) used crude cell-free alkaline protease supernatant from Conidiobolus coronatus ATCC PTA-4132 to strip gelatin-silver emulsion without sequencing or purifying the specific subtilisin-like protease isoform; CONCODRAFT_9891 is a second secreted peptidase S8 family paralog in the C. coronatus NRRL 28638 reference proteome.",
+        "+    description: Secreted subtilisin-like alkaline protease in cell-free MGYP-soybean-meal culture supernatant of Conidiobolus coronatus ATCC PTA-4132 (Shankar et al. 2010), grounded to reference-proteome Conidiobolus coronatus NRRL 28638 subtilisin-like protease paralogs (UniProtKB:A0A137NYV2 / CONCODRAFT_77703 and UniProtKB:A0A137NYS1 / CONCODRAFT_9891).",
+        "+    - uniprot_accession: UniProtKB:A0A137NYS1",
+        "+      protein_name: Subtilisin-like protease",
+        "+      target_organism:",
+        "+      reference_proteome_id: UP000070444",
+        "+      functional_role: Secreted subtilisin-like serine alkaline protease paralog (peptidase S8 family; locus CONCODRAFT_9891; 420 aa) in Conidiobolus coronatus capable of hydrolyzing extracellular protein/gelatin substrates.",
+        "+      annotation_note: Grounded to tandem reference-proteome subtilisin-like protease paralog in UP000070444 (UniProtKB:A0A137NYS1; locus CONCODRAFT_9891; 420 aa; UniProt partial EC 3.4.-.- omitted per schema 3-level numeric EC pattern) for Conidiobolus coronatus NRRL 28638 (NCBITaxon:796925), alongside CONCODRAFT_77703 (UniProtKB:A0A137NYV2), representing the extracellular alkaline protease activity in crude supernatant of experimental strain Conidiobolus coronatus ATCC PTA-4132 (NCBITaxon:34488).",
+        "+      evidence:",
+        "+        explanation: Shankar et al. (2010) used crude cell-free alkaline protease supernatant from Conidiobolus coronatus ATCC PTA-4132 to strip gelatin-silver emulsion without sequencing or purifying the specific subtilisin-like protease isoform; CONCODRAFT_9891 is a second secreted peptidase S8 family paralog in the C. coronatus NRRL 28638 reference proteome.",
+        "+  summary: Enrich waste-x-ray-films conidiobolus_alkaline_protease_supernatant protein_examples with second Conidiobolus coronatus NRRL 28638 subtilisin-like protease paralog (UniProtKB:A0A137NYS1)"
+      ],
+      "diff_sha256": "26f6bde90b7dfb0b522f4cc0944b093b89466cfb06494ca794b2ec2513820a02"
+    }
+  },
+  "complete_diff_method": "git diff between exact commits in an isolated bare object repository; not GitHub compare API capped file list.",
+  "object_repository": "/private/tmp/cmm-redeployment-20261104-objects.git",
+  "checked_at": "2026-11-04T12:29:22.317100+00:00"
+}

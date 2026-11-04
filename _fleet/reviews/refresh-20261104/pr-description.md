@@ -20,6 +20,10 @@ CultureMech advanced to `09f908802989670d2cc799f75f67cf56f7834178` during the ru
 
 CellStructureMech later deployed `d4d24c6c38d06ef27a6bac2c25ed381d50e96431`, whose only additions are 22 structured-review files. Its corpus pin remains `6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc`. The deployment follow-up verifies unchanged public inputs and browser behavior separately from the pinned record counts.
 
+CMMMech also advanced to `ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c`: ten records changed, with corresponding history, reviews and regenerated pages; renderer, schema, configuration and workflow inputs did not change. The served total remains 678. Its corpus pin stays at `8bf82c8dfa25a35f12b60617b86751bc3ce7df71`; the feature-audit follow-up separately checks the newer served pages.
+
+TaxonMech's later deployment caught up to the common corpus pin `e0cc7c86ac2107242ab499db610737f5fcad1c9b`. The nine changed files are documentation, reviews and a test; data and browser inputs are unchanged. Its focused auditor/skeptic follow-up retains all 24 ratings, including the existing URL-filter restoration limitation.
+
 Hand-curated evidence is retained under `_fleet/reviews/refresh-20261104/`:
 
 | Updated claims | Evidence |
@@ -30,6 +34,7 @@ Hand-curated evidence is retained under `_fleet/reviews/refresh-20261104/`:
 | Resource-page secondary figures and reviewed status | #535 and the pinned recount |
 | CLAW artifact narrative aligned with the refreshed manifest | #536 and the pinned manifest check |
 | Dedicated-page recent additions and displayed pins | #537, rebuilt `recent_terms.json`, and propagation helper |
+| Explicit reuse of the saved kg-microbe comparison | #539, independent adversarial review and unchanged comparison hashes |
 | License caveats propagated for CMMMech and AIMech | #523 and checked license files |
 | 336 feature judgments and rubric arbitration | Auditor/skeptic ledgers, `arbitration.md`, `feature-column-review.json` |
 
@@ -72,3 +77,4 @@ Closes #534.
 Closes #535.
 Closes #536.
 Closes #537.
+Closes #539.

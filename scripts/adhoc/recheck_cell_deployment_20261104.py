@@ -8,6 +8,7 @@ import hashlib
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from audit_site_group_20261104 import CHROME,gh,now,state
@@ -85,4 +86,18 @@ def main():
     ledger_path.write_text(json.dumps(ledger,indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({'receipt':str(out),'pages_checked':len(result['pages']),'deployment':result['deployment_after'],'criteria':24,'source_change':'reviews/structured only; all other root object hashes unchanged'},indent=2))
 
-if __name__=='__main__':main()
+def promote():
+    ledger_path=EVID/'cellstructuremech-auditor-a.json';ledger=json.loads(ledger_path.read_text())
+    skeptic=json.loads((EVID/'cellstructuremech-redeployment-skeptic.json').read_text())
+    assert skeptic['deployment_after']['sha']==NEW and skeptic['deployment_after']['state']=='success'
+    followup=ledger['redeployment_followup'];assert followup['deployment_after']['sha']==NEW
+    ledger.setdefault('initial_deployment_after',ledger['deployment_after'])
+    ledger['deployment_after']=followup['deployment_after']
+    ledger['supplemented_at']=followup['verified_at']
+    followup['independent_review']='cellstructuremech-redeployment-skeptic.json; all 24 criteria agreed'
+    ledger_path.write_text(json.dumps(ledger,indent=2,ensure_ascii=False)+'\n')
+    print('Promoted verified Cell deployment metadata; initial metadata and criterion notes preserved.')
+
+if __name__=='__main__':
+    if '--promote' in sys.argv:promote()
+    else:main()

@@ -4,7 +4,7 @@
   "pin": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
   "started_at": "2026-11-04T11:48:14.566778+00:00",
   "finished_at": "2026-11-04T11:49:07.412572+00:00",
-  "supplemented_at": "2026-11-04T11:50:11.865199+00:00",
+  "supplemented_at": "2026-11-04T12:24:26.349550+00:00",
   "deployment_before": {
     "id": 7543581273,
     "sha": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
@@ -17,15 +17,17 @@
     "last_modified": "Wed, 04 Nov 2026 10:24:05 GMT"
   },
   "deployment_after": {
-    "id": 7543581273,
-    "sha": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
-    "created_at": "2026-11-04T10:23:54Z",
+    "id": 7545767004,
+    "sha": "d4d24c6c38d06ef27a6bac2c25ed381d50e96431",
+    "created_at": "2026-11-04T12:20:59Z",
     "latest_status": {
       "state": "success",
-      "created_at": "2026-11-04T10:24:09Z",
+      "created_at": "2026-11-04T12:21:15Z",
       "environment_url": "https://culturebotai.github.io/CellStructureMech/"
     },
-    "last_modified": "Wed, 04 Nov 2026 10:24:05 GMT"
+    "header_url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:21:12 GMT"
   },
   "features": {
     "search": {
@@ -1559,6 +1561,17 @@
     },
     "status_changes": 0,
     "public_tree_hashes_unchanged": true,
-    "independent_review": "Pending central_directory skepticism"
+    "independent_review": "cellstructuremech-redeployment-skeptic.json; all 24 criteria agreed"
+  },
+  "initial_deployment_after": {
+    "id": 7543581273,
+    "sha": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+    "created_at": "2026-11-04T10:23:54Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T10:24:09Z",
+      "environment_url": "https://culturebotai.github.io/CellStructureMech/"
+    },
+    "last_modified": "Wed, 04 Nov 2026 10:24:05 GMT"
   }
 }
