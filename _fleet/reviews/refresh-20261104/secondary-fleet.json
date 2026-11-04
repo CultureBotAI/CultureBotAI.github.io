@@ -1,0 +1,358 @@
+{
+  "TraitMech": {
+    "pin": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+    "counts": {
+      "records": 1130,
+      "inline_graph_records": 761,
+      "inline_graphs": 761,
+      "component_records": 0,
+      "history_records": 1129,
+      "history_events": 6328,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 579,
+      "chebi_mention_records": 215,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0
+    },
+    "statuses": {
+      "REVIEWED": 427,
+      "PROPOSED": 615,
+      "SEEDED": 38,
+      "DEPRECATED": 50
+    },
+    "categories": {
+      "ECOLOGY": 40,
+      "ENVIRONMENT": 122,
+      "GENOMICS": 387,
+      "METABOLISM": 180,
+      "MORPHOLOGY": 129,
+      "OBSERVATION": 20,
+      "OTHER": 32,
+      "PHYSIOLOGY": 205,
+      "QUANTITATIVE_PROPERTY": 7,
+      "UPPER": 8
+    },
+    "material_kinds": {
+      "None": 1130
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "CellStructureMech": {
+    "pin": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+    "counts": {
+      "records": 1022,
+      "inline_graph_records": 991,
+      "inline_graphs": 1023,
+      "component_records": 848,
+      "history_records": 1022,
+      "history_events": 4164,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 959,
+      "chebi_mention_records": 37,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0,
+      "go_ids": 873,
+      "graph_edges": 4704
+    },
+    "statuses": {
+      "PROPOSED": 1022
+    },
+    "categories": {
+      "APPENDAGE": 58,
+      "CYTOSKELETON": 179,
+      "DIVISION_MACHINERY": 5,
+      "ENERGY_COMPLEX": 45,
+      "ENVELOPE": 20,
+      "INCLUSION": 20,
+      "MEMBRANE_ORGANELLE": 226,
+      "MICROCOMPARTMENT": 6,
+      "NUCLEOID": 5,
+      "OTHER": 326,
+      "RIBONUCLEOPROTEIN": 89,
+      "SECRETION_SYSTEM": 20,
+      "SPORE": 23
+    },
+    "material_kinds": {
+      "None": 1022
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "PathwayMech": {
+    "pin": "bc9795173651f6b032afcdd7270228392dd5ff99",
+    "counts": {
+      "records": 280,
+      "inline_graph_records": 0,
+      "inline_graphs": 0,
+      "component_records": 0,
+      "history_records": 104,
+      "history_events": 127,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 14788,
+      "ncbitaxon_mention_records": 279,
+      "chebi_mention_records": 279,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0,
+      "source_assertions": 22071,
+      "quoted_evidence_items": 883,
+      "evidence_items": 22954
+    },
+    "statuses": {
+      "None": 280
+    },
+    "categories": {
+      "None": 280
+    },
+    "material_kinds": {
+      "None": 280
+    },
+    "distinct_top_level_taxa_ids": 105,
+    "distinct_top_level_reference_ids": 5917
+  },
+  "CMMMech": {
+    "pin": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "counts": {
+      "records": 678,
+      "inline_graph_records": 142,
+      "inline_graphs": 150,
+      "component_records": 0,
+      "history_records": 678,
+      "history_events": 1264,
+      "mechanism_records": 500,
+      "mechanisms": 609,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 282,
+      "chebi_mention_records": 67,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0
+    },
+    "statuses": {
+      "None": 678
+    },
+    "categories": {
+      "None": 678
+    },
+    "material_kinds": {
+      "mineral": 427,
+      "secondary_resource": 111,
+      "primary_resource": 31,
+      "commodity": 36,
+      "element": 66,
+      "mineral_group": 7
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "MediaIngredientMech": {
+    "pin": "0874614ea8a2a939c82707d19056b2208606c1b7",
+    "counts": {
+      "records": 2956,
+      "inline_graph_records": 0,
+      "inline_graphs": 0,
+      "component_records": 83,
+      "history_records": 2956,
+      "history_events": 18341,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 1,
+      "chebi_mention_records": 2237,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0,
+      "community_synonym_records": 18,
+      "community_synonym_with_source_id_records": 17
+    },
+    "statuses": {
+      "MAPPED": 2611,
+      "REJECTED": 82,
+      "UNMAPPED": 262,
+      "AMBIGUOUS": 1
+    },
+    "categories": {
+      "None": 2956
+    },
+    "material_kinds": {
+      "None": 2956
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "AntibioticMech": {
+    "pin": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+    "counts": {
+      "records": 3064,
+      "inline_graph_records": 75,
+      "inline_graphs": 76,
+      "component_records": 0,
+      "history_records": 3064,
+      "history_events": 12591,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 307,
+      "chebi_mention_records": 2939,
+      "mode_of_action_records": 506,
+      "molecular_target_records": 333,
+      "biosynthetic_pathway_records": 0
+    },
+    "statuses": {
+      "SEEDED": 2815,
+      "PROPOSED": 137,
+      "REVIEWED": 112
+    },
+    "categories": {
+      "None": 3064
+    },
+    "material_kinds": {
+      "None": 3064
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "NaturalProductMech": {
+    "pin": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+    "counts": {
+      "records": 3136,
+      "inline_graph_records": 310,
+      "inline_graphs": 569,
+      "component_records": 0,
+      "history_records": 3136,
+      "history_events": 8093,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 3136,
+      "chebi_mention_records": 494,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 35,
+      "biosynthetic_pathway_records": 216,
+      "antibiotic_linked_records": 213,
+      "referenced_graphs": 246,
+      "all_graph_records": 317,
+      "occurrence_records": 2351,
+      "producer_claims": 3441
+    },
+    "statuses": {
+      "SEEDED": 3116,
+      "REVIEWED": 20
+    },
+    "categories": {
+      "None": 3136
+    },
+    "material_kinds": {
+      "None": 3136
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "CommunityMech": {
+    "pin": "a4e963e5bebc49fa7a9908ac441d003e3ad4a817",
+    "counts": {
+      "records": 494,
+      "inline_graph_records": 0,
+      "inline_graphs": 0,
+      "component_records": 0,
+      "history_records": 494,
+      "history_events": 887,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 494,
+      "chebi_mention_records": 405,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0
+    },
+    "statuses": {
+      "None": 494
+    },
+    "categories": {
+      "None": 494
+    },
+    "material_kinds": {
+      "None": 494
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "HabitatMech": {
+    "pin": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+    "counts": {
+      "records": 3209,
+      "inline_graph_records": 63,
+      "inline_graphs": 63,
+      "component_records": 0,
+      "history_records": 3209,
+      "history_events": 7136,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 903,
+      "chebi_mention_records": 14,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0,
+      "trait_nodes": 9
+    },
+    "statuses": {
+      "REVIEWED": 1294,
+      "SEEDED": 1915
+    },
+    "categories": {
+      "AIR": 7,
+      "AQUATIC": 468,
+      "CLINICAL": 4,
+      "ENGINEERED": 488,
+      "FOOD": 59,
+      "HOST_ASSOCIATED": 1655,
+      "OTHER": 175,
+      "TERRESTRIAL": 353
+    },
+    "material_kinds": {
+      "None": 3209
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  },
+  "AIMech": {
+    "pin": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+    "counts": {
+      "records": 1929,
+      "inline_graph_records": 0,
+      "inline_graphs": 0,
+      "component_records": 0,
+      "history_records": 0,
+      "history_events": 0,
+      "mechanism_records": 0,
+      "mechanisms": 0,
+      "mechanistic_edges": 0,
+      "ncbitaxon_mention_records": 0,
+      "chebi_mention_records": 0,
+      "mode_of_action_records": 0,
+      "molecular_target_records": 0,
+      "biosynthetic_pathway_records": 0
+    },
+    "statuses": {
+      "None": 1929
+    },
+    "categories": {
+      "None": 1929
+    },
+    "material_kinds": {
+      "None": 1929
+    },
+    "distinct_top_level_taxa_ids": 0,
+    "distinct_top_level_reference_ids": 0
+  }
+}

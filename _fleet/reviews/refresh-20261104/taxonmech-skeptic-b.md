@@ -1,0 +1,26 @@
+# TaxonMech independent review — 2026-11-04
+
+- search: **present**. Independent identifier, label and unmatched queries were executed; their live counts and result rows are retained.
+- facets: **present**. Property-filter selection, combination with search and reset were independently exercised.
+- result_counts: **present**. Observed counts respond to queries and facets and are distinct from the total.
+- sorting: **present**. Each available sort option was selected, with URL/control state and first result rows retained.
+- shareable_state: **partial**. Combined BACTERIA/SPECIES/NCBITAXON with query NCBITaxon:562 gives 239; reload preserves only query/sort, clears all three facets and returns 259.
+- full_catalogue: **present**. The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.
+- record_pages: **present**. Multiple stable individual record URLs opened successfully from a fresh browser navigation.
+- term_links: **present**. The sampled own-grounding and main-section terms have readable labels beside resolver anchors.
+- evidence: **present**. Sampled record references include working-format PMID/DOI/source URL anchors rather than only database navigation.
+- review_status: **present**. Sampled record headers explicitly state their workflow state.
+- curation_history: **present**. Sampled records show dated curation-event sections with attribution and action text.
+- source_link: **present**. Sampled record pages link their own YAML source file rather than just the repository root.
+- domain_view: **present**. Domain figures or maps rendered in the independently opened routes, with data-bearing visuals.
+- cross_mech_links: **partial**. Strain/source identifiers referring to kg-microbe are plain text; suite navigation does not count as a record cross-link.
+- corpus_stats: **present**. The generated landing figures were read from the browser and compared with the audited corpus counts.
+- category_browse: **present**. Landing links lead into distinct category subsets with continuation where needed.
+- suite_nav: **present**. Visible suite-directory links occur in the reviewed navigation or footer.
+- downloads: **partial**. The bulk search-index gzip contains listing metadata, while complete details are fetched separately per record.
+- schema_docs: **partial**. Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.
+- license: **present**. Reviewed landing, browser, records and maps distinguish CC BY data from BSD code.
+- build_provenance: **partial**. The site exposes the corpus digest and upstream releases without a dated site or own-record version.
+- theme_toggle: **present**. Dark was selected and independently carried across the valid reviewed routes.
+- responsive: **present**. Every valid reviewed route was checked at fresh and resized 390px; none exceeded the viewport.
+- load_failure: **present**. Relevant data requests were aborted and the resulting reader-facing error was inspected.

@@ -1,0 +1,1818 @@
+{
+  "reviewer": "deployment_review group A auditor",
+  "mech": "AntibioticMech",
+  "pin": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+  "started_at": "2026-11-04T11:49:25.409884+00:00",
+  "finished_at": "2026-11-04T11:50:13.547307+00:00",
+  "supplemented_at": "2026-11-04T11:51:38.318482+00:00",
+  "deployment_before": {
+    "id": 7538651315,
+    "sha": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+    "created_at": "2026-11-04T05:22:04Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T05:22:55Z",
+      "environment_url": "https://culturebotai.github.io/AntibioticMech/"
+    },
+    "last_modified": "Wed, 04 Nov 2026 05:22:46 GMT"
+  },
+  "deployment_after": {
+    "id": 7538651315,
+    "sha": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+    "created_at": "2026-11-04T05:22:04Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T05:22:55Z",
+      "environment_url": "https://culturebotai.github.io/AntibioticMech/"
+    },
+    "last_modified": "Wed, 04 Nov 2026 05:22:46 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "partial",
+      "note": "Browse finds CHEBI:2637 and amikacin with matching counts, but large result sets stop at the first 500 links without result pagination. Category indexes provide separate routes through the corpus.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/search",
+      "prior_verbatim": "Client-side search on pages/browse.html, class pages, and the Chemical map matches compound name, CURIE (CHEBI:2637, ARO:3000053, antibioticmech:*), target, and resistance text across all 3,012 records.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "search:CHEBI:2637": "1 of 3064 compounds match.",
+          "search:amikacin": "2 of 3064 compounds match.",
+          "search:no-such-record-canary-20261104": "0 of 3064 compounds match."
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Property filters and a reset are available in Browse. Exercised filters changed the matching counts; activating reset by keyboard restored the unfiltered view.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/facets",
+      "prior_verbatim": "pages/browse.html provides interactive filter controls for antibiotic class, grounding status, curation status, and source namespace alongside Chemical map property filters.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "facet:0": "1147 of 3064 compounds match (first 500 shown).",
+          "facet:1": "851 of 3064 compounds match (first 500 shown)."
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "Matching counts respond to identifier, label, unmatched-query and property-filter changes, separately from the 3,064-record corpus.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/result_counts",
+      "prior_verbatim": "Counts respond to searches and filters on pages/browse.html (out of 3,012 records), class listings (1,063 directly filed antibacterial records), and map views.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "search:CHEBI:2637": "1 of 3064 compounds match.",
+          "search:amikacin": "2 of 3064 compounds match.",
+          "search:no-such-record-canary-20261104": "0 of 3064 compounds match."
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The Browse sort control offers Compound name (A–Z); Compound name (Z–A); Antimicrobial class (A–Z); Structural class (A–Z); Curation status (REVIEWED first); Grounding status (EXACT first). Changing order was exercised in the browser.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/sorting",
+      "prior_verbatim": "pages/browse.html supports interactive sorting by compound name, antibiotic class, grounding status, curation status, and identifier.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "sort:name-asc": "851 of 3064 compounds match (first 500 shown).",
+          "sort:name-desc": "851 of 3064 compounds match (first 500 shown)."
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Identifier search and the exercised property-filter/sort state survive URL reload, with matching counts and controls restored.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/shareable_state",
+      "prior_verbatim": "pages/browse.html synchronizes search, class, grounding, status, source, and sort selections with URL query parameters (?q=, ?class=, ?grounding=, ?status=, ?source=, ?sort=) via history.replaceState.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "query_before_reload": "1 of 3064 compounds match.",
+          "query_after_reload": "1 of 3064 compounds match."
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The 3,064-record browse index and linked paginated class listings provide routes into the complete corpus; the interactive result panel itself is capped at 500.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/full_catalogue",
+      "prior_verbatim": "pages/browse.html lists all 3,012 compounds in a unified filterable, sortable table alongside per-class pages (e.g., 1,063 directly filed antibacterial records, 1,186 including subclasses; 602 antifungal).",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "browse_initial": ""
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Sampled amikacin, avibactam and D-cycloserine pages have stable URLs, source assertions, molecular context, curation histories and links to their own source records.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/record_pages",
+      "prior_verbatim": "3,012 static pages under pages/<class>/<slug>.html with identity, source assertions, molecular targets, mode of action, resistance mechanisms, causal graph, and references.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antibacterial/amikacin.html.text_excerpt",
+        "verbatim": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse · ANTIBACTERIAL\n\nSearch\namikacin\n\nCHEBI:2637 ·resolve ·ANTIBACTERIAL ·EXACT SEEDED\n\nAn amino cyclitol glycoside that is kanamycin A acylated at the N-1 position by a 4-amino-2-hydroxybutyryl group. — ChEBI\n\nMachine-generated and unreviewed. Identity, structure and cross-references come straight from ChEBI's and CARD's own data; no curator has signed off on this record yet.\n\nClassification\n\naminoglycoside antibioticARO:0000016\n\nStrictly broader compounds or drug classes this molecule belongs to.\n\nLabel unavailable CHEBI:22390\nLabel unavailable CHEBI:22479\nLabel unavailable CHEBI:37622\nLabel unavailable CHEBI:47779\naminoglycoside antibiotic ARO:0000016\nChemical structure\nCOMPUTED STRUCTURE PROPERTIES\nMOLECULAR FORMULA\tC22H43N5O13\nCHARGE\t0\nAVERAGE MASS\t585.608 Da\nMONOISOTOPIC MASS\t585.28574 Da\nSOURCE\tChEBI\nINCHIKEY\tLKCWBDHBTVXHDL-RMDFUYIESA-N\n\nSMILES\n\nNCC[C@H](O)C(=O)N[C@@H]1C[C@H](N)[C@@H](O[C@H]2O[C@H](CN)[C@@H](O)[C@H](O)[C@H]2O)[C@H](O)[C@H]1O[C@H]1O[C@H](CO)[C@@H](O)[C@H](N)[C@H]1O\n\nInChI\n\nInChI=1S/C22H43N5O13/c23-2-1-8(29)20(36)27-7-3-6(25)18(39-22-16(34)15(33)13(31)9(4-24)37-22)17(35)19(7)40-21-14(32)11(26)12(30)10(5-28)38-21/h6-19,21-22,28-35H,1-5,23-26H2,(H,27,36)/t6-,7+,8-,9+,10+,11-,12+,13+,14+,15-,16+,17-,18+,19-,21+,22+/m0/s1\nAlso called\namikacina (INN)— chebi\namikacine (INN)— chebi\namikacinum (INN)— chebi\n(2S)-4-amino-N-[(1R,2S,3S,4R,5S)-5-amino-2-(3-amino-3-d"
+      }
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "Avibactam’s own identity and activity terms resolve, but four broader ChEBI identifiers still display Label unavailable; the main classification section remains incompletely labeled.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/term_links",
+      "prior_verbatim": "Own compound identities and activity roles have labeled external links. Avibactam still shows Label unavailable beside each of four broader ChEBI identifiers, so grounding labels remain incomplete.",
+      "prior_status": "partial",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antibacterial/avibactam.html.links",
+        "verbatim": [
+          {
+            "text": "resolve",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_85984",
+            "table": false
+          },
+          {
+            "text": "CHEBI:29347",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_29347",
+            "table": false
+          },
+          {
+            "text": "CHEBI:38025",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_38025",
+            "table": false
+          },
+          {
+            "text": "CHEBI:38295",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_38295",
+            "table": false
+          },
+          {
+            "text": "CHEBI:47857",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_47857",
+            "table": false
+          },
+          {
+            "text": "CHEBI:33281",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_33281",
+            "table": false
+          },
+          {
+            "text": "CHEBI:36047",
+            "href": "http://purl.obolibrary.org/obo/CHEBI_36047",
+            "table": false
+          },
+          {
+            "text": "UniProtKB:Q6XEC0",
+            "href": "https://www.uniprot.org/uniprotkb/Q6XEC0",
+            "table": true
+          },
+          {
+            "text": "NCBITaxon:573",
+            "href": "http://purl.obolibrary.org/obo/NCBITaxon_573",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": false
+          },
+          {
+            "text": "CHEBI:85984",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:Q6XEC0",
+            "href": "https://www.uniprot.org/uniprotkb/Q6XEC0",
+            "table": true
+          },
+          {
+            "text": "NCBITaxon:573",
+            "href": "http://purl.obolibrary.org/obo/NCBITaxon_573",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": false
+          },
+          {
+            "text": "ChEBI",
+            "href": "https://www.ebi.ac.uk/chebi/",
+            "table": false
+          }
+        ]
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Avibactam links PMID:25406838 in its molecular-target, causal-edge and record evidence. D-cycloserine retains linked evidence for its qualified pathway correspondence.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/evidence",
+      "prior_verbatim": "Avibactam links PMID:25406838 from its molecular-target and record evidence. D-cycloserine links PMID:4555420 and retains assay and organism limits alongside the pathway correspondence.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antibacterial/avibactam.html.links",
+        "verbatim": [
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": false
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": true
+          },
+          {
+            "text": "PMID:25406838",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/25406838",
+            "table": false
+          }
+        ]
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Record headers show workflow status, including REVIEWED on avibactam; the landing distinguishes recorded workflow status from human review.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/review_status",
+      "prior_verbatim": "Record headers and browse/class tables expose workflow status (96 REVIEWED, 97 PROPOSED, 2,819 SEEDED); the landing page reports 96 REVIEWED and explicitly distinguishes workflow state from human review.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antibacterial/avibactam.html.text_excerpt",
+        "verbatim": "REVIEWED\n\nA member of the class of azabicycloalkanes that is (2S,5R)-7-oxo-1,6-diazabicyclo[3.2.1]octane-2-carboxamide in which the amino hydrogen at position 6 is replaced by a sulfooxy group. Used (in the form of its sodium salt) in combination with ceftazidime pentahydrate for the treatment of complicated urinary tract infections including pyelonephritis. — ChEBI\n\nClassification\n\nStrictly broader compounds or drug classes this molecule belongs to.\n\nLabel unavailable CHEBI:29347\nLabel unavailable CHEBI:38025\nLabel unavailable CHEBI:38295\nLabel unavailable CHEBI:47857\nChemical structure\nCOMPUTED STRUCTURE PROPERTIES\nMOLECULAR FORMULA\tC7H11N3O6S\nCHARGE\t0\nAVERAGE MASS\t265.247 Da\nMONOISOTOPIC MASS\t265.03686 Da\nSOURCE\tChEBI\nINCHIKEY\tNDCUAPJVLWFHHB-UHNVWZDZSA-N\n\nSMILES\n\nNC(=O)[C@@H]1CC[C@@H]2CN1C(=O)N2OS(=O)(=O)O\n\nInChI\n\nInChI=1S/C7H11N3O6S/c8-6(11)5-2-1-4-3-9(5)7(12)10(4)16-17(13,14)15/h4-5H,1-3H2,(H2,8,11)(H,13,14,15)/t4-,5+/m1/s1\nAlso called\n(2S,5R)-7-oxo-6-(sulfooxy)-1,6-diazabicyclo[3.2.1]octane-2-carboxamide (EXACT_SYNONYM)— chebi\nNXL 104 (EXACT_SYNONYM)— chebi\nNXL104 (EXACT_SYNONYM)— chebi\nCross-references\n\nIdentifiers for this same structure in other resources. An accession that lands on two different structures in this corpus is withheld from both rather than shown here, since it names at most one of them.\n\ncas:1192500-31-4\nreaxys:22542284\nDrug registries\n\nIdentifiers that name a drug rather than a structure. One of these can cover a parent compound, its salts and its st"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Avibactam shows dated seeding, reseeding, review and protein/causal-graph curation events, with curator identifiers and LLM-assisted labels where recorded.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/curation_history",
+      "prior_verbatim": "Avibactam retains dated source seeding and reseeding events plus its 2026-09-02 codex REVIEWED event, marked LLM-assisted and accompanied by the specific work described.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antibacterial/avibactam.html.text_excerpt",
+        "verbatim": "Curation history\nSEEDED_FROM_SOURCES 2026-08-30 · seed_from_sources\n\nSeeded from data/raw/ inventories (CHEBI)\n\nRESEEDED_FROM_SOURCES 2026-08-30 · seed_from_sources\n\nRe-seeded from updated data/raw/ inventories\n\nRESEEDED_FROM_SOURCES 2026-08-30 · seed_from_sources\n\nRe-seeded from updated data/raw/ inventories\n\nREVIEWED 2026-09-02 · codex · LLM-assisted\n\nVerified exact neutral avibactam ChEBI identity distinct from its sodium form, structure, roles, and antibacterial filing class; added the resistance-enzyme mechanism and directly bound OXA beta-lactamase target.\n\nRESEEDED_FROM_SOURCES 2026-09-10 · seed_from_sources\n\nRe-seeded from updated data/raw/ inventories\n\nCURATED_UNIPROT_PROTEIN_EXAMPLES 2026-10-25 · antigravity · LLM-assisted\n\nAdded reviewed UniProtKB:Q6XEC0 (Klebsiella pneumoniae OXA-48, blaOXA-48) protein example to the class D OXA beta-lactamases PRIMARY_LITERATURE molecular target (PMID:25406838).\n\nCURATED_CAUSAL_GRAPHS 2026-10-25 · antigravity · LLM-assisted\n\nAdded evidence-backed MECHANISTIC causal graph avibactam_class_d_oxa_beta_lactamase_carbamylation (4 nodes, 3 edges) grounded to curated UniProtKB protein_examples (UniProtKB:Q6XEC0) and primary literature (PMID:25406838).\n\nProvenance\n\nSeeded by scripts/seed_from_sources.py from the committed inventories in data/raw/. View the record (YAML).\n\nExplore across X-Mech: MediaIngredientMech (avibactam) · CultureMech · NaturalProductMech · PathwayMech · TraitMech\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (cor"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Sampled Provenance sections link their own data/antibiotics YAML. Large records also link a complete per-record JSON.gz export.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/source_link",
+      "prior_verbatim": "The Provenance section links View the record directly to the corresponding data/antibiotics YAML on GitHub. These source links follow main; deployment provenance is recorded separately in this audit.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antibacterial/amikacin.html.links",
+        "verbatim": [
+          {
+            "text": "View the record (YAML)",
+            "href": "https://github.com/CultureBotAI/AntibioticMech/blob/main/data/antibiotics/antibacterial/amikacin.yaml",
+            "table": false
+          }
+        ]
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "The chemical map displays all 3,064 compounds and the sequence map 132 proteins; the corpus text map renders separately. Sampled causal mechanisms are available as node/edge tables.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/domain_view",
+      "prior_verbatim": "The Chemical map (pages/chemical-map.html) renders the chiral-fingerprint UMAP, pages/map.html renders the 2D corpus embedding scatter across all 3,012 compounds, pages/sequence-map.html renders an ESM-2 protein sequence embedding map (132 target/resistance proteins across 71 compounds), and 64 compound pages render interactive Mermaid causal graphs.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/chemical-map.html.text_excerpt",
+        "verbatim": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nChemical structure map\n\nThis view places 3064 records using chemical structure only: chiral Morgan count fingerprints and Tanimoto distance, projected to two dimensions with UMAP. Labels, antimicrobial classes, mechanisms, targets, and curation fields can color or filter the view, but they do not affect position.\n\nRead local neighborhoods, not the axes or global spacing. UMAP preserves nearby structure better than map-wide distance. Current full-corpus trustworthiness@10 is 0.970 and 2D neighbor overlap@10 is 0.498. Multi-fragment structures are retained exactly as their records define them and are visibly marked.\n\nFind a compound\nShow class\nAll antimicrobial classes\nANTIBACTERIAL\nANTIFUNGAL\nANTIMICROBIAL UNSPECIFIED\nANTIMYCOBACTERIAL\nANTIPROTOZOAL\nANTIVIRAL\nBIOCIDE\nColor points by\nAntimicrobial class\nStructure input\nSingle vs multi-fragment\nReset\nLEGEND\nANTIBACTERIAL\nANTIFUNGAL\nANTIMICROBIAL UNSPECIFIED\nANTIMYCOBACTERIAL\nANTIPROTOZOAL\nANTIVIRAL\nBIOCIDE\nShowing 3064 of 3064 compounds.\nSelect a compound\n\nSearch by name or select a point to inspect its structural neighbors.\n\nSearch results\n\nEnter a name, synonym, or identifier.\nMethod and provenance\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow s"
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "D-cycloserine links to PathwayMech WikiPathways:WP5060 with source revision and qualified target/process correspondence; the target returns HTTP 200.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/cross_mech_links",
+      "prior_verbatim": "D-cycloserine links directly to PathwayMech WikiPathways:WP5060 and retains its source revision. The record explains target/process correspondence, cites PMID:4555420 and states that it does not establish strain identity.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/antimycobacterial/d-cycloserine.html.links",
+        "verbatim": [
+          {
+            "text": "AntibioticMech",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+            "table": false
+          },
+          {
+            "text": "Overview",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+            "table": false
+          },
+          {
+            "text": "Browse",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+            "table": false
+          },
+          {
+            "text": "Map",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/map.html",
+            "table": false
+          },
+          {
+            "text": "Chemical map",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html",
+            "table": false
+          },
+          {
+            "text": "Sequence map (pLM)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html",
+            "table": false
+          },
+          {
+            "text": "Browse",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+            "table": false
+          },
+          {
+            "text": "ANTIMYCOBACTERIAL",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/class/antimycobacterial.html",
+            "table": false
+          },
+          {
+            "text": "ANTIMYCOBACTERIAL",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/class/antimycobacterial.html",
+            "table": false
+          },
+          {
+            "text": "PathwayMech: WikiPathways:WP5060",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/WikiPathways_WP5060.html",
+            "table": false
+          },
+          {
+            "text": "Browse all observations",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1.html",
+            "table": false
+          },
+          {
+            "text": "Complete record (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/record-c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc.json.gz",
+            "table": false
+          },
+          {
+            "text": "7 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3A64455973d766eb8e",
+            "table": true
+          },
+          {
+            "text": "Page data (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1-0265f9a6d1bfb374815472c131255454a43007756b09f9d302709069e282be68.json.gz",
+            "table": true
+          },
+          {
+            "text": "4 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3Ac99da496ddc4951b",
+            "table": true
+          },
+          {
+            "text": "Page data (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1-0265f9a6d1bfb374815472c131255454a43007756b09f9d302709069e282be68.json.gz",
+            "table": true
+          },
+          {
+            "text": "13 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3Af9323435c5f9674e",
+            "table": true
+          },
+          {
+            "text": "Page data (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1-0265f9a6d1bfb374815472c131255454a43007756b09f9d302709069e282be68.json.gz",
+            "table": true
+          },
+          {
+            "text": "521 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3Afab73a1627a66f4d",
+            "table": true
+          },
+          {
+            "text": "Page data (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1-0265f9a6d1bfb374815472c131255454a43007756b09f9d302709069e282be68.json.gz",
+            "table": true
+          },
+          {
+            "text": "22 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3Ad4135aca2fff38a3",
+            "table": true
+          },
+          {
+            "text": "Page data (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1-0265f9a6d1bfb374815472c131255454a43007756b09f9d302709069e282be68.json.gz",
+            "table": true
+          },
+          {
+            "text": "1301 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3Ad43b39af3d2b8674",
+            "table": true
+          },
+          {
+            "text": "Page data (JSON.gz)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/activity-1-0265f9a6d1bfb374815472c131255454a43007756b09f9d302709069e282be68.json.gz",
+            "table": true
+          },
+          {
+            "text": "279 source isolates",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/memberships.html?source=CRYPTIC&version=3.4.0&group=dst_measurements%3Adef514ad5bed9fa3",
+            "table": true
+          }
+        ]
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing reports 3,064 compounds and generated grounding, review and mechanism statistics; its notice states 2,815 SEEDED records.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/corpus_stats",
+      "prior_verbatim": "Home page reports 3,012 compounds, 2,702 ontology-grounded (90%), 281 with both ChEBI and ARO source concepts, 96 REVIEWED, 492 with mode of action, 309 with molecular targets, 321 with resistance mechanisms, and 64 with causal graphs.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nAntibioticMech\n\nAntimicrobial chemical structures, harmonized — ChEBI’s antimicrobial role hierarchy merged with CARD’s Antibiotic Resistance Ontology onto one identity per structure, with the mechanism layer a compound list does not carry.\n\nSearch\n3064\nCOMPOUND RECORDS\n2740\nONTOLOGY-GROUNDED\n281\nCHEBI AND ARO\n112\nREVIEWED STATUS\nBrowse records\nRecord browser\n\nBrowse every compound by antimicrobial class, with its grounding and curation status. Each class has an identifier and name filter.\n\nAntibacterial\nAntimycobacterial\nAntifungal\nAntiprotozoal\nBy antimicrobial class\n\nAntibacterial, antifungal, antiviral and the rest — the class a record’s activity places it in, not its structural family.\n\nOpen the chemical map\nText map\nChemical & text maps\n\nAll 3064 records placed by chiral molecular fingerprint alone — no labels, mechanisms or prose in the coordinates. Search a compound and inspect its nearest structural neighbours.\n\nSequence map (pLM)\nProtein sequence map (pLM)\n\n2D PaCMAP projection of ESM-2 (esm2_t33_650M_UR50D) embeddings for curated target and resistance determinant proteins.\n\nGitHub\nSchema (LinkML)\nBrowse index (JSON)\nChemical map (JSON)\nSource, schema & downloads\n\nLinkML-validated YAML under data/antibiotics/. Schema, bulk JSON exports, curation history and the seeding pipeline all live in the repository.\n\nOne AntibioticRecord is one chemical structure — a compound wit"
+      }
+    },
+    "category_browse": {
+      "status": "present",
+      "note": "Browse and the landing link antimicrobial class listings, including Antibacterial with 1,147 directly filed records and 1,225 including its 78-record antimycobacterial subclass; Antifungal has 609.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/category_browse",
+      "prior_verbatim": "Browse and the landing class table link all ten antimicrobial classes to listings; the antibacterial listing has 1,063 directly filed records (1,186 including its 123 antimycobacterial subclass records) and antifungal has 602.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/browse.html.text_excerpt",
+        "verbatim": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nBrowse\n\n3064 compound records across 7 antimicrobial classes. Download browse index (JSON).\n\nSEARCH COMPOUNDS\nANTIMICROBIAL CLASS\nAll classes (3064)\nAntibacterial (1147)\nAntimycobacterial (78)\nAntifungal (609)\nAntiprotozoal (254)\nAntiviral (473)\nBiocide (31)\nUnspecified (472)\nGROUNDING STATUS\nAll grounding statuses\nEXACT (2740)\nUNGROUNDED (324)\nCURATION STATUS\nAll workflow statuses\nREVIEWED (112)\nSEEDED (2815)\nSOURCE\nAll sources\nChEBI\nARO\nChEBI & ARO (281)\nSORT BY\nCompound name (A–Z)\nCompound name (Z–A)\nAntimicrobial class (A–Z)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)\nMECHANISM COVERAGE\nHas molecular target\nHas mode of action\nHas resistance mechanism\nHas activity spectrum\nReset filters\n\nANTIMICROBIAL CLASSES\nCLASS\tRECORDS\tGROUNDED\tWHAT IT HOLDS\nAntibacterial incl. subclasses\t1225\t929\tActive against bacteria — antibacterial drugs and agents.\n↳ Antimycobacterial subclass of antibacterial, counted in it\t78\t78\tAntitubercular, antimycobacterial and leprostatic agents.\nAntifungal\t609\t587\tAntifungal agents, drugs and agrochemical fungicides.\nAntiprotozoal\t254\t251\tAntimalarial, antileishmanial, trypanocidal, coccidiostat and antitrichomonal agents.\nAntiviral\t473\t473\t\nBiocide\t31\t29\tDisinfectants and antimicrobial food or cosmetic preservatives.\nUnspecified\t472\t471\tAsserted as an antimicrobial agent without a named microbial target group, or "
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "A visible suite-directory link appears on the sampled main site pages; the evidence lists each checked route and its target.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/suite_nav",
+      "prior_verbatim": "The shared footer visibly links All Mech projects to culturebotai.github.io/mechs/, alongside sibling websites.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.links",
+        "verbatim": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/",
+            "table": false
+          },
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/",
+            "table": false
+          }
+        ]
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "The landing links a 3,064-entry browse index and chemical-map coordinates, while sampled record pages link complete individual JSON.gz records. No bulk complete-record corpus export is linked; the old corpus.json/corpus.csv claim is unsupported.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/downloads",
+      "prior_verbatim": "Site provides bulk JSON and CSV corpus exports (pages/corpus.json, pages/corpus.csv) alongside per-record YAML and Complete record JSON.gz links.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.links",
+        "verbatim": [
+          {
+            "text": "Browse index (JSON)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json",
+            "table": false
+          },
+          {
+            "text": "Chemical map (JSON)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json",
+            "table": false
+          },
+          {
+            "text": "Download index (JSON)",
+            "href": "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json",
+            "table": false
+          }
+        ]
+      }
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "Navigation links the annotated LinkML schema YAML successfully; no rendered schema documentation was linked from the sampled pages.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/schema_docs",
+      "prior_verbatim": "The landing Source and schema card explains LinkML-validated YAML, but its link opens the repository root rather than readable schema documentation.",
+      "prior_status": "partial",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.links",
+        "verbatim": [
+          {
+            "text": "Schema",
+            "href": "https://github.com/CultureBotAI/AntibioticMech/blob/main/src/antibioticmech/schema/antibioticmech.yaml",
+            "table": false
+          },
+          {
+            "text": "Schema (LinkML)",
+            "href": "https://github.com/CultureBotAI/AntibioticMech/blob/main/src/antibioticmech/schema/antibioticmech.yaml",
+            "table": false
+          },
+          {
+            "text": "LinkML schema",
+            "href": "https://github.com/CultureBotAI/AntibioticMech/blob/main/src/antibioticmech/schema/antibioticmech.yaml",
+            "table": false
+          }
+        ]
+      }
+    },
+    "license": {
+      "status": "present",
+      "note": "Sampled pages state CC BY 4.0 project data and BSD-3-Clause code, with upstream terms retained, consistent with the pinned license files.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/license",
+      "prior_verbatim": "Shared footers state project-authored data CC BY 4.0 and code BSD-3-Clause, link LICENSE-DATA and LICENSE-CODE, and retain upstream terms and attribution.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nMost of this corpus is machine-generated and unreviewed. Identity, structure and cross-references come from ChEBI and CARD’s own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects\n\n☀"
+      }
+    },
+    "build_provenance": {
+      "status": "partial",
+      "note": "The footer displays corpus digest 6c2a5f8e3f3f and 3,064 records, but its only date is the upstream ChEBI/CARD input date 2026-08-30; it does not identify a dated build of its own corpus.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/build_provenance",
+      "prior_verbatim": "The footer names the upstream ChEBI/CARD input date 2026-08-30. It does not display an own site build date or deployment commit.",
+      "prior_status": "partial",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "corpus.\n\nMECHANISM FIELD COVERAGE\nFIELD\tRECORDS\tSHARE\nMolecular targets\t333\t10.9%\nResistance mechanisms\t321\t10.5%\nMode of action\t506\t16.5%\nCausal graphs\t75\t2.4%\nActivity spectrum\t60\t2.0%\nProducer organisms\t114\t3.7%\nDiscussions\t9\t0.3%\nDatasets\t0\t0.0%\n\nSEEDED and REVIEWED describe recorded curation workflow states. Curation may be agent-assisted; these counts do not establish human review. Consult each record’s curation history for the actor and method.\n\nThis corpus is machine-generated. 2815 of 3064 records (91.9%) have the SEEDED workflow status — their identity, structure and resistance/target links come straight from ChEBI's and CARD's own data. A database assertion is not a primary citation; treat SEEDED records as a starting point for curation, not a reviewed claim.\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nMost of this corpus is machine-generated and unreviewed. Identity, structure and cross-references come from ChEBI and CARD’s own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects\n\n☀"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Selecting the theme on the landing persists across the sampled linked pages in the same browser context.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/theme_toggle",
+      "prior_verbatim": "A user-selected dark theme persists from the landing through Browse, the antibacterial listing, both maps and four sampled compound pages; every sampled route retains its toggle.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nAntibioticMech\n\nAntimicrobial chemical structures, harmonized — ChEBI’s antimicrobial role hierarchy merged with CARD’s Antibiotic Resistance Ontology onto one identity per structure, with the mechanism layer a compound list does not carry.\n\nSearch\n3064\nCOMPOUND RECORDS\n2740\nONTOLOGY-GROUNDED\n281\nCHEBI AND ARO\n112\nREVIEWED STATUS\nBrowse records\nRecord browser\n\nBrowse every compound by antimicrobial class, with its grounding and curation status. Each class has an identifier and name filter.\n\nAntibacterial\nAntimycobacterial\nAntifungal\nAntiprotozoal\nBy antimicrobial class\n\nAntibacterial, antifungal, antiviral and the rest — the class a record’s activity places it in, not its structural family.\n\nOpen the chemical map\nText map\nChemical & text maps\n\nAll 3064 records placed by chiral molecular fingerprint alone — no labels, mechanisms or prose in the coordinates. Search a compound and inspect its nearest structural neighbours.\n\nSequence map (pLM)\nProtein sequence map (pLM)\n\n2D PaCMAP projection of ESM-2 (esm2_t33_650M_UR50D) embeddings for curated target and resistance determinant proteins.\n\nGitHub\nSchema (LinkML)\nBrowse index (JSON)\nChemical map (JSON)\nSource, schema & downloads\n\nLinkML-validated YAML under data/antibiotics/. Schema, bulk JSON exports, curation history and the seeding pipeline all live in the repository.\n\nOne AntibioticRecord is one chemical structure — a compound wit"
+      }
+    },
+    "responsive": {
+      "status": "present",
+      "note": "All sampled live routes fit a 390px viewport on both fresh load and resizing from 1280px; wide content stays within its own region.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/responsive",
+      "prior_verbatim": "The landing, Browse, antibacterial listing, both maps and four sampled compound pages, including enfuvirtide, fit fresh and resized 390 px viewports.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.pages.*.widths",
+        "verbatim": {
+          "pages/index.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/browse.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/antibacterial/amikacin.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/antibacterial/avibactam.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/chemical-map.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/antimycobacterial/d-cycloserine.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/map.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/sequence-map.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "status": "partial",
+      "note": "Chemical-map and browse-index failures are explicit. After sequence-map JSON fails, typing in search replaces the error with Showing 0 of 0 proteins, which misrepresents an unavailable dataset as empty.",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/AntibioticMech/features/load_failure",
+      "prior_verbatim": "Aborting Chemical map JSON displays Chemical map could not be loaded: Failed to fetch. Aborting antibacterial listing JSON displays filter unavailable while preserving fallback rows.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "failure:pages/chemical-map.html:https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json": "Chemical map could not be loaded: Failed to fetch; 0 matching compounds; 0 shown.",
+          "failure:pages/chemical-map.html:https://culturebotai.github.io/AntibioticMech/pages/data/chemical-search.json": "Chemical map could not be loaded: Failed to fetch; 0 matching compounds; 0 shown.",
+          "failure:pages/sequence-map.html:https://culturebotai.github.io/AntibioticMech/pages/data/sequence_map.json": "Showing 0 of 0 proteins.; 0 matching proteins (0 listed).",
+          "lazy_failure:pages/browse.html": "Filter index unavailable.",
+          "lazy_failure:pages/chemical-map.html": "Chemical map could not be loaded: Failed to fetch; 0 matching compounds; 0 shown.",
+          "lazy_failure:pages/map.html": "0 of 3064 compounds match.",
+          "lazy_failure:pages/sequence-map.html": "Showing 0 of 0 proteins.; 0 matching proteins (0 listed)."
+        },
+        "control_locator": "receipts.controls"
+      }
+    }
+  },
+  "receipts": {
+    "actions": {
+      "browse_initial": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          }
+        ]
+      },
+      "search:CHEBI:2637": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "1 of 3064 compounds match."
+          }
+        ]
+      },
+      "search:amikacin": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=amikacin",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "2 of 3064 compounds match."
+          }
+        ]
+      },
+      "search:no-such-record-canary-20261104": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=no-such-record-canary-20261104",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "0 of 3064 compounds match."
+          }
+        ]
+      },
+      "facet:0": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?class=antibacterial",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "1147 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "facet:1": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?class=antibacterial&grounding=EXACT",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "851 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "sort:name-asc": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?class=antibacterial&grounding=EXACT",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "851 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "sort:name-desc": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?class=antibacterial&grounding=EXACT&sort=name-desc",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "851 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "before_reload": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?class=antibacterial&grounding=EXACT&sort=name-desc",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "851 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "after_reload": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?class=antibacterial&grounding=EXACT&sort=name-desc",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "851 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "keyboard_reset": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          }
+        ]
+      },
+      "failure:pages/chemical-map.html:https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nChemical structure map\n\nThis view places 3064 records using chemical structure only: chiral Morgan count fingerprints and Tanimoto distance, projected to two dimensions with UMAP. Labels, antimicrobial classes, mechanisms, targets, and curation fields can color or filter the view, but they do not affect position.\n\nRead local neighborhoods, not the axes or global spacing. UMAP preserves nearby structure better than map-wide distance. Current full-corpus trustworthiness@10 is 0.970 and 2D neighbor overlap@10 is 0.498. Multi-fragment structures are retained exactly as their records define them and are visibly marked.\n\nFind a compound\nShow class\nAll antimicrobial classes\nColor points by\nAntimicrobial class\nStructure input\nSingle vs multi-fragment\nReset\nLEGEND\nChemical map could not be loaded: Failed to fetch\nSelect a compound\n\nSearch by name or select a point to inspect its structural neighbors.\n\nSearch results\n\n0 matching compounds; 0 shown.\n\nNo visible compounds match.\nMethod and provenance\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream te\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "map-status",
+            "text": "Chemical map could not be loaded: Failed to fetch"
+          },
+          {
+            "id": "map-search-count",
+            "text": "0 matching compounds; 0 shown."
+          }
+        ]
+      },
+      "failure:pages/chemical-map.html:https://culturebotai.github.io/AntibioticMech/pages/data/chemical-search.json": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nChemical structure map\n\nThis view places 3064 records using chemical structure only: chiral Morgan count fingerprints and Tanimoto distance, projected to two dimensions with UMAP. Labels, antimicrobial classes, mechanisms, targets, and curation fields can color or filter the view, but they do not affect position.\n\nRead local neighborhoods, not the axes or global spacing. UMAP preserves nearby structure better than map-wide distance. Current full-corpus trustworthiness@10 is 0.970 and 2D neighbor overlap@10 is 0.498. Multi-fragment structures are retained exactly as their records define them and are visibly marked.\n\nFind a compound\nShow class\nAll antimicrobial classes\nColor points by\nAntimicrobial class\nStructure input\nSingle vs multi-fragment\nReset\nLEGEND\nChemical map could not be loaded: Failed to fetch\nSelect a compound\n\nSearch by name or select a point to inspect its structural neighbors.\n\nSearch results\n\n0 matching compounds; 0 shown.\n\nNo visible compounds match.\nMethod and provenance\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream te\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "map-status",
+            "text": "Chemical map could not be loaded: Failed to fetch"
+          },
+          {
+            "id": "map-search-count",
+            "text": "0 matching compounds; 0 shown."
+          }
+        ]
+      },
+      "failure:pages/sequence-map.html:https://culturebotai.github.io/AntibioticMech/pages/data/sequence_map.json": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nProtein sequence map (pLM)\n\n132 unique proteins across 71 compound records (518 protein–record mentions), embedded with facebook/esm2_t33_650M_UR50D (revision 08e4846e537177426273712802403f7ba8261b6c, 1280-d mean-pooled residue representations) and projected to 2D with PaCMAP (n_neighbors=10, mean-centred cosine prep).\n\nPositions depend only on amino-acid sequence via the protein language model facebook/esm2_t33_650M_UR50D. Antimicrobial classes, molecular target vs. resistance determinant roles, and organism taxonomy are layered on as colors and filters without influencing the coordinates.\n\nSearch proteins or compounds\nColor points by\nAntimicrobial class\nMechanistic role\nExtraction channel\nSequence length\nAntimicrobial class\nAll classes\nMechanistic role\nAll roles\nExtraction channel\nAll channels\nSequence length\nAll lengths\nReset filters\nLEGEND (CLICK TO TOGGLE)\nShowing 0 of 0 proteins.\nSelect a protein\n\nClick any point on the scatter plot or pick a protein from the search results to inspect its sequence metadata and linked compound records.\n\nMatching proteins\n\n0 matching proteins (0 listed).\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records).\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "seq-status",
+            "text": "Showing 0 of 0 proteins."
+          },
+          {
+            "id": "seq-search-count",
+            "text": "0 matching proteins (0 listed)."
+          }
+        ]
+      },
+      "query_before_reload": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "1 of 3064 compounds match."
+          }
+        ]
+      },
+      "query_after_reload": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "1 of 3064 compounds match."
+          }
+        ]
+      },
+      "lazy_failure:pages/browse.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "blocked": [
+          "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json"
+        ],
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nBrowse\n\n3064 compound records across 7 antimicrobial classes. Download browse index (JSON).\n\nSEARCH COMPOUNDS\nANTIMICROBIAL CLASS\nAll classes (3064)\nAntibacterial (1147)\nAntimycobacterial (78)\nAntifungal (609)\nAntiprotozoal (254)\nAntiviral (473)\nBiocide (31)\nUnspecified (472)\nGROUNDING STATUS\nAll grounding statuses\nEXACT (2740)\nUNGROUNDED (324)\nCURATION STATUS\nAll workflow statuses\nREVIEWED (112)\nSEEDED (2815)\nSOURCE\nAll sources\nChEBI\nARO\nChEBI & ARO (281)\nSORT BY\nCompound name (A–Z)\nCompound name (Z–A)\nAntimicrobial class (A–Z)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)\nMECHANISM COVERAGE\nHas molecular target\nHas mode of action\nHas resistance mechanism\nHas activity spectrum\nReset filters\n\nFilter index unavailable.\n\nANTIMICROBIAL CLASSES\nCLASS\tRECORDS\tGROUNDED\tWHAT IT HOLDS\nAntibacterial incl. subclasses\t1225\t929\tActive against bacteria — antibacterial drugs and agents.\n↳ Antimycobacterial subclass of antibacterial, counted in it\t78\t78\tAntitubercular, antimycobacterial and leprostatic agents.\nAntifungal\t609\t587\tAntifungal agents, drugs and agrochemical fungicides.\nAntiprotozoal\t254\t251\tAntimalarial, antileishmanial, trypanocidal, coccidios\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "Filter index unavailable."
+          }
+        ]
+      },
+      "lazy_failure:pages/chemical-map.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "blocked": [
+          "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json"
+        ],
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nChemical structure map\n\nThis view places 3064 records using chemical structure only: chiral Morgan count fingerprints and Tanimoto distance, projected to two dimensions with UMAP. Labels, antimicrobial classes, mechanisms, targets, and curation fields can color or filter the view, but they do not affect position.\n\nRead local neighborhoods, not the axes or global spacing. UMAP preserves nearby structure better than map-wide distance. Current full-corpus trustworthiness@10 is 0.970 and 2D neighbor overlap@10 is 0.498. Multi-fragment structures are retained exactly as their records define them and are visibly marked.\n\nFind a compound\nShow class\nAll antimicrobial classes\nColor points by\nAntimicrobial class\nStructure input\nSingle vs multi-fragment\nReset\nLEGEND\nChemical map could not be loaded: Failed to fetch\nSelect a compound\n\nSearch by name or select a point to inspect its structural neighbors.\n\nSearch results\n\n0 matching compounds; 0 shown.\n\nNo visible compounds match.\nMethod and provenance\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream te\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "map-status",
+            "text": "Chemical map could not be loaded: Failed to fetch"
+          },
+          {
+            "id": "map-search-count",
+            "text": "0 matching compounds; 0 shown."
+          }
+        ]
+      },
+      "lazy_failure:pages/map.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/map.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "blocked": [],
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nCorpus map\n\n3064 compounds projected from their record text into two dimensions (PACMAP over BAAI/bge-large-en-v1.5).\n\nProximity means described similarly — same class, structural family, mechanism and asserted roles — not structurally similar. These are text embeddings of what the corpus says about a compound; SMILES and InChI are deliberately excluded, because a sentence model reads them as noise. A chemical-similarity map is a different artifact.\n\nSEARCH COMPOUNDS\nANTIMICROBIAL CLASSES\nantibacterial\nantifungal\nantimicrobial unspecified\nantimycobacterial\nantiprotozoal\nantiviral\nbiocide\nReset view\n\n0 of 3064 compounds match.\n\nHover a point for its name; click to open the record.\n\nThe scatter is a visual aid, and mouse-driven: its points are canvas pixels, not focusable links, so it is not navigable by keyboard or screen reader. Nothing is only available here — every compound has a record page reachable from Browse, and the per-class pages list the same records in text. Said plainly rather than implied, because a scatter that is the sole route to some records would be an accessibility failure rather than a limitation.\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "map-status",
+            "text": "0 of 3064 compounds match."
+          }
+        ]
+      },
+      "lazy_failure:pages/sequence-map.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html?q=CHEBI%3A2637",
+        "theme": null,
+        "savedTheme": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "blocked": [
+          "https://culturebotai.github.io/AntibioticMech/pages/data/sequence_map.json"
+        ],
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nProtein sequence map (pLM)\n\n132 unique proteins across 71 compound records (518 protein–record mentions), embedded with facebook/esm2_t33_650M_UR50D (revision 08e4846e537177426273712802403f7ba8261b6c, 1280-d mean-pooled residue representations) and projected to 2D with PaCMAP (n_neighbors=10, mean-centred cosine prep).\n\nPositions depend only on amino-acid sequence via the protein language model facebook/esm2_t33_650M_UR50D. Antimicrobial classes, molecular target vs. resistance determinant roles, and organism taxonomy are layered on as colors and filters without influencing the coordinates.\n\nSearch proteins or compounds\nColor points by\nAntimicrobial class\nMechanistic role\nExtraction channel\nSequence length\nAntimicrobial class\nAll classes\nMechanistic role\nAll roles\nExtraction channel\nAll channels\nSequence length\nAll lengths\nReset filters\nLEGEND (CLICK TO TOGGLE)\nShowing 0 of 0 proteins.\nSelect a protein\n\nClick any point on the scatter plot or pick a protein from the search results to inspect its sequence metadata and linked compound records.\n\nMatching proteins\n\n0 matching proteins (0 listed).\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records).\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "seq-status",
+            "text": "Showing 0 of 0 proteins."
+          },
+          {
+            "id": "seq-search-count",
+            "text": "0 matching proteins (0 listed)."
+          }
+        ]
+      }
+    },
+    "controls": [
+      {
+        "tag": "INPUT",
+        "id": "q",
+        "type": "search",
+        "text": "",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "SELECT",
+        "id": "facet-class",
+        "type": "select-one",
+        "text": "All classes (3064)\nAntibacterial (1147)\nAntimycobacterial (78)\nAntifungal (609)\nAntiprotozoal (254)\nAntiviral (473)\nBiocide (31)\nUnspecified (472)",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": [
+          {
+            "text": "All classes (3064)",
+            "value": ""
+          },
+          {
+            "text": "Antibacterial (1147)",
+            "value": "antibacterial"
+          },
+          {
+            "text": "Antimycobacterial (78)",
+            "value": "antimycobacterial"
+          },
+          {
+            "text": "Antifungal (609)",
+            "value": "antifungal"
+          },
+          {
+            "text": "Antiprotozoal (254)",
+            "value": "antiprotozoal"
+          },
+          {
+            "text": "Antiviral (473)",
+            "value": "antiviral"
+          },
+          {
+            "text": "Biocide (31)",
+            "value": "biocide"
+          },
+          {
+            "text": "Unspecified (472)",
+            "value": "unspecified"
+          }
+        ]
+      },
+      {
+        "tag": "SELECT",
+        "id": "facet-grounding",
+        "type": "select-one",
+        "text": "All grounding statuses\nEXACT (2740)\nUNGROUNDED (324)",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": [
+          {
+            "text": "All grounding statuses",
+            "value": ""
+          },
+          {
+            "text": "EXACT (2740)",
+            "value": "EXACT"
+          },
+          {
+            "text": "UNGROUNDED (324)",
+            "value": "UNGROUNDED"
+          }
+        ]
+      },
+      {
+        "tag": "SELECT",
+        "id": "facet-status",
+        "type": "select-one",
+        "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": [
+          {
+            "text": "All workflow statuses",
+            "value": ""
+          },
+          {
+            "text": "REVIEWED (112)",
+            "value": "REVIEWED"
+          },
+          {
+            "text": "SEEDED (2815)",
+            "value": "SEEDED"
+          }
+        ]
+      },
+      {
+        "tag": "SELECT",
+        "id": "facet-source",
+        "type": "select-one",
+        "text": "All sources\nChEBI\nARO\nChEBI & ARO (281)",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": [
+          {
+            "text": "All sources",
+            "value": ""
+          },
+          {
+            "text": "ChEBI",
+            "value": "ChEBI"
+          },
+          {
+            "text": "ARO",
+            "value": "ARO"
+          },
+          {
+            "text": "ChEBI & ARO (281)",
+            "value": "both"
+          }
+        ]
+      },
+      {
+        "tag": "SELECT",
+        "id": "facet-sort",
+        "type": "select-one",
+        "text": "Compound name (A–Z)\nCompound name (Z–A)\nAntimicrobial class (A–Z)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)",
+        "label": null,
+        "value": "name-asc",
+        "disabled": false,
+        "options": [
+          {
+            "text": "Compound name (A–Z)",
+            "value": "name-asc"
+          },
+          {
+            "text": "Compound name (Z–A)",
+            "value": "name-desc"
+          },
+          {
+            "text": "Antimicrobial class (A–Z)",
+            "value": "class"
+          },
+          {
+            "text": "Structural class (A–Z)",
+            "value": "structural"
+          },
+          {
+            "text": "Curation status (REVIEWED first)",
+            "value": "status"
+          },
+          {
+            "text": "Grounding status (EXACT first)",
+            "value": "grounding"
+          }
+        ]
+      },
+      {
+        "tag": "INPUT",
+        "id": "facet-target",
+        "type": "checkbox",
+        "text": "",
+        "label": null,
+        "value": "1",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "INPUT",
+        "id": "facet-moa",
+        "type": "checkbox",
+        "text": "",
+        "label": null,
+        "value": "2",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "INPUT",
+        "id": "facet-res",
+        "type": "checkbox",
+        "text": "",
+        "label": null,
+        "value": "4",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "INPUT",
+        "id": "facet-act",
+        "type": "checkbox",
+        "text": "",
+        "label": null,
+        "value": "8",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "BUTTON",
+        "id": "browse-reset",
+        "type": "reset",
+        "text": "Reset filters",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "type": "button",
+        "text": "☀",
+        "label": "Toggle dark mode",
+        "value": "",
+        "disabled": false,
+        "options": null
+      }
+    ],
+    "pages": {
+      "pages/index.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nMost of this corpus is machine-generated and unreviewed. Identity, structure and cross-references come from ChEBI and CARD’s own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/browse.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/antibacterial/amikacin.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/antibacterial/avibactam.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/chemical-map.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": [
+          {
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json",
+            "status": 200,
+            "kind": "fetch"
+          },
+          {
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-search.json",
+            "status": 200,
+            "kind": "fetch"
+          }
+        ]
+      },
+      "pages/antimycobacterial/d-cycloserine.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/map.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/map.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/sequence-map.html": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html",
+        "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records). Download index (JSON) · LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer — molecular_targets, mode_of_action, causal_graphs — is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech · MediaIngredientMech · CommunityMech · TraitMech · ProteinTraitsMech · AntibioticMech · CellStructureMech\n\nkg-microbe · METPO\n\nAll Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": [
+          {
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/data/sequence_map.json",
+            "status": 200,
+            "kind": "fetch"
+          }
+        ]
+      }
+    },
+    "downloads": {
+      "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json": {
+        "text": "Browse index (JSON)",
+        "href": "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200,
+        "bytes": 673415,
+        "sha256": "c36bbd0430962e09c5f125982f3eb391b66aa94665c387de865729b02ce3ffdd",
+        "kind": "list",
+        "length": 3064,
+        "array_lengths": {}
+      },
+      "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json": {
+        "text": "Chemical map (JSON)",
+        "href": "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200,
+        "bytes": 4300916,
+        "sha256": "9b1b856648de6f0fc4d0c4c2674267e10f80552933c7cd3ca26ffe8e1ba71f2e",
+        "kind": "dict",
+        "length": 11,
+        "keys": [
+          "configuration",
+          "corpus_fingerprint",
+          "display_hash",
+          "input_hash",
+          "model_version",
+          "quality",
+          "record_count",
+          "records",
+          "schema_version",
+          "structure_hash",
+          "versions"
+        ],
+        "array_lengths": {
+          "records": 3064
+        }
+      },
+      "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin/record-95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823.json.gz": {
+        "text": "Complete record (JSON.gz)",
+        "href": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin/record-95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823.json.gz",
+        "table": false,
+        "from": "pages/antibacterial/amikacin.html",
+        "status": 200,
+        "bytes": 16292,
+        "sha256": "95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823",
+        "kind": "dict",
+        "length": 22,
+        "keys": [
+          "identifier",
+          "label",
+          "antimicrobial_class",
+          "curation_status",
+          "grounding_status",
+          "definition",
+          "definition_source",
+          "synonyms",
+          "parent_compounds",
+          "activity_roles",
+          "structural_class",
+          "structural_class_id",
+          "activity_spectrum",
+          "activity_membership_collections",
+          "chemical_structure",
+          "xrefs",
+          "drug_xrefs",
+          "document_xrefs",
+          "source_concepts",
+          "resistance_mechanisms",
+          "molecular_targets",
+          "curation_history"
+        ],
+        "array_lengths": {
+          "synonyms": 17,
+          "parent_compounds": 5,
+          "activity_roles": 2,
+          "activity_spectrum": 294,
+          "activity_membership_collections": 1,
+          "xrefs": 9,
+          "drug_xrefs": 3,
+          "document_xrefs": 3,
+          "source_concepts": 2,
+          "resistance_mechanisms": 102,
+          "molecular_targets": 1,
+          "curation_history": 19
+        }
+      },
+      "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/record-c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc.json.gz": {
+        "text": "Complete record (JSON.gz)",
+        "href": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/record-c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc.json.gz",
+        "table": false,
+        "from": "pages/antimycobacterial/d-cycloserine.html",
+        "status": 200,
+        "bytes": 4158,
+        "sha256": "c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc",
+        "kind": "dict",
+        "length": 29,
+        "keys": [
+          "identifier",
+          "label",
+          "antimicrobial_class",
+          "curation_status",
+          "grounding_status",
+          "definition",
+          "definition_source",
+          "synonyms",
+          "parent_compounds",
+          "activity_roles",
+          "structural_class",
+          "structural_class_id",
+          "mode_of_action",
+          "mode_of_action_notes",
+          "mode_of_action_target_scope",
+          "chemical_structure",
+          "xrefs",
+          "drug_xrefs",
+          "document_xrefs",
+          "source_concepts",
+          "evidence",
+          "resistance_mechanisms",
+          "molecular_targets",
+          "activity_spectrum",
+          "activity_membership_collections"
+        ],
+        "array_lengths": {
+          "synonyms": 20,
+          "parent_compounds": 4,
+          "activity_roles": 2,
+          "xrefs": 9,
+          "drug_xrefs": 3,
+          "document_xrefs": 3,
+          "source_concepts": 2,
+          "evidence": 1,
+          "resistance_mechanisms": 3,
+          "molecular_targets": 3,
+          "activity_spectrum": 7,
+          "activity_membership_collections": 1,
+          "clinical_status_assertions": 1,
+          "curation_history": 11,
+          "related_records": 1
+        }
+      }
+    },
+    "external_links": [
+      {
+        "text": "Schema",
+        "href": "https://github.com/CultureBotAI/AntibioticMech/blob/main/src/antibioticmech/schema/antibioticmech.yaml",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200
+      },
+      {
+        "text": "NaturalProductMech",
+        "href": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?q=amikacin",
+        "table": false,
+        "from": "pages/antibacterial/amikacin.html",
+        "status": 200
+      },
+      {
+        "text": "PathwayMech",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/index.html?q=amikacin",
+        "table": false,
+        "from": "pages/antibacterial/amikacin.html",
+        "status": 200
+      },
+      {
+        "text": "TraitMech",
+        "href": "https://culturebotai.github.io/TraitMech/pages/index.html?q=amikacin",
+        "table": false,
+        "from": "pages/antibacterial/amikacin.html",
+        "status": 200
+      },
+      {
+        "text": "NaturalProductMech",
+        "href": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?q=avibactam",
+        "table": false,
+        "from": "pages/antibacterial/avibactam.html",
+        "status": 200
+      },
+      {
+        "text": "PathwayMech",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/index.html?q=avibactam",
+        "table": false,
+        "from": "pages/antibacterial/avibactam.html",
+        "status": 200
+      },
+      {
+        "text": "TraitMech",
+        "href": "https://culturebotai.github.io/TraitMech/pages/index.html?q=avibactam",
+        "table": false,
+        "from": "pages/antibacterial/avibactam.html",
+        "status": 200
+      },
+      {
+        "text": "PathwayMech: WikiPathways:WP5060",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/records/WikiPathways_WP5060.html",
+        "table": false,
+        "from": "pages/antimycobacterial/d-cycloserine.html",
+        "status": 200
+      },
+      {
+        "text": "NaturalProductMech",
+        "href": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?q=D-cycloserine",
+        "table": false,
+        "from": "pages/antimycobacterial/d-cycloserine.html",
+        "status": 200
+      },
+      {
+        "text": "PathwayMech",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/index.html?q=D-cycloserine",
+        "table": false,
+        "from": "pages/antimycobacterial/d-cycloserine.html",
+        "status": 200
+      },
+      {
+        "text": "TraitMech",
+        "href": "https://culturebotai.github.io/TraitMech/pages/index.html?q=D-cycloserine",
+        "table": false,
+        "from": "pages/antimycobacterial/d-cycloserine.html",
+        "status": 200
+      }
+    ],
+    "explicit_theme": {
+      "explicit_dark:pages/index.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/browse.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/antibacterial/amikacin.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/antibacterial/avibactam.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/chemical-map.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/antimycobacterial/d-cycloserine.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/map.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      },
+      "explicit_dark:pages/sequence-map.html": {
+        "theme": "dark",
+        "savedTheme": "dark",
+        "bodyBackground": "rgb(23, 21, 15)",
+        "toggle_count": 1
+      }
+    },
+    "non200": {
+      "pages/antibacterial/index.html": 404
+    },
+    "followup_checks": {
+      "AntibioticMech:broad_search": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=a",
+        "h1": "Browse",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nBrowse\n\n3064 compound records across 7 antimicrobial classes. Download browse index (JSON).\n\nSEARCH COMPOUNDS\nANTIMICROBIAL CLASS\nAll classes (3064)\nAntibacterial (1147)\nAntimycobacterial (78)\nAntifungal (609)\nAntiprotozoal (254)\nAntiviral (473)\nBiocide (31)\nUnspecified (472)\nGROUNDING STATUS\nAll grounding statuses\nEXACT (2740)\nUNGROUNDED (324)\nCURATION STATUS\nAll workflow statuses\nREVIEWED (112)\nSEEDED (2815)\nSOURCE\nAll sources\nChEBI\nARO\nChEBI & ARO (281)\nSORT BY\nCompound name (A–Z)\nCompound name (Z–A)\nAntimicrobial class (A–Z)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)\nMECHANISM COVERAGE\nHas molecular target\nHas mode of action\nHas resistance mechanism\nHas activity spectrum\nReset filters\n\n3064 of 3064 compounds match (first 500 shown).\n\nMATCHING COMPOUND RECORDS\nCOMPOUND\tCLASS\tSTRUCTURAL CLASS\tGROUNDING\tCURATION\tSOURCES\n(+)-(11R,2'S)-erythro-mefloquine\tantiprotozoal\t—\tEXACT\tSEEDED\tCHEBI\n(+)-albicanol\tantifungal\t—\tEXACT\tSEEDED\tCHEBI\n(+)-aplasmomycin\tantibacterial\tmacrolide antibiotic\tEXACT\tSEEDED\tARO, CHEBI\n(+)-artemisinin\tantiprotozoal\t—\tEXACT\tSEEDED\tCHEBI\n(+)-bisdechlorogeodin\tantimicrobial unspecified\t—\tEXACT\tSEEDED\tCHEBI\n(+)-calanolide\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "facet-status",
+            "text": "All workflow statuses\nREVIEWED (112)\nSEEDED (2815)"
+          },
+          {
+            "id": "browse-count",
+            "text": "3064 of 3064 compounds match (first 500 shown)."
+          }
+        ]
+      },
+      "AntibioticMech:category": {
+        "status": 200,
+        "state": {
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/class/antibacterial.html",
+          "h1": "Antibacterial",
+          "width": 1280,
+          "scrollWidth": 1280,
+          "theme": null,
+          "savedTheme": null,
+          "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nAntibacterial\n\n1147 compound records. Active against bacteria — antibacterial drugs and agents.\n\nThese classes are not disjoint. Filing is exclusive and picks the narrower claim, so 78 antimycobacterial records are listed separately and not repeated here — mycobacteria are bacteria, so a question about what acts on bacteria takes both lists together.\n\nFILTER ANTIBACTERIAL RECORDS\nGROUNDING STATUS\nAll grounding statuses\nEXACT\nUNGROUNDED\nCURATION STATUS\nAll workflow statuses\nREVIEWED\nSEEDED\nSOURCE\nAll sources\nChEBI\nARO\nSORT BY\nCompound name (A–Z)\nCompound name (Z–A)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)\nReset filters\n\nANTIBACTERIAL COMPOUNDS\nCOMPOUND\tSTRUCTURAL CLASS\tGROUNDING\tCURATION\tSOURCES\n(+)-aplasmomycin\tmacrolide antibiotic\tEXACT\tSEEDED\tARO, CHEBI\n(+)-lyoniresinol-3-α-O-β-D-glucopyranoside\t\tEXACT\tSEEDED\tCHEBI\n(+)-microdiplodiasone\t\tEXACT\tSEEDED\tCHEBI\n(+)-pisiferic acid\t\tEXACT\tSEEDED\tCHEBI\n(13R)-epi-8,13-epoxylabd-14-ene\t\tEXACT\tSEEDED\tCHEBI\n(2E)-hexenal\t\tEXACT\tSEEDED\tCHEBI\n(2E,6Z)-13-hydroxy-1-(2-hydroxy-5-methoxy-3-methylphenyl)-3,7,11,15-tetramethylhexadeca-2,6,14-triene-5,12-dione\t\tEXACT\tSEEDED\tCHEBI\n(2R,3R)-dihydromyricetin\t\tE\n[Excerpt; complete capture archived.]",
+          "statuses": [
+            {
+              "id": "filter-status",
+              "text": "All workflow statuses\nREVIEWED\nSEEDED"
+            }
+          ]
+        }
+      },
+      "AntibioticMech:category_page2": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/class/antibacterial-2.html",
+        "h1": "Antibacterial",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nAntibacterial\n\n1147 compound records. Active against bacteria — antibacterial drugs and agents.\n\nThese classes are not disjoint. Filing is exclusive and picks the narrower claim, so 78 antimycobacterial records are listed separately and not repeated here — mycobacteria are bacteria, so a question about what acts on bacteria takes both lists together.\n\nFILTER ANTIBACTERIAL RECORDS\nGROUNDING STATUS\nAll grounding statuses\nEXACT\nUNGROUNDED\nCURATION STATUS\nAll workflow statuses\nREVIEWED\nSEEDED\nSOURCE\nAll sources\nChEBI\nARO\nSORT BY\nCompound name (A–Z)\nCompound name (Z–A)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)\nReset filters\n\nANTIBACTERIAL COMPOUNDS\nCOMPOUND\tSTRUCTURAL CLASS\tGROUNDING\tCURATION\tSOURCES\nbutremycin\t\tEXACT\tSEEDED\tCHEBI\ncadaside A\tnonribosomal peptide antibiotics\tMINTED\tSEEDED\tARO\ncadaside B\tnonribosomal peptide antibiotics\tMINTED\tSEEDED\tARO\ncadazolid\t\tMINTED\tPROPOSED\tCURATOR\ncalcimycin\tionophore with antibiotic activity\tEXACT\tSEEDED\tARO\ncallophycoic acid A\t\tEXACT\tSEEDED\tCHEBI\ncallophycoic acid B\t\tEXACT\tSEEDED\tCHEBI\ncallophycoic acid C\t\tEXACT\tSEEDED\tCHEBI\ncallophycoic acid D\t\tEXACT\tSEEDED\tCHEBI\ncallophycoic acid E\t\tEXACT\tSEEDED\tCHEB\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "filter-status",
+            "text": "All workflow statuses\nREVIEWED\nSEEDED"
+          }
+        ]
+      },
+      "AntibioticMech:category_failure": {
+        "blocked": [
+          "https://culturebotai.github.io/AntibioticMech/pages/class/antibacterial.json"
+        ],
+        "state": {
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/class/antibacterial.html",
+          "h1": "Antibacterial",
+          "width": 1280,
+          "scrollWidth": 1280,
+          "theme": null,
+          "savedTheme": null,
+          "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nAntibacterial\n\n1147 compound records. Active against bacteria — antibacterial drugs and agents.\n\nThese classes are not disjoint. Filing is exclusive and picks the narrower claim, so 78 antimycobacterial records are listed separately and not repeated here — mycobacteria are bacteria, so a question about what acts on bacteria takes both lists together.\n\nFILTER ANTIBACTERIAL RECORDS\nGROUNDING STATUS\nAll grounding statuses\nEXACT\nUNGROUNDED\nCURATION STATUS\nAll workflow statuses\nREVIEWED\nSEEDED\nSOURCE\nAll sources\nChEBI\nARO\nSORT BY\nCompound name (A–Z)\nCompound name (Z–A)\nStructural class (A–Z)\nCuration status (REVIEWED first)\nGrounding status (EXACT first)\nReset filters\n\nfilter unavailable\n\nANTIBACTERIAL COMPOUNDS\nCOMPOUND\tSTRUCTURAL CLASS\tGROUNDING\tCURATION\tSOURCES\n(+)-aplasmomycin\tmacrolide antibiotic\tEXACT\tSEEDED\tARO, CHEBI\n(+)-lyoniresinol-3-α-O-β-D-glucopyranoside\t\tEXACT\tSEEDED\tCHEBI\n(+)-microdiplodiasone\t\tEXACT\tSEEDED\tCHEBI\n(+)-pisiferic acid\t\tEXACT\tSEEDED\tCHEBI\n(13R)-epi-8,13-epoxylabd-14-ene\t\tEXACT\tSEEDED\tCHEBI\n(2E)-hexenal\t\tEXACT\tSEEDED\tCHEBI\n(2E,6Z)-13-hydroxy-1-(2-hydroxy-5-methoxy-3-methylphenyl)-3,7,11,15-tetramethylhexadeca-2,6,14-triene-5,12-dione\t\tEXACT\tSEEDED\tCHEBI\n(2R,3R)\n[Excerpt; complete capture archived.]",
+          "statuses": [
+            {
+              "id": "filter-status",
+              "text": "All workflow statuses\nREVIEWED\nSEEDED"
+            },
+            {
+              "id": "count",
+              "text": "filter unavailable"
+            }
+          ]
+        }
+      },
+      "AntibioticMech:sequence_initial_failure": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html",
+        "h1": "Protein sequence map (pLM)",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nProtein sequence map (pLM)\n\n132 unique proteins across 71 compound records (518 protein–record mentions), embedded with facebook/esm2_t33_650M_UR50D (revision 08e4846e537177426273712802403f7ba8261b6c, 1280-d mean-pooled residue representations) and projected to 2D with PaCMAP (n_neighbors=10, mean-centred cosine prep).\n\nPositions depend only on amino-acid sequence via the protein language model facebook/esm2_t33_650M_UR50D. Antimicrobial classes, molecular target vs. resistance determinant roles, and organism taxonomy are layered on as colors and filters without influencing the coordinates.\n\nSearch proteins or compounds\nColor points by\nAntimicrobial class\nMechanistic role\nExtraction channel\nSequence length\nAntimicrobial class\nAll classes\nMechanistic role\nAll roles\nExtraction channel\nAll channels\nSequence length\nAll lengths\nReset filters\nLEGEND (CLICK TO TOGGLE)\nSequence map could not be loaded: Failed to fetch\nSelect a protein\n\nClick any point on the scatter plot or pick a protein from the search results to inspect its sequence metadata and linked compound records.\n\nMatching proteins\n\nEnter a query or filter to list matching proteins.\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "seq-status",
+            "text": "Sequence map could not be loaded: Failed to fetch"
+          }
+        ]
+      },
+      "AntibioticMech:sequence_failure_after_typing": {
+        "url": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html?q=a",
+        "h1": "Protein sequence map (pLM)",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\nProtein sequence map (pLM)\n\n132 unique proteins across 71 compound records (518 protein–record mentions), embedded with facebook/esm2_t33_650M_UR50D (revision 08e4846e537177426273712802403f7ba8261b6c, 1280-d mean-pooled residue representations) and projected to 2D with PaCMAP (n_neighbors=10, mean-centred cosine prep).\n\nPositions depend only on amino-acid sequence via the protein language model facebook/esm2_t33_650M_UR50D. Antimicrobial classes, molecular target vs. resistance determinant roles, and organism taxonomy are layered on as colors and filters without influencing the coordinates.\n\nSearch proteins or compounds\nColor points by\nAntimicrobial class\nMechanistic role\nExtraction channel\nSequence length\nAntimicrobial class\nAll classes\nMechanistic role\nAll roles\nExtraction channel\nAll channels\nSequence length\nAll lengths\nReset filters\nLEGEND (CLICK TO TOGGLE)\nShowing 0 of 0 proteins.\nSelect a protein\n\nClick any point on the scatter plot or pick a protein from the search results to inspect its sequence metadata and linked compound records.\n\nMatching proteins\n\n0 matching proteins (0 listed).\n\nGenerated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest 6c2a5f8e3f3f, 3064 records).\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "seq-status",
+            "text": "Showing 0 of 0 proteins."
+          },
+          {
+            "id": "seq-search-count",
+            "text": "0 matching proteins (0 listed)."
+          }
+        ]
+      }
+    }
+  },
+  "raw_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/raw/AntibioticMech/raw.json",
+    "sha256": "5e44fbb1bedcc52d271dac379f42f24c819cddc17cd5494a8f62dd68190a0ab6"
+  },
+  "limits": [
+    "The 24 existing criteria were exercised on the listed routes; this is not an exhaustive record-page crawl.",
+    "Sibling-owned relationship provenance and corpus-source hand claims are covered by the separate hand-claim reviewer.",
+    "Non-200 guessed legacy routes are not counted as responsive/theme failures unless currently linked.",
+    "Root arbitration: a browse index or coordinate array alone does not qualify as a bulk record-corpus export; direct schema YAML alone remains partial schema documentation."
+  ],
+  "detailed_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/antibioticmech-auditor-a.json",
+    "sha256": "06e74aa9ab3b517edb9f14fcc7746ed0e3349e836e7224dceb8cfd04647e78ef",
+    "bytes": 328118
+  }
+}

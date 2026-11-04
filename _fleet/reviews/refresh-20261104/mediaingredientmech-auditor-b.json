@@ -1,0 +1,2404 @@
+{
+  "mech": "MediaIngredientMech",
+  "reviewer": "central_directory group B auditor",
+  "pin": "0874614ea8a2a939c82707d19056b2208606c1b7",
+  "started_at": "2026-11-04T11:48:54.184226+00:00",
+  "finished_at": "2026-11-04T11:53:48.068846+00:00",
+  "deployment_before": {
+    "id": 7540649718,
+    "sha": "b538ec76094e0d2d0667e5c3bd2455b24deceded",
+    "created_at": "2026-11-04T07:36:48Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T07:37:57Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 07:37:49 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:48:54 GMT"
+  },
+  "deployment_after": {
+    "id": 7540649718,
+    "sha": "b538ec76094e0d2d0667e5c3bd2455b24deceded",
+    "created_at": "2026-11-04T07:36:48Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T07:37:57Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 07:37:49 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:53:18 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "UNMAPPED_0196 and table salt each return one linked ingredient; CHEBI:63895 returns two of the 2,956 records.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.search",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Mapping status, ontology source and mapping quality filters combine with search. AMBIGUOUS gives one record; Clear search and filters restores all 2,956.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "Showing N of 2956 ingredients changes to one for UNMAPPED_0196, two for CHEBI:63895 and zero for an unmatched query.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The browser offers Default Order, Name (A \u2192 Z), Name (Z \u2192 A), Media Count (Most \u2192 Least), Occurrences (Most \u2192 Least), Synonyms (Most \u2192 Least). Changing each option reorders the displayed results.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.sorting",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Search, status, source, quality and sort values are encoded in query parameters and restore with the same matching count after reload.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The complete browser and its machine-readable export cover 2,956 published records; sampled record links open successfully.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Mapped, rejected and unmapped ingredients have stable record URLs; sampled NaCl, GYPS and glucose pages open with mapping, evidence and history sections.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      }
+    },
+    "term_links": {
+      "status": "present",
+      "note": "Sampled ingredient groundings display names with resolver links for ontology terms and component identities; local registry identities can remain plain text.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "NaCl and GYPS expose linked PMID, DOI and source-URL references in their evidence sections.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html",
+      "evidence": {
+        "locator": "receipts.evidence",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Record headers state mapping status and quality. Runtime metadata reports 2,611 MAPPED, 262 UNMAPPED, 82 REJECTED and one AMBIGUOUS ingredient.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html",
+      "evidence": {
+        "locator": "receipts.review_status",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Sampled ingredient pages show Curation history tables with timestamp, curator, action and change details.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      }
+    },
+    "source_link": {
+      "status": "partial",
+      "note": "Sampled record footers name data/ingredients/...yaml as plain text; their anchors do not link that individual YAML source.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Text and chemical embedding maps render, and sampled records display role/partonomy diagrams. Embedding coverage is separate from the 2,956-record catalogue total.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html",
+      "evidence": {
+        "locator": "receipts.domain_view",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "GYPS links CultureMech:002799 to its individual normalized recipe from the related-recipe and comparison-evidence sections.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html",
+      "evidence": {
+        "locator": "receipts.evidence",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "Runtime landing tiles show 2,956 ingredients, 2,611 mapped and 88% coverage; the linked catalogue metadata distinguishes all four mapping statuses.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "evidence": {
+        "locator": "receipts.corpus_stats",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      }
+    },
+    "category_browse": {
+      "status": "partial",
+      "note": "The record index has identifier-prefix sections, while the main browser offers property filters; these do not form standalone category pages.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "The landing links catalogue JSON and CSV covering all 2,956 ingredients, but they contain mapping/search fields rather than complete records with components, evidence and history.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "evidence": {
+        "locator": "receipts.downloads",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      }
+    },
+    "schema_docs": {
+      "status": "present",
+      "note": "The visible schema reference links rendered class, slot, enum and type documentation, including schema/classes-IngredientRecord.html.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html",
+      "evidence": {
+        "locator": "receipts.schema_docs",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+      }
+    },
+    "license": {
+      "status": "present",
+      "note": "The landing and sampled record footers distinguish CC BY 4.0 project data from BSD-3-Clause code.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      }
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "Generated timestamps and a linked build receipt identify the current record build, including NaCl at 2026-11-04T07:37:37+00:00.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Dark selected on the landing carries across the browser, record index, sampled ingredients, maps and schema documentation.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "evidence": {
+        "locator": "receipts.theme_toggle",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      }
+    },
+    "responsive": {
+      "status": "present",
+      "note": "The reviewed landing, browser, record index, ingredient pages, maps and valid schema pages fit a 390px viewport.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.responsive",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    },
+    "load_failure": {
+      "status": "present",
+      "note": "Blocking the catalogue request displays unavailable counters, Ingredients could not be loaded and a retry control.",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "evidence": {
+        "locator": "receipts.load_failure",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.search",
+      "before": {
+        "status": "present",
+        "note": "Identifier and label searches work across the 2953-record browser: CHEBI:26710 gives 11 matches, table salt and UNMAPPED_0196 each give 1, and the previously unsearchable mapped term CHEBI:63895 now gives 2. A matched ingredient opens its record.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "UNMAPPED_0196 and table salt each return one linked ingredient; CHEBI:63895 returns two of the 2,956 records.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.facets",
+      "before": {
+        "status": "present",
+        "note": "Status, source and quality menus now include the full observed status/source values, including REJECTED, MICRO, CAS and kgmicrobe registries. MAPPED + CHEBI + EXACT_MATCH gives 1357; REJECTED gives 81; Clear search and filters restores 2953.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Mapping status, ontology source and mapping quality filters combine with search. AMBIGUOUS gives one record; Clear search and filters restores all 2,956.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.result_counts",
+      "before": {
+        "status": "present",
+        "note": "Showing N of 2953 ingredients updates after search and filter changes, alongside Currently Showing and a status breakdown. Tested counts include 11, 1, 1357 and 81.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Showing N of 2956 ingredients changes to one for UNMAPPED_0196, two for CHEBI:63895 and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.sorting",
+      "before": {
+        "status": "present",
+        "note": "Browser provides a sort control ordering ingredients by name, identifier, category, ontology status, or occurrence count.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The browser offers Default Order, Name (A \u2192 Z), Name (Z \u2192 A), Media Count (Most \u2192 Least), Occurrences (Most \u2192 Least), Synonyms (Most \u2192 Least). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.shareable_state",
+      "before": {
+        "status": "present",
+        "note": "Browser reads and updates URL query parameters (?q=, ?category=, ?status=, ?role=, ?sort=) via history.replaceState alongside #status=MAPPED links.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Search, status, source, quality and sort values are encoded in query parameters and restore with the same matching count after reload.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.full_catalogue",
+      "before": {
+        "status": "present",
+        "note": "The live browser renders 2953 record links and the ingredient index lists the same 2953 records, matching the pinned catalogue and YAML files. Sampled mapped, rejected and unmapped result links open their stable pages.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 2,956 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.suite_nav",
+      "before": {
+        "status": "present",
+        "note": "The landing, browser, ingredient index, schema index and sampled record breadcrumbs visibly link All Mech projects to the suite directory.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.record_pages",
+      "before": {
+        "status": "present",
+        "note": "Ingredients have stable individual pages; UNMAPPED_0196 opens records/ingredient/unmapped/2-Carene-3-One.html, while NaCl and GYPS show mappings, evidence, chemistry and history.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Mapped, rejected and unmapped ingredients have stable record URLs; sampled NaCl, GYPS and glucose pages open with mapping, evidence and history sections.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.term_links",
+      "before": {
+        "status": "present",
+        "note": "Sampled ingredient and component terms have labels and resolver links, including CHEBI, ENVO, FOODON and MICRO; CAS numbers link to Common Chemistry. MeSH and BTO now have resolvers too. Local kgmicrobe registry identities remain plain text.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled ingredient groundings display names with resolver links for ontology terms and component identities; local registry identities can remain plain text.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.evidence",
+      "before": {
+        "status": "present",
+        "note": "PMID, DOI and URL citations now link from record sections: NaCl links PMID:40820329, GYPS links https://doi.org/10.1099/00207713-52-5-1621, and NaCl\u2019s role evidence links its source URL. The renderer also links DOI and URL references in discussions.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "NaCl and GYPS expose linked PMID, DOI and source-URL references in their evidence sections.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      },
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.review_status",
+      "before": {
+        "status": "present",
+        "note": "Record headers show mapping status and quality. The live catalogue and pinned records agree on 2611 MAPPED, 260 UNMAPPED, 81 REJECTED and 1 AMBIGUOUS; Glucose_2 explicitly displays REJECTED.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Record headers state mapping status and quality. Runtime metadata reports 2,611 MAPPED, 262 UNMAPPED, 82 REJECTED and one AMBIGUOUS ingredient.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html"
+      },
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.curation_history",
+      "before": {
+        "status": "present",
+        "note": "Sampled mapped, rejected and complex ingredient pages have Curation history tables with timestamp, curator, action and changes, including attributed LLM-assisted events.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled ingredient pages show Curation history tables with timestamp, curator, action and change details.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.source_link",
+      "before": {
+        "status": "present",
+        "note": "Individual ingredient pages link directly to the underlying data/ingredients YAML source record on GitHub.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Sampled record footers name data/ingredients/...yaml as plain text; their anchors do not link that individual YAML source.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.domain_view",
+      "before": {
+        "status": "present",
+        "note": "text_map.html renders an interactive 2D text embedding map (BAAI/bge-large-en-v1.5, PaCMAP & PCA) of all 2,953 ingredients alongside ingredient_umap.html (2,339 chemical space points) and Mermaid chemical role/hierarchy diagrams on curated ingredient pages.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Text and chemical embedding maps render, and sampled records display role/partonomy diagrams. Embedding coverage is separate from the 2,956-record catalogue total.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+      },
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.cross_mech_links",
+      "before": {
+        "status": "present",
+        "note": "GYPS now links CultureMech:002799 to its specific normalized recipe page, both from Related CultureMech recipe and its comparison evidence. The linked recipe returns 200. kg-microbe node identifiers on ingredient records remain plain text.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "GYPS links CultureMech:002799 to its individual normalized recipe from the related-recipe and comparison-evidence sections.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      },
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.corpus_stats",
+      "before": {
+        "status": "present",
+        "note": "Home page computes 2,953 total ingredients, 2,611 mapped (88% ontology coverage), 260 unmapped, 81 rejected, and 1 ambiguous from data/ingredients.json.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Runtime landing tiles show 2,956 ingredients, 2,611 mapped and 88% coverage; the linked catalogue metadata distinguishes all four mapping statuses.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.category_browse",
+      "before": {
+        "status": "partial",
+        "note": "The ingredient index now has working identifier-prefix jump links, such as CHEBI (1848), but the landing still links only the full browser and MAPPED subset; its record breadcrumbs expose the separate index.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "The record index has identifier-prefix sections, while the main browser offers property filters; these do not form standalone category pages.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.downloads",
+      "before": {
+        "status": "present",
+        "note": "Site provides bulk JSON and CSV exports (all_ingredients.json, all_ingredients.csv) plus per-record YAML links.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/all_ingredients.json"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "The landing links catalogue JSON and CSV covering all 2,956 ingredients, but they contain mapping/search fields rather than complete records with components, evidence and history.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.schema_docs",
+      "before": {
+        "status": "present",
+        "note": "The browser footer now links a rendered HTML Schema reference, including classes, slots, enums and types; clicking IngredientRecord opens its class page. The raw Markdown index remains available as a secondary link.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The visible schema reference links rendered class, slot, enum and type documentation, including schema/classes-IngredientRecord.html.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+      },
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.license",
+      "before": {
+        "status": "present",
+        "note": "Site footer declares BSD-3-Clause code and CC-BY-4.0 / CC0-1.0 data licensing.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The landing and sampled record footers distinguish CC BY 4.0 project data from BSD-3-Clause code.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.build_provenance",
+      "before": {
+        "status": "present",
+        "note": "Record footers and the ingredient index state build timestamps; NaCl shows Generated 2026-10-09T05:29:48+00:00 and GYPS shows 2026-10-09T05:29:44+00:00.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Generated timestamps and a linked build receipt identify the current record build, including NaCl at 2026-11-04T07:37:37+00:00.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.theme_toggle",
+      "before": {
+        "status": "present",
+        "note": "Dark mode set on the landing persisted through the browser, ingredient index, both maps, sampled record pages and the HTML schema index/class page via mech-theme=dark.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Dark selected on the landing carries across the browser, record index, sampled ingredients, maps and schema documentation.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.responsive",
+      "before": {
+        "status": "present",
+        "note": "Landing, browser, ingredient index, both maps, three sampled records and the linked HTML schema pages fit 390 px without page overflow.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The reviewed landing, browser, record index, ingredient pages, maps and valid schema pages fit a 390px viewport.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.MediaIngredientMech.features.load_failure",
+      "before": {
+        "status": "present",
+        "note": "Aborting data/ingredients.json produces Unavailable count tiles and Ingredients could not be loaded, with a Retry loading ingredients button.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Blocking the catalogue request displays unavailable counters, Ingredients could not be loaded and a retry control.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "evidence": "features.load_failure.evidence"
+    }
+  ],
+  "limits": [
+    "Representative route audit, not an HTTP crawl of every record. Complete counts are listing/export counts where stated.",
+    "Independent skeptic must verify all changed verdicts before editor applies them.",
+    "Supplemental cold-route, theme, download and schema evidence is recorded in group-b-supplement.json."
+  ],
+  "receipts": {
+    "search": {
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "query:UNMAPPED_0196": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?q=UNMAPPED_0196",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "1"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 1 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "UNMAPPED_0196"
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": ""
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "2-Carene-3-One\nUNMAPPED\nID: UNMAPPED_0196\nOccurrences: 0\nMedia Count: 0\nCurator: edison_literature_identity\nView in Text Map \u2192\nSynonyms (1):\n2-Carene-3-One"
+          ],
+          "error": null
+        },
+        "query:table salt": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?q=table+salt",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "1"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 1 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "table salt"
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": ""
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "NaCl\nMAPPED\nCHEBI:26710 \u2014 sodium chloride (EXACT_MATCH)\nID: CHEBI:26710\nOccurrences: 8281\nMedia Count: 7806\nCurator: refresh_occurrence_statistics\nView in Text Map \u2192\nSynonyms (13):\nKochsalz\nNatriumchlorid\nSodium Chloride\nchlorure de sodium\ncloruro sodico\ncommon salt\nnatrii chloridum\nrock salt\nsalt\ntable salt\n+3 more"
+          ],
+          "error": null
+        },
+        "query:CHEBI:63895": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?q=CHEBI%3A63895",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "CHEBI:63895"
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": ""
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "1-ethyl-3-methylimidazolium acetate\nMAPPED\nCHEBI:63895 \u2014 ionic liquid (NARROW_MATCH)\nID: cas:143314-17-4\nOccurrences: 0\nMedia Count: 0\nCurator: claude\nView in Text Map \u2192",
+            "1-ethyl-3-methylimidazolium lysine\nMAPPED\nCHEBI:63895 \u2014 ionic liquid (NARROW_MATCH)\nID: kgmicrobe.compound:1-ethyl-3-methylimidazolium_lysine\nOccurrences: 0\nMedia Count: 0\nCurator: fix_salt_ion_identity_overclaims\nView in Text Map \u2192\nSynonyms (1):\n1-ethyl-3-methylimidazolium lysine"
+          ],
+          "error": null
+        },
+        "query:no-such-record-nov4-audit": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?q=no-such-record-nov4-audit",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "0"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 0 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": ""
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        }
+      }
+    },
+    "facets": {
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "combined_query": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=synonyms-desc&status=AMBIGUOUS&source=__missing__&quality=__missing__&q=CHEBI%3A63895",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "0"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 0 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "CHEBI:63895"
+            },
+            {
+              "id": "filter-status",
+              "value": "AMBIGUOUS"
+            },
+            {
+              "id": "filter-source",
+              "value": "__missing__"
+            },
+            {
+              "id": "filter-quality",
+              "value": "__missing__"
+            },
+            {
+              "id": "sort-by",
+              "value": "synonyms-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "restored": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=synonyms-desc&status=AMBIGUOUS&source=__missing__&quality=__missing__&q=CHEBI%3A63895",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "0"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 0 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "CHEBI:63895"
+            },
+            {
+              "id": "filter-status",
+              "value": "AMBIGUOUS"
+            },
+            {
+              "id": "filter-source",
+              "value": "__missing__"
+            },
+            {
+              "id": "filter-quality",
+              "value": "__missing__"
+            },
+            {
+              "id": "sort-by",
+              "value": "synonyms-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "reset": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": ""
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "(-)-anisomycin\nMAPPED\nCHEBI:338412 \u2014 (-)-anisomycin (EXACT_MATCH)\nID: CHEBI:338412\nOccurrences: 0\nMedia Count: 0\nCurator: classify_ingredient_type\nView in Text Map \u2192",
+            "(-)-quinic Acid\nMAPPED\nCHEBI:17521 \u2014 (-)-quinic acid (EXACT_MATCH)\nID: CHEBI:17521\nOccurrences: 6\nMedia Count: 6\nCurator: refresh_occurrence_statistics\nView in Text Map \u2192",
+            "D-lyxose\nMAPPED\nCHEBI:62318 \u2014 D-lyxose (SYNONYM_MATCH)\nID: CHEBI:62318\nOccurrences: 0\nMedia Count: 0\nCurator: merge_aldehydo_duplicates\nView in Text Map \u2192\nSynonyms (3):\n(2)-D-lyxose\nD-(-)-lyxose\nD-lyxo-pentose"
+          ],
+          "error": null
+        }
+      }
+    },
+    "sorting": {
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "sort:": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": ""
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "(-)-anisomycin\nMAPPED\nCHEBI:338412 \u2014 (-)-anisomycin (EXACT_MATCH)\nID: CHEBI:338412\nOccurrences: 0\nMedia Count: 0\nCurator: classify_ingredient_type\nView in Text Map \u2192",
+            "(-)-quinic Acid\nMAPPED\nCHEBI:17521 \u2014 (-)-quinic acid (EXACT_MATCH)\nID: CHEBI:17521\nOccurrences: 6\nMedia Count: 6\nCurator: refresh_occurrence_statistics\nView in Text Map \u2192",
+            "D-lyxose\nMAPPED\nCHEBI:62318 \u2014 D-lyxose (SYNONYM_MATCH)\nID: CHEBI:62318\nOccurrences: 0\nMedia Count: 0\nCurator: merge_aldehydo_duplicates\nView in Text Map \u2192\nSynonyms (3):\n(2)-D-lyxose\nD-(-)-lyxose\nD-lyxo-pentose"
+          ],
+          "error": null
+        },
+        "sort:name-asc": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=name-asc",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "(-)-alpha-bisabolol\nMAPPED\nCHEBI:125 \u2014 (-)-alpha-Bisabolol (EXACT_MATCH)\nID: CHEBI:125\nOccurrences: 0\nMedia Count: 0\nCurator: auto_classify_ingredient_type\nView in Text Map \u2192\nSynonyms (1):\nBisabolol",
+            "(-)-anisomycin\nMAPPED\nCHEBI:338412 \u2014 (-)-anisomycin (EXACT_MATCH)\nID: CHEBI:338412\nOccurrences: 0\nMedia Count: 0\nCurator: classify_ingredient_type\nView in Text Map \u2192",
+            "(-)-Epigallocatechin gallate\nMAPPED\nCHEBI:4806 \u2014 (-)-epigallocatechin 3-gallate (CAS_RN_LOOKUP)\nID: CHEBI:4806\nOccurrences: 0\nMedia Count: 0\nCurator: regrade_synonym_matches\nView in Text Map \u2192\nSynonyms (1):\n(2R,3R)-5,7-dihydroxy-2-(3,4,5-trihydroxyphenyl)-3,4-dihydro-2H-chromen-3-yl 3,4"
+          ],
+          "error": null
+        },
+        "sort:name-desc": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=name-desc",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "name-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "\u03b11-Acid Glycoprotein from bovine plasma\nMAPPED\nCAS:66455-27-4 \u2014 \u03b11-Acid Glycoprotein from bovine plasma (FALLBACK_REGISTRY)\nID: cas:66455-27-4\nOccurrences: 0\nMedia Count: 0\nCurator: auto_classify_ingredient_type\nView in Text Map \u2192",
+            "\u03b1-lipoic acid\nREJECTED\nCHEBI:16494 \u2014 lipoic acid (EXACT_MATCH)\nID: CHEBI:16494\nOccurrences: 0\nMedia Count: 0\nCurator: fix_lipoic_stereochemistry\nView in Text Map \u2192\nSynonyms (1):\nD,L-6,8-Thioctic Acid",
+            "\u03b1-D-Glucose monohydrate\nUNMAPPED\nID: UNMAPPED_0587\nOccurrences: 0\nMedia Count: 0\nCurator: edison_literature_identity\nView in Text Map \u2192\nSynonyms (1):\n\u03b1-D-Glucose monohydrate"
+          ],
+          "error": null
+        },
+        "sort:media-desc": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=media-desc",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "media-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "NaCl\nMAPPED\nCHEBI:26710 \u2014 sodium chloride (EXACT_MATCH)\nID: CHEBI:26710\nOccurrences: 8281\nMedia Count: 7806\nCurator: refresh_occurrence_statistics\nView in Text Map \u2192\nSynonyms (13):\nKochsalz\nNatriumchlorid\nSodium Chloride\nchlorure de sodium\ncloruro sodico\ncommon salt\nnatrii chloridum\nrock salt\nsalt\ntable salt\n+3 more",
+            "Yeast extract\nMAPPED\nFOODON:03315426 \u2014 yeast extract (EXACT_MATCH)\nID: FOODON:03315426\nOccurrences: 7716\nMedia Count: 7681\nCurator: claude_culturemech_alias_backfill\nView in Text Map \u2192\nSynonyms (34):\nYeast extract(Bacto, Difco)\nYeast extract(CAS: 8013-01-2)\nYeast extract (BD-Difco)\nBacto Yeast Extract (Difco)\nYeast Extract\nyeast extract\nYeast extract (OXOID)\nYeast extract (Oxoid)\nBacto yeast extract\nYeast extract (Difco)\n+24 more",
+            "Distilled water\nMAPPED\nCHEBI:15377 \u2014 water (EXACT_MATCH)\nID: CHEBI:15377\nOccurrences: 8181\nMedia Count: 7429\nCurator: claude_culturemech_alias_backfill\nView in Text Map \u2192\nSynonyms (18):\nH(2)O\nH2O\nHOH\nWATER\nWasser\n[OH2]\nacqua\nagua\naqua\ndH2O\n+8 more"
+          ],
+          "error": null
+        },
+        "sort:occurrences-desc": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=occurrences-desc",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "occurrences-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "NaCl\nMAPPED\nCHEBI:26710 \u2014 sodium chloride (EXACT_MATCH)\nID: CHEBI:26710\nOccurrences: 8281\nMedia Count: 7806\nCurator: refresh_occurrence_statistics\nView in Text Map \u2192\nSynonyms (13):\nKochsalz\nNatriumchlorid\nSodium Chloride\nchlorure de sodium\ncloruro sodico\ncommon salt\nnatrii chloridum\nrock salt\nsalt\ntable salt\n+3 more",
+            "Distilled water\nMAPPED\nCHEBI:15377 \u2014 water (EXACT_MATCH)\nID: CHEBI:15377\nOccurrences: 8181\nMedia Count: 7429\nCurator: claude_culturemech_alias_backfill\nView in Text Map \u2192\nSynonyms (18):\nH(2)O\nH2O\nHOH\nWATER\nWasser\n[OH2]\nacqua\nagua\naqua\ndH2O\n+8 more",
+            "Yeast extract\nMAPPED\nFOODON:03315426 \u2014 yeast extract (EXACT_MATCH)\nID: FOODON:03315426\nOccurrences: 7716\nMedia Count: 7681\nCurator: claude_culturemech_alias_backfill\nView in Text Map \u2192\nSynonyms (34):\nYeast extract(Bacto, Difco)\nYeast extract(CAS: 8013-01-2)\nYeast extract (BD-Difco)\nBacto Yeast Extract (Difco)\nYeast Extract\nyeast extract\nYeast extract (OXOID)\nYeast extract (Oxoid)\nBacto yeast extract\nYeast extract (Difco)\n+24 more"
+          ],
+          "error": null
+        },
+        "sort:synonyms-desc": {
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html?sort=synonyms-desc",
+          "counts": [
+            {
+              "id": "total-count",
+              "text": "2956"
+            },
+            {
+              "id": "mapped-count",
+              "text": "2611"
+            },
+            {
+              "id": "unmapped-count",
+              "text": "262"
+            },
+            {
+              "id": "filtered-count",
+              "text": "2956"
+            },
+            {
+              "id": "results-status",
+              "text": "Showing 2956 of 2956 ingredients"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "filter-status",
+              "value": ""
+            },
+            {
+              "id": "filter-source",
+              "value": ""
+            },
+            {
+              "id": "filter-quality",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "synonyms-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "Yeast extract\nMAPPED\nFOODON:03315426 \u2014 yeast extract (EXACT_MATCH)\nID: FOODON:03315426\nOccurrences: 7716\nMedia Count: 7681\nCurator: claude_culturemech_alias_backfill\nView in Text Map \u2192\nSynonyms (34):\nYeast extract(Bacto, Difco)\nYeast extract(CAS: 8013-01-2)\nYeast extract (BD-Difco)\nBacto Yeast Extract (Difco)\nYeast Extract\nyeast extract\nYeast extract (OXOID)\nYeast extract (Oxoid)\nBacto yeast extract\nYeast extract (Difco)\n+24 more",
+            "MgSO4 x 7 H2O\nMAPPED\nCHEBI:31795 \u2014 magnesium sulfate heptahydrate (EXACT_MATCH)\nID: CHEBI:31795\nOccurrences: 5890\nMedia Count: 5824\nCurator: claude\nView in Text Map \u2192\nSynonyms (29):\n.MgSO4 x 7 H2O\nMgSO 4 x 7 H2O\nMgSO x 7 H2O\nMgSO2 x 7 H2O\nMgSO4.7H2O\nMgSO4x7H2O\nmagnesium sulfate (1:1) heptahydrate\nmagnesium sulphate heptahydrate\nsulfuric acid magnesium salt heptahydrate\nMagnesium sulfate heptahydrate\n+19 more",
+            "Bacto peptone\nMAPPED\nMICRO:0000178 \u2014 peptone (EXACT_MATCH)\nID: MICRO:0000178\nOccurrences: 2267\nMedia Count: 2263\nCurator: claude\nView in Text Map \u2192\nSynonyms (28):\nBacto peptone\nBacto peptone (BD-Difco)\nBacto Peptone (Difco)\nBacto Peptone\nBacto-Peptone (BD)\nPeptone, Bacto (BD 211677)\nPeptone (Oxoid)\nPeptone (BD--Difco)\nPeptone (BD Bacto)\nPeptone (BD-Difco)\n+18 more"
+          ],
+          "error": null
+        }
+      }
+    },
+    "full_catalogue": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/records/index.html']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html",
+      "headings": [
+        "MIM \u2014 Ingredient index",
+        "(other) (271)",
+        "BTO (1)",
+        "CHEBI (1848)",
+        "ENVO (13)",
+        "FOODON (44)",
+        "MICRO (68)",
+        "NCIT (56)",
+        "UBERON (4)",
+        "cas (246)",
+        "kgmicrobe.compound (135)",
+        "kgmicrobe.ingredient (203)",
+        "mesh (67)"
+      ],
+      "footer_excerpt": "Generated 2026-11-04T07:37:42+00:00 \u00b7 Build provenance (SHA-256 manifest) \u00b7 LinkML Schema \u00b7 CC BY 4.0",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse ingredients",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html#downloads"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "(other) (271)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-%28other%29"
+        },
+        {
+          "text": "BTO (1)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-BTO"
+        },
+        {
+          "text": "CHEBI (1848)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-CHEBI"
+        },
+        {
+          "text": "ENVO (13)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-ENVO"
+        },
+        {
+          "text": "FOODON (44)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-FOODON"
+        },
+        {
+          "text": "MICRO (68)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-MICRO"
+        },
+        {
+          "text": "NCIT (56)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-NCIT"
+        },
+        {
+          "text": "UBERON (4)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-UBERON"
+        },
+        {
+          "text": "cas (246)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-cas"
+        },
+        {
+          "text": "kgmicrobe.compound (135)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-kgmicrobe.compound"
+        },
+        {
+          "text": "kgmicrobe.ingredient (203)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-kgmicrobe.ingredient"
+        },
+        {
+          "text": "mesh (67)",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html#prefix-mesh"
+        },
+        {
+          "text": "2',2'-Bisepigallocatechin Digallate",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/unmapped/22-Bisepigallocatechin_Digallate.html"
+        },
+        {
+          "text": "2-Carene-3-One",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/unmapped/2-Carene-3-One.html"
+        },
+        {
+          "text": "2-methyladeninyl cobamide",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/unmapped/2-methyladeninyl_Cobamide.html"
+        },
+        {
+          "text": "3-methylacetate",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/unmapped/3-methylacetate.html"
+        },
+        {
+          "text": "3Beta-Hydroxydeoxodihydrodeoxygedunin",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/unmapped/3Beta-Hydroxydeoxodihydrodeoxygedunin.html"
+        }
+      ]
+    },
+    "suite_nav": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "headings": [
+        "MediaIngredientMech",
+        "Record browser",
+        "Text embedding map",
+        "Embedding browser",
+        "LinkML schema",
+        "Data downloads & exports",
+        "GitHub"
+      ],
+      "footer_excerpt": "All Mech projects \u00b7 Schema Reference \u00b7 Build Provenance (SHA-256 Receipt) \u00b7 Data: CC BY 4.0 / Code: BSD-3-Clause\n\nKG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Record Index",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/#downloads"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "2,956\nINGREDIENTS",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "2,611\nMAPPED",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED"
+        },
+        {
+          "text": "88%\nCOVERAGE",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Explore text map \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "Explore embedding (PaCMAP) \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph layout \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema reference \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Markdown spec \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/IngredientRecord.md"
+        },
+        {
+          "text": "Catalog JSON \u2193",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json"
+        },
+        {
+          "text": "All CSV \u2193",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/all_ingredients.csv"
+        },
+        {
+          "text": "Mapped CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/mapped_ingredients.csv"
+        },
+        {
+          "text": "Unmapped CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/unmapped_ingredients.csv"
+        },
+        {
+          "text": "Label index CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/label_index.csv"
+        },
+        {
+          "text": "PaCMAP JSON",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredient_umap.json"
+        }
+      ]
+    },
+    "record_pages": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html",
+      "headings": [
+        "NaCl",
+        "Ontology mapping",
+        "Nutritional roles",
+        "Environmental context",
+        "Synonyms (21)",
+        "Chemical properties",
+        "Evidence (2)",
+        "Occurrence statistics",
+        "Curation history",
+        "Role & Partonomy Graph",
+        "Cross-Mech & External Links"
+      ],
+      "footer_excerpt": "Generated 2026-11-04T07:37:37+00:00 from data/ingredients/mapped/Nacl.yaml \u00b7 Schema \u00b7 Build Manifest \u00b7 Licensed under CC BY 4.0 (data) / BSD-3-Clause (code)",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse ingredients",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html#downloads"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "MIM",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "View in Text Map \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html?q=CHEBI%3A26710"
+        },
+        {
+          "text": "https://github.com/CultureBotAI/CultureMech",
+          "url": "https://github.com/CultureBotAI/CultureMech"
+        },
+        {
+          "text": "PMID:40820329",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40820329/"
+        },
+        {
+          "text": "Search CultureMech media recipes for NaCl",
+          "url": "https://culturebotai.github.io/CultureMech/app.html?q=NaCl"
+        },
+        {
+          "text": "Search PathwayMech pathways for NaCl",
+          "url": "https://culturebotai.github.io/PathwayMech/?q=NaCl"
+        },
+        {
+          "text": "Search CMMMech chemical/metabolic mechanisms for NaCl",
+          "url": "https://culturebotai.github.io/CMMMech/?q=NaCl"
+        },
+        {
+          "text": "Search NaturalProductMech for NaCl",
+          "url": "https://culturebotai.github.io/NaturalProductMech/?q=NaCl"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Build Manifest",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/build.json"
+        }
+      ]
+    },
+    "evidence": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html",
+      "headings": [
+        "GYPS",
+        "Ontology mapping",
+        "Related CultureMech recipe",
+        "Synonyms (1)",
+        "Evidence (1)",
+        "Material components",
+        "Decomposition evidence",
+        "Occurrence statistics",
+        "Curation history",
+        "Role & Partonomy Graph",
+        "Cross-Mech & External Links"
+      ],
+      "footer_excerpt": "Generated 2026-11-04T07:37:33+00:00 from data/ingredients/mapped/GYPS.yaml \u00b7 Schema \u00b7 Build Manifest \u00b7 Licensed under CC BY 4.0 (data) / BSD-3-Clause (code)",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse ingredients",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html#downloads"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "MIM",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "View in Text Map \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html?q=kgmicrobe.ingredient%3Agyps"
+        },
+        {
+          "text": "CultureMech:002799",
+          "url": "https://culturebotai.github.io/CultureMech/pages/normalized/002799.html"
+        },
+        {
+          "text": "CultureMech:002799",
+          "url": "https://culturebotai.github.io/CultureMech/pages/normalized/002799.html"
+        },
+        {
+          "text": "https://doi.org/10.1099/00207713-52-5-1621",
+          "url": "https://doi.org/10.1099/00207713-52-5-1621"
+        },
+        {
+          "text": "Search CultureMech media recipes for GYPS",
+          "url": "https://culturebotai.github.io/CultureMech/app.html?q=GYPS"
+        },
+        {
+          "text": "Search PathwayMech pathways for GYPS",
+          "url": "https://culturebotai.github.io/PathwayMech/?q=GYPS"
+        },
+        {
+          "text": "Search CMMMech chemical/metabolic mechanisms for GYPS",
+          "url": "https://culturebotai.github.io/CMMMech/?q=GYPS"
+        },
+        {
+          "text": "Search NaturalProductMech for GYPS",
+          "url": "https://culturebotai.github.io/NaturalProductMech/?q=GYPS"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Build Manifest",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/build.json"
+        }
+      ]
+    },
+    "review_status": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html",
+      "headings": [
+        "glucose",
+        "Ontology mapping",
+        "Nutritional roles",
+        "Synonyms (8)",
+        "Chemical properties",
+        "Evidence (1)",
+        "Occurrence statistics",
+        "Curation history",
+        "Role & Partonomy Graph",
+        "Cross-Mech & External Links"
+      ],
+      "footer_excerpt": "Generated 2026-11-04T07:37:33+00:00 from data/ingredients/mapped/Glucose_2.yaml \u00b7 Schema \u00b7 Build Manifest \u00b7 Licensed under CC BY 4.0 (data) / BSD-3-Clause (code)",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse ingredients",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html#downloads"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "MIM",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "View in Text Map \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html?q=CHEBI%3A17234"
+        },
+        {
+          "text": "Search CultureMech media recipes for glucose",
+          "url": "https://culturebotai.github.io/CultureMech/app.html?q=glucose"
+        },
+        {
+          "text": "Search PathwayMech pathways for glucose",
+          "url": "https://culturebotai.github.io/PathwayMech/?q=glucose"
+        },
+        {
+          "text": "Search CMMMech chemical/metabolic mechanisms for glucose",
+          "url": "https://culturebotai.github.io/CMMMech/?q=glucose"
+        },
+        {
+          "text": "Search NaturalProductMech for glucose",
+          "url": "https://culturebotai.github.io/NaturalProductMech/?q=glucose"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Build Manifest",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/build.json"
+        }
+      ]
+    },
+    "domain_view": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html",
+      "headings": [
+        "Ingredient Embedding Space",
+        "FILTER POINTS",
+        "How to Interpret This Visualization"
+      ],
+      "footer_excerpt": "",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Record Index",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html#downloads"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ],
+      "excerpt": "Ingredient Embedding Space\n\nPaCMAP projection of 2,337 live ingredient records included by the embedding pipeline\n\nHome\nBrowse\nText Map\nKG PaCMAP\nGraph Layout\nRecord Index\nSchema\nDownloads\nGitHub\nAll Mech projects\nSelect a point to inspect its ingredient record. Points also support Enter or Space.\nSearch:\nColor by:\nMapping Status\nOntology Source\nMapping Quality\nSize by:\nTotal Occurrences\nMedia Count\nNumber of Synonyms\nFILTER POINTS\nMapping status\nAMBIGUOUS\n1\nMAPPED\n2,074\nUNMAPPED\n262\nOntology source\nCHEBI\n1,978\nENVO\n19\nFOODON\n20\nNCIT\n62\nUBERON\n3\n\u2014\n255\nMapping quality\nBROAD_MATCH\n1\nCAS_RN_LOOKUP\n250\nCLOSE_MATCH\n62\nEXACT_MATCH\n1,411\nLEXICAL_MATCH\n9\nMANUAL_CURATION\n1\nNARROW_MATCH\n164\nSYNONYM_MATCH\n184\n\u2014\n255\nShowing 2,337 of 2,337 points\n\u221220\n\u221215\n\u221210\n\u22125\n0\n5\n10\n15\nDimension 1\n\u221214\n\u221212\n\u221210\n\u22128\n\u22126\n\u22124\n\u22122\n0\n2\n4\n6\n8\n10\n12\n14\nDimension 2\nAMBIGUOUS\nMAPPED\nUNMAPPED\nView data as table\nHow to Interpret This Visualization\nProximity: Ingredients close together have similar semantic relationships in the knowledge graph embedding space\nColor & shape: Categorical grouping (default: mapping status - blue filled circle = mapped, orange hollow ring = unmapped)\nUnmapped Ingredients: Complex mixtures (e.g., \"Allen Medium\", \"Biotin Vitamin Solution\") without single chemical entity embeddings - shown with synthetic embeddings near cluster center\nSize: Metric of interest (default: total occurrences across media recipes)\nHover: View detailed metadata tooltip\nClick: View detailed information (future: link to detail page)\nZoom/Pan: Use mouse wheel to zoom, click and drag to pan\nSearch: Type to highlight matching ingredients\n\u2600"
+    },
+    "corpus_stats": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "headings": [
+        "MediaIngredientMech",
+        "Record browser",
+        "Text embedding map",
+        "Embedding browser",
+        "LinkML schema",
+        "Data downloads & exports",
+        "GitHub"
+      ],
+      "footer_excerpt": "All Mech projects \u00b7 Schema Reference \u00b7 Build Provenance (SHA-256 Receipt) \u00b7 Data: CC BY 4.0 / Code: BSD-3-Clause\n\nKG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Record Index",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/#downloads"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "2,956\nINGREDIENTS",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "2,611\nMAPPED",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED"
+        },
+        {
+          "text": "88%\nCOVERAGE",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Explore text map \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "Explore embedding (PaCMAP) \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph layout \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema reference \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Markdown spec \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/IngredientRecord.md"
+        },
+        {
+          "text": "Catalog JSON \u2193",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json"
+        },
+        {
+          "text": "All CSV \u2193",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/all_ingredients.csv"
+        },
+        {
+          "text": "Mapped CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/mapped_ingredients.csv"
+        },
+        {
+          "text": "Unmapped CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/unmapped_ingredients.csv"
+        },
+        {
+          "text": "Label index CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/label_index.csv"
+        },
+        {
+          "text": "PaCMAP JSON",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredient_umap.json"
+        }
+      ],
+      "excerpt": "Home\nBrowse\nText Map\nKG PaCMAP\nGraph Layout\nRecord Index\nSchema\nDownloads\nGitHub\nAll Mech projects\nMediaIngredientMech\n\nCurated media-ingredient ontology mappings \u2014 CHEBI \u00b7 FOODON \u00b7 NCIT \u00b7 CAS.\n\nSearch ingredients\nSearch\n2,956\nINGREDIENTS\n2,611\nMAPPED\n88%\nCOVERAGE\nBrowse records \u2192\nRecord browser\n\nSearch ingredients by name, synonym, or ontology ID; filter by source, mapping status, and mapping quality; sort by occurrences or media count.\n\nExplore text map \u2192\nText embedding map\n\nInteractive 2D PaCMAP & PCA projection of bge-large-en-v1.5 ingredient text embeddings with sticky facet sidebar.\n\nExplore embedding (PaCMAP) \u2192\nGraph layout \u2192\nEmbedding browser\n\nInteractive PaCMAP projection of ingredient embeddings in KG-Microbe space.\n\nSchema reference \u2192\nMarkdown spec \u2192\nLinkML schema\n\nBrowse classes, slots, enumerations, and types for IngredientRecord, ontology mappings, component partonomy, and roles.\n\nCatalog JSON \u2193\nAll CSV \u2193\nData downloads & exports\n\nBulk exports: Mapped CSV \u00b7 Unmapped CSV \u00b7 Label index CSV \u00b7 PaCMAP JSON \u00b7 Build receipt JSON\n\nView on GitHub \u2192\nGitHub\n\nSource code, data, schema, and the curation workflow.\n\nAll Mech projects \u00b7 Schema Reference \u00b7 Build Provenance (SHA-256 Receipt) \u00b7 Data: CC BY 4.0 / Code: BSD-3-Clause\n\nKG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO\n\u2600"
+    },
+    "downloads": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "headings": [
+        "MediaIngredientMech",
+        "Record browser",
+        "Text embedding map",
+        "Embedding browser",
+        "LinkML schema",
+        "Data downloads & exports",
+        "GitHub"
+      ],
+      "footer_excerpt": "All Mech projects \u00b7 Schema Reference \u00b7 Build Provenance (SHA-256 Receipt) \u00b7 Data: CC BY 4.0 / Code: BSD-3-Clause\n\nKG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "KG PaCMAP",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph Layout",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Record Index",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/#downloads"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "2,956\nINGREDIENTS",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "2,611\nMAPPED",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED"
+        },
+        {
+          "text": "88%\nCOVERAGE",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html#status=MAPPED"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+        },
+        {
+          "text": "Explore text map \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/text_map.html"
+        },
+        {
+          "text": "Explore embedding (PaCMAP) \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+        },
+        {
+          "text": "Graph layout \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_graph.html"
+        },
+        {
+          "text": "Schema reference \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "Markdown spec \u2192",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/IngredientRecord.md"
+        },
+        {
+          "text": "Catalog JSON \u2193",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json"
+        },
+        {
+          "text": "All CSV \u2193",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/all_ingredients.csv"
+        },
+        {
+          "text": "Mapped CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/mapped_ingredients.csv"
+        },
+        {
+          "text": "Unmapped CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/unmapped_ingredients.csv"
+        },
+        {
+          "text": "Label index CSV",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/label_index.csv"
+        },
+        {
+          "text": "PaCMAP JSON",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredient_umap.json"
+        }
+      ],
+      "field_inventory": "group-b-bulk-inventory.json::MediaIngredientMech"
+    },
+    "schema_docs": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/MediaIngredientMech/schema/index.html']",
+      "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html",
+      "headings": [
+        "Schema reference",
+        "Classes (30)",
+        "Slots (174)",
+        "Enumerations (36)",
+        "Types (19)"
+      ],
+      "footer_excerpt": "",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.html"
+        },
+        {
+          "text": "Schema index",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Raw Markdown index",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/index.md"
+        },
+        {
+          "text": "CausalEdge",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CausalEdge.html"
+        },
+        {
+          "text": "CausalGraph",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CausalGraph.html"
+        },
+        {
+          "text": "CausalNode",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CausalNode.html"
+        },
+        {
+          "text": "CellularMetabolicRoleAssignment",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CellularMetabolicRoleAssignment.html"
+        },
+        {
+          "text": "ChemicalProperties",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-ChemicalProperties.html"
+        },
+        {
+          "text": "CommunityOrganismRoleAssignment",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CommunityOrganismRoleAssignment.html"
+        },
+        {
+          "text": "ComponentAssertion",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-ComponentAssertion.html"
+        },
+        {
+          "text": "ComponentEvidence",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-ComponentEvidence.html"
+        },
+        {
+          "text": "CrossCorpusLink",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CrossCorpusLink.html"
+        },
+        {
+          "text": "CultureMechReference",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CultureMechReference.html"
+        },
+        {
+          "text": "CurationEvent",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-CurationEvent.html"
+        },
+        {
+          "text": "Dataset",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-Dataset.html"
+        },
+        {
+          "text": "Discussion",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-Discussion.html"
+        },
+        {
+          "text": "EnvironmentContext",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-EnvironmentContext.html"
+        },
+        {
+          "text": "EvidenceItem",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-EvidenceItem.html"
+        },
+        {
+          "text": "IngredientCollection",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-IngredientCollection.html"
+        },
+        {
+          "text": "IngredientRecord",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-IngredientRecord.html"
+        },
+        {
+          "text": "IngredientSynonym",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-IngredientSynonym.html"
+        },
+        {
+          "text": "MappingEvidence",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-MappingEvidence.html"
+        },
+        {
+          "text": "NutritionalRoleAssignment",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-NutritionalRoleAssignment.html"
+        },
+        {
+          "text": "OccurrenceStats",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/schema/classes-OccurrenceStats.html"
+        }
+      ]
+    },
+    "theme_toggle": {
+      "url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages[*].theme / saved_theme",
+      "themes": {
+        "https://culturebotai.github.io/MediaIngredientMech/": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/browser.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/index.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/schema/index.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/text_map.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/schema/classes-IngredientRecord.html": {
+          "theme": "dark",
+          "saved": "dark"
+        }
+      }
+    },
+    "responsive": {
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "pages[*].fresh_390 / resized_390",
+      "widths": {
+        "https://culturebotai.github.io/MediaIngredientMech/": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/browser.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/index.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/schema/index.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/text_map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/schema/classes-IngredientRecord.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        }
+      }
+    },
+    "load_failure": {
+      "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-browser-b.json",
+      "capture_locator": "failure_cases",
+      "cases": {
+        "https://culturebotai.github.io/MediaIngredientMech/browser.html": {
+          "aborted": [
+            "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json"
+          ],
+          "excerpt": "MediaIngredientMech Browser\n\nExplore curated media ingredients with ontology mappings\n\nHome Browse Text Map KG PaCMAP Graph Layout Record Index Schema Downloads GitHub All Mech projects\nSearch ingredients \nMapping Status\nAll Statuses\nMapped\nUnmapped\nOntology Source\nAll Sources\nCHEBI\nFOODON\nNCIT\nMESH\nUBERON\nENVO\nMapping Quality\nAll Qualities\nExact Match\nSynonym Match\nClose Match\nManual Curation\nSort By\nDefault Order\nName (A \u2192 Z)\nName (Z \u2192 A)\nMedia Count (Most \u2192 Least)\nOccurrences (Most \u2192 Least)\nSynonyms (Most \u2192 Least)\nClear search and filters\nUnavailable\nTotal Ingredients\nUnavailable\nMapped to Ontologies\nUnavailable\nUnmapped\nUnavailable\nCurrently Showing\n\nIngredients could not be loaded. Retry to load the catalog.\n\nRetry loading ingredients\n\nMediaIngredientMech Browser | Generated from LinkML schema | Schema Documentation | Data Downloads | Build Manifest\n\n\u2600"
+        },
+        "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html": {
+          "aborted": [
+            "https://culturebotai.github.io/MediaIngredientMech/data/ingredient_umap.json"
+          ],
+          "excerpt": "Ingredient Embedding Space\n\nPaCMAP projection of ingredients from the KG-Microbe knowledge graph\n\nHome\nBrowse\nText Map\nKG PaCMAP\nGraph Layout\nRecord Index\nSchema\nDownloads\nGitHub\nAll Mech projects\nSelect a point to inspect its ingredient record. Points also support Enter or Space.\nSearch:\nColor by:\nMapping Status\nOntology Source\nMapping Quality\nSize by:\nTotal Occurrences\nMedia Count\nNumber of Synonyms\n\nError loading visualization data\n\nRetry loading data\nView data as table\nHow to Interpret This Visualization\nProximity: Ingredients close together have similar semantic relationships in the knowledge graph embedding space\nColor & shape: Categorical grouping (default: mapping status - blue filled circle = mapped, orange hollow ring = unmapped)\nUnmapped Ingredients: Complex mixtures (e.g., \"Allen Medium\", \"Biotin Vitamin Solution\") without single chemical entity embeddings - shown with synthetic embeddings near cluster center\nSize: Metric of interest (default: total occurrences across media recipes)\nHover: View detailed metadata tooltip\nClick: View detailed information (future: link to detail page)\nZoom/Pan: Use mouse wheel to zoom, click and drag to pan\nSearch: Type to highlight matching ingredients\n\u2600"
+        }
+      }
+    }
+  },
+  "independent_review": "group-b-independent-review.json",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/mediaingredientmech-auditor-b.json",
+    "sha256": "e4803e55912e31877c2f92a6e79a6fbb0d25ab57ce3d06631a7f8351ea00da49",
+    "bytes": 144105
+  }
+}

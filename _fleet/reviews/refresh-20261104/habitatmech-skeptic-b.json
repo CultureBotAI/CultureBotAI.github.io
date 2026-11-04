@@ -1,0 +1,2245 @@
+{
+  "mech": "HabitatMech",
+  "reviewer": "central_directory independent skeptic of deployment_review",
+  "pin": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+  "started_at": "2026-11-04T11:57:44.734652+00:00",
+  "finished_at": "2026-11-04T12:07:29.048317+00:00",
+  "browser_finished_at": "2026-11-04T11:58:24.312442+00:00",
+  "deployment_before": {
+    "id": 7541124068,
+    "sha": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+    "created_at": "2026-11-04T08:06:38Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T08:07:13Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 08:06:59 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:57:45 GMT"
+  },
+  "deployment_after": {
+    "id": 7541124068,
+    "sha": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+    "created_at": "2026-11-04T08:06:38Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T08:07:13Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 08:06:59 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:58:24 GMT"
+  },
+  "raw_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/habitatmech-skeptic-b-observations.json",
+  "raw_sha256": "f22678c4ff286cb932882cd1496190de20c9c7a5a9bd132401c2de81e744fdc0",
+  "auditor_report": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json",
+  "features": {
+    "search": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "water finds 310 and shows 200; broad query a finds 3178 and shows 200, with no result continuation.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/search",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/search",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "facets": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Property-filter selection, combination with search and reset were independently exercised.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/facets",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/facets",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    "result_counts": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Observed counts respond to queries and facets and are distinct from the total.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/result_counts",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/result_counts",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+    },
+    "sorting": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Each available sort option was selected, with URL/control state and first result rows retained.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/sorting",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/sorting",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    "shareable_state": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "A combined query/filter/sort view was reloaded and its controls and matching count compared.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/shareable_state",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/shareable_state",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    "full_catalogue": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/full_catalogue",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/full_catalogue",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    "record_pages": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Multiple stable individual record URLs opened successfully from a fresh browser navigation.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/record_pages",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/record_pages",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html"
+    },
+    "term_links": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Associated taxa are named but NCBITaxon identifiers remain plain text in a main record section.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/term_links",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/term_links",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html"
+    },
+    "evidence": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Sampled PMID and DOI citation strings are not resolver anchors.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/evidence",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/evidence",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html"
+    },
+    "review_status": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record headers explicitly state their workflow state.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/review_status",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/review_status",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    "curation_history": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled records show dated curation-event sections with attribution and action text.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/curation_history",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/curation_history",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html"
+    },
+    "source_link": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record pages link their own YAML source file rather than just the repository root.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/source_link",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/source_link",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html"
+    },
+    "domain_view": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Domain figures or maps rendered in the independently opened routes, with data-bearing visuals.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/domain_view",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/domain_view",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/text-map/"
+    },
+    "cross_mech_links": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Associated taxa have specific names/identifiers, but the Taxon search target /TaxonMech/browse.html?q=Sulfurimonas returns 404. This is partial under the broken-related-record criterion.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/cross_mech_links",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/cross_mech_links",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "corpus_stats": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The generated landing figures were read from the browser and compared with the audited corpus counts.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/corpus_stats",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/corpus_stats",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    "category_browse": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Landing links lead into distinct category subsets with continuation where needed.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/category_browse",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/category_browse",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    "suite_nav": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Visible suite-directory links occur in the reviewed navigation or footer.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/suite_nav",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/suite_nav",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    "downloads": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Category indexes contain listing metadata and do not export complete environmental/taxon evidence records.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/downloads",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/downloads",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "schema_docs": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/schema_docs",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/schema_docs",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    "license": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "The standalone text-map-source page does not state both licenses although ordinary pages do.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/license",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/license",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/index.html"
+    },
+    "build_provenance": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Generated from kg-microbe on 2026-08-16 dates the upstream source, not the current own-record corpus.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/build_provenance",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/build_provenance",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    "theme_toggle": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "After explicitly selecting Dark, the standalone text-map-source route has no data-theme value or toggle and ignores that saved choice.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/theme_toggle",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/theme_toggle",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "responsive": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "The aquatic-macrophyte-associated record independently reaches 404px at a 390px viewport.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/responsive",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/responsive",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/aquatic-macrophyte-associated-environment-habitatmech-bacdive-38260eea00.html"
+    },
+    "load_failure": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Abort the eight lazy category JSON requests and search water: the browser reports zero matches rather than a load failure.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/HabitatMech/features/load_failure",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/habitatmech-auditor-a.json#/features/load_failure",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    }
+  },
+  "receipts": {
+    "pages": {
+      "https://culturebotai.github.io/HabitatMech/pages/index.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:48.421799+00:00",
+        "title": "HabitatMech \u2014 microbial habitats, harmonized",
+        "headings": [
+          "Microbial habitats, harmonized",
+          "What HabitatMech adds",
+          "Browse by category",
+          "What the grounding status means",
+          "Data downloads & LinkML schema"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "3209\nHABITAT RECORDS"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "2149\nONTOLOGY-GROUNDED"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "175\nCORROBORATED BY 2+ SOURCES"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "1294\nREVIEWED STATUS"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "2678\nCONCEPTS ENVO HAS NO TERM FOR"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "2057\nNAMED BY NO VENDORED ONTOLOGY"
+          }
+        ],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nMicrobial habitats, harmonized\n\nThe same habitat has three different names depending on who is describing it. HabitatMech resolves them onto one ontology-grounded record and keeps every source's own account of it.\n\nSearch\n3209\nHABITAT RECORDS\n2149\nONTOLOGY-GROUNDED\n175\nCORROBORATED BY 2+ SOURCES\n1294\nREVIEWED STATUS\nTHE SAME HABITAT, NAMED THREE WAYS\nSOURCE\tHOW IT NAMES MARINE SEDIMENT\nJGI GOLD\tEnvironmental > Aquatic > Marine > Sediment\nBacDive\tMarine-sediment\nPREGO\tENVO:00002113\nWhat HabitatMech adds\n\nHabitatMech is not a re-labelling of ENVO. Most of what it holds, ENVO has no term for \u2014 and a concept that merely hangs under an ENVO term counts as new, because the identifier is minted precisely when the matched term is broader than the concept.\n\n26",
+        "field_excerpts": [
+          "CORROBORATED BY 2+ SOURCES",
+          "1294",
+          "REVIEWED STATUS",
+          "THE SAME HABITAT, NAMED THREE WAYS",
+          "SOURCE\tHOW IT NAMES MARINE SEDIMENT",
+          "What the grounding status means",
+          "",
+          "Every record says how well its identifier fits the source concept, separately from the recorded curation workflow status. A record can be reviewed and still honestly ungrounded \u2014 that combination is a well-formed request for a new ontology term, and there are 696 of them.",
+          "",
+          "GROUNDING STATUS",
+          "BROAD\t12\tThe identifier is broader \u2014 the best available term, losing specificity.",
+          "",
+          "This corpus is machine-generated. 1915 of 3209 records have the SEEDED workflow status. The harmonization rules are documented and tested, but a lexical match between a source label and an ontology label is a plausible grounding, not a verified one.",
+          "",
+          "REVIEWED records carry a recorded workflow decision, including agent-assisted curation. These counts do not establish human review. Consult the attributed curation events on each record for its provenance.",
+          "",
+          "Data downloads & LinkML schema",
+          "All HabitatMech records, category search indexes, semantic embedding coordinates, and schema definitions are openly available:",
+          "",
+          "LinkML Schema: src/habitatmech/schema/habitatmech.yaml (core habitat & causal graph schema), src/habitatmech/schema/mech_shared.yaml, and src/habitatmech/schema/history.yaml",
+          "Category JSON Indexes: host-associated.json (1655), engineered.json (488), aquatic.json (468), terrestrial.json (353), other.json (175), food.json (59), air.json (7), clinical.json (4)",
+          "Semantic Embedding Map Data: text-map-source/points.json and text-map-source/manifest.json"
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "3209\nHABITAT RECORDS",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "2149\nONTOLOGY-GROUNDED",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#grounding-status"
+          },
+          {
+            "text": "175\nCORROBORATED BY 2+ SOURCES",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#source-corroboration"
+          },
+          {
+            "text": "1294\nREVIEWED STATUS",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#review-status"
+          },
+          {
+            "text": "2678\nCONCEPTS ENVO HAS NO TERM FOR",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#novelty"
+          },
+          {
+            "text": "2057\nNAMED BY NO VENDORED ONTOLOGY",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#novelty"
+          },
+          {
+            "text": "HOST_ASSOCIATED",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "ENGINEERED",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+          },
+          {
+            "text": "AQUATIC",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "TERRESTRIAL",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+          },
+          {
+            "text": "OTHER",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+          },
+          {
+            "text": "FOOD",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+          },
+          {
+            "text": "AIR",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+          },
+          {
+            "text": "CLINICAL",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.html"
+          },
+          {
+            "text": "696 of them",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/browse.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:50.993402+00:00",
+        "title": "Browse \u2014 HabitatMech",
+        "headings": [
+          "Browse",
+          "Filter habitats"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [
+          {
+            "id": "browse-count",
+            "cls": "meta",
+            "text": ""
+          }
+        ],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nBrowse\n\n3209 habitat records across 8 categories.\n\nFilter habitats\nSEARCH CORPUS\nGROUNDING STATUS\nAll grounding statuses\nEXACT (1054)\nNARROW (991)\nUNGROUNDED (955)\nNOT_APPLICABLE (105)\nCLOSE (92)\nBROAD (12)\nSORT ORDER\nAssertions / Records (high\u2013low)\nAssertions / Records (low\u2013high)\nName (A\u2013Z)\nName (Z\u2013A)\nGrounding status (A\u2013Z)\nCATEGORIES\nHOST_ASSOCIATED\n1655\nENGINEERED\n488\nAQUATIC\n468\nTERRESTRIAL\n353\nOTHER\n175\nFOOD\n59\nAIR\n7\nCLINICAL\n4\nReset filters\n\nHABITAT CATEGORIES\nCATEGORY\tRECORDS\tGROUNDED\tWHAT IT HOLDS\nHOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.\nENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.\nAQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sedimen",
+        "field_excerpts": [
+          "CLINICAL\t4\t2\tClinical and diagnostic sample contexts.",
+          "",
+          "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.",
+          "",
+          "Workflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts."
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "HOST_ASSOCIATED\n1655",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "ENGINEERED\n488",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+          },
+          {
+            "text": "AQUATIC\n468",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "TERRESTRIAL\n353",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+          },
+          {
+            "text": "OTHER\n175",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+          },
+          {
+            "text": "FOOD\n59",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+          },
+          {
+            "text": "AIR\n7",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+          },
+          {
+            "text": "CLINICAL\n4",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.html"
+          },
+          {
+            "text": "HOST_ASSOCIATED",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "ENGINEERED",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+          },
+          {
+            "text": "AQUATIC",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "TERRESTRIAL",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+          },
+          {
+            "text": "OTHER",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+          },
+          {
+            "text": "FOOD",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+          },
+          {
+            "text": "AIR",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#browse-grounding",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All grounding statuses",
+                "disabled": false
+              },
+              {
+                "value": "EXACT",
+                "text": "EXACT (1054)",
+                "disabled": false
+              },
+              {
+                "value": "NARROW",
+                "text": "NARROW (991)",
+                "disabled": false
+              },
+              {
+                "value": "UNGROUNDED",
+                "text": "UNGROUNDED (955)",
+                "disabled": false
+              },
+              {
+                "value": "NOT_APPLICABLE",
+                "text": "NOT_APPLICABLE (105)",
+                "disabled": false
+              },
+              {
+                "value": "CLOSE",
+                "text": "CLOSE (92)",
+                "disabled": false
+              },
+              {
+                "value": "BROAD",
+                "text": "BROAD (12)",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#browse-sort",
+            "value": "assertions-desc",
+            "visible": true,
+            "options": [
+              {
+                "value": "assertions-desc",
+                "text": "Assertions / Records (high\u2013low)",
+                "disabled": false
+              },
+              {
+                "value": "assertions-asc",
+                "text": "Assertions / Records (low\u2013high)",
+                "disabled": false
+              },
+              {
+                "value": "name-asc",
+                "text": "Name (A\u2013Z)",
+                "disabled": false
+              },
+              {
+                "value": "name-desc",
+                "text": "Name (Z\u2013A)",
+                "disabled": false
+              },
+              {
+                "value": "grounding-asc",
+                "text": "Grounding status (A\u2013Z)",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:53.559838+00:00",
+        "title": "AQUATIC \u2014 HabitatMech",
+        "headings": [
+          "AQUATIC",
+          "Filter AQUATIC"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [
+          {
+            "id": "count",
+            "cls": "meta",
+            "text": ""
+          },
+          {
+            "id": "unfiltered-count",
+            "cls": "meta",
+            "text": "Showing 300 of 468. The filter searches all 468, not just this page."
+          }
+        ],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nBrowse \u00b7 AQUATIC\nSearch\nAQUATIC\n\n468 habitat records. Marine, freshwater and other water-column or aquatic-sediment environments.\n\nThe source path is shown because a record's label is only the last step of it: \"Cattle barn\" under Air is the air sampled in a cattle barn, not the barn. The category prefix is trimmed off it, and the identifier lives on each record's own page \u2014 the link already carries it.\n\nFilter AQUATIC\nSEARCH CATEGORY\nGROUNDING STATUS\nAll grounding statuses\nEXACT\nBROAD\nCLOSE\nNARROW\nUNGROUNDED\nNOT_APPLICABLE\nSOURCE VOCABULARY\nAll sources\nGOLD\nBacDive\nPREGO\nMadin\nSORT ORDER\nAssertions (high\u2013low)\nAssertions (low\u2013high)\nHabitat name (A\u2013Z)\nHabitat name (Z\u2013A)\nGrounding status (A\u2013Z)\nSWITCH CATEGORY\nHOST_ASSOCIATED\n1655\nENGINEERED\n488\nAQUATIC\n4",
+        "field_excerpts": [
+          "Showing 300 of 468. The filter searches all 468, not just this page.",
+          "",
+          "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.",
+          "",
+          "Workflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts."
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "HOST_ASSOCIATED\n1655",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "ENGINEERED\n488",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+          },
+          {
+            "text": "AQUATIC\n468",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "TERRESTRIAL\n353",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+          },
+          {
+            "text": "OTHER\n175",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+          },
+          {
+            "text": "FOOD\n59",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+          },
+          {
+            "text": "AIR\n7",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+          },
+          {
+            "text": "CLINICAL\n4",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.html"
+          },
+          {
+            "text": "aquatic biome",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/aquatic-biome-envo-00002030.html"
+          },
+          {
+            "text": "marine water body",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-water-body-envo-00001999.html"
+          },
+          {
+            "text": "fresh water",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/fresh-water-envo-00002011.html"
+          },
+          {
+            "text": "freshwater biome",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/freshwater-biome-envo-00000873.html"
+          },
+          {
+            "text": "marine pelagic zone",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-pelagic-zone-envo-00000208.html"
+          },
+          {
+            "text": "groundwater",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/groundwater-envo-01001004.html"
+          },
+          {
+            "text": "sea water",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/sea-water-envo-00002149.html"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#grounding-filter",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All grounding statuses",
+                "disabled": false
+              },
+              {
+                "value": "EXACT",
+                "text": "EXACT",
+                "disabled": false
+              },
+              {
+                "value": "BROAD",
+                "text": "BROAD",
+                "disabled": false
+              },
+              {
+                "value": "CLOSE",
+                "text": "CLOSE",
+                "disabled": false
+              },
+              {
+                "value": "NARROW",
+                "text": "NARROW",
+                "disabled": false
+              },
+              {
+                "value": "UNGROUNDED",
+                "text": "UNGROUNDED",
+                "disabled": false
+              },
+              {
+                "value": "NOT_APPLICABLE",
+                "text": "NOT_APPLICABLE",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#source-filter",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All sources",
+                "disabled": false
+              },
+              {
+                "value": "GOLD",
+                "text": "GOLD",
+                "disabled": false
+              },
+              {
+                "value": "BacDive",
+                "text": "BacDive",
+                "disabled": false
+              },
+              {
+                "value": "PREGO",
+                "text": "PREGO",
+                "disabled": false
+              },
+              {
+                "value": "Madin",
+                "text": "Madin",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#sort-select",
+            "value": "assertions-desc",
+            "visible": true,
+            "options": [
+              {
+                "value": "assertions-desc",
+                "text": "Assertions (high\u2013low)",
+                "disabled": false
+              },
+              {
+                "value": "assertions-asc",
+                "text": "Assertions (low\u2013high)",
+                "disabled": false
+              },
+              {
+                "value": "label-asc",
+                "text": "Habitat name (A\u2013Z)",
+                "disabled": false
+              },
+              {
+                "value": "label-desc",
+                "text": "Habitat name (Z\u2013A)",
+                "disabled": false
+              },
+              {
+                "value": "grounding-asc",
+                "text": "Grounding status (A\u2013Z)",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:56.566216+00:00",
+        "title": "marine sediment \u2014 HabitatMech",
+        "headings": [
+          "marine sediment",
+          "Source attestations",
+          "Broader habitats",
+          "Environmental parameters",
+          "Causal graphs",
+          "Marine sediment sulfate sulfur cycling",
+          "Associated taxa",
+          "Also called",
+          "Curation",
+          "Explore across X-Mech",
+          "Provenance"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nBrowse \u00b7 AQUATIC \u00b7 marine sediment\nSearch\nmarine sediment\n\nENVO:03000033 \u00b7resolve \u00b7AQUATIC \u00b7EXACT SEEDED\n\nSediment which has been transported through the marine water column, settling on the seafloor. \u2014 ENVO\n\nSEEDED workflow status. The source-seeding rules supplied this record; consult its curation history for later attributed changes. This status does not establish human review.\n\nSource attestations\n\nEach upstream vocabulary's own account of this habitat. Assertion counts are per-source units and are not comparable across sources \u2014 GOLD counts organisms, BacDive strains, PREGO taxa.\n\nWHAT EACH UPSTREAM VOCABULARY SAYS ABOUT THIS HABITAT\nSOURCE\tLABEL / PATH\tASSERTIONS\tUNIT\nENVIRONMENTS_TABLE\tsediment_marine\nPhysicochemical parameter bands from kg-mic",
+        "field_excerpts": [
+          "marine sediment",
+          "",
+          "ENVO:03000033 \u00b7resolve \u00b7AQUATIC \u00b7EXACT SEEDED",
+          "",
+          "Sediment which has been transported through the marine water column, settling on the seafloor. \u2014 ENVO",
+          "",
+          "SEEDED workflow status. The source-seeding rules supplied this record; consult its curation history for later attributed changes. This status does not establish human review.",
+          "",
+          "Source attestations",
+          "SOURCE\tLABEL / PATH\tASSERTIONS\tUNIT",
+          "ENVIRONMENTS_TABLE\tsediment_marine",
+          "Physicochemical parameter bands from kg-microbe's environment table.\t\u2014\t",
+          "GOLD\tEnvironmental > Aquatic > Marine > Sediment",
+          "2 GOLD ecosystem node ids share this path; first shown. See data/raw/gold_ecosystem_paths.tsv.\t1035\tORGANISM",
+          "PHYSICOCHEMICAL PARAMETERS",
+          "PARAMETER\tVALUE\tSOURCE",
+          "PH\thigh\tkg-microbe environments.csv (sediment_marine)",
+          "SALINITY\thigh\tkg-microbe environments.csv (sediment_marine)",
+          "SALINITY_VARIABILITY\tsmall\tkg-microbe environments.csv (sediment_marine)",
+          "STRUCTURAL_COMPLEXITY\tmedium\tkg-microbe environments.csv (sediment_marine)",
+          "TEMPERATURE_VARIABILITY\tlow\tkg-microbe environments.csv (sediment_marine)",
+          "WATER_AVAILABILITY\thigh\tkg-microbe environments.csv (sediment_marine)"
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "AQUATIC",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "resolve",
+            "url": "http://purl.obolibrary.org/obo/ENVO_03000033"
+          },
+          {
+            "text": "sediment",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/sediment-envo-00002007.html"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=verrucosispora_maris"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Kordiimonas%20aestuarii"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Muricauda%20taeanensis"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=roseovarius_lutimaris"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=flexibacter_tractuosus"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Pusillimonas%20sp.%20T7-7"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=exiguobacterium_enclense"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Nitrosopumilus%20sp.%20AR"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Nitrosopumilus%20sp.%20SJ"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Sulfolobus%20acidocaldarius%20N8"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Altererythrobacter%20gangjinensis"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Arenibacter%20hampyeongensis"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/text-map/": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/text-map/",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:59.266375+00:00",
+        "title": "Semantic text map \u2014 HabitatMech",
+        "headings": [
+          "Semantic text map",
+          "Filter map"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [
+          {
+            "id": "map-status",
+            "cls": "meta",
+            "text": "3,209 matching records. Showing the first 20 links; narrow the search to find a record."
+          }
+        ],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nBrowse \u00b7 Semantic text map\nSearch\nSemantic text map\n\nThe map below uses the shared, validated record-description projection (BAAI/bge-large-en-v1.5 + PaCMAP). Open the map on its own.\n\nFilter map\nSEARCH POINTS\nNAMESPACE PREFIX\nAll prefixes\nENVO\nUBERON\nBTO\nFOODON\nPO\nhabitatmech\nBROWSE CATEGORY TABLES\nHOST_ASSOCIATED\n1655\nENGINEERED\n488\nAQUATIC\n468\nTERRESTRIAL\n353\nOTHER\n175\nFOOD\n59\nAIR\n7\nCLINICAL\n4\nReset map filter\n\n3,209 matching records. Showing the first 20 links; narrow the search to find a record.\n\nGenerated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except wher",
+        "field_excerpts": [
+          "3,209 matching records. Showing the first 20 links; narrow the search to find a record.",
+          "",
+          "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.",
+          "",
+          "Workflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts."
+        ],
+        "selected_links": [
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Open the map on its own",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/index.html"
+          },
+          {
+            "text": "HOST_ASSOCIATED\n1655",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "ENGINEERED\n488",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+          },
+          {
+            "text": "AQUATIC\n468",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "TERRESTRIAL\n353",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+          },
+          {
+            "text": "OTHER\n175",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+          },
+          {
+            "text": "FOOD\n59",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+          },
+          {
+            "text": "AIR\n7",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+          },
+          {
+            "text": "CLINICAL\n4",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.html"
+          },
+          {
+            "text": "LinkML Schema",
+            "url": "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/habitatmech.yaml"
+          },
+          {
+            "text": "Downloads",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "Current workflow counts",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/text-map-source/index.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/index.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:01.725587+00:00",
+        "title": "Semantic text map",
+        "headings": [
+          "Semantic text map"
+        ],
+        "footer": "",
+        "counts": [
+          {
+            "id": "detail",
+            "cls": "",
+            "text": "Select a point to open its record."
+          },
+          {
+            "id": "match-count",
+            "cls": "",
+            "text": "3,209 matching records. Showing the first 20 links; narrow the search to find a record."
+          }
+        ],
+        "theme": null,
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 1,
+        "svg": 0,
+        "body_excerpt": "Semantic text map\n\nShowing 3,209 of 3,209 input records. PaCMAP positions summarize similarity between record descriptions.\n\nFind a record \n\nSelect a point to open its record.\n\n3,209 matching records. Showing the first 20 links; narrow the search to find a record.\n\nsequencing batch enhanced biological phosphorus removal bioreactor (habitatmech:GOLD.f3de85dd9b)\noil reservoir produced water (habitatmech:GOLD.72719ea056)\nTailings pond (habitatmech:GOLD.84053fba17)\npalsa (ENVO:00000489)\nwhale fall (ENVO:01000140)\nTubeworm bush (habitatmech:GOLD.b36274f0b9)\nTongue dorsum (habitatmech:GOLD.ecaa6eddbf)\nhuman dermoid cyst (habitatmech:GOLD.6d07a07054)\nEndocrine system (habitatmech:GOLD.d63e165267)\nlake sediment (ENVO:00000546)\nvermicompost (habitatmech:GOLD.36c18a2eff)\ndecomposing avian carcass (habitatmech:GOLD.098a328598)\nbryophyte-associated environment (habitatmech:GOLD.35beb98884)\ntemperate",
+        "field_excerpts": [],
+        "selected_links": [
+          {
+            "text": "sequencing batch enhanced biological phosphorus removal bioreactor (habitatmech:GOLD.f3de85dd9b)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/sequencing-batch-enhanced-biological-phosphorus-removal-bioreactor-habitatmech-gold-f3de85dd9b.html"
+          },
+          {
+            "text": "oil reservoir produced water (habitatmech:GOLD.72719ea056)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/oil-reservoir-produced-water-habitatmech-gold-72719ea056.html"
+          },
+          {
+            "text": "Tailings pond (habitatmech:GOLD.84053fba17)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/tailings-pond-habitatmech-gold-84053fba17.html"
+          },
+          {
+            "text": "palsa (ENVO:00000489)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/palsa-envo-00000489.html"
+          },
+          {
+            "text": "whale fall (ENVO:01000140)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/whale-fall-envo-01000140.html"
+          },
+          {
+            "text": "Tubeworm bush (habitatmech:GOLD.b36274f0b9)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/tubeworm-bush-habitatmech-gold-b36274f0b9.html"
+          },
+          {
+            "text": "Tongue dorsum (habitatmech:GOLD.ecaa6eddbf)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/tongue-dorsum-habitatmech-gold-ecaa6eddbf.html"
+          },
+          {
+            "text": "human dermoid cyst (habitatmech:GOLD.6d07a07054)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/human-dermoid-cyst-habitatmech-gold-6d07a07054.html"
+          },
+          {
+            "text": "Endocrine system (habitatmech:GOLD.d63e165267)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/endocrine-system-habitatmech-gold-d63e165267.html"
+          },
+          {
+            "text": "lake sediment (ENVO:00000546)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/lake-sediment-envo-00000546.html"
+          },
+          {
+            "text": "vermicompost (habitatmech:GOLD.36c18a2eff)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/vermicompost-habitatmech-gold-36c18a2eff.html"
+          },
+          {
+            "text": "decomposing avian carcass (habitatmech:GOLD.098a328598)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/decomposing-avian-carcass-habitatmech-gold-098a328598.html"
+          },
+          {
+            "text": "bryophyte-associated environment (habitatmech:GOLD.35beb98884)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/bryophyte-associated-environment-habitatmech-gold-35beb98884.html"
+          },
+          {
+            "text": "temperate (ENVO:01000206)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/temperate-envo-01000206.html"
+          },
+          {
+            "text": "Limnetic zone (habitatmech:GOLD.1c8b5d3fe5)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/limnetic-zone-habitatmech-gold-1c8b5d3fe5.html"
+          },
+          {
+            "text": "Contaminant (habitatmech:BACDIVE.4d06ff4bb5)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/contaminant-habitatmech-bacdive-4d06ff4bb5.html"
+          },
+          {
+            "text": "pronghorn keratinous horn sheath (habitatmech:GOLD.1e5645d6c8)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/pronghorn-keratinous-horn-sheath-habitatmech-gold-1e5645d6c8.html"
+          },
+          {
+            "text": "leukocyte (BTO:0000751)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/leukocyte-bto-0000751.html"
+          },
+          {
+            "text": "dinoflagellate intracellular endosymbiont environment (habitatmech:GOLD.90791d494c)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/dinoflagellate-intracellular-endosymbiont-environment-habitatmech-gold-90791d494c.html"
+          },
+          {
+            "text": "moraine (ENVO:00000177)",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/moraine-envo-00000177.html"
+          },
+          {
+            "text": "Map provenance and coverage",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/manifest.json"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/habitats/aquatic-macrophyte-associated-environment-habitatmech-bacdive-38260eea00.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/aquatic-macrophyte-associated-environment-habitatmech-bacdive-38260eea00.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:04.262516+00:00",
+        "title": "aquatic macrophyte-associated environment \u2014 HabitatMech",
+        "headings": [
+          "aquatic macrophyte-associated environment",
+          "Source attestations",
+          "Broader habitats",
+          "Associated taxa",
+          "Curation",
+          "Explore across X-Mech",
+          "Provenance"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 404
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 404
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nBrowse \u00b7 HOST_ASSOCIATED \u00b7 aquatic macrophyte-associated environment\nSearch\naquatic macrophyte-associated environment\n\nhabitatmech:BACDIVE.38260eea00 \u00b7HOST_ASSOCIATED \u00b7UNGROUNDED REVIEWED\n\nAn environmental system determined by an aquatic macrophyte, or by a part of an aquatic macrophyte. \u2014 HabitatMech\n\nSource attestations\n\nEach upstream vocabulary's own account of this habitat. Assertion counts are per-source units and are not comparable across sources \u2014 GOLD counts organisms, BacDive strains, PREGO taxa.\n\nWHAT EACH UPSTREAM VOCABULARY SAYS ABOUT THIS HABITAT\nSOURCE\tLABEL / PATH\tASSERTIONS\tUNIT\nBACDIVE\tAquatic-plant\t66\tSTRAIN\nBroader habitats\nenvironmental system determined by an organism ENVO:01001000\nAssociated taxa\n\nTaxa reported from this habitat,",
+        "field_excerpts": [
+          "aquatic macrophyte-associated environment",
+          "",
+          "habitatmech:BACDIVE.38260eea00 \u00b7HOST_ASSOCIATED \u00b7UNGROUNDED REVIEWED",
+          "",
+          "An environmental system determined by an aquatic macrophyte, or by a part of an aquatic macrophyte. \u2014 HabitatMech",
+          "TAXA REPORTED FROM THIS HABITAT",
+          "TAXON\tSOURCE\tRANK\tPOOL\tCORROBORATED",
+          "Myxococcus xanthus NCBITaxon:34 TaxonMech \u2197\tBACDIVE\t1\t59\t",
+          "Paenilisteria weihenstephanensis NCBITaxon:1006155 TaxonMech \u2197\tBACDIVE\t2\t59\t",
+          "Corallococcus coralloides NCBITaxon:184914 TaxonMech \u2197\tBACDIVE\t3\t59\t",
+          "Myxococcus fulvus NCBITaxon:33 TaxonMech \u2197\tBACDIVE\t4\t59\t",
+          "Erythrobacter longus NCBITaxon:1044 TaxonMech \u2197\tBACDIVE\t5\t59\t",
+          "Geomobilimonas luticola NCBITaxon:1114878 TaxonMech \u2197\tBACDIVE\t6\t59\t",
+          "Thermoclostridium stercorarium subsp. thermolacticum DSM 2910 NCBITaxon:1121336 TaxonMech \u2197\tBACDIVE\t7\t59\t",
+          "Maridesulfovibrio zosterae DSM 11974 NCBITaxon:1121467 TaxonMech \u2197\tBACDIVE\t8\t59\t",
+          "Allorhizobium paknamense NCBITaxon:1206817 TaxonMech \u2197\tBACDIVE\t9\t59\t",
+          "Peteryoungia ipomoeae NCBITaxon:1210932 TaxonMech \u2197\tBACDIVE\t10\t59\t",
+          "Vibrio aerogenes CECT 7868 NCBITaxon:1216006 TaxonMech \u2197\tBACDIVE\t11\t59\t",
+          "Geobacter sulfurreducens subsp. ethanolicus NCBITaxon:1260928 TaxonMech \u2197\tBACDIVE\t12\t59\t",
+          "Rothia endophytica NCBITaxon:1324766 TaxonMech \u2197\tBACDIVE\t13\t59\t",
+          "Pedobacter sp. NCBITaxon:1411316 TaxonMech \u2197\tBACDIVE\t14\t59\t",
+          "Desulfofaba hansenii NCBITaxon:157842 TaxonMech \u2197\tBACDIVE\t15\t59\t"
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/aquatic-macrophyte-associated-environment-habitatmech-bacdive-38260eea00.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "HOST_ASSOCIATED",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "environmental system determined by an organism",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/environmental-system-determined-by-an-organism-envo-01001000.html"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Myxococcus%20xanthus"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Paenilisteria%20weihenstephanensis"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Corallococcus%20coralloides"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Myxococcus%20fulvus"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Erythrobacter%20longus"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Geomobilimonas%20luticola"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Thermoclostridium%20stercorarium%20subsp.%20thermolacticum%20DSM%202910"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Maridesulfovibrio%20zosterae%20DSM%2011974"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Allorhizobium%20paknamense"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Peteryoungia%20ipomoeae"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Vibrio%20aerogenes%20CECT%207868"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Geobacter%20sulfurreducens%20subsp.%20ethanolicus"
+          },
+          {
+            "text": "TaxonMech \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Rothia%20endophytica"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:06.821181+00:00",
+        "title": "HOST_ASSOCIATED \u2014 HabitatMech",
+        "headings": [
+          "HOST_ASSOCIATED",
+          "Filter HOST_ASSOCIATED"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [
+          {
+            "id": "count",
+            "cls": "meta",
+            "text": ""
+          },
+          {
+            "id": "unfiltered-count",
+            "cls": "meta",
+            "text": "Showing 300 of 1655. The filter searches all 1655, not just this page."
+          }
+        ],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nBrowse \u00b7 HOST_ASSOCIATED\nSearch\nHOST_ASSOCIATED\n\n1655 habitat records. Habitats defined by a living host, including anatomical sites.\n\nThe source path is shown because a record's label is only the last step of it: \"Cattle barn\" under Air is the air sampled in a cattle barn, not the barn. The category prefix is trimmed off it, and the identifier lives on each record's own page \u2014 the link already carries it.\n\nFilter HOST_ASSOCIATED\nSEARCH CATEGORY\nGROUNDING STATUS\nAll grounding statuses\nEXACT\nBROAD\nCLOSE\nNARROW\nUNGROUNDED\nNOT_APPLICABLE\nSOURCE VOCABULARY\nAll sources\nGOLD\nBacDive\nPREGO\nMadin\nSORT ORDER\nAssertions (high\u2013low)\nAssertions (low\u2013high)\nHabitat name (A\u2013Z)\nHabitat name (Z\u2013A)\nGrounding status (A\u2013Z)\nSWITCH CATEGORY\nHOST_ASSOCIATED\n1655\nENGINEERED\n4",
+        "field_excerpts": [
+          "Showing 300 of 1655. The filter searches all 1655, not just this page.",
+          "",
+          "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.",
+          "",
+          "Workflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts."
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "HOST_ASSOCIATED\n1655",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+          },
+          {
+            "text": "ENGINEERED\n488",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+          },
+          {
+            "text": "AQUATIC\n468",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+          },
+          {
+            "text": "TERRESTRIAL\n353",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+          },
+          {
+            "text": "OTHER\n175",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+          },
+          {
+            "text": "FOOD\n59",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+          },
+          {
+            "text": "AIR\n7",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+          },
+          {
+            "text": "CLINICAL\n4",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.html"
+          },
+          {
+            "text": "human-associated environment",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/human-associated-environment-habitatmech-gold-cd0b0940e5.html"
+          },
+          {
+            "text": "environmental system determined by an organism",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/environmental-system-determined-by-an-organism-envo-01001000.html"
+          },
+          {
+            "text": "feces",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/feces-uberon-0001988.html"
+          },
+          {
+            "text": "plant-associated environment",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/plant-associated-environment-envo-01001001.html"
+          },
+          {
+            "text": "Blood",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/blood-habitatmech-gold-d25ff4a586.html"
+          },
+          {
+            "text": "mammal-associated environment",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/mammal-associated-environment-habitatmech-gold-e889967f4f.html"
+          },
+          {
+            "text": "endothermic-animal-associated environment",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/endothermic-animal-associated-environment-habitatmech-bacdive-3d543e6b49.html"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#grounding-filter",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All grounding statuses",
+                "disabled": false
+              },
+              {
+                "value": "EXACT",
+                "text": "EXACT",
+                "disabled": false
+              },
+              {
+                "value": "BROAD",
+                "text": "BROAD",
+                "disabled": false
+              },
+              {
+                "value": "CLOSE",
+                "text": "CLOSE",
+                "disabled": false
+              },
+              {
+                "value": "NARROW",
+                "text": "NARROW",
+                "disabled": false
+              },
+              {
+                "value": "UNGROUNDED",
+                "text": "UNGROUNDED",
+                "disabled": false
+              },
+              {
+                "value": "NOT_APPLICABLE",
+                "text": "NOT_APPLICABLE",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#source-filter",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All sources",
+                "disabled": false
+              },
+              {
+                "value": "GOLD",
+                "text": "GOLD",
+                "disabled": false
+              },
+              {
+                "value": "BacDive",
+                "text": "BacDive",
+                "disabled": false
+              },
+              {
+                "value": "PREGO",
+                "text": "PREGO",
+                "disabled": false
+              },
+              {
+                "value": "Madin",
+                "text": "Madin",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#sort-select",
+            "value": "assertions-desc",
+            "visible": true,
+            "options": [
+              {
+                "value": "assertions-desc",
+                "text": "Assertions (high\u2013low)",
+                "disabled": false
+              },
+              {
+                "value": "assertions-asc",
+                "text": "Assertions (low\u2013high)",
+                "disabled": false
+              },
+              {
+                "value": "label-asc",
+                "text": "Habitat name (A\u2013Z)",
+                "disabled": false
+              },
+              {
+                "value": "label-desc",
+                "text": "Habitat name (Z\u2013A)",
+                "disabled": false
+              },
+              {
+                "value": "grounding-asc",
+                "text": "Grounding status (A\u2013Z)",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      },
+      "https://culturebotai.github.io/HabitatMech/pages/map.html": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/map.html",
+        "http_status": 404,
+        "checked_at": "2026-11-04T11:58:09.376042+00:00",
+        "title": "Not found \u2014 HabitatMech",
+        "headings": [
+          "No page here"
+        ],
+        "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+        "counts": [],
+        "theme": "light",
+        "saved_theme": "light",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u2600\ufe0e Light\nNo page here\n\nIf you followed a link to a habitat record, the most likely explanation is that curation moved it. A record's page is named after its label and its identifier, and improving either \u2014 adopting the grounding ontology's own label, or re-grounding the concept onto a better term \u2014 changes both.\n\nRecords retired that way keep a stub at their old address pointing to wherever their source concepts went, so a dead link usually still resolves. Reaching this page means the address never existed, or predates that stub being written.\n\nBrowse every habitat by category\nHabitats with no fitting ontology term\nStart from the top\n\nRecords are one YAML file each under data/habitats/ in the repository, and data/habitats/PATHS.tsv pins every identifier to its",
+        "field_excerpts": [
+          "No page here",
+          "",
+          "If you followed a link to a habitat record, the most likely explanation is that curation moved it. A record's page is named after its label and its identifier, and improving either \u2014 adopting the grounding ontology's own label, or re-grounding the concept onto a better term \u2014 changes both.",
+          "",
+          "Records retired that way keep a stub at their old address pointing to wherever their source concepts went, so a dead link usually still resolves. Reaching this page means the address never existed, or predates that stub being written.",
+          "Records are one YAML file each under data/habitats/ in the repository, and data/habitats/PATHS.tsv pins every identifier to its filename \u2014 that is the authoritative place to look an identifier up.",
+          "",
+          "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.",
+          "",
+          "Workflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts."
+        ],
+        "selected_links": [
+          {
+            "text": "Skip to main content",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/map.html#main-content"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Overview",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "ENVO term requests",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Browse every habitat by category",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+          },
+          {
+            "text": "Habitats with no fitting ontology term",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+          },
+          {
+            "text": "Start from the top",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          },
+          {
+            "text": "LinkML Schema",
+            "url": "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/habitatmech.yaml"
+          },
+          {
+            "text": "Downloads",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+          },
+          {
+            "text": "Current workflow counts",
+            "url": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+          }
+        ],
+        "sorts_and_facets": []
+      }
+    },
+    "actions": {
+      "query:ENVO:03000033": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=ENVO%3A03000033",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 1 of 1 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "ENVO:03000033"
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 9,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "query:marine sediment": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=marine+sediment",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 3 of 3 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "marine sediment"
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 11,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "query:water": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 200 of 310 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "water"
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 202,
+        "first_results": [
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments.",
+          "marine water body\tAQUATIC\tMarine\tEXACT\t8631\tBACDIVE, GOLD, PREGO"
+        ],
+        "error": null
+      },
+      "query:no-such-record-nov4-audit": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=no-such-record-nov4-audit",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 0 of 0 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "no-such-record-nov4-audit"
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "clear_query": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "sort:assertions-desc": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "sort:assertions-asc": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=assertions-asc",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "CLINICAL\t4\t2\tClinical and diagnostic sample contexts.",
+          "AIR\t7\t1\tAtmospheric and aerosol environments.",
+          "FOOD\t59\t30\tFood and beverage matrices, including fermented products."
+        ],
+        "error": null
+      },
+      "sort:name-asc": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=name-asc",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "name-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "AIR\t7\t1\tAtmospheric and aerosol environments.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments.",
+          "CLINICAL\t4\t2\tClinical and diagnostic sample contexts."
+        ],
+        "error": null
+      },
+      "sort:name-desc": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=name-desc",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "name-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "TERRESTRIAL\t353\t249\tSoils, sediments, subsurface, rock and other land environments.",
+          "OTHER\t175\t100\tRecords the category heuristic could not place.",
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites."
+        ],
+        "error": null
+      },
+      "sort:grounding-asc": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=grounding-asc",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "grounding-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "facet:#browse-grounding": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=grounding-asc&grounding=EXACT",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 200 of 1054 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": "EXACT"
+          },
+          {
+            "id": "browse-sort",
+            "value": "grounding-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 208,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      },
+      "combined_query": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=grounding-asc&grounding=EXACT&q=water",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 86 of 86 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "water"
+          },
+          {
+            "id": "browse-grounding",
+            "value": "EXACT"
+          },
+          {
+            "id": "browse-sort",
+            "value": "grounding-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 88,
+        "first_results": [
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments.",
+          "marine water body\tAQUATIC\tMarine\tEXACT\t8631\tBACDIVE, GOLD, PREGO"
+        ],
+        "error": null
+      },
+      "restored": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?sort=grounding-asc&grounding=EXACT&q=water",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 86 of 86 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "water"
+          },
+          {
+            "id": "browse-grounding",
+            "value": "EXACT"
+          },
+          {
+            "id": "browse-sort",
+            "value": "grounding-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 88,
+        "first_results": [
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments.",
+          "marine water body\tAQUATIC\tMarine\tEXACT\t8631\tBACDIVE, GOLD, PREGO"
+        ],
+        "error": null
+      },
+      "reset": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": ""
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": ""
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 8,
+        "first_results": [
+          "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ],
+        "error": null
+      }
+    },
+    "failure_cases": {
+      "https://culturebotai.github.io/HabitatMech/pages/browse.html": {
+        "aborted": [],
+        "excerpt": [
+          "TERRESTRIAL\t353\t249\tSoils, sediments, subsurface, rock and other land environments.",
+          "OTHER\t175\t100\tRecords the category heuristic could not place.",
+          "FOOD\t59\t30\tFood and beverage matrices, including fermented products."
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Independent representative-route review, not a crawl of every record. Shared rubric and root schema/download arbitrations applied.",
+    "Absence judgments are scoped to the independently captured routes and controls."
+  ],
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/habitatmech-skeptic-b.json",
+    "sha256": "863c608647476a8e5fd6fe9b9a076e640fbdcf9d777592118513b9902bca2604",
+    "bytes": 134127
+  }
+}

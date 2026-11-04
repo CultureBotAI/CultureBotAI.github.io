@@ -1,0 +1,905 @@
+{
+  "CultureMech": {
+    "site": "https://culturebotai.github.io/CultureMech/app/",
+    "repository": "https://github.com/CultureBotAI/CultureMech",
+    "deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised after the concurrent 09f9088 deployment, including representative records, control actions, narrow views and request-failure checks; the corpus pin remains a74dd489.",
+    "features": {
+      "search": {
+        "status": "present",
+        "note": "CultureMech:000252 returns one recipe and Halophilic medium returns four, with individual recipe links.",
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+      },
+      "facets": {
+        "status": "present",
+        "note": "The category facet selects 14,332 bacterial recipes; combining it with Halophilic medium leaves two. Clear All restores all 15,915.",
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "The live count distinguishes one identifier match, four label matches, two bacterial label matches and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+      },
+      "sorting": {
+        "status": "missing",
+        "note": "The recipe browser has no reader-facing sort selector, sort button or sortable table. Its facet lists are internally ordered, which does not provide record sorting.",
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "Search and property filters restore from the URL: Halophilic medium with category=bacterial reloads with the same two recipes.",
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+      },
+      "full_catalogue": {
+        "status": "partial",
+        "note": "The main browser covers 15,915 normalized recipes. The landing also counts 6,325 merged recipes, whose separate pages/index.html listing is outside the main browser navigation.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/index.html"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/CultureMech/app/"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Normalized and merged recipes have stable individual URLs; sampled normalized pages display composition, organisms and provenance.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
+      },
+      "term_links": {
+        "status": "partial",
+        "note": "Ingredient and organism terms have labels and resolver links, but mediadive.medium:1399 on recipe 000252 is shown as source link unavailable.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
+      },
+      "evidence": {
+        "status": "partial",
+        "note": "Sampled records link formal DOI references, but source URLs embedded in Notes remain plain text.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
+      },
+      "review_status": {
+        "status": "missing",
+        "note": "Sampled recipe pages do not state record curation or review status. The separate growth-evidence report does not provide a status for each recipe.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html"
+      },
+      "curation_history": {
+        "status": "present",
+        "note": "Recipe Provenance tables show timestamps, curators or scripts, actions and notes.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
+      },
+      "source_link": {
+        "status": "partial",
+        "note": "The source YAML path appears as plain text in sampled record footers rather than as a link to that file.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "Text and chemically derived media maps and an ingredient map render interactive corpus views.",
+        "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+      },
+      "cross_mech_links": {
+        "status": "present",
+        "note": "Recipe 015438 links CommunityMech:000064 to the specific pinned Soybean_N_Fixation_sfSynCom.yaml record.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/015438.html"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "The landing shows 15,915 normalized recipes, 6,325 merged recipes and five populated categories.",
+        "url": "https://culturebotai.github.io/CultureMech/app/"
+      },
+      "category_browse": {
+        "status": "partial",
+        "note": "Categories are browser facets and headed sections on long indexes; the landing does not link separate category pages.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html"
+      },
+      "downloads": {
+        "status": "partial",
+        "note": "The landing links JSON and TSV indexes covering 15,915 normalized recipes, but these omit full compositions and record evidence; a complete bulk record export is not linked.",
+        "url": "https://culturebotai.github.io/CultureMech/app/recipes.json"
+      },
+      "schema_docs": {
+        "status": "present",
+        "note": "The linked app/schema.html guide documents 51 classes and 34 enumerations, including MediaRecipe and growth-evidence structures.",
+        "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+      },
+      "license": {
+        "status": "partial",
+        "note": "The reviewed landing, schema and record footers identify BSD-3-Clause but do not consistently distinguish the project data license from the code license.",
+        "url": "https://culturebotai.github.io/CultureMech/app/"
+      },
+      "build_provenance": {
+        "status": "missing",
+        "note": "The reviewed landing, browser and recipe footers do not state a site build, deployment revision or dated corpus version; recipe curation dates describe individual events.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html"
+      },
+      "theme_toggle": {
+        "status": "partial",
+        "note": "Dark mode persists through the core browser, indexes, maps and records. The linked growth-evidence report has no toggle and does not adopt the saved choice.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html"
+      },
+      "responsive": {
+        "status": "partial",
+        "note": "Core reviewed pages and the normalized index fit 390px. The linked growth-evidence report still widens the document to 520px.",
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html"
+      },
+      "load_failure": {
+        "status": "present",
+        "note": "Blocking data.js shows Recipes could not be loaded and a retry control rather than a zero-record catalogue.",
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+      }
+    }
+  },
+  "MediaIngredientMech": {
+    "site": "https://culturebotai.github.io/MediaIngredientMech/",
+    "repository": "https://github.com/CultureBotAI/MediaIngredientMech",
+    "deployed_revision": "b538ec76094e0d2d0667e5c3bd2455b24deceded",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "features": {
+      "search": {
+        "status": "present",
+        "note": "UNMAPPED_0196 and table salt each return one linked ingredient; CHEBI:63895 returns two of the 2,956 records.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "facets": {
+        "status": "present",
+        "note": "Mapping status, ontology source and mapping quality filters combine with search. AMBIGUOUS gives one record; Clear search and filters restores all 2,956.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "Showing N of 2956 ingredients changes to one for UNMAPPED_0196, two for CHEBI:63895 and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "sorting": {
+        "status": "present",
+        "note": "The browser offers Default Order, Name (A \u2192 Z), Name (Z \u2192 A), Media Count (Most \u2192 Least), Occurrences (Most \u2192 Least), Synonyms (Most \u2192 Least). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "Search, status, source, quality and sort values are encoded in query parameters and restore with the same matching count after reload.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "full_catalogue": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 2,956 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Mapped, rejected and unmapped ingredients have stable record URLs; sampled NaCl, GYPS and glucose pages open with mapping, evidence and history sections.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "term_links": {
+        "status": "present",
+        "note": "Sampled ingredient groundings display names with resolver links for ontology terms and component identities; local registry identities can remain plain text.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "evidence": {
+        "status": "present",
+        "note": "NaCl and GYPS expose linked PMID, DOI and source-URL references in their evidence sections.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      },
+      "review_status": {
+        "status": "present",
+        "note": "Record headers state mapping status and quality. Runtime metadata reports 2,611 MAPPED, 262 UNMAPPED, 82 REJECTED and one AMBIGUOUS ingredient.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Glucose_2.html"
+      },
+      "curation_history": {
+        "status": "present",
+        "note": "Sampled ingredient pages show Curation history tables with timestamp, curator, action and change details.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "source_link": {
+        "status": "partial",
+        "note": "Sampled record footers name data/ingredients/...yaml as plain text; their anchors do not link that individual YAML source.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/Nacl.html"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "Text and chemical embedding maps render, and sampled records display role/partonomy diagrams. Embedding coverage is separate from the 2,956-record catalogue total.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/ingredient_umap.html"
+      },
+      "cross_mech_links": {
+        "status": "present",
+        "note": "GYPS links CultureMech:002799 to its individual normalized recipe from the related-recipe and comparison-evidence sections.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/ingredient/mapped/GYPS.html"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "Runtime landing tiles show 2,956 ingredients, 2,611 mapped and 88% coverage; the linked catalogue metadata distinguishes all four mapping statuses.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "category_browse": {
+        "status": "partial",
+        "note": "The record index has identifier-prefix sections, while the main browser offers property filters; these do not form standalone category pages.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "downloads": {
+        "status": "partial",
+        "note": "The landing links catalogue JSON and CSV covering all 2,956 ingredients, but they contain mapping/search fields rather than complete records with components, evidence and history.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "schema_docs": {
+        "status": "present",
+        "note": "The visible schema reference links rendered class, slot, enum and type documentation, including schema/classes-IngredientRecord.html.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/schema/index.html"
+      },
+      "license": {
+        "status": "present",
+        "note": "The landing and sampled record footers distinguish CC BY 4.0 project data from BSD-3-Clause code.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "build_provenance": {
+        "status": "present",
+        "note": "Generated timestamps and a linked build receipt identify the current record build, including NaCl at 2026-11-04T07:37:37+00:00.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/records/index.html"
+      },
+      "theme_toggle": {
+        "status": "present",
+        "note": "Dark selected on the landing carries across the browser, record index, sampled ingredients, maps and schema documentation.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/"
+      },
+      "responsive": {
+        "status": "present",
+        "note": "The reviewed landing, browser, record index, ingredient pages, maps and valid schema pages fit a 390px viewport.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      },
+      "load_failure": {
+        "status": "present",
+        "note": "Blocking the catalogue request displays unavailable counters, Ingredients could not be loaded and a retry control.",
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html"
+      }
+    }
+  },
+  "CommunityMech": {
+    "site": "https://culturebotai.github.io/CommunityMech/",
+    "repository": "https://github.com/CultureBotAI/CommunityMech",
+    "deployed_revision": "88314cf16ca1db9580d379babd4ec808e334d898",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "features": {
+      "search": {
+        "status": "partial",
+        "note": "Name and description searches work across 485 communities, but known record identifiers CommunityMech:000134 and CommunityMech:000139 return zero matches; the corresponding named records are present.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "facets": {
+        "status": "present",
+        "note": "Category and ecological-state filters have Clear All. BIOTECHNOLOGY selects 96 of 485 communities; reset restores all 485.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "The live count shows three matches for ANME, one for its full community name and zero for the tested canonical identifiers and unmatched query.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "sorting": {
+        "status": "present",
+        "note": "The browser offers Name (A \u2192 Z), Name (Z \u2192 A), Members (Most \u2192 Fewest), Members (Fewest \u2192 Most), Category (A \u2192 Z). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "The URL retains search, category and sort; the combined BIOTECHNOLOGY/name-search selection restores the same controls and zero-match state.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "full_catalogue": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 485 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Published communities have individual communities/<slug>.html pages; four sampled records display taxonomy, interactions, environment and growth media.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "term_links": {
+        "status": "present",
+        "note": "Sampled taxonomy and environmental sections show readable names beside NCBITaxon, ChEBI and ENVO resolver links.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      },
+      "evidence": {
+        "status": "present",
+        "note": "Sampled interaction evidence links PMID and DOI references with supporting text and evidence-type labels.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html"
+      },
+      "review_status": {
+        "status": "missing",
+        "note": "Record headers show ecological state and evidence labels, not an overall curation or review status.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "curation_history": {
+        "status": "missing",
+        "note": "The sampled community pages do not display curation events, even though the repository retains provenance.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      },
+      "source_link": {
+        "status": "present",
+        "note": "Each sampled record footer now links its own kb/communities YAML file on GitHub.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "Community pages render interaction diagrams, and text, taxonomic and sequence embedding views open as linked domain views.",
+        "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+      },
+      "cross_mech_links": {
+        "status": "present",
+        "note": "Copper Biomining links Standard 9K Medium directly to CultureMech normalized recipe 003277.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "The landing and browser report 485 published communities across 16 categories. Repository isolate records are outside this published-community count.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "category_browse": {
+        "status": "partial",
+        "note": "Category and ecological-state subsets are filters in the browser rather than separate category pages.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+      },
+      "downloads": {
+        "status": "partial",
+        "note": "Linked communities.json and TSV cover all 485 communities as catalogue summaries; they omit the complete taxon and interaction evidence stored in individual records.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+      },
+      "schema_docs": {
+        "status": "present",
+        "note": "The linked schema.html page documents the CommunityMech classes, slots and ontology groundings.",
+        "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+      },
+      "license": {
+        "status": "partial",
+        "note": "Reviewed landing and record footers say License: BSD-3-Clause without distinguishing the project data license from the code license.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "build_provenance": {
+        "status": "missing",
+        "note": "Reviewed pages identify the generator and source corpus but do not give a build date, deployed commit or dated corpus version.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "theme_toggle": {
+        "status": "present",
+        "note": "Dark mode chosen on the landing persists through the browser, maps, schema and four sampled records.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "responsive": {
+        "status": "present",
+        "note": "The reviewed landing, browser, maps, schema and four records fit a 390px viewport.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "load_failure": {
+        "status": "not_applicable",
+        "note": "Reviewed community pages and visualizations use embedded data; no fetch or XHR catalogue request was observed to abort.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    }
+  },
+  "ProteinTraitsMech": {
+    "site": "https://culturebotai.github.io/proteintraitsmech/",
+    "repository": "https://github.com/CultureBotAI/proteintraitsmech",
+    "deployed_revision": "568e78869fb08b86849d13f6a23b3a32ec27cd08",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "features": {
+      "search": {
+        "status": "present",
+        "note": "Searching cd05137 returns one linked record; homogentisate 1,2-dioxygenase returns 16 after the relevant shards finish loading.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "facets": {
+        "status": "present",
+        "note": "Axis, source, category and status facets combine with text search. Selecting active sites gives 1,004 records and adding racemase gives nine; controls provide a facet reset.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "Matching results are shown separately from the 429,421-record total; the active-site category plus racemase gives nine and an unmatched query gives zero.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "sorting": {
+        "status": "present",
+        "note": "The browser offers Identifier (A\u2013Z), Label (A\u2013Z), Label (Z\u2013A), Axis & category, Source. Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "A cold #cat=STRUCT_ACTIVE_SITE&q=racemase URL and its reload restore the category and search with nine matching records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED"
+      },
+      "full_catalogue": {
+        "status": "present",
+        "note": "The facet manifest totals 429,421 records in 73 shards; selecting all five axes exposes the full count through paginated results.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Cold browse.html#record=CURIE routes open individual record details, including MCSA:1, METPO:1000639 and ECOD:F.3755.3.1.364.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "term_links": {
+        "status": "partial",
+        "note": "Labeled ontology and internal record links are available, but some primary identifiers such as ECOD:F.3755.3.1.364 explicitly lack a source-entry resolver.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364"
+      },
+      "evidence": {
+        "status": "present",
+        "note": "Reference-bearing record details link PMID and DOI evidence separately from database-source links.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "review_status": {
+        "status": "present",
+        "note": "Record details and status facets expose SEEDED, PROPOSED and REVIEWED workflow states; the runtime manifest has 39,591 REVIEWED records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "curation_history": {
+        "status": "present",
+        "note": "Record details show dated curation actions, curators and change summaries, including the MCSA:1 curation event.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "source_link": {
+        "status": "present",
+        "note": "Record detail views link the record\u2019s individual YAML path on GitHub, separately from external database-entry links.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "Record views provide sequences, annotations and causal diagrams where available. The corpus map covers 344,797 current records; protein and sequence maps show 68,657 and 12,705 proteins.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "cross_mech_links": {
+        "status": "missing",
+        "note": "Checked record views link external databases and other ProteinTraitsMech records; their main sections do not link specific sibling-Mech or kg-microbe records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "Runtime statistics show 429,421 records: 118,338 structure, 147,149 sequence, 392 sequence/structure, 163,527 function and 15 evolution, across 63 categories and 34 source labels.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "category_browse": {
+        "status": "partial",
+        "note": "Landing axis/category/source links select filters in the common browser rather than standalone category pages.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "downloads": {
+        "status": "partial",
+        "note": "The browser links facet counts and listing shards for all 429,421 records; complete detail is fetched per record, and map CSVs contain plotted points rather than the full corpus records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "schema_docs": {
+        "status": "present",
+        "note": "The linked schema guide explains ProteinTraitRecord, enums and causal graph fields and links its LinkML source.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+      },
+      "license": {
+        "status": "partial",
+        "note": "Core pages and maps distinguish CC BY 4.0 data from BSD-3-Clause code. The linked SLC10 pilot does not state both project licenses.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      },
+      "build_provenance": {
+        "status": "partial",
+        "note": "Core pages show upstream releases and retained map coverage but no site build date or deployed revision; the embedding date is explicitly unrecorded.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "theme_toggle": {
+        "status": "partial",
+        "note": "The injected Browse toggle works, but the landing\u2019s existing empty theme button does not respond. The linked SLC10 pilot has no theme toggle.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      },
+      "responsive": {
+        "status": "partial",
+        "note": "Core sampled routes fit 390px, but expanding all 63 category values widens the document to 400px.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "load_failure": {
+        "status": "present",
+        "note": "Blocked catalogue requests produce an explicit index-load failure; map requests display unavailable/error states instead of presenting zero coverage.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    }
+  },
+  "DUFMech": {
+    "site": "https://culturebotai.github.io/DUFMech/",
+    "repository": "https://github.com/CultureBotAI/DUFMech",
+    "deployed_revision": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "features": {
+      "search": {
+        "status": "present",
+        "note": "PF04149, IPR007278 and Domain of unknown function (DUF397) each return one linked family from the 8,296-family catalogue.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "facets": {
+        "status": "present",
+        "note": "Seed status, characterization and curation status filters combine with search; Clear search and filters restores all 8,296 families.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "The live count shows one of 8,296 for each tested identifier/label and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "sorting": {
+        "status": "present",
+        "note": "The browser offers Proteins: high to low, Proteins: low to high, Pfam accession, Family name: A to Z, Structures: high to low. Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "Query, seed status, characterization, curation status, sort and page are retained in the URL; the exercised combined filter state restores after reload.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "full_catalogue": {
+        "status": "present",
+        "note": "The complete index and catalogue contain 8,296 families. The browser provides numbered pagination and links individual family pages.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Family accessions have stable families/PFxxxxx.html pages; PF04149, PF02698 and PF18141 opened successfully.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      },
+      "term_links": {
+        "status": "present",
+        "note": "Sampled family grounding shows readable names with linked Pfam and InterPro identifiers.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": {
+        "status": "present",
+        "note": "Family views link frozen source descriptions and citations. Curated mechanism evidence is distinguished from imported descriptions and unresolved source citations.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html"
+      },
+      "review_status": {
+        "status": "present",
+        "note": "Family headers and browser rows display curation status alongside seed classification and characterization tier.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      },
+      "curation_history": {
+        "status": "present",
+        "note": "The sampled family views show retained dated curation events and reviews with attribution and outcomes.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "source_link": {
+        "status": "present",
+        "note": "Family pages link their individual YAML at the retained source revision, plus build-local YAML and JSON copies.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "Family pages display domain tracks and causal diagrams where available; linked text and protein sequence maps provide corpus views.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "cross_mech_links": {
+        "status": "present",
+        "note": "Sampled family pages link specific retained ProteinTraitsMech records, including Pfam:PF18141; the previous claim that PF18141 was outside the scan no longer applies.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "The landing reports 8,296 families, 8,238 with InterPro IDs, 1,906 with structures and 8,242 with AlphaFold models; seed subsets total 1,796 EX_DUF, 373 historical DUFs and 6,127 unknown candidates.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "category_browse": {
+        "status": "present",
+        "note": "The linked category index opens distinct paginated seed-status subsets.",
+        "url": "https://culturebotai.github.io/DUFMech/categories.html"
+      },
+      "downloads": {
+        "status": "present",
+        "note": "Sources & schema and the catalogue link the complete index.json export containing all 8,296 families and retained provenance.",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      },
+      "schema_docs": {
+        "status": "present",
+        "note": "The linked schema.html guide documents family records, curation, evidence, history and enums, and provides the schema source.",
+        "url": "https://culturebotai.github.io/DUFMech/schema.html"
+      },
+      "license": {
+        "status": "present",
+        "note": "Reviewed footers distinguish CC BY 4.0 project data from BSD 3-Clause code and retain third-party terms.",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      },
+      "build_provenance": {
+        "status": "present",
+        "note": "Footers identify the site build, retained corpus source revision and dated frozen upstream inputs.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "theme_toggle": {
+        "status": "present",
+        "note": "The System/Light/Dark selector persists Dark across the reviewed landing, families, categories, schema, sources and maps.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "responsive": {
+        "status": "present",
+        "note": "Reviewed landing, sampled families, category index, sources, schema and maps fit 390px; wide tables scroll within their containers.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "load_failure": {
+        "status": "present",
+        "note": "Blocking catalogue.json visibly reports that interactive search is unavailable while retaining static rows and pagination.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    }
+  },
+  "CMMMech": {
+    "site": "https://culturebotai.github.io/CMMMech/pages/index.html",
+    "repository": "https://github.com/CultureBotAI/CMMMech",
+    "deployed_revision": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "features": {
+      "search": {
+        "status": "present",
+        "note": "CHEBI:27638 and cmmmech:copper each return one linked material; Cobalt returns 23 of 678.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "facets": {
+        "status": "present",
+        "note": "Kind, mechanism process and criticality filters have Clear filters. Element selects 66 records; adding bioleaching selects 15; reset restores all 678.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "The count updates to one for identifier searches, 23 for Cobalt, 15 for bioleaching elements and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "sorting": {
+        "status": "present",
+        "note": "The browser offers Material name (A\u2013Z), Material name (Z\u2013A), Mechanisms (high\u2013low), Microbial agents (high\u2013low), Material kind (A\u2013Z), Criticality (critical first). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "Cobalt with element, bioleaching, criticality and sort selections reloads from its URL with all controls restored and one matching record.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "full_catalogue": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 678 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Browse and kind/process listings link stable materials/<slug>.html pages; cobalt and akaganeite opened successfully.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "term_links": {
+        "status": "present",
+        "note": "Sampled material identifiers and mechanism terms show readable labels with ChEBI, taxon and protein/ontology resolver links.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "evidence": {
+        "status": "present",
+        "note": "Sampled references link DOI or source URLs, and mechanism evidence points to the corresponding references.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "review_status": {
+        "status": "missing",
+        "note": "Record headers show material kind and criticality; these and individual evidence labels do not state overall review status.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "curation_history": {
+        "status": "present",
+        "note": "Sampled records include Curation History tables with timestamp, curator, action and summary.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "source_link": {
+        "status": "present",
+        "note": "Record source lines link the individual data/records YAML on GitHub.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "The mechanism graph renders 654 nodes and 970 edges; the text map retains 602 material points, a subset of the 678-record catalogue.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+      },
+      "cross_mech_links": {
+        "status": "missing",
+        "note": "Record sections provide cross-Mech search links and site navigation, but the sampled pages do not link specific sibling records.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "The landing reports 678 materials, 609 mechanisms, 500 materials with mechanisms and 90 designated critical materials across six kinds.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "category_browse": {
+        "status": "present",
+        "note": "Landing cards link six material-kind and process listings. Kind totals are 66 elements, 427 minerals, 111 secondary resources, 36 commodities, 31 primary resources and seven mineral groups.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+      },
+      "downloads": {
+        "status": "partial",
+        "note": "Linked index.json covers all 678 catalogue entries but contains listing metadata and mechanism counts, not full mechanism evidence; map exports and individual YAML links are also available.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "schema_docs": {
+        "status": "partial",
+        "note": "Visible schema links open the LinkML YAML source. The previously recorded pages/schema.html documentation URL returns 404.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "license": {
+        "status": "present",
+        "note": "Reviewed footers separately state CC BY 4.0 data and BSD-3-Clause code, consistent with the repository license policy.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "build_provenance": {
+        "status": "present",
+        "note": "Footers now state 678 materials, 609 mechanisms, latest curation 2026-11-04 and corpus digest 0e188cbbc0a4.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "theme_toggle": {
+        "status": "present",
+        "note": "Dark selected on the landing carries to Browse, kind, record, text-map and graph pages.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "responsive": {
+        "status": "partial",
+        "note": "At 390px, cobalt widens the document to 597px and akaganeite to 669px; both overflow on fresh and resized views.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "load_failure": {
+        "status": "not_applicable",
+        "note": "Reviewed listings, records and canvas visualizations embed their data; no fetch/XHR data request was observed to abort.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    }
+  },
+  "AIMech": {
+    "site": "https://culturebotai.github.io/AIMech/pages/index.html",
+    "repository": "https://github.com/CultureBotAI/AIMech",
+    "deployed_revision": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+    "checked_on": "2026-11-04",
+    "scope": "All 24 catalogue features re-exercised on the served site, with representative records, control actions, narrow views and request-failure checks; corpus pin and served deployment remain distinct.",
+    "features": {
+      "search": {
+        "status": "present",
+        "note": "AIMech:KernelPCA returns one linked concept and Adam returns 131 matches across the 1,929-record catalogue.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "facets": {
+        "status": "present",
+        "note": "Origin, concept kind and AIO branch filters have Reset. Curated selects 1,487 records and curated algorithms 1,047; Reset restores all 1,929.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "result_counts": {
+        "status": "present",
+        "note": "The matching count changes to one for AIMech:KernelPCA, 131 for Adam and zero for an unmatched query, separately from the 1,929 total.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "sorting": {
+        "status": "present",
+        "note": "The browser offers Concept name (A\u2013Z), Concept name (Z\u2013A), Curated claims (high\u2013low), Evidence sources (high\u2013low), Origin (Curated first), Identifier (A\u2013Z). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "shareable_state": {
+        "status": "present",
+        "note": "Search, origin, kind, branch and sort are encoded in the URL; reload restores the exercised values and matching count.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture"
+      },
+      "full_catalogue": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 1,929 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "suite_nav": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "record_pages": {
+        "status": "present",
+        "note": "Browse links static curated/<name>.html and aio/<name>.html record pages; sampled Adam, KernelPCA and TrainingStrategy pages open.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "term_links": {
+        "status": "present",
+        "note": "Sampled accepted AIO mappings show names with linked CURIEs; AIO class pages link their ontology IRIs and labeled parent terms.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html"
+      },
+      "evidence": {
+        "status": "present",
+        "note": "Sampled curated claims link source rows and primary evidence URLs; the landing distinguishes 5,149 claims from 3,269 evidence citations.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "review_status": {
+        "status": "present",
+        "note": "Sampled curated and imported class records show their workflow state in the record header.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "curation_history": {
+        "status": "partial",
+        "note": "Curated pages show curator, method/model and created/updated times, but do not present an event-by-event change list; AIO pages give import provenance.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "source_link": {
+        "status": "present",
+        "note": "Sampled records link their individual data/curated or data/aio YAML file on GitHub.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "domain_view": {
+        "status": "present",
+        "note": "The graph renders 1,949 nodes and 4,256 edges; the text map retains 1,259 concepts, a subset of the 1,929-record catalogue.",
+        "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+      },
+      "cross_mech_links": {
+        "status": "missing",
+        "note": "Sampled record pages provide sibling navigation/search links rather than links to specific sibling-Mech records.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "corpus_stats": {
+        "status": "present",
+        "note": "The landing reports 1,929 concepts (1,487 curated and 442 AIO), 5,149 curated claims and 3,269 evidence citations.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "category_browse": {
+        "status": "present",
+        "note": "The landing links twelve curated-kind and eight AIO-branch subset pages, including 121 architectures and 61 biases.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "downloads": {
+        "status": "partial",
+        "note": "Linked index.json covers all 1,929 concepts as listing metadata with claim/source counts; it omits complete claims and evidence. Map data and per-record YAML sources are also linked.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "schema_docs": {
+        "status": "partial",
+        "note": "The reviewed site links LinkML YAML source files. The previously recorded pages/schema.html documentation URL returns 404.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "license": {
+        "status": "partial",
+        "note": "Footers display CC BY 4.0 / BSD-3-Clause data and BSD-3-Clause code, but do not clearly explain which data receives each license.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "build_provenance": {
+        "status": "present",
+        "note": "Page footers identify the project snapshot date 2026-10-24 and digest de5b593fee12, separately from upstream AIO import provenance.",
+        "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
+      },
+      "theme_toggle": {
+        "status": "present",
+        "note": "Dark selected on the landing persists through Browse, sampled records, and both graph and text-map views.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "responsive": {
+        "status": "present",
+        "note": "Reviewed landing, Browse, sampled records and visualizations fit a 390px viewport.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "load_failure": {
+        "status": "not_applicable",
+        "note": "Reviewed listings, records and visualizations embed their record data; no fetch or XHR data request was observed to abort.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    }
+  }
+}

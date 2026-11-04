@@ -1,0 +1,1568 @@
+{
+  "reviewer": "deployment_review group A auditor",
+  "mech": "PathwayMech",
+  "pin": "bc9795173651f6b032afcdd7270228392dd5ff99",
+  "started_at": "2026-11-04T11:50:29.356688+00:00",
+  "finished_at": "2026-11-04T11:51:19.451235+00:00",
+  "supplemented_at": null,
+  "deployment_before": {
+    "id": 7542706097,
+    "sha": "bc9795173651f6b032afcdd7270228392dd5ff99",
+    "created_at": "2026-11-04T09:31:18Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T09:33:10Z",
+      "environment_url": "https://culturebotai.github.io/PathwayMech/"
+    },
+    "last_modified": "Wed, 04 Nov 2026 09:33:03 GMT"
+  },
+  "deployment_after": {
+    "id": 7542706097,
+    "sha": "bc9795173651f6b032afcdd7270228392dd5ff99",
+    "created_at": "2026-11-04T09:31:18Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T09:33:10Z",
+      "environment_url": "https://culturebotai.github.io/PathwayMech/"
+    },
+    "last_modified": "Wed, 04 Nov 2026 09:33:03 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "Browse searches by identifier and label. MetaCyc:PWY-6543: 1 of 280 pathways match; trehalose: 3 of 280 pathways match.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/search",
+      "prior_verbatim": "Search over all 275 records finds MetaCyc:PWY-6543 (1 result) and trehalose; matching record links open stable pathway pages.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "search:MetaCyc:PWY-6543": "1 of 280 pathways match",
+          "search:trehalose": "3 of 280 pathways match",
+          "search:no-such-record-canary-20261104": "0 of 280 pathways match"
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Property filters and a reset are available in Browse. Exercised filters changed the matching counts; activating reset by keyboard restored the unfiltered view.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/facets",
+      "prior_verbatim": "pages/browse.html provides interactive filters for pathway category, curation status, source vocabulary, and organism taxon.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "facet:0": "1 of 280 pathways match",
+          "facet:1": "0 of 280 pathways match"
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "Matching counts respond to identifier, label, unmatched-query and property-filter changes, separately from the 280-record corpus.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/result_counts",
+      "prior_verbatim": "The matching count changes with search and filters out of 275 pathways (e.g., MetaCyc:PWY-6543 shows 1 of 275, and an unmatched query shows 0 with a no-match message).",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "search:MetaCyc:PWY-6543": "1 of 280 pathways match",
+          "search:trehalose": "3 of 280 pathways match",
+          "search:no-such-record-canary-20261104": "0 of 280 pathways match"
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The Browse sort control offers Pathway name (A–Z); Pathway name (Z–A); Mechanistic edges (high–low); Mechanistic edges (low–high); Identifier (A–Z); Pathway class (A–Z). Changing order was exercised in the browser.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/sorting",
+      "prior_verbatim": "pages/browse.html supports sorting by pathway name, category, edge count, reference count, and curation status.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "sort:label-asc": "0 of 280 pathways match",
+          "sort:label-desc": "0 of 280 pathways match"
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Identifier search and the exercised property-filter/sort state survive URL reload, with matching counts and controls restored.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=glycolysis",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/shareable_state",
+      "prior_verbatim": "pages/browse.html synchronizes search, category, status, source, and sort selections with URL query parameters via history.replaceState.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "query_before_reload": "1 of 280 pathways match",
+          "query_after_reload": "1 of 280 pathways match"
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "Browse exposes all 280 stable pathway links, matching the landing and the 280-record downloadable pathway index.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/full_catalogue",
+      "prior_verbatim": "pages/browse.html lists all 275 pathways in a unified filterable, sortable table alongside 15 category pages.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {
+          "browse_initial": "280 of 280 pathways match"
+        },
+        "control_locator": "receipts.controls"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Sampled MetaCyc, GO and WikiPathways records have stable pages with organism scope, participants, mechanistic edges, evidence, curation history and their own YAML links.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/record_pages",
+      "prior_verbatim": "275 static pages under pages/records/<slug>.html with overview, organisms, participants, reactions, 14,691 mechanistic edges, and references.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.text_excerpt",
+        "verbatim": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\n4-aminobenzoate biosynthesis I\nPathwayMech\n/\nBrowse pathways\n/\nMetaCyc:PWY-6543\nSearch pathways\nSearch\n\nMetaCyc:PWY-6543\n\n4-Aminobenzoate biosynthesis I converts chorismate and L-glutamine to 4-aminobenzoate through 4-amino-4-deoxychorismate.\n\nPathway type\ncofactor biosynthesis\nOrganism scope\nEscherichia coli NCBITaxon:562\n\nRead the source YAML\n\nPathway network\n\n16 nodes · 16 relationships · 59% size.\n\nArrows show recorded subject → object relationships, not necessarily metabolic flow. Select a node for details or an arrow for evidence. Scroll, zoom or find a node to explore.\n\nZoom in\nZoom out\nFit width\nFind a node\nFind a node…\naminodeoxychorismate synthase — EC:2.6.1.85\naminodeoxychorismate lyase — EC:4.1.3.38\nchorismate — CHEBI:29748\nL-glutamine — CHEBI:58359\n4-amino-4-deoxychorismate — CHEBI:58406\nL-glutamate — CHEBI:29985\n4-aminobenzoate — CHEBI:17836\npyruvate — CHEBI:15361\nH+ — CHEBI:15378\nAminodeoxychorismate synthase component 2 — UniProtKB:P00903\nAminodeoxychorismate synthase component 1 — UniProtKB:P05041\nmagnesium(2+) — CHEBI:18420\nAminodeoxychorismate lyase — UniProtKB:P28305\npyridoxal 5'-phosphate(2-) — CHEBI:597326\naminodeoxychorismate synthase reaction — RHEA:11673\naminodeoxychorismate lyase reaction — RHEA:16202\nReaction / activity\nChemical / cofactor\nProtein / complex\nOther participant\nSolid arrow: mechanistic relation\nDashed "
+      }
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "Organism-scope taxa are labeled and linked, but the main component and mechanistic-edge tables still display chemical, protein and reaction CURIEs without resolver links.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/term_links",
+      "prior_verbatim": "Organism-scope taxa have labels and NCBI resolver links, but the participant and mechanistic-edge tables still render labeled chemical, protein and reaction CURIEs without resolver links.",
+      "prior_status": "partial",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.links",
+        "verbatim": [
+          {
+            "text": "Escherichia coli NCBITaxon:562",
+            "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate synthase component 2 — enables → aminodeoxychorismate synthase reaction; Evidence: UniProtKB:P00903enables",
+            "href": "#mechanism-edge-12",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate synthase component 1 — enables → aminodeoxychorismate synthase reaction; Evidence: UniProtKB:P05041enables",
+            "href": "#mechanism-edge-13",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate synthase component 1 — has cofactor → magnesium(2+); Evidence: UniProtKB:P05041has cofactor",
+            "href": "#mechanism-edge-14",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate lyase — enables → aminodeoxychorismate lyase reaction; Evidence: UniProtKB:P28305enables",
+            "href": "#mechanism-edge-15",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate lyase — has cofactor → pyridoxal 5'-phosphate(2-); Evidence: UniProtKB:P28305has cofactor",
+            "href": "#mechanism-edge-16",
+            "table": false
+          },
+          {
+            "text": "chorismate; CHEBI:29748; Declared type: small_molecule\nsmall molecule\nchorismate\n",
+            "href": "#component-4",
+            "table": false
+          },
+          {
+            "text": "L-glutamine; CHEBI:58359; Declared type: small_molecule\nsmall molecule\nL-glutamine\n",
+            "href": "#component-5",
+            "table": false
+          },
+          {
+            "text": "4-amino-4-deoxychorismate; CHEBI:58406; Declared type: small_molecule\nsmall molecule\n4-amino-4-deoxychorismate\n",
+            "href": "#component-6",
+            "table": false
+          },
+          {
+            "text": "L-glutamate; CHEBI:29985; Declared type: small_molecule\nsmall molecule\nL-glutamate\n",
+            "href": "#component-7",
+            "table": false
+          },
+          {
+            "text": "4-aminobenzoate; CHEBI:17836; Declared type: small_molecule\nsmall molecule\n4-aminobenzoate\n",
+            "href": "#component-8",
+            "table": false
+          },
+          {
+            "text": "pyruvate; CHEBI:15361; Declared type: small_molecule\nsmall molecule\npyruvate\n",
+            "href": "#component-9",
+            "table": false
+          },
+          {
+            "text": "H+; CHEBI:15378; Declared type: small_molecule\nsmall molecule\nH+\n",
+            "href": "#component-10",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate synthase component 2; UniProtKB:P00903; Declared type: protein\nprotein\nAminodeoxychorismate\nsynthase component 2\n",
+            "href": "#component-11",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate synthase component 1; UniProtKB:P05041; Declared type: protein\nprotein\nAminodeoxychorismate\nsynthase component 1\n",
+            "href": "#component-12",
+            "table": false
+          },
+          {
+            "text": "magnesium(2+); CHEBI:18420; Declared type: cofactor\ncofactor\nmagnesium(2+)\n",
+            "href": "#component-13",
+            "table": false
+          },
+          {
+            "text": "Aminodeoxychorismate lyase; UniProtKB:P28305; Declared type: protein\nprotein\nAminodeoxychorismate lyase\n",
+            "href": "#component-14",
+            "table": false
+          },
+          {
+            "text": "pyridoxal 5'-phosphate(2-); CHEBI:597326; Declared type: cofactor\ncofactor\npyridoxal 5'-phosphate(2-)\n",
+            "href": "#component-15",
+            "table": false
+          },
+          {
+            "text": "UniProtKB:P00903",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-8",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P05041",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-9",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P05041",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-9",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P28305",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-10",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P28305",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-10",
+            "table": true
+          },
+          {
+            "text": "PMID:2251281",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/2251281/",
+            "table": false
+          },
+          {
+            "text": "PMID:1644759",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/1644759/",
+            "table": false
+          }
+        ]
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Sampled mechanistic edges link Rhea and PubMed references and source locations, separating source assertions from quotations.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/evidence",
+      "prior_verbatim": "Sampled pathway pages link evidence references and source locations, distinguishing structured source assertions from quotations. The MetaCyc record links Rhea and PubMed evidence.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.links",
+        "verbatim": [
+          {
+            "text": "chorismate — consumes → aminodeoxychorismate synthase reaction; Evidence: RHEA:11673consumes",
+            "href": "#mechanism-edge-1",
+            "table": false
+          },
+          {
+            "text": "L-glutamine — consumes → aminodeoxychorismate synthase reaction; Evidence: RHEA:11673consumes",
+            "href": "#mechanism-edge-2",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate synthase reaction — produces → L-glutamate; Evidence: RHEA:11673produces",
+            "href": "#mechanism-edge-3",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate synthase reaction — produces → 4-amino-4-deoxychorismate; Evidence: RHEA:11673produces",
+            "href": "#mechanism-edge-4",
+            "table": false
+          },
+          {
+            "text": "4-amino-4-deoxychorismate — consumes → aminodeoxychorismate lyase reaction; Evidence: RHEA:16202consumes",
+            "href": "#mechanism-edge-5",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate lyase reaction — produces → pyruvate; Evidence: RHEA:16202produces",
+            "href": "#mechanism-edge-6",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate lyase reaction — produces → H+; Evidence: RHEA:16202produces",
+            "href": "#mechanism-edge-7",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate lyase reaction — produces → 4-aminobenzoate; Evidence: RHEA:16202produces",
+            "href": "#mechanism-edge-8",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate synthase — catalyzes → aminodeoxychorismate synthase reaction; Evidence: RHEA:11672, PMID:1644759catalyzes",
+            "href": "#mechanism-edge-9",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate lyase — catalyzes → aminodeoxychorismate lyase reaction; Evidence: RHEA:16201, PMID:2251281catalyzes",
+            "href": "#mechanism-edge-10",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate synthase reaction; RHEA:11673; Declared type: molecular_activity; Source reaction direction: left_to_right\nmolecular activity\naminodeoxychorismate\nsynthase reaction\n",
+            "href": "#component-16",
+            "table": false
+          },
+          {
+            "text": "aminodeoxychorismate lyase reaction; RHEA:16202; Declared type: molecular_activity; Source reaction direction: left_to_right\nmolecular activity\naminodeoxychorismate lyase\nreaction\n",
+            "href": "#component-17",
+            "table": false
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:11672",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-2",
+            "table": true
+          },
+          {
+            "text": "PMID:1644759",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-7",
+            "table": true
+          },
+          {
+            "text": "RHEA:16201",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-4",
+            "table": true
+          },
+          {
+            "text": "PMID:2251281",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-6",
+            "table": true
+          },
+          {
+            "text": "RHEA:11672",
+            "href": "https://www.rhea-db.org/rhea/11672",
+            "table": false
+          }
+        ]
+      }
+    },
+    "review_status": {
+      "status": "missing",
+      "note": "Sampled pathway pages show pathway type and editing history but no record-level curation or review status.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/review_status",
+      "prior_verbatim": "The five sampled record pages show pathway type and editing history, but no record-level curation or review status.",
+      "prior_status": "missing",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.text_excerpt",
+        "verbatim": "Pathway type\ncofactor biosynthesis\nOrganism scope\nEscherichia coli NCBITaxon:562\n\nRead the source YAML\n\nPathway network\n\n16 nodes · 16 relationships · 59% size.\n\nArrows show recorded subject → object relationships, not necessarily metabolic flow. Select a node for details or an arrow for evidence. Scroll, zoom or find a node to explore.\n\nZoom in\nZoom out\nFit width\nFind a node\nFind a node…\naminodeoxychorismate synthase — EC:2.6.1.85\naminodeoxychorismate lyase — EC:4.1.3.38\nchorismate — CHEBI:29748\nL-glutamine — CHEBI:58359\n4-amino-4-deoxychorismate — CHEBI:58406\nL-glutamate — CHEBI:29985\n4-aminobenzoate — CHEBI:17836\npyruvate — CHEBI:15361\nH+ — CHEBI:15378\nAminodeoxychorismate synthase component 2 — UniProtKB:P00903\nAminodeoxychorismate synthase component 1 — UniProtKB:P05041\nmagnesium(2+) — CHEBI:18420\nAminodeoxychorismate lyase — UniProtKB:P28305\npyridoxal 5'-phosphate(2-) — CHEBI:597326\naminodeoxychorismate synthase reaction — RHEA:11673\naminodeoxychorismate lyase reaction — RHEA:16202\nReaction / activity\nChemical / cofactor\nProtein / complex\nOther participant\nSolid arrow: mechanistic relation\nDashed arrow: membership, location or cofactor relation\nconsumes\nconsumes\nproduces\nproduces\nconsumes\nproduces\nproduces\nproduces\ncatalyzes\ncatalyzes\nprecedes\nenables\nenables\nhas cofactor\nenables\nhas cofactor\nmolecular activity\naminodeoxychorismate\nsynthase\nmolecular activity\naminodeoxychorismate lyase\nsmall molecule\nchorismate\nsmall molecule\nL-glutamine\nsmall molecule\n4-amino-4-deoxych"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Sampled pathway pages show dated curator actions, change summaries and retained curation-session links, including current November edits.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/GO_0036040.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/curation_history",
+      "prior_verbatim": "The five sampled records show dated history with curator, action, summaries and links to retained curation sessions.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/GO_0036040.html.text_excerpt",
+        "verbatim": "Curation history\n2026-10-11T00:42:35Z codex\nCREATE — Add the complete two-step CurA curcumin degradation pathway\n\nCreated exact GO:0036040 with both native CurA reductions and the dihydrocurcumin intermediate, supported homodimer membership, NADPH cosubstrate role and explicitly computational localization. Preserved K-12 DH10B versus recombinant BL21 experimental scope and excluded redundant net reaction, downstream mineralization, invented transport and metal requirements. Reassessed the prior single-enzyme exclusion: this record denotes the complete source-defined two-reaction pathway. Author replay verified both reaction sides, balances, all identifiers, source hashes and local schemas. Evidence is in research/pathway_additions/2026-10-10-next-routes/curcumin-curation.md and curcumin-validation.json. Independent scientific review and final corpus gates follow before publication.\n\nRead this curation session\n2026-10-23T13:30:00Z antigravity\nEDIT — Add 1 native monomer/CDS -> UniProtKB protein unification mapping(s) in source_mappings for GO:0036040\n\nAdded 1 explicit SSSOM protein unification mapping(s) in source_mappings (MetaCyc:G6760-MONOMER -> UniProtKB:P76113) linking native monomer protein / CDS reference(s) to their 1:1 UniProtKB protein participant(s) backed by edge-level dblink/sequence unification evidence.\n\nRead this curation session\n2026-10-30T17:05:00Z antigravity\nEDIT — Populate Stage 6 causal-graph stoichiometry coefficients and structured evidence qualifiers i"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Read the source YAML links sampled records to their own data/pathways file in GitHub.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/source_link",
+      "prior_verbatim": "Read the source YAML links each sampled record to its own GitHub file under data/pathways/.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.links",
+        "verbatim": [
+          {
+            "text": "Read the source YAML",
+            "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/data/pathways/4-aminobenzoate-biosynthesis-i.yaml",
+            "table": false
+          }
+        ]
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Pathway pages render directed SVG networks with node selection and zoom controls. The text map renders 270 pathways and the sequence map 216 pathway centroids; the current corpus has 280 records.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/domain_view",
+      "prior_verbatim": "Pathway pages render directed SVG networks with typed nodes, zoom, node finder, and clickable #mechanism-edge-N evidence links; pages/map.html renders a 2D corpus embedding scatter across all 275 pathways and pages/sequence-map.html renders an ESM-2 protein sequence embedding map.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.text_excerpt",
+        "verbatim": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\n4-aminobenzoate biosynthesis I\nPathwayMech\n/\nBrowse pathways\n/\nMetaCyc:PWY-6543\nSearch pathways\nSearch\n\nMetaCyc:PWY-6543\n\n4-Aminobenzoate biosynthesis I converts chorismate and L-glutamine to 4-aminobenzoate through 4-amino-4-deoxychorismate.\n\nPathway type\ncofactor biosynthesis\nOrganism scope\nEscherichia coli NCBITaxon:562\n\nRead the source YAML\n\nPathway network\n\n16 nodes · 16 relationships · 59% size.\n\nArrows show recorded subject → object relationships, not necessarily metabolic flow. Select a node for details or an arrow for evidence. Scroll, zoom or find a node to explore.\n\nZoom in\nZoom out\nFit width\nFind a node\nFind a node…\naminodeoxychorismate synthase — EC:2.6.1.85\naminodeoxychorismate lyase — EC:4.1.3.38\nchorismate — CHEBI:29748\nL-glutamine — CHEBI:58359\n4-amino-4-deoxychorismate — CHEBI:58406\nL-glutamate — CHEBI:29985\n4-aminobenzoate — CHEBI:17836\npyruvate — CHEBI:15361\nH+ — CHEBI:15378\nAminodeoxychorismate synthase component 2 — UniProtKB:P00903\nAminodeoxychorismate synthase component 1 — UniProtKB:P05041\nmagnesium(2+) — CHEBI:18420\nAminodeoxychorismate lyase — UniProtKB:P28305\npyridoxal 5'-phosphate(2-) — CHEBI:597326\naminodeoxychorismate synthase reaction — RHEA:11673\naminodeoxychorismate lyase reaction — RHEA:16202\nReaction / activity\nChemical / cofactor\nProtein / complex\nOther participant\nSolid arrow: mechanistic relation\nDashed "
+      }
+    },
+    "cross_mech_links": {
+      "status": "missing",
+      "note": "The sampled MetaCyc, GO and WikiPathways pages offer suite navigation and external authority links, but no direct links to specific sibling-Mech or kg-microbe records.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/cross_mech_links",
+      "prior_verbatim": "The five sampled record pages offer suite navigation, but no links to specific sibling-Mech or kg-microbe records.",
+      "prior_status": "missing",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/records/MetaCyc_PWY-6543.html.links",
+        "verbatim": [
+          {
+            "text": "Skip to main content",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#main-content",
+            "table": false
+          },
+          {
+            "text": "PathwayMech overview",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+            "table": false
+          },
+          {
+            "text": "Browse pathways",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+            "table": false
+          },
+          {
+            "text": "Text map",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/map.html",
+            "table": false
+          },
+          {
+            "text": "Sequence map (pLM)",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/sequence-map.html",
+            "table": false
+          },
+          {
+            "text": "Downloads & Schema",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/index.html#downloads-title",
+            "table": false
+          },
+          {
+            "text": "PathwayMech",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+            "table": false
+          },
+          {
+            "text": "Browse pathways",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+            "table": false
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:11673",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-3",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:16202",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-5",
+            "table": true
+          },
+          {
+            "text": "RHEA:11672",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-2",
+            "table": true
+          },
+          {
+            "text": "PMID:1644759",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-7",
+            "table": true
+          },
+          {
+            "text": "RHEA:16201",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-4",
+            "table": true
+          },
+          {
+            "text": "PMID:2251281",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-6",
+            "table": true
+          },
+          {
+            "text": "MetaCyc:PWY-6543",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-1",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P00903",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-8",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P05041",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-9",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P05041",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-9",
+            "table": true
+          },
+          {
+            "text": "UniProtKB:P28305",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html#reference-10",
+            "table": true
+          }
+        ]
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing reports 280 pathway records, 105 taxa, 14,788 mechanistic edges and 5,917 distinct references.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/corpus_stats",
+      "prior_verbatim": "Home page reports 275 pathway records, 105 organism taxa, 14,691 mechanistic edges, 21,871 structured source assertions, and 5,912 distinct references, with a 15-category breakdown.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\n\nMicrobial pathway knowledge base\n\nPathwayMech\n\nExplore microbial pathways, their molecular participants, and the evidence behind their mechanistic connections.\n\nSearch pathways by name, organism, or identifier\nSearch pathways\nBrowse pathways →\nText embedding map\nSequence map (ESM-2 pLM)\nView on GitHub\nPathway records\n280\nTaxa represented\n105\nMechanistic edges\n14,788\nDistinct references\n5,917\nExplore PathwayMech\n\nFind a pathway, explore embedding spaces, follow its evidence, or contribute a record.\n\nPathway browser\n\nFilter and search the published collection by pathway class, organism, protein grounding, or identifier.\n\nBrowse pathway records →\nCorpus text embedding map\n\nInteractive 2D PaCMAP projection of BAAI/bge-large-en-v1.5 embeddings across all 280 pathway records.\n\nExplore text embedding map →\nSequence map (ESM-2 pLM)\n\nExplore protein language model (ESM-2 650M) representations for UniProt-grounded pathway proteins and centroids.\n\nExplore pLM sequence map →\nSource records & curation\n\nInspect the underlying YAML records and learn how to attach mechanistic evidence to individual pathway edges.\n\nExplore source records →\nDownloads, schema & complete pathway graph\n\nKGX TSV exports from the same 280 pathway records shown here: All nodes (TSV), All edges (TSV), Pathway index (JSON), and Version, row counts and file checksums.\n\nLinkML Schema &"
+      }
+    },
+    "category_browse": {
+      "status": "partial",
+      "note": "The current Browse exposes subset filters, but sampled navigation does not link the previously claimed 15 standalone category pages. Its Pathway type options include edge-count strings, which need separate site correction.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/category_browse",
+      "prior_verbatim": "Home page and Browse link 15 pathway category subset views alongside source-family and organism filters.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/browse.html.text_excerpt",
+        "verbatim": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\nPathwayMech records\nPathwayMech\n/\nBrowse pathways\nSearch pathway name, organism, or identifier\nPathway class\nAll pathway classes\n10 mechanistic edges\n100 mechanistic edges\n101 mechanistic edges\n102 mechanistic edges\n105 mechanistic edges\n107 mechanistic edges\n109 mechanistic edges\n111 mechanistic edges\n114 mechanistic edges\n116 mechanistic edges\n117 mechanistic edges\n118 mechanistic edges\n12 mechanistic edges\n121 mechanistic edges\n125 mechanistic edges\n126 mechanistic edges\n127 mechanistic edges\n128 mechanistic edges\n13 mechanistic edges\n130 mechanistic edges\n138 mechanistic edges\n14 mechanistic edges\n148 mechanistic edges\n15 mechanistic edges\n158 mechanistic edges\n16 mechanistic edges\n164 mechanistic edges\n169 mechanistic edges\n17 mechanistic edges\n18 mechanistic edges\n19 mechanistic edges\n20 mechanistic edges\n207 mechanistic edges\n21 mechanistic edges\n214 mechanistic edges\n22 mechanistic edges\n23 mechanistic edges\n239 mechanistic edges\n24 mechanistic edges\n25 mechanistic edges\n26 mechanistic edges\n27 mechanistic edges\n28 mechanistic edges\n29 mechanistic edges\n30 mechanistic edges\n31 mechanistic edges\n32 mechanistic edges\n33 mechanistic edges\n34 mechanistic edges\n35 mechanistic edges\n36 mechanistic edges\n37 mechanistic edges\n38 mechanistic edges\n39 mechanistic edges\n4 mechanistic edges\n40 mechanistic edges\n41 mechanistic edges\n42 mechanistic"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "A visible suite-directory link appears on the sampled main site pages; the evidence lists each checked route and its target.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/suite_nav",
+      "prior_verbatim": "Landing, browse and sampled record navigation visibly link All Mech projects to culturebotai.github.io/mechs/.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.links",
+        "verbatim": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/",
+            "table": false
+          },
+          {
+            "text": "Explore all Mech projects",
+            "href": "https://culturebotai.github.io/mechs/",
+            "table": false
+          }
+        ]
+      }
+    },
+    "downloads": {
+      "status": "present",
+      "note": "Landing links KGX node and edge TSV exports plus the complete 280-record pathway index. These and the version/checksum manifest return HTTP 200; the manifest reports 5,466 nodes and 14,788 edges.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/downloads",
+      "prior_verbatim": "The landing links full KGX node and edge TSV exports and a manifest of version, row counts and checksums. All three links returned 200 during the check.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.links",
+        "verbatim": [
+          {
+            "text": "Downloads & Schema",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/index.html#downloads-title",
+            "table": false
+          },
+          {
+            "text": "All nodes (TSV)",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/downloads/nodes.tsv",
+            "table": false
+          },
+          {
+            "text": "All edges (TSV)",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/downloads/edges.tsv",
+            "table": false
+          },
+          {
+            "text": "Pathway index (JSON)",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/pathway_index.json",
+            "table": false
+          },
+          {
+            "text": "Version, row counts and file checksums",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json",
+            "table": false
+          },
+          {
+            "text": "Corpus text embedding coordinates (JSON)",
+            "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/data/embeddings/corpus_map.json",
+            "table": false
+          },
+          {
+            "text": "ESM-2 sequence embedding coordinates (JSON)",
+            "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/data/embeddings/sequence_map.json",
+            "table": false
+          }
+        ]
+      }
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "The current landing links LinkML YAML sources. The formerly claimed pages/schema.html returns HTTP 404; no rendered schema reference was linked.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/schema_docs",
+      "prior_verbatim": "pages/schema.html documents the PathwayMech LinkML schema, classes, slots, and validation rules.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.links",
+        "verbatim": [
+          {
+            "text": "Downloads & Schema",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/index.html#downloads-title",
+            "table": false
+          },
+          {
+            "text": "PathwayMech LinkML schema (pathwaymech.yaml)",
+            "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/src/pathwaymech/schema/pathwaymech.yaml",
+            "table": false
+          },
+          {
+            "text": "Shared X-Mech primitives (mech_shared.yaml)",
+            "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/src/pathwaymech/schema/mech_shared.yaml",
+            "table": false
+          },
+          {
+            "text": "Curation history schema (history.yaml)",
+            "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/src/pathwaymech/schema/history.yaml",
+            "table": false
+          }
+        ]
+      }
+    },
+    "license": {
+      "status": "partial",
+      "note": "The landing states CC BY 4.0 data and upstream terms, but does not state a code license; sampled record and browse pages omit the data/code license statement.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/license",
+      "prior_verbatim": "Site footer declares BSD-3-Clause code and CC-BY-4.0 data licensing.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "CC BY 4.0; upstream source terms still apply.\n\nPart of the CultureBotAI Mech knowledge bases. Explore all Mech projects"
+      }
+    },
+    "build_provenance": {
+      "status": "partial",
+      "note": "Landing displays an undated graph-content hash. No site build date, displayed commit or dated project-corpus version is shown on sampled pages.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/build_provenance",
+      "prior_verbatim": "The landing presents an undated graph-content hash and manifest; record citations carry upstream dates, but no site build date, displayed commit or dated version of its own pathway corpus is stated.",
+      "prior_status": "partial",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/index.html.text_excerpt",
+        "verbatim": "Corpus text embedding map\n\nInteractive 2D PaCMAP projection of BAAI/bge-large-en-v1.5 embeddings across all 280 pathway records.\n\nExplore text embedding map →\nSequence map (ESM-2 pLM)\n\nExplore protein language model (ESM-2 650M) representations for UniProt-grounded pathway proteins and centroids.\n\nExplore pLM sequence map →\nSource records & curation\n\nInspect the underlying YAML records and learn how to attach mechanistic evidence to individual pathway edges.\n\nExplore source records →\nDownloads, schema & complete pathway graph\n\nKGX TSV exports from the same 280 pathway records shown here: All nodes (TSV), All edges (TSV), Pathway index (JSON), and Version, row counts and file checksums.\n\nLinkML Schema & Data Model: PathwayMech LinkML schema (pathwaymech.yaml) · Shared X-Mech primitives (mech_shared.yaml) · Curation history schema (history.yaml) · Source authority registry (sources.yaml) · Corpus text embedding coordinates (JSON) · ESM-2 sequence embedding coordinates (JSON).\n\nGraph version: 44bdfa27c57707735c0752c0f94148010007a038fb529835a74c0a37feedd5f1. Data: CC BY 4.0; upstream source terms still apply.\n\nPart of the CultureBotAI Mech knowledge bases. Explore all Mech projects"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Selecting the theme on the landing persists across the sampled linked pages in the same browser context.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/theme_toggle",
+      "prior_verbatim": "Navigation bar provides a user-operated dark/light theme toggle (pages/theme-toggle.js) persisted in localStorage.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "Archived detailed capture /private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json; original receipt locator: receipts.pages.pages/browse.html.text_excerpt",
+        "verbatim": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\nPathwayMech records\nPathwayMech\n/\nBrowse pathways\nSearch pathway name, organism, or identifier\nPathway class\nAll pathway classes\n10 mechanistic edges\n100 mechanistic edges\n101 mechanistic edges\n102 mechanistic edges\n105 mechanistic edges\n107 mechanistic edges\n109 mechanistic edges\n111 mechanistic edges\n114 mechanistic edges\n116 mechanistic edges\n117 mechanistic edges\n118 mechanistic edges\n12 mechanistic edges\n121 mechanistic edges\n125 mechanistic edges\n126 mechanistic edges\n127 mechanistic edges\n128 mechanistic edges\n13 mechanistic edges\n130 mechanistic edges\n138 mechanistic edges\n14 mechanistic edges\n148 mechanistic edges\n15 mechanistic edges\n158 mechanistic edges\n16 mechanistic edges\n164 mechanistic edges\n169 mechanistic edges\n17 mechanistic edges\n18 mechanistic edges\n19 mechanistic edges\n20 mechanistic edges\n207 mechanistic edges\n21 mechanistic edges\n214 mechanistic edges\n22 mechanistic edges\n23 mechanistic edges\n239 mechanistic edges\n24 mechanistic edges\n25 mechanistic edges\n26 mechanistic edges\n27 mechanistic edges\n28 mechanistic edges\n29 mechanistic edges\n30 mechanistic edges\n31 mechanistic edges\n32 mechanistic edges\n33 mechanistic edges\n34 mechanistic edges\n35 mechanistic edges\n36 mechanistic edges\n37 mechanistic edges\n38 mechanistic edges\n39 mechanistic edges\n4 mechanistic edges\n40 mechanistic edges\n41 mechanistic edges\n42 mechanistic"
+      }
+    },
+    "responsive": {
+      "status": "present",
+      "note": "All sampled live routes fit a 390px viewport on both fresh load and resizing from 1280px; wide content stays within its own region.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/responsive",
+      "prior_verbatim": "Landing, browse and five sampled record pages fit a 390 px viewport without page overflow; record tables and diagrams stay within their own regions.",
+      "prior_status": "present",
+      "evidence": {
+        "locator": "receipts.pages.*.widths",
+        "verbatim": {
+          "pages/index.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/browse.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/browse.html?q=glycolysis": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/records/MetaCyc_PWY-6543.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/records/GO_0036040.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/map.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/sequence-map.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          },
+          "pages/records/WikiPathways_WP5019.html": {
+            "desktop": 1280,
+            "fresh_mobile": 390,
+            "resized_mobile": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "status": "not_applicable",
+      "note": "The sampled landing, Browse, record, text-map and sequence-map pages embed their data and issue no data fetch/XHR requests, so the data-request failure criterion does not apply.",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/PathwayMech/features/load_failure",
+      "prior_verbatim": "Observed landing, browse and sampled record requests are HTML, CSS and the diagram script; all record data is pre-rendered and no data fetch or XHR is made.",
+      "prior_status": "not_applicable",
+      "evidence": {
+        "locator": "receipts.actions",
+        "verbatim": {},
+        "control_locator": "receipts.controls"
+      }
+    }
+  },
+  "receipts": {
+    "actions": {
+      "browse_initial": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "280 of 280 pathways match"
+          }
+        ]
+      },
+      "search:MetaCyc:PWY-6543": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=MetaCyc%3APWY-6543",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "1 of 280 pathways match"
+          }
+        ]
+      },
+      "search:trehalose": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=trehalose",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "3 of 280 pathways match"
+          }
+        ]
+      },
+      "search:no-such-record-canary-20261104": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=no-such-record-canary-20261104",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "0 of 280 pathways match"
+          }
+        ]
+      },
+      "query_before_reload": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=MetaCyc%3APWY-6543",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "1 of 280 pathways match"
+          }
+        ]
+      },
+      "query_after_reload": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=MetaCyc%3APWY-6543",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "1 of 280 pathways match"
+          }
+        ]
+      },
+      "facet:0": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?type=10+mechanistic+edges",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "1 of 280 pathways match"
+          }
+        ]
+      },
+      "facet:1": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "0 of 280 pathways match"
+          }
+        ]
+      },
+      "sort:label-asc": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "0 of 280 pathways match"
+          }
+        ]
+      },
+      "sort:label-desc": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C&sort=label-desc",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "0 of 280 pathways match"
+          }
+        ]
+      },
+      "before_reload": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C&sort=label-desc",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "0 of 280 pathways match"
+          }
+        ]
+      },
+      "after_reload": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C&sort=label-desc",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "0 of 280 pathways match"
+          }
+        ]
+      },
+      "keyboard_reset": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+        "theme": "dark",
+        "savedTheme": "dark",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "280 of 280 pathways match"
+          }
+        ]
+      }
+    },
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "id": "theme-toggle",
+        "type": "button",
+        "text": "Theme",
+        "label": "Toggle dark mode",
+        "value": "",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "INPUT",
+        "id": "pathway-query",
+        "type": "search",
+        "text": "",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": null
+      },
+      {
+        "tag": "SELECT",
+        "id": "pathway-type",
+        "type": "select-one",
+        "text": "All pathway classes\n10 mechanistic edges\n100 mechanistic edges\n101 mechanistic edges\n102 mechanistic edges\n105 mechanistic edges\n107 mechanistic edges\n109 mechanistic edges\n111 mechanistic edges\n114 mechanistic edges\n116 mechanistic edges\n117 mechanistic edges\n118 mechanistic edges\n12 mechanistic edges\n121 mechanistic edges\n125 mechanistic edges\n126 mechanistic edges\n127 mechanistic edges\n128 mechanistic edges\n13 mechanistic edges\n130 mechanistic edges\n138 mechanistic edges\n14 mechanistic edges\n148 mechanistic edges\n15 mechanistic edges\n158 mechanistic edges\n16 mechanistic edges\n164 mechanistic edges\n169 mechanistic edges\n17 mechanistic edges\n18 mechanistic edges\n19 mechanistic edges\n20 mechanistic edges\n207 mechanistic edges\n21 mechanistic edges\n214 mechanistic edges\n22 mechanistic edges\n23 mechanistic edges\n239 mechanistic edges\n24 mechanistic edges\n25 mechanistic edges\n26 mechanistic ",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": {
+          "total_count": 106,
+          "first_20": [
+            {
+              "text": "All pathway classes",
+              "value": ""
+            },
+            {
+              "text": "10 mechanistic edges",
+              "value": "10 mechanistic edges"
+            },
+            {
+              "text": "100 mechanistic edges",
+              "value": "100 mechanistic edges"
+            },
+            {
+              "text": "101 mechanistic edges",
+              "value": "101 mechanistic edges"
+            },
+            {
+              "text": "102 mechanistic edges",
+              "value": "102 mechanistic edges"
+            },
+            {
+              "text": "105 mechanistic edges",
+              "value": "105 mechanistic edges"
+            },
+            {
+              "text": "107 mechanistic edges",
+              "value": "107 mechanistic edges"
+            },
+            {
+              "text": "109 mechanistic edges",
+              "value": "109 mechanistic edges"
+            },
+            {
+              "text": "111 mechanistic edges",
+              "value": "111 mechanistic edges"
+            },
+            {
+              "text": "114 mechanistic edges",
+              "value": "114 mechanistic edges"
+            },
+            {
+              "text": "116 mechanistic edges",
+              "value": "116 mechanistic edges"
+            },
+            {
+              "text": "117 mechanistic edges",
+              "value": "117 mechanistic edges"
+            },
+            {
+              "text": "118 mechanistic edges",
+              "value": "118 mechanistic edges"
+            },
+            {
+              "text": "12 mechanistic edges",
+              "value": "12 mechanistic edges"
+            },
+            {
+              "text": "121 mechanistic edges",
+              "value": "121 mechanistic edges"
+            },
+            {
+              "text": "125 mechanistic edges",
+              "value": "125 mechanistic edges"
+            },
+            {
+              "text": "126 mechanistic edges",
+              "value": "126 mechanistic edges"
+            },
+            {
+              "text": "127 mechanistic edges",
+              "value": "127 mechanistic edges"
+            },
+            {
+              "text": "128 mechanistic edges",
+              "value": "128 mechanistic edges"
+            },
+            {
+              "text": "13 mechanistic edges",
+              "value": "13 mechanistic edges"
+            }
+          ]
+        }
+      },
+      {
+        "tag": "SELECT",
+        "id": "pathway-taxon",
+        "type": "select-one",
+        "text": "All organisms / taxa\nSaccharomyces cerevisiae S288C\nEscherichia coli K-12\nEscherichia coli\nEscherichia coli str. K-12 substr. MG1655\nPseudomonas putida\nSaccharomyces cerevisiae\nMycobacterium tuberculosis\nBacteria\nCupriavidus necator\nAcinetobacter calcoaceticus\nAromatoleum evansii\nEscherichia coli BW25113\nPseudomonas aeruginosa\nRhodopseudomonas palustris\nRhodospirillum rubrum ATCC 11170\nThauera aromatica\nThauera aromatica K172\nAcinetobacter baylyi ADP1\nAzotobacter vinelandii\nChloroflexus aurantiacus\nCorynebacterium glutamicum\nCorynebacterium glutamicum ATCC 13032\nCorynebacterium glutamicum R\nGluconobacter oxydans\nMethanosarcina barkeri\nPseudomonas aeruginosa PAO1\nPseudomonas putida KT2440\nPseudomonas sp. CF600\nRhodopseudomonas palustris CGA009\nRhodospirillum rubrum\nStaphylococcus aureus subsp. aureus str. Newman\nSyntrophus aciditrophicus SB\nAcetivibrio thermocellus\nAcetivibrio thermocellu",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": {
+          "total_count": 106,
+          "first_20": [
+            {
+              "text": "All organisms / taxa",
+              "value": ""
+            },
+            {
+              "text": "Saccharomyces cerevisiae S288C",
+              "value": "Saccharomyces cerevisiae S288C"
+            },
+            {
+              "text": "Escherichia coli K-12",
+              "value": "Escherichia coli K-12"
+            },
+            {
+              "text": "Escherichia coli",
+              "value": "Escherichia coli"
+            },
+            {
+              "text": "Escherichia coli str. K-12 substr. MG1655",
+              "value": "Escherichia coli str. K-12 substr. MG1655"
+            },
+            {
+              "text": "Pseudomonas putida",
+              "value": "Pseudomonas putida"
+            },
+            {
+              "text": "Saccharomyces cerevisiae",
+              "value": "Saccharomyces cerevisiae"
+            },
+            {
+              "text": "Mycobacterium tuberculosis",
+              "value": "Mycobacterium tuberculosis"
+            },
+            {
+              "text": "Bacteria",
+              "value": "Bacteria"
+            },
+            {
+              "text": "Cupriavidus necator",
+              "value": "Cupriavidus necator"
+            },
+            {
+              "text": "Acinetobacter calcoaceticus",
+              "value": "Acinetobacter calcoaceticus"
+            },
+            {
+              "text": "Aromatoleum evansii",
+              "value": "Aromatoleum evansii"
+            },
+            {
+              "text": "Escherichia coli BW25113",
+              "value": "Escherichia coli BW25113"
+            },
+            {
+              "text": "Pseudomonas aeruginosa",
+              "value": "Pseudomonas aeruginosa"
+            },
+            {
+              "text": "Rhodopseudomonas palustris",
+              "value": "Rhodopseudomonas palustris"
+            },
+            {
+              "text": "Rhodospirillum rubrum ATCC 11170",
+              "value": "Rhodospirillum rubrum ATCC 11170"
+            },
+            {
+              "text": "Thauera aromatica",
+              "value": "Thauera aromatica"
+            },
+            {
+              "text": "Thauera aromatica K172",
+              "value": "Thauera aromatica K172"
+            },
+            {
+              "text": "Acinetobacter baylyi ADP1",
+              "value": "Acinetobacter baylyi ADP1"
+            },
+            {
+              "text": "Azotobacter vinelandii",
+              "value": "Azotobacter vinelandii"
+            }
+          ]
+        }
+      },
+      {
+        "tag": "SELECT",
+        "id": "pathway-grounding",
+        "type": "select-one",
+        "text": "All records\nProtein-grounded (UniProtKB)\nDetailed reaction mechanisms\nBiosynthetic gene clusters\nCurated mechanistic edges",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": [
+          {
+            "text": "All records",
+            "value": ""
+          },
+          {
+            "text": "Protein-grounded (UniProtKB)",
+            "value": "protein-grounded"
+          },
+          {
+            "text": "Detailed reaction mechanisms",
+            "value": "reaction-mechanisms"
+          },
+          {
+            "text": "Biosynthetic gene clusters",
+            "value": "gene-clusters"
+          },
+          {
+            "text": "Curated mechanistic edges",
+            "value": "curated-edges"
+          }
+        ]
+      },
+      {
+        "tag": "SELECT",
+        "id": "pathway-sort",
+        "type": "select-one",
+        "text": "Pathway name (A–Z)\nPathway name (Z–A)\nMechanistic edges (high–low)\nMechanistic edges (low–high)\nIdentifier (A–Z)\nPathway class (A–Z)",
+        "label": null,
+        "value": "label-asc",
+        "disabled": false,
+        "options": [
+          {
+            "text": "Pathway name (A–Z)",
+            "value": "label-asc"
+          },
+          {
+            "text": "Pathway name (Z–A)",
+            "value": "label-desc"
+          },
+          {
+            "text": "Mechanistic edges (high–low)",
+            "value": "edges-desc"
+          },
+          {
+            "text": "Mechanistic edges (low–high)",
+            "value": "edges-asc"
+          },
+          {
+            "text": "Identifier (A–Z)",
+            "value": "id-asc"
+          },
+          {
+            "text": "Pathway class (A–Z)",
+            "value": "type-asc"
+          }
+        ]
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "type": "reset",
+        "text": "Reset",
+        "label": null,
+        "value": "",
+        "disabled": false,
+        "options": null
+      }
+    ],
+    "pages": {
+      "pages/index.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+        "footer": "Part of the CultureBotAI Mech knowledge bases. Explore all Mech projects",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/browse.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/browse.html?q=glycolysis": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=glycolysis",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/records/MetaCyc_PWY-6543.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/records/GO_0036040.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/records/GO_0036040.html",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/map.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/map.html",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/sequence-map.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/sequence-map.html",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      },
+      "pages/records/WikiPathways_WP5019.html": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/records/WikiPathways_WP5019.html",
+        "footer": "",
+        "status": 200,
+        "page_errors": [],
+        "themes": {
+          "desktop": "dark",
+          "fresh_mobile": null,
+          "resized_mobile": "dark"
+        },
+        "widths": {
+          "desktop": 1280,
+          "fresh_mobile": 390,
+          "resized_mobile": 390
+        },
+        "fetches": []
+      }
+    },
+    "downloads": {
+      "https://culturebotai.github.io/PathwayMech/pages/downloads/nodes.tsv": {
+        "text": "All nodes (TSV)",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/downloads/nodes.tsv",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200,
+        "bytes": 2600770,
+        "sha256": "98b2c43eec993075882897d6e73f4cee2140855c7f4d7674a8fff7c7cda6c201",
+        "header": "id\tname\tcategory\tprovided_by\tsource_category\tdirection\tsource_contexts\nMetaCyc:PWY-5901\t2,3-dihydroxybenzoate biosynthesis\tbiolink:Pathway\tinfores:pathwaymech\t\t\t\"[{\"\"collection\"\": \"\"pathway\"\", \"\"label\"\": \"\"2,3-dihydroxybenzoate biosynthesis\"\", \"\"record_id\"\": \"\"MetaCyc:PWY-5901\"\"}]\"\nNCBITaxon:83333\tEscherichia coli K-12\tbiolink:OrganismTaxon\tinfores:pathwaymech\t\t\t\"[{\"\"collection\"\": \"\"taxa\"\", \"\"id\"\"",
+        "lines": 5467,
+        "array_lengths": {}
+      },
+      "https://culturebotai.github.io/PathwayMech/pages/downloads/edges.tsv": {
+        "text": "All edges (TSV)",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/downloads/edges.tsv",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200,
+        "bytes": 19939908,
+        "sha256": "7ce6f3a71e06f30b4dc761598a0f557e158fe8b995498c7c15eb89b1f1312075",
+        "header": "id\tsubject\tpredicate\tobject\tcategory\tprimary_knowledge_source\tknowledge_level\tagent_type\tsource_records\tdescription\tevidence\treference_metadata\tendpoint_qualifiers\npathwaymech:MetaCyc_PWY-5901_dhb-edge-001_4cb1a2d5f705\tCHEBI:29748\tpathwaymech:consumes\tRHEA:18986\tbiolink:Association\tinfores:pathwaymech\tknowledge_assertion\tmanual_validation_of_automated_agent\tRHEA:18986\t\t\"[{\"\"reference_id\"\": \"\"RHEA:",
+        "lines": 14789,
+        "array_lengths": {}
+      },
+      "https://culturebotai.github.io/PathwayMech/pages/pathway_index.json": {
+        "text": "Pathway index (JSON)",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/pathway_index.json",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200,
+        "bytes": 335032,
+        "sha256": "ab0f38fc88b83bb775a6624599144d52973b927380886f5a7de6e794e029f851",
+        "kind": "dict",
+        "length": 3,
+        "keys": [
+          "format",
+          "source",
+          "records"
+        ],
+        "array_lengths": {
+          "records": 280
+        }
+      }
+    },
+    "external_links": [
+      {
+        "text": "Downloads & Schema",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/index.html#downloads-title",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200
+      },
+      {
+        "text": "Version, row counts and file checksums",
+        "href": "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json",
+        "table": false,
+        "from": "pages/index.html",
+        "error": "Expecting value: line 2 column 1 (char 1)"
+      },
+      {
+        "text": "PathwayMech LinkML schema (pathwaymech.yaml)",
+        "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/src/pathwaymech/schema/pathwaymech.yaml",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200
+      },
+      {
+        "text": "Curation history schema (history.yaml)",
+        "href": "https://github.com/CultureBotAI/PathwayMech/blob/main/src/pathwaymech/schema/history.yaml",
+        "table": false,
+        "from": "pages/index.html",
+        "status": 200
+      }
+    ],
+    "explicit_theme": {},
+    "non200": {
+      "pages/schema.html": 404,
+      "pages/records/MetaCyc_GLYCOLYSIS.html": 404
+    },
+    "followup_checks": {
+      "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json": {
+        "status": 200,
+        "url": "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json",
+        "text": "{\n  \"format\": \"KGX TSV\",\n  \"pathway_records\": 280,\n  \"version\": \"sha256:44bdfa27c57707735c0752c0f94148010007a038fb529835a74c0a37feedd5f1\",\n  \"data_license\": \"CC-BY-4.0\",\n  \"third_party_terms\": \"Upstream source terms still apply.\",\n  \"files\": {\n    \"nodes.tsv\": {\n      \"sha256\": \"98b2c43eec993075882897d6e73f4cee2140855c7f4d7674a8fff7c7cda6c201\",\n      \"rows\": 5466\n    },\n    \"edges.tsv\": {\n      \"sha256\": \"7ce6f3a71e06f30b4dc761598a0f557e158fe8b995498c7c15eb89b1f1312075\",\n      \"rows\": 14788\n    }\n  }\n}\n"
+      },
+      "PathwayMech:sort:label-asc": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+        "h1": "PathwayMech records",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\nPathwayMech records\nPathwayMech\n/\nBrowse pathways\nSearch pathway name, organism, or identifier\nPathway class\nAll pathway classes\n10 mechanistic edges\n100 mechanistic edges\n101 mechanistic edges\n102 mechanistic edges\n105 mechanistic edges\n107 mechanistic edges\n109 mechanistic edges\n111 mechanistic edges\n114 mechanistic edges\n116 mechanistic edges\n117 mechanistic edges\n118 mechanistic edges\n12 mechanistic edges\n121 mechanistic edges\n125 mechanistic edges\n126 mechanistic edges\n127 mechanistic edges\n128 mechanistic edges\n13 mechanistic edges\n130 mechanistic edges\n138 mechanistic edges\n14 mechanistic edges\n148 mechanistic edges\n15 mechanistic edges\n158 mechanistic edges\n16 mechanistic edges\n164 mechanistic edges\n169 mechanistic edges\n17 mechanistic edges\n18 mechanistic edges\n19 mechanistic edges\n20 mechanistic edges\n207 mechanistic edges\n21 mechanistic edges\n214 mechanistic edges\n22 mechanistic edges\n23 mechanistic edges\n239 mechanistic edges\n24 mechanistic edges\n25 mechanistic edges\n26 mechanistic edges\n27 mechanistic edges\n28 mechanistic edges\n29 mechanistic edges\n30 mechanistic edges\n31 mechanistic edges\n32 mechanistic edges\n33 mechanistic edges\n34\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "280 of 280 pathways match"
+          }
+        ]
+      },
+      "PathwayMech:sort:label-desc": {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=label-desc",
+        "h1": "PathwayMech records",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "Skip to main content\nPathwayMech overview\nBrowse pathways\nText map\nSequence map (pLM)\nDownloads & Schema\nSource\nAll Mech projects\nTheme\nPathwayMech records\nPathwayMech\n/\nBrowse pathways\nSearch pathway name, organism, or identifier\nPathway class\nAll pathway classes\n10 mechanistic edges\n100 mechanistic edges\n101 mechanistic edges\n102 mechanistic edges\n105 mechanistic edges\n107 mechanistic edges\n109 mechanistic edges\n111 mechanistic edges\n114 mechanistic edges\n116 mechanistic edges\n117 mechanistic edges\n118 mechanistic edges\n12 mechanistic edges\n121 mechanistic edges\n125 mechanistic edges\n126 mechanistic edges\n127 mechanistic edges\n128 mechanistic edges\n13 mechanistic edges\n130 mechanistic edges\n138 mechanistic edges\n14 mechanistic edges\n148 mechanistic edges\n15 mechanistic edges\n158 mechanistic edges\n16 mechanistic edges\n164 mechanistic edges\n169 mechanistic edges\n17 mechanistic edges\n18 mechanistic edges\n19 mechanistic edges\n20 mechanistic edges\n207 mechanistic edges\n21 mechanistic edges\n214 mechanistic edges\n22 mechanistic edges\n23 mechanistic edges\n239 mechanistic edges\n24 mechanistic edges\n25 mechanistic edges\n26 mechanistic edges\n27 mechanistic edges\n28 mechanistic edges\n29 mechanistic edges\n30 mechanistic edges\n31 mechanistic edges\n32 mechanistic edges\n33 mechanistic edges\n34\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "pathway-status",
+            "text": "280 of 280 pathways match"
+          }
+        ]
+      }
+    }
+  },
+  "raw_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/raw/PathwayMech/raw.json",
+    "sha256": "a4a65cbca7a47f2ea8ff66d8dd242c1bc8636aa2db5369f663eba20e3ab8818d"
+  },
+  "limits": [
+    "The 24 existing criteria were exercised on the listed routes; this is not an exhaustive record-page crawl.",
+    "Sibling-owned relationship provenance and corpus-source hand claims are covered by the separate hand-claim reviewer.",
+    "Non-200 guessed legacy routes are not counted as responsive/theme failures unless currently linked.",
+    "Root arbitration: a browse index or coordinate array alone does not qualify as a bulk record-corpus export; direct schema YAML alone remains partial schema documentation."
+  ],
+  "detailed_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/pathwaymech-auditor-a.json",
+    "sha256": "7f748eab011c91f706aee07c2310332e0b09594098e786409bc11f8ac14b630c",
+    "bytes": 373466
+  }
+}

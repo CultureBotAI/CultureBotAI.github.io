@@ -1,0 +1,906 @@
+{
+  "TraitMech": {
+    "sha": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+    "card_source": "pages/index.html",
+    "card_at_pin": 1130,
+    "source_sha256": "2b6b55d3c2150d517e33ea466c255cfe66a85c473dfcb386bf449d8ff3b44150",
+    "documents": {
+      "LICENSE": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/LICENSE",
+        "sha256": "a456f28798119cb0e182822617ae06aeedb9fa9deae2e1ebec42c3170a0c6e63",
+        "excerpts": [
+          {
+            "line": 1,
+            "text": "TraitMech license scope"
+          },
+          {
+            "line": 5,
+            "text": "data exports, are licensed under Creative Commons Attribution 4.0"
+          },
+          {
+            "line": 6,
+            "text": "International (CC-BY-4.0). See LICENSE-DATA."
+          },
+          {
+            "line": 8,
+            "text": "Project-authored code, including software, scripts, tests, schemas and website"
+          },
+          {
+            "line": 9,
+            "text": "templates, is licensed under BSD-3-Clause. See LICENSE-CODE."
+          },
+          {
+            "line": 11,
+            "text": "Project-authored narrative documentation is licensed under CC-BY-4.0. For"
+          },
+          {
+            "line": 13,
+            "text": "https://github.com/CultureBotAI/TraitMech, retain applicable source"
+          },
+          {
+            "line": 16,
+            "text": "Third-party data, images, text, vendored code and other redistributed material"
+          },
+          {
+            "line": 17,
+            "text": "retain their own licenses and notices. The project licenses apply only to"
+          },
+          {
+            "line": 21,
+            "text": "Previously released material remains available under the licenses offered"
+          }
+        ]
+      },
+      "LICENSE-CODE": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/LICENSE-CODE",
+        "sha256": "a96e2e494cf9a3fa575ef0c172d730fb65ce32ff2b63eb31dc8d7bd12190baca",
+        "excerpts": [
+          {
+            "line": 1,
+            "text": "BSD 3-Clause License"
+          },
+          {
+            "line": 5,
+            "text": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:"
+          },
+          {
+            "line": 7,
+            "text": "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer."
+          }
+        ]
+      },
+      "LICENSE-DATA": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/LICENSE-DATA",
+        "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+        "excerpts": [
+          {
+            "line": 5,
+            "text": "Creative Commons Corporation (\"Creative Commons\") is not a law firm and"
+          },
+          {
+            "line": 7,
+            "text": "Creative Commons public licenses does not create a lawyer-client or"
+          },
+          {
+            "line": 8,
+            "text": "other relationship. Creative Commons makes its licenses and related"
+          },
+          {
+            "line": 9,
+            "text": "information available on an \"as-is\" basis. Creative Commons gives no"
+          },
+          {
+            "line": 10,
+            "text": "warranties regarding its licenses, any material licensed under their"
+          },
+          {
+            "line": 11,
+            "text": "terms and conditions, or any related information. Creative Commons"
+          },
+          {
+            "line": 15,
+            "text": "Using Creative Commons Public Licenses"
+          },
+          {
+            "line": 17,
+            "text": "Creative Commons public licenses provide a standard set of terms and"
+          },
+          {
+            "line": 20,
+            "text": "and certain other rights specified in the public license below. The"
+          },
+          {
+            "line": 22,
+            "text": "exhaustive, and do not form part of our licenses."
+          },
+          {
+            "line": 24,
+            "text": "     Considerations for licensors: Our public licenses are"
+          },
+          {
+            "line": 27,
+            "text": "     copyright and certain other rights. Our licenses are"
+          },
+          {
+            "line": 29,
+            "text": "     and conditions of the license they choose before applying it."
+          },
+          {
+            "line": 31,
+            "text": "     applying our licenses so that the public can reuse the"
+          },
+          {
+            "line": 33,
+            "text": "     material not subject to the license. This includes other CC-"
+          },
+          {
+            "line": 34,
+            "text": "     licensed material, or material used under an exception or"
+          },
+          {
+            "line": 39,
+            "text": "     licenses, a licensor grants the public permission to use the"
+          },
+          {
+            "line": 40,
+            "text": "     licensed material under specified terms and conditions. If"
+          },
+          {
+            "line": 43,
+            "text": "     copyright--then that use is not regulated by the license. Our"
+          },
+          {
+            "line": 44,
+            "text": "     licenses grant only permissions under copyright and certain"
+          },
+          {
+            "line": 46,
+            "text": "     the licensed material may still be restricted for other"
+          },
+          {
+            "line": 50,
+            "text": "     Although not required by our licenses, you are encouraged to"
+          },
+          {
+            "line": 53,
+            "text": "    wiki.creativecommons.org/Considerations_for_licensees"
+          },
+          {
+            "line": 57,
+            "text": "Creative Commons Attribution 4.0 International Public License"
+          },
+          {
+            "line": 59,
+            "text": "By exercising the Licensed Rights (defined below), You accept and agree"
+          },
+          {
+            "line": 60,
+            "text": "to be bound by the terms and conditions of this Creative Commons"
+          },
+          {
+            "line": 61,
+            "text": "Attribution 4.0 International Public License (\"Public License\"). To the"
+          },
+          {
+            "line": 62,
+            "text": "extent this Public License may be interpreted as a contract, You are"
+          },
+          {
+            "line": 63,
+            "text": "granted the Licensed Rights in consideration of Your acceptance of"
+          },
+          {
+            "line": 66,
+            "text": "Licensed Material available under these terms and conditions."
+          },
+          {
+            "line": 72,
+            "text": "     Rights that is derived from or based upon the Licensed Material"
+          },
+          {
+            "line": 73,
+            "text": "     and in which the Licensed Material is translated, altered,"
+          },
+          {
+            "line": 76,
+            "text": "     Licensor. For purposes of this Public License, where the Licensed"
+          },
+          {
+            "line": 78,
+            "text": "     Adapted Material is always produced where the Licensed Material is"
+          },
+          {
+            "line": 81,
+            "text": "  b. Adapter's License means the license You apply to Your Copyright"
+          },
+          {
+            "line": 83,
+            "text": "     accordance with the terms and conditions of this Public License."
+          },
+          {
+            "line": 89,
+            "text": "     categorized. For purposes of this Public License, the rights"
+          },
+          {
+            "line": 101,
+            "text": "     that applies to Your use of the Licensed Material."
+          },
+          {
+            "line": 103,
+            "text": "  f. Licensed Material means the artistic or literary work, database,"
+          },
+          {
+            "line": 105,
+            "text": "     License."
+          },
+          {
+            "line": 107,
+            "text": "  g. Licensed Rights means the rights granted to You subject to the"
+          },
+          {
+            "line": 108,
+            "text": "     terms and conditions of this Public License, which are limited to"
+          },
+          {
+            "line": 110,
+            "text": "     Licensed Material and that the Licensor has authority to license."
+          },
+          {
+            "line": 113,
+            "text": "     under this Public License."
+          },
+          {
+            "line": 116,
+            "text": "     process that requires permission under the Licensed Rights, such"
+          },
+          {
+            "line": 129,
+            "text": "  k. You means the individual or entity exercising the Licensed Rights"
+          },
+          {
+            "line": 130,
+            "text": "     under this Public License. Your has a corresponding meaning."
+          },
+          {
+            "line": 135,
+            "text": "  a. License grant."
+          },
+          {
+            "line": 137,
+            "text": "       1. Subject to the terms and conditions of this Public License,"
+          },
+          {
+            "line": 139,
+            "text": "          non-sublicensable, non-exclusive, irrevocable license to"
+          },
+          {
+            "line": 140,
+            "text": "          exercise the Licensed Rights in the Licensed Material to:"
+          },
+          {
+            "line": 142,
+            "text": "            a. reproduce and Share the Licensed Material, in whole or"
+          },
+          {
+            "line": 149,
+            "text": "          License does not apply, and You do not need to comply with"
+          },
+          {
+            "line": 152,
+            "text": "       3. Term. The term of this Public License is specified in Section"
+          },
+          {
+            "line": 156,
+            "text": "          Licensor authorizes You to exercise the Licensed Rights in"
+          },
+          {
+            "line": 161,
+            "text": "          necessary to exercise the Licensed Rights, including"
+          },
+          {
+            "line": 163,
+            "text": "          Technological Measures. For purposes of this Public License,"
+          },
+          {
+            "line": 169,
+            "text": "            a. Offer from the Licensor -- Licensed Material. Every"
+          },
+          {
+            "line": 170,
+            "text": "               recipient of the Licensed Material automatically"
+          },
+          {
+            "line": 172,
+            "text": "               Licensed Rights under the terms and conditions of this"
+          },
+          {
+            "line": 173,
+            "text": "               Public License."
+          },
+          {
+            "line": 178,
+            "text": "               Licensed Material if doing so restricts exercise of the"
+          },
+          {
+            "line": 179,
+            "text": "               Licensed Rights by any recipient of the Licensed"
+          },
+          {
+            "line": 182,
+            "text": "       6. No endorsement. Nothing in this Public License constitutes or"
+          },
+          {
+            "line": 184,
+            "text": "          are, or that Your use of the Licensed Material is, connected"
+          },
+          {
+            "line": 192,
+            "text": "          licensed under this Public License, nor are publicity,"
+          },
+          {
+            "line": 196,
+            "text": "          extent necessary to allow You to exercise the Licensed"
+          },
+          {
+            "line": 199,
+            "text": "       2. Patent and trademark rights are not licensed under this"
+          },
+          {
+            "line": 200,
+            "text": "          Public License."
+          },
+          {
+            "line": 203,
+            "text": "          collect royalties from You for the exercise of the Licensed"
+          },
+          {
+            "line": 210,
+            "text": "Section 3 -- License Conditions."
+          },
+          {
+            "line": 212,
+            "text": "Your exercise of the Licensed Rights is expressly made subject to the"
+          },
+          {
+            "line": 217,
+            "text": "       1. If You Share the Licensed Material (including in modified"
+          },
+          {
+            "line": 221,
+            "text": "               with the Licensed Material:"
+          },
+          {
+            "line": 223,
+            "text": "                 i. identification of the creator(s) of the Licensed"
+          },
+          {
+            "line": 231,
+            "text": "               iii. a notice that refers to this Public License;"
+          },
+          {
+            "line": 236,
+            "text": "                 v. a URI or hyperlink to the Licensed Material to the"
+          },
+          {
+            "line": 239,
+            "text": "            b. indicate if You modified the Licensed Material and"
+          },
+          {
+            "line": 242,
+            "text": "            c. indicate the Licensed Material is licensed under this"
+          },
+          {
+            "line": 243,
+            "text": "               Public License, and include the text of, or the URI or"
+          },
+          {
+            "line": 244,
+            "text": "               hyperlink to, this Public License."
+          },
+          {
+            "line": 248,
+            "text": "          which You Share the Licensed Material. For example, it may be"
+          },
+          {
+            "line": 250,
+            "text": "          hyperlink to a resource that includes the required"
+          },
+          {
+            "line": 258,
+            "text": "          License You apply must not prevent recipients of the Adapted"
+          },
+          {
+            "line": 259,
+            "text": "          Material from complying with this Public License."
+          },
+          {
+            "line": 264,
+            "text": "Where the Licensed Rights include Sui Generis Database Rights that"
+          },
+          {
+            "line": 265,
+            "text": "apply to Your use of the Licensed Material:"
+          },
+          {
+            "line": 280,
+            "text": "replace Your obligations under this Public License where the Licensed"
+          },
+          {
+            "line": 287,
+            "text": "     EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS"
+          },
+          {
+            "line": 289,
+            "text": "     ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS,"
+          },
+          {
+            "line": 301,
+            "text": "     COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR"
+          },
+          {
+            "line": 302,
+            "text": "     USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN"
+          },
+          {
+            "line": 315,
+            "text": "  a. This Public License applies for the term of the Copyright and"
+          },
+          {
+            "line": 316,
+            "text": "     Similar Rights licensed here. However, if You fail to comply with"
+          },
+          {
+            "line": 317,
+            "text": "     this Public License, then Your rights under this Public License"
+          },
+          {
+            "line": 320,
+            "text": "  b. Where Your right to use the Licensed Material has terminated under"
+          },
+          {
+            "line": 331,
+            "text": "     of this Public License."
+          },
+          {
+            "line": 334,
+            "text": "     Licensed Material under separate terms or conditions or stop"
+          },
+          {
+            "line": 335,
+            "text": "     distributing the Licensed Material at any time; however, doing so"
+          },
+          {
+            "line": 336,
+            "text": "     will not terminate this Public License."
+          },
+          {
+            "line": 339,
+            "text": "     License."
+          },
+          {
+            "line": 348,
+            "text": "     Licensed Material not stated herein are separate from and"
+          },
+          {
+            "line": 349,
+            "text": "     independent of the terms and conditions of this Public License."
+          },
+          {
+            "line": 354,
+            "text": "  a. For the avoidance of doubt, this Public License does not, and"
+          },
+          {
+            "line": 356,
+            "text": "     conditions on any use of the Licensed Material that could lawfully"
+          },
+          {
+            "line": 357,
+            "text": "     be made without permission under this Public License."
+          },
+          {
+            "line": 359,
+            "text": "  b. To the extent possible, if any provision of this Public License is"
+          },
+          {
+            "line": 362,
+            "text": "     cannot be reformed, it shall be severed from this Public License"
+          },
+          {
+            "line": 366,
+            "text": "  c. No term or condition of this Public License will be waived and no"
+          },
+          {
+            "line": 370,
+            "text": "  d. Nothing in this Public License constitutes or may be interpreted"
+          },
+          {
+            "line": 378,
+            "text": "Creative Commons is not a party to its public"
+          },
+          {
+            "line": 379,
+            "text": "licenses. Notwithstanding, Creative Commons may elect to apply one of"
+          },
+          {
+            "line": 380,
+            "text": "its public licenses to material it publishes and in those instances"
+          },
+          {
+            "line": 381,
+            "text": "will be considered the \u201cLicensor.\u201d The text of the Creative Commons"
+          },
+          {
+            "line": 382,
+            "text": "public licenses is dedicated to the public domain under the CC0 Public"
+          },
+          {
+            "line": 384,
+            "text": "material is shared under a Creative Commons public license or as"
+          },
+          {
+            "line": 385,
+            "text": "otherwise permitted by the Creative Commons policies published at"
+          },
+          {
+            "line": 386,
+            "text": "creativecommons.org/policies, Creative Commons does not authorize the"
+          },
+          {
+            "line": 387,
+            "text": "use of the trademark \"Creative Commons\" or any other trademark or logo"
+          },
+          {
+            "line": 388,
+            "text": "of Creative Commons without its prior written consent including,"
+          },
+          {
+            "line": 390,
+            "text": "to any of its public licenses or any other arrangements,"
+          },
+          {
+            "line": 391,
+            "text": "understandings, or agreements concerning use of licensed material. For"
+          },
+          {
+            "line": 393,
+            "text": "public licenses."
+          },
+          {
+            "line": 395,
+            "text": "Creative Commons may be contacted at creativecommons.org."
+          }
+        ]
+      },
+      "README.md": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/README.md",
+        "sha256": "4ea25c1067fcf4d4a6dcef0a60e5d8756e3e5ce037199b05fce1806c21db445d",
+        "excerpts": [
+          {
+            "line": 4,
+            "text": "[METPO](https://w3id.org/metpo) and curated incrementally."
+          },
+          {
+            "line": 11,
+            "text": "Each trait \u2014 Gram type, motility, pH optimum, \"uses as carbon source\","
+          },
+          {
+            "line": 13,
+            "text": "METPO source class and (optionally) to literature evidence."
+          },
+          {
+            "line": 15,
+            "text": "**Initial seed (from `data/raw/metpo.owl`, METPO 2026-06-12) and current curation status:**"
+          },
+          {
+            "line": 17,
+            "text": "| Category | REVIEWED | PROPOSED | DEPRECATED | causal_graphs | Total |"
+          },
+          {
+            "line": 19,
+            "text": "| MORPHOLOGY | 88 | 37 | 0 | 95 | 129 |"
+          },
+          {
+            "line": 20,
+            "text": "| PHYSIOLOGY | 45 | 159 | 0 | 78 | 205 |"
+          },
+          {
+            "line": 21,
+            "text": "| ENVIRONMENT | 121 | 0 | 0 | 122 | 122 |"
+          },
+          {
+            "line": 22,
+            "text": "| ECOLOGY | 26 | 14 | 0 | 28 | 40 |"
+          },
+          {
+            "line": 23,
+            "text": "| GENOMICS | 19 | 368 | 0 | 372 | 387 |"
+          },
+          {
+            "line": 24,
+            "text": "| UPPER | 8 | 0 | 0 | 5 | 8 |"
+          },
+          {
+            "line": 25,
+            "text": "| METABOLISM | 120 | 36 | 23 | 59 | 180 |"
+          },
+          {
+            "line": 26,
+            "text": "| OBSERVATION | 0 | 0 | 20 | 0 | 20 |"
+          },
+          {
+            "line": 27,
+            "text": "| QUANTITATIVE_PROPERTY | 0 | 0 | 7 | 0 | 7 |"
+          },
+          {
+            "line": 28,
+            "text": "| OTHER | 0 | 1 | 0 | 2 | 32 |"
+          },
+          {
+            "line": 29,
+            "text": "| **TOTAL** | **427** | **615** | **50** | **761** | **1130** |"
+          },
+          {
+            "line": 31,
+            "text": "477 records have a terminal curation status: 427 are `REVIEWED` and 50 are"
+          },
+          {
+            "line": 32,
+            "text": "`DEPRECATED`; `PROPOSED` records comprise 14 ecology records, 37 morphology"
+          },
+          {
+            "line": 33,
+            "text": "records, 36 newer metabolism records, 159 physiology records, 368"
+          },
+          {
+            "line": 34,
+            "text": "genomics records, and 1 other record, and thirty-eight records are still"
+          },
+          {
+            "line": 37,
+            "text": "Across the corpus, 761 records currently carry causal graphs. The 50 deprecated"
+          },
+          {
+            "line": 38,
+            "text": "records (23"
+          },
+          {
+            "line": 39,
+            "text": "metabolism, 20 observation, 7 quantitative_property) are generic relation or"
+          },
+          {
+            "line": 41,
+            "text": "mechanism graphs in TraitMech. They are retained for traceability while specific"
+          },
+          {
+            "line": 49,
+            "text": "Use Python 3.13, pinned in `.python-version`, for development and GitHub CI."
+          },
+          {
+            "line": 69,
+            "text": "  `causal_graphs`."
+          },
+          {
+            "line": 70,
+            "text": "- **CausalGraph / CausalNode / CausalEdge** \u2014 evidence-backed causal"
+          },
+          {
+            "line": 71,
+            "text": "  mechanism graphs for trait pages. Nodes can represent traits,"
+          },
+          {
+            "line": 75,
+            "text": "  in `grounding`; organism-specific UniProt accessions are stored as"
+          },
+          {
+            "line": 77,
+            "text": "- **ProteinExample / CanonicalExample** \u2014 source-backed protein instances and"
+          },
+          {
+            "line": 80,
+            "text": "- **TraitCategoryEnum** \u2014 11 schema buckets (the 10 populated buckets above,"
+          },
+          {
+            "line": 84,
+            "text": "- **MappingStatusEnum** \u2014 `SEEDED` / `PROPOSED` / `REVIEWED` /"
+          },
+          {
+            "line": 93,
+            "text": "\u2502   \u251c\u2500\u2500 raw/metpo.owl                    # vendored METPO release (2026-06-12)"
+          },
+          {
+            "line": 95,
+            "text": "\u2502   \u2514\u2500\u2500 traits/<category>/<slug>.yaml    # 1130 curated TraitRecords"
+          },
+          {
+            "line": 96,
+            "text": "\u251c\u2500\u2500 mappings/                                # reviewed node and predicate groundings"
+          },
+          {
+            "line": 97,
+            "text": "\u251c\u2500\u2500 research/traits/                         # source-finding reports and sidecars"
+          },
+          {
+            "line": 110,
+            "text": "    \u251c\u2500\u2500 GROUNDING_POLICY.md              # which ontology to ground to"
+          },
+          {
+            "line": 118,
+            "text": "point. It includes the [trait browser](pages/browse.html), [causal graph"
+          },
+          {
+            "line": 128,
+            "text": "| [Trait records](data/traits/) | The authoritative per-trait YAML corpus, grouped by category |"
+          },
+          {
+            "line": 130,
+            "text": "| [Vendored sources](data/raw/) | The pinned METPO and Biolink Model inputs |"
+          },
+          {
+            "line": 131,
+            "text": "| [Grounding mappings](mappings/) | Reviewed node, predicate, and UniProt grounding tables |"
+          },
+          {
+            "line": 141,
+            "text": "| [Research template](templates/trait_causal_graph_research.md) | Causal-graph research report template |"
+          },
+          {
+            "line": 143,
+            "text": "| [Documentation](docs/) | Schema, curation, grounding, workflow, and integration guidance |"
+          },
+          {
+            "line": 148,
+            "text": "- Graph quality: [causal graph audit](reports/causal_graph_audit.tsv),"
+          },
+          {
+            "line": 149,
+            "text": "  [connectivity](reports/causal_graph_connectivity.tsv), [protein/taxon"
+          },
+          {
+            "line": 161,
+            "text": "- Grounding quality: [node residual](reports/node_grounding_residual.tsv),"
+          },
+          {
+            "line": 162,
+            "text": "  [predicate residual](reports/predicate_grounding_residual.tsv), [node match"
+          },
+          {
+            "line": 165,
+            "text": "  candidates](reports/node_fuzzy_candidates.tsv), [research grounding"
+          },
+          {
+            "line": 166,
+            "text": "  backlog](reports/research_grounding_backlog.tsv), [research grounding"
+          },
+          {
+            "line": 167,
+            "text": "  drift](reports/research_grounding_drift.tsv), [UniProt"
+          },
+          {
+            "line": 168,
+            "text": "  audit](reports/uniprot_grounding_audit.tsv), [UniProt"
+          },
+          {
+            "line": 173,
+            "text": "  collisions](reports/exact_synonym_collisions.tsv), [causal-grounding"
+          },
+          {
+            "line": 174,
+            "text": "  exactness](reports/causal_grounding_exactness.tsv), and the [ontology"
+          },
+          {
+            "line": 176,
+            "text": "  2026-06-12 release delta](reports/metpo_2026_06_12_release_delta.tsv) records"
+          },
+          {
+            "line": 177,
+            "text": "  every source addition and changed field considered during that migration;"
+          },
+          {
+            "line": 178,
+            "text": "  its [active-review table](reports/metpo_2026_06_12_active_review.tsv) and"
+          },
+          {
+            "line": 179,
+            "text": "  [review narrative](docs/METPO_2026_06_12_ACTIVE_REVIEW.md) document the final"
+          },
+          {
+            "line": 185,
+            "text": "  review](reports/promote_reviewed_batch1.md), and [proposal citation"
+          },
+          {
+            "line": 191,
+            "text": "  2](reports/metabolism_round2_trait_proposals.md),"
+          },
+          {
+            "line": 198,
+            "text": "1. **Refresh upstream**: `just refresh-metpo` copies the latest"
+          },
+          {
+            "line": 200,
+            "text": "2. **Seed**: `just seed-apply` creates new YAMLs without touching"
+          },
+          {
+            "line": 202,
+            "text": "3. **Curate**: edit `data/traits/<category>/<slug>.yaml` directly;"
+          },
+          {
+            "line": 203,
+            "text": "   set `mapping_status: REVIEWED`, append a `CurationEvent`, attach"
+          },
+          {
+            "line": 205,
+            "text": "4. **Add causal graphs**: add `causal_graphs` only when the trait has"
+          },
+          {
+            "line": 206,
+            "text": "   source-backed mechanism structure. Every `CausalEdge` must include"
+          },
+          {
+            "line": 207,
+            "text": "   edge-level `evidence`; prefer grounded CURIEs for nodes and"
+          },
+          {
+            "line": 209,
+            "text": "5. **Validate**: `just validate-all` (alias for `just validate-strict`)"
+          },
+          {
+            "line": 211,
+            "text": "   and missing required attributes fail with exit 1 and a row in"
+          },
+          {
+            "line": 217,
+            "text": "curation support. Use Edison (Falcon) research reports as source-finding"
+          },
+          {
+            "line": 222,
+            "text": "literally named `edison`; see `.claude/skills/research-causal-graphs/SKILL.md`."
+          },
+          {
+            "line": 232,
+            "text": "just deep-research-providers causal_mechanism"
+          },
+          {
+            "line": 233,
+            "text": "just deep-research-provider asta definition_grounding"
+          },
+          {
+            "line": 246,
+            "text": "`definition_grounding` when the target is scope, synonyms, parents, or ontology"
+          },
+          {
+            "line": 247,
+            "text": "mapping rather than a causal graph."
+          },
+          {
+            "line": 265,
+            "text": "[CC BY 4.0](LICENSE-DATA). Project-authored code, including scripts, tests,"
+          },
+          {
+            "line": 266,
+            "text": "schemas and website templates, is licensed under [BSD-3-Clause](LICENSE-CODE)."
+          }
+        ]
+      },
+      "src/traitmech/schema/history.yaml": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/src/traitmech/schema/history.yaml",
+        "sha256": "b01b06f1b9a37db205c26c31ec0fd910690848507c7e1bfb73b424ac0829c52d",
+        "excerpts": [
+          {
+            "line": 130,
+            "text": "classes:\n\n  HistoryRecord:\n    tree_root: true\n    description: >-\n      One curation session against one target. Append-only: write it once, never"
+          }
+        ]
+      },
+      "src/traitmech/schema/mech_shared.yaml": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/src/traitmech/schema/mech_shared.yaml",
+        "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895",
+        "excerpts": []
+      },
+      "src/traitmech/schema/traitmech.yaml": {
+        "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/src/traitmech/schema/traitmech.yaml",
+        "sha256": "46c47fc627b80ccbba1e8ab3fb6f2aee93bc2aef7aaf72fe9aadc3257f2c02dd",
+        "excerpts": []
+      }
+    }
+  }
+}

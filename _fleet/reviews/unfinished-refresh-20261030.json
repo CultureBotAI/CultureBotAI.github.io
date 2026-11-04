@@ -1,0 +1,2264 @@
+{
+  "schema_version": 1,
+  "captured_at_utc": "2026-11-04T11:35:27.882582+00:00",
+  "protected_repository": "/Users/marcin/Documents/newera/CultureBotAI/CultureBotAI.github.io",
+  "protected": {
+    "branch": "update/xmech-refresh-20261030",
+    "head": "56ec3db204095e425e2ed7481d4f97b997906815",
+    "logical_index_sha256": "299ddbae44f5cc8ab11842d18c63ffef96f686fa0671dde328a18e91034be350",
+    "files": [
+      {
+        "status": " M",
+        "path": "_fleet/data/cells_summary.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "80bad49721a0d18f38f9bd4256f157929a5f52fcac990b20787fbb05bce7b0ae",
+        "size_bytes": 53833,
+        "mtime_ns": 1793422841264932488,
+        "mtime_utc": "2026-10-31T05:00:41.264932+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "_fleet/data/fleet_data.json",
+        "pipeline_stage": "build_data.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "aa72f349748c644e90ce72f90fcfa974962821e74e037cbc2c30d3cb7e2f9a74",
+        "size_bytes": 57913,
+        "mtime_ns": 1793422883896507068,
+        "mtime_utc": "2026-10-31T05:01:23.896507+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "_fleet/data/mech_stats.json",
+        "pipeline_stage": "mech_stats.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "d49eaedba15a4f83419c2823ade43df70ab8b5f3e4b441d17423e4035a465e57",
+        "size_bytes": 3333,
+        "mtime_ns": 1793423118358853288,
+        "mtime_utc": "2026-10-31T05:05:18.358853+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "_fleet/data/prefix_census.json",
+        "pipeline_stage": "prefix_census.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "b55917f92e30c0dd84adc39219521a0259160d83495ee522c24f9719e3187201",
+        "size_bytes": 7710,
+        "mtime_ns": 1793421467244240933,
+        "mtime_utc": "2026-10-31T04:37:47.244241+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "_fleet/data/recent_terms.json",
+        "pipeline_stage": "recent_terms.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "599c0704b897ddc8f353ae9171388cc1008ae6579292a65386317bf5b9b069f5",
+        "size_bytes": 36231,
+        "mtime_ns": 1793422883787948877,
+        "mtime_utc": "2026-10-31T05:01:23.787949+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "_fleet/data/subsets_summary.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "aa3085b20b7fd6c863de1871c9125ed588c475729c9ae898f371175439aa5e54",
+        "size_bytes": 28140,
+        "mtime_ns": 1793422408214796396,
+        "mtime_utc": "2026-10-31T04:53:28.214796+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/AntibioticMech--CHEBI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3f7a145f49740fcfc3cab41714666a73da46b4e7fb53f2bb2c7c67408b90b59d",
+        "size_bytes": 19318,
+        "mtime_ns": 1793422841228049001,
+        "mtime_utc": "2026-10-31T05:00:41.228049+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/AntibioticMech--DOI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ef1d956d3ed44c46be1fa5841d06e95a91bb6edc46b7e7e83f3d7e27227295ee",
+        "size_bytes": 12914,
+        "mtime_ns": 1793422841229074636,
+        "mtime_utc": "2026-10-31T05:00:41.229075+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/AntibioticMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "bdf7ba6cf750339e542f83b4a549d95f7c3ba01051b7a1251f0fb778b7d579f9",
+        "size_bytes": 12571,
+        "mtime_ns": 1793422841231375242,
+        "mtime_utc": "2026-10-31T05:00:41.231375+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/AntibioticMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "dc492cc246f2939f738eafecab97d2008bb4043a004c31fb8979054e140a06f9",
+        "size_bytes": 15260,
+        "mtime_ns": 1793422841232144583,
+        "mtime_utc": "2026-10-31T05:00:41.232145+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/AntibioticMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "b64e60c3a1ba29fc907182ed6161bec9126734120141973c608116daa0316ce7",
+        "size_bytes": 7012,
+        "mtime_ns": 1793422841234343396,
+        "mtime_utc": "2026-10-31T05:00:41.234343+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--CELEX.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "842759e1bbf0c3ae80589c5d1bc863bbf6c9320659da1a6ba521e04ce52f22af",
+        "size_bytes": 269,
+        "mtime_ns": 1793422841239418071,
+        "mtime_utc": "2026-10-31T05:00:41.239418+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--CHEBI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "eaee3ea504110486df714248aa005bb492270d1e706116c22e08b2178c1ae9fe",
+        "size_bytes": 2076,
+        "mtime_ns": 1793422841239568697,
+        "mtime_utc": "2026-10-31T05:00:41.239569+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--DOI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3b499ea1d163d023f68c2f6916348d08ffde36c83c5ee6f2cad8401ec5f28261",
+        "size_bytes": 640,
+        "mtime_ns": 1793422841239687157,
+        "mtime_utc": "2026-10-31T05:00:41.239687+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--EC.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "8d977c6c35aef15042feb3f7815f9817417868335b3ae0ec6864998c1104049b",
+        "size_bytes": 2361,
+        "mtime_ns": 1793422841239812366,
+        "mtime_utc": "2026-10-31T05:00:41.239812+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--InterPro.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3d6e217498fb5e573947f97a7de24e6717000a72c3628e2ca4454795d0005915",
+        "size_bytes": 5323,
+        "mtime_ns": 1793422841239950409,
+        "mtime_utc": "2026-10-31T05:00:41.239950+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "a7c5d2e6c2b51202a3e02512fe11878201bf33111eea064f958bfeed9963c17c",
+        "size_bytes": 12076,
+        "mtime_ns": 1793422841240164620,
+        "mtime_utc": "2026-10-31T05:00:41.240165+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--NCBIfam.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "a181421588c03c7cb5dde091b9b43daca2ee3e56d2153d79bdf7c9463ea19dfd",
+        "size_bytes": 252,
+        "mtime_ns": 1793422841240257746,
+        "mtime_utc": "2026-10-31T05:00:41.240258+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "b00b70a4b79d4a7d6e0744658065cb1fde505c08e42f23ead47acf7572ce34c5",
+        "size_bytes": 218,
+        "mtime_ns": 1793422841240357580,
+        "mtime_utc": "2026-10-31T05:00:41.240358+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--Pfam.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "aee1c559d8afacd41b0a555aa4ecca261423751b84b65e1d3e8611202893b662",
+        "size_bytes": 5318,
+        "mtime_ns": 1793422841240507331,
+        "mtime_utc": "2026-10-31T05:00:41.240507+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CMMMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "85c113617fd1785e20d953b2f5df8667c5aa1231a956ec43f8fb51fb5014baa5",
+        "size_bytes": 5322,
+        "mtime_ns": 1793422841240644624,
+        "mtime_utc": "2026-10-31T05:00:41.240645+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--BFO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "bed0bcd9bc0883a0a4e28170ce8eca942923485f60ab8a5683a0e336292a55ea",
+        "size_bytes": 421,
+        "mtime_ns": 1793422841169295757,
+        "mtime_utc": "2026-10-31T05:00:41.169296+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--ComplexPortal.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "35e1b7259d8d084da099d77ce659e570892ed3737808f6a2c2ea013dd08ffe89",
+        "size_bytes": 2443,
+        "mtime_ns": 1793422841170535561,
+        "mtime_utc": "2026-10-31T05:00:41.170536+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--DOI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "18a56eafe59e9690b71b129d13ba448d68c649c7e8b4cfa7b7421bb939e824dd",
+        "size_bytes": 23069,
+        "mtime_ns": 1793422841171606488,
+        "mtime_utc": "2026-10-31T05:00:41.171607+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--GO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "735bef7c98c21c6fe85dc3b096d201167c5a7b59e37139a7000fdcb0f8ee2b5b",
+        "size_bytes": 23074,
+        "mtime_ns": 1793422841173831176,
+        "mtime_utc": "2026-10-31T05:00:41.173831+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--InterPro.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "86f3da6d561b462361f655bea3420082a0aee3c0714e63dc70f64a1139d9a95e",
+        "size_bytes": 12075,
+        "mtime_ns": 1793422841174355515,
+        "mtime_utc": "2026-10-31T05:00:41.174356+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "688fadf078c49a86f6cf5ce450f18cb3940b2a1a745890c33989d47bcaac2b20",
+        "size_bytes": 23044,
+        "mtime_ns": 1793422841175442442,
+        "mtime_utc": "2026-10-31T05:00:41.175442+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--PDB.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "2ab2706d745184add29b4986fd345a5ed4707614371a035031c900d7145ae944",
+        "size_bytes": 4007,
+        "mtime_ns": 1793422841176025615,
+        "mtime_utc": "2026-10-31T05:00:41.176026+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "41473cee58af5ede81d27eb412ad8f356acd4946702e54e6ba6ab89aaa5640a8",
+        "size_bytes": 21604,
+        "mtime_ns": 1793422841176444910,
+        "mtime_utc": "2026-10-31T05:00:41.176445+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--RO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "64f67a674495ce8f8ecd4c5633bb962ae8ad8000a015d33665e46a1886b2d37c",
+        "size_bytes": 1722,
+        "mtime_ns": 1793422841177365586,
+        "mtime_utc": "2026-10-31T05:00:41.177366+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/CellStructureMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "271563a1ed56b608926fdd2e610f5b1ecf9341ff6fdf7790cf85304fc34f1045",
+        "size_bytes": 22294,
+        "mtime_ns": 1793422841178387179,
+        "mtime_utc": "2026-10-31T05:00:41.178387+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/NaturalProductMech--CHEBI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ff0fe0e6ffe655819da26baf12e344dff9e79980cc0221e3f84cd590be36a7a3",
+        "size_bytes": 16399,
+        "mtime_ns": 1793422841216442553,
+        "mtime_utc": "2026-10-31T05:00:41.216443+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/NaturalProductMech--DOI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "a936f095da8d10c31401bcf0aaa8782759616ccd09232c83315a9666655f1ebe",
+        "size_bytes": 16327,
+        "mtime_ns": 1793422841218396198,
+        "mtime_utc": "2026-10-31T05:00:41.218396+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/NaturalProductMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "1410ce0e5c6c00f7da5bb315c2b23d203da44e771796bc7a4576ccea1439a2c8",
+        "size_bytes": 16371,
+        "mtime_ns": 1793422841221652688,
+        "mtime_utc": "2026-10-31T05:00:41.221653+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/NaturalProductMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ee56a0f0902dc5d5496ddb006a28d97f258585891ca5a1aea2c54da0bb57c034",
+        "size_bytes": 16250,
+        "mtime_ns": 1793422841223880585,
+        "mtime_utc": "2026-10-31T05:00:41.223881+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/NaturalProductMech--RHEA.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "df7c7d2cfdba14b545f80533bb03df6cb053b7e4098d0bc7b198c8530da5604c",
+        "size_bytes": 5301,
+        "mtime_ns": 1793422841224359381,
+        "mtime_utc": "2026-10-31T05:00:41.224359+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/NaturalProductMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ddfc6952deb0c610d47cfd714b9bc275175b0d94b30612db188db98f4596cd64",
+        "size_bytes": 16431,
+        "mtime_ns": 1793422841226047231,
+        "mtime_utc": "2026-10-31T05:00:41.226047+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--CHEBI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "a4d5bb727f3d7ae99dd352fbd1b252989cf3c593ee24d38946934d00ae6297b9",
+        "size_bytes": 19278,
+        "mtime_ns": 1793422841164367792,
+        "mtime_utc": "2026-10-31T05:00:41.164368+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--DOI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "af8b645126feb5ccc08997c545a3a8da6ffc3ebf8c9edf7df26f2b93e5d88a4f",
+        "size_bytes": 2828,
+        "mtime_ns": 1793422841164542085,
+        "mtime_utc": "2026-10-31T05:00:41.164542+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--ECO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "7d14d881e3f0c204a73377f6d3a7adc3ae60c5976972f6ebf3876f63b28cb6d3",
+        "size_bytes": 15861,
+        "mtime_ns": 1793422841164916839,
+        "mtime_utc": "2026-10-31T05:00:41.164917+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--MetaCyc.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "4e1574eeea07b9532cdc3afba0b75b49590dfee781e3331e38979b0cbd1b3aab",
+        "size_bytes": 10180,
+        "mtime_ns": 1793422841165782639,
+        "mtime_utc": "2026-10-31T05:00:41.165783+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "871bbfb7b3e8feec144c0d65be1de74b7f8542ffd2e946dec8f08c26ad89db55",
+        "size_bytes": 19266,
+        "mtime_ns": 1793422841166033183,
+        "mtime_utc": "2026-10-31T05:00:41.166033+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "fead341ac2a975af2b3cc65b74490a840c961b4449d23b8b74579a29da8d6c49",
+        "size_bytes": 17225,
+        "mtime_ns": 1793422841166399020,
+        "mtime_utc": "2026-10-31T05:00:41.166399+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--RHEA.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "bd7290a1f0bc1e00d67d07c2173eea6afd38a202050fe02863b94d4ff6148b04",
+        "size_bytes": 10940,
+        "mtime_ns": 1793422841166760190,
+        "mtime_utc": "2026-10-31T05:00:41.166760+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/PathwayMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "0f3ec42cc4b757a23f096bdcd5dfa29be07627c2602faf43721a4f678d144898",
+        "size_bytes": 17896,
+        "mtime_ns": 1793422841168430748,
+        "mtime_utc": "2026-10-31T05:00:41.168431+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--CDD.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "c2eb70a30d125430113631f5009b65aecbdf9e9e4b965991d2182a0f91aa3654",
+        "size_bytes": 15295,
+        "mtime_ns": 1793422841181446710,
+        "mtime_utc": "2026-10-31T05:00:41.181447+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--CHEBI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3c29084444abd511fecd5395cb39459a8d577023ae1e511b5ebb13ec33284c0d",
+        "size_bytes": 22807,
+        "mtime_ns": 1793422841182035924,
+        "mtime_utc": "2026-10-31T05:00:41.182036+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--EC.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "2b7eadd935698421df6ead41d50a3e489817798fa5f691b25b000c9dcf591150",
+        "size_bytes": 17080,
+        "mtime_ns": 1793422841186470009,
+        "mtime_utc": "2026-10-31T05:00:41.186470+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--ECO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "d71f13527e22ff96b1699e3acef27be0d362f8b04cc882396a4d1d8566711fcc",
+        "size_bytes": 12230,
+        "mtime_ns": 1793422841187020889,
+        "mtime_utc": "2026-10-31T05:00:41.187021+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--GO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "f6f1d51b3bf2cb5579ea5b40cdc3a52e28cbd8d4158ae449d17c8ace434b7e0f",
+        "size_bytes": 16515,
+        "mtime_ns": 1793422841190242004,
+        "mtime_utc": "2026-10-31T05:00:41.190242+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--MOD.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "70fe026248ae86796f334a313ea67048a0aa7e54d1b1676da33ef9f6513842a5",
+        "size_bytes": 16939,
+        "mtime_ns": 1793422841195605765,
+        "mtime_utc": "2026-10-31T05:00:41.195606+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "b8d01b962ea7c8d361d559c39c5c2a194875aaeca3a71732320555dedd9ad202",
+        "size_bytes": 22407,
+        "mtime_ns": 1793422841196430232,
+        "mtime_utc": "2026-10-31T05:00:41.196430+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--PATO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "0e769dcf4d79af80227cc1474f95b3e8b662ff3c626e06c953c1c8bad3896d8e",
+        "size_bytes": 6591,
+        "mtime_ns": 1793422841200061309,
+        "mtime_utc": "2026-10-31T05:00:41.200061+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "4f6271e43afeb855cafe7966d577c77d42197c1bdeecd1488a7023d57d2aca00",
+        "size_bytes": 17399,
+        "mtime_ns": 1793422841202358832,
+        "mtime_utc": "2026-10-31T05:00:41.202359+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--PROSITE.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "e85aa6838f4e2e1519d1b64fe45c68c67ae81184e7a1ef369ec5bbb907ad043b",
+        "size_bytes": 15080,
+        "mtime_ns": 1793422841205524071,
+        "mtime_utc": "2026-10-31T05:00:41.205524+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--RO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "da5096f64b986f3e442f79e9d586df62f58967747e5b5cbeb8a8f3a2a0ff8f37",
+        "size_bytes": 17080,
+        "mtime_ns": 1793422841208198931,
+        "mtime_utc": "2026-10-31T05:00:41.208199+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--SO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "0136ac08588c18a42752f92e3057a77b061c170e51acbf7d5e3ed26c12aea325",
+        "size_bytes": 21524,
+        "mtime_ns": 1793422841209976156,
+        "mtime_utc": "2026-10-31T05:00:41.209976+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/ProteinTraitsMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ba10f6bed7c3d6b208411be7e69a229707685e0cef64ead7ef2314c3b2997ce7",
+        "size_bytes": 15957,
+        "mtime_ns": 1793422841211835508,
+        "mtime_utc": "2026-10-31T05:00:41.211836+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--CHEBI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "8115c91189e6f6d22925c3519bb44f98e9b9165a246722e1a7e6a12b551761a3",
+        "size_bytes": 13231,
+        "mtime_ns": 1793422841158470484,
+        "mtime_utc": "2026-10-31T05:00:41.158470+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--DOI.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "574b64df96cc4c1387b6dd2f30508488a894f85d5ef2b1f7e70c9296d3bf2320",
+        "size_bytes": 16542,
+        "mtime_ns": 1793422841158974614,
+        "mtime_utc": "2026-10-31T05:00:41.158975+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--GO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "01ffb49984f2f9f307a72dc805e8fdd26f4d3fedd8391d0f195c3515ce0f297c",
+        "size_bytes": 18256,
+        "mtime_ns": 1793422841159638287,
+        "mtime_utc": "2026-10-31T05:00:41.159638+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--InterPro.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "98ceba61d80f5106f271d0ca6dcc071f4b52072864a00ccf9114ca7c77cb30c3",
+        "size_bytes": 5815,
+        "mtime_ns": 1793422841160000249,
+        "mtime_utc": "2026-10-31T05:00:41.160000+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--METPO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "69013752becf7d829333aca2b58e87f11af41850811941ef1dc88ea283a80ec2",
+        "size_bytes": 16472,
+        "mtime_ns": 1793422841160509087,
+        "mtime_utc": "2026-10-31T05:00:41.160509+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--NCBITaxon.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "54e6325530986eb3859939c35a3819557969705fa07ab47c5b49d42d5890f6f5",
+        "size_bytes": 17573,
+        "mtime_ns": 1793422841161403596,
+        "mtime_utc": "2026-10-31T05:00:41.161404+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--PMID.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "01b332c99fcc3928f6557ff2b6bb979dac4b38c53b4c0c39151bafdfadf69ef7",
+        "size_bytes": 18123,
+        "mtime_ns": 1793422841162531649,
+        "mtime_utc": "2026-10-31T05:00:41.162532+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--RO.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "2b4cbf65c86076ef7fc5e3a2c3e7f6ed6d3eba3323fcf02eb471eafccd724eb6",
+        "size_bytes": 16164,
+        "mtime_ns": 1793422841162806443,
+        "mtime_utc": "2026-10-31T05:00:41.162807+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/cells/TraitMech--UniProt.json",
+        "pipeline_stage": "build_cells.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "7012c143383b8f52418291047ec83de088b5334f0d3f64dbb5425b32d354bb9b",
+        "size_bytes": 13500,
+        "mtime_ns": 1793422841163134113,
+        "mtime_utc": "2026-10-31T05:00:41.163134+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/AntibioticMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "4991dce8859a4c908fc61c0cf960c87c81747b420d5d200d22a2d1e3a716b4cc",
+        "size_bytes": 4402,
+        "mtime_ns": 1793422408169721911,
+        "mtime_utc": "2026-10-31T04:53:28.169722+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/AntibioticMech--TaxonMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "d73a1ecd468f5652291d63da17aaa0923c759a7655a1b0f90900fb43335acc19",
+        "size_bytes": 48840,
+        "mtime_ns": 1793422408189495106,
+        "mtime_utc": "2026-10-31T04:53:28.189495+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CMMMech--CultureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "1117ece03d77bde3f644f099c8494ab91817029915111a6421a231ca42225c36",
+        "size_bytes": 2454,
+        "mtime_ns": 1793422408190781535,
+        "mtime_utc": "2026-10-31T04:53:28.190782+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CMMMech--TaxonMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "753dc82dc8425f6848a81c576e2ee6a509619ca5ac95f3e6128e313de011fa75",
+        "size_bytes": 49078,
+        "mtime_ns": 1793422408194022025,
+        "mtime_utc": "2026-10-31T04:53:28.194022+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CellStructureMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "0dc946f06cd3242a393eef4a9947dafd8ca521621757814b0a249de176439734",
+        "size_bytes": 18805,
+        "mtime_ns": 1793422407546500457,
+        "mtime_utc": "2026-10-31T04:53:27.546500+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CellStructureMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "72189a5a1c01310875c4e372bcd22533945126864181b2cbaeb70b3df222cd20",
+        "size_bytes": 6903,
+        "mtime_ns": 1793422407547178006,
+        "mtime_utc": "2026-10-31T04:53:27.547178+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CellStructureMech--NaturalProductMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "165d4c4fa885c1843761b92b9af26e4c3f13969009f3c647820e040162d4b9c6",
+        "size_bytes": 19790,
+        "mtime_ns": 1793422407544734232,
+        "mtime_utc": "2026-10-31T04:53:27.544734+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CellStructureMech--ProteinTraitsMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "0bd5c40e2b8110f5b4c9027db260b6bd8b18de795df087b5875d6e5e9f38c5fd",
+        "size_bytes": 1316898,
+        "mtime_ns": 1793422407538367961,
+        "mtime_utc": "2026-10-31T04:53:27.538368+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CellStructureMech--TaxonMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "676b70f3214e945b5028ae1e80db8c93cc055ae6a536468158fb402a26e57076",
+        "size_bytes": 80262,
+        "mtime_ns": 1793422407553932572,
+        "mtime_utc": "2026-10-31T04:53:27.553933+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CommunityMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "7d488f2a4a2804cb2b75927314dc711eef5ae7cc6d6e96bde18d4f511c4395e1",
+        "size_bytes": 34026,
+        "mtime_ns": 1793422407283949837,
+        "mtime_utc": "2026-10-31T04:53:27.283950+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CommunityMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "6df70527917c1fc6d7d34a5eed7dab4538a27b240e061c4065cd94e96002cfac",
+        "size_bytes": 29405,
+        "mtime_ns": 1793422407286004107,
+        "mtime_utc": "2026-10-31T04:53:27.286004+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CommunityMech--CellStructureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "5f526b1ed57170d73cc001a23aa8f715fc8f2c1853172476c685c2b2eb2670a7",
+        "size_bytes": 43637,
+        "mtime_ns": 1793422407259788516,
+        "mtime_utc": "2026-10-31T04:53:27.259789+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CommunityMech--PathwayMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "f676b2faec8d3680134c510472a7bfe461dc3fd9cc5670b0cbfb8df846184ca0",
+        "size_bytes": 78477,
+        "mtime_ns": 1793422407257537494,
+        "mtime_utc": "2026-10-31T04:53:27.257538+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CommunityMech--ProteinTraitsMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "5f43a7263960910cf442a2a5cd78acdbef6b47b509883a3a35bac5090708669e",
+        "size_bytes": 383162,
+        "mtime_ns": 1793422407277234271,
+        "mtime_utc": "2026-10-31T04:53:27.277234+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/CommunityMech--TraitMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "6c4baab7c72e059c5eb8b8b0f755deb1cc1686f919e25568044e6c5b11a65362",
+        "size_bytes": 107340,
+        "mtime_ns": 1793422407252003648,
+        "mtime_utc": "2026-10-31T04:53:27.252004+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/DUFMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "5b8f9fe1fa71c105dc2c7f66569d3371cd33db3456a0e2446b7c4aac397f073c",
+        "size_bytes": 624,
+        "mtime_ns": 1793422408114417077,
+        "mtime_utc": "2026-10-31T04:53:28.114417+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/HabitatMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "a0911383cc8351d836261b309fa23448b34dee0d0f5d64ce1f5797054feb4864",
+        "size_bytes": 19809,
+        "mtime_ns": 1793422407108393279,
+        "mtime_utc": "2026-10-31T04:53:27.108393+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/HabitatMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "94c8eb0ae31a8a5d78c9281806ff9baa147e5ceb9959418b3f7f6c6d296ebc26",
+        "size_bytes": 19300,
+        "mtime_ns": 1793422407110484508,
+        "mtime_utc": "2026-10-31T04:53:27.110485+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/HabitatMech--CellStructureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3b95baf7c751ae61f4d8516c483db16d1528164feb7ba3794ff0962fffad2392",
+        "size_bytes": 27532,
+        "mtime_ns": 1793422407068298135,
+        "mtime_utc": "2026-10-31T04:53:27.068298+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/HabitatMech--PathwayMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "1945759657826ab351a61103fe5822aa2891f4e1148cfff4d1cc2dab03086269",
+        "size_bytes": 17691,
+        "mtime_ns": 1793422407065330106,
+        "mtime_utc": "2026-10-31T04:53:27.065330+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/HabitatMech--TraitMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "1e327b7e71440fcb505f9d74ccaf6c61e8f43597c898f39bd455ddda2e8be58c",
+        "size_bytes": 54309,
+        "mtime_ns": 1793422407061847822,
+        "mtime_utc": "2026-10-31T04:53:27.061848+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/NaturalProductMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "43c86ddff8984ac4ec28fbe6ba2e83d7798eab6780b953d0fb94c8850f3fe70d",
+        "size_bytes": 74023,
+        "mtime_ns": 1793422408129860603,
+        "mtime_utc": "2026-10-31T04:53:28.129861+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/NaturalProductMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "561319ad7a65c33b32beeb3561958f5c5a96f0b200b2af5cc6b4a9638a9c9e5a",
+        "size_bytes": 13945,
+        "mtime_ns": 1793422408131648329,
+        "mtime_utc": "2026-10-31T04:53:28.131648+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ac78df94bc097cf7252fd25cf97dd09b9833d407a3332c81ad55703b39f02ca6",
+        "size_bytes": 15012,
+        "mtime_ns": 1793422407469717953,
+        "mtime_utc": "2026-10-31T04:53:27.469718+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "11e14f530970b2f292eb35dfb8f9be3b137a7756964220229de8dee1cea62a87",
+        "size_bytes": 5365,
+        "mtime_ns": 1793422407471309469,
+        "mtime_utc": "2026-10-31T04:53:27.471309+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--CellStructureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3c5a29af37fe6fdf2a1222b2f80a5871700998c5441b8108e506143911038aec",
+        "size_bytes": 60286,
+        "mtime_ns": 1793422407393766874,
+        "mtime_utc": "2026-10-31T04:53:27.393767+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--CultureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "b5168ee1f9f6d54b2f2fc02a963cac195c9870b6987d3e30640641a2db9b8e9f",
+        "size_bytes": 40396,
+        "mtime_ns": 1793422407477964201,
+        "mtime_utc": "2026-10-31T04:53:27.477964+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--MediaIngredientMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "d804bda9c52ee8dc56d94d862ef6a9c9857681152136ac035f301695c9a12ac1",
+        "size_bytes": 52570,
+        "mtime_ns": 1793422407475914556,
+        "mtime_utc": "2026-10-31T04:53:27.475914+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--NaturalProductMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "af78672b6a800762d368b9c425ca778326867266d49cb47e353fbdcd44fa3d68",
+        "size_bytes": 48164,
+        "mtime_ns": 1793422407467070886,
+        "mtime_utc": "2026-10-31T04:53:27.467071+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--ProteinTraitsMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "49acec06c731b44e19728ac95c3f3ea5f7b55e1a788e250ea81a3e70578946d4",
+        "size_bytes": 1387241,
+        "mtime_ns": 1793422407460423779,
+        "mtime_utc": "2026-10-31T04:53:27.460424+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/PathwayMech--TaxonMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "2ef87c59b3132fb799a9799916308aaeee2e5669b2baefb314c62c511a914545",
+        "size_bytes": 38769,
+        "mtime_ns": 1793422407482935250,
+        "mtime_utc": "2026-10-31T04:53:27.482935+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/ProteinTraitsMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "058e6577158d654c1f72a1b18a75b39021f6917059b6930d6ffd06dccb95a2a7",
+        "size_bytes": 704979,
+        "mtime_ns": 1793422407910423115,
+        "mtime_utc": "2026-10-31T04:53:27.910423+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/ProteinTraitsMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "daad6639ae875416d2e63412271cab0185a6e35c3c5a0125561f39e818701987",
+        "size_bytes": 143310,
+        "mtime_ns": 1793422407922430733,
+        "mtime_utc": "2026-10-31T04:53:27.922431+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/ProteinTraitsMech--CultureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "24ea378fa87244d3026a037a9f910a05ae44bf3dc1c95ef3d09a8f6db87e371f",
+        "size_bytes": 122219,
+        "mtime_ns": 1793422407944203905,
+        "mtime_utc": "2026-10-31T04:53:27.944204+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/ProteinTraitsMech--MediaIngredientMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "a6cbd0a6f1f88f59f1abfcdbcd091012e5709de8323de85a12c4f7dc6f36a658",
+        "size_bytes": 247038,
+        "mtime_ns": 1793422407937036168,
+        "mtime_utc": "2026-10-31T04:53:27.937036+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/ProteinTraitsMech--NaturalProductMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "421b2c1d6179d7953d81d05cea919ad3a6e032e15c0a4bac925cc53f7cbcfe11",
+        "size_bytes": 479829,
+        "mtime_ns": 1793422407855841371,
+        "mtime_utc": "2026-10-31T04:53:27.855841+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--AntibioticMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "b26caad045cf3a4fb5bd61836c6a35d70a285941b91ecb73761876f422ee7501",
+        "size_bytes": 17876,
+        "mtime_ns": 1793422407365195135,
+        "mtime_utc": "2026-10-31T04:53:27.365195+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--CMMMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "cd9c4f58802df2c19838e1148bdb108a4c49ea62e0c11bb6ed1cea81488675b4",
+        "size_bytes": 13894,
+        "mtime_ns": 1793422407366618399,
+        "mtime_utc": "2026-10-31T04:53:27.366618+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--CellStructureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "6767b93dc41234020d6cb61805b56ed651c3da9c642e058a22f9a911fdf8bdf1",
+        "size_bytes": 62310,
+        "mtime_ns": 1793422407340998106,
+        "mtime_utc": "2026-10-31T04:53:27.340998+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--CultureMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "1157f6c01786c210670122329b72cc04417f6a23f6cedfe23da02dddc14c1a91",
+        "size_bytes": 20610,
+        "mtime_ns": 1793422407372959044,
+        "mtime_utc": "2026-10-31T04:53:27.372959+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--MediaIngredientMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "34b41c08c68b426c0e29f6f6e3330dd894b8fb4320222ae5daaaca1a1df104c2",
+        "size_bytes": 21211,
+        "mtime_ns": 1793422407368120247,
+        "mtime_utc": "2026-10-31T04:53:27.368120+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--NaturalProductMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "93c3b982a84621a7208b3bb4ad8392758bd2f789476f918f86c87e1aa332a411",
+        "size_bytes": 30851,
+        "mtime_ns": 1793422407363526869,
+        "mtime_utc": "2026-10-31T04:53:27.363527+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--PathwayMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3960d12d346b76716c6bb23c3e6903cf3a102470b9caaf80b4c7a77e8d1b01c2",
+        "size_bytes": 54482,
+        "mtime_ns": 1793422407335990848,
+        "mtime_utc": "2026-10-31T04:53:27.335991+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--ProteinTraitsMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "8614e791f927b5d7e40bb704423ca15d70ac6203ef231791cff7117309c4ca8c",
+        "size_bytes": 334870,
+        "mtime_ns": 1793422407358560987,
+        "mtime_utc": "2026-10-31T04:53:27.358561+00:00",
+        "mode": 420
+      },
+      {
+        "status": " M",
+        "path": "assets/fleet/edges/TraitMech--TaxonMech.json",
+        "pipeline_stage": "build_subsets.py",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "32dc8a45ef36cc87681176ccf8ef00fc92d36e6516fc4848e9f19a35f5165995",
+        "size_bytes": 123514,
+        "mtime_ns": 1793422407380701246,
+        "mtime_utc": "2026-10-31T04:53:27.380701+00:00",
+        "mode": 420
+      },
+      {
+        "status": "??",
+        "path": "scripts/adhoc/build_snapshot_20261030.py",
+        "pipeline_stage": "helper source (not executed)",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "d22db2df22ce8a9fab5a01f99e881934cffbce74dab4a39b295a6125e22c94f8",
+        "size_bytes": 9015,
+        "mtime_ns": 1793421030475012905,
+        "mtime_utc": "2026-10-31T04:30:30.475013+00:00",
+        "mode": 420
+      },
+      {
+        "status": "??",
+        "path": "scripts/adhoc/inspect_secondary_20261030.py",
+        "pipeline_stage": "helper source (not executed)",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "dc492ab24c85b2ea5cbfb427902fbbd4c1d97989cccad6b77cb975ee40d21fa3",
+        "size_bytes": 22672,
+        "mtime_ns": 1793579459722984264,
+        "mtime_utc": "2026-11-02T00:30:59.722984+00:00",
+        "mode": 420
+      }
+    ]
+  },
+  "analysis": {
+    "summaries": {
+      "prefix_census.json": {
+        "stage": "prefix_census.py",
+        "head_sha256": "a155c27ae8f4002a863fe2622a34225be9bb085856d798c00b7d51ba28328cee",
+        "working_sha256": "b55917f92e30c0dd84adc39219521a0259160d83495ee522c24f9719e3187201",
+        "head_pins": {
+          "HabitatMech": "1a40d0958114e6e3facd148ccec6197fa4dd679c",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "46f241a730ecd3c48997c8ddfd02e8ae313cde39",
+          "PathwayMech": "a1e182c64645f53884173356b0505bc77b68d584",
+          "CellStructureMech": "7ef24d1dc70b776adec2a86b127907a8d5f02d33",
+          "ProteinTraitsMech": "7276814bdf3bed73569a202c5e2c4b404e43d8f1",
+          "DUFMech": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+          "NaturalProductMech": "ce6a5498df5be51116bd5e0c119023ee62bb5464",
+          "AntibioticMech": "f3506448c0ca3af3c86631dd0329cb93f94b9e64",
+          "CMMMech": "4f543693bee75b97389de4d4c915a1e451297f1f",
+          "MediaIngredientMech": "9afaec7a8071bdcd528503d9ed50122e3791ac7b",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "working_pins": {
+          "HabitatMech": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "fa9f7b05b54ae0865f25a0c3b84f3967bf8eb21f",
+          "PathwayMech": "b93b5fc48a6bd1508f49923efe62103f1370f9ce",
+          "CellStructureMech": "ecd788f5a2090d23dddea6a1c8757ed55f7ddf68",
+          "ProteinTraitsMech": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+          "DUFMech": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+          "NaturalProductMech": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+          "AntibioticMech": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+          "CMMMech": "e954c96898ce97da6781984c7da7ea5d4fda9bfa",
+          "MediaIngredientMech": "0626be26e60e99006d3ca31319392ebe0dcd2aa2",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "head_as_of": "2026-10-29",
+        "working_as_of": "2026-10-30"
+      },
+      "subsets_summary.json": {
+        "stage": "build_subsets.py",
+        "head_sha256": "9998d423e07e74ace67275f36c373a48641b814e02103bcb7e9e3e9b20e98ba2",
+        "working_sha256": "aa3085b20b7fd6c863de1871c9125ed588c475729c9ae898f371175439aa5e54",
+        "head_pins": {
+          "HabitatMech": "1a40d0958114e6e3facd148ccec6197fa4dd679c",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "46f241a730ecd3c48997c8ddfd02e8ae313cde39",
+          "PathwayMech": "a1e182c64645f53884173356b0505bc77b68d584",
+          "CellStructureMech": "7ef24d1dc70b776adec2a86b127907a8d5f02d33",
+          "ProteinTraitsMech": "7276814bdf3bed73569a202c5e2c4b404e43d8f1",
+          "DUFMech": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+          "NaturalProductMech": "ce6a5498df5be51116bd5e0c119023ee62bb5464",
+          "AntibioticMech": "f3506448c0ca3af3c86631dd0329cb93f94b9e64",
+          "CMMMech": "4f543693bee75b97389de4d4c915a1e451297f1f",
+          "MediaIngredientMech": "9afaec7a8071bdcd528503d9ed50122e3791ac7b",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "working_pins": {
+          "HabitatMech": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "fa9f7b05b54ae0865f25a0c3b84f3967bf8eb21f",
+          "PathwayMech": "b93b5fc48a6bd1508f49923efe62103f1370f9ce",
+          "CellStructureMech": "ecd788f5a2090d23dddea6a1c8757ed55f7ddf68",
+          "ProteinTraitsMech": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+          "DUFMech": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+          "NaturalProductMech": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+          "AntibioticMech": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+          "CMMMech": "e954c96898ce97da6781984c7da7ea5d4fda9bfa",
+          "MediaIngredientMech": "0626be26e60e99006d3ca31319392ebe0dcd2aa2",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "head_as_of": null,
+        "working_as_of": null
+      },
+      "cells_summary.json": {
+        "stage": "build_cells.py",
+        "head_sha256": "98f7e663656f535fc1092c233cc269b76d5db89eca085e44599fd4d18adf4970",
+        "working_sha256": "80bad49721a0d18f38f9bd4256f157929a5f52fcac990b20787fbb05bce7b0ae",
+        "head_pins": {
+          "HabitatMech": "1a40d0958114e6e3facd148ccec6197fa4dd679c",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "46f241a730ecd3c48997c8ddfd02e8ae313cde39",
+          "PathwayMech": "a1e182c64645f53884173356b0505bc77b68d584",
+          "CellStructureMech": "7ef24d1dc70b776adec2a86b127907a8d5f02d33",
+          "ProteinTraitsMech": "7276814bdf3bed73569a202c5e2c4b404e43d8f1",
+          "DUFMech": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+          "NaturalProductMech": "ce6a5498df5be51116bd5e0c119023ee62bb5464",
+          "AntibioticMech": "f3506448c0ca3af3c86631dd0329cb93f94b9e64",
+          "CMMMech": "4f543693bee75b97389de4d4c915a1e451297f1f",
+          "MediaIngredientMech": "9afaec7a8071bdcd528503d9ed50122e3791ac7b",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "working_pins": {
+          "HabitatMech": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "fa9f7b05b54ae0865f25a0c3b84f3967bf8eb21f",
+          "PathwayMech": "b93b5fc48a6bd1508f49923efe62103f1370f9ce",
+          "CellStructureMech": "ecd788f5a2090d23dddea6a1c8757ed55f7ddf68",
+          "ProteinTraitsMech": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+          "DUFMech": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+          "NaturalProductMech": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+          "AntibioticMech": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+          "CMMMech": "e954c96898ce97da6781984c7da7ea5d4fda9bfa",
+          "MediaIngredientMech": "0626be26e60e99006d3ca31319392ebe0dcd2aa2",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "head_as_of": null,
+        "working_as_of": null
+      },
+      "recent_terms.json": {
+        "stage": "recent_terms.py",
+        "head_sha256": "e2330b6192517b1377d4dcc29f4a1b9ec1df1a14464769ec5af75d82a32de72d",
+        "working_sha256": "599c0704b897ddc8f353ae9171388cc1008ae6579292a65386317bf5b9b069f5",
+        "head_pins": {
+          "HabitatMech": "1a40d0958114e6e3facd148ccec6197fa4dd679c",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "46f241a730ecd3c48997c8ddfd02e8ae313cde39",
+          "PathwayMech": "a1e182c64645f53884173356b0505bc77b68d584",
+          "CellStructureMech": "7ef24d1dc70b776adec2a86b127907a8d5f02d33",
+          "ProteinTraitsMech": "7276814bdf3bed73569a202c5e2c4b404e43d8f1",
+          "DUFMech": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+          "NaturalProductMech": "ce6a5498df5be51116bd5e0c119023ee62bb5464",
+          "AntibioticMech": "f3506448c0ca3af3c86631dd0329cb93f94b9e64",
+          "CMMMech": "4f543693bee75b97389de4d4c915a1e451297f1f",
+          "MediaIngredientMech": "9afaec7a8071bdcd528503d9ed50122e3791ac7b",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "working_pins": {
+          "HabitatMech": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "fa9f7b05b54ae0865f25a0c3b84f3967bf8eb21f",
+          "PathwayMech": "b93b5fc48a6bd1508f49923efe62103f1370f9ce",
+          "CellStructureMech": "ecd788f5a2090d23dddea6a1c8757ed55f7ddf68",
+          "ProteinTraitsMech": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+          "DUFMech": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+          "NaturalProductMech": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+          "AntibioticMech": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+          "CMMMech": "e954c96898ce97da6781984c7da7ea5d4fda9bfa",
+          "MediaIngredientMech": "0626be26e60e99006d3ca31319392ebe0dcd2aa2",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "head_as_of": null,
+        "working_as_of": null
+      },
+      "fleet_data.json": {
+        "stage": "build_data.py",
+        "head_sha256": "785ebc8c15a220e2a08b117142581f615b93283446204441cc968e6fcde5d3db",
+        "working_sha256": "aa72f349748c644e90ce72f90fcfa974962821e74e037cbc2c30d3cb7e2f9a74",
+        "head_pins": {},
+        "working_pins": {},
+        "head_as_of": null,
+        "working_as_of": null
+      },
+      "mech_stats.json": {
+        "stage": "mech_stats.py",
+        "head_sha256": "90e04d186d9f45685863ad29bfc6943348fc089ca5fb4908bf3ed42ec0cacd81",
+        "working_sha256": "d49eaedba15a4f83419c2823ade43df70ab8b5f3e4b441d17423e4035a465e57",
+        "head_pins": {
+          "HabitatMech": "1a40d0958114e6e3facd148ccec6197fa4dd679c",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "46f241a730ecd3c48997c8ddfd02e8ae313cde39",
+          "PathwayMech": "a1e182c64645f53884173356b0505bc77b68d584",
+          "CellStructureMech": "7ef24d1dc70b776adec2a86b127907a8d5f02d33",
+          "ProteinTraitsMech": "7276814bdf3bed73569a202c5e2c4b404e43d8f1",
+          "DUFMech": "1ad8fdccc772ffb9d68948351b7b2b0b8e43cd6b",
+          "NaturalProductMech": "ce6a5498df5be51116bd5e0c119023ee62bb5464",
+          "AntibioticMech": "f3506448c0ca3af3c86631dd0329cb93f94b9e64",
+          "CMMMech": "4f543693bee75b97389de4d4c915a1e451297f1f",
+          "MediaIngredientMech": "9afaec7a8071bdcd528503d9ed50122e3791ac7b",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "working_pins": {
+          "HabitatMech": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+          "CommunityMech": "a0631777d79ffe10235c6022408c58084a9e3283",
+          "TraitMech": "fa9f7b05b54ae0865f25a0c3b84f3967bf8eb21f",
+          "PathwayMech": "b93b5fc48a6bd1508f49923efe62103f1370f9ce",
+          "CellStructureMech": "ecd788f5a2090d23dddea6a1c8757ed55f7ddf68",
+          "ProteinTraitsMech": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+          "DUFMech": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+          "NaturalProductMech": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+          "AntibioticMech": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+          "CMMMech": "e954c96898ce97da6781984c7da7ea5d4fda9bfa",
+          "MediaIngredientMech": "0626be26e60e99006d3ca31319392ebe0dcd2aa2",
+          "CultureMech": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+          "TaxonMech": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+          "AIMech": "97c308f4a2560523cbabe9834fc9db7430073727"
+        },
+        "head_as_of": "2026-10-29",
+        "working_as_of": "2026-10-30",
+        "counts": [
+          {
+            "mech": "HabitatMech",
+            "head_records": 3209,
+            "working_records": 3209,
+            "head_merged_prs": 1089,
+            "working_merged_prs": 1090
+          },
+          {
+            "mech": "CommunityMech",
+            "head_records": 489,
+            "working_records": 489,
+            "head_merged_prs": 696,
+            "working_merged_prs": 696
+          },
+          {
+            "mech": "TraitMech",
+            "head_records": 1130,
+            "working_records": 1130,
+            "head_merged_prs": 1087,
+            "working_merged_prs": 1097
+          },
+          {
+            "mech": "PathwayMech",
+            "head_records": 275,
+            "working_records": 277,
+            "head_merged_prs": 308,
+            "working_merged_prs": 320
+          },
+          {
+            "mech": "CellStructureMech",
+            "head_records": 1001,
+            "working_records": 1008,
+            "head_merged_prs": 1068,
+            "working_merged_prs": 1080
+          },
+          {
+            "mech": "ProteinTraitsMech",
+            "head_records": 429394,
+            "working_records": 429406,
+            "head_merged_prs": 428,
+            "working_merged_prs": 435
+          },
+          {
+            "mech": "DUFMech",
+            "head_records": 8296,
+            "working_records": 8296,
+            "head_merged_prs": 97,
+            "working_merged_prs": 98
+          },
+          {
+            "mech": "NaturalProductMech",
+            "head_records": 3116,
+            "working_records": 3116,
+            "head_merged_prs": 591,
+            "working_merged_prs": 596
+          },
+          {
+            "mech": "AntibioticMech",
+            "head_records": 3012,
+            "working_records": 3012,
+            "head_merged_prs": 702,
+            "working_merged_prs": 703
+          },
+          {
+            "mech": "CMMMech",
+            "head_records": 663,
+            "working_records": 668,
+            "head_merged_prs": 153,
+            "working_merged_prs": 166
+          },
+          {
+            "mech": "MediaIngredientMech",
+            "head_records": 2953,
+            "working_records": 2953,
+            "head_merged_prs": 454,
+            "working_merged_prs": 470
+          },
+          {
+            "mech": "CultureMech",
+            "head_records": 6325,
+            "working_records": 6325,
+            "head_merged_prs": 290,
+            "working_merged_prs": 290
+          },
+          {
+            "mech": "TaxonMech",
+            "head_records": 626048,
+            "working_records": 626048,
+            "head_merged_prs": 63,
+            "working_merged_prs": 63
+          },
+          {
+            "mech": "AIMech",
+            "head_records": 1929,
+            "working_records": 1929,
+            "head_merged_prs": 315,
+            "working_merged_prs": 315
+          }
+        ],
+        "head_merged_prs_total": 7638,
+        "working_merged_prs_total": 7717,
+        "head_record_total": 1087840,
+        "working_record_total": 1087866
+      }
+    },
+    "stage_file_counts": {
+      "build_cells.py": 62,
+      "build_data.py": 1,
+      "mech_stats.py": 1,
+      "prefix_census.py": 1,
+      "recent_terms.py": 1,
+      "build_subsets.py": 46,
+      "helper source (not executed)": 2
+    },
+    "stages": [
+      {
+        "stage": "prefix_census.py",
+        "modified_file_count": 1,
+        "mtime_min_utc": "2026-10-31T04:37:47.244241+00:00",
+        "mtime_max_utc": "2026-10-31T04:37:47.244241+00:00",
+        "saved_log_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030/prefix_census.log"
+        ],
+        "interpretation": "Persisted derived output and saved log are evidence that this stage ran; no corpus scan was repeated."
+      },
+      {
+        "stage": "build_subsets.py",
+        "modified_file_count": 46,
+        "mtime_min_utc": "2026-10-31T04:53:27.061848+00:00",
+        "mtime_max_utc": "2026-10-31T04:53:28.214796+00:00",
+        "saved_log_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030/build_subsets.log"
+        ],
+        "interpretation": "Persisted derived output and saved log are evidence that this stage ran; no corpus scan was repeated."
+      },
+      {
+        "stage": "build_cells.py",
+        "modified_file_count": 62,
+        "mtime_min_utc": "2026-10-31T05:00:41.158470+00:00",
+        "mtime_max_utc": "2026-10-31T05:00:41.264932+00:00",
+        "saved_log_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030/build_cells.log"
+        ],
+        "interpretation": "Persisted derived output and saved log are evidence that this stage ran; no corpus scan was repeated."
+      },
+      {
+        "stage": "recent_terms.py",
+        "modified_file_count": 1,
+        "mtime_min_utc": "2026-10-31T05:01:23.787949+00:00",
+        "mtime_max_utc": "2026-10-31T05:01:23.787949+00:00",
+        "saved_log_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030/recent_terms.log"
+        ],
+        "interpretation": "Persisted derived output and saved log are evidence that this stage ran; no corpus scan was repeated."
+      },
+      {
+        "stage": "build_data.py",
+        "modified_file_count": 1,
+        "mtime_min_utc": "2026-10-31T05:01:23.896507+00:00",
+        "mtime_max_utc": "2026-10-31T05:01:23.896507+00:00",
+        "saved_log_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030/build_data.log"
+        ],
+        "interpretation": "Persisted derived output and saved log are evidence that this stage ran; no corpus scan was repeated."
+      },
+      {
+        "stage": "mech_stats.py",
+        "modified_file_count": 1,
+        "mtime_min_utc": "2026-10-31T05:05:18.358853+00:00",
+        "mtime_max_utc": "2026-10-31T05:05:18.358853+00:00",
+        "saved_log_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030/mech_stats.log"
+        ],
+        "interpretation": "Persisted derived output and saved log are evidence that this stage ran; no corpus scan was repeated."
+      }
+    ],
+    "derived_pin_maps_agree": true,
+    "pin_agreement_by_file": {
+      "prefix_census.json": true,
+      "subsets_summary.json": true,
+      "cells_summary.json": true,
+      "recent_terms.json": true,
+      "mech_stats.json": true
+    },
+    "snapshot_pin_maps_match_derived": [
+      true
+    ],
+    "helpers": [
+      {
+        "path": "scripts/adhoc/build_snapshot_20261030.py",
+        "sha256": "d22db2df22ce8a9fab5a01f99e881934cffbce74dab4a39b295a6125e22c94f8",
+        "docstring": "Build the 2026-10-30 X-Mech Suite snapshot and run the fleet pipeline.\n\nPurpose: Pin CLAW and all 14 Mechs at their current GitHub main revisions,\n         create sparse shared clones under $SNAP/mechs, verify clean revisions,\n         and run the derived fleet pipeline stages with side-effect checks.\nInputs:  Shared Mech checkouts in /Users/marcin/Documents/VIMSS/ontology/Mechs\n         and GitHub API commit heads for CultureBotAI repositories.\nOutputs: $SNAP/revisions.json, $SNAP/claw, $SNAP/mechs/*, and updated\n         _fleet/data/* + assets/fleet/* artifacts.\nBranch:  update/xmech-refresh-20261030\nDate:    2026-10-30",
+        "functions": [
+          "run",
+          "check_output",
+          "prepare_snapshot",
+          "verify_clean",
+          "run_canary",
+          "_run_stages",
+          "run_pipeline",
+          "run_stats",
+          "main"
+        ],
+        "declared_snapshot_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030"
+        ],
+        "executed": false,
+        "review": "Builds/fetches snapshots and runs six derived stages; prepare also refreshes the manifest. Its canary function verifies clean pins and record availability but does not execute a full scan stage. Do not rerun as part of this inventory."
+      },
+      {
+        "path": "scripts/adhoc/inspect_secondary_20261030.py",
+        "sha256": "dc492ab24c85b2ea5cbfb427902fbbd4c1d97989cccad6b77cb975ee40d21fa3",
+        "docstring": "Inspect pinned checkouts and live sites for 2026-10-30 X-Mech secondary stats.\n\nPurpose: Compute exact card counts (at_pin and live), secondary corpus figures,\n         audit_notes.json facts, and permalink validity across all 14 Mechs at\n         their 2026-10-30 snapshot revisions.\nInputs:  $SNAP/revisions.json, $SNAP/mechs/*, and live Mech GitHub Pages sites.\nOutputs: Structured stdout report used to update _fleet/mechs_template.md,\n         _fleet/fleet_fragment.html, _fleet/audit_notes.json, and site pages.\nBranch:  update/xmech-refresh-20261030\nDate:    2026-10-30",
+        "functions": [
+          "git_show",
+          "git_diff_stat",
+          "check_all_card_sources",
+          "inspect_diffs",
+          "inspect_habitatmech",
+          "inspect_traitmech",
+          "inspect_pathwaymech",
+          "inspect_cellstructuremech",
+          "inspect_proteintraitsmech",
+          "inspect_antibioticmech",
+          "inspect_cmmmech",
+          "inspect_mediaingredientmech",
+          "inspect_naturalproductmech",
+          "inspect_dufmech",
+          "inspect_fast",
+          "main"
+        ],
+        "declared_snapshot_paths": [
+          "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030"
+        ],
+        "executed": false,
+        "review": "Reads pinned corpora, Git blobs and live sites, printing secondary figures and citation checks. Those computations and paths were not validated or executed by this inventory."
+      }
+    ],
+    "snapshots": [
+      {
+        "path": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030",
+        "exists": true,
+        "top_level_entries": [
+          "build_cells.log",
+          "build_data.log",
+          "build_subsets.log",
+          "claw",
+          "mech_stats.log",
+          "mechs",
+          "prefix_census.log",
+          "recent_terms.log",
+          "revisions.json"
+        ],
+        "files": {
+          "revisions.json": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "d013d4c51321d2a3a5ecd1134b3500abba02ae69a4bd07bb62653d936c95fa68",
+            "size_bytes": 2364,
+            "mtime_ns": 1793416593567074525,
+            "mtime_utc": "2026-10-31T03:16:33.567075+00:00",
+            "mode": 420
+          },
+          "build_cells.log": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "322b4dfb6c66a8c3d2aeb682a8e301ad7da725bfbd621fb7f7aadeccccd84d9d",
+            "size_bytes": 696,
+            "mtime_ns": 1793422841389807964,
+            "mtime_utc": "2026-10-31T05:00:41.389808+00:00",
+            "mode": 420
+          },
+          "build_data.log": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "5077ce16e6738111496d6e6117245f5130386aaebfd01fa0de6e0489da1b3dd5",
+            "size_bytes": 9832,
+            "mtime_ns": 1793422883897295867,
+            "mtime_utc": "2026-10-31T05:01:23.897296+00:00",
+            "mode": 420
+          },
+          "build_subsets.log": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "51cb16817b8642a87dca8a074edb94bc8d50e327fb5e208face999bed75388f5",
+            "size_bytes": 3683,
+            "mtime_ns": 1793422408776319411,
+            "mtime_utc": "2026-10-31T04:53:28.776320+00:00",
+            "mode": 420
+          },
+          "mech_stats.log": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "4cc7595657d6ff5a04cee7db5a7ef7050ea8eafb6a64d21d0ef98b772a4c4154",
+            "size_bytes": 1354,
+            "mtime_ns": 1793423118359137624,
+            "mtime_utc": "2026-10-31T05:05:18.359138+00:00",
+            "mode": 420
+          },
+          "prefix_census.log": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "d65755dd915751c8c4a19a2509cb7550e6349f31a499acd6f7de3efa43591544",
+            "size_bytes": 2943,
+            "mtime_ns": 1793421467241364223,
+            "mtime_utc": "2026-10-31T04:37:47.241364+00:00",
+            "mode": 420
+          },
+          "recent_terms.log": {
+            "exists": true,
+            "kind": "regular file",
+            "sha256": "57e590d72938485308364db4b64d7a4d1346110227b01ebdcdb6935baf9444ad",
+            "size_bytes": 114,
+            "mtime_ns": 1793422883788663550,
+            "mtime_utc": "2026-10-31T05:01:23.788664+00:00",
+            "mode": 420
+          }
+        },
+        "revisions": {
+          "pinned_at_utc": "2026-10-31T03:11:08+00:00",
+          "claw": "18774380e032acb6da0d195214c59368cd47594f",
+          "mechs": {
+            "HabitatMech": {
+              "repo": "HabitatMech",
+              "sha": "73f5de1ffa3a7ab7e7bfb0e60149aef034c51aa0",
+              "commit_date": "2026-10-30T07:40:27Z"
+            },
+            "CommunityMech": {
+              "repo": "CommunityMech",
+              "sha": "a0631777d79ffe10235c6022408c58084a9e3283",
+              "commit_date": "2026-10-28T20:19:41Z"
+            },
+            "TraitMech": {
+              "repo": "TraitMech",
+              "sha": "fa9f7b05b54ae0865f25a0c3b84f3967bf8eb21f",
+              "commit_date": "2026-10-31T01:12:14Z"
+            },
+            "PathwayMech": {
+              "repo": "PathwayMech",
+              "sha": "b93b5fc48a6bd1508f49923efe62103f1370f9ce",
+              "commit_date": "2026-10-31T02:56:18Z"
+            },
+            "CellStructureMech": {
+              "repo": "CellStructureMech",
+              "sha": "ecd788f5a2090d23dddea6a1c8757ed55f7ddf68",
+              "commit_date": "2026-10-31T02:30:16Z"
+            },
+            "ProteinTraitsMech": {
+              "repo": "proteintraitsmech",
+              "sha": "64daeedca4e133f20ec6f2cc6fa9819b18f8daa3",
+              "commit_date": "2026-10-31T00:05:10Z"
+            },
+            "DUFMech": {
+              "repo": "DUFMech",
+              "sha": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+              "commit_date": "2026-10-31T02:35:01Z"
+            },
+            "NaturalProductMech": {
+              "repo": "NaturalProductMech",
+              "sha": "9deaa5eb0b78cecd2d2511449fb0b9eccb716580",
+              "commit_date": "2026-10-30T12:37:38Z"
+            },
+            "AntibioticMech": {
+              "repo": "AntibioticMech",
+              "sha": "13bf5681ca4fac4a15c87b7c4c78391594e472d4",
+              "commit_date": "2026-10-30T05:49:40Z"
+            },
+            "CMMMech": {
+              "repo": "CMMMech",
+              "sha": "e954c96898ce97da6781984c7da7ea5d4fda9bfa",
+              "commit_date": "2026-10-31T01:00:29Z"
+            },
+            "MediaIngredientMech": {
+              "repo": "MediaIngredientMech",
+              "sha": "0626be26e60e99006d3ca31319392ebe0dcd2aa2",
+              "commit_date": "2026-10-31T01:33:11Z"
+            },
+            "CultureMech": {
+              "repo": "CultureMech",
+              "sha": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+              "commit_date": "2026-10-28T20:19:43Z"
+            },
+            "TaxonMech": {
+              "repo": "TaxonMech",
+              "sha": "830eb576c1381e73aba1ed284c1ae005c7a5337e",
+              "commit_date": "2026-10-28T20:27:02Z"
+            },
+            "AIMech": {
+              "repo": "AIMech",
+              "sha": "97c308f4a2560523cbabe9834fc9db7430073727",
+              "commit_date": "2026-10-28T20:19:35Z"
+            }
+          }
+        },
+        "mechs_directory_exists": true,
+        "mechs_directory_entries_including_hidden": [],
+        "logs": {
+          "build_cells.log": [
+            "PathwayMech 277 records; 21 vocabulary lists",
+            "CellStructureMech 1008 records; 24 vocabulary lists",
+            "ProteinTraitsMech 429406 records; 89 vocabulary lists",
+            "DUFMech 8296 records; 11 vocabulary lists",
+            "NaturalProductMech 3116 records; 25 vocabulary lists",
+            "AntibioticMech 3012 records; 40 vocabulary lists",
+            "CMMMech 668 records; 10 vocabulary lists",
+            "MediaIngredientMech 2953 records; 14 vocabulary lists",
+            "CultureMech 6325 records; 19 vocabulary lists",
+            "TaxonMech 626048 records; 24 vocabulary lists",
+            "AIMech 1929 records; 5 vocabulary lists",
+            "Wrote 342 complete census cell lists"
+          ],
+          "build_data.log": [
+            "  FB                 1 datasets         1 occurrences",
+            "  GNPS               1 datasets         1 occurrences",
+            "  MG-RAST            1 datasets         1 occurrences",
+            "  RNAmods            1 datasets         1 occurrences",
+            "  USGS               1 datasets         1 occurrences",
+            "69 edges; 57913 bytes",
+            "ProteinTraitsMech DUFMech 16531 {'Pfam': 8296, 'InterPro': 8235} ['High mobility group box domain', 'JmjC domain', 'HAMP domain']",
+            "ProteinTraitsMech TaxonMech 7471 {'NCBITaxon': 7456, 'UniProt': 7, 'GO': 6, 'CHEBI': 2} ['Escherichia coli', 'Escherichia coli O157:H7', 'Shigella flexneri']",
+            "HabitatMech TaxonMech 6427 {'NCBITaxon': 6426, 'CHEBI': 1} ['Staphylococcus aureus', 'Escherichia coli', 'Pseudomonas aeruginosa']",
+            "PathwayMech ProteinTraitsMech 3034 {'UniProt': 986, 'CHEBI': 942, 'RHEA': 904, 'GO': 138, 'NCBITaxon': 56, 'KEGG': 8} ['hydron', 'water', 'ATP(4-)']",
+            "CellStructureMech ProteinTraitsMech 2847 {'GO': 1252, 'UniProt': 1234, 'InterPro': 209, 'NCBITaxon': 121, 'CHEBI': 22, 'Pfam': 9} ['Saccharomyces cerevisiae (strain ATCC 204508 / S288c)', 'Escherichia coli K-12', 'protein-containing complex']",
+            "ProteinTraitsMech AntibioticMech 2656 {'ARO': 1732, 'CHEBI': 602, 'PDB': 141, 'NCBITaxon': 98, 'UniProt': 80, 'GO': 3} ['Escherichia coli', 'Klebsiella pneumoniae', 'Escherichia coli K-12']"
+          ],
+          "build_subsets.log": [
+            "edge AntibioticMech CMMMech 14 4 KB",
+            "edge AntibioticMech MediaIngredientMech 470 79 KB",
+            "edge AntibioticMech CultureMech 29 12 KB",
+            "edge AntibioticMech TaxonMech 131 47 KB",
+            "edge CMMMech CultureMech 11 2 KB",
+            "edge CMMMech TaxonMech 150 47 KB",
+            "edge MediaIngredientMech CultureMech 528 226 KB",
+            "edge MediaIngredientMech TaxonMech 3 0 KB",
+            "edge CultureMech TaxonMech 54 16 KB",
+            "labels resolved 40716 of 73392",
+            "habitat pages unresolved (no link emitted): 0 []",
+            "done; total size KB: 21259"
+          ],
+          "mech_stats.log": [
+            "DUFMech                   8,296 records  not tracked         98 merged PRs",
+            "NaturalProductMech        3,116 records  0 reviewed         596 merged PRs",
+            "AntibioticMech            3,012 records  101 reviewed       703 merged PRs",
+            "CMMMech                     668 records  not tracked        166 merged PRs",
+            "MediaIngredientMech       2,953 records  not tracked        470 merged PRs",
+            "CultureMech               6,325 records  not tracked        290 merged PRs",
+            "TaxonMech               626,048 records  0 reviewed          63 merged PRs",
+            "AIMech                    1,929 records  not tracked        315 merged PRs",
+            "culturebotai-claw      development activity only            228 merged PRs",
+            "CultureBotAI.github.io development activity only             70 merged PRs",
+            "",
+            "7,717 merged PRs across 14 Mechs, CLAW and the website -> /Users/marcin/Documents/newera/CultureBotAI/CultureBotAI.github.io/_fleet/data/mech_stats.json"
+          ],
+          "prefix_census.log": [
+            "TraitMech 1130 {'DOI': 10459, 'METPO': 4390, 'RO': 2964, 'NCBITaxon': 1301, 'PMID': 1085, 'GO': 972, 'UniProt': 727, 'CHEBI': 705, 'InterPro': 200, 'PATO': 99, 'PMCID': 24, 'ENVO': 22, 'MICRO': 20, 'MetaCyc': 9}",
+            "PathwayMech 277 {'CHEBI': 18459, 'RHEA': 17906, 'gomodel': 16210, 'MetaCyc': 15045, 'UniProt': 11979, 'PMID': 5555, 'SGD': 3226, 'ECO': 3010, 'RO': 2915, 'GO': 2605, 'NCBITaxon': 1506, 'WikiPathways': 1086, 'BFO': 792, 'EC': 758}",
+            "CellStructureMech 1008 {'GO': 24898, 'DOI': 12056, 'NCBITaxon': 4531, 'UniProt': 4000, 'PMID': 3403, 'ECO': 1454, 'InterPro': 917, 'PDB': 713, 'ComplexPortal': 411, 'SO': 164, 'CHEBI': 120, 'RO': 81, 'UO': 39, 'Pfam': 28}",
+            "ProteinTraitsMech 429406 {'InterPro': 1483520, 'UniProt': 690704, 'RHEA': 667868, 'PMID': 658410, 'CATH': 650535, 'Pfam': 523828, 'CDD': 435176, 'GO': 423062, 'ARO': 397717, 'CHEBI': 374741, 'NCBITaxon': 368783, 'PROSITE': 330198, 'RO': 278621, 'PDB': 250833}",
+            "DUFMech 8296 {'Pfam': 9344, 'InterPro': 8241, 'UniProt': 315, 'PDB': 79, 'EC': 33, 'SCOP': 2, 'TCDB': 2, 'genbank': 2, 'SMART': 1, 'Rfam': 1, 'COG': 1}",
+            "NaturalProductMech 3116 {'NCBITaxon': 14045, 'DOI': 11332, 'MIBiG': 10189, 'PMID': 6167, 'UniProt': 3749, 'genbank': 3449, 'CHEBI': 3403, 'PubChem': 3338, 'NPAtlas': 1766, 'RHEA': 1242, 'EC': 169, 'CyanoMetDB': 56, 'ECO': 54, 'ChEMBL': 41}",
+            "AntibioticMech 3012 {'CHEBI': 22369, 'ARO': 16674, 'DOI': 4979, 'UNII': 3611, 'PMID': 2036, 'reaxys': 2012, 'CAS': 1823, 'NCBITaxon': 1542, 'KEGG': 1461, 'patent': 1062, 'UniProt': 841, 'Wikipedia': 738, 'PubChem': 662, 'DrugBank': 508}",
+            "CMMMech 668 {'InterPro': 2450, 'NCBITaxon': 1927, 'UniProt': 1198, 'Pfam': 804, 'EC': 236, 'CHEBI': 208, 'DOI': 19, 'NCBIfam': 6, 'CELEX': 3, 'PMID': 2}",
+            "MediaIngredientMech 2953 {'CHEBI': 8280, 'CAS': 1455, 'MediaDive': 538, 'MICRO': 368, 'MESH': 328, 'NCIT': 318, 'FOODON': 277, 'ENVO': 110, 'KEGG': 61, 'PMID': 29, 'UBERON': 22, 'DOI': 9, 'BTO': 3, 'NCBITaxon': 1}",
+            "CultureMech 6325 {'CHEBI': 160911, 'MediaDive': 4941, 'KOMODO': 3262, 'TOGO': 2833, 'KEGG': 1406, 'MEDIADB': 459, 'MICRO': 356, 'FOODON': 227, 'CultureCollection': 176, 'UBERON': 138, 'DOI': 76, 'PMID': 68, 'NCBITaxon': 63, 'ENVO': 14}",
+            "TaxonMech 626048 {'NCBITaxon': 9251887, 'GOLD': 1492983, 'StrainInfo': 1434148, 'GTDB': 783276, 'BacDive': 556160, 'DOI': 402247, 'ncbi.assembly': 372640, 'patric': 265105, 'biosample': 202280, 'bioproject': 159627, 'INSDC': 100610, 'LPSN': 72735, 'IMG': 68303, 'CultureCollection': 67645}",
+            "AIMech 1929 {'AIO': 4468, 'arXiv': 1189, 'DOI': 424, 'BFO': 71, 'ISBN': 1}"
+          ],
+          "recent_terms.log": [
+            "wrote /Users/marcin/Documents/newera/CultureBotAI/CultureBotAI.github.io/_fleet/data/recent_terms.json (14 Mechs)"
+          ]
+        }
+      }
+    ],
+    "final_source_comparisons": [
+      {
+        "path": "_fleet/data/manifest.json",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "07da332610432298487ecd4f1c4ca2d36ef0d2504d681832ef6abc2a63d5bfb1",
+        "size_bytes": 90397,
+        "mtime_ns": 1793416268236704164,
+        "mtime_utc": "2026-10-31T03:11:08.236704+00:00",
+        "mode": 420,
+        "head_sha256": "07da332610432298487ecd4f1c4ca2d36ef0d2504d681832ef6abc2a63d5bfb1",
+        "equals_head": true
+      },
+      {
+        "path": "_fleet/audit_notes.json",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ba2014efb30657bf2a33fae2afcc2e637c897456b5ee1d9d6c81c269b824715d",
+        "size_bytes": 11195,
+        "mtime_ns": 1793409221656598396,
+        "mtime_utc": "2026-10-31T01:13:41.656598+00:00",
+        "mode": 420,
+        "head_sha256": "ba2014efb30657bf2a33fae2afcc2e637c897456b5ee1d9d6c81c269b824715d",
+        "equals_head": true
+      },
+      {
+        "path": "_fleet/data/site_audit.json",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "f49ef6a620819ae9d2d2d2c97f137fc129486dd78573ce93ff60bce8e29d6de3",
+        "size_bytes": 22697,
+        "mtime_ns": 1793409221664654045,
+        "mtime_utc": "2026-10-31T01:13:41.664654+00:00",
+        "mode": 420,
+        "head_sha256": "f49ef6a620819ae9d2d2d2c97f137fc129486dd78573ce93ff60bce8e29d6de3",
+        "equals_head": true
+      },
+      {
+        "path": "_fleet/data/site_features.json",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "791577f2ef15e7544d7eb0dee9d7adbce84264ce244409dc3da112b63f2c32fd",
+        "size_bytes": 125445,
+        "mtime_ns": 1793409221478684278,
+        "mtime_utc": "2026-10-31T01:13:41.478684+00:00",
+        "mode": 420,
+        "head_sha256": "791577f2ef15e7544d7eb0dee9d7adbce84264ce244409dc3da112b63f2c32fd",
+        "equals_head": true
+      },
+      {
+        "path": "_fleet/mechs_template.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "84c40ce5ecf56b09784fc8e307927fb3fc115487028edcb69c305dae1c9daf1f",
+        "size_bytes": 76680,
+        "mtime_ns": 1793409221667161287,
+        "mtime_utc": "2026-10-31T01:13:41.667161+00:00",
+        "mode": 420,
+        "head_sha256": "84c40ce5ecf56b09784fc8e307927fb3fc115487028edcb69c305dae1c9daf1f",
+        "equals_head": true
+      },
+      {
+        "path": "_fleet/fleet_fragment.html",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "ceaa9f3214ecf4a562e69da0fc8f6d78838dccbad0a064c95427bd42a6b4812f",
+        "size_bytes": 159790,
+        "mtime_ns": 1793409221666309192,
+        "mtime_utc": "2026-10-31T01:13:41.666309+00:00",
+        "mode": 420,
+        "head_sha256": "ceaa9f3214ecf4a562e69da0fc8f6d78838dccbad0a064c95427bd42a6b4812f",
+        "equals_head": true
+      },
+      {
+        "path": "mechs.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "3b140605b6bd5fb48f27f9804e4a8585eaaab6be9e143f1ba92e1541b7211555",
+        "size_bytes": 745167,
+        "mtime_ns": 1793409221717302787,
+        "mtime_utc": "2026-10-31T01:13:41.717303+00:00",
+        "mode": 420,
+        "head_sha256": "3b140605b6bd5fb48f27f9804e4a8585eaaab6be9e143f1ba92e1541b7211555",
+        "equals_head": true
+      },
+      {
+        "path": "index.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "65b28ad74bd3286fa5e343f0e52a6ed2d8e726538031f25ec8ff8c8693e4a80f",
+        "size_bytes": 10022,
+        "mtime_ns": 1793409221715395637,
+        "mtime_utc": "2026-10-31T01:13:41.715396+00:00",
+        "mode": 420,
+        "head_sha256": "65b28ad74bd3286fa5e343f0e52a6ed2d8e726538031f25ec8ff8c8693e4a80f",
+        "equals_head": true
+      },
+      {
+        "path": "resources.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "2ef6e7b6656ca26939e652c3310a0f77a3f05d2fdd4106277e3b7a7731563e31",
+        "size_bytes": 44772,
+        "mtime_ns": 1793409221718345718,
+        "mtime_utc": "2026-10-31T01:13:41.718346+00:00",
+        "mode": 420,
+        "head_sha256": "2ef6e7b6656ca26939e652c3310a0f77a3f05d2fdd4106277e3b7a7731563e31",
+        "equals_head": true
+      },
+      {
+        "path": "culturemech.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "315ed9b4b3969c8f9b81f3397968dfc7391eb4768659dbd7efd6e0d991f57cdf",
+        "size_bytes": 11113,
+        "mtime_ns": 1793409221714669002,
+        "mtime_utc": "2026-10-31T01:13:41.714669+00:00",
+        "mode": 420,
+        "head_sha256": "315ed9b4b3969c8f9b81f3397968dfc7391eb4768659dbd7efd6e0d991f57cdf",
+        "equals_head": true
+      },
+      {
+        "path": "mediaingredientmech.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "fd284c9afedad0c26b08f38f81ea36476fa519d9eb9123f7175577cd141037af",
+        "size_bytes": 12209,
+        "mtime_ns": 1793409221717809669,
+        "mtime_utc": "2026-10-31T01:13:41.717810+00:00",
+        "mode": 420,
+        "head_sha256": "fd284c9afedad0c26b08f38f81ea36476fa519d9eb9123f7175577cd141037af",
+        "equals_head": true
+      },
+      {
+        "path": "communitymech.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "97d543c2e4992a19567ae8b4ce15dcec9acc2685f80f8d43d6da1205efa39bdd",
+        "size_bytes": 12861,
+        "mtime_ns": 1793409221713379777,
+        "mtime_utc": "2026-10-31T01:13:41.713380+00:00",
+        "mode": 420,
+        "head_sha256": "97d543c2e4992a19567ae8b4ce15dcec9acc2685f80f8d43d6da1205efa39bdd",
+        "equals_head": true
+      },
+      {
+        "path": "CLAUDE.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "6e4394b79b95348ac3191fe1378a64e91bc6c40763f8a483ac9e6e0263261182",
+        "size_bytes": 16902,
+        "mtime_ns": 1793409221654722746,
+        "mtime_utc": "2026-10-31T01:13:41.654723+00:00",
+        "mode": 420,
+        "head_sha256": "6e4394b79b95348ac3191fe1378a64e91bc6c40763f8a483ac9e6e0263261182",
+        "equals_head": true
+      },
+      {
+        "path": "_fleet/README.md",
+        "exists": true,
+        "kind": "regular file",
+        "sha256": "05fb902e6de7448d0637c3980e0eb1b42dc1029935f72a95d112193c6ac81f41",
+        "size_bytes": 35397,
+        "mtime_ns": 1793409221655697509,
+        "mtime_utc": "2026-10-31T01:13:41.655698+00:00",
+        "mode": 420,
+        "head_sha256": "05fb902e6de7448d0637c3980e0eb1b42dc1029935f72a95d112193c6ac81f41",
+        "equals_head": true
+      }
+    ],
+    "cell_asset_integrity": {
+      "checked": 342,
+      "mismatches": []
+    },
+    "search": {
+      "command": [
+        "rg",
+        "-n",
+        "-uu",
+        "--hidden",
+        "--glob",
+        "!.git/**",
+        "xmech-refresh-20261030|build_snapshot_20261030|inspect_secondary_20261030",
+        "."
+      ],
+      "cwd": "/Users/marcin/Documents/newera/CultureBotAI/CultureBotAI.github.io",
+      "ignored_and_hidden_included": true,
+      "scope": "All text files in the protected repository, excluding .git storage; no machine-wide absence claim. Snapshot directory listings independently include hidden entries.",
+      "matches": [
+        "./scripts/adhoc/build_snapshot_20261030.py:11:Branch:  update/xmech-refresh-20261030",
+        "./scripts/adhoc/build_snapshot_20261030.py:30:    \"/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030\"",
+        "./scripts/adhoc/inspect_secondary_20261030.py:10:Branch:  update/xmech-refresh-20261030",
+        "./scripts/adhoc/inspect_secondary_20261030.py:31:    \"/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261030\""
+      ]
+    },
+    "stage_assessment": {
+      "derived_pipeline": "All six derived summaries have changed; five recorded pin maps agree and match the saved snapshot manifest. Saved logs and asset hashes support persisted completion, not a fresh scientific validation.",
+      "manifest": "Working manifest equals HEAD; identical CLAW pins can legitimately leave refresh_manifest with no content delta.",
+      "hand_curated_and_provenance": "Maintained cards, graph claims, audit notes, final site audit and repeated prose remain byte-identical to HEAD; no completed final refresh is persisted here.",
+      "assembly": "mechs.md equals HEAD while its derived inputs changed, so the refreshed inputs have not been assembled into the protected page.",
+      "features": "site_features.json equals HEAD; no new website-feature audit is inferred.",
+      "snapshot_reuse": "The named snapshot's Mech directory has no entries, including hidden entries; its revisions and logs survive, but the Mech clones would need reconstruction before a rerun.",
+      "execution": "Neither untracked helper was run, imported or modified. No check writes to the protected checkout or calls the network."
+    }
+  }
+}

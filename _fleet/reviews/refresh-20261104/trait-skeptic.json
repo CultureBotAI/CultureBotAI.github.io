@@ -1,0 +1,665 @@
+{
+  "reviewer": "independent skeptic",
+  "checked_at": "2026-11-04T11:44:33.708774+00:00",
+  "pin": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+  "deployed_revision": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+  "observation_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/trait-skeptic-observations.json",
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "Browse searches all 1,130 records. METPO:1000801 and traitmech:000048 each return one linked record; aerobic respiration returns 14 linked matches.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/search",
+      "prior_verbatim": "Browse searches all 1,130 live records: METPO:1004002 and traitmech:000616 each return one record; bipolar mating system returns two linked matches.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+        "locator": "label[for=record-query]; #record-count",
+        "excerpt": "1 of 1130 records shown"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Category and Kind filters apply to the full corpus. Clear all filters restores all 1,130 records.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/facets",
+      "prior_verbatim": "Browse provides Category and Kind selectors plus Clear filters across all 1,130 records, restoring all 1,130 on reset.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+        "locator": "#record-category; #record-kind; #facet-clear-btn",
+        "excerpt": "1130 of 1130 records shown"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The count updates with search and filters: pathogen gives nine matches; ECOLOGY and CLASS narrow that to eight of 1,130 records.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/result_counts",
+      "prior_verbatim": "The live count updates with text and property filters: identifiers give 1 of 1,130 records shown and pathogen plus ECOLOGY and CLASS gives 6 of 1,130.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS",
+        "locator": "#record-count",
+        "excerpt": "8 of 1130 records shown"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "Browse sorts by label in either direction, identifier, category, kind, kg-microbe node count, or synonym count.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/sorting",
+      "prior_verbatim": "pages/browse.html supports sorting by trait name, category, curation status, ontology grounding, and causal graph presence.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+        "locator": "#record-sort option",
+        "excerpt": "Label (A\u2013Z); Label (Z\u2013A); Identifier (A\u2013Z); Category; Kind; kg-microbe nodes (high\u2013low); Synonyms (high\u2013low)"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Search, category, kind and sort are encoded in the URL and restored on reload; pathogen with ECOLOGY and CLASS restores eight matches.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS&sort=label-desc",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/shareable_state",
+      "prior_verbatim": "Search, category and kind are written to the URL. Reloading ?q=pathogen&category=ECOLOGY&kind=CLASS restores all controls and six matching records.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS&sort=label-desc",
+        "locator": "#record-filters after reload",
+        "excerpt": "8 of 1130 records shown"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "Browse contains 1,130 distinct linked record rows, matching the landing count and complete JSON export.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/full_catalogue",
+      "prior_verbatim": "Browse exposes all 1,130 linked record rows, matching the landing total. Ten category cards lead to subsets of that same listing.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+        "locator": "#record-table tbody tr td:first-child a",
+        "excerpt": "1130 of 1130 records shown"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Each of the 1,130 records has a stable page under pages/traits/<category>/<slug>.html. At the pin, 761 records contain causal graphs.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/record_pages",
+      "prior_verbatim": "1,130 static pages under pages/traits/<category>/<slug>.html with overview, ontology grounding, genetic basis, causal graphs (748 records), assays, and references.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+        "locator": "h1; source card",
+        "excerpt": "data/traits/ecology/animal_pathogen.yaml"
+      }
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "The Cross-references section now links GO:0009060 to Amigo, but shows no readable term label beside that CURIE. Main graph and parent terms have labels and links.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/aerobic_respiration.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/term_links",
+      "prior_verbatim": "Record identifiers have readable labels and METPO resolver links, but aerobic respiration\u2019s Cross-references section still presents GO:0009060 as plain text; graph groundings are not consistently linked.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/aerobic_respiration.html",
+        "locator": ".xrefs",
+        "excerpt": "<a href=\"https://amigo.geneontology.org/amigo/term/GO:0009060\" rel=\"nofollow noreferrer\"><code>GO:0009060</code></a>"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Trait and causal-edge citations on the checked record pages link to DOI or PMID sources and display supporting text.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/aerobic_respiration.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/evidence",
+      "prior_verbatim": "Animal pathogen and aerobic respiration link their trait and causal-edge DOI citations, with supporting text displayed alongside the evidence.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/aerobic_respiration.html",
+        "locator": "Trait evidence; Edge evidence",
+        "excerpt": "DOI:10.1146/annurev.biophys.27.1.329"
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Record headers and Identifier cards display curation status. The complete corpus includes REVIEWED, PROPOSED, SEEDED and DEPRECATED records.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/review_status",
+      "prior_verbatim": "Record headers and Identifier cards display workflow status, including REVIEWED on animal pathogen. Browse retains the complete corpus across REVIEWED, PROPOSED, SEEDED and DEPRECATED records.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+        "locator": "header; Identifier card",
+        "excerpt": "METPO:1004002 \u00b7 CLASS \u00b7 REVIEWED"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Curation history shows dated actions, curator identifiers and change summaries; some records also link detailed curation-session sidecars.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/curation_history",
+      "prior_verbatim": "The checked trait pages display dated curation events, attributed curators and change summaries. Some records additionally link recorded curation-session sidecars.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+        "locator": "Curation history",
+        "excerpt": "2026-05-11T23:15:00-07:00 \u00b7 CURATED_CAUSAL_GRAPH \u00b7 claude"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Record Source cards link the record\u2019s own YAML on GitHub, its raw file and its edit page.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/source_link",
+      "prior_verbatim": "Record Source cards link View YAML on GitHub, Raw YAML and Edit on GitHub for the record\u2019s own data/traits file.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+        "locator": "Source card",
+        "excerpt": "View YAML on GitHub"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Text, PaCMAP and graph-layout views each render 1,130 trait points; the sequence map renders 156 protein points. Sampled record pages render causal diagrams; 761 pinned records carry graphs.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/domain_view",
+      "prior_verbatim": "Record pages render causal SVG/Mermaid diagrams across 748 causal-graph-bearing traits; pages/umap.html and pages/map.html render 2D embedding scatters of all 1,130 trait records, and pages/sequence-map.html renders an ESM-2 protein sequence embedding map (156 trait-associated proteins).",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+        "locator": "#umap-plot svg circle",
+        "excerpt": "1130 records loaded."
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "Wood\u2013Ljungdahl links to PathwayMech\u2019s Acetogenesis record. Its context describes organism scope and retains the source revision.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/cross_mech_links",
+      "prior_verbatim": "Wood\u2013Ljungdahl\u2019s Pathway context links directly to PathwayMech WikiPathways:WP5019, whose Acetogenesis page opens successfully. The source page states organism scope and its pinned PathwayMech revision.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html",
+        "locator": "Pathway context",
+        "excerpt": "WikiPathways:WP5019"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing shows 1,130 trait records, ten categories and 100.0% embedding coverage. It does not display the reviewed-record or causal-graph totals.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/corpus_stats",
+      "prior_verbatim": "Home page reports 1,130 trait records (427 REVIEWED) across 10 populated categories, 748 records with causal graphs, and 100.0% embedding coverage (1,130 embedded traits).",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "locator": ".stats",
+        "excerpt": "1130\nTRAIT RECORDS\n10\nCATEGORIES\n100.0%\nEMBEDDED"
+      }
+    },
+    "category_browse": {
+      "status": "present",
+      "note": "Browse links ten category pages; ECOLOGY has 40 records and QUANTITATIVE_PROPERTY has seven.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/category_browse",
+      "prior_verbatim": "Browse links ten category pages with counts, including ECOLOGY with 29 records and QUANTITATIVE_PROPERTY with seven.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+        "locator": "category tiles; linked category/ecology.html",
+        "excerpt": "ECOLOGY"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "All Mech projects links to the suite directory from the landing, Browse, categories, sampled records, all four visualizations and discussions.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/suite_nav",
+      "prior_verbatim": "All Mech projects visibly links the landing, Browse, sampled categories and records, both embedding views and the linked app/discussions index to the X-Mech Suite directory.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "locator": "a[href=\"https://culturebotai.github.io/mechs/\"]",
+        "excerpt": "All Mech projects"
+      }
+    },
+    "downloads": {
+      "status": "present",
+      "note": "The landing links the complete traits.json export, which returns all 1,130 records; maps also offer CSV exports.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/downloads",
+      "prior_verbatim": "Site provides bulk JSON/CSV corpus exports (pages/data/traits.json, map CSV of all 1,130 embedded traits) and per-record GitHub YAML links.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "locator": "Download traits.json link",
+        "excerpt": "Download traits.json \u2192"
+      }
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "Navigation and footers now link the LinkML schema YAML directly. They do not link a rendered schema documentation page.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/schema_docs",
+      "prior_verbatim": "The landing describes source code, data and schema but points to the repository root. Reviewed navigation does not expose LinkML schema documentation.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "locator": "Schema / LinkML schema links",
+        "excerpt": "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/schema/traitmech.yaml"
+      }
+    },
+    "license": {
+      "status": "present",
+      "note": "The checked pages consistently state CC BY 4.0 data and BSD-3-Clause code, matching LICENSE-DATA and LICENSE-CODE.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/license",
+      "prior_verbatim": "Site footer declares BSD-3-Clause code and CC-BY-4.0 data licensing.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "locator": "footer; LICENSE@pin",
+        "excerpt": "Project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply"
+      }
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "The site states its corpus date; record pages state their record date, separately from the METPO source release.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/build_provenance",
+      "prior_verbatim": "Browse and map footers state the corpus build timestamp, the METPO baseline, 1,130 TraitRecords, and 100.0% embedding coverage.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+        "locator": "footer",
+        "excerpt": "Corpus as of 2026-10-31 20:55 UTC"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Selecting dark on the landing persists across Browse, categories, sampled records, all four visualizations and discussions in the same browser context.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/theme_toggle",
+      "prior_verbatim": "Selecting dark on the landing persists through Browse, both sampled categories, three records, PaCMAP, graph-layout and the linked app/discussions index in the same browser context.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "locator": ".theme-toggle; html[data-theme]",
+        "excerpt": "dark"
+      }
+    },
+    "responsive": {
+      "status": "partial",
+      "note": "Text and sequence maps overflow on fresh 390px loads (553px document width), and after resizing from 1280px (793px). Landing, Browse, sampled records/categories, PaCMAP, graph layout and discussions fit.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/responsive",
+      "prior_verbatim": "Fresh 390px loads fit the reviewed landing, Browse, categories, records, discussions index and both maps. Resizing either map from 1280px to 390px leaves the document 1,133px wide.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+        "locator": "document.documentElement.scrollWidth at viewport390",
+        "excerpt": "553"
+      }
+    },
+    "load_failure": {
+      "status": "present",
+      "note": "Aborted JSON requests in all four visualizations show an explicit unavailable/error state and Retry. Blocking discussions data.js shows Discussion counts unavailable, an error and Retry loading discussions.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/TraitMech/features/load_failure",
+      "prior_verbatim": "Aborting each map\u2019s JSON request produces explicit Unavailable and Map data could not be loaded text with Retry and Browse alternatives. Aborting app/discussions/data.js gives Discussion counts unavailable, Discussions could not be loaded and Retry loading discussions.",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+        "locator": "#map-status after aborting data JSON",
+        "excerpt": "Map data could not be loaded. Retry, or use Browse to read the trait records."
+      }
+    }
+  },
+  "hand_claims": [
+    {
+      "locators": [
+        "_fleet/audit_notes.json#/notes/TraitMech",
+        "resources.md section TraitMech - Microbial Ecophysiological Traits",
+        "_fleet/README.md sentence beginning contains 1,130 records"
+      ],
+      "old_excerpts": [
+        "The README and corpus contain 748 records with causal graphs.",
+        "427 are marked REVIEWED and 748 carry causal graphs.",
+        "contains 1,130 records with 100.0% embedding coverage and 748 graph-bearing records."
+      ],
+      "replacements": [
+        "The README and corpus contain 761 records with causal graphs.",
+        "427 are marked REVIEWED and 761 carry causal graphs.",
+        "contains 1,130 records with 100.0% embedding coverage and 761 graph-bearing records."
+      ],
+      "reason": "Causal-graph-bearing records rose to761; all1130 YAML records independently parsed.",
+      "evidence": {
+        "source": "README.md@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:37",
+        "excerpt": "Across the corpus, 761 records currently carry causal graphs. The 50 deprecated"
+      }
+    },
+    {
+      "locators": [
+        "_fleet/mechs_template.md article[data-mech=\"TraitMech\"]",
+        "_fleet/fleet_fragment.html MECHS.TraitMech",
+        "index.md suite count",
+        "resources.md TraitMech paragraph"
+      ],
+      "action": "retain1130records/10categories/427reviewed and vocabulary chips",
+      "evidence": {
+        "source": "README.md@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:29",
+        "excerpt": "| **TOTAL** | **427** | **615** | **50** | **761** | **1130** |"
+      },
+      "derived": {
+        "records": 1130,
+        "statuses": {
+          "REVIEWED": 427,
+          "PROPOSED": 615,
+          "SEEDED": 38,
+          "DEPRECATED": 50
+        },
+        "categories": {
+          "ECOLOGY": 40,
+          "ENVIRONMENT": 122,
+          "GENOMICS": 387,
+          "METABOLISM": 180,
+          "MORPHOLOGY": 129,
+          "OBSERVATION": 20,
+          "OTHER": 32,
+          "PHYSIOLOGY": 205,
+          "QUANTITATIVE_PROPERTY": 7,
+          "UPPER": 8
+        },
+        "records_with_causal_graphs": 761,
+        "vocabulary_record_counts": {
+          "METPO": 1097,
+          "GO": 329,
+          "NCBITaxon": 579,
+          "CHEBI": 215,
+          "UniProtKB": 226,
+          "PATO": 49
+        },
+        "pathway_links": [
+          {
+            "source": "data/traits/ecology/free_living.yaml",
+            "graph_id": "free_living_environmental_habitat",
+            "node_id": "ectoine_biosynthesis",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:P101-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: ectoine biosynthesis in Halomonas elongata (NCBITaxon:2746). The shared route synthesizes ectoine through EctB, EctA and EctC. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/ecology/free_living.yaml",
+            "graph_id": "free_living_environmental_habitat",
+            "node_id": "trehalose_biosynthesis",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:TRESYN-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: trehalose biosynthesis I in Escherichia coli (NCBITaxon:562). The linked OtsA/OtsB route illustrates trehalose synthesis only; it does not cover the transport component of this node. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/environment/salinity_phenotype_with_numerical_limits.yaml",
+            "graph_id": "salinity_phenotype_numerical_axis",
+            "node_id": "proline_biosynthesis_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:PROSYN-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: L-proline biosynthesis I (from L-glutamate) in Escherichia coli (NCBITaxon:562). The linked route synthesizes L-proline from L-glutamate through the ProB/ProA/ProC enzyme sequence. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/metabolism/acetogenesis.yaml",
+            "graph_id": "acetogenesis_wood_ljungdahl",
+            "node_id": "wood_ljungdahl_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "WikiPathways:WP5019",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: Acetogenesis in Acetobacterium woodii (NCBITaxon:33952). The shared reductive acetyl-CoA route combines methyl and carbonyl branches for acetogenesis; the bacterial exemplar does not establish archaeal variants. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/metabolism/carbon_fixation.yaml",
+            "graph_id": "carbon_fixation_co2_assimilation",
+            "node_id": "wood_ljungdahl_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "WikiPathways:WP5019",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: Acetogenesis in Acetobacterium woodii (NCBITaxon:33952). The shared reductive acetyl-CoA route combines methyl and carbonyl branches for acetogenesis; the bacterial exemplar does not establish archaeal variants. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/metabolism/homoacetogenesis.yaml",
+            "graph_id": "homoacetogenesis_wood_ljungdahl_acetate",
+            "node_id": "wood_ljungdahl_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "WikiPathways:WP5019",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: Acetogenesis in Acetobacterium woodii (NCBITaxon:33952). The shared reductive acetyl-CoA route combines methyl and carbonyl branches for acetogenesis; the bacterial exemplar does not establish archaeal variants. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/metabolism/substrate_level_phosphorylation.yaml",
+            "graph_id": "substrate_level_phosphorylation_direct_atp",
+            "node_id": "acka_pta_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:PWY0-1312",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: acetate and ATP formation from acetyl-CoA I in Thermotoga maritima (NCBITaxon:2336). The linked route explicitly contains phosphate acetyltransferase and acetate kinase and produces ATP through acetyl phosphate. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/metabolism/substrate_level_phosphorylation.yaml",
+            "graph_id": "substrate_level_phosphorylation_direct_atp",
+            "node_id": "carbamate_kinase_arginine_deiminase",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:ARGDEGRAD-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: L-arginine degradation V (arginine deiminase pathway) in Halobacterium salinarum (NCBITaxon:2242). The linked arginine deiminase route contains the ATP-forming carbamate kinase step; it does not assert that the full pathway is equivalent to this enzyme node. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/metabolism/wood_ljungdahl_pathway.yaml",
+            "graph_id": "wood_ljungdahl_reductive_acetyl_coa",
+            "node_id": "wood_ljungdahl_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "WikiPathways:WP5019",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: Acetogenesis in Acetobacterium woodii (NCBITaxon:33952). The shared reductive acetyl-CoA route combines methyl and carbonyl branches for acetogenesis; the bacterial exemplar does not establish archaeal variants. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/morphology/pigmentation.yaml",
+            "graph_id": "pigmentation_biosynthetic_colorants",
+            "node_id": "mva_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "gomodel:YeastPathways_IPPSYN-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: mevalonate pathway in Saccharomyces cerevisiae S288C (NCBITaxon:559292). The shared mevalonate route supplies isoprenoid precursors; the yeast pathway is context for the route, not evidence for bacterial pigmentation. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/morphology/pigmentation.yaml",
+            "graph_id": "pigmentation_biosynthetic_colorants",
+            "node_id": "shikimate_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:ARO-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: chorismate biosynthesis I in Escherichia coli (NCBITaxon:562). The linked shikimate route terminates at chorismate; it provides precursor context, not a complete phenazine or pigment pathway. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/autotrophic.yaml",
+            "graph_id": "autotrophic_inorganic_carbon_fixation",
+            "node_id": "wood_ljungdahl_pathway",
+            "corpus": "PathwayMech",
+            "identifier": "WikiPathways:WP5019",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: Acetogenesis in Acetobacterium woodii (NCBITaxon:33952). The shared reductive acetyl-CoA route combines methyl and carbonyl branches for acetogenesis; the bacterial exemplar does not establish archaeal variants. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/catalase_activity.yaml",
+            "graph_id": "catalase_activity_h2o2_detoxification",
+            "node_id": "catalase",
+            "corpus": "PathwayMech",
+            "identifier": "gomodel:YeastPathways_DETOX1-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: superoxide radicals degradation in Saccharomyces cerevisiae S288C (NCBITaxon:559292). The linked model explicitly includes CTT1 (SGD:S000003320) catalase activity consuming hydrogen peroxide and producing water and dioxygen, downstream of superoxide dismutation. This link concerns that peroxide-removal component; it does not equate catalase with superoxide dismutase or extend the bacterial PerR/OxyR regulatory branches to yeast.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/catalase_activity.yaml",
+            "graph_id": "catalase_activity_h2o2_detoxification",
+            "node_id": "heme_biosynthesis",
+            "corpus": "PathwayMech",
+            "identifier": "gomodel:YeastPathways_HEME-BIOSYNTHESIS-II",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: heme b biosynthesis I (aerobic) in Saccharomyces cerevisiae S288C (NCBITaxon:559292). This is one aerobic heme b synthesis route supplying catalase cofactor context; alternative bacterial heme routes and PerR/OxyR regulation are outside the linked record. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/heterotrophic.yaml",
+            "graph_id": "heterotrophic_organic_carbon_assimilation",
+            "node_id": "glycolysis_ppp",
+            "corpus": "PathwayMech",
+            "identifier": "gomodel:YeastPathways_GLYCOLYSIS",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: glycolysis I (from glucose 6-phosphate) in Saccharomyces cerevisiae S288C (NCBITaxon:559292). This record covers only the glycolysis part of the composite node, beginning at glucose 6-phosphate. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/heterotrophic.yaml",
+            "graph_id": "heterotrophic_organic_carbon_assimilation",
+            "node_id": "glycolysis_ppp",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:OXIDATIVEPENT-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: pentose phosphate pathway (oxidative branch) I in Escherichia coli (NCBITaxon:562). This record covers the oxidative pentose phosphate branch of the composite node. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/heterotrophic.yaml",
+            "graph_id": "heterotrophic_organic_carbon_assimilation",
+            "node_id": "glycolysis_ppp",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:NONOXIPENT-PWY",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: pentose phosphate pathway (non-oxidative branch) I in Escherichia coli (NCBITaxon:562). This record covers the non-oxidative pentose phosphate branch of the composite node. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/heterotrophic.yaml",
+            "graph_id": "heterotrophic_organic_carbon_assimilation",
+            "node_id": "tca_cycle",
+            "corpus": "PathwayMech",
+            "identifier": "WikiPathways:WP296",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: TCA cycle - detailed in Saccharomyces cerevisiae (NCBITaxon:4932). The shared route is the oxidative tricarboxylic acid cycle; the linked yeast model is an example, not a universal microbial enzyme assignment. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          },
+          {
+            "source": "data/traits/physiology/heterotrophic.yaml",
+            "graph_id": "heterotrophic_organic_carbon_assimilation",
+            "node_id": "glyoxylate_cycle",
+            "corpus": "PathwayMech",
+            "identifier": "MetaCyc:GLYOXYLATE-BYPASS",
+            "relation": "PATHWAY_CONTEXT",
+            "basis": "PathwayMech context: glyoxylate cycle in Mycobacterium tuberculosis (NCBITaxon:1773). The shared route bypasses the decarboxylating TCA steps through isocitrate lyase and malate synthase. No exact equivalence or transfer of organism scope is asserted.",
+            "source_version": "aa305727458c44ab05614901334540e2c87a9f3a"
+          }
+        ],
+        "pathway_link_counts": {
+          "links": 19,
+          "nodes": 17,
+          "records": 11,
+          "targets": 15
+        },
+        "static_record_pages": 1130
+      }
+    },
+    {
+      "locators": [
+        "_fleet/fleet_fragment.html MECHS.TraitMech.root"
+      ],
+      "action": "retain TraitRecord",
+      "evidence": {
+        "source": "src/traitmech/schema/traitmech.yaml@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:65-66",
+        "excerpt": "  TraitRecord:\n    class_uri: traitmech:TraitRecord"
+      },
+      "qualification": "This schema does not declare tree_root; docs/SCHEMA.md names TraitRecord (root), and the validator explicitly selects TraitRecord."
+    },
+    {
+      "locators": [
+        "_fleet/fleet_fragment.html HUB TraitMech input",
+        "_fleet/mechs_template.md Explore TraitMech link"
+      ],
+      "action": "retain DeepWalk input and embedding-view claims",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "excerpt": "Interactive PaCMAP projections of full-corpus BGE-large text embeddings, ESM-2 protein sequence embeddings, and KG-Microbe deepwalk space."
+      }
+    },
+    {
+      "locators": [
+        "_fleet/fleet_fragment.html XREFS PathwayMech\u2192TraitMech",
+        "_fleet/mechs_template.md PathwayMech\u2192TraitMech"
+      ],
+      "action": "retain19links/17nodes/11records/15targets; repin current evidence locators",
+      "derived_counts": {
+        "links": 19,
+        "nodes": 17,
+        "records": 11,
+        "targets": 15
+      },
+      "evidence": {
+        "source": "data/traits/ecology/free_living.yaml@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:66-75",
+        "excerpt": "    - corpus: PathwayMech\n      identifier: MetaCyc:P101-PWY\n      relation: PATHWAY_CONTEXT"
+      }
+    },
+    {
+      "locators": [
+        "_fleet/fleet_fragment.html XREFS CommunityMech\u2192TraitMech",
+        "_fleet/mechs_template.md CommunityMech\u2192TraitMech"
+      ],
+      "action": "retain port and proposal-cohort separation claims",
+      "evidence": {
+        "source": "scripts/research_trait_edison.py@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:7-8",
+        "excerpt": "response provenance. This is the TraitMech port of CommunityMech's\n``research_community_edison.py``."
+      }
+    },
+    {
+      "locators": [
+        "_fleet/fleet_fragment.html XREFS ProteinTraitsMech\u2192TraitMech",
+        "_fleet/mechs_template.md ProteinTraitsMech\u2192TraitMech"
+      ],
+      "action": "retain catalogue/validator port and required-license claim",
+      "evidence": {
+        "source": "scripts/check_sources.py@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:42",
+        "excerpt": "REQUIRED = (\"url\", \"name\", \"source\", \"license\", \"status\")"
+      }
+    },
+    {
+      "locators": [
+        "_fleet/fleet_fragment.html XREFS CultureMech\u2192TraitMech and MediaIngredientMech\u2192TraitMech",
+        "_fleet/mechs_template.md corresponding paired entries"
+      ],
+      "action": "retain port provenance; broad writer-coverage wording requires fleet-wide writer audit rather than assuming from docstring",
+      "evidence": {
+        "source": "src/traitmech/validation/write_validated.py@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:39-40",
+        "excerpt": "Ported from CultureMech's ``src/culturemech/validation/write_validated.py``\n(by way of MediaIngredientMech's ``write_validated_ingredient``). The"
+      }
+    },
+    {
+      "locators": [
+        "_fleet/mechs_template.md license bullet",
+        "_fleet/fleet_fragment.html MECHS.TraitMech.license",
+        "resources.md TraitMech license"
+      ],
+      "action": "retain data CC BY4.0/code BSD3",
+      "evidence": {
+        "source": "LICENSE@c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6:4-9",
+        "excerpt": "data exports, are licensed under Creative Commons Attribution 4.0\nInternational (CC-BY-4.0). See LICENSE-DATA."
+      }
+    }
+  ],
+  "rubric_disagreement": {
+    "feature": "schema_docs",
+    "initial_auditor": "present",
+    "skeptic": "partial",
+    "basis": "Direct schema YAML is available; documentation criterion and root-stated PR503 precedent require partial without a rendered documentation link.",
+    "resolution": "Auditor agreed to partial; root accepted partial under the documentation criterion."
+  },
+  "scope_limits": [
+    "Cross-references whose decisive evidence belongs to another Mech, and global orchestration claims, remain with the fleet-wide source audit; this canary does not independently clear those other corpora.",
+    "Static page count verified from complete pinned Git tree;13 live routes exercised. This is not a crawl of all1130 HTTP record URLs.",
+    "Search for absent rendered schema links uses all anchors on13 reviewed live routes and complete pinned Git tree; ignores cannot hide tracked site assets. No claim of absence from every untracked source file is made."
+  ],
+  "canary_assessment": "The independent procedure supports all24 verdicts, exact source pin and served deployment. Compact auditor ledger must preserve unique locators, verbatim old claims, evidence excerpts and in-place replacements before fanout.",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/trait-skeptic.json",
+    "sha256": "ca9d390272cf7eb788dfb887634ac54dbdfa6a0926aebce9f072ad94aff70816",
+    "bytes": 41126
+  }
+}

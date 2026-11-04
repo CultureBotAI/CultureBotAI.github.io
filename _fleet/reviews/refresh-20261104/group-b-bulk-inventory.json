@@ -1,0 +1,296 @@
+{
+  "CultureMech": {
+    "url": "https://culturebotai.github.io/CultureMech/app/recipes.json",
+    "structure": {
+      "length": 15915,
+      "first_item_fields": [
+        "id",
+        "name",
+        "category",
+        "description",
+        "medium_type",
+        "physical_state",
+        "high_metal",
+        "high_ree",
+        "target_organism_names",
+        "organism_culture_type",
+        "organism_ids",
+        "ingredient_names",
+        "applications",
+        "sterilization_method",
+        "media_database",
+        "media_database_id",
+        "num_ingredients",
+        "num_solutions",
+        "num_preparation_steps",
+        "source_file",
+        "html_page",
+        "ph_value",
+        "ph_range"
+      ]
+    }
+  },
+  "CommunityMech": {
+    "url": "https://culturebotai.github.io/CommunityMech/communities.json",
+    "structure": {
+      "length": 485,
+      "first_item_fields": [
+        "id",
+        "name",
+        "description",
+        "ecological_state",
+        "community_category",
+        "member_count",
+        "metals_present",
+        "rare_earth_elements_present",
+        "metal_relevance"
+      ]
+    }
+  },
+  "MediaIngredientMech": {
+    "url": "https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json",
+    "structure": {
+      "metadata": {
+        "generated": "str",
+        "total_ingredients": "int",
+        "mapped_count": "int",
+        "unmapped_count": "int",
+        "status_counts": "dict",
+        "version": "str"
+      },
+      "ingredients": {
+        "length": 2956,
+        "first_item_fields": [
+          "id",
+          "record_id",
+          "preferred_term",
+          "mapping_status",
+          "ontology_id",
+          "ontology_label",
+          "ontology_source",
+          "mapping_quality",
+          "synonyms",
+          "synonym_count",
+          "total_occurrences",
+          "media_count",
+          "last_curated",
+          "curator",
+          "source_file",
+          "detail_page",
+          "searchable"
+        ]
+      }
+    }
+  },
+  "ProteinTraitsMech": {
+    "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json",
+    "structure": {
+      "total": "int",
+      "counts": {
+        "axes": {
+          "FUNCTION": 163527,
+          "SEQUENCE": 147149,
+          "STRUCTURE": 118338,
+          "SEQUENCE_STRUCTURE": 392,
+          "EVOLUTION": 15
+        },
+        "categories": 63,
+        "sources": 34
+      },
+      "cube": {
+        "length": 137,
+        "first_item_fields": "list"
+      },
+      "shards": {
+        "length": 73,
+        "first_item_fields": [
+          "file",
+          "axis",
+          "categories",
+          "sources",
+          "statuses",
+          "count",
+          "bytes"
+        ]
+      },
+      "detailDir": "str",
+      "lookup": {
+        "directory": "str",
+        "buckets": "int",
+        "algorithm": "str"
+      }
+    },
+    "first_shard_descriptor": {
+      "file": "records.STRUCTURE.STRUCT_ACTIVE_SITE.json",
+      "axis": "STRUCTURE",
+      "categories": [
+        "STRUCT_ACTIVE_SITE"
+      ],
+      "sources": [
+        "LinkML LSF",
+        "M-CSA"
+      ],
+      "statuses": [
+        "PROPOSED",
+        "REVIEWED"
+      ],
+      "count": 1004,
+      "bytes": 319652
+    }
+  },
+  "DUFMech": {
+    "url": "https://culturebotai.github.io/DUFMech/index.json",
+    "structure": {
+      "families": {
+        "length": 8296,
+        "first_item_fields": [
+          "alphafold_models",
+          "candidate_reasons",
+          "characterization_status",
+          "context_evidence_count",
+          "cross_mech",
+          "curation_status",
+          "demotion_reasons",
+          "description",
+          "domain_architectures",
+          "interpro_id",
+          "known_evidence_count",
+          "matches",
+          "name",
+          "partial_evidence_count",
+          "pfam_id",
+          "proteins",
+          "proteomes",
+          "short_name",
+          "source_url",
+          "structures",
+          "taxa",
+          "unknown_status"
+        ]
+      },
+      "inputs": {
+        "cross_mech": "str",
+        "members": "str",
+        "protein_examples": "str",
+        "worklist": "str"
+      },
+      "metadata": {
+        "records": 8296,
+        "PF04149": {
+          "curation_status": "str",
+          "history": {
+            "length": 7,
+            "first_item_fields": [
+              "action",
+              "agent",
+              "curator",
+              "description",
+              "event_index",
+              "history_record",
+              "llm_assisted",
+              "local_source",
+              "outcome",
+              "source_path",
+              "summary",
+              "timestamp",
+              "url"
+            ]
+          },
+          "local_source": "str",
+          "record": {
+            "causal_graphs": "list",
+            "characterization_status": "str",
+            "counters": "dict",
+            "curation_events": "list",
+            "curation_history": "str",
+            "curation_status": "str",
+            "description": "str",
+            "id": "str",
+            "interpro_id": "str",
+            "name": "str",
+            "pfam_id": "str",
+            "provenance": "dict",
+            "seed_status": "str",
+            "short_name": "str",
+            "source_url": "str"
+          },
+          "reviews": {
+            "length": 6,
+            "first_item_fields": [
+              "label",
+              "local_source",
+              "scientific_review",
+              "scope",
+              "url"
+            ]
+          },
+          "source": {
+            "commit": "str",
+            "path": "str",
+            "repository": "str",
+            "sha256": "str"
+          }
+        }
+      },
+      "provenance": {
+        "artifact_sha256": "dict",
+        "build_id": "str",
+        "cross_mech": "dict",
+        "inputs": "dict",
+        "members": "dict",
+        "protein_examples": "dict",
+        "record_count": "int",
+        "renderer_sha256": "str",
+        "retained_reviews": "list",
+        "schema": "dict",
+        "shared_schema": "dict",
+        "worklist": "dict"
+      },
+      "summary": {
+        "keys": [
+          "by_candidate_reason",
+          "by_characterization_status",
+          "by_demotion_reason",
+          "by_unknown_status",
+          "cross_mech",
+          "families",
+          "top_by_proteins"
+        ]
+      }
+    }
+  },
+  "CMMMech": {
+    "url": "https://culturebotai.github.io/CMMMech/pages/index.json",
+    "structure": {
+      "length": 678,
+      "first_item_fields": [
+        "slug",
+        "name",
+        "material_kind",
+        "is_critical",
+        "criticality",
+        "mechanisms_count",
+        "processes",
+        "organisms",
+        "page"
+      ]
+    }
+  },
+  "AIMech": {
+    "url": "https://culturebotai.github.io/AIMech/pages/index.json",
+    "structure": {
+      "length": 1929,
+      "first_item_fields": [
+        "id",
+        "slug",
+        "name",
+        "origin",
+        "kind",
+        "branches",
+        "page",
+        "claims_count",
+        "sources_count"
+      ]
+    }
+  }
+}

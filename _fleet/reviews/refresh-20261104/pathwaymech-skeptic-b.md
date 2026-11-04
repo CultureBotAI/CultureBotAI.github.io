@@ -1,0 +1,26 @@
+# PathwayMech independent review — 2026-11-04
+
+- search: **present**. Independent identifier, label and unmatched queries were executed; their live counts and result rows are retained.
+- facets: **present**. Property-filter selection, combination with search and reset were independently exercised.
+- result_counts: **present**. Observed counts respond to queries and facets and are distinct from the total.
+- sorting: **present**. Each available sort option was selected, with URL/control state and first result rows retained.
+- shareable_state: **present**. A combined query/filter/sort view was reloaded and its controls and matching count compared.
+- full_catalogue: **present**. The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.
+- record_pages: **present**. Multiple stable individual record URLs opened successfully from a fresh browser navigation.
+- term_links: **partial**. The components/edges sections contain unlinked CURIEs, despite working protein source links.
+- evidence: **present**. Sampled record references include working-format PMID/DOI/source URL anchors rather than only database navigation.
+- review_status: **missing**. Record views show pathway metadata and curation events but no overall review/workflow state.
+- curation_history: **present**. Sampled records show dated curation-event sections with attribution and action text.
+- source_link: **present**. Sampled record pages link their own YAML source file rather than just the repository root.
+- domain_view: **present**. Domain figures or maps rendered in the independently opened routes, with data-bearing visuals.
+- cross_mech_links: **missing**. Sampled records link external ontology/protein sources but no specific sibling Mech record.
+- corpus_stats: **present**. The generated landing figures were read from the browser and compared with the audited corpus counts.
+- category_browse: **partial**. Types are Browse filters rather than linked category pages; several option labels are edge-count fragments.
+- suite_nav: **present**. Visible suite-directory links occur in the reviewed navigation or footer.
+- downloads: **present**. Substantive KGX nodes and edges export the full 280-pathway corpus, including source_records, description, evidence, reference_metadata and endpoint_qualifiers. Root arbitration accepts this scientific export; lossless YAML/history serialization is not required.
+- schema_docs: **partial**. Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.
+- license: **partial**. Landing names CC BY data; Browse and sampled record pages do not state both project data and code licenses.
+- build_provenance: **partial**. A corpus hash is available but does not date the build or records.
+- theme_toggle: **present**. Dark was selected and independently carried across the valid reviewed routes.
+- responsive: **present**. Every valid reviewed route was checked at fresh and resized 390px; none exceeded the viewport.
+- load_failure: **not_applicable**. Reviewed pages and maps use embedded data; no catalogue fetch/XHR to block was observed.

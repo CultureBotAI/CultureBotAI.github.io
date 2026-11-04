@@ -1,0 +1,160 @@
+{
+  "started_at_utc": "2026-11-04T11:34:24.677083+00:00",
+  "completed_at_utc": "2026-11-04T11:34:25.626729+00:00",
+  "query": "query {r0:repository(owner:\"CultureBotAI\",name:\"CultureMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r1:repository(owner:\"CultureBotAI\",name:\"MediaIngredientMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r2:repository(owner:\"CultureBotAI\",name:\"CommunityMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r3:repository(owner:\"CultureBotAI\",name:\"TraitMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r4:repository(owner:\"CultureBotAI\",name:\"proteintraitsmech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r5:repository(owner:\"CultureBotAI\",name:\"AntibioticMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r6:repository(owner:\"CultureBotAI\",name:\"CellStructureMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r7:repository(owner:\"CultureBotAI\",name:\"HabitatMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r8:repository(owner:\"CultureBotAI\",name:\"NaturalProductMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r9:repository(owner:\"CultureBotAI\",name:\"TaxonMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r10:repository(owner:\"CultureBotAI\",name:\"PathwayMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r11:repository(owner:\"CultureBotAI\",name:\"DUFMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r12:repository(owner:\"CultureBotAI\",name:\"CMMMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} r13:repository(owner:\"CultureBotAI\",name:\"AIMech\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}} claw:repository(owner:\"CultureBotAI\",name:\"culturebotai-claw\"){nameWithOwner defaultBranchRef{name target{oid ... on Commit{committedDate}}}}}",
+  "response": {
+    "data": {
+      "r0": {
+        "nameWithOwner": "CultureBotAI/CultureMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+            "committedDate": "2026-10-28T20:19:43Z"
+          }
+        }
+      },
+      "r1": {
+        "nameWithOwner": "CultureBotAI/MediaIngredientMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "0874614ea8a2a939c82707d19056b2208606c1b7",
+            "committedDate": "2026-11-04T10:33:23Z"
+          }
+        }
+      },
+      "r2": {
+        "nameWithOwner": "CultureBotAI/CommunityMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "a4e963e5bebc49fa7a9908ac441d003e3ad4a817",
+            "committedDate": "2026-11-04T09:42:48Z"
+          }
+        }
+      },
+      "r3": {
+        "nameWithOwner": "CultureBotAI/TraitMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+            "committedDate": "2026-11-04T10:36:45Z"
+          }
+        }
+      },
+      "r4": {
+        "nameWithOwner": "CultureBotAI/proteintraitsmech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "fa794e90b67bdafe7972f48c1288e0c939c53eea",
+            "committedDate": "2026-11-04T09:21:49Z"
+          }
+        }
+      },
+      "r5": {
+        "nameWithOwner": "CultureBotAI/AntibioticMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+            "committedDate": "2026-11-04T04:56:17Z"
+          }
+        }
+      },
+      "r6": {
+        "nameWithOwner": "CultureBotAI/CellStructureMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+            "committedDate": "2026-11-04T10:12:40Z"
+          }
+        }
+      },
+      "r7": {
+        "nameWithOwner": "CultureBotAI/HabitatMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+            "committedDate": "2026-11-04T07:37:29Z"
+          }
+        }
+      },
+      "r8": {
+        "nameWithOwner": "CultureBotAI/NaturalProductMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+            "committedDate": "2026-10-31T10:38:42Z"
+          }
+        }
+      },
+      "r9": {
+        "nameWithOwner": "CultureBotAI/TaxonMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+            "committedDate": "2026-11-04T10:10:05Z"
+          }
+        }
+      },
+      "r10": {
+        "nameWithOwner": "CultureBotAI/PathwayMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "bc9795173651f6b032afcdd7270228392dd5ff99",
+            "committedDate": "2026-11-04T09:13:48Z"
+          }
+        }
+      },
+      "r11": {
+        "nameWithOwner": "CultureBotAI/DUFMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+            "committedDate": "2026-10-31T02:35:01Z"
+          }
+        }
+      },
+      "r12": {
+        "nameWithOwner": "CultureBotAI/CMMMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+            "committedDate": "2026-11-04T10:58:23Z"
+          }
+        }
+      },
+      "r13": {
+        "nameWithOwner": "CultureBotAI/AIMech",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+            "committedDate": "2026-11-04T10:46:12Z"
+          }
+        }
+      },
+      "claw": {
+        "nameWithOwner": "CultureBotAI/culturebotai-claw",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "09b39ca8d0d1b7395249a1b3ae527ce36f7d8d7e",
+            "committedDate": "2026-11-04T06:39:27Z"
+          }
+        }
+      }
+    }
+  },
+  "manifest_sha256": "ffc1d462cdeac0f699fd24273ce66857856aa2f0ce07a25e93ec4a70e4c043fb"
+}

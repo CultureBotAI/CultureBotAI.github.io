@@ -1,0 +1,2188 @@
+{
+  "mech": "CMMMech",
+  "reviewer": "central_directory group B auditor",
+  "pin": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+  "started_at": "2026-11-04T11:48:54.156773+00:00",
+  "finished_at": "2026-11-04T11:51:00.840260+00:00",
+  "deployment_before": {
+    "id": 7544217498,
+    "sha": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "created_at": "2026-11-04T11:01:28Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T11:01:50Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 11:01:43 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:48:54 GMT"
+  },
+  "deployment_after": {
+    "id": 7544217498,
+    "sha": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "created_at": "2026-11-04T11:01:28Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T11:01:50Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 11:01:43 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:51:00 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "CHEBI:27638 and cmmmech:copper each return one linked material; Cobalt returns 23 of 678.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.search",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Kind, mechanism process and criticality filters have Clear filters. Element selects 66 records; adding bioleaching selects 15; reset restores all 678.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The count updates to one for identifier searches, 23 for Cobalt, 15 for bioleaching elements and zero for an unmatched query.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The browser offers Material name (A\u2013Z), Material name (Z\u2013A), Mechanisms (high\u2013low), Microbial agents (high\u2013low), Material kind (A\u2013Z), Criticality (critical first). Changing each option reorders the displayed results.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.sorting",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Cobalt with element, bioleaching, criticality and sort selections reloads from its URL with all controls restored and one matching record.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The complete browser and its machine-readable export cover 678 published records; sampled record links open successfully.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Browse and kind/process listings link stable materials/<slug>.html pages; cobalt and akaganeite opened successfully.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "term_links": {
+      "status": "present",
+      "note": "Sampled material identifiers and mechanism terms show readable labels with ChEBI, taxon and protein/ontology resolver links.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Sampled references link DOI or source URLs, and mechanism evidence points to the corresponding references.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      }
+    },
+    "review_status": {
+      "status": "missing",
+      "note": "Record headers show material kind and criticality; these and individual evidence labels do not state overall review status.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Sampled records include Curation History tables with timestamp, curator, action and summary.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Record source lines link the individual data/records YAML on GitHub.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "The mechanism graph renders 654 nodes and 970 edges; the text map retains 602 material points, a subset of the 678-record catalogue.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/graph.html",
+      "evidence": {
+        "locator": "receipts.domain_view",
+        "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+      }
+    },
+    "cross_mech_links": {
+      "status": "missing",
+      "note": "Record sections provide cross-Mech search links and site navigation, but the sampled pages do not link specific sibling records.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing reports 678 materials, 609 mechanisms, 500 materials with mechanisms and 90 designated critical materials across six kinds.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.corpus_stats",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      }
+    },
+    "category_browse": {
+      "status": "present",
+      "note": "Landing cards link six material-kind and process listings. Kind totals are 66 elements, 427 minerals, 111 secondary resources, 36 commodities, 31 primary resources and seven mineral groups.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html",
+      "evidence": {
+        "locator": "receipts.category_browse",
+        "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "Linked index.json covers all 678 catalogue entries but contains listing metadata and mechanism counts, not full mechanism evidence; map exports and individual YAML links are also available.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.downloads",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      }
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "Visible schema links open the LinkML YAML source. The previously recorded pages/schema.html documentation URL returns 404.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      }
+    },
+    "license": {
+      "status": "present",
+      "note": "Reviewed footers separately state CC BY 4.0 data and BSD-3-Clause code, consistent with the repository license policy.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "Footers now state 678 materials, 609 mechanisms, latest curation 2026-11-04 and corpus digest 0e188cbbc0a4.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Dark selected on the landing carries to Browse, kind, record, text-map and graph pages.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.theme_toggle",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      }
+    },
+    "responsive": {
+      "status": "partial",
+      "note": "At 390px, cobalt widens the document to 597px and akaganeite to 669px; both overflow on fresh and resized views.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "evidence": {
+        "locator": "receipts.responsive",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      }
+    },
+    "load_failure": {
+      "status": "not_applicable",
+      "note": "Reviewed listings, records and canvas visualizations embed their data; no fetch/XHR data request was observed to abort.",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.load_failure",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.search",
+      "before": {
+        "status": "present",
+        "note": "Client-side search on pages/browse.html and category pages matches material name, cmmmech: identifier, ChEBI/IMA/NCBITaxon CURIE, formula, critical status, and mechanism type across all 663 records.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "CHEBI:27638 and cmmmech:copper each return one linked material; Cobalt returns 23 of 678.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.facets",
+      "before": {
+        "status": "present",
+        "note": "Browse offers Material Kind, Mechanism Process, and Criticality selectors with Clear filters across all 663 materials.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Kind, mechanism process and criticality filters have Clear filters. Element selects 66 records; adding bioleaching selects 15; reset restores all 678.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.result_counts",
+      "before": {
+        "status": "present",
+        "note": "The live status line changes from 663 of 663 materials shown to the matching subset count for identifier searches and kind/process/criticality filters.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The count updates to one for identifier searches, 23 for Cobalt, 15 for bioleaching elements and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.sorting",
+      "before": {
+        "status": "present",
+        "note": "pages/browse.html supports sorting by material name, category, criticality, mechanism count, and curation status.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The browser offers Material name (A\u2013Z), Material name (Z\u2013A), Mechanisms (high\u2013low), Microbial agents (high\u2013low), Material kind (A\u2013Z), Criticality (critical first). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.shareable_state",
+      "before": {
+        "status": "present",
+        "note": "pages/browse.html synchronizes search, category, criticality, mechanism, and sort selections with URL query parameters via history.replaceState.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Cobalt with element, bioleaching, criticality and sort selections reloads from its URL with all controls restored and one matching record.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.full_catalogue",
+      "before": {
+        "status": "present",
+        "note": "Browse links all 663 record rows, matching the landing total and the 663 deployed record pages. The six kind listings partition the same 663 records.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 678 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.suite_nav",
+      "before": {
+        "status": "present",
+        "note": "All Mech projects visibly links to culturebotai.github.io/mechs/ in the footer of the landing, Browse, every kind and process page, and all 663 record pages.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.record_pages",
+      "before": {
+        "status": "present",
+        "note": "Each material has a static materials/<slug>.html page linked from Browse and the kind and process listings; cobalt, akaganeite, acanthite, uranium and fluorescent-lamp-phosphor opened at their own URLs.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Browse and kind/process listings link stable materials/<slug>.html pages; cobalt and akaganeite opened successfully.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.term_links",
+      "before": {
+        "status": "present",
+        "note": "Element and material records link labeled ChEBI, Pfam, InterPro, UniProt, and EC groundings, and organism entries show labels with NCBITaxon links to NCBI across the 663-record corpus.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled material identifiers and mechanism terms show readable labels with ChEBI, taxon and protein/ontology resolver links.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.evidence",
+      "before": {
+        "status": "present",
+        "note": "Reference entries across the 663 records link a DOI, PMID, or source URL, and evidence points jump to them in-page.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled references link DOI or source URLs, and mechanism evidence points to the corresponding references.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.review_status",
+      "before": {
+        "status": "missing",
+        "note": "Record headers show only kind and criticality badges. Evidence labels such as Support and Context_only and history actions do not state a record curation or review status.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "Record headers show material kind and criticality; these and individual evidence labels do not state overall review status.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.curation_history",
+      "before": {
+        "status": "present",
+        "note": "All 663 records show a Curation History table with timestamp, curator, action, and summary.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled records include Curation History tables with timestamp, curator, action and summary.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.source_link",
+      "before": {
+        "status": "present",
+        "note": "Each record's Record source line links its own data/records YAML on GitHub across all 663 materials.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Record source lines link the individual data/records YAML on GitHub.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.domain_view",
+      "before": {
+        "status": "present",
+        "note": "pages/graph.html renders an interactive Mechanism Network Graph connecting 653 nodes and 968 links across materials, microbes, and bioleaching/biomineralization mechanisms; pages/map.html renders an interactive 2D text embedding scatter of 602 materials.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The mechanism graph renders 654 nodes and 970 edges; the text map retains 602 material points, a subset of the 678-record catalogue.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+      },
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.cross_mech_links",
+      "before": {
+        "status": "missing",
+        "note": "Record pages link external resolvers and sources but no specific sibling-Mech or kg-microbe records. The footer links only sibling site roots and the kg-microbe repository.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "Record sections provide cross-Mech search links and site navigation, but the sampled pages do not link specific sibling records.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+      },
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.corpus_stats",
+      "before": {
+        "status": "present",
+        "note": "Home page reports 663 materials, 607 mechanisms, 499 materials with mechanisms, and 87 designated critical materials across 6 categories (412 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources, 7 mineral groups).",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The landing reports 678 materials, 609 mechanisms, 500 materials with mechanisms and 90 designated critical materials across six kinds.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.category_browse",
+      "before": {
+        "status": "present",
+        "note": "Landing cards open six kind and process listings with counts, search, and filters; the kind pages partition all 663 records (412 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources, 7 mineral groups).",
+        "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Landing cards link six material-kind and process listings. Kind totals are 66 elements, 427 minerals, 111 secondary resources, 36 commodities, 31 primary resources and seven mineral groups.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+      },
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.downloads",
+      "before": {
+        "status": "present",
+        "note": "Site provides bulk JSON exports (pages/index.json, pages/corpus_map.json, pages/graph_data.json) and per-record GitHub YAML links.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Linked index.json covers all 678 catalogue entries but contains listing metadata and mechanism counts, not full mechanism evidence; map exports and individual YAML links are also available.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.schema_docs",
+      "before": {
+        "status": "present",
+        "note": "pages/schema.html documents the CMMMech LinkML schema, classes, slots, and ontology prefixes.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/schema.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Visible schema links open the LinkML YAML source. The previously recorded pages/schema.html documentation URL returns 404.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.license",
+      "before": {
+        "status": "present",
+        "note": "Every page footer states data CC BY 4.0 and code BSD-3-Clause, linking the CC license and LICENSE-CODE, consistent with the repository license files. It does not mention third-party terms.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Reviewed footers separately state CC BY 4.0 data and BSD-3-Clause code, consistent with the repository license policy.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.build_provenance",
+      "before": {
+        "status": "partial",
+        "note": "Footers name scripts/render_pages.py but give no build date, commit or corpus version. Besides curation timestamps, only upstream dates appear: each reference has an access date, such as cobalt's ChEBI entry, 2026-10-06.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Footers now state 678 materials, 609 mechanisms, latest curation 2026-11-04 and corpus digest 0e188cbbc0a4.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.theme_toggle",
+      "before": {
+        "status": "present",
+        "note": "Dark chosen on the landing saved mech-theme=dark and persisted through Browse, kind, process and record pages via link clicks; every deployed page then opened dark with the toggle. Light persisted too.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Dark selected on the landing carries to Browse, kind, record, text-map and graph pages.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+      },
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.responsive",
+      "before": {
+        "status": "present",
+        "note": "Responsive CSS layout with mobile breakpoints and horizontally scrollable table containers across landing, Browse, kind/process pages, and record pages.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "At 390px, cobalt widens the document to 597px and akaganeite to 669px; both overflow on fresh and resized views.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+      },
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CMMMech.features.load_failure",
+      "before": {
+        "status": "not_applicable",
+        "note": "No page makes a fetch or XHR request; listings, search data and records are pre-rendered HTML. Aborting JSON, fetch and XHR matched nothing, and blocking record-browser.js leaves all static rows.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "not_applicable",
+        "note": "Reviewed listings, records and canvas visualizations embed their data; no fetch/XHR data request was observed to abort.",
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+      },
+      "evidence": "features.load_failure.evidence"
+    }
+  ],
+  "limits": [
+    "Representative route audit, not an HTTP crawl of every record. Complete counts are listing/export counts where stated.",
+    "Independent skeptic must verify all changed verdicts before editor applies them.",
+    "Supplemental cold-route, theme, download and schema evidence is recorded in group-b-supplement.json."
+  ],
+  "receipts": {
+    "search": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "query:cmmmech:000001": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=cmmmech%3A000001",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "0 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "cmmmech:000001"
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:Cobalt": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=Cobalt",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "23 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "Cobalt"
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 23,
+          "first_results": [
+            "Asbolane\n\nAsbolane is a hydrous manganese oxide mineral with variable associated hydroxide cations, listed as grandfathered with historical year 1841 in the September 2026 IMA-CNMNC list. Its listed formula is Mn4+(O,OH)2\u00b7(Co,Ni,Mg,Ca)x(OH)2x\u00b7nH2O. It is distinct from elemental manganese, cobalt and nickel, from lateritic ore, and from an arbitrary cobalt-doped birnessite preparation. The experiment below uses a synthetic Co/Ni-bearing powder that the source assigns to asbolane by XRD; no indepe",
+            "Birnessite\n\nBirnessite is a layered manganese oxide mineral, listed as grandfathered in the September 2026 IMA-CNMNC list with formula (Na,Ca,K)0.6(Mn4+,Mn3+)2O4(H2O)1.5. Its composition and polytype vary. It is distinct from elemental manganese, mixed manganese ore and nodules, the buserite precursor used to prepare some synthetic analogues, and manganese oxalate products. The mechanisms below concern separately prepared synthetic sodium and cobalt-bearing forms, and a source-assigned poorly cr",
+            "Carrollite\n\nCarrollite is the CuCo2S4 mineral species, listed as grandfathered with original-description year 1852 in the September 2026 IMA list. It is distinct from elemental cobalt or copper, dissolved metal ions, mixed cobalt-bearing ores and mine tailings. The evidence below concerns laboratory surface alteration of source-identified natural carrollite crystals in an acidophile culture system. It does not establish an isolated-metal recovery yield or industrial deployment. No criticality de"
+          ],
+          "error": null
+        },
+        "query:no-such-record-nov4-audit": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=no-such-record-nov4-audit",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "0 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:CHEBI:27638": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=CHEBI%3A27638",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "1 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "CHEBI:27638"
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 1,
+          "first_results": [
+            "Cobalt\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\n\tElement\tCritical\nEuropean Union Regulation (EU) 20"
+          ],
+          "error": null
+        },
+        "query:cmmmech:copper": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?q=cmmmech%3Acopper",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "1 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "cmmmech:copper"
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 1,
+          "first_results": [
+            "Chalcopyrite\n\nChalcopyrite is the mineral species with IMA-approved formula CuFeS2. The September 2026 IMA list records status G (grandfathered) and the uncertain original-description year 1725 ?. That year is not an IMA approval number. This mineral species is distinct from elemental copper, the copper commodity, and an impure flotation concentrate. The curated bioleaching experiment concerns an Aitik concentrate; its copper-element representation in cmmmech:copper is the same experiment, not a"
+          ],
+          "error": null
+        }
+      }
+    },
+    "facets": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "combined_query": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=crit-desc&kind=element&process=bioleaching&criticality=critical&q=Cobalt",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "1 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "Cobalt"
+            },
+            {
+              "id": "record-kind",
+              "value": "element"
+            },
+            {
+              "id": "record-mechanism",
+              "value": "bioleaching"
+            },
+            {
+              "id": "record-criticality",
+              "value": "critical"
+            },
+            {
+              "id": "record-sort",
+              "value": "crit-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 1,
+          "first_results": [
+            "Cobalt\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\n\tElement\tCritical\nEuropean Union Regulation (EU) 20"
+          ],
+          "error": null
+        },
+        "restored": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=crit-desc&kind=element&process=bioleaching&criticality=critical&q=Cobalt",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "1 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": "Cobalt"
+            },
+            {
+              "id": "record-kind",
+              "value": "element"
+            },
+            {
+              "id": "record-mechanism",
+              "value": "bioleaching"
+            },
+            {
+              "id": "record-criticality",
+              "value": "critical"
+            },
+            {
+              "id": "record-sort",
+              "value": "crit-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 1,
+          "first_results": [
+            "Cobalt\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\n\tElement\tCritical\nEuropean Union Regulation (EU) 20"
+          ],
+          "error": null
+        },
+        "reset": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Acanthite\n\nAcanthite is the monoclinic silver sulfide mineral Ag2S, listed as grandfathered with original-description year 1855 in the September 2026 IMA master list. It is distinct from elemental silver, generic silver-containing nanoparticles and the high-temperature cubic Ag2S form commonly called argentite. A laboratory bacterial study identifies acanthite as a minority particle type within a mixed silver-containing population. No criticality designation is inherited from silver.\n\n\tMineral\t\u2014",
+            "Acid mine drainage\n\nAcidic, metal- and sulfate-bearing drainage generated when mining exposes sulfide-bearing materials to oxidation. This record denotes the heterogeneous liquid mine-derived feed, distinct from natural ore, individual dissolved elements, coal-mine-drainage treatment solids, and isolated precipitate phases. The characterized Brazilian copper-mine and South African mining-facility waters below are separate source-specific samples, not a universal composition or interchangeable re",
+            "Adamsite-(Y)\n\nHydrated sodium-yttrium carbonate mineral with current September 2026 IMA-CNMNC approved formula NaY(CO3)2(H2O)3\u00b73H2O and approval number IMA 1999-020. Grice, Gault, Roberts, and Cooper (2000) described the cotype specimens (CMNMC 82939 and CMNMC 82940, formerly provisional phases UK 96 and UK 106) from the Poudrette dike, Poudrette quarry, Mont Saint-Hilaire, Rouville County, Quebec, Canada, where it occurs with Petersenite-(Ce), shomiokite-(Y), thomasclarkite-(Y), donnayite-(Y), "
+          ],
+          "error": null
+        }
+      }
+    },
+    "sorting": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "sort:name-asc": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Acanthite\n\nAcanthite is the monoclinic silver sulfide mineral Ag2S, listed as grandfathered with original-description year 1855 in the September 2026 IMA master list. It is distinct from elemental silver, generic silver-containing nanoparticles and the high-temperature cubic Ag2S form commonly called argentite. A laboratory bacterial study identifies acanthite as a minority particle type within a mixed silver-containing population. No criticality designation is inherited from silver.\n\n\tMineral\t\u2014",
+            "Acid mine drainage\n\nAcidic, metal- and sulfate-bearing drainage generated when mining exposes sulfide-bearing materials to oxidation. This record denotes the heterogeneous liquid mine-derived feed, distinct from natural ore, individual dissolved elements, coal-mine-drainage treatment solids, and isolated precipitate phases. The characterized Brazilian copper-mine and South African mining-facility waters below are separate source-specific samples, not a universal composition or interchangeable re",
+            "Adamsite-(Y)\n\nHydrated sodium-yttrium carbonate mineral with current September 2026 IMA-CNMNC approved formula NaY(CO3)2(H2O)3\u00b73H2O and approval number IMA 1999-020. Grice, Gault, Roberts, and Cooper (2000) described the cotype specimens (CMNMC 82939 and CMNMC 82940, formerly provisional phases UK 96 and UK 106) from the Poudrette dike, Poudrette quarry, Mont Saint-Hilaire, Rouville County, Quebec, Canada, where it occurs with Petersenite-(Ce), shomiokite-(Y), thomasclarkite-(Y), donnayite-(Y), "
+          ],
+          "error": null
+        },
+        "sort:name-desc": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=name-desc",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "name-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Zirconolite\n\nZirconolite is a zirconium-bearing oxide mineral listed by IMA-CNMNC in September 2026 with formula (Ca,Y)Zr(Ti,Mg,Al)2O7 and redefined status. Its 1989 special-procedure entry is not a numbered new-mineral approval. CaZrTi2O7 is the simplified composition used in the cited nomenclature and natural-specimen study, not the measured formula of every grain. The IMA-approved nomenclature published by Bayliss et al. (1989) uses the unsuffixed name for metamict or undetermined-polytypoid ",
+            "Zirconium\n\nThe element Zr, distinct from zirconium salts, zirconia phases, zircon mineral and zirconium-metal commodities. The United States 2025 Zirconium designation is mapped to this element without extending it to every host mineral or compound. The curated laboratory preparation combines microbial culture with subsequent thermal processing and does not establish isolated zirconium-metal recovery.\n\n\tElement\tCritical\nUnited States Department of the Interior Final List of Critical Minerals (cr",
+            "Zircon\n\nZircon is the zirconium silicate mineral species Zr(SiO4), listed as grandfathered in the September 2026 IMA-CNMNC list. It is distinct from elemental zirconium, zirconia (ZrO2), zircon-bearing sand or concentrates, and other ZrSiO4 polymorphs. Hazen and Finger (1979) characterized two fragments of one natural, nonmetamict, gem-quality crystal from the Finsch Pipe kimberlite near Kimberley, South Africa, using single-crystal X-ray diffraction under pressure. Their specimen description re"
+          ],
+          "error": null
+        },
+        "sort:mechs-desc": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=mechs-desc",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "mechs-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Coal beneficiation waste\n\nHeterogeneous discarded material generated by coal beneficiation, represented by gravity/flotation processing dumps of the Lviv-Volyn coal basin and the Chervonogradska central concentrating factory. This secondary resource is distinct from natural coal, coal combustion ash, mine-drainage treatment solids, a particular germanium mineral and elemental germanium. The studies describe native-community-associated laboratory leaching and an enlarged experimental cascade usin",
+            "Basic-oxygen-furnace steel slag\n\nSteelmaking slag identified by primary studies as basic-oxygen-furnace (BOF), or Linz-Donawitz converter, slag. The separately studied feeds are a December 2016 sample from Yarborough, Scunthorpe, UK, and a sample supplied by an unnamed Austrian steelmaking company in the 2022 study. This process-defined secondary resource is distinct from electric-arc-furnace slag or dust, blast-furnace residues, copper smelter slag, constituent elements and individual mineral s",
+            "Birnessite\n\nBirnessite is a layered manganese oxide mineral, listed as grandfathered in the September 2026 IMA-CNMNC list with formula (Na,Ca,K)0.6(Mn4+,Mn3+)2O4(H2O)1.5. Its composition and polytype vary. It is distinct from elemental manganese, mixed manganese ore and nodules, the buserite precursor used to prepare some synthetic analogues, and manganese oxalate products. The mechanisms below concern separately prepared synthetic sodium and cobalt-bearing forms, and a source-assigned poorly cr"
+          ],
+          "error": null
+        },
+        "sort:orgs-desc": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=orgs-desc",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "orgs-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Humboldtine\n\nHumboldtine is the iron(II) oxalate dihydrate mineral Fe(C2O4).2H2O, listed as a grandfathered species, with original-description year 1821, in the September 2026 IMA compilation. It is distinct from elemental iron, dissolved iron-oxalate complexes, other metal oxalates and the heterogeneous siderite- and pyrrhotite-bearing experimental feeds. No criticality designation is inherited from iron.\n\n\tMineral\t\u2014\t2\nBiomineralization\n\t\nAspergillus niger\nSerpula himantioides\nConiophora putean",
+            "Pyrite-roasting cinder\n\nSolid residue generated by roasting or calcining pyrite-bearing feed, also described as pyrite ash. The curated experiments concern calcined waste supplied by the Eti Mining Band\u0131rma Borax Plant, Turkey, and a separately characterized, weathered pyrite-ash sample from S\u00e3o Domingos, Portugal. This processing residue is distinct from natural pyrite, unroasted mine tailings, smelting slag and spent sulfuric-acid-production catalyst. Its composition varies with feed, processi",
+            "Traction-battery hydrometallurgical residue\n\nResidual solids from acid leaching in wet recovery of nickel or cobalt from waste traction-battery cathode materials and other recycled wastes. The curated study used separate nickel-line and cobalt-line residues from an unnamed Chinese enterprise; their compositions are not pooled. The source calls these residues slags, but does not establish molten-slag origin. They are downstream processing residues, distinct from mechanically prepared battery blac"
+          ],
+          "error": null
+        },
+        "sort:kind-asc": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=kind-asc",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "kind-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Alumina\n\nAluminium oxide considered as a refined commercial material, used as feed for aluminium smelting and in nonmetallurgical applications such as ceramics, abrasives and refractories. This commodity is distinct from aluminium metal, aluminium hydroxide, bauxite ore and red mud. The broad commodity does not establish a particular crystalline phase or high-purity product specification. The EU designations explicitly name alumina as the intermediate processing form within the combined bauxite/",
+            "Baryte commodity\n\nThe crude, crushed and ground barite raw-material commodity, also named baryte in the original EU 2024 critical-materials list. USGS reports mined barite and products sold by crushers and grinders for uses including drilling-fluid weighting and fillers. This record denotes that traded industrial material, with variable feed and product specifications, rather than a single mineral specimen, the barite mineral species as a taxonomic concept, or elemental barium. The US list uses ",
+            "Bauxite\n\nNaturally occurring, heterogeneous aluminium ore used as a commercial raw material. Bauxite contains varying proportions of aluminium hydroxide minerals, principally gibbsite, boehmite and diaspore, together with silica, iron oxides, titania and other constituents. Commercial uses include metallurgical feed, abrasives and refractories. This commodity is distinct from a single mineral species, refined alumina, aluminium metal and the red-mud residue of alumina production. The EU designat"
+          ],
+          "error": null
+        },
+        "sort:crit-desc": {
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html?sort=crit-desc",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "678 of 678 materials shown"
+            }
+          ],
+          "controls": [
+            {
+              "id": "record-query",
+              "value": ""
+            },
+            {
+              "id": "record-kind",
+              "value": ""
+            },
+            {
+              "id": "record-mechanism",
+              "value": ""
+            },
+            {
+              "id": "record-criticality",
+              "value": ""
+            },
+            {
+              "id": "record-sort",
+              "value": "crit-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 678,
+          "first_results": [
+            "Alumina\n\nAluminium oxide considered as a refined commercial material, used as feed for aluminium smelting and in nonmetallurgical applications such as ceramics, abrasives and refractories. This commodity is distinct from aluminium metal, aluminium hydroxide, bauxite ore and red mud. The broad commodity does not establish a particular crystalline phase or high-purity product specification. The EU designations explicitly name alumina as the intermediate processing form within the combined bauxite/",
+            "Aluminium\n\nAluminium (Al), the chemical element, distinct from its ions, alumina, bauxite ores and red-mud wastes. The dated US designation maps the named aluminum commodity to this element without assigning criticality to every Al-bearing material. The curated mechanism concerns laboratory aluminium mobilization from a mixed red-mud sample, not production of aluminium metal.\n\n\tElement\tCritical\nUnited States of America USGS Final List of Critical Minerals (critical)\n\t1\nBioleaching\n\t\nAspergillus ",
+            "Antimony\n\nAntimony (Sb), represented as an element distinct from antimonate feed, sorbed antimonite and sulfide-bearing products. A sediment-inoculated laboratory experiment supports transformation through coupled microbial and chemical reactions under sulfidogenic conditions. The United States 2025 critical-mineral designation names the antimony commodity; it does not designate every Sb compound, host mineral or secondary resource.\n\n\tElement\tCritical\nUnited States of America U.S. Department of "
+          ],
+          "error": null
+        }
+      }
+    },
+    "full_catalogue": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/browse.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "headings": [
+        "Browse Critical Materials and Minerals",
+        "FILTER RECORDS"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Download index.json",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Acanthite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/acanthite.html"
+        },
+        {
+          "text": "Acid mine drainage",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/acid-mine-drainage.html"
+        },
+        {
+          "text": "Adamsite-(Y)",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/adamsite-y.html"
+        },
+        {
+          "text": "Akaganeite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+        },
+        {
+          "text": "Alabandite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alabandite.html"
+        },
+        {
+          "text": "Albite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/albite.html"
+        },
+        {
+          "text": "Alburnite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alburnite.html"
+        },
+        {
+          "text": "Alicewilsonite-(YCe)",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alicewilsonite-yce.html"
+        },
+        {
+          "text": "Alicewilsonite-(YLa)",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alicewilsonite-yla.html"
+        },
+        {
+          "text": "Allanite concentrate",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/allanite-concentrate.html"
+        },
+        {
+          "text": "Allanite-derived rare-earth leachate",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/allanite-leachate.html"
+        },
+        {
+          "text": "Alumina",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alumina.html"
+        },
+        {
+          "text": "Aluminium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/aluminium.html"
+        },
+        {
+          "text": "Aluminium salt slag",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/aluminium-salt-slag.html"
+        }
+      ]
+    },
+    "suite_nav": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/index.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "headings": [
+        "Critical Materials, Minerals & Microbial Mechanisms",
+        "Material Kinds",
+        "Curated Processes",
+        "Highlighted Strategic Materials",
+        "Evidence & Curation Contract"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Elements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/element.html"
+        },
+        {
+          "text": "Minerals\n427 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+        },
+        {
+          "text": "Secondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/secondary_resource.html"
+        },
+        {
+          "text": "Commodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/commodity.html"
+        },
+        {
+          "text": "Primary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, and run-of-mine materials.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/primary_resource.html"
+        },
+        {
+          "text": "Mineral Groups\n7 records\n\nMineral supergroups and solid-solution series sharing related crystal structures.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral_group.html"
+        },
+        {
+          "text": "Bioleaching\n185 mechanisms\n\nMicrobial solubilization and mobilization of target metals from ores, concentrates, and wastes.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/bioleaching.html"
+        },
+        {
+          "text": "Biomineralization\n107 mechanisms\n\nBiological precipitation, crystallization, and synthesis of mineral phases or nanoparticles.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/biomineralization.html"
+        },
+        {
+          "text": "Redox Transformation\n61 mechanisms\n\nOxidation-reduction reactions that alter metal valence states; microbial involvement is specified in each record.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/redox_transformation.html"
+        },
+        {
+          "text": "Biosorption\n17 mechanisms\n\nPassive binding and retention of metal ions by microbial cell walls and biomass.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/biosorption.html"
+        },
+        {
+          "text": "Separation\n31 mechanisms\n\nSelective partitioning by biological or abiotic processes. See each record for microbial involvement, experimental conditions and recovery limits.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/separation.html"
+        },
+        {
+          "text": "Recovery\n19 mechanisms\n\nIntegrated microbial processing schemes yielding concentrated or isolated materials.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/recovery.html"
+        },
+        {
+          "text": "Other Transformations\n186 mechanisms\n\nComplex community transformations, multi-stage processes, or unclassified interactions.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/other.html"
+        },
+        {
+          "text": "Cobalt",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        {
+          "text": "Neodymium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/neodymium.html"
+        },
+        {
+          "text": "Lithium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/lithium.html"
+        }
+      ]
+    },
+    "record_pages": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "headings": [
+        "Cobalt Element Critical Material",
+        "Identifiers & Classification",
+        "Criticality Designations",
+        "Microbial & Biochemical Mechanisms (1)",
+        "Acidophilic consortium bioleaching of battery black mass",
+        "Sources & References",
+        "Curation History"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Element",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/element.html"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/app/?q=Cobalt"
+        },
+        {
+          "text": "CultureMech",
+          "url": "https://culturebotai.github.io/CultureMech/app/?q=Cobalt"
+        },
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/?q=Cobalt"
+        },
+        {
+          "text": "HabitatMech",
+          "url": "https://culturebotai.github.io/HabitatMech/browse.html?q=Cobalt"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=Cobalt"
+        },
+        {
+          "text": "CMMMech Network Graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html?q=Cobalt"
+        },
+        {
+          "text": "eu_crma_2024",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html#source-eu_crma_2024"
+        },
+        {
+          "text": "usgs2025",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html#source-usgs2025"
+        },
+        {
+          "text": "Source: lalropuia_2024",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html#source-lalropuia_2024"
+        },
+        {
+          "text": "https://doi.org/10.3389/fmicb.2024.1347072",
+          "url": "https://doi.org/10.3389/fmicb.2024.1347072"
+        },
+        {
+          "text": "data/records/cobalt.yaml",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/data/records/cobalt.yaml"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "Download index.json",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Download corpus_map.json",
+          "url": "https://culturebotai.github.io/CMMMech/pages/corpus_map.json"
+        }
+      ]
+    },
+    "term_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html",
+      "headings": [
+        "Akaganeite Mineral",
+        "Identifiers & Classification",
+        "Microbial & Biochemical Mechanisms (1)",
+        "Condition-dependent akaganeite reduction by Geobacter sulfurreducens PCA",
+        "Causal Graphs & Molecular Pathways (1)",
+        "Sources & References",
+        "Curation History"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Mineral",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/app/?q=Akaganeite"
+        },
+        {
+          "text": "CultureMech",
+          "url": "https://culturebotai.github.io/CultureMech/app/?q=Akaganeite"
+        },
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/?q=Akaganeite"
+        },
+        {
+          "text": "HabitatMech",
+          "url": "https://culturebotai.github.io/HabitatMech/browse.html?q=Akaganeite"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=Akaganeite"
+        },
+        {
+          "text": "CMMMech Network Graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html?q=Akaganeite"
+        },
+        {
+          "text": "[TaxonMech]",
+          "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Geobacter%20sulfurreducens%20PCA"
+        },
+        {
+          "text": "levar_2017",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#source-levar_2017"
+        },
+        {
+          "text": "levar_2017",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#source-levar_2017"
+        },
+        {
+          "text": "Source: levar_2017",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#source-levar_2017"
+        },
+        {
+          "text": "Source: levar_2017",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#source-levar_2017"
+        },
+        {
+          "text": "Source: sklute_2023",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#source-sklute_2023"
+        },
+        {
+          "text": "Mechanism: Pca_akaganeite_reduction",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#mechanism-pca_akaganeite_reduction"
+        },
+        {
+          "text": "levar_2017",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html#source-levar_2017"
+        }
+      ]
+    },
+    "domain_view": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/graph.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/graph.html",
+      "headings": [
+        "Material\u2013Process\u2013Organism Mechanism Network",
+        "FILTER NETWORK"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "Download index.json",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Download corpus_map.json",
+          "url": "https://culturebotai.github.io/CMMMech/pages/corpus_map.json"
+        },
+        {
+          "text": "LinkML schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "CultureMech",
+          "url": "https://culturebotai.github.io/CultureMech/"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/"
+        },
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/"
+        },
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "AntibioticMech",
+          "url": "https://culturebotai.github.io/AntibioticMech/"
+        },
+        {
+          "text": "CellStructureMech",
+          "url": "https://culturebotai.github.io/CellStructureMech/"
+        },
+        {
+          "text": "NaturalProductMech",
+          "url": "https://culturebotai.github.io/NaturalProductMech/"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/"
+        },
+        {
+          "text": "PathwayMech",
+          "url": "https://culturebotai.github.io/PathwayMech/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/"
+        }
+      ],
+      "excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Mechanism graph\nMaterial\u2013Process\u2013Organism Mechanism Network\n\nInteractive causal and relational network connecting 654 critical materials, transformation processes, and microbial taxa across 970 curated mechanism links. Click a node to open its material, process, or taxon record.\n\nFILTER NETWORK\nSEARCH NODES\n654 nodes \u00b7 970 edges\nMECHANISM PROCESS\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nMATERIAL KIND\nAll kinds\nElement (66)\nMineral (427)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nNODE LEGEND\nCritical / strategic material\nTransformation process hub\nMicrobial agent (taxon)\nscroll to zoom \u00b7 drag to pan \u00b7 double-click to reset \u00b7 click node to open record \u00b7 Esc clears filter\n\nCMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects\n\n\u2600"
+    },
+    "corpus_stats": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/index.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "headings": [
+        "Critical Materials, Minerals & Microbial Mechanisms",
+        "Material Kinds",
+        "Curated Processes",
+        "Highlighted Strategic Materials",
+        "Evidence & Curation Contract"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Elements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/element.html"
+        },
+        {
+          "text": "Minerals\n427 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+        },
+        {
+          "text": "Secondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/secondary_resource.html"
+        },
+        {
+          "text": "Commodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/commodity.html"
+        },
+        {
+          "text": "Primary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, and run-of-mine materials.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/primary_resource.html"
+        },
+        {
+          "text": "Mineral Groups\n7 records\n\nMineral supergroups and solid-solution series sharing related crystal structures.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral_group.html"
+        },
+        {
+          "text": "Bioleaching\n185 mechanisms\n\nMicrobial solubilization and mobilization of target metals from ores, concentrates, and wastes.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/bioleaching.html"
+        },
+        {
+          "text": "Biomineralization\n107 mechanisms\n\nBiological precipitation, crystallization, and synthesis of mineral phases or nanoparticles.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/biomineralization.html"
+        },
+        {
+          "text": "Redox Transformation\n61 mechanisms\n\nOxidation-reduction reactions that alter metal valence states; microbial involvement is specified in each record.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/redox_transformation.html"
+        },
+        {
+          "text": "Biosorption\n17 mechanisms\n\nPassive binding and retention of metal ions by microbial cell walls and biomass.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/biosorption.html"
+        },
+        {
+          "text": "Separation\n31 mechanisms\n\nSelective partitioning by biological or abiotic processes. See each record for microbial involvement, experimental conditions and recovery limits.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/separation.html"
+        },
+        {
+          "text": "Recovery\n19 mechanisms\n\nIntegrated microbial processing schemes yielding concentrated or isolated materials.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/recovery.html"
+        },
+        {
+          "text": "Other Transformations\n186 mechanisms\n\nComplex community transformations, multi-stage processes, or unclassified interactions.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/other.html"
+        },
+        {
+          "text": "Cobalt",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        {
+          "text": "Neodymium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/neodymium.html"
+        },
+        {
+          "text": "Lithium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/lithium.html"
+        }
+      ],
+      "excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCritical Materials, Minerals & Microbial Mechanisms\n\nAn evidence-backed knowledge base for critical minerals and materials, connecting strategic commodities and mineral hosts to microbial extraction, biomineralization, and recovery mechanisms.\n\nSearch\n678\nMaterials & Commodities\n609\nCurated Mechanisms\n500\nMaterials with Mechanisms\n90\nDesignated Critical Materials\nMaterial Kinds\n\nRecords distinguish chemical elements, mineral species and groups, commodities, and primary and secondary resources.\n\nElements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.\n\nMinerals\n427 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nSecondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.\n\nCommodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.\n\nPrimary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, and run-of-mine materials.\n\nMineral Groups\n7 records\n\nMineral supergroups and solid-solution series sharing related crystal structures.\n\nCurated Processes\n\nMechanism records describe biological and abiotic processes, with experimental materials, conditions, evidence and limitations. Microbial involvement is stated explicitly.\n\nBioleaching\n185 mechanisms\n\nMicrobial solubilization and mobilization of target metals from ores, concentrates, and wastes.\n\nBiomineralization\n107 mechanisms\n\nBiological precipitation, crystallization, and synthesis of mineral phases or nanoparticles.\n\nRedox Transformatio"
+    },
+    "category_browse": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html",
+      "headings": [
+        "Minerals",
+        "FILTER RECORDS"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Download index.json",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Acanthite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/acanthite.html"
+        },
+        {
+          "text": "Adamsite-(Y)",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/adamsite-y.html"
+        },
+        {
+          "text": "Akaganeite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html"
+        },
+        {
+          "text": "Alabandite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alabandite.html"
+        },
+        {
+          "text": "Albite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/albite.html"
+        },
+        {
+          "text": "Alburnite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alburnite.html"
+        },
+        {
+          "text": "Alicewilsonite-(YCe)",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alicewilsonite-yce.html"
+        },
+        {
+          "text": "Alicewilsonite-(YLa)",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alicewilsonite-yla.html"
+        },
+        {
+          "text": "Aluminosugilite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/aluminosugilite.html"
+        },
+        {
+          "text": "Alunite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/alunite.html"
+        },
+        {
+          "text": "Amblygonite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/amblygonite.html"
+        },
+        {
+          "text": "Ameghinite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/ameghinite.html"
+        },
+        {
+          "text": "Ammonioborite",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/ammonioborite.html"
+        }
+      ]
+    },
+    "downloads": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CMMMech/pages/index.html']",
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "headings": [
+        "Critical Materials, Minerals & Microbial Mechanisms",
+        "Material Kinds",
+        "Curated Processes",
+        "Highlighted Strategic Materials",
+        "Evidence & Curation Contract"
+      ],
+      "footer_excerpt": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (678 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-04 \u00b7 corpus digest 0e188cbbc0a4)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/CMMMech/pages/map.html"
+        },
+        {
+          "text": "Mechanism graph",
+          "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CMMMech/pages/index.json"
+        },
+        {
+          "text": "Schema",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CMMMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Elements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/element.html"
+        },
+        {
+          "text": "Minerals\n427 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+        },
+        {
+          "text": "Secondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/secondary_resource.html"
+        },
+        {
+          "text": "Commodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/commodity.html"
+        },
+        {
+          "text": "Primary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, and run-of-mine materials.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/primary_resource.html"
+        },
+        {
+          "text": "Mineral Groups\n7 records\n\nMineral supergroups and solid-solution series sharing related crystal structures.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral_group.html"
+        },
+        {
+          "text": "Bioleaching\n185 mechanisms\n\nMicrobial solubilization and mobilization of target metals from ores, concentrates, and wastes.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/bioleaching.html"
+        },
+        {
+          "text": "Biomineralization\n107 mechanisms\n\nBiological precipitation, crystallization, and synthesis of mineral phases or nanoparticles.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/biomineralization.html"
+        },
+        {
+          "text": "Redox Transformation\n61 mechanisms\n\nOxidation-reduction reactions that alter metal valence states; microbial involvement is specified in each record.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/redox_transformation.html"
+        },
+        {
+          "text": "Biosorption\n17 mechanisms\n\nPassive binding and retention of metal ions by microbial cell walls and biomass.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/biosorption.html"
+        },
+        {
+          "text": "Separation\n31 mechanisms\n\nSelective partitioning by biological or abiotic processes. See each record for microbial involvement, experimental conditions and recovery limits.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/separation.html"
+        },
+        {
+          "text": "Recovery\n19 mechanisms\n\nIntegrated microbial processing schemes yielding concentrated or isolated materials.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/recovery.html"
+        },
+        {
+          "text": "Other Transformations\n186 mechanisms\n\nComplex community transformations, multi-stage processes, or unclassified interactions.",
+          "url": "https://culturebotai.github.io/CMMMech/pages/processes/other.html"
+        },
+        {
+          "text": "Cobalt",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+        },
+        {
+          "text": "Neodymium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/neodymium.html"
+        },
+        {
+          "text": "Lithium",
+          "url": "https://culturebotai.github.io/CMMMech/pages/materials/lithium.html"
+        }
+      ],
+      "field_inventory": "group-b-bulk-inventory.json::CMMMech"
+    },
+    "theme_toggle": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages[*].theme / saved_theme",
+      "themes": {
+        "https://culturebotai.github.io/CMMMech/pages/index.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CMMMech/pages/browse.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CMMMech/pages/graph.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CMMMech/pages/map.html": {
+          "theme": "dark",
+          "saved": "dark"
+        }
+      }
+    },
+    "responsive": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "pages[*].fresh_390 / resized_390",
+      "widths": {
+        "https://culturebotai.github.io/CMMMech/pages/index.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CMMMech/pages/browse.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 597
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 597
+          }
+        },
+        "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 669
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 669
+          }
+        },
+        "https://culturebotai.github.io/CMMMech/pages/graph.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CMMMech/pages/map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-browser-b.json",
+      "capture_locator": "failure_cases",
+      "cases": {
+        "https://culturebotai.github.io/CMMMech/pages/browse.html": {
+          "aborted": [],
+          "excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Browse\nBrowse Critical Materials and Minerals\n\nExplore all 678 materials, minerals, and resources with their criticality assessments and microbial transformation mechanisms.\n\nFILTER RECORDS\nSearch materials\nMaterial Kind\nAll kinds (678)\nElement (66)\nMineral (427)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nMechanism Process\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nCriticality\nAll criticality\nDesignated Critical\nSort by\nMaterial name (A\u2013Z)\nMaterial name (Z\u2013A)\nMechanisms (high\u2013low)\nMicrobial agents (high\u2013low)\nMaterial kind (A\u2013Z)\nCriticality (critical first)\nClear filters\n\n678 of 678 materials shown\n\nDownload index.json\n\nCurated Materials and Minerals\nMaterial\tKind\tCriticality\tMechanisms\tMicrobial Agents\tIdentifier\nAcanthite\n\nAcanthite is the monoclinic silver sulfide mineral Ag2S, listed as grandfathered with original-description year 1855 in the September 2026 IMA master list. It is distinct from elemental silver, generic silver-containing nanoparticles and the high-temperature cubic Ag2S form commonly called argentite. A laboratory bacterial study identifies acanthite as a minority particle type within a mixed silver-containing population. No criticality designation is inherited from silver.\n\n\tMineral\t\u2014\t1\nBiomineralization\n\t\nStutzerimonas stutzeri\n\t\u2014\nAcid mine drainage\n\nAcidic, metal- and sulfate-bearing drainage generated when mining exposes sulfide-bearing materials to oxidation. This record denotes the heterogeneous liquid mine-derived feed, distinct from natural ore, individual dissolved elements, coal-mine-drainage treatment solids, and isola"
+        }
+      }
+    }
+  },
+  "independent_review": "group-b-independent-review.json",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cmmmech-auditor-b.json",
+    "sha256": "71e6f63eb59f3c95c67f0cbd8a071cef4ac8e2c9a4c1866893ac99d3ebe2e0ec",
+    "bytes": 162511
+  }
+}

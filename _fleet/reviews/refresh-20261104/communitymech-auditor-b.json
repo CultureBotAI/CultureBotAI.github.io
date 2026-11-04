@@ -1,0 +1,2571 @@
+{
+  "mech": "CommunityMech",
+  "reviewer": "central_directory group B auditor",
+  "pin": "a4e963e5bebc49fa7a9908ac441d003e3ad4a817",
+  "started_at": "2026-11-04T11:48:54.209693+00:00",
+  "finished_at": "2026-11-04T11:50:57.673536+00:00",
+  "deployment_before": {
+    "id": 7541711366,
+    "sha": "88314cf16ca1db9580d379babd4ec808e334d898",
+    "created_at": "2026-11-04T08:39:12Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T08:39:33Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 08:39:26 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:48:54 GMT"
+  },
+  "deployment_after": {
+    "id": 7541711366,
+    "sha": "88314cf16ca1db9580d379babd4ec808e334d898",
+    "created_at": "2026-11-04T08:39:12Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T08:39:33Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 08:39:26 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:50:57 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "partial",
+      "note": "Name and description searches work across 485 communities, but known record identifiers CommunityMech:000134 and CommunityMech:000139 return zero matches; the corresponding named records are present.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.search",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Category and ecological-state filters have Clear All. BIOTECHNOLOGY selects 96 of 485 communities; reset restores all 485.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The live count shows three matches for ANME, one for its full community name and zero for the tested canonical identifiers and unmatched query.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The browser offers Name (A \u2192 Z), Name (Z \u2192 A), Members (Most \u2192 Fewest), Members (Fewest \u2192 Most), Category (A \u2192 Z). Changing each option reorders the displayed results.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.sorting",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "The URL retains search, category and sort; the combined BIOTECHNOLOGY/name-search selection restores the same controls and zero-match state.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The complete browser and its machine-readable export cover 485 published records; sampled record links open successfully.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Published communities have individual communities/<slug>.html pages; four sampled records display taxonomy, interactions, environment and growth media.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      }
+    },
+    "term_links": {
+      "status": "present",
+      "note": "Sampled taxonomy and environmental sections show readable names beside NCBITaxon, ChEBI and ENVO resolver links.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Sampled interaction evidence links PMID and DOI references with supporting text and evidence-type labels.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html",
+      "evidence": {
+        "locator": "receipts.evidence",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html"
+      }
+    },
+    "review_status": {
+      "status": "missing",
+      "note": "Record headers show ecological state and evidence labels, not an overall curation or review status.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      }
+    },
+    "curation_history": {
+      "status": "missing",
+      "note": "The sampled community pages do not display curation events, even though the repository retains provenance.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Each sampled record footer now links its own kb/communities YAML file on GitHub.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Community pages render interaction diagrams, and text, taxonomic and sequence embedding views open as linked domain views.",
+      "url": "https://culturebotai.github.io/CommunityMech/community_umap.html",
+      "evidence": {
+        "locator": "receipts.domain_view",
+        "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "Copper Biomining links Standard 9K Medium directly to CultureMech normalized recipe 003277.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html",
+      "evidence": {
+        "locator": "receipts.cross_mech_links",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing and browser report 485 published communities across 16 categories. Repository isolate records are outside this published-community count.",
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "evidence": {
+        "locator": "receipts.corpus_stats",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      }
+    },
+    "category_browse": {
+      "status": "partial",
+      "note": "Category and ecological-state subsets are filters in the browser rather than separate category pages.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet",
+      "evidence": {
+        "locator": "receipts.category_browse",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "Linked communities.json and TSV cover all 485 communities as catalogue summaries; they omit the complete taxon and interaction evidence stored in individual records.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities.json",
+      "evidence": {
+        "locator": "receipts.downloads",
+        "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+      }
+    },
+    "schema_docs": {
+      "status": "present",
+      "note": "The linked schema.html page documents the CommunityMech classes, slots and ontology groundings.",
+      "url": "https://culturebotai.github.io/CommunityMech/schema.html",
+      "evidence": {
+        "locator": "receipts.schema_docs",
+        "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+      }
+    },
+    "license": {
+      "status": "partial",
+      "note": "Reviewed landing and record footers say License: BSD-3-Clause without distinguishing the project data license from the code license.",
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      }
+    },
+    "build_provenance": {
+      "status": "missing",
+      "note": "Reviewed pages identify the generator and source corpus but do not give a build date, deployed commit or dated corpus version.",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Dark mode chosen on the landing persists through the browser, maps, schema and four sampled records.",
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "evidence": {
+        "locator": "receipts.theme_toggle",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      }
+    },
+    "responsive": {
+      "status": "present",
+      "note": "The reviewed landing, browser, maps, schema and four records fit a 390px viewport.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.responsive",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    },
+    "load_failure": {
+      "status": "not_applicable",
+      "note": "Reviewed community pages and visualizations use embedded data; no fetch or XHR catalogue request was observed to abort.",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "evidence": {
+        "locator": "receipts.load_failure",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.search",
+      "before": {
+        "status": "present",
+        "note": "Client-side search filters all 480 published communities by name, CommunityMech_XXXXXX identifier, description, taxon, ecological state, and category.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Name and description searches work across 485 communities, but known record identifiers CommunityMech:000134 and CommunityMech:000139 return zero matches; the corresponding named records are present.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.facets",
+      "before": {
+        "status": "present",
+        "note": "Category and ecological-state checkboxes combine with counts and Clear All across all 480 published communities.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Category and ecological-state filters have Clear All. BIOTECHNOLOGY selects 96 of 485 communities; reset restores all 485.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.result_counts",
+      "before": {
+        "status": "present",
+        "note": "The matching count updates independently from the 480-community total across text searches and category/state facet selections.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The live count shows three matches for ANME, one for its full community name and zero for the tested canonical identifiers and unmatched query.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.sorting",
+      "before": {
+        "status": "present",
+        "note": "Browser provides a sort selector ordering communities by name, ID, category, taxon count, or interaction count.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The browser offers Name (A \u2192 Z), Name (Z \u2192 A), Members (Most \u2192 Fewest), Members (Fewest \u2192 Most), Category (A \u2192 Z). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.shareable_state",
+      "before": {
+        "status": "present",
+        "note": "Browser synchronizes search, category, state, and sort selections with URL query parameters (?q=, ?category=, ?state=, ?sort=) via history.replaceState.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The URL retains search, category and sort; the combined BIOTECHNOLOGY/name-search selection restores the same controls and zero-match state.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.full_catalogue",
+      "before": {
+        "status": "present",
+        "note": "The browser exposes all 480 published community cards in a responsive filterable, sortable grid (9 repository isolate records remain outside the published community total).",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 485 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.suite_nav",
+      "before": {
+        "status": "present",
+        "note": "Landing, browser, both maps and four sampled record headers visibly link All Mech projects to culturebotai.github.io/mechs/.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.record_pages",
+      "before": {
+        "status": "present",
+        "note": "480 static pages under communities/<slug>.html with taxonomy, ecological interactions, environmental factors, media links, and references.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Published communities have individual communities/<slug>.html pages; four sampled records display taxonomy, interactions, environment and growth media.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.term_links",
+      "before": {
+        "status": "present",
+        "note": "Sampled records display ontology labels beside NCBITaxon, ChEBI and ENVO resolver links. Curated environmental descriptions are distinguished from ontology labels; retired MIM ingredient identifiers remain plain text.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled taxonomy and environmental sections show readable names beside NCBITaxon, ChEBI and ENVO resolver links.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      },
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.evidence",
+      "before": {
+        "status": "present",
+        "note": "Sampled records link PMID and DOI evidence with snippets and support/source-type labels, including ANME PMID:37747940 and phage PMID:38648198.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled interaction evidence links PMID and DOI references with supporting text and evidence-type labels.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html"
+      },
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.review_status",
+      "before": {
+        "status": "missing",
+        "note": "Sampled record headers show ecological state rather than record curation status; evidence SUPPORT and source-type labels do not state a record review status.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "Record headers show ecological state and evidence labels, not an overall curation or review status.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.curation_history",
+      "before": {
+        "status": "missing",
+        "note": "The four sampled record pages show no curation-history section, including Aalborg and the new phage record, although the repository keeps history provenance.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "The sampled community pages do not display curation events, even though the repository retains provenance.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+      },
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.source_link",
+      "before": {
+        "status": "partial",
+        "note": "The View on GitHub footer links the repository root rather than the displayed community YAML file.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Each sampled record footer now links its own kb/communities YAML file on GitHub.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.domain_view",
+      "before": {
+        "status": "present",
+        "note": "Community pages render connected SVG interaction networks; text_map.html renders a 2D text embedding scatter (BAAI/bge-large-en-v1.5, PaCMAP & PCA) of all 480 communities alongside community_umap.html and sequence_map.html (ESM-2 protein sequence embedding map and 16S/18S rRNA UMAP viewers).",
+        "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Community pages render interaction diagrams, and text, taxonomic and sequence embedding views open as linked domain views.",
+        "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+      },
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.cross_mech_links",
+      "before": {
+        "status": "present",
+        "note": "Copper Biomining links its Standard 9K Medium to a specific CultureMech normalized recipe, pages/normalized/003277.html; the destination returned 200.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Copper Biomining links Standard 9K Medium directly to CultureMech normalized recipe 003277.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html"
+      },
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.corpus_stats",
+      "before": {
+        "status": "present",
+        "note": "Home page reports 480 published communities across 16 categories with category distribution badges (487 YAML files at the deployed site revision including 7 isolate scaffolds; 489 YAML files at our pinned corpus revision including 9 isolate records).",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The landing and browser report 485 published communities across 16 categories. Repository isolate records are outside this published-community count.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.category_browse",
+      "before": {
+        "status": "partial",
+        "note": "Categories are filters within the browser rather than standalone subset pages. The landing category tile links the category facet, which is accessible through Filters at 390 px.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Category and ecological-state subsets are filters in the browser rather than separate category pages.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+      },
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.downloads",
+      "before": {
+        "status": "present",
+        "note": "Site provides bulk JSON and TSV corpus exports (communities.json, communities.tsv) alongside per-record YAML links.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Linked communities.json and TSV cover all 485 communities as catalogue summaries; they omit the complete taxon and interaction evidence stored in individual records.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+      },
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.schema_docs",
+      "before": {
+        "status": "present",
+        "note": "schema.html documents the CommunityMech LinkML data model, classes, slots, and ontology groundings.",
+        "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The linked schema.html page documents the CommunityMech classes, slots and ontology groundings.",
+        "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+      },
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.license",
+      "before": {
+        "status": "present",
+        "note": "Site footer and schema page declare BSD-3-Clause code and CC-BY-4.0 data licensing.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Reviewed landing and record footers say License: BSD-3-Clause without distinguishing the project data license from the code license.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.build_provenance",
+      "before": {
+        "status": "missing",
+        "note": "The inspected pages show no build date, commit or dated corpus version; record footers say Generated by CommunityMech and embedding version v3 is undated.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "Reviewed pages identify the generator and source corpus but do not give a build date, deployed commit or dated corpus version.",
+        "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+      },
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.theme_toggle",
+      "before": {
+        "status": "present",
+        "note": "Choosing dark on the landing stored mech-theme=dark and persisted across the browser, both maps and four sampled records, with consistent dark backgrounds.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Dark mode chosen on the landing persists through the browser, maps, schema and four sampled records.",
+        "url": "https://culturebotai.github.io/CommunityMech/"
+      },
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.responsive",
+      "before": {
+        "status": "present",
+        "note": "Landing, browser, both maps and four sampled records fit a 390 px viewport without page overflow. Filters reveals the mobile browser controls.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The reviewed landing, browser, maps, schema and four records fit a 390px viewport.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.CommunityMech.features.load_failure",
+      "before": {
+        "status": "not_applicable",
+        "note": "The inspected landing, browser, records and both maps use inline data; their observed requests include no fetch or XHR data index to abort.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "replacement": {
+        "status": "not_applicable",
+        "note": "Reviewed community pages and visualizations use embedded data; no fetch or XHR catalogue request was observed to abort.",
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+      },
+      "evidence": "features.load_failure.evidence"
+    }
+  ],
+  "limits": [
+    "Representative route audit, not an HTTP crawl of every record. Complete counts are listing/export counts where stated.",
+    "Independent skeptic must verify all changed verdicts before editor applies them.",
+    "Supplemental cold-route, theme, download and schema evidence is recorded in group-b-supplement.json."
+  ],
+  "receipts": {
+    "search": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "query:CommunityMech_000064": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech_000064",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 0 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "0"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "CommunityMech_000064"
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:ANME": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=ANME",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 3 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "3"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "ANME"
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "ANME-SRB Marine Methane Seep Consortium\n\nNatural marine methane-seep consortia in which anaerobic methanotrophic archaea (ANME) grow in syntrophic partnership with sulfate-reducing bacteria (SRB). These structured aggregates couple anaerobic oxidation of methane to sulfate reduction, limiting methane release from ocean sediments. The interaction is frequently organized as multicellular consortia containing ANME archaeal cells and bacterial sulfate reducers, with genomic evidence supporting direc",
+            "ANME/SRB Anaerobic Methanotrophic Syntrophic Consortia\n\nMarine syntrophic consortia of anaerobic methanotrophic archaea (ANME) and sulfate-reducing bacteria (SRB) that couple the anaerobic oxidation of methane to sulfate reduction in marine sediments. Sediment-free enrichment cultures of three consortium types (ANME-1/Desulfofervidus, ANME-2a/Seep-SRB1, and ANME-2a+2c/Seep-SRB1+2) exhibited high dry conductance close to that of electrogenic biofilms. Cyclic voltammetry revealed redox activity an",
+            "Cold-Seep ANME-2b and Seep-SRB1g Carbon Monoxide-Oxidizing Syntrophic Consortium\n\nSyntrophic consortium of anaerobic methane-oxidizing archaea (ANME-2b, family Candidatus Methanocomedenaceae / Candidatus Methanomarinus) and sulfate-reducing bacteria (Seep-SRB1g, phylum Thermodesulfobacteriota) from deep-sea methane seep sediments on the Costa Rica margin capable of oxidizing carbon monoxide (CO) in the absence of methane. CO oxidation is coupled syntrophically to dissimilatory sulfate reduction "
+          ],
+          "error": null
+        },
+        "query:no-such-record-nov4-audit": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=no-such-record-nov4-audit",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 0 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "0"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:CommunityMech:000134": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000134",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 0 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "0"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "CommunityMech:000134"
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:CommunityMech:000139": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000139",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 0 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "0"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "CommunityMech:000139"
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:ANME-SRB Marine Methane Seep Consortium": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=ANME-SRB+Marine+Methane+Seep+Consortium",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 1 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "1"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "ANME-SRB Marine Methane Seep Consortium"
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "ANME-SRB Marine Methane Seep Consortium\n\nNatural marine methane-seep consortia in which anaerobic methanotrophic archaea (ANME) grow in syntrophic partnership with sulfate-reducing bacteria (SRB). These structured aggregates couple anaerobic oxidation of methane to sulfate reduction, limiting methane release from ocean sediments. The interaction is frequently organized as multicellular consortia containing ANME archaeal cells and bacterial sulfate reducers, with genomic evidence supporting direc"
+          ],
+          "error": null
+        }
+      }
+    },
+    "facets": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "facet:first": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc&category=BIOTECHNOLOGY",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 96 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "96"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "category-asc"
+            }
+          ],
+          "checked": [
+            {
+              "value": "BIOTECHNOLOGY",
+              "dataset": {
+                "facet": "category"
+              }
+            }
+          ],
+          "rows": 0,
+          "first_results": [
+            "Aalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark carrying out enhanced biological phosphorus removal. The community was profiled with an 18.2 Gb Illumina metagenome and qFISH, revealing phosphate-removal organisms including Candidatus Accumulibacter and Tetrasphaera-related Actinobacteria, flanking substrate-providing bacteria, and metagenomic enrichment for phosphate",
+            "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clostridium drakei to convert CO2 and H2 into longer-chain products. A. woodii fixes CO2 with H2 and is engineered to release lactate, which C. drakei uses as an intermediate for chain elongation to caproic acid. The system is DOE-relevant because it couples microbial CO2 valorization with in situ water electrolysis or CO",
+            "Acidic Nitrification Minimal Consortium\n\nA minimal aerobic ammonia-oxidizing consortium from three acidic nitrification bioreactors operated between pH 2.0 and 5.0. Genome-resolved meta-omics and chemical measurements linked the pH 5.0 cultures to a novel Nitrosococcaceae ammonia-oxidizing bacterium, \"Candidatus Nitrosoglobus kelleri\", that reached up to 56% relative abundance and linked the strongly simplified pH 2.0 community to \"Ca. Nitrosoglobus kelleri\" together with Mycobacterium species.\n"
+          ],
+          "error": null
+        },
+        "combined_query": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc&category=BIOTECHNOLOGY&q=ANME-SRB+Marine+Methane+Seep+Consortium",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 0 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "0"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "ANME-SRB Marine Methane Seep Consortium"
+            },
+            {
+              "id": "sort-by",
+              "value": "category-asc"
+            }
+          ],
+          "checked": [
+            {
+              "value": "BIOTECHNOLOGY",
+              "dataset": {
+                "facet": "category"
+              }
+            }
+          ],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "restored": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc&category=BIOTECHNOLOGY&q=ANME-SRB+Marine+Methane+Seep+Consortium",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 0 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "0"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": "ANME-SRB Marine Methane Seep Consortium"
+            },
+            {
+              "id": "sort-by",
+              "value": "category-asc"
+            }
+          ],
+          "checked": [
+            {
+              "value": "BIOTECHNOLOGY",
+              "dataset": {
+                "facet": "category"
+              }
+            }
+          ],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "reset": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 485 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "485"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "Aalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark carrying out enhanced biological phosphorus removal. The community was profiled with an 18.2 Gb Illumina metagenome and qFISH, revealing phosphate-removal organisms including Candidatus Accumulibacter and Tetrasphaera-related Actinobacteria, flanking substrate-providing bacteria, and metagenomic enrichment for phosphate",
+            "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clostridium drakei to convert CO2 and H2 into longer-chain products. A. woodii fixes CO2 with H2 and is engineered to release lactate, which C. drakei uses as an intermediate for chain elongation to caproic acid. The system is DOE-relevant because it couples microbial CO2 valorization with in situ water electrolysis or CO",
+            "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment\n\nA microbial community enriched from TCE/PCE-contaminated groundwater and amended with acetylene (C2H2) as the sole electron donor and organic carbon source. The stable enrichment performs reductive dechlorination of trichloroethene (TCE) and tetrachloroethene (PCE), coupling acetylenotrophy to organohalide respiration. Metagenomic analysis of the stable community identified a novel anaerobic acetylenotroph in the phylum Acti"
+          ],
+          "error": null
+        }
+      }
+    },
+    "sorting": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "sort:name-asc": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 485 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "485"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "Aalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark carrying out enhanced biological phosphorus removal. The community was profiled with an 18.2 Gb Illumina metagenome and qFISH, revealing phosphate-removal organisms including Candidatus Accumulibacter and Tetrasphaera-related Actinobacteria, flanking substrate-providing bacteria, and metagenomic enrichment for phosphate",
+            "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clostridium drakei to convert CO2 and H2 into longer-chain products. A. woodii fixes CO2 with H2 and is engineered to release lactate, which C. drakei uses as an intermediate for chain elongation to caproic acid. The system is DOE-relevant because it couples microbial CO2 valorization with in situ water electrolysis or CO",
+            "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment\n\nA microbial community enriched from TCE/PCE-contaminated groundwater and amended with acetylene (C2H2) as the sole electron donor and organic carbon source. The stable enrichment performs reductive dechlorination of trichloroethene (TCE) and tetrachloroethene (PCE), coupling acetylenotrophy to organohalide respiration. Metagenomic analysis of the stable community identified a novel anaerobic acetylenotroph in the phylum Acti"
+          ],
+          "error": null
+        },
+        "sort:name-desc": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=name-desc",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 485 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "485"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "name-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "Zymomonas-E. coli Exometabolomics-Designed Obligate Mutualism\n\nA defined synthetic obligate mutualism pairing auxotrophic Zymomonas mobilis with auxotrophic Escherichia coli. Exometabolomics of Z. mobilis spent medium identified amino acid exometabolites used to select E. coli proA, pheA, and ilvA auxotroph partners, while mutant fitness profiling selected a Z. mobilis ZMO0748 auxotroph whose rescue was linked to glutathione-related metabolites in E. coli spent medium. The system is DOE-relevant",
+            "Yogurt Two-Species Starter Culture\n\nA defined thermophilic dairy fermentation community composed of Streptococcus thermophilus and Lactobacillus delbrueckii subsp. bulgaricus. The two lactic-acid bacteria form the canonical yogurt starter association, where metabolite exchange accelerates milk acidification: S. thermophilus provides formate, carbon dioxide, and urease-dependent ammonia/carbon dioxide effects that stimulate the lactobacillus, while proteolytic activity of L. delbrueckii subsp. bu",
+            "Yarrowia lipolytica Division-of-Labor Lipid Consortium\n\nA defined two-strain Yarrowia lipolytica consortium engineered to convert lignocellulose-derived oligosaccharides into lipids through metabolic division of labor. The system partitions hydrolysis and assimilation between a cellobiose-specialized YBGL3/YBGL1 lineage and a xylooligosaccharide-specialized YBXT-XR lineage, then benchmarks the consortium against a single multifunctional YBXT-XR-BGL3 strain. In mixed glucose, cellobiose, and xylo"
+          ],
+          "error": null
+        },
+        "sort:members-desc": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=members-desc",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 485 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "485"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "members-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "GLBRC Populus Variovorax SynCom28\n\nA defined, genome-resolved 28-strain synthetic community of Variovorax isolates from Populus deltoides and Populus trichocarpa roots. The community was used to identify strain-level partitioning between rhizosphere and endosphere compartments and genomic traits associated with endosphere specialization.\n\n 28\nENGINEERED\nRHIZOSPHERE",
+            "EcoFAB 2.0 Root Microbiome Ring Trial SynCom17\n\nA 17-member synthetic bacterial community (SynCom17) used in a standardized inter-laboratory ring trial across five international laboratories (LBNL, UNC Chapel Hill, Max Planck Cologne, Forschungszentrum Julich, U Melbourne) to study root microbiome recruitment and exudate composition of the model grass Brachypodium distachyon in EcoFAB 2.0 fabricated ecosystem devices. All 17 members were originally isolated from switchgrass rhizosphere soil and ",
+            "Barley DT Rhizosphere SynCom\n\nA defined sixteen-strain drought-tolerant bacterial synthetic community assembled from barley-rhizosphere isolates collected at the Global Change Experimental Facility in Bad Lauchstadt. Rigerte et al. selected isolates with overlapping 16S rDNA sequences to drought- or future-climate-associated amplicon sequence variants, cultured the barley isolate set on YME agar, combined equal proportions of the sixteen single-strain suspensions, and applied the Barley DT-SynCo"
+          ],
+          "error": null
+        },
+        "sort:members-asc": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=members-asc",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 485 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "485"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "members-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium\n\nAn anaerobic-digestion microbial consortium studied as part of a bioregenerative life-support concept for Mars: cyanobacterial biomass (Anabaena sp.), which can be grown on Martian resources, is anaerobically digested to mobilize nutrients (ammonium and phosphate) for use as a crop fertilizer, with biogas as a co-product. Ramalho et al. (2025, Bioresource Technology) tested three microbial communities for their ability to digest Anabaen",
+            "Angelarchaeales Thermoplasmata CuMMO Soil and Sediment Community\n\nA soil and aquifer-sediment microbial community in which a newly defined Thermoplasmatota archaeal order, Ca. Angelarchaeales, encodes divergent copper membrane monooxygenases (CuMMOs). Twenty genomes from distinct archaeal species were recovered from grassland and hillslope soils and aquifer sediments. The CuMMO proteins resemble Nitrososphaerales (ammonia monooxygenase) enzymes more than bacterial CuMMOs and retain all functiona",
+            "Arabidopsis Phyllosphere SynCom7\n\nA seven-strain reduced-complexity Arabidopsis phyllosphere SynCom used to test host genetic effects on microbiota composition.\n\n 1\nENGINEERED\nOTHER"
+          ],
+          "error": null
+        },
+        "sort:category-asc": {
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc",
+          "counts": [
+            {
+              "id": "",
+              "text": "Showing 485 of 485 communities"
+            },
+            {
+              "id": "results-count",
+              "text": "485"
+            }
+          ],
+          "controls": [
+            {
+              "id": "search",
+              "value": ""
+            },
+            {
+              "id": "sort-by",
+              "value": "category-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [
+            "AMD Acidophile Heterotroph Network\n\nA heterotrophic microbial network in acid mine drainage (AMD) systems dominated by Acidiphilium species and related acidophilic heterotrophs. This community plays a crucial role in coupling carbon and iron cycles in extremely acidic environments, supporting autotrophic iron oxidizers through organic matter processing and nutrient remineralization. The network thrives at pH 2-4 in AMD sites globally, where heterotrophs metabolize organic compounds produced by a",
+            "AMD Nitrososphaerota Archaeal Community\n\nA novel archaeal community from acid mine drainage environments dominated by ammonia-oxidizing archaea (AOA) of the phylum Nitrososphaerota (formerly Thaumarchaeota). This community represents a unique nitrogen-cycling system operating at extremely low pH (2.5-4.5) where archaeal nitrifiers outcompete bacterial ammonia oxidizers. The dominant members include acidophilic AOA such as Candidatus Nitrosotalea devanaterra and Nitrososphaera-like archaea that p",
+            "Ferroplasma-Leptospirillum Iron-Cycling Syntrophy\n\nA synergistic two-member consortium consisting of the cell wall-lacking archaeon Ferroplasma acidiphilum and the iron-oxidizing bacterium Leptospirillum ferriphilum, found in extremely acidic, metal-rich environments including acid mine drainage and biomining operations. The partnership is centered on reciprocal soluble-metabolite effects: F. acidiphilum can use organic matter secreted by L. ferriphilum for growth, keeping low organic compound c"
+          ],
+          "error": null
+        }
+      }
+    },
+    "full_catalogue": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/browser.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "headings": [
+        "CommunityMech",
+        "Category\n\u2212",
+        "Ecological State\n\u2212",
+        "Metals\n+",
+        "Rare Earth Elements\n+",
+        "Metal Relevance\n+",
+        "Explore Community & Sequence Embedding Spaces",
+        "Aalborg East Full-Scale EBPR Activated Sludge Community",
+        "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture",
+        "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment",
+        "Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture",
+        "Acidic Nitrification Minimal Consortium",
+        "Aerobic Denitrification Disturbance-Stable SynCom",
+        "Aerobic Denitrification Quorum-Quenching SynCom",
+        "Alaska Tundra Permafrost Iron-Redox Community",
+        "Alfalfa Stress-Adapted Bacterial SynCom",
+        "Algal-Methanotroph Biogas Valorization Coculture",
+        "Altered Schaedler Flora Gnotobiotic Mouse Community",
+        "AM-AB Chlorella-MLSS Wastewater Consortium",
+        "AMD Acidophile Heterotroph Network",
+        "AMD Nitrososphaerota Archaeal Community",
+        "Amsterdam 10-Species Gut Invasion SynCom",
+        "Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium",
+        "Anaerobic Indole-Degrading Sludge Consortium",
+        "Anammox Bioreactor DNRA Destabilization Community"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | LinkML Schema (https://w3id.org/communitymech) | Source: kb/communities/ (485 records) | Downloads: JSON, TSV | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Skip to communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html#main-content"
+        },
+        {
+          "text": "\u2190 Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+        },
+        {
+          "text": "TSV",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text Embedding Map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "ESM-2 Sequence Map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Aalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark c",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+        },
+        {
+          "text": "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clo",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html"
+        },
+        {
+          "text": "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment\n\nA microbial community enriched from TCE/PCE-contaminated groundwater and amended with acetylene (C2H2) as th",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html"
+        },
+        {
+          "text": "Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture\n\nA defined two-member bacterial coculture assembled from the Cd-contaminated mine-area soil isolates Achromobac",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.html"
+        },
+        {
+          "text": "Acidic Nitrification Minimal Consortium\n\nA minimal aerobic ammonia-oxidizing consortium from three acidic nitrification bioreactors operated between pH 2.0 and 5.0. Genome-resolved",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acidic_Nitrification_Minimal_Consortium.html"
+        },
+        {
+          "text": "Aerobic Denitrification Disturbance-Stable SynCom\n\nA three-member aerobic denitrification SMC that maintains function under dibutyl phthalate and levofloxacin disturbances through ",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_Disturbance_SynCom.html"
+        },
+        {
+          "text": "Aerobic Denitrification Quorum-Quenching SynCom\n\nA three-member aerobic denitrification SynCom whose quorum-quenching and AHL-mediated interactions improve nitrate removal.\n\n 3\nENG",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_QQ_SynCom.html"
+        },
+        {
+          "text": "Alaska Tundra Permafrost Iron-Redox Community\n\nA northern Alaska wet sedge tundra microbial community studied across the permafrost thaw gradient, where iron-cycling Gammaproteobac",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html"
+        },
+        {
+          "text": "Alfalfa Stress-Adapted Bacterial SynCom\n\nA defined five-member bacterial SynCom assembled from plant-associated Bacillus sp. G3, Bacillus sp. G12, Acinetobacter sp. G13, Plantibact",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.html"
+        },
+        {
+          "text": "Algal-Methanotroph Biogas Valorization Coculture\n\nA laboratory enriched haloalkaliphilic microalga-methanotroph co-culture assembled by mixing a halotolerant methanotrophic consort",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.html"
+        },
+        {
+          "text": "Altered Schaedler Flora Gnotobiotic Mouse Community\n\nThe altered Schaedler flora (ASF) is an eight-member defined murine gut bacterial community used in gnotobiotic mice. The commu",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html"
+        },
+        {
+          "text": "AM-AB Chlorella-MLSS Wastewater Consortium\n\nA microalga-bacteria wastewater-treatment consortium assembled by combining activated Chlorella vulgaris with separately activated mixed",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.html"
+        }
+      ]
+    },
+    "suite_nav": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/']",
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "headings": [
+        "CommunityMech",
+        "Record browser",
+        "Embedding browser",
+        "Protein sequence map (pLM)",
+        "LinkML Schema",
+        "Downloads & bulk data",
+        "GitHub"
+      ],
+      "footer_excerpt": "All Mech projects \u00b7 LinkML Schema \u00b7 JSON Export \u00b7 TSV Export\n\nKG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTraitsMech\u00b7TaxonMech\u00b7HabitatMech\u00b7PathwayMech\u00b7CMMMech\nkg-microbe\u00b7METPO\n\nProvenance: Schema https://w3id.org/communitymech \u00b7 Source corpus: kb/communities/ (485 records) \u00b7 License: BSD-3-Clause",
+      "relevant_links": [
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/CommunityMech/#downloads"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CommunityMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "485\nCOMMUNITIES",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "16\nCATEGORIES",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+        },
+        {
+          "text": "384-D\nTEXT EMBEDDINGS",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "512-D\nV3 EMBEDDINGS",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "1280-D\nESM-2 SEQUENCES",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text embedding map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Graph layout \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "ESM-2 sequence map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Schema reference \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "Download JSON \u2193",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+        },
+        {
+          "text": "Download TSV \u2193",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+        },
+        {
+          "text": "Browser index (JS) \u2193",
+          "url": "https://culturebotai.github.io/CommunityMech/data.js"
+        }
+      ]
+    },
+    "record_pages": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html",
+      "headings": [
+        "ANME-SRB Marine Methane Seep Consortium",
+        "Taxonomy",
+        "Ecological Interactions",
+        "Sulfate-Coupled Anaerobic Methane Oxidation",
+        "Direct Interspecies Electron Transfer",
+        "Sulfite Inhibition of ANME Methane Oxidation",
+        "Zero-Valent Sulfur Inhibition of ANME Methane Oxidation",
+        "Associated Datasets",
+        "Knowledge gaps & discussions (1)",
+        "KNOWLEDGE_GAP OPEN Which extracellular components conduct electrons between ANME and SRB in these aggregates?",
+        "Environmental Factors",
+        "Growth Media",
+        "Anaerobic artificial seawater sediment/rock microcosm (methane seep AOM incubation)",
+        "Cross-Mech Suite Links"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | Source YAML: kb/communities/ANME_SRB_Marine_Methane_Seep_Consortium.yaml | LinkML Schema (https://w3id.org/communitymech) | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "\u2190 Back to Communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "HabitatMech \u2197",
+          "url": "https://culturebotai.github.io/HabitatMech/browse.html?q=marine%20sediment"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_2157.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=anaerobic%20methanotrophic%20archaea"
+        },
+        {
+          "text": "PMID:37747940",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37747940/"
+        },
+        {
+          "text": "PMID:34986141",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34986141/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_213118.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=sulfate-reducing%20bacterial%20partners"
+        },
+        {
+          "text": "PMID:34986141",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34986141/"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browse.html?q=methane"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/browse.html?q=methane"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browse.html?q=sulfate"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/browse.html?q=sulfate"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browse.html?q=carbon%20dioxide"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/browse.html?q=carbon%20dioxide"
+        },
+        {
+          "text": "PMID:37747940",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37747940/"
+        },
+        {
+          "text": "PMID:34986141",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34986141/"
+        },
+        {
+          "text": "PathwayMech",
+          "url": "https://culturebotai.github.io/PathwayMech/browse.html?q=interspecies%20interaction%20between%20organisms"
+        }
+      ]
+    },
+    "term_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html",
+      "headings": [
+        "Aalborg East Full-Scale EBPR Activated Sludge Community",
+        "Taxonomy",
+        "Ecological Interactions",
+        "PAO Phosphate Storage Under EBPR Selection",
+        "Flanking-Community Substrate Provision To PAOs",
+        "Sludge Floc and Biofilm Formation",
+        "Stable Full-Scale EBPR Phosphorus Removal",
+        "Associated Datasets",
+        "Knowledge gaps & discussions (1)",
+        "KNOWLEDGE_GAP OPEN Which inferred transfers drive EBPR?",
+        "Environmental Factors",
+        "Growth Media",
+        "domestic wastewater (full-scale EBPR activated sludge)",
+        "Cross-Mech Suite Links"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | Source YAML: kb/communities/Aalborg_East_Full_Scale_EBPR_Community.yaml | LinkML Schema (https://w3id.org/communitymech) | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "\u2190 Back to Communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "HabitatMech \u2197",
+          "url": "https://culturebotai.github.io/HabitatMech/browse.html?q=full-scale%20enhanced%20biological%20phosphorus%20removal%20activated%20sludge"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_327159.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Candidatus%20Accumulibacter%20phosphatis%20and%20related%20PAOs"
+        },
+        {
+          "text": "PMID:22170425",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22170425/"
+        },
+        {
+          "text": "PMID:22170425",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22170425/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_201174.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Tetrasphaera-related%20actinobacterial%20PAOs"
+        },
+        {
+          "text": "PMID:22170425",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22170425/"
+        },
+        {
+          "text": "PMID:22170425",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22170425/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_976.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Bacteroidetes%20flanking%20community%20members"
+        },
+        {
+          "text": "PMID:22170425",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22170425/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_2.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=EBPR%20flanking%20bacteria"
+        },
+        {
+          "text": "PMID:22170425",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22170425/"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/browse.html?q=phosphate"
+        },
+        {
+          "text": "CMMMech",
+          "url": "https://culturebotai.github.io/CMMMech/browse.html?q=phosphate"
+        }
+      ]
+    },
+    "evidence": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html",
+      "headings": [
+        "Four-Species Pathogen Community Under DMS3vir Phage Predation",
+        "Taxonomy",
+        "Ecological Interactions",
+        "DMS3vir Lytic Infection of Pseudomonas aeruginosa via the Type IV Pilus",
+        "Competitive Release of Acinetobacter baumannii",
+        "Type IV Pilus Mutation Dominates Realised Resistance",
+        "Phage-Associated Maintenance of Community Diversity",
+        "Model-Inferred Context Dependence of Community Interactions",
+        "Knowledge gaps & discussions (4)",
+        "CURATION_TODO OPEN Should CommunityMech represent time-resolved composition, or keep trajectories in linked datasets and carry only the qualitative dynamic claim as an interaction?",
+        "OPEN_QUESTION OPEN Does this study establish recurring changes in dominance, beyond the observed single competitive release, sufficient to support KILL_THE_WINNER?",
+        "CURATION_TODO OPEN Where should a phage-resistance mechanism (receptor mutation versus defence system) and its fitness cost be recorded, now that prose in an interaction description is the only option?",
+        "KNOWLEDGE_GAP OPEN How much of the phage-associated diversity effect is mediated by competitive release of A. baumannii?",
+        "External Resources",
+        "Environmental Factors",
+        "Growth Media",
+        "Lysogeny broth (LB)",
+        "Cross-Mech Suite Links"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | Source YAML: kb/communities/Alseth_FourSpecies_Pathogen_Phage_Community.yaml | LinkML Schema (https://w3id.org/communitymech) | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "\u2190 Back to Communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "HabitatMech \u2197",
+          "url": "https://culturebotai.github.io/HabitatMech/browse.html?q=laboratory%20batch%20culture"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_287.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Pseudomonas%20aeruginosa%20PA14"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_470.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Acinetobacter%20baumannii%20FZ21"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_1280.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Staphylococcus%20aureus%2013%20S44%20S9"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_95486.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Burkholderia%20cenocepacia%20J2315"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "PMID:38648198",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38648198/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_389469.html"
+        }
+      ]
+    },
+    "domain_view": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/community_umap.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/community_umap.html",
+      "headings": [
+        "Community Embedding Space",
+        "Category\n\u2212",
+        "Ecological State\n\u2212",
+        "Origin\n\u2212",
+        "How to Interpret This Visualization"
+      ],
+      "footer_excerpt": "CommunityMech Knowledge Base (322 communities) \u2022 Schema: https://w3id.org/communitymech \u2022 Source: kb/communities/ \u2022 License: BSD-3-Clause",
+      "relevant_links": [
+        {
+          "text": "\u2190 Back to Community Index",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Aalborg East Full-Scale EBPR Activated Sludge Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+        },
+        {
+          "text": "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html"
+        },
+        {
+          "text": "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html"
+        },
+        {
+          "text": "Aerobic Denitrification Disturbance-Stable SynCom",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_Disturbance_SynCom.html"
+        },
+        {
+          "text": "Aerobic Denitrification Quorum-Quenching SynCom",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_QQ_SynCom.html"
+        },
+        {
+          "text": "Alaska Tundra Permafrost Iron-Redox Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html"
+        },
+        {
+          "text": "Altered Schaedler Flora Gnotobiotic Mouse Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html"
+        },
+        {
+          "text": "AMD Acidophile Heterotroph Network",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/AMD_Acidophile_Heterotroph_Network.html"
+        },
+        {
+          "text": "AMD Nitrososphaerota Archaeal Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/AMD_Nitrososphaerota_Archaeal.html"
+        },
+        {
+          "text": "Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Anabaena_MGS1_Anaerobic_Digestion_Methanogen_Consortium.html"
+        },
+        {
+          "text": "Anammox Bioreactor DNRA Destabilization Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Anammox_Bioreactor_DNRA_Destabilization_Community.html"
+        },
+        {
+          "text": "Anammox Granule Metabolic Interaction Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Anammox_Granule_Metabolic_Interaction_Community.html"
+        },
+        {
+          "text": "Angelarchaeales Thermoplasmata CuMMO Soil and Sediment Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.html"
+        },
+        {
+          "text": "ANME-SRB Marine Methane Seep Consortium",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+        },
+        {
+          "text": "ANME/SRB Anaerobic Methanotrophic Syntrophic Consortia",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.html"
+        },
+        {
+          "text": "Arabidopsis Coumarin Root SynCom",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Arabidopsis_Coumarin_Root_SynCom.html"
+        },
+        {
+          "text": "Arabidopsis Phyllosphere SynCom7",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Arabidopsis_Phyllosphere_SynCom7.html"
+        },
+        {
+          "text": "Asgard Archaea Wetland Soil Methanogenesis-Substrate Community",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.html"
+        }
+      ],
+      "excerpt": "Community Embedding Space\n\n2D projection of 322 microbial communities based on taxonomic composition\n\n\u2190 Back to Community Index Browse Text Map Sequence Map Network Schema All Mech projects\nColor by:\nCategory\nEcological State\nOrigin\nSize by:\nNumber of Taxa\nInteractions\nSearch communities\n\u2715\nShowing 322 of 322 communities\nCategory\n\u2212\nAll\nNone\nRHIZOSPHERE\n(56)\nBIOTECHNOLOGY\n(50)\nBIOREMEDIATION\n(42)\nOTHER\n(31)\nLIGNOCELLULOSE\n(30)\nSYNTROPHY\n(29)\nEXTREME ENVIRONMENT\n(14)\nPHYTOPLANKTON\n(14)\nMETHANOGENESIS\n(13)\nCARBON SEQUESTRATION\n(12)\nBIOMINING\n(11)\nAMD\n(6)\nDIET\n(6)\nORAL\n(5)\nMETAL REDUCTION\n(3)\nEcological State\n\u2212\nENGINEERED\n(228)\nSTABLE\n(70)\nPERTURBED\n(23)\nTRANSIENT\n(1)\nOrigin\n\u2212\nSYNTHETIC\n(180)\nNATURAL\n(96)\nENGINEERED\n(46)\n\u221210\n\u22125\n0\n5\n10\n15\nPaCMAP Dimension 1\n\u221210\n\u22125\n0\n5\n10\nPaCMAP Dimension 2\nLegend (Color + Shape):\nAMD\nBIOMINING\nBIOREMEDIATION\nBIOTECHNOLOGY\nCARBON_SEQUESTRATION\nDIET\nEXTREME_ENVIRONMENT\nLIGNOCELLULOSE\nMETAL_REDUCTION\nMETHANOGENESIS\nORAL\nOTHER\nPHYTOPLANKTON\nRHIZOSPHERE\nSYNTROPHY\nView data as table\nHow to Interpret This Visualization\nProximity: Communities close together have similar taxonomic composition in embedding space\nColor: Categorical grouping (default: community category like AMD, DIET, SynCom)\nSize: Metric of interest (default: number of unique taxa)\nHover: View detailed metadata tooltip\nClick: Navigate to the community's detail page\nZoom/Pan: Use mouse wheel to zoom, click and drag to pan\n\nCommunityMech Knowledge Base (322 communities) \u2022 Schema: https://w3id.org/communitymech \u2022 Source: kb/communities/ \u2022 License: BSD-3-Clause\n\n\u2600"
+    },
+    "cross_mech_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html",
+      "headings": [
+        "Copper Biomining Heap Leach Consortium",
+        "Taxonomy",
+        "Ecological Interactions",
+        "Acidithiobacillus Iron Oxidation and Early-Heap Association",
+        "Aged-Heap Iron-Oxidizer Association",
+        "Sulfur Oxidation to Sulfuric Acid",
+        "Copper Sulfide Dissolution",
+        "Sulfobacillus Iron and Sulfur Oxidation Capacity",
+        "Knowledge gaps & discussions (1)",
+        "KNOWLEDGE_GAP OPEN Which taxa and mineral/redox conditions sustain the industrial leaching feedback?",
+        "Environmental Factors",
+        "Growth Media",
+        "Standard 9K Medium (laboratory cultivation of consortium members) (CultureMech:003277)",
+        "Cross-Mech Suite Links"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | Source YAML: kb/communities/Copper_Biomining_Heap_Leach.yaml | LinkML Schema (https://w3id.org/communitymech) | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "\u2190 Back to Communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "HabitatMech \u2197",
+          "url": "https://culturebotai.github.io/HabitatMech/browse.html?q=mine%20tailing"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_920.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Acidithiobacillus%20ferrooxidans"
+        },
+        {
+          "text": "doi:10.1111/j.1751-7915.2009.00112.x",
+          "url": "https://doi.org/10.1111/j.1751-7915.2009.00112.x"
+        },
+        {
+          "text": "doi:10.1111/j.1751-7915.2009.00112.x",
+          "url": "https://doi.org/10.1111/j.1751-7915.2009.00112.x"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_178606.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Leptospirillum%20ferriphilum"
+        },
+        {
+          "text": "doi:10.1111/j.1751-7915.2009.00112.x",
+          "url": "https://doi.org/10.1111/j.1751-7915.2009.00112.x"
+        },
+        {
+          "text": "doi:10.1038/s41598-021-95324-9",
+          "url": "https://doi.org/10.1038/s41598-021-95324-9"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_930.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Acidithiobacillus%20thiooxidans"
+        },
+        {
+          "text": "doi:10.1111/j.1751-7915.2009.00112.x",
+          "url": "https://doi.org/10.1111/j.1751-7915.2009.00112.x"
+        },
+        {
+          "text": "PMID:22123759",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22123759/"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_74969.html"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/browse.html?q=Ferroplasma%20acidiphilum"
+        },
+        {
+          "text": "doi:10.1111/j.1751-7915.2009.00112.x",
+          "url": "https://doi.org/10.1111/j.1751-7915.2009.00112.x"
+        },
+        {
+          "text": "TaxonMech",
+          "url": "https://culturebotai.github.io/TaxonMech/taxa/NCBITaxon_28034.html"
+        }
+      ]
+    },
+    "corpus_stats": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/']",
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "headings": [
+        "CommunityMech",
+        "Record browser",
+        "Embedding browser",
+        "Protein sequence map (pLM)",
+        "LinkML Schema",
+        "Downloads & bulk data",
+        "GitHub"
+      ],
+      "footer_excerpt": "All Mech projects \u00b7 LinkML Schema \u00b7 JSON Export \u00b7 TSV Export\n\nKG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTraitsMech\u00b7TaxonMech\u00b7HabitatMech\u00b7PathwayMech\u00b7CMMMech\nkg-microbe\u00b7METPO\n\nProvenance: Schema https://w3id.org/communitymech \u00b7 Source corpus: kb/communities/ (485 records) \u00b7 License: BSD-3-Clause",
+      "relevant_links": [
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "Downloads",
+          "url": "https://culturebotai.github.io/CommunityMech/#downloads"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/CommunityMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "485\nCOMMUNITIES",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "16\nCATEGORIES",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+        },
+        {
+          "text": "384-D\nTEXT EMBEDDINGS",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "512-D\nV3 EMBEDDINGS",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "1280-D\nESM-2 SEQUENCES",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text embedding map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Graph layout \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "ESM-2 sequence map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Schema reference \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "Download JSON \u2193",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+        },
+        {
+          "text": "Download TSV \u2193",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+        },
+        {
+          "text": "Browser index (JS) \u2193",
+          "url": "https://culturebotai.github.io/CommunityMech/data.js"
+        }
+      ],
+      "excerpt": "CommunityMech\nHome\nBrowse\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nDownloads\nGitHub\nAll Mech projects\nCommunityMech\n\nMicrobial community knowledge base \u2014 curated, evidence-backed interaction networks.\n\nSearch communities\nSearch\n485\nCOMMUNITIES\n16\nCATEGORIES\n384-D\nTEXT EMBEDDINGS\n512-D\nV3 EMBEDDINGS\n1280-D\nESM-2 SEQUENCES\nBrowse records \u2192\nRecord browser\n\nFaceted browser of microbial communities \u2014 filter by category, ecological state, metals, and rare-earth elements.\n\nText embedding map \u2192\nTaxonomic UMAP \u2192\nGraph layout \u2192\nEmbedding browser\n\nInteractive 2D PaCMAP & PCA projections of text embeddings (BAAI/bge-small-en-v1.5) and KG-Microbe taxonomic DeepWalk embeddings.\n\nESM-2 sequence map \u2192\nProtein sequence map (pLM)\n\nInteractive 1,280-D ESM-2 protein language model embedding space for CommunityMech functional genes and guild markers.\n\nSchema reference \u2192\nLinkML Schema\n\nBrowse classes, slots, ontology prefixes (NCBITaxon, ENVO, ChEBI, GO, METPO), and permissible enums in the CommunityMech schema.\n\nDownload JSON \u2193\nDownload TSV \u2193\nBrowser index (JS) \u2193\nDownloads & bulk data\n\nDownload the full 485-community dataset as structured JSON or tabular TSV, or inspect individual YAML records in kb/communities/.\n\nView on GitHub \u2192\nGitHub\n\nSource code, data, schema, and the curation workflow.\n\nAll Mech projects \u00b7 LinkML Schema \u00b7 JSON Export \u00b7 TSV Export\n\nKG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTraitsMech\u00b7TaxonMech\u00b7HabitatMech\u00b7PathwayMech\u00b7CMMMech\nkg-microbe\u00b7METPO\n\nProvenance: Schema https://w3id.org/communitymech \u00b7 Source corpus: kb/communities/ (485 records) \u00b7 License: BSD-3-Clause\n\n\u2600"
+    },
+    "category_browse": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/browser.html#category-facet']",
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet",
+      "headings": [
+        "CommunityMech",
+        "Category\n\u2212",
+        "Ecological State\n\u2212",
+        "Metals\n+",
+        "Rare Earth Elements\n+",
+        "Metal Relevance\n+",
+        "Explore Community & Sequence Embedding Spaces",
+        "Aalborg East Full-Scale EBPR Activated Sludge Community",
+        "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture",
+        "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment",
+        "Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture",
+        "Acidic Nitrification Minimal Consortium",
+        "Aerobic Denitrification Disturbance-Stable SynCom",
+        "Aerobic Denitrification Quorum-Quenching SynCom",
+        "Alaska Tundra Permafrost Iron-Redox Community",
+        "Alfalfa Stress-Adapted Bacterial SynCom",
+        "Algal-Methanotroph Biogas Valorization Coculture",
+        "Altered Schaedler Flora Gnotobiotic Mouse Community",
+        "AM-AB Chlorella-MLSS Wastewater Consortium",
+        "AMD Acidophile Heterotroph Network",
+        "AMD Nitrososphaerota Archaeal Community",
+        "Amsterdam 10-Species Gut Invasion SynCom",
+        "Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium",
+        "Anaerobic Indole-Degrading Sludge Consortium",
+        "Anammox Bioreactor DNRA Destabilization Community"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | LinkML Schema (https://w3id.org/communitymech) | Source: kb/communities/ (485 records) | Downloads: JSON, TSV | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Skip to communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html#main-content"
+        },
+        {
+          "text": "\u2190 Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+        },
+        {
+          "text": "TSV",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text Embedding Map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "ESM-2 Sequence Map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Aalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark c",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+        },
+        {
+          "text": "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clo",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html"
+        },
+        {
+          "text": "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment\n\nA microbial community enriched from TCE/PCE-contaminated groundwater and amended with acetylene (C2H2) as th",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html"
+        },
+        {
+          "text": "Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture\n\nA defined two-member bacterial coculture assembled from the Cd-contaminated mine-area soil isolates Achromobac",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.html"
+        },
+        {
+          "text": "Acidic Nitrification Minimal Consortium\n\nA minimal aerobic ammonia-oxidizing consortium from three acidic nitrification bioreactors operated between pH 2.0 and 5.0. Genome-resolved",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acidic_Nitrification_Minimal_Consortium.html"
+        },
+        {
+          "text": "Aerobic Denitrification Disturbance-Stable SynCom\n\nA three-member aerobic denitrification SMC that maintains function under dibutyl phthalate and levofloxacin disturbances through ",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_Disturbance_SynCom.html"
+        },
+        {
+          "text": "Aerobic Denitrification Quorum-Quenching SynCom\n\nA three-member aerobic denitrification SynCom whose quorum-quenching and AHL-mediated interactions improve nitrate removal.\n\n 3\nENG",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_QQ_SynCom.html"
+        },
+        {
+          "text": "Alaska Tundra Permafrost Iron-Redox Community\n\nA northern Alaska wet sedge tundra microbial community studied across the permafrost thaw gradient, where iron-cycling Gammaproteobac",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html"
+        },
+        {
+          "text": "Alfalfa Stress-Adapted Bacterial SynCom\n\nA defined five-member bacterial SynCom assembled from plant-associated Bacillus sp. G3, Bacillus sp. G12, Acinetobacter sp. G13, Plantibact",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.html"
+        },
+        {
+          "text": "Algal-Methanotroph Biogas Valorization Coculture\n\nA laboratory enriched haloalkaliphilic microalga-methanotroph co-culture assembled by mixing a halotolerant methanotrophic consort",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.html"
+        },
+        {
+          "text": "Altered Schaedler Flora Gnotobiotic Mouse Community\n\nThe altered Schaedler flora (ASF) is an eight-member defined murine gut bacterial community used in gnotobiotic mice. The commu",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html"
+        },
+        {
+          "text": "AM-AB Chlorella-MLSS Wastewater Consortium\n\nA microalga-bacteria wastewater-treatment consortium assembled by combining activated Chlorella vulgaris with separately activated mixed",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.html"
+        }
+      ]
+    },
+    "downloads": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/communities.json']",
+      "url": "https://culturebotai.github.io/CommunityMech/communities.json",
+      "headings": [
+        "CommunityMech",
+        "Category\n\u2212",
+        "Ecological State\n\u2212",
+        "Metals\n+",
+        "Rare Earth Elements\n+",
+        "Metal Relevance\n+",
+        "Explore Community & Sequence Embedding Spaces",
+        "Aalborg East Full-Scale EBPR Activated Sludge Community",
+        "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture",
+        "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment",
+        "Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture",
+        "Acidic Nitrification Minimal Consortium",
+        "Aerobic Denitrification Disturbance-Stable SynCom",
+        "Aerobic Denitrification Quorum-Quenching SynCom",
+        "Alaska Tundra Permafrost Iron-Redox Community",
+        "Alfalfa Stress-Adapted Bacterial SynCom",
+        "Algal-Methanotroph Biogas Valorization Coculture",
+        "Altered Schaedler Flora Gnotobiotic Mouse Community",
+        "AM-AB Chlorella-MLSS Wastewater Consortium",
+        "AMD Acidophile Heterotroph Network",
+        "AMD Nitrososphaerota Archaeal Community",
+        "Amsterdam 10-Species Gut Invasion SynCom",
+        "Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium",
+        "Anaerobic Indole-Degrading Sludge Consortium",
+        "Anammox Bioreactor DNRA Destabilization Community"
+      ],
+      "footer_excerpt": "Generated by CommunityMech | LinkML Schema (https://w3id.org/communitymech) | Source: kb/communities/ (485 records) | Downloads: JSON, TSV | License: BSD-3-Clause | View on GitHub",
+      "relevant_links": [
+        {
+          "text": "Skip to communities",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html#main-content"
+        },
+        {
+          "text": "\u2190 Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "JSON",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.json"
+        },
+        {
+          "text": "TSV",
+          "url": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text Embedding Map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "ESM-2 Sequence Map \u2192",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Aalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark c",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+        },
+        {
+          "text": "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clo",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html"
+        },
+        {
+          "text": "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment\n\nA microbial community enriched from TCE/PCE-contaminated groundwater and amended with acetylene (C2H2) as th",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html"
+        },
+        {
+          "text": "Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture\n\nA defined two-member bacterial coculture assembled from the Cd-contaminated mine-area soil isolates Achromobac",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.html"
+        },
+        {
+          "text": "Acidic Nitrification Minimal Consortium\n\nA minimal aerobic ammonia-oxidizing consortium from three acidic nitrification bioreactors operated between pH 2.0 and 5.0. Genome-resolved",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Acidic_Nitrification_Minimal_Consortium.html"
+        },
+        {
+          "text": "Aerobic Denitrification Disturbance-Stable SynCom\n\nA three-member aerobic denitrification SMC that maintains function under dibutyl phthalate and levofloxacin disturbances through ",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_Disturbance_SynCom.html"
+        },
+        {
+          "text": "Aerobic Denitrification Quorum-Quenching SynCom\n\nA three-member aerobic denitrification SynCom whose quorum-quenching and AHL-mediated interactions improve nitrate removal.\n\n 3\nENG",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Aerobic_Denitrification_QQ_SynCom.html"
+        },
+        {
+          "text": "Alaska Tundra Permafrost Iron-Redox Community\n\nA northern Alaska wet sedge tundra microbial community studied across the permafrost thaw gradient, where iron-cycling Gammaproteobac",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html"
+        },
+        {
+          "text": "Alfalfa Stress-Adapted Bacterial SynCom\n\nA defined five-member bacterial SynCom assembled from plant-associated Bacillus sp. G3, Bacillus sp. G12, Acinetobacter sp. G13, Plantibact",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Alfalfa_Stress_Adapted_Bacterial_SynCom.html"
+        },
+        {
+          "text": "Algal-Methanotroph Biogas Valorization Coculture\n\nA laboratory enriched haloalkaliphilic microalga-methanotroph co-culture assembled by mixing a halotolerant methanotrophic consort",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Algal_Methanotroph_Biogas_Valorization_Coculture.html"
+        },
+        {
+          "text": "Altered Schaedler Flora Gnotobiotic Mouse Community\n\nThe altered Schaedler flora (ASF) is an eight-member defined murine gut bacterial community used in gnotobiotic mice. The commu",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html"
+        },
+        {
+          "text": "AM-AB Chlorella-MLSS Wastewater Consortium\n\nA microalga-bacteria wastewater-treatment consortium assembled by combining activated Chlorella vulgaris with separately activated mixed",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/AM_AB_Chlorella_MLSS_Wastewater_Consortium.html"
+        }
+      ],
+      "field_inventory": "group-b-bulk-inventory.json::CommunityMech"
+    },
+    "schema_docs": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/CommunityMech/schema.html']",
+      "url": "https://culturebotai.github.io/CommunityMech/schema.html",
+      "headings": [
+        "CommunityMech LinkML Schema Documentation",
+        "Classes (28)",
+        "Slots & Class Attributes (230)",
+        "Enumerations (26)"
+      ],
+      "footer_excerpt": "CommunityMech Knowledge Base (485 communities) \u2022 Schema: https://w3id.org/communitymech \u2022 Source: kb/communities/ \u2022 License: BSD-3-Clause",
+      "relevant_links": [
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/CommunityMech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+        },
+        {
+          "text": "Text Map",
+          "url": "https://culturebotai.github.io/CommunityMech/text_map.html"
+        },
+        {
+          "text": "Taxonomic UMAP",
+          "url": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+        },
+        {
+          "text": "Sequence Map",
+          "url": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+        },
+        {
+          "text": "Network",
+          "url": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "View LinkML YAML source",
+          "url": "https://github.com/CultureBotAI/CommunityMech/blob/main/src/communitymech/schema/communitymech.yaml"
+        },
+        {
+          "text": "https://w3id.org/communitymech",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
+        },
+        {
+          "text": "kb/communities/",
+          "url": "https://github.com/CultureBotAI/CommunityMech"
+        }
+      ]
+    },
+    "theme_toggle": {
+      "url": "https://culturebotai.github.io/CommunityMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages[*].theme / saved_theme",
+      "themes": {
+        "https://culturebotai.github.io/CommunityMech/": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/browser.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/community_umap.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/browser.html#category-facet": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/schema.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/text_map.html": {
+          "theme": null,
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/CommunityMech/sequence_map.html": {
+          "theme": null,
+          "saved": "dark"
+        }
+      }
+    },
+    "responsive": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "pages[*].fresh_390 / resized_390",
+      "widths": {
+        "https://culturebotai.github.io/CommunityMech/": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/browser.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/community_umap.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/browser.html#category-facet": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/schema.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 1314
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 1314
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/text_map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/CommunityMech/sequence_map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-browser-b.json",
+      "capture_locator": "failure_cases",
+      "cases": {
+        "https://culturebotai.github.io/CommunityMech/browser.html": {
+          "aborted": [],
+          "excerpt": "Skip to communities\n\u2190 Home Text Map Taxonomic UMAP Sequence Map Network Schema JSON TSV All Mech projects\nCommunityMech\n\nMicrobial Community Knowledge Base\n\nSearch communities\n\u2715\nSort communities\nName (A \u2192 Z)\nName (Z \u2192 A)\nMembers (Most \u2192 Fewest)\nMembers (Fewest \u2192 Most)\nCategory (A \u2192 Z)\nCategory\n\u2212\nAll\nNone\nBIOTECHNOLOGY\n(96)\nBIOREMEDIATION\n(85)\nRHIZOSPHERE\n(80)\nOTHER\n(44)\nLIGNOCELLULOSE\n(37)\nSYNTROPHY\n(34)\nPHYTOPLANKTON\n(19)\nMETHANOGENESIS\n(17)\nBIOMINING\n(17)\nEXTREME ENVIRONMENT\n(16)\nCARBON SEQUESTRATION\n(12)\nDIET\n(11)\nAMD\n(7)\nORAL\n(5)\nMETAL REDUCTION\n(3)\nPHAGE PREDATION\n(2)\nEcological State\n\u2212\nENGINEERED\n(379)\nSTABLE\n(80)\nPERTURBED\n(25)\nTRANSIENT\n(1)\nMetals\n+\nRare Earth Elements\n+\nMetal Relevance\n+\nShowing 485 of 485 communities\nExplore Community & Sequence Embedding Spaces\n\nView interactive 2D PaCMAP & PCA projections of community text embeddings, KG-Microbe taxonomic composition embeddings, and ESM-2 protein sequence embeddings.\n\nText Embedding Map \u2192 Taxonomic UMAP \u2192 ESM-2 Sequence Map \u2192\nAalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark carrying out enhanced biological phosphorus removal. The community was profiled with an 18.2 Gb Illumina metagenome and qFISH, revealing phosphate-removal organisms including Candidatus Accumulibacter and Tetrasphaera-related Actinobacteria, flanking substrate-providing bacteria, and metagenomic enrichment for phosphate metabolism and biofilm/floc formation functions.\n\n 4\nENGINEERED\nBIOTECHNOLOGY\nAcetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture\n\nA defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii mutant with Clostridium drakei to convert CO2 and H2 "
+        }
+      }
+    }
+  },
+  "independent_review": "group-b-independent-review.json",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/communitymech-auditor-b.json",
+    "sha256": "a98ab955206cb95213dc2d0066c3c5d035ed768bb57c116324be7b82779359c9",
+    "bytes": 166574
+  }
+}
