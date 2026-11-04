@@ -1,0 +1,1067 @@
+{
+  "mech": "TaxonMech",
+  "reviewer": "deployment_review redeployment auditor",
+  "started_at": "2026-11-04T12:36:08.761550+00:00",
+  "corpus_pin": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+  "previous_served_revision": "b04590a7a416eb934f67e7c04416e37924f10ec8",
+  "served_revision": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+  "source_diff": {
+    "compare_url": "https://github.com/CultureBotAI/TaxonMech/compare/b04590a7a416eb934f67e7c04416e37924f10ec8...e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+    "changed_files": [
+      "curation/causal_graphs/README.md",
+      "docs/CURATION.md",
+      "reviews/structured/20261104T083000Z-cycle5-stage5-remediation-review/review.md",
+      "reviews/structured/20261104T083000Z-cycle5-stage5-remediation-review/review.yaml",
+      "reviews/workflow/latest.yaml",
+      "reviews/workflow/mech-goal-sequence-20261019/cycle-000005/stage-05/revision-0001/evidence.yaml",
+      "reviews/workflow/mech-goal-sequence-20261019/cycle-000005/stage-05/revision-0001/issue_map.md",
+      "reviews/workflow/mech-goal-sequence-20261019/cycle-000005/stage-05/revision-0001/validation.md",
+      "tests/test_causal_graph_overlays.py"
+    ],
+    "commits": 1,
+    "unchanged_root_objects": {
+      ".agents": {
+        "old": "db97ca74a08f1490534f662a2663d66e3e2f808d",
+        "new": "db97ca74a08f1490534f662a2663d66e3e2f808d",
+        "equal": true
+      },
+      ".claude": {
+        "old": "fa7c6c85cc9eab17e4a1db4dd0cc632d32f073fa",
+        "new": "fa7c6c85cc9eab17e4a1db4dd0cc632d32f073fa",
+        "equal": true
+      },
+      ".github": {
+        "old": "6f29238d8b15ecba1fafbcae9143c6c30948643f",
+        "new": "6f29238d8b15ecba1fafbcae9143c6c30948643f",
+        "equal": true
+      },
+      ".gitignore": {
+        "old": "ffc0db8c849ff8782f51aa64b1ea4f2bb94849b2",
+        "new": "ffc0db8c849ff8782f51aa64b1ea4f2bb94849b2",
+        "equal": true
+      },
+      ".nojekyll": {
+        "old": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "new": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "equal": true
+      },
+      ".python-version": {
+        "old": "24ee5b1be9961e38a503c8e764b7385dbb6ba124",
+        "new": "24ee5b1be9961e38a503c8e764b7385dbb6ba124",
+        "equal": true
+      },
+      "AGENTS.md": {
+        "old": "ce51f34fc7a6dfeb52371f1b44677df1f8de185b",
+        "new": "ce51f34fc7a6dfeb52371f1b44677df1f8de185b",
+        "equal": true
+      },
+      "CLAUDE.md": {
+        "old": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+        "new": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+        "equal": true
+      },
+      "INFRA_TASKS.md": {
+        "old": "f6d351daf14aa7fc9347ee5b03c725db89108a71",
+        "new": "f6d351daf14aa7fc9347ee5b03c725db89108a71",
+        "equal": true
+      },
+      "LICENSE": {
+        "old": "43869fb988be8b6755f5542141d5ee12ecf2d5b9",
+        "new": "43869fb988be8b6755f5542141d5ee12ecf2d5b9",
+        "equal": true
+      },
+      "LICENSE-CODE": {
+        "old": "ba911974172e86f228aeac8a14563bc24679e769",
+        "new": "ba911974172e86f228aeac8a14563bc24679e769",
+        "equal": true
+      },
+      "LICENSE-DATA": {
+        "old": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+        "new": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+        "equal": true
+      },
+      "README.md": {
+        "old": "e81677fc75047c0b7c99e731ec9abf731fa62f34",
+        "new": "e81677fc75047c0b7c99e731ec9abf731fa62f34",
+        "equal": true
+      },
+      "conf": {
+        "old": "e125586e15a55cfaa84107fc46bbd98f630bba19",
+        "new": "e125586e15a55cfaa84107fc46bbd98f630bba19",
+        "equal": true
+      },
+      "data": {
+        "old": "466ff2ed0d68212656d2725cd771d7ba4c3a8549",
+        "new": "466ff2ed0d68212656d2725cd771d7ba4c3a8549",
+        "equal": true
+      },
+      "history": {
+        "old": "0569e14669da7604b54348401c43ea6554daadc8",
+        "new": "0569e14669da7604b54348401c43ea6554daadc8",
+        "equal": true
+      },
+      "index.html": {
+        "old": "984d178b0d7d5dd71737afade8d60f1d8743cc32",
+        "new": "984d178b0d7d5dd71737afade8d60f1d8743cc32",
+        "equal": true
+      },
+      "justfile": {
+        "old": "aa7eb593e6a9eeed1ab4000a44df7b9eeb664187",
+        "new": "aa7eb593e6a9eeed1ab4000a44df7b9eeb664187",
+        "equal": true
+      },
+      "pages": {
+        "old": "78a2feba1bddc614b5ee011769a8a4d70be52220",
+        "new": "78a2feba1bddc614b5ee011769a8a4d70be52220",
+        "equal": true
+      },
+      "prompts": {
+        "old": "7b2d1c59d72df04ce26eb6db92e1f365f0528d34",
+        "new": "7b2d1c59d72df04ce26eb6db92e1f365f0528d34",
+        "equal": true
+      },
+      "pyproject.toml": {
+        "old": "42aad7887d09350e253bf6ddefe2037356363684",
+        "new": "42aad7887d09350e253bf6ddefe2037356363684",
+        "equal": true
+      },
+      "reports": {
+        "old": "10fa7c638d8f3dcf8f4e7c2634a9a8a943047532",
+        "new": "10fa7c638d8f3dcf8f4e7c2634a9a8a943047532",
+        "equal": true
+      },
+      "schema": {
+        "old": "e4a6a9f172080b7118cc1b6b73014a29e58e044a",
+        "new": "e4a6a9f172080b7118cc1b6b73014a29e58e044a",
+        "equal": true
+      },
+      "scripts": {
+        "old": "0bf53107d0b77ab5e571e93829ba4fc1cefa7034",
+        "new": "0bf53107d0b77ab5e571e93829ba4fc1cefa7034",
+        "equal": true
+      },
+      "src": {
+        "old": "ab15afe66af15b222ff47e0894bb2698c99768a8",
+        "new": "ab15afe66af15b222ff47e0894bb2698c99768a8",
+        "equal": true
+      },
+      "uv.lock": {
+        "old": "e1381dcb4f04345462b51ffd1b1698844c9f564b",
+        "new": "e1381dcb4f04345462b51ffd1b1698844c9f564b",
+        "equal": true
+      },
+      "workflow": {
+        "old": "f5e3ffff5fadd9da56dae3bf4d408ea2482c3d99",
+        "new": "f5e3ffff5fadd9da56dae3bf4d408ea2482c3d99",
+        "equal": true
+      }
+    },
+    "assessment": "Only curation documentation, review reports and a test changed. No records, rendered pages, schema or renderer inputs changed; there are no new record pages to sample."
+  },
+  "pages": {
+    "pages/index.html": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+      "http_status": 200,
+      "h1": "TaxonMech",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse\nType strains\nText map\nSources\nIndex JSON.gz\nSchema\nAll Mech projects\nGitHub\nTaxonMech\n\nMicrobial taxa and the strains behind them \u2014 NCBI Taxonomy identity, GTDB genomes, LPSN nomenclature and BacDive culture-collection strains, harmonized into one record per taxon from kg-microbe's transforms.\n\nSearch\n626048\nTAXON RECORDS\n100745\nDISTINCT LISTED STRAINS\n20648\nWITH A TYPE STRAIN\nFind a taxon\nSources and provenance\nSource records live on the taxon\n\nEvery strain row carries its own genome and related records inline: NCBI, GTDB, BV-BRC/PATRIC, IMG and AllTheBacteria assemblies, and StrainInfo strain and deposit records with their ",
+      "named_evidence_and_source_links": [],
+      "visuals": []
+    },
+    "pages/browse.html": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "http_status": 200,
+      "h1": "All records",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a All records\nAll records\nSEARCH TAXON NAME, ID, RANK OR SOURCE\nSearch\nDOMAIN\nAll domains\nBacteria\nArchaea\nEukaryota\nOther\nTAXONOMIC RANK\nAll ranks\nSpecies\nStrain\nSubspecies\nForma specialis\nIsolate\nSerogroup\nSerotype\nNo rank\nATTESTING SOURCE\nAll sources\nNCBI Taxonomy\nGTDB\nLPSN\nBacDive\nSTRAINS & MAPPINGS\nAll records\nWith type strain\nWith BacDive strains (> 0)\nWith GTDB mappings (> 0)\nSTATUS\nAll statuses\nSeeded\nDeprecated\nSORT BY\nDefault (corpus order)\nTaxon name (A\u2013Z)\nTaxon name (Z\u2013A)\nNCBI ID (numeric)\nTaxonomic rank\nBacDive strains (high\u2013low",
+      "named_evidence_and_source_links": [],
+      "visuals": []
+    },
+    "pages/taxon.html?id=NCBITaxon:2173": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:2173",
+      "http_status": 200,
+      "h1": "Methanobrevibacter smithii",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Browse \u203a Taxon record\nSearch\nMethanobrevibacter smithii\n\nNCBITaxon:2173 \u00b7 SPECIES \u00b7 ARCHAEA \u00b7 SEEDED \u00b7 grounding EXACT\n\nLineage: root \u203a cellular organisms \u203a Archaea \u203a Methanobacteriati \u203a Methanobacteriota \u203a Methanomada group \u203a Methanobacteria \u203a Methanobacteriales \u203a Methanobacteriaceae \u203a Methanobrevibacter\n\n25 child taxon records\n\nSynonyms: \"Methanocatella smithii\" (Balch and Wolfe 1981) Protasov and Brune 2023 (NCBITaxon); Methanobrevibacter smithii Balch and Wolfe 1981 (NCBITaxon); Methanocatella smithii (NCBITaxon)\n\nXrefs: lpsn:777826\n\nG",
+      "named_evidence_and_source_links": [
+        {
+          "text": "NCBITaxon:2173",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2173"
+        },
+        {
+          "text": "root",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1"
+        },
+        {
+          "text": "cellular organisms",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=131567"
+        },
+        {
+          "text": "Archaea",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2157"
+        },
+        {
+          "text": "Methanobacteriati",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3366610"
+        },
+        {
+          "text": "Methanobacteriota",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28890"
+        },
+        {
+          "text": "Methanomada group",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2283794"
+        },
+        {
+          "text": "Methanobacteria",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=183925"
+        },
+        {
+          "text": "Methanobacteriales",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2158"
+        },
+        {
+          "text": "Methanobacteriaceae",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2159"
+        },
+        {
+          "text": "Methanobrevibacter",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2172"
+        },
+        {
+          "text": "NCBITaxon:2173",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2173"
+        },
+        {
+          "text": "NCBITaxon:2173",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2173"
+        },
+        {
+          "text": "NCBITaxon:2173",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2173"
+        },
+        {
+          "text": "NCBITaxon:2173",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2173"
+        },
+        {
+          "text": "DOI:10.1099/00207713-31-2-215",
+          "href": "https://doi.org/10.1099/00207713-31-2-215"
+        },
+        {
+          "text": "DOI:10.1128/mr.43.2.260-296.1979",
+          "href": "https://doi.org/10.1128/mr.43.2.260-296.1979"
+        },
+        {
+          "text": "PMID:390357",
+          "href": "https://pubmed.ncbi.nlm.nih.gov/390357"
+        },
+        {
+          "text": "NCBI assembly inventory",
+          "href": "https://github.com/CultureBotAI/TaxonMech/blob/main/data/raw/strain_assemblies.tsv"
+        },
+        {
+          "text": "other genome-record inventory",
+          "href": "https://github.com/CultureBotAI/TaxonMech/blob/main/data/raw/strain_genome_records.tsv"
+        }
+      ],
+      "visuals": []
+    },
+    "pages/taxon.html?id=NCBITaxon:81464": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:81464",
+      "http_status": 200,
+      "h1": "Anaeromusa acidaminophila",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Browse \u203a Taxon record\nSearch\nAnaeromusa acidaminophila\n\nNCBITaxon:81464 \u00b7 SPECIES \u00b7 BACTERIA \u00b7 DEPRECATED \u00b7 grounding EXACT\n\nLineage: root \u203a cellular organisms \u203a Bacteria \u203a Bacillati \u203a Bacillota \u203a Negativicutes \u203a Selenomonadales \u203a Sporomusaceae \u203a Anaeromusa\n\nSynonyms: Selenomonas acidaminophila (NCBITaxon)\n\nXrefs: GTDB:s__Anaeromusa_acidaminophila lpsn:773256\n\nGenetic code: 11\n\nExplore across X-Mech: CultureMech media \u00b7 CommunityMech communities \u00b7 HabitatMech habitats \u00b7 PathwayMech pathways \u00b7 NaturalProductMech BGCs\n\nSource attestations\nSo",
+      "named_evidence_and_source_links": [
+        {
+          "text": "NCBITaxon:81464",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=81464"
+        },
+        {
+          "text": "root",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1"
+        },
+        {
+          "text": "cellular organisms",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=131567"
+        },
+        {
+          "text": "Bacteria",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2"
+        },
+        {
+          "text": "Bacillati",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1783272"
+        },
+        {
+          "text": "Bacillota",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1239"
+        },
+        {
+          "text": "Negativicutes",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=909932"
+        },
+        {
+          "text": "Selenomonadales",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=909929"
+        },
+        {
+          "text": "Sporomusaceae",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1843490"
+        },
+        {
+          "text": "Anaeromusa",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=81463"
+        },
+        {
+          "text": "NCBITaxon:81464",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=81464"
+        },
+        {
+          "text": "NCBITaxon:81464",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=81464"
+        },
+        {
+          "text": "DOI:10.1099/00207713-49-3-969",
+          "href": "https://doi.org/10.1099/00207713-49-3-969"
+        },
+        {
+          "text": "DOI:10.1099/00207713-49-4-1327",
+          "href": "https://doi.org/10.1099/00207713-49-4-1327"
+        },
+        {
+          "text": "PMID:10425752",
+          "href": "https://pubmed.ncbi.nlm.nih.gov/10425752"
+        },
+        {
+          "text": "data/taxa/bacteria/anaeromusa_acidaminophila.yaml",
+          "href": "https://github.com/CultureBotAI/TaxonMech/blob/main/data/taxa/bacteria/anaeromusa_acidaminophila.yaml"
+        }
+      ],
+      "visuals": []
+    },
+    "pages/taxon.html?id=NCBITaxon:562": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:562",
+      "http_status": 200,
+      "h1": "Escherichia coli",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Browse \u203a Taxon record\nSearch\nEscherichia coli\n\nNCBITaxon:562 \u00b7 SPECIES \u00b7 BACTERIA \u00b7 SEEDED \u00b7 grounding EXACT\n\nLineage: root \u203a cellular organisms \u203a Bacteria \u203a Pseudomonadati \u203a Pseudomonadota \u203a Gammaproteobacteria \u203a Enterobacterales \u203a Enterobacteriaceae \u203a Escherichia\n\n3175 child taxon records\n\nSynonyms: \"Bacillus coli\" Migula 1895 (NCBITaxon); \"Bacterium coli commune\" Escherich 1885 (NCBITaxon); \"Bacterium coli\" (Migula 1895) Lehmann and Neumann 1896 (NCBITaxon); Achromobacter sp. ATCC 35328 (NCBITaxon); Bacillus coli (NCBITaxon); Bacterium ",
+      "named_evidence_and_source_links": [
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "root",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1"
+        },
+        {
+          "text": "cellular organisms",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=131567"
+        },
+        {
+          "text": "Bacteria",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2"
+        },
+        {
+          "text": "Pseudomonadati",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3379134"
+        },
+        {
+          "text": "Pseudomonadota",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1224"
+        },
+        {
+          "text": "Gammaproteobacteria",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1236"
+        },
+        {
+          "text": "Enterobacterales",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=91347"
+        },
+        {
+          "text": "Enterobacteriaceae",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=543"
+        },
+        {
+          "text": "Escherichia",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=561"
+        },
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "NCBITaxon:562",
+          "href": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+        },
+        {
+          "text": "DOI:10.1099/00207713-30-1-225",
+          "href": "https://doi.org/10.1099/00207713-30-1-225"
+        },
+        {
+          "text": "NCBI assembly inventory",
+          "href": "https://github.com/CultureBotAI/TaxonMech/blob/main/data/raw/strain_assemblies.tsv"
+        },
+        {
+          "text": "other genome-record inventory",
+          "href": "https://github.com/CultureBotAI/TaxonMech/blob/main/data/raw/strain_genome_records.tsv"
+        },
+        {
+          "text": "related-record inventory",
+          "href": "https://github.com/CultureBotAI/TaxonMech/blob/main/data/raw/strain_related_records.tsv"
+        }
+      ],
+      "visuals": []
+    },
+    "pages/sources.html": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/sources.html",
+      "http_status": 200,
+      "h1": "Source coverage",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Source coverage\nSearch\nSource coverage\nAttribution\n\nThese sources are published under licences that require attribution. Their metadata appears inline on the strain rows of the taxon records that classify the strain, not on a separate per-source page, so the notice for every record that carries their data is here.\n\nSource\tSnapshot\tLicence\tCitation\nAllTheBacteria\t2025-05\tCC-BY-4.0\thttps://doi.org/10.1101/2024.03.08.584059\nStrainInfo\t2026-09-13\tCC-BY-4.0\thttps://doi.org/10.1093/database/baaf059\n\nSpecies, strains, deposits and assemblies are ",
+      "named_evidence_and_source_links": [
+        {
+          "text": "https://doi.org/10.1101/2024.03.08.584059",
+          "href": "https://doi.org/10.1101/2024.03.08.584059"
+        },
+        {
+          "text": "https://doi.org/10.1093/database/baaf059",
+          "href": "https://doi.org/10.1093/database/baaf059"
+        }
+      ],
+      "visuals": []
+    },
+    "pages/map.html": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/map.html",
+      "http_status": 200,
+      "h1": "TaxonMech text embedding browser",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Text embedding map\nBrowse search\nTaxonMech text embedding browser\n\n2D PaCMAP projection of BAAI/bge-small-en-v1.5 text embeddings across the core multi-source harmonized microbial taxa (NCBI Taxonomy, GTDB, LPSN, and BacDive) and representative Archaea, Eukaryota, and Other-domain taxa. Filter with the left-hand facets, hover to inspect, or click a point to open its taxon record.\n\nFILTER MAP BY TAXON OR ID\nDOMAIN\nAll domains\nBacteria\nArchaea\nEukaryota\nOther\nTAXONOMIC RANK\nAll ranks\nSpecies\nStrain\nSubspecies\nNo rank\nATTESTING SOURCE\nAll sou",
+      "named_evidence_and_source_links": [],
+      "visuals": [
+        {
+          "width": 820,
+          "height": 580,
+          "displayWidth": 905.625
+        }
+      ]
+    },
+    "pages/type-strains.html": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/type-strains.html",
+      "http_status": 200,
+      "h1": "Taxa with a type strain",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Taxa with a type strain\nTaxa with a type strain\n\n20648 records list a BacDive strain whose deposit LPSN names as the type strain.\n\nSEARCH TAXON NAME, ID, RANK OR SOURCE\nSearch\nDOMAIN\nAll domains\nBacteria\nArchaea\nEukaryota\nOther\nTAXONOMIC RANK\nAll ranks\nSpecies\nStrain\nSubspecies\nForma specialis\nIsolate\nSerogroup\nSerotype\nNo rank\nATTESTING SOURCE\nAll sources\nNCBI Taxonomy\nGTDB\nLPSN\nBacDive\nSTRAINS & MAPPINGS\nAll records\nWith type strain\nWith BacDive strains (> 0)\nWith GTDB mappings (> 0)\nSTATUS\nAll statuses\nSeeded\nDeprecated\nSORT BY\nDefault ",
+      "named_evidence_and_source_links": [],
+      "visuals": []
+    },
+    "pages/domain/archaea.html": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/domain/archaea.html",
+      "http_status": 200,
+      "h1": "Archaea",
+      "theme": "dark",
+      "footer": "TaxonMech \u00b7 project-authored data CC BY 4.0; code BSD-3-Clause; upstream data retain their source terms \u00b7 Index JSON.gz \u00b7 Manifest \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (corpus digest 959c8dfd8771, 626,048 records)\n\nAll Mech projects\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 HabitatMech \u00b7 NaturalProductMech \u00b7 TaxonMech\n\nkg-microbe \u00b7 NCBI Taxonomy \u00b7 GTDB \u00b7 LPSN \u00b7 BacDive",
+      "resized_width_390": 390,
+      "excerpt": "TaxonMech\nBrowse Type strains Text map Sources Index JSON.gz Schema All Mech projects GitHub\nTaxonMech \u203a Archaea\nArchaea\n\nTaxa under NCBITaxon:2157.\n\nSEARCH TAXON NAME, ID, RANK OR SOURCE\nSearch\nDOMAIN\nAll domains\nBacteria\nArchaea\nEukaryota\nOther\nTAXONOMIC RANK\nAll ranks\nSpecies\nStrain\nSubspecies\nForma specialis\nIsolate\nSerogroup\nSerotype\nNo rank\nATTESTING SOURCE\nAll sources\nNCBI Taxonomy\nGTDB\nLPSN\nBacDive\nSTRAINS & MAPPINGS\nAll records\nWith type strain\nWith BacDive strains (> 0)\nWith GTDB mappings (> 0)\nSTATUS\nAll statuses\nSeeded\nDeprecated\nSORT BY\nDefault (corpus order)\nTaxon name (A\u2013Z)\nTaxon name (Z\u2013A)\nNCBI ID (numeric)\nTaxonomic rank\nBacD",
+      "named_evidence_and_source_links": [],
+      "visuals": []
+    }
+  },
+  "actions": {
+    "query:NCBITaxon:2173": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=NCBITaxon%3A2173",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "32 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "firstRows": [
+        "Marine Group III euryarchaeote\tNCBITaxon:2173149\tSPECIES\tARCHAEA\t3\t0\t1\tSEEDED",
+        "Methanobrevibacter smithii\tNCBITaxon:2173\tSPECIES\tARCHAEA\t6\t4\t11 (11 pooled)\tSEEDED",
+        "Altererythrobacter rubellus\tNCBITaxon:2173831\tSPECIES\tBACTERIA\t5\t1\t1\tSEEDED"
+      ],
+      "visibleRows": 32,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "query:Methanobrevibacter smithii": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=Methanobrevibacter+smithii",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "26 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "firstRows": [
+        "Methanobrevibacter smithii\tNCBITaxon:2173\tSPECIES\tARCHAEA\t6\t4\t11 (11 pooled)\tSEEDED",
+        "Methanobrevibacter smithii ATCC 35061\tNCBITaxon:420247\tSTRAIN\tARCHAEA\t6\t1\t1\tSEEDED",
+        "Methanobrevibacter smithii CAG:186\tNCBITaxon:1263088\tSTRAIN\tARCHAEA\t2\t0\t1\tSEEDED"
+      ],
+      "visibleRows": 26,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "query:NCBITaxon:562": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=NCBITaxon%3A562",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "259 of 626048 records match \u00b7 page 1 of 2."
+        }
+      ],
+      "firstRows": [
+        "Achromobacter xylosoxidans C54\tNCBITaxon:562971\tSTRAIN\tBACTERIA\t3\t0\t1\tSEEDED",
+        "Acinetobacter sp. IK1_03\tNCBITaxon:562543\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "Acinetobacter sp. IK1_11\tNCBITaxon:562547\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED"
+      ],
+      "visibleRows": 200,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "query:no-such-taxon-skeptic": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=no-such-taxon-skeptic",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "0 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "firstRows": [],
+      "visibleRows": 0,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "domain_bacteria": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "605695 of 626048 records match \u00b7 page 1 of 3029."
+        }
+      ],
+      "firstRows": [
+        "2,3-D degrading bacterium NHC2\tNCBITaxon:119160\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "2,3-D degrading bacterium NHG3\tNCBITaxon:119159\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "2,4-D-degrading bacterium 001\tNCBITaxon:103498\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED"
+      ],
+      "visibleRows": 200,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": "BACTERIA"
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "domain_bacteria_rank_species": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "553073 of 626048 records match \u00b7 page 1 of 2766."
+        }
+      ],
+      "firstRows": [
+        "2,3-D degrading bacterium NHC2\tNCBITaxon:119160\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "2,3-D degrading bacterium NHG3\tNCBITaxon:119159\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "2,4-D-degrading bacterium 001\tNCBITaxon:103498\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED"
+      ],
+      "visibleRows": 200,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": "BACTERIA"
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": "SPECIES"
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "facet_reload": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "firstRows": [
+        "Abyssiniarchaeum dallolvicinus (SeqCode)\tNCBITaxon:3879924\tSPECIES\tARCHAEA\t1\t0\t0\tSEEDED",
+        "Acidarchaeum fankouense (SeqCode)\tNCBITaxon:3693715\tSPECIES\tARCHAEA\t1\t0\t0\tSEEDED",
+        "Acidianus ambivalens\tNCBITaxon:2283\tSPECIES\tARCHAEA\t7\t1\t1\tSEEDED"
+      ],
+      "visibleRows": 200,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "sort:": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "firstRows": [
+        "Abyssiniarchaeum dallolvicinus (SeqCode)\tNCBITaxon:3879924\tSPECIES\tARCHAEA\t1\t0\t0\tSEEDED",
+        "Acidarchaeum fankouense (SeqCode)\tNCBITaxon:3693715\tSPECIES\tARCHAEA\t1\t0\t0\tSEEDED",
+        "Acidianus ambivalens\tNCBITaxon:2283\tSPECIES\tARCHAEA\t7\t1\t1\tSEEDED"
+      ],
+      "visibleRows": 200,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": ""
+        }
+      ]
+    },
+    "sort:label_asc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=label_asc",
+      "statuses": [
+        {
+          "id": "taxon-status-filter",
+          "text": "All statuses\nSeeded\nDeprecated"
+        },
+        {
+          "id": "taxon-status",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "firstRows": [
+        "'Abelmoschus esculentus' big bud and virescence disease phytoplasma\tNCBITaxon:3108182\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "'Abelmoschus esculentus' bunchy top phytoplasma\tNCBITaxon:926989\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED",
+        "'Abutilon indicum' phytoplasma\tNCBITaxon:3344481\tSPECIES\tBACTERIA\t1\t0\t0\tSEEDED"
+      ],
+      "visibleRows": 200,
+      "filters": [
+        {
+          "id": "taxon-domain-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-rank-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-source-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-type-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-status-filter",
+          "value": ""
+        },
+        {
+          "id": "taxon-sort",
+          "value": "label_asc"
+        }
+      ]
+    }
+  },
+  "deployment_before": {
+    "id": 7545963468,
+    "sha": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+    "created_at": "2026-11-04T12:29:37Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T12:33:26Z",
+      "environment_url": "https://culturebotai.github.io/TaxonMech/"
+    },
+    "header_url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:33:12 GMT"
+  },
+  "failure_check": {
+    "blocked": [
+      "https://culturebotai.github.io/TaxonMech/pages/index.json.gz"
+    ],
+    "excerpt": "gh\u2013low)\nGTDB mappings (high\u2013low)\nAttesting sources (high\u2013low)\nReset filters\n\n626048 records \u00b7 page 1 of 3131. Search is unavailable; use the page links to browse all records.\n\nGTDB mappings count source species assertions, not genomes of this NCBI taxon. Pooled mappings retain their qualifications and source-specific genome counts on the record.\n\nNext\nAll records\nTaxon\tIdentifier\tRank\tDomain\tSources\tStrains\tGTDB mappings\tStatus\nAbyssiniarchaeum dallolvicinus (SeqCode)\tNCBITaxon:3879924\tSPECIES\tARCHAEA\t1\t0\t0\tSEEDED\n"
+  },
+  "deployment_after": {
+    "id": 7545963468,
+    "sha": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+    "created_at": "2026-11-04T12:29:37Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T12:33:26Z",
+      "environment_url": "https://culturebotai.github.io/TaxonMech/"
+    },
+    "header_url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:33:12 GMT"
+  },
+  "criterion_reconciliation": {
+    "search": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/search",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "facets": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/facets",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "result_counts": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/result_counts",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "sorting": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/sorting",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "shareable_state": {
+      "status": "partial",
+      "evidence": "taxonmech-auditor-a.json#/features/shareable_state",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "full_catalogue": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/full_catalogue",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "record_pages": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/record_pages",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "term_links": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/term_links",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "evidence": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/evidence",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "review_status": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/review_status",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "curation_history": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/curation_history",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "source_link": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/source_link",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "domain_view": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/domain_view",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "cross_mech_links": {
+      "status": "partial",
+      "evidence": "taxonmech-auditor-a.json#/features/cross_mech_links",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "corpus_stats": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/corpus_stats",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "category_browse": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/category_browse",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "suite_nav": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/suite_nav",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "downloads": {
+      "status": "partial",
+      "evidence": "taxonmech-auditor-a.json#/features/downloads",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "schema_docs": {
+      "status": "partial",
+      "evidence": "taxonmech-auditor-a.json#/features/schema_docs",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "license": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/license",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "build_provenance": {
+      "status": "partial",
+      "evidence": "taxonmech-auditor-a.json#/features/build_provenance",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "theme_toggle": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/theme_toggle",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "responsive": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/responsive",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    },
+    "load_failure": {
+      "status": "present",
+      "evidence": "taxonmech-auditor-a.json#/features/load_failure",
+      "basis": "Public page, source and data hashes unchanged; current route, evidence, map, query and control checks agree."
+    }
+  },
+  "finished_at": "2026-11-04T12:36:39.816295+00:00",
+  "raw_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/taxon-redeployment-e0cc7c8-raw.json",
+    "sha256": "b2d839744a5d6c6231d97bfb5cdc9744c12c4aca63db3e718f60527bf9473358"
+  },
+  "independent_review": "taxonmech-redeployment-skeptic.json; all 24 criteria agreed"
+}

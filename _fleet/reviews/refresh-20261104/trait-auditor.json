@@ -1,0 +1,2032 @@
+{
+  "mech": "TraitMech",
+  "pin": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+  "started_at": "2026-11-04T11:39:02.785879+00:00",
+  "finished_at": "2026-11-04T11:40:49.143267+00:00",
+  "deployment_before": {
+    "id": 7544029987,
+    "sha": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+    "created_at": "2026-11-04T10:51:02Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T10:51:27Z",
+      "environment_url": "https://culturebotai.github.io/TraitMech/"
+    },
+    "headers": {
+      "Last-Modified": "Wed, 04 Nov 2026 10:51:17 GMT",
+      "X-GitHub-Request-Id": "5768:2EA006:E2769:102B92:6AEB1957"
+    }
+  },
+  "deployment_after": {
+    "id": 7544029987,
+    "sha": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+    "created_at": "2026-11-04T10:51:02Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T10:51:27Z",
+      "environment_url": "https://culturebotai.github.io/TraitMech/"
+    },
+    "headers": {
+      "Last-Modified": "Wed, 04 Nov 2026 10:51:17 GMT",
+      "X-GitHub-Request-Id": "5768:2EA006:E2769:102B92:6AEB1957"
+    }
+  },
+  "counts": {
+    "records": 1130,
+    "statuses": {
+      "REVIEWED": 427,
+      "PROPOSED": 615,
+      "SEEDED": 38,
+      "DEPRECATED": 50
+    },
+    "categories": {
+      "ECOLOGY": 40,
+      "ENVIRONMENT": 122,
+      "GENOMICS": 387,
+      "METABOLISM": 180,
+      "MORPHOLOGY": 129,
+      "OBSERVATION": 20,
+      "OTHER": 32,
+      "PHYSIOLOGY": 205,
+      "QUANTITATIVE_PROPERTY": 7,
+      "UPPER": 8
+    },
+    "causal_graph_records": 761,
+    "pathway_context": {
+      "links": 19,
+      "nodes": 17,
+      "records": 11,
+      "targets": 15
+    }
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "Browse searches all 1,130 records: METPO:1004002 and traitmech:000616 each return one linked record; bipolar mating system returns two.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "evidence": {
+        "METPO:1004002": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=METPO%3A1004002",
+          "count": "1 of 1130 records shown",
+          "visibleRows": 1,
+          "firstRecords": [
+            "animal pathogen\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\n\tMETPO:1004002\tECOLOGY\tCLASS\t1\t0"
+          ],
+          "circles": 0
+        },
+        "traitmech:000616": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=traitmech%3A000616",
+          "count": "1 of 1130 records shown",
+          "visibleRows": 1,
+          "firstRecords": [
+            "bipolar mating system\n\nA fungal mating phenotype in which compatibility between partners is governed by a single segregating mating-type factor.\n\n\ttraitmech:000616\tPHYSIOLOGY\tCLASS\t1\t0"
+          ],
+          "circles": 0
+        },
+        "bipolar mating system": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=bipolar+mating+system",
+          "count": "2 of 1130 records shown",
+          "visibleRows": 2,
+          "firstRecords": [
+            "bipolar mating system\n\nA fungal mating phenotype in which compatibility between partners is governed by a single segregating mating-type factor.\n\n\ttraitmech:000616\tPHYSIOLOGY\tCLASS\t1\t0",
+            "pseudobipolar mating system\n\nA fungal mating-system phenotype in which pheromone/receptor and homeodomain compatibility loci are physically linked on the same chromosome but can recombine during meiosis, generating new mating-type combinations.\n\n\ttraitmech:000617\tPHYSIOLOGY\tCLASS\t1\t0"
+          ],
+          "circles": 0
+        },
+        "no-such-trait-canary": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=no-such-trait-canary",
+          "count": "0 of 1130 records shown",
+          "visibleRows": 0,
+          "firstRecords": [],
+          "circles": 0
+        },
+        "<img src=x onerror=alert(1)>": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E",
+          "count": "0 of 1130 records shown",
+          "visibleRows": 0,
+          "firstRecords": [],
+          "circles": 0
+        }
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Browse provides Category and Kind selectors plus Clear filters. Combining pathogen, ECOLOGY and CLASS gives eight records; reset restores all 1,130.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "evidence": {
+        "combined_filters": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS",
+          "count": "8 of 1130 records shown",
+          "visibleRows": 8,
+          "firstRecords": [
+            "animal pathogen\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\n\tMETPO:1004002\tECOLOGY\tCLASS\t1\t0",
+            "fungal nematode egg parasitism\n\nAn animal-pathogenic phenotype in which a fungus infects nematode eggs by penetrating their eggshells and colonizing their interiors.\n\n\ttraitmech:000726\tECOLOGY\tCLASS\t1\t0",
+            "fungal nematode endoparasitism\n\nAn animal-pathogenic phenotype in which a fungus uses spores attached to or ingested by a vermiform nematode to initiate infection and then grows inside the host.\n\n\ttraitmech:000727\tECOLOGY\tCLASS\t1\t0"
+          ],
+          "circles": 0
+        },
+        "reset": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+          "count": "1130 of 1130 records shown",
+          "visibleRows": 1130,
+          "firstRecords": [
+            "2,3-butanediol fermentation\n\nA fermentation in which microorganisms convert sugars to acetoin and 2,3-butanediol neutral end products through the butanediol pathway.\n\n\ttraitmech:000181\tMETABOLISM\tCLASS\t1\t1",
+            "3-hydroxypropionate bicycle\n\nAn autotrophic carbon-fixation pathway in which two molecules of bicarbonate are fixed via 3-hydroxypropionate and converted to glyoxylate and pyruvate. It is characteristic of the filamentous anoxygenic phototroph Chloroflexus aurantiacus.\n\n\ttraitmech:000023\tMETABOLISM\tCLASS\t1\t1",
+            "3-hydroxypropionate/4-hydroxybutyrate cycle\n\nAn autotrophic carbon-fixation pathway that fixes two molecules of bicarbonate per turn via 3-hydroxypropionate and 4-hydroxybutyrate intermediates. It operates in aerobic and microaerophilic Crenarchaeota such as Sulfolobus and Metallosphaera.\n\n\ttraitmech:000024\tMETABOLISM\tCLASS\t1\t1"
+          ],
+          "circles": 0
+        },
+        "keyboard_facet": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?category=ECOLOGY",
+          "count": "40 of 1130 records shown",
+          "visibleRows": 40,
+          "firstRecords": [
+            "animal pathogen\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\n\tMETPO:1004002\tECOLOGY\tCLASS\t1\t0",
+            "bacterial cannibalism\n\nA predatory bacterial phenotype in which cells kill susceptible conspecific cells and obtain nutrients from the killed cells.\n\n\ttraitmech:000626\tECOLOGY\tCLASS\t1\t0",
+            "bacterial mycophagy\n\nA trophic-ecology phenotype in which a bacterium actively obtains nutrients from living fungi or oomycetes and uses them for its own growth.\n\n\ttraitmech:000696\tECOLOGY\tCLASS\t1\t0"
+          ],
+          "circles": 0
+        },
+        "keyboard_reset": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+          "count": "1130 of 1130 records shown",
+          "visibleRows": 1130,
+          "firstRecords": [
+            "2,3-butanediol fermentation\n\nA fermentation in which microorganisms convert sugars to acetoin and 2,3-butanediol neutral end products through the butanediol pathway.\n\n\ttraitmech:000181\tMETABOLISM\tCLASS\t1\t1",
+            "3-hydroxypropionate bicycle\n\nAn autotrophic carbon-fixation pathway in which two molecules of bicarbonate are fixed via 3-hydroxypropionate and converted to glyoxylate and pyruvate. It is characteristic of the filamentous anoxygenic phototroph Chloroflexus aurantiacus.\n\n\ttraitmech:000023\tMETABOLISM\tCLASS\t1\t1",
+            "3-hydroxypropionate/4-hydroxybutyrate cycle\n\nAn autotrophic carbon-fixation pathway that fixes two molecules of bicarbonate per turn via 3-hydroxypropionate and 4-hydroxybutyrate intermediates. It operates in aerobic and microaerophilic Crenarchaeota such as Sulfolobus and Metallosphaera.\n\n\ttraitmech:000024\tMETABOLISM\tCLASS\t1\t1"
+          ],
+          "circles": 0
+        }
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The count responds to search and property filters: identifiers give 1 of 1,130 records shown; pathogen plus ECOLOGY and CLASS gives 8 of 1,130.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS",
+        "count": "8 of 1130 records shown",
+        "visibleRows": 8,
+        "firstRecords": [
+          "animal pathogen\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\n\tMETPO:1004002\tECOLOGY\tCLASS\t1\t0",
+          "fungal nematode egg parasitism\n\nAn animal-pathogenic phenotype in which a fungus infects nematode eggs by penetrating their eggshells and colonizing their interiors.\n\n\ttraitmech:000726\tECOLOGY\tCLASS\t1\t0",
+          "fungal nematode endoparasitism\n\nAn animal-pathogenic phenotype in which a fungus uses spores attached to or ingested by a vermiform nematode to initiate infection and then grows inside the host.\n\n\ttraitmech:000727\tECOLOGY\tCLASS\t1\t0"
+        ],
+        "circles": 0
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "Browse offers label, identifier, category, kind, kg-microbe node-count and synonym-count ordering. Reversing label order changes the first row from 2,3-butanediol fermentation to Zorya type III system.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "evidence": {
+        "ascending": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+          "count": "1130 of 1130 records shown",
+          "visibleRows": 1130,
+          "firstRecords": [
+            "2,3-butanediol fermentation\n\nA fermentation in which microorganisms convert sugars to acetoin and 2,3-butanediol neutral end products through the butanediol pathway.\n\n\ttraitmech:000181\tMETABOLISM\tCLASS\t1\t1",
+            "3-hydroxypropionate bicycle\n\nAn autotrophic carbon-fixation pathway in which two molecules of bicarbonate are fixed via 3-hydroxypropionate and converted to glyoxylate and pyruvate. It is characteristic of the filamentous anoxygenic phototroph Chloroflexus aurantiacus.\n\n\ttraitmech:000023\tMETABOLISM\tCLASS\t1\t1",
+            "3-hydroxypropionate/4-hydroxybutyrate cycle\n\nAn autotrophic carbon-fixation pathway that fixes two molecules of bicarbonate per turn via 3-hydroxypropionate and 4-hydroxybutyrate intermediates. It operates in aerobic and microaerophilic Crenarchaeota such as Sulfolobus and Metallosphaera.\n\n\ttraitmech:000024\tMETABOLISM\tCLASS\t1\t1"
+          ],
+          "circles": 0
+        },
+        "descending": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?sort=label-desc",
+          "count": "1130 of 1130 records shown",
+          "visibleRows": 1130,
+          "firstRecords": [
+            "Zorya type III system\n\nA Zorya system in which an organism possesses a locus encoding ZorA and ZorB together with ZorF and ZorG.\n\n\ttraitmech:000576\tGENOMICS\tCLASS\t1\t1",
+            "Zorya type II system\n\nA Zorya system in which an organism possesses a genome-encoded DefenseFinder Zorya_TypeII subtype locus represented by Zorya_TypeII__ZorE, Zorya__ZorA2, and Zorya__ZorB rule profiles.\n\n\ttraitmech:000552\tGENOMICS\tCLASS\t1\t4",
+            "Zorya type I system\n\nA Zorya system in which an organism possesses a genome-encoded DefenseFinder Zorya_TypeI subtype locus whose rule row lists Zorya_TypeI__ZorC, Zorya_TypeI__ZorD, Zorya__ZorA, and Zorya__ZorB in its mandatory profile set with 3 mandatory matches and 3 genes required.\n\n\ttraitmech:000554\tGENOMICS\tCLASS\t1\t5"
+          ],
+          "circles": 0
+        },
+        "control": [
+          {
+            "id": "record-sort",
+            "text": "Label (A–Z)\nLabel (Z–A)\nIdentifier (A–Z)\nCategory\nKind\nkg-microbe nodes (high–low)\nSynonyms (high–low)",
+            "label": null,
+            "value": "label-asc"
+          }
+        ]
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Search, category and kind are written to the URL. Reloading ?q=pathogen&category=ECOLOGY&kind=CLASS restores the controls and eight matches.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS",
+      "evidence": {
+        "url": "https://culturebotai.github.io/TraitMech/pages/browse.html?q=pathogen&category=ECOLOGY&kind=CLASS",
+        "count": "8 of 1130 records shown",
+        "visibleRows": 8,
+        "firstRecords": [
+          "animal pathogen\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\n\tMETPO:1004002\tECOLOGY\tCLASS\t1\t0",
+          "fungal nematode egg parasitism\n\nAn animal-pathogenic phenotype in which a fungus infects nematode eggs by penetrating their eggshells and colonizing their interiors.\n\n\ttraitmech:000726\tECOLOGY\tCLASS\t1\t0",
+          "fungal nematode endoparasitism\n\nAn animal-pathogenic phenotype in which a fungus uses spores attached to or ingested by a vermiform nematode to initiate infection and then grows inside the host.\n\n\ttraitmech:000727\tECOLOGY\tCLASS\t1\t0"
+        ],
+        "circles": 0
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "Browse exposes 1,130 distinct record links, matching the landing total and all 1,130 record HTML paths at the pin.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "evidence": {
+        "linked_rows": 1130,
+        "unique_links": 1130,
+        "pinned_html_files": 1130,
+        "path_sets_equal": true
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "All 1,130 traits have static pages under pages/traits/<category>/<slug>.html. Sampled pages show overview, grounding, curation and source sections; 761 source records carry causal graphs.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "evidence": {
+        "pinned_pages": 1130,
+        "sampled": {
+          "pages/traits/ecology/animal_pathogen.html": 200,
+          "pages/traits/metabolism/aerobic_respiration.html": 200,
+          "pages/traits/metabolism/wood_ljungdahl_pathway.html": 200
+        },
+        "graph_bearing_records": 761
+      }
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "Record identifiers have readable labels and resolver links. Aerobic respiration links GO:0009060 in Cross-references, but that whole section still lacks a readable term label.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/aerobic_respiration.html",
+      "evidence": {
+        "section": "Cross-references\nGO:0009060\nkg-microbe context\n\nMatched 1 kg-microbe node via direct_metpo.\n\nMETPO:1000801 [-0.171, -2.146, -1.478, +1.1",
+        "links": [
+          {
+            "text": "GO:0009060",
+            "href": "https://amigo.geneontology.org/amigo/term/GO:0009060"
+          }
+        ]
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Animal pathogen and aerobic respiration link their trait and causal-edge DOI citations and display supporting text.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "evidence": {
+        "links": [
+          {
+            "text": "DOI:10.1146/annurev.micro.62.081307.162938",
+            "href": "https://doi.org/10.1146/annurev.micro.62.081307.162938"
+          },
+          {
+            "text": "DOI:10.1038/nrmicro1592",
+            "href": "https://doi.org/10.1038/nrmicro1592"
+          },
+          {
+            "text": "DOI:10.1146/annurev.micro.62.081307.162938",
+            "href": "https://doi.org/10.1146/annurev.micro.62.081307.162938"
+          },
+          {
+            "text": "DOI:10.1038/nrmicro1592",
+            "href": "https://doi.org/10.1038/nrmicro1592"
+          },
+          {
+            "text": "DOI:10.1146/annurev.micro.62.081307.162938",
+            "href": "https://doi.org/10.1146/annurev.micro.62.081307.162938"
+          },
+          {
+            "text": "DOI:10.1146/annurev.micro.62.081307.162938",
+            "href": "https://doi.org/10.1146/annurev.micro.62.081307.162938"
+          },
+          {
+            "text": "DOI:10.1093/femsre/fuae019",
+            "href": "https://doi.org/10.1093/femsre/fuae019"
+          },
+          {
+            "text": "DOI:10.1093/femsre/fuae019",
+            "href": "https://doi.org/10.1093/femsre/fuae019"
+          },
+          {
+            "text": "DOI:10.1093/femsre/fuae019",
+            "href": "https://doi.org/10.1093/femsre/fuae019"
+          },
+          {
+            "text": "DOI:10.1093/femsre/fuae019",
+            "href": "https://doi.org/10.1093/femsre/fuae019"
+          },
+          {
+            "text": "DOI:10.1128/spectrum.02224-23",
+            "href": "https://doi.org/10.1128/spectrum.02224-23"
+          },
+          {
+            "text": "DOI:10.1128/spectrum.02224-23",
+            "href": "https://doi.org/10.1128/spectrum.02224-23"
+          },
+          {
+            "text": "DOI:10.1038/s41579-023-00974-3",
+            "href": "https://doi.org/10.1038/s41579-023-00974-3"
+          },
+          {
+            "text": "DOI:10.1038/s41579-023-00974-3",
+            "href": "https://doi.org/10.1038/s41579-023-00974-3"
+          },
+          {
+            "text": "DOI:10.1039/d4cb00175c",
+            "href": "https://doi.org/10.1039/d4cb00175c"
+          },
+          {
+            "text": "DOI:10.1039/d4cb00175c",
+            "href": "https://doi.org/10.1039/d4cb00175c"
+          },
+          {
+            "text": "DOI:10.1039/d4cb00175c",
+            "href": "https://doi.org/10.1039/d4cb00175c"
+          },
+          {
+            "text": "DOI:10.1146/annurev.micro.62.081307.162938",
+            "href": "https://doi.org/10.1146/annurev.micro.62.081307.162938"
+          }
+        ],
+        "excerpt": "Evidence standard:** infection of a relevant animal or validated host-cell/tissue model, preferably supported by genetic perturbation, complementation, biochemical interaction, or epidemiological attribution.\n\n### Important distinctions\n\n1. **Pathogenicity versus virulence.** Pathogenicity is the ability to cause infection/disease; virulence is its degree or severity. A low-virulence pathogen still belongs in the class.\n2. **Colonizer/commensal versus pathogen.** Colonization may precede infection but is not sufficient by itself. Staphylococci illustrate this boundary: all are members of mammalian epithelial microbiota, yet only some species or lineages commonly cause disease, and colonization is a frequent source of infection (published 26 September 2023; https://doi.org/10.3390/ijms241914587). ("
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Record headers and Identifier cards show workflow status, including REVIEWED on animal pathogen; the complete corpus retains all four mapping statuses.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "evidence": {
+        "excerpt": "METPO:1004002 · CLASS · REVIEWED\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\nTrait evidence (2)\nDOI:10.1146/annurev.m",
+        "pinned_status_counts": {
+          "REVIEWED": 427,
+          "PROPOSED": 615,
+          "SEEDED": 38,
+          "DEPRECATED": 50
+        }
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Sampled record pages display dated curation events, attributed curators and change summaries.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "evidence": "Curation history\n2026-05-05T01:35:46.948723+00:00 · SEEDED_FROM_METPO · seed_from_metpo\n\nimported from data/raw/metpo.owl (CLASS)\n\n2026-05-11T23:15:00-07:00 · CURATED_CAUSAL_GRAPH · claude\n\nAdded DOI-backed causal graph linking metazoan-adapted virulence factors, immune evasion, animal tissue colonization, and disease to the animal-pathogen trait.\n\n2026-05-20T03:35:29Z · GROUND_CAUSAL_PREDICATES · claude\n\nGrounded 1 causal-edge predicate_id field(s) via mappings/predicate_grounding.tsv (RO:0002327×1).\n\n2026-05-20T05:49:23Z · GROUND_CAUSAL_PREDICATES · claude\n\nGrounded 1 causal-edge predicate_id field(s) via mappings/predicate_grounding.tsv (biolink:causes×1).\n\n2026-05-23T21:30:05Z · GROUND_CAUSAL_PREDICATES · claude\n\nGrounded 1 causal-edge predicate_id field(s) via mappings/predicate_grounding.tsv (METPO:2007400×1).\n\n2026-05-24T04:13:18Z · RENAME_PREDICATE_LABELS · claude\n\nRenamed 1 causal-edge predicat"
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Record Source cards link View YAML on GitHub, Raw YAML and Edit on GitHub for the record’s own data/traits YAML.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+      "evidence": [
+        {
+          "text": "View YAML on GitHub",
+          "href": "https://github.com/CultureBotAI/TraitMech/blob/main/data/traits/ecology/animal_pathogen.yaml"
+        },
+        {
+          "text": "Raw YAML",
+          "href": "https://raw.githubusercontent.com/CultureBotAI/TraitMech/main/data/traits/ecology/animal_pathogen.yaml"
+        },
+        {
+          "text": "Edit on GitHub",
+          "href": "https://github.com/CultureBotAI/TraitMech/edit/main/data/traits/ecology/animal_pathogen.yaml"
+        }
+      ]
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Sampled record pages render causal SVG diagrams; 761 source records carry causal graphs. PaCMAP, text and graph-layout maps each render 1,130 traits, and the sequence map renders 156 associated proteins. These source counts do not imply that every graph was visually inspected.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/umap.html",
+      "evidence": {
+        "maps": {
+          "pages/umap.html": {
+            "circles": 1130,
+            "mapStatus": "1130 records loaded.",
+            "svg": 1
+          },
+          "pages/map.html": {
+            "circles": 1130,
+            "mapStatus": "1130 records loaded.",
+            "svg": 1
+          },
+          "pages/graph.html": {
+            "circles": 1130,
+            "mapStatus": "1130 records loaded.",
+            "svg": 1
+          },
+          "pages/sequence-map.html": {
+            "circles": 156,
+            "mapStatus": "156 proteins loaded.",
+            "svg": 1
+          }
+        },
+        "record_svg_counts": {
+          "pages/traits/ecology/animal_pathogen.html": 1,
+          "pages/traits/metabolism/aerobic_respiration.html": 1,
+          "pages/traits/metabolism/wood_ljungdahl_pathway.html": 1
+        }
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "Wood–Ljungdahl’s Pathway context links to PathwayMech WikiPathways:WP5019. The target returns HTTP 200; the trait page retains organism scope and the target revision.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html",
+      "evidence": {
+        "links": [
+          {
+            "text": "WikiPathways:WP5019",
+            "href": "https://culturebotai.github.io/PathwayMech/pages/records/WikiPathways_WP5019.html",
+            "status": 200,
+            "from": "pages/traits/metabolism/wood_ljungdahl_pathway.html"
+          }
+        ],
+        "excerpt": "Pathway context\n\nOrganism-scoped pathway examples for individual graph nodes.\n\nWood-Ljungdahl pathway: WikiPathways:WP5019 PATHWAY_CONTEXT\n\nPathwayMech context: Acetogenesis in Acetobacterium woodii (NCBITaxon:33952). The shared reductive acetyl-CoA route combines methyl and carbonyl branches for acetogenesis; the bacterial exemplar does not establish archaeal variants. No exact equivalence or transfer of organism scope is asserted.\n\nPathwayMech source version aa305727458c44ab05614901334540e2c87a9f3a\nProtein and taxon examples\nGraph node\tProtein\tTaxon\tUniProt status\tRole and evidence\nacetyl-CoA synthase (ACS)\tUniProtKB:P27988\nCarbon monoxide dehydrogenase/acetyl-CoA synthase subunit alpha\n(acsB)\n\tNeomoorella thermoacetica\nNCBITaxon:1525\tREVIEWED\n\nretrieved 2026-10-22 · entry v126 · sequence v1\n\t\n\nAlpha subunit that combines CO, CoA, and the CoFeSP-borne methyl group to form acetyl-CoA; this accession is one component of the alpha2-beta2 CODH/ACS complex.\n\nDOI:10.1073/pnas.220404397\nGenes acsA and acs"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing page shows 1,130 trait records, 10 categories and 100.0% embedding coverage. Reviewed and causal-graph totals are corpus-source statistics, not landing tiles.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": "Browse\nText map\nSequence map (pLM)\nEmbedding space\nGraph layout\nData JSON\nSchema\nGitHub\nTraitMech\n\nMicrobial ecophysiological trait knowledge base, seeded from METPO and curated incrementally.\n\nSearch\n1130\nTRAIT RECORDS\n10\nCATEGORIES\n100.0%\nEMBEDDED\n🔎\nBrowse records →\nRecord browser\n\nBrowse traits by category with left-hand facets — definitions, causal graphs, kg-microbe matches, and nearest neighbors.\n\n🗺️\nText map (1130) →\nSequence map (pLM) →\nExplore embedding (PaCMAP) →\nGraph layout →\nEmbedding browser\n\nInteractive PaCMAP projections of full-corpus BGE-large text embeddings, ESM-2 protein sequence embeddings, and KG-Microbe deepwalk space.\n\n💻\nView on GitHub →\nDownload traits.json →\nLinkML schema →\nData, Schema & GitHub\n\nSource code, bulk corpus JSON export, LinkML schema, and the curation workflow.\n\nKG-Microbe Mechs: CultureMech·MediaIngredientMech·CommunityMech·TraitMech·ProteinTraitsMech\nkg-microbe·METPO·traits.json·LinkML schema\nProject data: CC BY 4.0 · code: BSD-3-Clause · third-party source terms apply\nCorpus as of 2026-10-31 20:55 UTC · Ontology baseline: METPO 2026-06-12 · 1130 TraitRecords\n\nAll Mech projects\n\n☀"
+    },
+    "category_browse": {
+      "status": "present",
+      "note": "Browse links ten category pages with counts; the opened ECOLOGY page contains 40 records and QUANTITATIVE_PROPERTY contains seven.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+      "evidence": {
+        "links": [
+          {
+            "text": "GENOMICS\n\n387\n\n387 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/genomics.html"
+          },
+          {
+            "text": "PHYSIOLOGY\n\n205\n\n205 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/physiology.html"
+          },
+          {
+            "text": "METABOLISM\n\n180\n\n180 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/metabolism.html"
+          },
+          {
+            "text": "MORPHOLOGY\n\n129\n\n129 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/morphology.html"
+          },
+          {
+            "text": "ENVIRONMENT\n\n122\n\n122 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/environment.html"
+          },
+          {
+            "text": "ECOLOGY\n\n40\n\n40 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/ecology.html"
+          },
+          {
+            "text": "OTHER\n\n32\n\n32 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/other.html"
+          },
+          {
+            "text": "OBSERVATION\n\n20\n\n20 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/observation.html"
+          },
+          {
+            "text": "UPPER\n\n8\n\n8 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/upper.html"
+          },
+          {
+            "text": "QUANTITATIVE_PROPERTY\n\n7\n\n7 with embedding",
+            "href": "https://culturebotai.github.io/TraitMech/pages/category/quantitative_property.html"
+          }
+        ],
+        "categories": {
+          "ECOLOGY": 40,
+          "ENVIRONMENT": 122,
+          "GENOMICS": 387,
+          "METABOLISM": 180,
+          "MORPHOLOGY": 129,
+          "OBSERVATION": 20,
+          "OTHER": 32,
+          "PHYSIOLOGY": 205,
+          "QUANTITATIVE_PROPERTY": 7,
+          "UPPER": 8
+        },
+        "ecology_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech › Ecology\n\nEcology (40)\nFILTER RECORDS\nCategory\nAll categories\n40\nECOLOGY\n40\nTerm kind\nAll kinds\n40\nCLASS\n40\nClear all filters\nSearch records\nCategory\nAll categories\nECOLOGY\nKind\nAll kinds\nCLASS\nSort by\nLabel (A–Z)\nLabel (Z–A)\nIdentifier (A–Z)\nCategory\nKind\nkg-microbe nodes (high–low)\nSynonyms (high–low)\nClear filters\n\n40 of 40 records shown\n\nRecords\nLABEL AND DEFINITION\tIDENTIFIER\tCATEGORY\tKIND\tKG-MICROBE NODES\tSYNONYMS\nanimal pathogen\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\n\tMETPO:1004002\tECOLOGY\tCLASS\t1\t0\nbacterial cannibalism\n\nA predatory bacterial phenotype in which cells kill susceptible conspecific cells and obtain nutrients from the killed cells.\n\n\ttraitmech:000626\tECOLOGY\tCLASS\t1\t0\nbacterial mycophagy\n\nA trophic-ecology phenotype in which a bacterium actively obtains nutrients from living fungi or oomycetes and uses them for its own growth.\n\n\ttraitmech:000696\tECOLOGY\tCLASS\t1\t0\nbiofilm formation\n\nAn ecological lifestyle in which cells for",
+        "quantitative_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech › Quantitative Property\n\nQuantitative Property (7)\nFILTER RECORDS\nCategory\nAll categories\n7\nQUANTITATIVE PROPERTY\n7\nTerm kind\nAll kinds\n7\nDATATYPE PROPERTY\n7\nClear all filters\nSearch records\nCategory\nAll categories\nQUANTITATIVE_PROPERTY\nKind\nAll kinds\nDATATYPE_PROPERTY\nSort by\nLabel (A–Z)\nLabel (Z–A)\nIdentifier (A–Z)\nCategory\nKind\nkg-microbe nodes (high–low)\nSynonyms (high–low)\nClear filters\n\n7 of 7 records shown\n\nRecords\nLABEL AND DEFINITION\tIDENTIFIER\tCATEGORY\tKIND\tKG-MICROBE NODES\tSYNONYMS\nhas maximum observed value\n\nThe maximum temperature (°C) associated with this observation.\n\n\tMETPO:2000060\tQUANTITATIVE_PROPERTY\tDATATYPE_PROPERTY\t1\t0\nhas minimum observed value\n\nThe minimum temperature (°C) associated with this observation.\n\n\tMETPO:2000059\tQUANTITATIVE_PROPERTY\tDA"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "All Mech projects links the landing, Browse, sampled categories and records, all four maps and the discussions index to the suite directory.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": {
+        "pages/index.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/browse.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/category/ecology.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/category/quantitative_property.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/traits/ecology/animal_pathogen.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/traits/metabolism/aerobic_respiration.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/traits/metabolism/wood_ljungdahl_pathway.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/umap.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/map.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/graph.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "pages/sequence-map.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "app/discussions/index.html": [
+          {
+            "text": "All Mech projects",
+            "href": "https://culturebotai.github.io/mechs/"
+          }
+        ]
+      }
+    },
+    "downloads": {
+      "status": "present",
+      "note": "The site links Download traits.json, a complete 1,130-record bulk JSON export. Downloaded map exports contain 1,130 traits or 156 proteins as labeled.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": {
+        "links": [
+          {
+            "text": "Data JSON",
+            "href": "https://culturebotai.github.io/TraitMech/pages/data/traits.json"
+          },
+          {
+            "text": "Download traits.json →",
+            "href": "https://culturebotai.github.io/TraitMech/pages/data/traits.json"
+          },
+          {
+            "text": "traits.json",
+            "href": "https://culturebotai.github.io/TraitMech/pages/data/traits.json"
+          }
+        ],
+        "requests": {
+          "download:pages/data/traits.json": {
+            "status": 200,
+            "keys": null,
+            "list_length": 1130,
+            "array_lengths": null
+          },
+          "download:pages/data/trait_umap.json": {
+            "status": 200,
+            "keys": null,
+            "list_length": 1130,
+            "array_lengths": null
+          },
+          "download:pages/data/corpus_map.json": {
+            "status": 200,
+            "keys": [
+              "method",
+              "model",
+              "n",
+              "corpus_fingerprint",
+              "classes",
+              "generated_from",
+              "hrefs",
+              "points"
+            ],
+            "list_length": null,
+            "array_lengths": {
+              "classes": 10,
+              "points": 1130
+            }
+          },
+          "download:pages/data/sequence_map.json": {
+            "status": 200,
+            "keys": [
+              "method",
+              "model",
+              "dim",
+              "pooling",
+              "max_length",
+              "n",
+              "n_traits_covered",
+              "classes",
+              "generated_from",
+              "points"
+            ],
+            "list_length": null,
+            "array_lengths": {
+              "classes": 6,
+              "points": 156
+            }
+          }
+        }
+      }
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "Visible Schema and LinkML schema links open the annotated LinkML YAML source successfully. They provide source access; the reviewed navigation does not link rendered schema documentation or the explanatory schema guide.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": {
+        "links": [
+          {
+            "text": "Schema",
+            "href": "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/schema/traitmech.yaml",
+            "status": 200,
+            "from": "pages/index.html"
+          },
+          {
+            "text": "LinkML schema →",
+            "href": "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/schema/traitmech.yaml",
+            "status": 429,
+            "from": "pages/index.html"
+          }
+        ],
+        "arbitration": "Root 2026-11-04: direct schema YAML is source access; present requires published rendered docs or explanatory guide."
+      }
+    },
+    "license": {
+      "status": "present",
+      "note": "Sampled page footers state CC BY 4.0 project data and BSD-3-Clause code, with third-party source terms retained; these match the pinned license files.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": {
+        "excerpt": "Project data: CC BY 4.0 · code: BSD-3-Clause · third-party source terms apply\nCorpus as of 2026-10-31 20:55 UTC · Ontology baseline: METPO 2026-06-12 · 1130 TraitRecords\n\nAll Mech projects\n\n☀",
+        "source": "LICENSE, LICENSE-DATA and LICENSE-CODE at c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6"
+      }
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "Landing, Browse and map footers give a dated version of the project corpus, alongside the METPO baseline and record count.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": "Corpus as of 2026-10-31 20:55 UTC · Ontology baseline: METPO 2026-06-12 · 1130 TraitRecords\n\nAll Mech projects\n\n☀"
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Selecting dark on the landing persists through Browse, two categories, three records, all four maps and the discussions index in the same browser context.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+      "evidence": {
+        "pages/index.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/browse.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/category/ecology.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/category/quantitative_property.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/traits/ecology/animal_pathogen.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/traits/metabolism/aerobic_respiration.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/traits/metabolism/wood_ljungdahl_pathway.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/umap.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/map.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/graph.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "pages/sequence-map.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        },
+        "app/discussions/index.html": {
+          "theme": "dark",
+          "savedTheme": "dark"
+        }
+      }
+    },
+    "responsive": {
+      "status": "partial",
+      "note": "At 390px, the text and sequence maps overflow: 553px document width on fresh load and 793px after resizing from 1280px. The other ten sampled routes, including PaCMAP and graph layout, fit 390px.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+      "evidence": {
+        "pages/index.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/browse.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/category/ecology.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/category/quantitative_property.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/traits/ecology/animal_pathogen.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/traits/metabolism/aerobic_respiration.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/traits/metabolism/wood_ljungdahl_pathway.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/umap.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/map.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 553
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 793
+          }
+        },
+        "pages/graph.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        },
+        "pages/sequence-map.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 553
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 793
+          }
+        },
+        "app/discussions/index.html": {
+          "desktop": {
+            "width": 1280,
+            "scrollWidth": 1280
+          },
+          "fresh_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          },
+          "resized_mobile": {
+            "width": 390,
+            "scrollWidth": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "status": "present",
+      "note": "Aborted JSON requests produce explicit map failure messages and Retry; retry after restoring requests recovers 1,130 traits or 156 proteins. Aborting discussion data produces Discussion counts unavailable and a retry prompt.",
+      "url": "https://culturebotai.github.io/TraitMech/pages/umap.html",
+      "evidence": {
+        "pages/umap.html": {
+          "failed": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/umap.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "Map data could not be loaded. Retry, or use Browse to read the trait records.",
+            "circles": 0
+          },
+          "recovered": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/umap.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "1130 records loaded.",
+            "circles": 1130
+          }
+        },
+        "pages/map.html": {
+          "failed": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "Map data could not be loaded. Retry, or use Browse to read the trait records.",
+            "circles": 0
+          },
+          "recovered": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "1130 records loaded.",
+            "circles": 1130
+          }
+        },
+        "pages/graph.html": {
+          "failed": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/graph.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "Map data could not be loaded. Retry, or use Browse to read the trait records.",
+            "circles": 0
+          },
+          "recovered": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/graph.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "1130 records loaded.",
+            "circles": 1130
+          }
+        },
+        "pages/sequence-map.html": {
+          "failed": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/sequence-map.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "Sequence map data could not be loaded.",
+            "circles": 0
+          },
+          "recovered": {
+            "url": "https://culturebotai.github.io/TraitMech/pages/sequence-map.html",
+            "visibleRows": 0,
+            "firstRecords": [],
+            "mapStatus": "156 proteins loaded.",
+            "circles": 156
+          }
+        },
+        "discussions": "Skip to discussions\nTraitMech Home · Browse · All Mech projects\nKnowledge gaps & discussions\nDiscussion counts unavailable\nSearch discussions  Clear search and filters\nDiscussions could not be loaded.\nRetry loading discussions\n☾"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.search.note",
+      "before": "Browse searches all 1,130 live records: METPO:1004002 and traitmech:000616 each return one record; bipolar mating system returns two linked matches.",
+      "replacement": "Browse searches all 1,130 records: METPO:1004002 and traitmech:000616 each return one linked record; bipolar mating system returns two.",
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.facets.note",
+      "before": "Browse provides Category and Kind selectors plus Clear filters across all 1,130 records, restoring all 1,130 on reset.",
+      "replacement": "Browse provides Category and Kind selectors plus Clear filters. Combining pathogen, ECOLOGY and CLASS gives eight records; reset restores all 1,130.",
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.result_counts.note",
+      "before": "The live count updates with text and property filters: identifiers give 1 of 1,130 records shown and pathogen plus ECOLOGY and CLASS gives 6 of 1,130.",
+      "replacement": "The count responds to search and property filters: identifiers give 1 of 1,130 records shown; pathogen plus ECOLOGY and CLASS gives 8 of 1,130.",
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.sorting.note",
+      "before": "pages/browse.html supports sorting by trait name, category, curation status, ontology grounding, and causal graph presence.",
+      "replacement": "Browse offers label, identifier, category, kind, kg-microbe node-count and synonym-count ordering. Reversing label order changes the first row from 2,3-butanediol fermentation to Zorya type III system.",
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.shareable_state.note",
+      "before": "Search, category and kind are written to the URL. Reloading ?q=pathogen&category=ECOLOGY&kind=CLASS restores all controls and six matching records.",
+      "replacement": "Search, category and kind are written to the URL. Reloading ?q=pathogen&category=ECOLOGY&kind=CLASS restores the controls and eight matches.",
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.full_catalogue.note",
+      "before": "Browse exposes all 1,130 linked record rows, matching the landing total. Ten category cards lead to subsets of that same listing.",
+      "replacement": "Browse exposes 1,130 distinct record links, matching the landing total and all 1,130 record HTML paths at the pin.",
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.record_pages.note",
+      "before": "1,130 static pages under pages/traits/<category>/<slug>.html with overview, ontology grounding, genetic basis, causal graphs (748 records), assays, and references.",
+      "replacement": "All 1,130 traits have static pages under pages/traits/<category>/<slug>.html. Sampled pages show overview, grounding, curation and source sections; 761 source records carry causal graphs.",
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.term_links.note",
+      "before": "Record identifiers have readable labels and METPO resolver links, but aerobic respiration’s Cross-references section still presents GO:0009060 as plain text; graph groundings are not consistently linked.",
+      "replacement": "Record identifiers have readable labels and resolver links. Aerobic respiration links GO:0009060 in Cross-references, but that whole section still lacks a readable term label.",
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.evidence.note",
+      "before": "Animal pathogen and aerobic respiration link their trait and causal-edge DOI citations, with supporting text displayed alongside the evidence.",
+      "replacement": "Animal pathogen and aerobic respiration link their trait and causal-edge DOI citations and display supporting text.",
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.review_status.note",
+      "before": "Record headers and Identifier cards display workflow status, including REVIEWED on animal pathogen. Browse retains the complete corpus across REVIEWED, PROPOSED, SEEDED and DEPRECATED records.",
+      "replacement": "Record headers and Identifier cards show workflow status, including REVIEWED on animal pathogen; the complete corpus retains all four mapping statuses.",
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.curation_history.note",
+      "before": "The checked trait pages display dated curation events, attributed curators and change summaries. Some records additionally link recorded curation-session sidecars.",
+      "replacement": "Sampled record pages display dated curation events, attributed curators and change summaries.",
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.source_link.note",
+      "before": "Record Source cards link View YAML on GitHub, Raw YAML and Edit on GitHub for the record’s own data/traits file.",
+      "replacement": "Record Source cards link View YAML on GitHub, Raw YAML and Edit on GitHub for the record’s own data/traits YAML.",
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.domain_view.note",
+      "before": "Record pages render causal SVG/Mermaid diagrams across 748 causal-graph-bearing traits; pages/umap.html and pages/map.html render 2D embedding scatters of all 1,130 trait records, and pages/sequence-map.html renders an ESM-2 protein sequence embedding map (156 trait-associated proteins).",
+      "replacement": "Sampled record pages render causal SVG diagrams; 761 source records carry causal graphs. PaCMAP, text and graph-layout maps each render 1,130 traits, and the sequence map renders 156 associated proteins. These source counts do not imply that every graph was visually inspected.",
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.cross_mech_links.note",
+      "before": "Wood–Ljungdahl’s Pathway context links directly to PathwayMech WikiPathways:WP5019, whose Acetogenesis page opens successfully. The source page states organism scope and its pinned PathwayMech revision.",
+      "replacement": "Wood–Ljungdahl’s Pathway context links to PathwayMech WikiPathways:WP5019. The target returns HTTP 200; the trait page retains organism scope and the target revision.",
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.corpus_stats.note",
+      "before": "Home page reports 1,130 trait records (427 REVIEWED) across 10 populated categories, 748 records with causal graphs, and 100.0% embedding coverage (1,130 embedded traits).",
+      "replacement": "The landing page shows 1,130 trait records, 10 categories and 100.0% embedding coverage. Reviewed and causal-graph totals are corpus-source statistics, not landing tiles.",
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.category_browse.note",
+      "before": "Browse links ten category pages with counts, including ECOLOGY with 29 records and QUANTITATIVE_PROPERTY with seven.",
+      "replacement": "Browse links ten category pages with counts; the opened ECOLOGY page contains 40 records and QUANTITATIVE_PROPERTY contains seven.",
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.suite_nav.note",
+      "before": "All Mech projects visibly links the landing, Browse, sampled categories and records, both embedding views and the linked app/discussions index to the X-Mech Suite directory.",
+      "replacement": "All Mech projects links the landing, Browse, sampled categories and records, all four maps and the discussions index to the suite directory.",
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.downloads.note",
+      "before": "Site provides bulk JSON/CSV corpus exports (pages/data/traits.json, map CSV of all 1,130 embedded traits) and per-record GitHub YAML links.",
+      "replacement": "The site links Download traits.json, a complete 1,130-record bulk JSON export. Downloaded map exports contain 1,130 traits or 156 proteins as labeled.",
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.schema_docs.note",
+      "before": "The landing describes source code, data and schema but points to the repository root. Reviewed navigation does not expose LinkML schema documentation.",
+      "replacement": "Visible Schema and LinkML schema links open the annotated LinkML YAML source successfully. They provide source access; the reviewed navigation does not link rendered schema documentation or the explanatory schema guide.",
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.license.note",
+      "before": "Site footer declares BSD-3-Clause code and CC-BY-4.0 data licensing.",
+      "replacement": "Sampled page footers state CC BY 4.0 project data and BSD-3-Clause code, with third-party source terms retained; these match the pinned license files.",
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.build_provenance.note",
+      "before": "Browse and map footers state the corpus build timestamp, the METPO baseline, 1,130 TraitRecords, and 100.0% embedding coverage.",
+      "replacement": "Landing, Browse and map footers give a dated version of the project corpus, alongside the METPO baseline and record count.",
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.theme_toggle.note",
+      "before": "Selecting dark on the landing persists through Browse, both sampled categories, three records, PaCMAP, graph-layout and the linked app/discussions index in the same browser context.",
+      "replacement": "Selecting dark on the landing persists through Browse, two categories, three records, all four maps and the discussions index in the same browser context.",
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.responsive.note",
+      "before": "Fresh 390px loads fit the reviewed landing, Browse, categories, records, discussions index and both maps. Resizing either map from 1280px to 390px leaves the document 1,133px wide.",
+      "replacement": "At 390px, the text and sequence maps overflow: 553px document width on fresh load and 793px after resizing from 1280px. The other ten sampled routes, including PaCMAP and graph layout, fit 390px.",
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.TraitMech.features.load_failure.note",
+      "before": "Aborting each map’s JSON request produces explicit Unavailable and Map data could not be loaded text with Retry and Browse alternatives. Aborting app/discussions/data.js gives Discussion counts unavailable, Discussions could not be loaded and Retry loading discussions.",
+      "replacement": "Aborted JSON requests produce explicit map failure messages and Retry; retry after restoring requests recovers 1,130 traits or 156 proteins. Aborting discussion data produces Discussion counts unavailable and a retry prompt.",
+      "evidence": "features.load_failure.evidence"
+    },
+    {
+      "locator": "_fleet/audit_notes.json:13",
+      "before": "748 records with causal graphs",
+      "replacement": "761 records with causal graphs",
+      "evidence": "counts.causal_graph_records; source_evidence.README.md"
+    },
+    {
+      "locator": "resources.md:196",
+      "before": "748 carry causal graphs",
+      "replacement": "761 carry causal graphs",
+      "evidence": "counts.causal_graph_records; source_evidence.README.md"
+    }
+  ],
+  "hand_claims": [
+    {
+      "locator": "_fleet/mechs_template.md::article[data-mech=\"TraitMech\"]; _fleet/fleet_fragment.html::MECHS.TraitMech; resources.md::TraitMech; index.md:37; CLAUDE.md:161",
+      "verdict": "verified; graph count replacement separately listed",
+      "evidence": [
+        "counts",
+        "source_evidence.README.md",
+        "source_evidence.download.yaml",
+        "source_evidence.src/traitmech/schema/traitmech.yaml",
+        "features.license",
+        "features.domain_view"
+      ],
+      "details": "1,130 TraitRecord YAMLs,10 populated categories,METPO seed,one YAML per trait; listed schema prefixes and candidate GapMind/GTDB sources; live kg-microbe matching/neighbor sections and map routes."
+    },
+    {
+      "locator": "_fleet/fleet_fragment.html::XREF[from=CommunityMech,to=TraitMech] + matching template relationship",
+      "verdict": "verified from Trait-owned sources",
+      "evidence": [
+        "source_evidence.scripts/research_trait_edison.py",
+        "source_evidence..claude/skills/deep-research-trait/SKILL.md",
+        "source_evidence..claude/skills/metpo-proposal/SKILL.md"
+      ]
+    },
+    {
+      "locator": "_fleet/fleet_fragment.html::XREF[from=TraitMech,to=MediaIngredientMech] + matching template relationship",
+      "verdict": "Trait scope half verified; MIM command adoption belongs to MIM audit",
+      "evidence": [
+        "source_evidence.docs/SCHEMA.md",
+        "source_evidence.scripts/seed_from_metpo.py"
+      ]
+    },
+    {
+      "locator": "_fleet/fleet_fragment.html::XREF[from=ProteinTraitsMech,to=TraitMech] + matching template relationship",
+      "verdict": "Trait adoption and required-license enforcement verified; historical sibling comparison retained as source-attributed history",
+      "evidence": [
+        "source_evidence.download.yaml",
+        "source_evidence.scripts/check_sources.py"
+      ]
+    },
+    {
+      "locator": "_fleet/fleet_fragment.html::XREF[from=MediaIngredientMech,to=TraitMech] and [from=CultureMech,to=TraitMech] + template equivalents",
+      "verdict": "adoption and qc provenance verified; nearly every writer is an imprecise legacy claim, propose remove unless whole-writer audit supplies denominator",
+      "evidence": [
+        "source_evidence.src/traitmech/curate/curation_event.py",
+        "source_evidence.src/traitmech/validation/write_validated.py",
+        "source_evidence.scripts/add_faprotax_synonyms.py",
+        "source_evidence.justfile"
+      ]
+    },
+    {
+      "locator": "_fleet/fleet_fragment.html::XREF[from=PathwayMech,to=TraitMech] + template equivalent",
+      "verdict": "verified unchanged19links17nodes11records15targets",
+      "evidence": [
+        "counts.pathway_context",
+        "source_evidence.docs/PATHWAY_LINKS.md",
+        "features.cross_mech_links.evidence"
+      ]
+    },
+    {
+      "locator": "_fleet/fleet_fragment.html::HUB[mech=TraitMech,dir=in]",
+      "verdict": "verified live kg-microbe matches and nearest-neighbor sections cite DeepWalk512dimensions",
+      "evidence": "features.record_pages; raw sampled record text"
+    },
+    {
+      "locator": "Other relationship rows mentioning TraitMech whose source is CellStructureMech,TaxonMech,HabitatMech,CommunityMech,ProteinTraitsMech,DUFMech or PathwayMech",
+      "verdict": "delegated to owning Mech audit; not independently recertified by Trait-only canary",
+      "details": "Includes412protein mentions,4reaction rows,11Habitat trait nodes,two of15Taxon causal records,and17CellStructure writers."
+    }
+  ],
+  "source_evidence": {
+    "README.md": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/README.md",
+      "sha256": "4ea25c1067fcf4d4a6dcef0a60e5d8756e3e5ce037199b05fce1806c21db445d",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "(growth media), [MediaIngredientMech](../MediaIngredientMech) (chemical"
+        },
+        {
+          "line": 15,
+          "text": "**Initial seed (from `data/raw/metpo.owl`, METPO 2026-06-12) and current curation status:**"
+        },
+        {
+          "line": 29,
+          "text": "| **TOTAL** | **427** | **615** | **50** | **761** | **1130** |"
+        },
+        {
+          "line": 37,
+          "text": "Across the corpus, 761 records currently carry causal graphs. The 50 deprecated"
+        },
+        {
+          "line": 44,
+          "text": "(`material entity` subtree — chemicals / microbes / enzymes — is not"
+        },
+        {
+          "line": 58,
+          "text": "just validate-all             # validate every TraitRecord YAML"
+        },
+        {
+          "line": 65,
+          "text": "- **TraitRecord** — root class, one per YAML file. Carries"
+        },
+        {
+          "line": 93,
+          "text": "│   ├── raw/metpo.owl                    # vendored METPO release (2026-06-12)"
+        },
+        {
+          "line": 95,
+          "text": "│   └── traits/<category>/<slug>.yaml    # 1130 curated TraitRecords"
+        },
+        {
+          "line": 109,
+          "text": "    ├── CURATION_PLAYBOOK.md             # how to curate a TraitRecord"
+        },
+        {
+          "line": 179,
+          "text": "  [review narrative](docs/METPO_2026_06_12_ACTIVE_REVIEW.md) document the final"
+        },
+        {
+          "line": 218,
+          "text": "inputs, then manually curate only DOI-backed claims into TraitRecord YAML."
+        },
+        {
+          "line": 252,
+          "text": "  in CultureMech / MediaIngredientMech / kg-microbe (where METPO terms"
+        },
+        {
+          "line": 267,
+          "text": "Third-party material retains its own licenses and attribution requirements."
+        }
+      ]
+    },
+    "download.yaml": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/download.yaml",
+      "sha256": "593ba26f04b0e7f48cbef0a139f979508a716d400ee84b5e8c3f2f12546ff9a9",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "# Adopted from ProteinTraitsMech's download.yaml shape so the two repos can be"
+        },
+        {
+          "line": 11,
+          "text": "# That is stricter than the sibling, deliberately. There, only `url` is"
+        },
+        {
+          "line": 12,
+          "text": "# hard-enforced and the docstring's stricter promise is not backed by code, so"
+        },
+        {
+          "line": 13,
+          "text": "# a block can omit its licence silently — which is the one field this"
+        },
+        {
+          "line": 25,
+          "text": "# collaborator projects built over public data, and a permissive licence on the"
+        },
+        {
+          "line": 37,
+          "text": "  source: metpo"
+        },
+        {
+          "line": 38,
+          "text": "  license: CC-BY-4.0"
+        },
+        {
+          "line": 39,
+          "text": "  status: seeded"
+        },
+        {
+          "line": 64,
+          "text": "  source: heterotrophic_bacteria"
+        },
+        {
+          "line": 65,
+          "text": "  license: unpublished collaborator data (terms to be settled)"
+        },
+        {
+          "line": 71,
+          "text": "  status: candidate"
+        },
+        {
+          "line": 76,
+          "text": "    DOI, or repository to cite, and the file carries no licence or README of"
+        },
+        {
+          "line": 134,
+          "text": "  source: trait_onto_map"
+        },
+        {
+          "line": 135,
+          "text": "  license: MIT (software scope; see upstream_licenses)"
+        },
+        {
+          "line": 141,
+          "text": "  status: rejected"
+        },
+        {
+          "line": 160,
+          "text": "    The MIT licence covers the software (\"and associated documentation files"
+        },
+        {
+          "line": 169,
+          "text": "  source: trait_onto_map_gapmind"
+        },
+        {
+          "line": 170,
+          "text": "  license: MIT (software scope; see upstream_licenses)"
+        },
+        {
+          "line": 175,
+          "text": "  status: candidate"
+        },
+        {
+          "line": 189,
+          "text": "    `candidate` not `seeded`, for two reasons that are not licence questions:"
+        }
+      ]
+    },
+    "docs/SCHEMA.md": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/docs/SCHEMA.md",
+      "sha256": "d5a56a3361e335b9a6e8358b9b9dcfb99cbe932ee9620ab56b322f904c17af2b",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "## TraitRecord (root)"
+        },
+        {
+          "line": 45,
+          "text": "- `UPPER` — METPO upper-level roots (material entity, quality, etc.)"
+        },
+        {
+          "line": 67,
+          "text": "The `material entity` subtree (chemical entity / enzyme / microbe) is"
+        },
+        {
+          "line": 68,
+          "text": "**not** seeded — those belong in MIM / kg-microbe, not TraitMech."
+        }
+      ]
+    },
+    "docs/PATHWAY_LINKS.md": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/docs/PATHWAY_LINKS.md",
+      "sha256": "800492750fb3c025dfdf7164813e7a00b3bd72dc8cc6f8e754e2aed5d7bbf414",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "The supported corpus is `PathwayMech`; `PATHWAY_CONTEXT` means the linked"
+        },
+        {
+          "line": 8,
+          "text": "organism-scoped pathway illustrates the node's route, biochemical component,"
+        },
+        {
+          "line": 9,
+          "text": "or precursor context. It does not assert exact equivalence, a trait phenotype"
+        },
+        {
+          "line": 10,
+          "text": "in the linked organism, or identical physiology in every organism. Existing"
+        },
+        {
+          "line": 11,
+          "text": "`grounding` and exact-equivalence `xrefs` retain their own meanings."
+        },
+        {
+          "line": 13,
+          "text": "Each basis names the linked organism and explains the correspondence and its"
+        },
+        {
+          "line": 34,
+          "text": "The initial manifest links 17 nodes in 11 traits to 15 pathway records"
+        },
+        {
+          "line": 35,
+          "text": "(19 node-record links). It excludes peptidoglycan morphology leads: cytoplasmic"
+        },
+        {
+          "line": 40,
+          "text": "The catalase addition appends the reviewed P06115 Ctt1 reference protein to"
+        }
+      ]
+    },
+    "scripts/seed_from_metpo.py": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/scripts/seed_from_metpo.py",
+      "sha256": "0fb9c9f7ea6a8f137eecd5c319775b511c398dba6158c81b1fbfb94210f7d851",
+      "excerpts": [
+        {
+          "line": 100,
+          "text": "    \"METPO:1000186\",  # material entity"
+        },
+        {
+          "line": 262,
+          "text": "        return None  # material entity → skip"
+        },
+        {
+          "line": 462,
+          "text": "    print(\"Skipped (material entity / annotation property):\")"
+        }
+      ]
+    },
+    "scripts/research_trait_edison.py": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/scripts/research_trait_edison.py",
+      "sha256": "0eb387b49d04645f1bd9759f2668e5315f3d347977fb569744aca2be67064cc6",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "response provenance. This is the TraitMech port of CommunityMech's"
+        },
+        {
+          "line": 26,
+          "text": "export the SDK-native name. See ``.env.example``."
+        },
+        {
+          "line": 53,
+          "text": "from __future__ import annotations"
+        },
+        {
+          "line": 55,
+          "text": "import argparse"
+        },
+        {
+          "line": 56,
+          "text": "import json"
+        },
+        {
+          "line": 57,
+          "text": "import os"
+        },
+        {
+          "line": 58,
+          "text": "import sys"
+        },
+        {
+          "line": 59,
+          "text": "from datetime import datetime, timezone"
+        },
+        {
+          "line": 60,
+          "text": "from pathlib import Path"
+        },
+        {
+          "line": 61,
+          "text": "from typing import Any"
+        },
+        {
+          "line": 63,
+          "text": "import yaml"
+        },
+        {
+          "line": 64,
+          "text": "from dotenv import load_dotenv"
+        },
+        {
+          "line": 68,
+          "text": "import _edison_capture as ec  # noqa: E402  -- response/citation/agent capture"
+        },
+        {
+          "line": 69,
+          "text": "import research_trait as rt  # noqa: E402  -- reuse template_vars + loaders"
+        },
+        {
+          "line": 88,
+          "text": "    from edison_client import JobNames"
+        },
+        {
+          "line": 103,
+          "text": "    honoured for shells that export it. If both are set they may be different"
+        },
+        {
+          "line": 111,
+          "text": "            \"(see .env.example), or export it in your shell.\""
+        },
+        {
+          "line": 213,
+          "text": "    from edison_client import TaskRequest"
+        },
+        {
+          "line": 375,
+          "text": "        from edison_client import EdisonClient"
+        },
+        {
+          "line": 402,
+          "text": "        print(f\"Done. {len(results)} traits researched. Total reported cost: {total_cost:.4f}\")"
+        }
+      ]
+    },
+    ".claude/skills/deep-research-trait/SKILL.md": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/.claude/skills/deep-research-trait/SKILL.md",
+      "sha256": "685c531954c78f8b3ecc68d5069f67675c045d8b3a0dbb4dc6391de034bde003",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "description: Run Edison Scientific deep research (PaperQA3) for a TraitMech trait record to gather source-backed mechanism, expression conditions, measurement/assay basis, and ontology grounding (METPO/GO/CHEBI/ENVO). Captures a full provenance bundle (answer, citations, agent state, cost) and produces a curation-focused report for a curator to review and apply. Use when a TraitRecord needs literature evidence before its causal graph or evidence blocks can be curated."
+        },
+        {
+          "line": 16,
+          "text": "bundle. This is the TraitMech port of CommunityMech's `deep-research-community`;"
+        },
+        {
+          "line": 25,
+          "text": "`data/traits/`. A curator reads the report and hand-applies only DOI-backed"
+        },
+        {
+          "line": 33,
+          "text": "- Do **not** also export `EDISON_PLATFORM_API_KEY` unless it is the same"
+        },
+        {
+          "line": 84,
+          "text": "   Unresolvable entries are reported and skipped, not fatal."
+        },
+        {
+          "line": 88,
+          "text": "   `causal_graphs`. Cite the DOI, never the report."
+        },
+        {
+          "line": 120,
+          "text": "Older reports that predate the capture plumbing can be enriched without"
+        },
+        {
+          "line": 139,
+          "text": "| auth failure on direct `python` but not `just` | a second Edison key is exported in your shell |"
+        },
+        {
+          "line": 150,
+          "text": "  each, CommunityMech by 160 (92 ignoring whitespace) — by one unpropagated fix"
+        },
+        {
+          "line": 155,
+          "text": "- CommunityMech `deep-research-community`, MIM `deep-research-ingredient`,"
+        }
+      ]
+    },
+    ".claude/skills/metpo-proposal/SKILL.md": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/.claude/skills/metpo-proposal/SKILL.md",
+      "sha256": "03f008c011e6f0d45cafb7516a01a3383c0a7e8d11bfc5c9cb31efaeca51275f",
+      "excerpts": [
+        {
+          "line": 22,
+          "text": "Up to four artifacts are produced under `proposals/<cohort-name>/`:"
+        },
+        {
+          "line": 27,
+          "text": "| `metpo_proposal_properties_robot.tsv` | 13-column canonical ROBOT template with related synonyms; legacy 12-column cohorts remain supported |"
+        },
+        {
+          "line": 32,
+          "text": "- CultureMech/CommunityMech analogue: `CommunityMech/.claude/skills/metpo-proposal/SKILL.md` and reference cohort `proposals/metpo_communitymech_v1/`."
+        },
+        {
+          "line": 119,
+          "text": "  most recent worked cohort, and TraitMech's `manage-identifiers` allocation policy."
+        },
+        {
+          "line": 131,
+          "text": "CommunityMech v1 cohort, which occupies `1007100`–`1007220` and"
+        },
+        {
+          "line": 143,
+          "text": "`CausalNodeTypeEnum` lift rows. Later Scope-A cohorts use a fresh 100-wide block"
+        },
+        {
+          "line": 144,
+          "text": "per cohort so single-trait fallback proposals are append-only and easy to scan."
+        },
+        {
+          "line": 149,
+          "text": "cohort starts at `METPO:1019000`."
+        },
+        {
+          "line": 150,
+          "text": "**Never reuse a block from a merged cohort, even if rows in the old block were"
+        },
+        {
+          "line": 170,
+          "text": "drafts, before allocating the cohort or block. Read proposal narratives as well"
+        },
+        {
+          "line": 183,
+          "text": "- `metpo_traitmech_2026_05` — initial TraitMech cohort (v1)"
+        },
+        {
+          "line": 184,
+          "text": "- `metpo_traitmech_2026_07` — hypothetical v2 cohort after a breaking change"
+        },
+        {
+          "line": 186,
+          "text": "Each new cohort directory gets a new subset tag. **Extending in place (Path B"
+        },
+        {
+          "line": 187,
+          "text": "below) keeps the same tag** — the tag identifies the cohort, not the round"
+        },
+        {
+          "line": 196,
+          "text": "Audit which of A / B / C apply for this cohort. Run the search commands in"
+        },
+        {
+          "line": 227,
+          "text": "  `hasExactSynonym` column. If a cohort needs related labels such as raw"
+        },
+        {
+          "line": 282,
+          "text": "p = 'proposals/<cohort>/metpo_proposal_classes_robot.tsv'"
+        },
+        {
+          "line": 299,
+          "text": "just verify-proposal <cohort>          # column counts, header directives, parent integrity, coverage"
+        },
+        {
+          "line": 300,
+          "text": "just robot-validate-proposal <cohort>  # full ROBOT template+merge+ELK reasoning"
+        },
+        {
+          "line": 314,
+          "text": "| **Context** | Why this cohort exists; what gap it fills in METPO. Reference the TraitMech `traitmech:` fallback policy. |"
+        },
+        {
+          "line": 318,
+          "text": "| **ID space and subset** | The blocks you allocated and the subset tag. Confirm no collision with CommunityMech v1 (`1007100`–`1007220`). |"
+        },
+        {
+          "line": 330,
+          "text": "git switch -c claude/metpo-<cohort>-proposal"
+        },
+        {
+          "line": 331,
+          "text": "git add proposals/<cohort>/ justfile           # justfile only if you added a target"
+        },
+        {
+          "line": 332,
+          "text": "git commit -m \"Add METPO ROBOT-template proposal: <cohort>\""
+        },
+        {
+          "line": 333,
+          "text": "git push -u origin claude/metpo-<cohort>-proposal"
+        },
+        {
+          "line": 334,
+          "text": "gh pr create --title \"METPO ROBOT-template proposal: <cohort>\""
+        },
+        {
+          "line": 347,
+          "text": "| [`reference/updating-proposals.md`](reference/updating-proposals.md) | Decision rule and the three update paths — edit in place, extend in place, new cohort version — plus what not to do |"
+        },
+        {
+          "line": 348,
+          "text": "| [`reference/canonical-example.md`](reference/canonical-example.md) | The `metpo_traitmech_v1` worked cohort: ID-block layout, what it deliberately omits (Scope A/B), and why |"
+        }
+      ]
+    },
+    "scripts/check_sources.py": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/scripts/check_sources.py",
+      "sha256": "ea1391836993d7d653fee67799688aa45e3f70f8ec5b3bc5aa26966153c0a1f9",
+      "excerpts": [
+        {
+          "line": 4,
+          "text": "Adopted from ProteinTraitsMech's `check_sources.py` so the two repos can be"
+        },
+        {
+          "line": 7,
+          "text": "FIRST, THE REQUIRED FIELDS ARE ACTUALLY ENFORCED. The sibling's docstring says"
+        },
+        {
+          "line": 8,
+          "text": "a source block \"also carries name, source, license, status\", but only `url` is"
+        },
+        {
+          "line": 9,
+          "text": "checked, so a block can omit its licence and pass. Licence provenance is the"
+        },
+        {
+          "line": 19,
+          "text": "  - every block carries url, name, source, license, status;"
+        },
+        {
+          "line": 25,
+          "text": "  - restrictive or unresolved licences are surfaced as warnings, not hidden."
+        },
+        {
+          "line": 42,
+          "text": "REQUIRED = (\"url\", \"name\", \"source\", \"license\", \"status\")"
+        },
+        {
+          "line": 51,
+          "text": "UNRESOLVED = (\"unknown\", \"unclear\", \"tbd\", \"see upstream_licenses\")"
+        },
+        {
+          "line": 91,
+          "text": "        for field in REQUIRED:"
+        },
+        {
+          "line": 135,
+          "text": "        licence = str(block.get(\"license\", \"\")).lower()"
+        },
+        {
+          "line": 136,
+          "text": "        if any(token in licence for token in RESTRICTIVE):"
+        },
+        {
+          "line": 137,
+          "text": "            warnings.append(f\"[{tag}] restrictive licence: {block.get('license')}\")"
+        },
+        {
+          "line": 138,
+          "text": "        elif any(token in licence for token in UNRESOLVED):"
+        },
+        {
+          "line": 139,
+          "text": "            warnings.append(f\"[{tag}] licence unresolved: {block.get('license')}\")"
+        },
+        {
+          "line": 140,
+          "text": "        if block.get(\"upstream_licenses\") and status in {\"seeded\", \"enrichment\"}:"
+        },
+        {
+          "line": 142,
+          "text": "                f\"[{tag}] is in use and carries upstream_licenses; anything \""
+        }
+      ]
+    },
+    "src/traitmech/curate/curation_event.py": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/src/traitmech/curate/curation_event.py",
+      "sha256": "d9b3e70539bbf13f9130544e18ed7664ff2c3b7c60bcc2cae5185663fe25badd",
+      "excerpts": [
+        {
+          "line": 26,
+          "text": "Ported from CultureMech's ``src/culturemech/curate/curation_event.py``"
+        },
+        {
+          "line": 27,
+          "text": "(via MediaIngredientMech's ``record_curation_event``). The TraitMech"
+        }
+      ]
+    },
+    "src/traitmech/validation/write_validated.py": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/src/traitmech/validation/write_validated.py",
+      "sha256": "68cfeb876a60d67fd72d5a2800cd29e41b5cf563be5a27b698398a5bb3e67231",
+      "excerpts": [
+        {
+          "line": 39,
+          "text": "Ported from CultureMech's ``src/culturemech/validation/write_validated.py``"
+        },
+        {
+          "line": 40,
+          "text": "(by way of MediaIngredientMech's ``write_validated_ingredient``). The"
+        }
+      ]
+    },
+    "scripts/add_faprotax_synonyms.py": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/scripts/add_faprotax_synonyms.py",
+      "sha256": "f0fdee608949555ee009bb8fe97abb1093de2d6d6c924be37f658635ff3b63df",
+      "excerpts": [
+        {
+          "line": 20,
+          "text": "as MediaIngredientMech's \"correct the label, keep the raw string\" rule."
+        }
+      ]
+    },
+    "justfile": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/justfile",
+      "sha256": "b0f7cd76e9105736d3ecf6b42d773803ffa1406d40daa5671777f3c1e64ae0a6",
+      "excerpts": [
+        {
+          "line": 93,
+          "text": "audit-writers *args:"
+        },
+        {
+          "line": 142,
+          "text": "# In qc because it is offline and instant, and because the obligation it tracks"
+        },
+        {
+          "line": 196,
+          "text": "# NOT in `qc`, following validate-products: the default resolver needs the 13 GB"
+        },
+        {
+          "line": 235,
+          "text": "# Needs network and gh auth, so it is NOT in `qc`; it runs from"
+        },
+        {
+          "line": 256,
+          "text": "# NOT in `qc`; it runs from curation-history.yaml on pull_request."
+        },
+        {
+          "line": 266,
+          "text": "# -- meaning qc, pytest and validate-strict could all be mute and it would still"
+        },
+        {
+          "line": 275,
+          "text": "# Needs network and gh auth, so it is NOT in `qc`; same vantage point as"
+        },
+        {
+          "line": 294,
+          "text": "# Fail when a directory the `qc` chain reads is missing from qc.yaml's paths"
+        },
+        {
+          "line": 299,
+          "text": "audit-qc-paths:"
+        },
+        {
+          "line": 300,
+          "text": "    uv run python scripts/audit_qc_paths_coverage.py"
+        },
+        {
+          "line": 323,
+          "text": "# Network-dependent, so it is not part of `just qc`."
+        },
+        {
+          "line": 341,
+          "text": "# Network-dependent, so it is not part of `just qc`."
+        },
+        {
+          "line": 478,
+          "text": "# QC coverage dashboard (shared kg_microbe_qc generator in culturebotai-claw)."
+        },
+        {
+          "line": 479,
+          "text": "# Reads conf/qc_config.yaml; writes dashboard/index.html + coverage.png."
+        },
+        {
+          "line": 480,
+          "text": "gen-qc-dashboard: (_require-claw \"kg_microbe_qc\")"
+        },
+        {
+          "line": 482,
+          "text": "      -m kg_microbe_qc --config conf/qc_config.yaml --output dashboard"
+        },
+        {
+          "line": 686,
+          "text": "# Runs inside `qc`, so a new violation fails CI rather than accumulating."
+        },
+        {
+          "line": 687,
+          "text": "# It was NOT in qc until #312, and had been failing on main with nobody"
+        },
+        {
+          "line": 715,
+          "text": "# file earlier in this same `qc` run, so by the time this recipe executes the"
+        },
+        {
+          "line": 718,
+          "text": "# running what qc runs: audit-graphs overwrote it, exited 0, said nothing."
+        },
+        {
+          "line": 796,
+          "text": "    # this same qc run. Judging staleness on it would conflate \"the corpus got"
+        },
+        {
+          "line": 863,
+          "text": "    # audit-graph-protein-taxa runs earlier in qc and rewrites its working-tree"
+        },
+        {
+          "line": 889,
+          "text": "    # earlier in this qc run, not a generation error. So judge only whether the"
+        },
+        {
+          "line": 942,
+          "text": "    # Full regeneration requires UniProt REST API calls, so offline qc checks"
+        },
+        {
+          "line": 967,
+          "text": "    # Working tree, not `git show HEAD:` — nothing else in a qc run rewrites"
+        },
+        {
+          "line": 1009,
+          "text": "    # pages/ without committing the report. Locally both sides see it and qc"
+        },
+        {
+          "line": 1116,
+          "text": "        # Names the command rather than asserting the run: under `just qc`,"
+        },
+        {
+          "line": 1125,
+          "text": "        echo '  # (already run if you got here via `just qc`), then committed.' >&2"
+        },
+        {
+          "line": 1137,
+          "text": "        echo '  # (already run if you got here via `just qc`), then committed.' >&2"
+        },
+        {
+          "line": 1189,
+          "text": "# In `qc` on purpose. ProteinTraitsMech, whose shape this adopts, defines the"
+        },
+        {
+          "line": 1196,
+          "text": "# writers audit + proposal citation bar. Mirrors the qc target in"
+        },
+        {
+          "line": 1197,
+          "text": "# MediaIngredientMech / CultureMech."
+        },
+        {
+          "line": 1198,
+          "text": "qc: lint pr-sanity validate-strict check-pathway-links audit-schema audit-writers audit-proposals audit-proposal-coverage audit-biolink-curies audit-graphs audit-graph-protein-taxa audit-predicate-domains audit-discussion-anchors audit-discussions-data audit-snippets audit-justfile-paths audit-qc-paths audit-exact-synonym-collisions audit-derived-reports audit-unapplied-groundings audit-research-artifacts sources-check"
+        },
+        {
+          "line": 1210,
+          "text": "# intentionally not in qc: the official GO/ChEBI/ENVO/PATO/RO/METPO downloads"
+        },
+        {
+          "line": 1232,
+          "text": "# Deliberately NOT in `qc`. The reports are provider output that nobody will"
+        }
+      ]
+    },
+    "src/traitmech/schema/traitmech.yaml": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/src/traitmech/schema/traitmech.yaml",
+      "sha256": "46c47fc627b80ccbba1e8ab3fb6f2aee93bc2aef7aaf72fe9aadc3257f2c02dd",
+      "excerpts": [
+        {
+          "line": 20,
+          "text": "  METPO: https://w3id.org/metpo/"
+        },
+        {
+          "line": 22,
+          "text": "  PATO: http://purl.obolibrary.org/obo/PATO_"
+        },
+        {
+          "line": 23,
+          "text": "  GO: http://purl.obolibrary.org/obo/GO_"
+        },
+        {
+          "line": 26,
+          "text": "  CHEBI: http://purl.obolibrary.org/obo/CHEBI_"
+        },
+        {
+          "line": 34,
+          "text": "  UniProtKB: https://www.uniprot.org/uniprotkb/"
+        },
+        {
+          "line": 42,
+          "text": "  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_"
+        },
+        {
+          "line": 65,
+          "text": "  TraitRecord:"
+        }
+      ]
+    },
+    "LICENSE": {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6/LICENSE",
+      "sha256": "a456f28798119cb0e182822617ae06aeedb9fa9deae2e1ebec42c3170a0c6e63",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "International (CC-BY-4.0). See LICENSE-DATA."
+        },
+        {
+          "line": 9,
+          "text": "templates, is licensed under BSD-3-Clause. See LICENSE-CODE."
+        },
+        {
+          "line": 11,
+          "text": "Project-authored narrative documentation is licensed under CC-BY-4.0. For"
+        },
+        {
+          "line": 16,
+          "text": "Third-party data, images, text, vendored code and other redistributed material"
+        }
+      ]
+    }
+  },
+  "raw_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/trait-browser-auditor-20261104.json",
+    "sha256": "832fb4225b9fda7be56f65aec1efbe8c34b5ae53026707ec4e38af55c0aa9b50"
+  },
+  "limits": [
+    "Browser checks cover12routes and three record pages, not exhaustive rendering of1,130pages.",
+    "Source link sets cover all1,130trackedHTMLrecord paths at pin.",
+    "Direct YAML schema access retains partial under root arbitration; no new feature criteria introduced.",
+    "Other-Mech-owned relationship claims require their respective audit before fleet recertification."
+  ]
+}

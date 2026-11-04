@@ -1,0 +1,2241 @@
+{
+  "mech": "AIMech",
+  "reviewer": "central_directory group B auditor",
+  "pin": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+  "started_at": "2026-11-04T11:48:54.186528+00:00",
+  "finished_at": "2026-11-04T11:49:45.132154+00:00",
+  "deployment_before": {
+    "id": 7544037879,
+    "sha": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+    "created_at": "2026-11-04T10:51:30Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T10:51:59Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 10:51:52 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:48:54 GMT"
+  },
+  "deployment_after": {
+    "id": 7544037879,
+    "sha": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+    "created_at": "2026-11-04T10:51:30Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T10:51:59Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 10:51:52 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:49:45 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "AIMech:KernelPCA returns one linked concept and Adam returns 131 matches across the 1,929-record catalogue.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.search",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Origin, concept kind and AIO branch filters have Reset. Curated selects 1,487 records and curated algorithms 1,047; Reset restores all 1,929.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The matching count changes to one for AIMech:KernelPCA, 131 for Adam and zero for an unmatched query, separately from the 1,929 total.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The browser offers Concept name (A\u2013Z), Concept name (Z\u2013A), Curated claims (high\u2013low), Evidence sources (high\u2013low), Origin (Curated first), Identifier (A\u2013Z). Changing each option reorders the displayed results.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.sorting",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Search, origin, kind, branch and sort are encoded in the URL; reload restores the exercised values and matching count.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The complete browser and its machine-readable export cover 1,929 published records; sampled record links open successfully.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Browse links static curated/<name>.html and aio/<name>.html record pages; sampled Adam, KernelPCA and TrainingStrategy pages open.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "term_links": {
+      "status": "present",
+      "note": "Sampled accepted AIO mappings show names with linked CURIEs; AIO class pages link their ontology IRIs and labeled parent terms.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Sampled curated claims link source rows and primary evidence URLs; the landing distinguishes 5,149 claims from 3,269 evidence citations.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Sampled curated and imported class records show their workflow state in the record header.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "curation_history": {
+      "status": "partial",
+      "note": "Curated pages show curator, method/model and created/updated times, but do not present an event-by-event change list; AIO pages give import provenance.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Sampled records link their individual data/curated or data/aio YAML file on GitHub.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "The graph renders 1,949 nodes and 4,256 edges; the text map retains 1,259 concepts, a subset of the 1,929-record catalogue.",
+      "url": "https://culturebotai.github.io/AIMech/pages/graph.html",
+      "evidence": {
+        "locator": "receipts.domain_view",
+        "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+      }
+    },
+    "cross_mech_links": {
+      "status": "missing",
+      "note": "Sampled record pages provide sibling navigation/search links rather than links to specific sibling-Mech records.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing reports 1,929 concepts (1,487 curated and 442 AIO), 5,149 curated claims and 3,269 evidence citations.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.corpus_stats",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "category_browse": {
+      "status": "present",
+      "note": "The landing links twelve curated-kind and eight AIO-branch subset pages, including 121 architectures and 61 biases.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "Linked index.json covers all 1,929 concepts as listing metadata with claim/source counts; it omits complete claims and evidence. Map data and per-record YAML sources are also linked.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.downloads",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "The reviewed site links LinkML YAML source files. The previously recorded pages/schema.html documentation URL returns 404.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "license": {
+      "status": "partial",
+      "note": "Footers display CC BY 4.0 / BSD-3-Clause data and BSD-3-Clause code, but do not clearly explain which data receives each license.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "Page footers identify the project snapshot date 2026-10-24 and digest de5b593fee12, separately from upstream AIO import provenance.",
+      "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html",
+      "evidence": {
+        "locator": "receipts.build_provenance",
+        "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "Dark selected on the landing persists through Browse, sampled records, and both graph and text-map views.",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "evidence": {
+        "locator": "receipts.theme_toggle",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      }
+    },
+    "responsive": {
+      "status": "present",
+      "note": "Reviewed landing, Browse, sampled records and visualizations fit a 390px viewport.",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "evidence": {
+        "locator": "receipts.responsive",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      }
+    },
+    "load_failure": {
+      "status": "not_applicable",
+      "note": "Reviewed listings, records and visualizations embed their record data; no fetch or XHR data request was observed to abort.",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "evidence": {
+        "locator": "receipts.load_failure",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.search",
+      "before": {
+        "status": "present",
+        "note": "Browse searches all 1,929 records: AIMech:KernelPCA and AIO:HumanReportingBias each give 1 of 1,929, and matching rows open their record pages.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "AIMech:KernelPCA returns one linked concept and Adam returns 131 matches across the 1,929-record catalogue.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.facets",
+      "before": {
+        "status": "present",
+        "note": "Origin, Concept Kind, and AIO Branch selectors filter Browse with Reset, restoring all 1,929 records.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Origin, concept kind and AIO branch filters have Reset. Curated selects 1,487 records and curated algorithms 1,047; Reset restores all 1,929.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.result_counts",
+      "before": {
+        "status": "present",
+        "note": "Showing N of 1,929 updates with search and filters separately from the total (e.g., AIMech:KernelPCA gives 1 of 1,929 and an unmatched query gives 0).",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The matching count changes to one for AIMech:KernelPCA, 131 for Adam and zero for an unmatched query, separately from the 1,929 total.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.sorting",
+      "before": {
+        "status": "present",
+        "note": "pages/browse.html supports sorting by concept name, category, origin, claim count, and curation status.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The browser offers Concept name (A\u2013Z), Concept name (Z\u2013A), Curated claims (high\u2013low), Evidence sources (high\u2013low), Origin (Curated first), Identifier (A\u2013Z). Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.shareable_state",
+      "before": {
+        "status": "present",
+        "note": "Search, origin, kind and branch are written to the URL. Reloading ?q=attention&origin=curated&kind=architecture restores all three controls and 16 matches; a cold ?origin=aio&branch=Bias load gives 61.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Search, origin, kind, branch and sort are encoded in the URL; reload restores the exercised values and matching count.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture"
+      },
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.full_catalogue",
+      "before": {
+        "status": "present",
+        "note": "Browse links all 1,929 records the landing counts (1,487 curated and 442 AIO). All 1,929 record pages return HTTP 200, and the kind and branch pages list the same records.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The complete browser and its machine-readable export cover 1,929 published records; sampled record links open successfully.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.suite_nav",
+      "before": {
+        "status": "present",
+        "note": "Every page footer visibly links All Mech projects to culturebotai.github.io/mechs/, which opened the X-Mech Suite page; checked on landing, Browse, kind, branch and record pages.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.record_pages",
+      "before": {
+        "status": "present",
+        "note": "Each of the 1,929 records has a stable static URL, curated/<name>.html (1,487) or aio/<name>.html (442), linked from Browse.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Browse links static curated/<name>.html and aio/<name>.html record pages; sampled Adam, KernelPCA and TrainingStrategy pages open.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.term_links",
+      "before": {
+        "status": "present",
+        "note": "All 837 AIO mappings show a labeled CURIE linked to its class page, which links its w3id IRI; parents are labeled links. Rejected candidates on 111 no-match records lack labels; subsets and owl:Thing are plain text.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled accepted AIO mappings show names with linked CURIEs; AIO class pages link their ontology IRIs and labeled parent terms.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html"
+      },
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.evidence",
+      "before": {
+        "status": "present",
+        "note": "All 1,978 evidence citations across the 1,487 curated records link their source documents, and all 4,166 claims link their source rows.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled curated claims link source rows and primary evidence URLs; the landing distinguishes 5,149 claims from 3,269 evidence citations.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.review_status",
+      "before": {
+        "status": "present",
+        "note": "Every record header shows its workflow status across all 1,487 curated concepts and 442 imported AIO classes.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled curated and imported class records show their workflow state in the record header.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.curation_history",
+      "before": {
+        "status": "partial",
+        "note": "Curated records show curator Codex, method, model and created and updated times, but no event list or description of what changed. AIO class pages show only import provenance.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Curated pages show curator, method/model and created/updated times, but do not present an event-by-event change list; AIO pages give import provenance.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.source_link",
+      "before": {
+        "status": "present",
+        "note": "Every record page links its own YAML on GitHub, data/curated/<name>.yaml or data/aio/<name>.yaml, across all 1,929 concepts.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled records link their individual data/curated or data/aio YAML file on GitHub.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.domain_view",
+      "before": {
+        "status": "present",
+        "note": "pages/graph.html renders an interactive Ontology & Grounding Network Graph connecting 1,949 nodes and 4,256 edges across concepts, ontologies, and claims; pages/map.html renders an interactive 2D text embedding scatter across all 1,929 concepts.",
+        "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The graph renders 1,949 nodes and 4,256 edges; the text map retains 1,259 concepts, a subset of the 1,929-record catalogue.",
+        "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+      },
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.cross_mech_links",
+      "before": {
+        "status": "missing",
+        "note": "No record body links a sibling-Mech or kg-microbe record. The shared footer links only sibling site home pages and the kg-microbe repository.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "Sampled record pages provide sibling navigation/search links rather than links to specific sibling-Mech records.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.corpus_stats",
+      "before": {
+        "status": "present",
+        "note": "Home page reports 1,929 concepts (1,487 curated, 442 AIO classes), 4,166 claims, and 1,978 evidence citations across 15 categories.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The landing reports 1,929 concepts (1,487 curated and 442 AIO), 5,149 curated claims and 3,269 evidence citations.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.category_browse",
+      "before": {
+        "status": "present",
+        "note": "The landing links nine curated-kind pages and eight AIO-branch pages with counts, each a filterable listing; Architectures lists 67 and Biases 61, matching their cards.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The landing links twelve curated-kind and eight AIO-branch subset pages, including 121 architectures and 61 biases.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.downloads",
+      "before": {
+        "status": "present",
+        "note": "Site provides bulk JSON exports (pages/index.json, pages/corpus_map.json, pages/graph_data.json) and per-record GitHub YAML links.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Linked index.json covers all 1,929 concepts as listing metadata with claim/source counts; it omits complete claims and evidence. Map data and per-record YAML sources are also linked.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.schema_docs",
+      "before": {
+        "status": "present",
+        "note": "pages/schema.html documents the AIMech LinkML schema, classes, slots, and ontology groundings.",
+        "url": "https://culturebotai.github.io/AIMech/pages/schema.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "The reviewed site links LinkML YAML source files. The previously recorded pages/schema.html documentation URL returns 404.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.license",
+      "before": {
+        "status": "partial",
+        "note": "Footers say data CC BY 4.0 / BSD-3-Clause, code BSD-3-Clause, and link LICENSE-DATA (which covers AIO-derived records) and LICENSE-CODE across all 1,929 concepts.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Footers display CC BY 4.0 / BSD-3-Clause data and BSD-3-Clause code, but do not clearly explain which data receives each license.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.build_provenance",
+      "before": {
+        "status": "partial",
+        "note": "Footers name only the generator script. AIO class pages give the upstream AIO commit 397851c547 and import time 2026-10-10T07:34:10Z; no site build date, deployed commit or corpus version appears.",
+        "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Page footers identify the project snapshot date 2026-10-24 and digest de5b593fee12, separately from upstream AIO import provenance.",
+        "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
+      },
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.theme_toggle",
+      "before": {
+        "status": "present",
+        "note": "Dark chosen on the landing persisted through Browse, Curated, AIO Classes, kind, branch, curated and AIO record pages; switching back to light on a record page also persisted.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Dark selected on the landing persists through Browse, sampled records, and both graph and text-map views.",
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+      },
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.responsive",
+      "before": {
+        "status": "present",
+        "note": "Responsive CSS layout with mobile breakpoints and overflow-wrapped tables across landing, Browse, kind/branch pages, and record pages.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Reviewed landing, Browse, sampled records and visualizations fit a 390px viewport.",
+        "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+      },
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.AIMech.features.load_failure",
+      "before": {
+        "status": "not_applicable",
+        "note": "Landing, Browse, kind, branch and record pages request only HTML, style.css and one or two scripts. Record data is pre-rendered; no fetch or XHR occurs, and aborting JSON and XHR requests changes nothing.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "replacement": {
+        "status": "not_applicable",
+        "note": "Reviewed listings, records and visualizations embed their record data; no fetch or XHR data request was observed to abort.",
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+      },
+      "evidence": "features.load_failure.evidence"
+    }
+  ],
+  "limits": [
+    "Representative route audit, not an HTTP crawl of every record. Complete counts are listing/export counts where stated.",
+    "Independent skeptic must verify all changed verdicts before editor applies them.",
+    "Supplemental cold-route, theme, download and schema evidence is recorded in group-b-supplement.json."
+  ],
+  "receipts": {
+    "search": {
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "query:AIMech:KernelPCA": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=aimech%3Akernelpca",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": "AIMech:KernelPCA"
+            },
+            {
+              "id": "sortSelect",
+              "value": "name-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1,
+          "first_results": [
+            "Kernel Principal Component Analysis\naka Kernel PCA, KPCA\nA spectral feature-extraction algorithm that performs principal component analysis on centered implicit feature vectors by eigendecomposing\u2026\n\tCurated\tAlgorithms\tAIMech:KernelPCA\t4 claims\n1 source"
+          ],
+          "error": null
+        },
+        "query:Adam": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=adam",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "131"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": "Adam"
+            },
+            {
+              "id": "sortSelect",
+              "value": "name-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 131,
+          "first_results": [
+            "0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)\naka 0/1 Adam, Zero-One Adam\u2026\nA single-stage communication-efficient distributed Adam optimization algorithm that linearizes Adam updates to support simultaneous 1-bit er\u2026\n\tCurated\tAlgorithms\tAIMech:ZeroOneAdamLinearizedLocalStepCompressedAdam\t4 claims\n3 sources",
+            "1-bit Adam (Two-Stage Preconditioner-Frozen Error-Compensated Adam)\naka 1-bit Adam, One-Bit Adam\u2026\nA two-stage communication-compressed adaptive optimization algorithm (Tang et al. 2021, Section 4, Algorithm 1) that runs uncompressed Adam\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitAdamPreconditionerFreezeCommunicationCompression\t4 claims\n3 sources",
+            "1-bit LAMB (Error-Compensated LAMB-Preconditioned Large-Batch Compressed Optimization)\naka 1-bit LAMB, One-Bit LAMB\u2026\nA two-stage communication-efficient large-batch distributed optimization algorithm that runs uncompressed LAMB for T_w warmup steps while tr\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitLambAdaptiveLayerwiseCompressedTraining\t4 claims\n3 sources"
+          ],
+          "error": null
+        },
+        "query:no-such-record-nov4-audit": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=no-such-record-nov4-audit",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "0"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "sortSelect",
+              "value": "name-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        }
+      }
+    },
+    "facets": {
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "combined_query": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=adam&sort=id-asc&origin=curated&kind=algorithm&branch=Layer",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "0"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": "Adam"
+            },
+            {
+              "id": "sortSelect",
+              "value": "id-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "curated"
+            },
+            {
+              "id": "kindSelect",
+              "value": "algorithm"
+            },
+            {
+              "id": "branchSelect",
+              "value": "Layer"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "restored": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?q=adam&sort=id-asc&origin=curated&kind=algorithm&branch=Layer",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "0"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": "adam"
+            },
+            {
+              "id": "sortSelect",
+              "value": "id-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "curated"
+            },
+            {
+              "id": "kindSelect",
+              "value": "algorithm"
+            },
+            {
+              "id": "branchSelect",
+              "value": "Layer"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "reset": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "name-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)\naka 0/1 Adam, Zero-One Adam\u2026\nA single-stage communication-efficient distributed Adam optimization algorithm that linearizes Adam updates to support simultaneous 1-bit er\u2026\n\tCurated\tAlgorithms\tAIMech:ZeroOneAdamLinearizedLocalStepCompressedAdam\t4 claims\n3 sources",
+            "1-bit Adam (Two-Stage Preconditioner-Frozen Error-Compensated Adam)\naka 1-bit Adam, One-Bit Adam\u2026\nA two-stage communication-compressed adaptive optimization algorithm (Tang et al. 2021, Section 4, Algorithm 1) that runs uncompressed Adam\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitAdamPreconditionerFreezeCommunicationCompression\t4 claims\n3 sources",
+            "1-bit LAMB (Error-Compensated LAMB-Preconditioned Large-Batch Compressed Optimization)\naka 1-bit LAMB, One-Bit LAMB\u2026\nA two-stage communication-efficient large-batch distributed optimization algorithm that runs uncompressed LAMB for T_w warmup steps while tr\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitLambAdaptiveLayerwiseCompressedTraining\t4 claims\n3 sources"
+          ],
+          "error": null
+        }
+      }
+    },
+    "sorting": {
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "sort:name-asc": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "name-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)\naka 0/1 Adam, Zero-One Adam\u2026\nA single-stage communication-efficient distributed Adam optimization algorithm that linearizes Adam updates to support simultaneous 1-bit er\u2026\n\tCurated\tAlgorithms\tAIMech:ZeroOneAdamLinearizedLocalStepCompressedAdam\t4 claims\n3 sources",
+            "1-bit Adam (Two-Stage Preconditioner-Frozen Error-Compensated Adam)\naka 1-bit Adam, One-Bit Adam\u2026\nA two-stage communication-compressed adaptive optimization algorithm (Tang et al. 2021, Section 4, Algorithm 1) that runs uncompressed Adam\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitAdamPreconditionerFreezeCommunicationCompression\t4 claims\n3 sources",
+            "1-bit LAMB (Error-Compensated LAMB-Preconditioned Large-Batch Compressed Optimization)\naka 1-bit LAMB, One-Bit LAMB\u2026\nA two-stage communication-efficient large-batch distributed optimization algorithm that runs uncompressed LAMB for T_w warmup steps while tr\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitLambAdaptiveLayerwiseCompressedTraining\t4 claims\n3 sources"
+          ],
+          "error": null
+        },
+        "sort:name-desc": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?sort=name-desc",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "name-desc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "Zoneout\nA recurrent-network regularization procedure that randomly preserves selected state components at their previous values instead of applying\u2026\n\tCurated\tAlgorithms\tAIMech:Zoneout\t1 claim\n1 source",
+            "Zhou random-walk distance-profile dissimilarity\naka Zhou neighbor dissimilarity index\nA pairwise graph dissimilarity that compares the mean first-passage-time profiles of two adjacent vertices by taking the Euclidean norm of t\u2026\n\tCurated\tMathematical Methods\tAIMech:ZhouRandomWalkDissimilarity\t6 claims\n2 sources",
+            "Zhou first-passage attractor community detection\naka Zhou local and global attractor communities\nA graph community-detection algorithm that forms local or global groups as the minimal nonempty sets closed under a first-passage-time attra\u2026\n\tCurated\tAlgorithms\tAIMech:ZhouAttractorCommunityDetection\t6 claims\n1 source"
+          ],
+          "error": null
+        },
+        "sort:claims-desc": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?sort=claims-desc",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "claims-desc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "ITERSSS*\nA memory-bounded solution-tree search algorithm for minimax evaluation of a finite uniform alternating game tree that controls an SSS*-style\u2026\n\tCurated\tAlgorithms\tAIMech:ITERSSSStar\t9 claims\n1 source",
+            "Core vector machine\naka CVM\nAn approximate kernel training algorithm that reformulates supported constant-diagonal simplex quadratic programs as minimum enclosing balls\u2026\n\tCurated\tAlgorithms\tAIMech:CoreVectorMachine\t8 claims\n4 sources",
+            "Local outlier factor\naka LOF\nAn unsupervised local outlier-scoring procedure that compares each observation's inverse mean reachability distance with those of its tie-in\u2026\n\tCurated\tAlgorithms\tAIMech:LocalOutlierFactor\t8 claims\n3 sources"
+          ],
+          "error": null
+        },
+        "sort:sources-desc": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?sort=sources-desc",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "sources-desc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "Accumulating Sarsa(lambda)\nAn episodic tabular on-policy control algorithm that propagates each selected-next-action temporal-difference error through accumulating sta\u2026\n\tCurated\tAlgorithms\tAIMech:AccumulatingSarsaLambda\t6 claims\n8 sources",
+            "INLA group node conflict diagnostic\nA group-wise Bayesian model diagnostic for latent Gaussian models that uses two INLA fits per selected group to compare remaining-data and w\u2026\n\tCurated\tAlgorithms\tAIMech:INLAGroupNodeConflictDiagnostic\t7 claims\n8 sources",
+            "OPTICS outlier factor\naka OPTICS-OF, OPTICS with outlier factors\nAn unsupervised local outlier-scoring procedure that uses self-inclusive, tie-inclusive nearest neighborhoods to compute inverse mean neighb\u2026\n\tCurated\tAlgorithms\tAIMech:OPTICSOutlierFactor\t7 claims\n8 sources"
+          ],
+          "error": null
+        },
+        "sort:origin-asc": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?sort=origin-asc",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "origin-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)\naka 0/1 Adam, Zero-One Adam\u2026\nA single-stage communication-efficient distributed Adam optimization algorithm that linearizes Adam updates to support simultaneous 1-bit er\u2026\n\tCurated\tAlgorithms\tAIMech:ZeroOneAdamLinearizedLocalStepCompressedAdam\t4 claims\n3 sources",
+            "1-bit Adam (Two-Stage Preconditioner-Frozen Error-Compensated Adam)\naka 1-bit Adam, One-Bit Adam\u2026\nA two-stage communication-compressed adaptive optimization algorithm (Tang et al. 2021, Section 4, Algorithm 1) that runs uncompressed Adam\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitAdamPreconditionerFreezeCommunicationCompression\t4 claims\n3 sources",
+            "1-bit LAMB (Error-Compensated LAMB-Preconditioned Large-Batch Compressed Optimization)\naka 1-bit LAMB, One-Bit LAMB\u2026\nA two-stage communication-efficient large-batch distributed optimization algorithm that runs uncompressed LAMB for T_w warmup steps while tr\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitLambAdaptiveLayerwiseCompressedTraining\t4 claims\n3 sources"
+          ],
+          "error": null
+        },
+        "sort:id-asc": {
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?sort=id-asc",
+          "counts": [
+            {
+              "id": "matchCount",
+              "text": "1929"
+            },
+            {
+              "id": "totalCount",
+              "text": "1929"
+            }
+          ],
+          "controls": [
+            {
+              "id": "searchInput",
+              "value": ""
+            },
+            {
+              "id": "sortSelect",
+              "value": "id-asc"
+            },
+            {
+              "id": "originSelect",
+              "value": "all"
+            },
+            {
+              "id": "kindSelect",
+              "value": "all"
+            },
+            {
+              "id": "branchSelect",
+              "value": "all"
+            }
+          ],
+          "checked": [],
+          "rows": 1929,
+          "first_results": [
+            "ABRA-s-fix fixed-sample betweenness approximation\naka ABRA-s-fix, ABRA fixed-sample betweenness approximation\nA fixed-sample static-graph betweenness algorithm that averages shortest-path fractions over a user-specified number of uniform endpoint pai\u2026\n\tCurated\tAlgorithms\tAIMech:ABRASFixedSampleBetweenness\t6 claims\n1 source",
+            "ABRA-s progressive betweenness approximation\naka ABRA-s, ABRA static progressive betweenness approximation\nA progressive sampling algorithm for static-graph betweenness that averages fractions of shortest paths through each node over uniformly sam\u2026\n\tCurated\tAlgorithms\tAIMech:ABRASProgressiveBetweenness\t6 claims\n1 source",
+            "Absolute threshold pruning for sequence beams\nA sequence-beam pruning procedure that first applies the beam-size cap, then discards candidates whose score is at least a specified positiv\u2026\n\tCurated\tAlgorithms\tAIMech:AbsoluteThresholdBeamPruning\t2 claims\n2 sources"
+          ],
+          "error": null
+        }
+      }
+    },
+    "full_catalogue": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/browse.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "headings": [
+        "Browse AI Concepts & Ontology Classes",
+        "Filter concepts"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/ZeroOneAdamLinearizedLocalStepCompressedAdam.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "1-bit Adam (Two-Stage Preconditioner-Frozen Error-Compensated Adam)",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/OneBitAdamPreconditionerFreezeCommunicationCompression.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "1-bit LAMB (Error-Compensated LAMB-Preconditioned Large-Batch Compressed Optimization)",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/OneBitLambAdaptiveLayerwiseCompressedTraining.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "3PC Three Point Compressors for Communication-Efficient Distributed Training",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/ThreePointCompressorsForCommunicationEfficientDistributedTraining.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "5GCS (Fifth-Generation Local Training with Client Sampling)",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/FiveGcsFifthGenerationLocalTrainingWithClientSampling.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "A-star beam search for sequence decoding",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/SequenceAStarBeamSearch.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "A-star search",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AStarSearch.html"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "ABRA-s progressive betweenness approximation",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/ABRASProgressiveBetweenness.html"
+        }
+      ]
+    },
+    "suite_nav": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/index.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "headings": [
+        "AIMech",
+        "Curated Concept Kinds",
+        "Algorithms",
+        "Mathematical Methods",
+        "Architectures",
+        "Model Families",
+        "Layers & Modules",
+        "Learning Paradigms",
+        "Preprocessing Methods",
+        "Evaluation Methods",
+        "Evaluation Criteria",
+        "Biases",
+        "Coordination Mechanisms",
+        "Computational Paradigms",
+        "AIO Ontology Branches",
+        "Layers",
+        "Models",
+        "Biases",
+        "ML Tasks",
+        "Networks",
+        "Mathematical Functions",
+        "Preprocessing",
+        "Training Strategies",
+        "Featured Grounded Concepts",
+        "Adam"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "View all 1487 curated concepts \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "Algorithms\n1047\nDefined computational procedures, solvers, optimizers, and search techniques.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "Mathematical Methods\n175\nFormal mathematical formulations, kernels, transforms, and sampling algorithms.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/mathematical_method.html"
+        },
+        {
+          "text": "Architectures\n121\nStructural blueprints and macro-designs for deep learning models.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/architecture.html"
+        },
+        {
+          "text": "Model Families\n91\nPinned classes and model lineages sharing core design characteristics.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/model_family.html"
+        },
+        {
+          "text": "Layers & Modules\n20\nDefined neural network components that transform representations between stages.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/layer.html"
+        },
+        {
+          "text": "Learning Paradigms\n13\nHigh-level training frameworks such as contrastive or self-supervised learning.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/learning_paradigm.html"
+        },
+        {
+          "text": "Preprocessing Methods\n7\nFeature engineering, data augmentation, and tokenization procedures.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/preprocessing_method.html"
+        },
+        {
+          "text": "Evaluation Methods\n5\nEmpirical protocols and test methodologies for measuring AI system performance.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/evaluation_method.html"
+        },
+        {
+          "text": "Evaluation Criteria\n5\nDefined conditions and loss metrics used to assess model behavior or predictions.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/evaluation_criterion.html"
+        },
+        {
+          "text": "Biases\n1\nSystematic distortions in data collection, representation, evaluation, or model predictions.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/bias.html"
+        },
+        {
+          "text": "Coordination Mechanisms\n1\nSource-defined computational designs that coordinate activity through specified information or state changes.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/coordination_mechanism.html"
+        },
+        {
+          "text": "Computational Paradigms\n1\nSource-defined approaches to organizing computational problem solving through shared design principles.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/computational_paradigm.html"
+        },
+        {
+          "text": "View all 442 ontology classes \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "Layers\n168\nNeural network layer definitions and functional primitives.",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/Layer.html"
+        },
+        {
+          "text": "Models\n76\nConcrete model architectures and family designations cataloged in AIO.",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/Model.html"
+        }
+      ]
+    },
+    "record_pages": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/curated/Adam.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "headings": [
+        "Adam",
+        "Claims & Grounded Evidence",
+        "\u26a0\ufe0f\nCurated Limitations & Negative Results",
+        "Artificial Intelligence Ontology (AIO) Grounding",
+        "Evidence Sources & Primary Literature",
+        "Ontology & Grounding Topology",
+        "Curation Provenance",
+        "Explore across X-Mech"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "Adam: A Method for Stochastic Optimization",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html#source-original-paper"
+        },
+        {
+          "text": "On the Convergence of Adam and Beyond",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html#source-convergence-analysis"
+        },
+        {
+          "text": "AIO:TrainingStrategy",
+          "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
+        },
+        {
+          "text": "Open in interactive network graph \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html?q=AIMech%3AAdam"
+        },
+        {
+          "text": "data/curated/Adam.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/data/curated/Adam.yaml"
+        },
+        {
+          "text": "curated_concept.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/src/aimech/schema/curated_concept.yaml"
+        },
+        {
+          "text": "Embedding Map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html?q=Adam"
+        },
+        {
+          "text": "Network Graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html?q=AIMech%3AAdam"
+        },
+        {
+          "text": "ProteinTraitsMech (ESM-2 pLM)",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "DUFMech (Domain pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/"
+        },
+        {
+          "text": "CultureMech",
+          "url": "https://culturebotai.github.io/CultureMech/"
+        },
+        {
+          "text": "All 14 X-Mech Repositories",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ]
+    },
+    "term_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html",
+      "headings": [
+        "Kernel Principal Component Analysis",
+        "Claims & Grounded Evidence",
+        "\u26a0\ufe0f\nCurated Limitations & Negative Results",
+        "Artificial Intelligence Ontology (AIO) Grounding",
+        "Evidence Sources & Primary Literature",
+        "Ontology & Grounding Topology",
+        "Curation Provenance",
+        "Explore across X-Mech"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "Algorithms",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "Nonlinear Component Analysis as a Kernel Eigenvalue Problem",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html#source-method-source"
+        },
+        {
+          "text": "Nonlinear Component Analysis as a Kernel Eigenvalue Problem",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html#source-method-source"
+        },
+        {
+          "text": "Nonlinear Component Analysis as a Kernel Eigenvalue Problem",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html#source-method-source"
+        },
+        {
+          "text": "Nonlinear Component Analysis as a Kernel Eigenvalue Problem",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html#source-method-source"
+        },
+        {
+          "text": "AIO:PrincipalComponentAnalysis",
+          "url": "https://culturebotai.github.io/AIMech/pages/aio/PrincipalComponentAnalysis.html"
+        },
+        {
+          "text": "Open in interactive network graph \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html?q=AIMech%3AKernelPCA"
+        },
+        {
+          "text": "data/curated/KernelPCA.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/data/curated/KernelPCA.yaml"
+        },
+        {
+          "text": "curated_concept.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/src/aimech/schema/curated_concept.yaml"
+        },
+        {
+          "text": "Embedding Map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html?q=Kernel%20Principal%20Component%20Analysis"
+        },
+        {
+          "text": "Network Graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html?q=AIMech%3AKernelPCA"
+        },
+        {
+          "text": "ProteinTraitsMech (ESM-2 pLM)",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "DUFMech (Domain pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/"
+        }
+      ]
+    },
+    "domain_view": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/graph.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/graph.html",
+      "headings": [
+        "Ontology & Grounding Network Graph",
+        "Filter network"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "AIMech",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "index.json",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.json"
+        },
+        {
+          "text": "corpus_map.json",
+          "url": "https://culturebotai.github.io/AIMech/pages/corpus_map.json"
+        },
+        {
+          "text": "LinkML schema",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/src/aimech/schema/aimech.yaml"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/LICENSE-DATA"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/main/LICENSE"
+        },
+        {
+          "text": "CultureMech",
+          "url": "https://culturebotai.github.io/CultureMech/"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/"
+        },
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/"
+        },
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "AntibioticMech",
+          "url": "https://culturebotai.github.io/AntibioticMech/"
+        },
+        {
+          "text": "CellStructureMech",
+          "url": "https://culturebotai.github.io/CellStructureMech/"
+        },
+        {
+          "text": "NaturalProductMech",
+          "url": "https://culturebotai.github.io/NaturalProductMech/"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/"
+        },
+        {
+          "text": "PathwayMech",
+          "url": "https://culturebotai.github.io/PathwayMech/"
+        }
+      ],
+      "excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nAIMech\n/\nNetwork graph\nSearch\nOntology & Grounding Network Graph\n\nInteractive topology of 1949 AIMech nodes and 4256 grounding & axiomatic edges connecting curated AI concepts, concept kinds, AIO ontology classes, and AIO branches. Click any node to open its concept or category page.\n\nFilter network\nSEARCH NODES\n1949 / 1949 nodes shown \u00b7 4256 edges\nORIGIN\nAll Origins\nCurated Concepts & Kinds\nAIO Classes & Branches\nNODE TYPE\nAll Node Types\nCurated Concepts\nAIO Ontology Classes\nConcept Kind Hubs\nAIO Branch Hubs\nReset view\nscroll to zoom \u00b7 drag to pan \u00b7 double-click to reset \u00b7 click node to open page \u00b7 Esc clears filter\n\nAIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects\n\n\u2600"
+    },
+    "corpus_stats": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/index.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "headings": [
+        "AIMech",
+        "Curated Concept Kinds",
+        "Algorithms",
+        "Mathematical Methods",
+        "Architectures",
+        "Model Families",
+        "Layers & Modules",
+        "Learning Paradigms",
+        "Preprocessing Methods",
+        "Evaluation Methods",
+        "Evaluation Criteria",
+        "Biases",
+        "Coordination Mechanisms",
+        "Computational Paradigms",
+        "AIO Ontology Branches",
+        "Layers",
+        "Models",
+        "Biases",
+        "ML Tasks",
+        "Networks",
+        "Mathematical Functions",
+        "Preprocessing",
+        "Training Strategies",
+        "Featured Grounded Concepts",
+        "Adam"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "View all 1487 curated concepts \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "Algorithms\n1047\nDefined computational procedures, solvers, optimizers, and search techniques.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "Mathematical Methods\n175\nFormal mathematical formulations, kernels, transforms, and sampling algorithms.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/mathematical_method.html"
+        },
+        {
+          "text": "Architectures\n121\nStructural blueprints and macro-designs for deep learning models.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/architecture.html"
+        },
+        {
+          "text": "Model Families\n91\nPinned classes and model lineages sharing core design characteristics.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/model_family.html"
+        },
+        {
+          "text": "Layers & Modules\n20\nDefined neural network components that transform representations between stages.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/layer.html"
+        },
+        {
+          "text": "Learning Paradigms\n13\nHigh-level training frameworks such as contrastive or self-supervised learning.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/learning_paradigm.html"
+        },
+        {
+          "text": "Preprocessing Methods\n7\nFeature engineering, data augmentation, and tokenization procedures.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/preprocessing_method.html"
+        },
+        {
+          "text": "Evaluation Methods\n5\nEmpirical protocols and test methodologies for measuring AI system performance.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/evaluation_method.html"
+        },
+        {
+          "text": "Evaluation Criteria\n5\nDefined conditions and loss metrics used to assess model behavior or predictions.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/evaluation_criterion.html"
+        },
+        {
+          "text": "Biases\n1\nSystematic distortions in data collection, representation, evaluation, or model predictions.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/bias.html"
+        },
+        {
+          "text": "Coordination Mechanisms\n1\nSource-defined computational designs that coordinate activity through specified information or state changes.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/coordination_mechanism.html"
+        },
+        {
+          "text": "Computational Paradigms\n1\nSource-defined approaches to organizing computational problem solving through shared design principles.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/computational_paradigm.html"
+        },
+        {
+          "text": "View all 442 ontology classes \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "Layers\n168\nNeural network layer definitions and functional primitives.",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/Layer.html"
+        },
+        {
+          "text": "Models\n76\nConcrete model architectures and family designations cataloged in AIO.",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/Model.html"
+        }
+      ],
+      "excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nAIMech\n\nA provenance-bearing computational grounding between the Artificial Intelligence Ontology (AIO) and inspected scientific literature. AIMech provides machine-readable definitions, explicit mathematical mechanisms, empirical scopes, and verified citations.\n\nSearch\n1929\nTOTAL AI CONCEPTS\n1487\nCURATED CONCEPTS\n442\nAIO IMPORTED CLASSES\n5149\nCURATED CLAIMS\n3269\nEVIDENCE CITATIONS\nCurated Concept Kinds\nView all 1487 curated concepts \u2192\nAlgorithms\n1047\nDefined computational procedures, solvers, optimizers, and search techniques.\nMathematical Methods\n175\nFormal mathematical formulations, kernels, transforms, and sampling algorithms.\nArchitectures\n121\nStructural blueprints and macro-designs for deep learning models.\nModel Families\n91\nPinned classes and model lineages sharing core design characteristics.\nLayers & Modules\n20\nDefined neural network components that transform representations between stages.\nLearning Paradigms\n13\nHigh-level training frameworks such as contrastive or self-supervised learning.\nPreprocessing Methods\n7\nFeature engineering, data augmentation, and tokenization procedures.\nEvaluation Methods\n5\nEmpirical protocols and test methodologies for measuring AI system performance.\nEvaluation Criteria\n5\nDefined conditions and loss metrics used to assess model behavior or predictions.\nBiases\n1\nSystematic distortions in data collection, representation, evaluation, or model predictions.\nCoordination Mechanisms\n1\nSource-defined computational designs that coordinate activity through specified information or state changes.\nComputational Paradigms\n1\nSource-defined approaches to orga"
+    },
+    "downloads": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/index.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "headings": [
+        "AIMech",
+        "Curated Concept Kinds",
+        "Algorithms",
+        "Mathematical Methods",
+        "Architectures",
+        "Model Families",
+        "Layers & Modules",
+        "Learning Paradigms",
+        "Preprocessing Methods",
+        "Evaluation Methods",
+        "Evaluation Criteria",
+        "Biases",
+        "Coordination Mechanisms",
+        "Computational Paradigms",
+        "AIO Ontology Branches",
+        "Layers",
+        "Models",
+        "Biases",
+        "ML Tasks",
+        "Networks",
+        "Mathematical Functions",
+        "Preprocessing",
+        "Training Strategies",
+        "Featured Grounded Concepts",
+        "Adam"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "View all 1487 curated concepts \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "Algorithms\n1047\nDefined computational procedures, solvers, optimizers, and search techniques.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/algorithm.html"
+        },
+        {
+          "text": "Mathematical Methods\n175\nFormal mathematical formulations, kernels, transforms, and sampling algorithms.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/mathematical_method.html"
+        },
+        {
+          "text": "Architectures\n121\nStructural blueprints and macro-designs for deep learning models.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/architecture.html"
+        },
+        {
+          "text": "Model Families\n91\nPinned classes and model lineages sharing core design characteristics.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/model_family.html"
+        },
+        {
+          "text": "Layers & Modules\n20\nDefined neural network components that transform representations between stages.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/layer.html"
+        },
+        {
+          "text": "Learning Paradigms\n13\nHigh-level training frameworks such as contrastive or self-supervised learning.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/learning_paradigm.html"
+        },
+        {
+          "text": "Preprocessing Methods\n7\nFeature engineering, data augmentation, and tokenization procedures.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/preprocessing_method.html"
+        },
+        {
+          "text": "Evaluation Methods\n5\nEmpirical protocols and test methodologies for measuring AI system performance.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/evaluation_method.html"
+        },
+        {
+          "text": "Evaluation Criteria\n5\nDefined conditions and loss metrics used to assess model behavior or predictions.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/evaluation_criterion.html"
+        },
+        {
+          "text": "Biases\n1\nSystematic distortions in data collection, representation, evaluation, or model predictions.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/bias.html"
+        },
+        {
+          "text": "Coordination Mechanisms\n1\nSource-defined computational designs that coordinate activity through specified information or state changes.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/coordination_mechanism.html"
+        },
+        {
+          "text": "Computational Paradigms\n1\nSource-defined approaches to organizing computational problem solving through shared design principles.",
+          "url": "https://culturebotai.github.io/AIMech/pages/kinds/computational_paradigm.html"
+        },
+        {
+          "text": "View all 442 ontology classes \u2192",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "Layers\n168\nNeural network layer definitions and functional primitives.",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/Layer.html"
+        },
+        {
+          "text": "Models\n76\nConcrete model architectures and family designations cataloged in AIO.",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/Model.html"
+        }
+      ],
+      "field_inventory": "group-b-bulk-inventory.json::AIMech"
+    },
+    "build_provenance": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html']",
+      "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html",
+      "headings": [
+        "TrainingStrategy",
+        "Ontology Structure & Relationships",
+        "Annotations & Sources",
+        "Curated AIMech Concepts Grounded to this Class",
+        "Ontology & Grounding Topology",
+        "Import Provenance & Upstream Synchronization",
+        "Explore across X-Mech"
+      ],
+      "footer_excerpt": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-10-24 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
+      "relevant_links": [
+        {
+          "text": "AIMech\nAI",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/AIMech/pages/map.html"
+        },
+        {
+          "text": "Network graph",
+          "url": "https://culturebotai.github.io/AIMech/pages/graph.html"
+        },
+        {
+          "text": "Curated",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=curated"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/AIMech"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/AIMech/pages/index.html"
+        },
+        {
+          "text": "AIO Classes",
+          "url": "https://culturebotai.github.io/AIMech/pages/browse.html?origin=aio"
+        },
+        {
+          "text": "TrainingStrategy",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/TrainingStrategy.html"
+        },
+        {
+          "text": "TrainingStrategy",
+          "url": "https://culturebotai.github.io/AIMech/pages/branches/TrainingStrategy.html"
+        },
+        {
+          "text": "AMSGrad",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AMSGrad.html"
+        },
+        {
+          "text": "AdaMax",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AdaMax.html"
+        },
+        {
+          "text": "Adadelta",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adadelta.html"
+        },
+        {
+          "text": "Adafactor",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adafactor.html"
+        },
+        {
+          "text": "Adagrad",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adagrad.html"
+        },
+        {
+          "text": "Adam",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+        },
+        {
+          "text": "AdamNC",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AdamNC.html"
+        },
+        {
+          "text": "AdamW",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AdamW.html"
+        },
+        {
+          "text": "Asynchronous Successive Halving",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AsynchronousSuccessiveHalving.html"
+        },
+        {
+          "text": "Averaged stochastic gradient descent",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/AveragedStochasticGradientDescent.html"
+        },
+        {
+          "text": "BOHB",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/BOHB.html"
+        },
+        {
+          "text": "Backpropagation through time",
+          "url": "https://culturebotai.github.io/AIMech/pages/curated/BackpropagationThroughTime.html"
+        }
+      ]
+    },
+    "theme_toggle": {
+      "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages[*].theme / saved_theme",
+      "themes": {
+        "https://culturebotai.github.io/AIMech/pages/index.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/browse.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/curated/Adam.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/graph.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/AIMech/pages/map.html": {
+          "theme": "dark",
+          "saved": "dark"
+        }
+      }
+    },
+    "responsive": {
+      "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "pages[*].fresh_390 / resized_390",
+      "widths": {
+        "https://culturebotai.github.io/AIMech/pages/index.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/browse.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/browse.html?q=attention&origin=curated&kind=architecture": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/curated/Adam.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/graph.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 412
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 412
+          }
+        },
+        "https://culturebotai.github.io/AIMech/pages/map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-browser-b.json",
+      "capture_locator": "failure_cases",
+      "cases": {
+        "https://culturebotai.github.io/AIMech/pages/browse.html": {
+          "aborted": [],
+          "excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nBrowse\nBrowse AI Concepts & Ontology Classes\n\nExplore 1929 artificial intelligence concepts, comprising 1487 evidence-curated algorithms, architectures, and model families alongside 442 classes projected from the Artificial Intelligence Ontology (AIO).\n\nFilter concepts\nSEARCH\nSORT BY\nConcept name (A\u2013Z)\nConcept name (Z\u2013A)\nCurated claims (high\u2013low)\nEvidence sources (high\u2013low)\nOrigin (Curated first)\nIdentifier (A\u2013Z)\nORIGIN\nAll Origins (1929)\nCurated AIMech (1487)\nAIO Imported (442)\nCONCEPT KIND\nAll Kinds\nAlgorithms (1047)\nMathematical Methods (175)\nArchitectures (121)\nModel Families (91)\nLayers & Modules (20)\nLearning Paradigms (13)\nPreprocessing Methods (7)\nEvaluation Methods (5)\nEvaluation Criteria (5)\nBiases (1)\nCoordination Mechanisms (1)\nComputational Paradigms (1)\nAIO BRANCH\nAll Branches\nLayers (168)\nModels (76)\nBiases (61)\nML Tasks (57)\nNetworks (52)\nMathematical Functions (14)\nPreprocessing (10)\nTraining Strategies (4)\nShowing 1929 of 1929\nReset\nConcept\tOrigin\tKind / Branch\tIdentifier\tEvidence / Status\n0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)\naka 0/1 Adam, Zero-One Adam\u2026\nA single-stage communication-efficient distributed Adam optimization algorithm that linearizes Adam updates to support simultaneous 1-bit er\u2026\n\tCurated\tAlgorithms\tAIMech:ZeroOneAdamLinearizedLocalStepCompressedAdam\t4 claims\n3 sources\n\n1-bit Adam (Two-Stage Preconditioner-Frozen Error-Compensated Adam)\naka 1-bit Adam, One-Bit Adam\u2026\nA two-stage communication-compressed adaptive optimization algorithm (Tang et al. 2021, Section 4, Algorithm 1) that runs uncompressed Adam\u2026\n\tCurated\tAlgorithms\tAIMech:OneBitAdamPreconditionerFreezeCommunicationCompression\t4 claims\n3 sources\n\n1-bit"
+        }
+      }
+    }
+  },
+  "independent_review": "group-b-independent-review.json",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/aimech-auditor-b.json",
+    "sha256": "aefa45ff20dfd1a6ad3e56c28a5f370e1323b9a552ea81ac3ea6a34101468933",
+    "bytes": 157752
+  }
+}

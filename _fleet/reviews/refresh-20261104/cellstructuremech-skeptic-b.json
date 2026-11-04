@@ -1,0 +1,2415 @@
+{
+  "mech": "CellStructureMech",
+  "reviewer": "central_directory independent skeptic of deployment_review",
+  "pin": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+  "started_at": "2026-11-04T11:57:44.735645+00:00",
+  "finished_at": "2026-11-04T12:07:29.010195+00:00",
+  "browser_finished_at": "2026-11-04T11:58:25.831484+00:00",
+  "deployment_before": {
+    "id": 7543581273,
+    "sha": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+    "created_at": "2026-11-04T10:23:54Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T10:24:09Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 10:24:05 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:57:45 GMT"
+  },
+  "deployment_after": {
+    "id": 7543581273,
+    "sha": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+    "created_at": "2026-11-04T10:23:54Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T10:24:09Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 10:24:05 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:58:25 GMT"
+  },
+  "raw_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cellstructuremech-skeptic-b-observations.json",
+  "raw_sha256": "124a6d76378a683cb739c0d836740124e8462ae910bba1e3611d5e3c36d9cbe0",
+  "auditor_report": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json",
+  "features": {
+    "search": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Independent identifier, label and unmatched queries were executed; their live counts and result rows are retained.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/search",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/search",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "facets": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Property-filter selection, combination with search and reset were independently exercised.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/facets",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/facets",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+    },
+    "result_counts": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Observed counts respond to queries and facets and are distinct from the total.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/result_counts",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/result_counts",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+    },
+    "sorting": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Each available sort option was selected, with URL/control state and first result rows retained.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/sorting",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/sorting",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+    },
+    "shareable_state": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "A combined query/filter/sort view was reloaded and its controls and matching count compared.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/shareable_state",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/shareable_state",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+    },
+    "full_catalogue": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/full_catalogue",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/full_catalogue",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+    },
+    "record_pages": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Multiple stable individual record URLs opened successfully from a fresh browser navigation.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/record_pages",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/record_pages",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html"
+    },
+    "term_links": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Attachment organelle membrane now has named Subject/Object GO:0033111, GO:0033099 and GO:0005886 resolver anchors, including the mechanism table; the old unlinked-section reason is no longer true.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/term_links",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/term_links",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle_membrane.html"
+    },
+    "evidence": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record references include working-format PMID/DOI/source URL anchors rather than only database navigation.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/evidence",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/evidence",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html"
+    },
+    "review_status": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record headers explicitly state their workflow state.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/review_status",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/review_status",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html"
+    },
+    "curation_history": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled records show dated curation-event sections with attribution and action text.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/curation_history",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/curation_history",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html"
+    },
+    "source_link": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record pages link their own YAML source file rather than just the repository root.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/source_link",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/source_link",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html"
+    },
+    "domain_view": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The valid embedding-map.html and sequence-map.html routes render; the obsolete map.html URL is not the current linked text map.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/domain_view",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/domain_view",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record content includes a direct link to a specific sibling record; navigation links were excluded.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/cross_mech_links",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/cross_mech_links",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/envelope/s_layer.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "corpus_stats": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The generated landing figures were read from the browser and compared with the audited corpus counts.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/corpus_stats",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/corpus_stats",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+    },
+    "category_browse": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Landing links lead into distinct category subsets with continuation where needed.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/category_browse",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/category_browse",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+    },
+    "suite_nav": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Visible suite-directory links occur in the reviewed navigation or footer.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/suite_nav",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/suite_nav",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+    },
+    "downloads": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The linked corpus.json is distinct from index.json and contains complete structure records with components, taxonomic_distribution, evidence, causal_graphs and curation_history.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/downloads",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/downloads",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "schema_docs": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/schema_docs",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/schema_docs",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+    },
+    "license": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Reviewed landing, browser, records and maps distinguish CC BY data from BSD code.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/license",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/license",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+    },
+    "build_provenance": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The footer explicitly dates its own corpus 2026-11-03 05:55:11 UTC and identifies digest d7c5fef867d9 and 1022 records.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/build_provenance",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/build_provenance",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+    },
+    "theme_toggle": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Dark was selected and independently carried across the valid reviewed routes.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/theme_toggle",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/theme_toggle",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "responsive": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Every valid reviewed route was checked at fresh and resized 390px; none exceeded the viewport.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/responsive",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/responsive",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/stentor_myoneme_system.html"
+    },
+    "load_failure": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Relevant data requests were aborted and the resulting reader-facing error was inspected.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CellStructureMech/features/load_failure",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/cellstructuremech-auditor-a.json#/features/load_failure",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    }
+  },
+  "receipts": {
+    "pages": {
+      "https://culturebotai.github.io/CellStructureMech/pages/index.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:48.440811+00:00",
+        "title": "CellStructureMech \u2014 microbial cell structures",
+        "headings": [
+          "CellStructureMech",
+          "Record browser",
+          "Sequence map (pLM)",
+          "By category",
+          "Source, downloads & schema",
+          "Categories"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "1022\nSTRUCTURE RECORDS"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "13\nCATEGORIES"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "873\nGO-GROUNDED"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse\nText map\nSequence map\nData JSON\nSchema\nAll Mech projects\nGitHub\nCellStructureMech\n\nOrganelles, envelope layers, appendages, microcompartments and multi-protein complexes of microbial cells \u2014 each grounded in GO cellular component where a term exists, and backed by cited evidence.\n\nSearch structures\nSearch\n1022\nSTRUCTURE RECORDS\n13\nCATEGORIES\n873\nGO-GROUNDED\nBrowse records\n\nMiniLM / PCA text map\nESM-2 sequence map\n\nRecord browser\n\nEvery structure in the corpus, with its category, kind, grounding status and definition, in one filterable table.\n\nExplore pLM map\nSequence map (pLM)\n\n2D UMAP projection of ESM-2 protein language model embeddings across structural components and associated machinery proteins.\n\nAppendage\nCytoskeleton\nDivision machinery\nEnergy complex\nEnvelope\nInclusion\nMembrane organelle\nMicrocompartment\nNucleoid\nOther\nRibonucleoprotein\nSecretion system\nS",
+        "field_excerpts": [
+          "CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech",
+          "",
+          "kg-microbe \u00b7 METPO",
+          "",
+          "All Mech projects"
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "1022\nSTRUCTURE RECORDS",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "13\nCATEGORIES",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html#categories"
+          },
+          {
+            "text": "873\nGO-GROUNDED",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/grounded.html"
+          },
+          {
+            "text": "Browse records",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "MiniLM / PCA text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "ESM-2 sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Explore pLM map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Appendage",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/appendage.html"
+          },
+          {
+            "text": "Cytoskeleton",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/cytoskeleton.html"
+          },
+          {
+            "text": "Division machinery",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/division_machinery.html"
+          },
+          {
+            "text": "Energy complex",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/energy_complex.html"
+          },
+          {
+            "text": "Envelope",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/envelope.html"
+          },
+          {
+            "text": "Inclusion",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/inclusion.html"
+          },
+          {
+            "text": "Membrane organelle",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/membrane_organelle.html"
+          },
+          {
+            "text": "Microcompartment",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/microcompartment.html"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/browse.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:51.228699+00:00",
+        "title": "Browse \u00b7 CellStructureMech",
+        "headings": [
+          "All records"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [
+          {
+            "id": "record-count",
+            "cls": "",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nAll records\nSEARCH RECORDS\nCATEGORY\nAll categories\nAppendage\nCytoskeleton\nDivision machinery\nEnergy complex\nEnvelope\nInclusion\nMembrane organelle\nMicrocompartment\nNucleoid\nOther\nRibonucleoprotein\nSecretion system\nSpore\nKIND\nAll kinds\nAppendage\nEnvelope layer\nFilament\nInclusion body\nMembrane\nMembrane bounded organelle\nMultiprotein complex\nNucleoprotein complex\nOther\nProtein shelled organelle\nRibonucleoprotein complex\nSubcellular region\nMAPPING STATUS\nAll statuses\nProposed\nSORT BY\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nIdentifier (A\u2013Z)\nCategory\nKind\nMapping status\nClear filters\n\n1022 of 1022 records shown\n\nRecords\nLabel and definition\tIdentifier\tCategory\tKind\tStatus\n9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called",
+        "field_excerpts": [
+          "MAPPING STATUS",
+          "All statuses",
+          "Proposed",
+          "SORT BY",
+          "Label (A\u2013Z)",
+          "A motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair projections, radial spokes, nexin-dynein regulatory complexes, and dynein arms to produce planar or ciliary waveforms.",
+          "",
+          "\tGO:0097729\tAppendage\tAppendage\tProposed",
+          "archaeal cannula",
+          "",
+          "An extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.",
+          "",
+          "\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum",
+          "",
+          "A non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.",
+          "",
+          "\tGO:0097589\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum filament",
+          "",
+          "An extracellular helical archaellum filament assembled from glycosylated type-IV-pilin-like archaellin subunits and rotated by the archaeal-type flagellum motor for swimming; characterized in Archaea and in the bacterium Litorilinea aerophila.",
+          ""
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "9+2 motile cilium",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/9_2_motile_cilium.html"
+          },
+          {
+            "text": "archaeal cannula",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_cannula.html"
+          },
+          {
+            "text": "archaeal-type flagellum",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html"
+          },
+          {
+            "text": "archaeal-type flagellum filament",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum_filament.html"
+          },
+          {
+            "text": "archaeal-type flagellum motor",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum_motor.html"
+          },
+          {
+            "text": "attachment organelle",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle.html"
+          },
+          {
+            "text": "attachment organelle membrane",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle_membrane.html"
+          },
+          {
+            "text": "bacterial-type flagellum",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body, C ring",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body_c_ring.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body, distal rod",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body_distal_rod.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body, distal rod, L ring",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body_distal_rod_l_ring.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body, distal rod, P ring",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body_distal_rod_p_ring.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body, MS ring",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body_ms_ring.html"
+          },
+          {
+            "text": "bacterial-type flagellum basal body, proximal rod",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/bacterial_type_flagellum_basal_body_proximal_rod.html"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#record-category",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All categories",
+                "disabled": false
+              },
+              {
+                "value": "APPENDAGE",
+                "text": "Appendage",
+                "disabled": false
+              },
+              {
+                "value": "CYTOSKELETON",
+                "text": "Cytoskeleton",
+                "disabled": false
+              },
+              {
+                "value": "DIVISION_MACHINERY",
+                "text": "Division machinery",
+                "disabled": false
+              },
+              {
+                "value": "ENERGY_COMPLEX",
+                "text": "Energy complex",
+                "disabled": false
+              },
+              {
+                "value": "ENVELOPE",
+                "text": "Envelope",
+                "disabled": false
+              }
+            ],
+            "option_count": 14
+          },
+          {
+            "selector": "#record-kind",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All kinds",
+                "disabled": false
+              },
+              {
+                "value": "APPENDAGE",
+                "text": "Appendage",
+                "disabled": false
+              },
+              {
+                "value": "ENVELOPE_LAYER",
+                "text": "Envelope layer",
+                "disabled": false
+              },
+              {
+                "value": "FILAMENT",
+                "text": "Filament",
+                "disabled": false
+              },
+              {
+                "value": "INCLUSION_BODY",
+                "text": "Inclusion body",
+                "disabled": false
+              },
+              {
+                "value": "MEMBRANE",
+                "text": "Membrane",
+                "disabled": false
+              }
+            ],
+            "option_count": 13
+          },
+          {
+            "selector": "#record-status",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All statuses",
+                "disabled": false
+              },
+              {
+                "value": "PROPOSED",
+                "text": "Proposed",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#record-sort",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "Label (A\u2013Z)",
+                "disabled": false
+              },
+              {
+                "value": "label-desc",
+                "text": "Label (Z\u2013A)",
+                "disabled": false
+              },
+              {
+                "value": "id-asc",
+                "text": "Identifier (A\u2013Z)",
+                "disabled": false
+              },
+              {
+                "value": "category-asc",
+                "text": "Category",
+                "disabled": false
+              },
+              {
+                "value": "kind-asc",
+                "text": "Kind",
+                "disabled": false
+              },
+              {
+                "value": "status-asc",
+                "text": "Mapping status",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:53.950263+00:00",
+        "title": "archaeal-type flagellum \u00b7 CellStructureMech",
+        "headings": [
+          "archaeal-type flagellum",
+          "Components",
+          "Organism-specific protein examples",
+          "archaellin filament subunits",
+          "ArlI/ArlJ archaellum motor core",
+          "ArlH motor regulator",
+          "ArlF/ArlG S-layer anchor",
+          "ArlX/ArlCDE cytosolic scaffold",
+          "Taxonomic distribution",
+          "Canonical examples",
+          "Functions",
+          "Mechanism graphs",
+          "ATP-driven basal assembly builds and rotates the archaellum filament (ASSEMBLY)",
+          "Discussions",
+          "Evidence",
+          "Curation history"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Appendage \u00b7 archaeal-type flagellum\n\narchaeal-type flagellum\n\nGO:0097589 \u00b7 Appendage \u00b7 Appendage \u00b7 Proposed\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments. [DOI:10.1038/s41564-025-02110-8]\n\nSynonyms: archaellum; archaeal flagellum\n\nHas part: archaeal-type flagellum filament (cellstructuremech:archaeal_type_flagellum_filament); archaeal-type flagellum motor (cellstructuremech:archaeal_type_flagellum_motor)\n\nUniProt location names: UniProt Consortium, CC BY 4.0. Reference label and route sources.\n\nComponents\nComponent\tType\tPart of / acts on\tGrounding\tGenes\tStoichiometry\tEssential\tRole",
+        "field_excerpts": [
+          "archaeal-type flagellum",
+          "",
+          "GO:0097589 \u00b7 Appendage \u00b7 Appendage \u00b7 Proposed",
+          "",
+          "A non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments. [DOI:10.1038/s41564-025-02110-8]",
+          "Components",
+          "Component\tType\tPart of / acts on\tGrounding\tGenes\tStoichiometry\tEssential\tRole",
+          "archaellin filament subunits\tProtein\tpart of\tReviewed label only (reviewed name; no accession asserted)\tarlA, arlB, flaA, flaB\t\tESSENTIAL\tGlycosylated type-IV-pilin-like subunits that polymerize into the extracellular helical filament.",
+          "DOI:10.3389/fmicb.2015.00023 Albers and Jarrell 2015 review prearchaellin processing, N-glycosylation and filament assembly from archaellin subunits.",
+          "DOI:10.1038/s41467-022-28337-1 Gambelli et al. 2022 solved the Methanocaldococcus villosus archaellum filament and found two alternating archaellins, ArlB1 and ArlB2, in the filament.",
+          "",
+          "ArlI/ArlJ archaellum motor core\tProtein complex\tpart of\tReviewed label only (reviewed name; no accession asserted)\tarlI, arlJ, flaI, flaJ\t\tESSENTIAL\tCytosolic AAA+ ATPase and polytopic membrane platform that assemble and rotate the archaellum filament by ATP hydrolysis.",
+          "DOI:10.3389/fmicb.2015.00023 Albers and Jarrell 2015 review FlaI/ArlI as the assembly ATPase and FlaJ/ArlJ as the only polytopic membrane protein conserved in archaellum operons.",
+          "",
+          "DOI:10.1111/mmi.13260 Chaudhury et al. 2016 tested the nucleotide-dependent FlaH-FlaI interaction and its requirement for archaellum motor assembly and function.",
+          "",
+          "ArlF/ArlG S-layer anchor\tProtein complex\tpart of\t\tarlF, arlG, flaF, flaG\t\tCONDITIONAL\tEnvelope-side FlaF/FlaG module proposed to anchor the archaellum to the S-layer in characterized archaeal lineages; binding and complex-formation experiments support the model without resolving every motor contact.",
+          "DOI:10.1016/j.str.2015.03.001 Banerjee et al. 2015 demonstrated binding of soluble Sulfolobus acidocaldarius FlaF to isolated S-layer and proposed an anchoring role; the complete FlaF/FlaG-to-motor bridge was not directly resolved.",
+          "DOI:10.1038/s41564-019-0622-3 The inspected Tsai et al. 2020 primary abstract reports FlaG/FlaF complex formation and motility-disrupting interface mutations, supporting an S-layer-anchoring model. Full text was unavailable; direct contacts to the intact motor are not established by this abstract.",
+          "",
+          "ArlX/ArlCDE cytosolic scaffold\tProtein complex\tpart of\tReviewed label only (reviewed name; no accession asserted)\tarlX, arlC, arlD, arlE, flaX\t\tCONDITIONAL\tLineage-specific cytosolic ring or switch module that organizes the motor ATPase and links the archaellum to chemotaxis control.",
+          "DOI:10.1074/jbc.M112.414383 Banerjee et al. 2012 showed that crenarchaeal FlaX forms ring-shaped assemblies and interacts with FlaI."
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Appendage",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/appendage.html"
+          },
+          {
+            "text": "GO:0097589",
+            "url": "http://purl.obolibrary.org/obo/GO_0097589"
+          },
+          {
+            "text": "DOI:10.1038/s41564-025-02110-8",
+            "url": "https://doi.org/10.1038/s41564-025-02110-8"
+          },
+          {
+            "text": "archaeal-type flagellum filament",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum_filament.html"
+          },
+          {
+            "text": "archaeal-type flagellum motor",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum_motor.html"
+          },
+          {
+            "text": "Reference label and route sources",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/data/website/references.json"
+          },
+          {
+            "text": "DOI:10.3389/fmicb.2015.00023",
+            "url": "https://doi.org/10.3389/fmicb.2015.00023"
+          },
+          {
+            "text": "DOI:10.1038/s41467-022-28337-1",
+            "url": "https://doi.org/10.1038/s41467-022-28337-1"
+          },
+          {
+            "text": "DOI:10.1111/mmi.13260",
+            "url": "https://doi.org/10.1111/mmi.13260"
+          },
+          {
+            "text": "DOI:10.1016/j.str.2015.03.001",
+            "url": "https://doi.org/10.1016/j.str.2015.03.001"
+          },
+          {
+            "text": "DOI:10.1038/s41564-019-0622-3",
+            "url": "https://doi.org/10.1038/s41564-019-0622-3"
+          },
+          {
+            "text": "DOI:10.1074/jbc.M112.414383",
+            "url": "https://doi.org/10.1074/jbc.M112.414383"
+          },
+          {
+            "text": "DOI:10.1111/febs.12534",
+            "url": "https://doi.org/10.1111/febs.12534"
+          },
+          {
+            "text": "NCBITaxon:330779",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_330779"
+          },
+          {
+            "text": "NCBITaxon:667126",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_667126"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle_membrane.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle_membrane.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:56.488164+00:00",
+        "title": "attachment organelle membrane \u00b7 CellStructureMech",
+        "headings": [
+          "attachment organelle membrane",
+          "Components",
+          "Taxonomic distribution",
+          "Canonical examples",
+          "Mechanism graphs",
+          "Attachment organelle membrane topology (FUNCTION)",
+          "Discussions",
+          "Evidence",
+          "Curation history"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Appendage \u00b7 attachment organelle membrane\n\nattachment organelle membrane\n\nGO:0033111 \u00b7 Appendage \u00b7 Membrane \u00b7 Proposed\n\nThe membrane surrounding the attachment organelle. [GO:0033111]\n\nPart of: attachment organelle (GO:0033099); plasma membrane (GO:0005886)\n\nXrefs: uniprot.location:SL-0021 \u2014 Attachment organelle membrane\n\nUniProt location names: UniProt Consortium, CC BY 4.0. Reference label and route sources.\n\nComponents\nComponent\tType\tPart of / acts on\tGrounding\tGenes\tStoichiometry\tEssential\tRole\nattachment organelle lipid bilayer\tLipid\tpart of\tReviewed label only (reviewed name; no accession asserted)\t\t\tESSENTIAL\tSpecialized plasma-membrane region that surrounds the Mycoplasma attachment organelle.\nGO:0033111 GO:0033111 defines the attachment organelle membrane as the membrane surroundin",
+        "field_excerpts": [
+          "attachment organelle membrane",
+          "",
+          "GO:0033111 \u00b7 Appendage \u00b7 Membrane \u00b7 Proposed",
+          "",
+          "The membrane surrounding the attachment organelle. [GO:0033111]",
+          "",
+          "Part of: attachment organelle (GO:0033099); plasma membrane (GO:0005886)",
+          "",
+          "Xrefs: uniprot.location:SL-0021 \u2014 Attachment organelle membrane",
+          "Components",
+          "Component\tType\tPart of / acts on\tGrounding\tGenes\tStoichiometry\tEssential\tRole",
+          "attachment organelle lipid bilayer\tLipid\tpart of\tReviewed label only (reviewed name; no accession asserted)\t\t\tESSENTIAL\tSpecialized plasma-membrane region that surrounds the Mycoplasma attachment organelle.",
+          "GO:0033111 GO:0033111 defines the attachment organelle membrane as the membrane surrounding the attachment organelle.",
+          "uniprot.location:SL-0021 \u2014 Attachment organelle membrane UniProt Subcellular Location SL-0021 maps directly to GO:0033111 and places it under both attachment organelle and cell membrane.",
+          "GO:0005886 GO:0005886 identifies the plasma membrane that includes this specialized attachment-organelle membrane patch.",
+          "Taxonomic distribution",
+          "NCBITaxon:544448 Mycoplasmatota \u2014 VARIABLE: Attachment organelles and their surrounding membrane patches are characterized in the Mycoplasma pneumoniae cluster within Mycoplasmatota, not universally across the phylum. Chen et al. use historical Mollicutes terminology; current NCBI taxonomy places the M129 example in Mycoplasmoidales outside class Mollicutes (NCBITaxon:31969). [DOI:10.1186/s12866-025-04320-w]",
+          "The attachment organelle membrane is the specialized plasma membrane patch that surrounds the polar Mycoplasma attachment organelle.",
+          "",
+          "Subject\tPredicate\tObject\tEvidence",
+          "attachment organelle membrane (GO:0033111)\tsurrounds\tattachment organelle (GO:0033099)\t",
+          "GO:0033111 GO:0033111 defines the attachment organelle membrane as the membrane surrounding the attachment organelle."
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Appendage",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/appendage.html"
+          },
+          {
+            "text": "GO:0033111",
+            "url": "http://purl.obolibrary.org/obo/GO_0033111"
+          },
+          {
+            "text": "attachment organelle",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle.html"
+          },
+          {
+            "text": "GO:0033099",
+            "url": "http://purl.obolibrary.org/obo/GO_0033099"
+          },
+          {
+            "text": "plasma membrane",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/envelope/plasma_membrane.html"
+          },
+          {
+            "text": "GO:0005886",
+            "url": "http://purl.obolibrary.org/obo/GO_0005886"
+          },
+          {
+            "text": "Reference label and route sources",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/data/website/references.json"
+          },
+          {
+            "text": "NCBITaxon:544448",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_544448"
+          },
+          {
+            "text": "DOI:10.1186/s12866-025-04320-w",
+            "url": "https://doi.org/10.1186/s12866-025-04320-w"
+          },
+          {
+            "text": "NCBITaxon:2",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_2"
+          },
+          {
+            "text": "NCBITaxon:272634",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_272634"
+          },
+          {
+            "text": "DOI:10.1371/journal.ppat.1005299",
+            "url": "https://doi.org/10.1371/journal.ppat.1005299"
+          },
+          {
+            "text": "GO:0016020",
+            "url": "http://purl.obolibrary.org/obo/GO_0016020"
+          },
+          {
+            "text": "data/structures/appendage/attachment_organelle_membrane.yaml",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/data/structures/appendage/attachment_organelle_membrane.yaml"
+          },
+          {
+            "text": "corpus JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:57:59.182895+00:00",
+        "title": "Text embedding map \u00b7 CellStructureMech",
+        "headings": [
+          "Text embedding map",
+          "Select a structure"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [
+          {
+            "id": "map-count",
+            "cls": "meta",
+            "text": "1022 of 1022 structures shown"
+          },
+          {
+            "id": "map-details",
+            "cls": "map-details",
+            "text": "Select a structure\n\nChoose a point or find a structure in the sidebar to inspect its nearest semantic neighbours. The selected point is labelled. Browse all records as a table."
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nText embedding map\n\nAn exploratory semantic view of the corpus. Each point embeds the record's definition, canonical components, functions, taxonomic scope, and physical-property context.\n\nThe committed sentence-transformers/all-MiniLM-L6-v2 vectors are projected with PCA after unit normalization. Two-dimensional distance is lossy; use cosine neighbours for the full-vector comparison.\n\nFIND A STRUCTURE\nCATEGORY\nAll categories\nappendage\ncytoskeleton\ndivision machinery\nenergy complex\nenvelope\ninclusion\nmembrane organelle\nmicrocompartment\nnucleoid\nother\nribonucleoprotein\nsecretion system\nspore\nMATCHING STRUCTURES\nSelect a structure\n9+2 motile cilium \u00b7 GO:0097729\narchaeal cannula \u00b7 cellstructuremech:archaeal_cannula\narchaeal-type flagellum \u00b7 GO:0097589\narchaeal-type flagellum filament \u00b7 cellstructuremech",
+        "field_excerpts": [
+          "archaeal-type flagellum filament \u00b7 cellstructuremech:archaeal_type_flagellum_filament",
+          "archaeal-type flagellum motor \u00b7 cellstructuremech:archaeal_type_flagellum_motor",
+          "attachment organelle \u00b7 GO:0033099",
+          "attachment organelle membrane \u00b7 GO:0033111",
+          "bacterial-type flagellum \u00b7 GO:0009288",
+          "bacterial-type flagellum basal body \u00b7 GO:0009425",
+          "peptidoglycan-based cell wall \u00b7 GO:0009274",
+          "periplasmic space \u00b7 GO:0042597",
+          "plasma membrane \u00b7 GO:0005886",
+          "porous cell septum \u00b7 GO:0000934",
+          "S-layer \u00b7 GO:0030115",
+          "CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech",
+          "",
+          "kg-microbe \u00b7 METPO",
+          "",
+          "All Mech projects"
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#map-category",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All categories",
+                "disabled": false
+              },
+              {
+                "value": "APPENDAGE",
+                "text": "appendage",
+                "disabled": false
+              },
+              {
+                "value": "CYTOSKELETON",
+                "text": "cytoskeleton",
+                "disabled": false
+              },
+              {
+                "value": "DIVISION_MACHINERY",
+                "text": "division machinery",
+                "disabled": false
+              },
+              {
+                "value": "ENERGY_COMPLEX",
+                "text": "energy complex",
+                "disabled": false
+              },
+              {
+                "value": "ENVELOPE",
+                "text": "envelope",
+                "disabled": false
+              }
+            ],
+            "option_count": 14
+          },
+          {
+            "selector": "#map-record",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "Select a structure",
+                "disabled": false
+              },
+              {
+                "value": "GO:0097729",
+                "text": "9+2 motile cilium \u00b7 GO:0097729",
+                "disabled": false
+              },
+              {
+                "value": "cellstructuremech:archaeal_cannula",
+                "text": "archaeal cannula \u00b7 cellstructuremech:archaeal_cannula",
+                "disabled": false
+              },
+              {
+                "value": "GO:0097589",
+                "text": "archaeal-type flagellum \u00b7 GO:0097589",
+                "disabled": false
+              },
+              {
+                "value": "cellstructuremech:archaeal_type_flagellum_filament",
+                "text": "archaeal-type flagellum filament \u00b7 cellstructuremech:archaeal_type_flagellum_filament",
+                "disabled": false
+              },
+              {
+                "value": "cellstructuremech:archaeal_type_flagellum_motor",
+                "text": "archaeal-type flagellum motor \u00b7 cellstructuremech:archaeal_type_flagellum_motor",
+                "disabled": false
+              }
+            ],
+            "option_count": 1023
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/structures/envelope/s_layer.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/envelope/s_layer.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:01.785446+00:00",
+        "title": "S-layer \u00b7 CellStructureMech",
+        "headings": [
+          "S-layer",
+          "Components",
+          "Organism-specific protein examples",
+          "S-layer protein (SLP)",
+          "S-layer homology (SLH) domain",
+          "Taxonomic distribution",
+          "Canonical examples",
+          "Functions",
+          "Associated traits",
+          "Physical properties",
+          "Mechanism graphs",
+          "S-layer proteins self-assemble into a surface lattice (ASSEMBLY)",
+          "Evidence",
+          "Curation history"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 1,
+        "unique_record_links": 1,
+        "record_links_sha256": "40506f0512cc1a611888cc3f3d1e0fafca8b16041e38b5c6d615708d7cf558c2",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Envelope \u00b7 S-layer\n\nS-layer\n\nGO:0030115 \u00b7 Envelope \u00b7 Envelope layer \u00b7 Proposed\n\nA paracrystalline monomolecular array of one or more (glyco)protein species that self-assemble on the outermost surface of the cell envelope, with oblique, square or hexagonal lattice symmetry. S-layers are common in Archaea, where they are often the sole wall component, and widespread but patchily distributed in Bacteria. [DOI:10.1111/1574-6976.12063]\n\nImage (not hosted \u2014 CC_BY_NC_4_0): CaltechDATA qgffm-kzf88 (Atlas of Bacterial and Archaeal Cell Structure, 2.6 Surface layer, file 2_6_Ccrescentus.mp4)\n\nElectron cryotomogram video of a Caulobacter crescentus cell; the Atlas section shows the paracrystalline S-layer outside the outer membrane. CRYO_ET \u00b7 Caulobacter vibrioides (NCBITaxon:155892) \u00b7 Catherine Oikon",
+        "field_excerpts": [
+          "S-layer",
+          "",
+          "GO:0030115 \u00b7 Envelope \u00b7 Envelope layer \u00b7 Proposed",
+          "",
+          "A paracrystalline monomolecular array of one or more (glyco)protein species that self-assemble on the outermost surface of the cell envelope, with oblique, square or hexagonal lattice symmetry. S-layers are common in Archaea, where they are often the sole wall component, and widespread but patchily distributed in Bacteria. [DOI:10.1111/1574-6976.12063]",
+          "S-layer protein (SLP)",
+          "Accession\tProtein\tGene\tOrganism\tEntry",
+          "UniProtKB:P35828\tS-layer protein\trsaA\tCaulobacter vibrioides CB15 (NCBITaxon:190650)\tREVIEWED",
+          "",
+          "Role and evidence (1 reference)",
+          "",
+          "UniProtKB:Q45664\tSbsB protein\tsbsB\tGeobacillus stearothermophilus (NCBITaxon:1422)\tUNREVIEWED",
+          "",
+          "Role and evidence (1 reference)",
+          "S-layer homology (SLH) domain",
+          "Accession\tProtein\tGene\tOrganism\tEntry",
+          "UniProtKB:Q45664\tSbsB protein\tsbsB\tGeobacillus stearothermophilus (NCBITaxon:1422)\tUNREVIEWED",
+          "",
+          "Role and evidence (1 reference)",
+          "Secreted S-layer proteins self-assemble into a crystalline two-dimensional lattice that coats the outer face of the cell. In many Gram-positive S-layers, SLH domains within the lattice-forming protein bind secondary cell-wall polymers to retain the lattice on the peptidoglycan-linked envelope surface.",
+          "",
+          "Subject\tPredicate\tObject\tEvidence"
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Envelope",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/envelope.html"
+          },
+          {
+            "text": "GO:0030115",
+            "url": "http://purl.obolibrary.org/obo/GO_0030115"
+          },
+          {
+            "text": "DOI:10.1111/1574-6976.12063",
+            "url": "https://doi.org/10.1111/1574-6976.12063"
+          },
+          {
+            "text": "CaltechDATA qgffm-kzf88 (Atlas of Bacterial and Archaeal Cell Structure, 2.6 Surface layer, file 2_6_Ccrescentus.mp4)",
+            "url": "https://doi.org/10.22002/D1.1355"
+          },
+          {
+            "text": "NCBITaxon:155892",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_155892"
+          },
+          {
+            "text": "CELL_STRUCTURE_ATLAS CaltechDATA qgffm-kzf88 (Atlas of Bacterial and Archaeal Cell Structure, 2.6 Surface layer, file 2_6_Ccrescentus.mp4)",
+            "url": "https://doi.org/10.22002/D1.1355"
+          },
+          {
+            "text": "DOI:10.22002/D1.1355",
+            "url": "https://doi.org/10.22002/D1.1355"
+          },
+          {
+            "text": "Reference label and route sources",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/data/website/references.json"
+          },
+          {
+            "text": "DOI:10.1038/nrmicro3213",
+            "url": "https://doi.org/10.1038/nrmicro3213"
+          },
+          {
+            "text": "NCBITaxon:190650",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_190650"
+          },
+          {
+            "text": "NCBITaxon:1422",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_1422"
+          },
+          {
+            "text": "NCBITaxon:2157",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_2157"
+          },
+          {
+            "text": "DOI:10.1038/nrmicro2576",
+            "url": "https://doi.org/10.1038/nrmicro2576"
+          },
+          {
+            "text": "NCBITaxon:2",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_2"
+          },
+          {
+            "text": "traitmech:000064",
+            "url": "https://culturebotai.github.io/TraitMech/pages/traits/morphology/s_layer.html"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/stentor_myoneme_system.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/stentor_myoneme_system.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:04.324298+00:00",
+        "title": "Stentor myoneme system \u00b7 CellStructureMech",
+        "headings": [
+          "Stentor myoneme system",
+          "Components",
+          "Canonical examples",
+          "Functions",
+          "Mechanism graphs",
+          "Nonmechanistic summary of Sfi1 knockdown phenotypes (FUNCTION)",
+          "Discussions",
+          "Evidence",
+          "Curation history"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Cytoskeleton \u00b7 Stentor myoneme system\n\nStentor myoneme system\n\ncellstructuremech:stentor_myoneme_system \u00b7 Cytoskeleton \u00b7 Other \u00b7 Proposed\n\nThe cortical system of longitudinal contractile filament bundles, historically termed M bands, characterized in Stentor coeruleus. Its prominent posterior myonemes are distinct from the adjacent microtubular Km fibers; this record does not denote every centrin-containing cortical assembly. [DOI:10.1126/science.177.4047.447]\n\nImage (not hosted \u2014 CC_BY_NC_SA_4_0): PMC2108994.1 Figure 16\n\nFigure 16: longitudinal section of a contracted Stentor coeruleus myoneme, with a transverse-section inset. The source scale bar is 0.1 micrometer. This is fixed-cell ultrastructure, not a molecular reconstruction. TEM \u00b7 Stentor coeruleus (NCBITaxon:5963) \u00b7 B. Huang and D.",
+        "field_excerpts": [
+          "Stentor myoneme system",
+          "",
+          "cellstructuremech:stentor_myoneme_system \u00b7 Cytoskeleton \u00b7 Other \u00b7 Proposed",
+          "",
+          "The cortical system of longitudinal contractile filament bundles, historically termed M bands, characterized in Stentor coeruleus. Its prominent posterior myonemes are distinct from the adjacent microtubular Km fibers; this record does not denote every centrin-containing cortical assembly. [DOI:10.1126/science.177.4047.447]",
+          "Components",
+          "Component\tType\tPart of / acts on\tGrounding\tGenes\tStoichiometry\tEssential\tRole",
+          "Myonemal centrin-family proteins\tProtein\tpart of\tReviewed label only (reviewed name; no accession asserted)\t\t\tUNKNOWN\tCentrin-related calcium-binding constituents of the myonemes; the antibody evidence does not resolve the complete native paralogue inventory.",
+          "DOI:10.1111/j.1550-7408.2005.00048x Publisher abstract: three antibody preparations label myonemes, not the adjacent Km fibers in alpha-tubulin double-labeling experiments. Immunoblots identify a calcium-binding, caltractin-related protein. Full article methods were inaccessible.",
+          "",
+          "Myonemal Sfi1-family scaffold proteins\tProtein\tpart of\tReviewed label only (reviewed name; no accession asserted)\t\t\tUNKNOWN\tRepeat-rich scaffold proteins localized to posterior myonemes and lateral connections; knockdown supports a role in regional centrin organization, not a defined minimal assembly stoichiometry.",
+          "https://escholarship.org/content/qt48v7x2m3/qt48v7x2m3_noSplash_81e16ae35ca9c5219383afd7085febfb.pdf Yan dissertation, Chapter 2, pp. 26-32: Sfi1-1 (SteCoe_17904), Sfi1-2 (SteCoe_25973) and Sfi1-3 (SteCoe_10021) localize to myonemes and posterior lateral bands, but not the anterior centrin mesh. Antibody blots contain nonspecific bands; peptide-block and RNAi immunofluorescence controls are reported. This is the dissertation conclusion; the later final-paper manuscript resolves additional cortical layers as described below.",
+          "DOI:10.1016/j.cub.2026.06.062 Final-paper author manuscript PMC13637444.1, Sfi1 Results and Figure 3 legend: outer lateral Sfi1 bands are distinct from the anterior centrin mesh, but deeper anterior layers show Sfi1/centrin mesh colocalization. In the posterior outer cortex, centrin surrounds rather than colocalizes with the lateral bands. This depth-resolved account qualifies the dissertation conclusion; it does not equate every centrin-positive structure with posterior myonemes. Peptide-block and immunofluorescence controls are reported, with nonspecific Western bands and Sfi1-2/Sfi1-3 RNAi ",
+          "Mechanism graphs",
+          "Nonmechanistic summary of Sfi1 knockdown phenotypes (FUNCTION)",
+          "Subject\tPredicate\tObject\tEvidence",
+          "RNAi against the implicated Sfi1 isoforms\tproduces\tReduced myoneme cables\t",
+          "DOI:10.1016/j.cub.2026.06.062 PMC13637444.1 cortical-patterning Results report reduced centrin incorporation in posterior myonemes in Sfi1-1 and Sfi1-2 RNAi conditions, with altered anterior/posterior patterning rather than reduced total centrin fluorescence. Sfi1-2/Sfi1-3 cross-depletion limits isoform attribution. This remains a nonmechanistic intervention summary: cable-pattern changes and contraction impairment are parallel outcomes, not proof that cable loss mediates the defect.",
+          "DOI:10.1016/j.cub.2026.06.062 PMC13637444.1 contractile-machinery Results and STAR Methods report reduced or incomplete contraction in the implicated knockdown conditions. Sfi1-2/Sfi1-3 cross-depletion and stimulus-dependent responses preclude a universal or isoform-exclusive requirement. No exact kinetics, native force-generation mechanism or mediation by cable loss is inferred.",
+          "Discussions",
+          "CURATION_TODO (RESOLVED): Distinguish the Stentor myoneme system from homonymous and neighboring assemblies. A shared protein or historical name does not establish structural equivalence.",
+          "CURATION_TODO (OPEN): Resolve exact myonemal family mappings and native molecular composition. Broad family matches and localization do not establish exact class equivalence, paralogue completeness or copy number."
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Cytoskeleton",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/category/cytoskeleton.html"
+          },
+          {
+            "text": "DOI:10.1126/science.177.4047.447",
+            "url": "https://doi.org/10.1126/science.177.4047.447"
+          },
+          {
+            "text": "NCBITaxon:5963",
+            "url": "http://purl.obolibrary.org/obo/NCBITaxon_5963"
+          },
+          {
+            "text": "DOI:10.1083/jcb.57.3.704",
+            "url": "https://doi.org/10.1083/jcb.57.3.704"
+          },
+          {
+            "text": "GO:0030863",
+            "url": "http://purl.obolibrary.org/obo/GO_0030863"
+          },
+          {
+            "text": "Reference label and route sources",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/data/website/references.json"
+          },
+          {
+            "text": "DOI:10.1111/j.1550-7408.2005.00048x",
+            "url": "https://doi.org/10.1111/j.1550-7408.2005.00048x"
+          },
+          {
+            "text": "DOI:10.1016/j.cub.2026.06.062",
+            "url": "https://doi.org/10.1016/j.cub.2026.06.062"
+          },
+          {
+            "text": "GO:0005622",
+            "url": "http://purl.obolibrary.org/obo/GO_0005622"
+          },
+          {
+            "text": "data/structures/cytoskeleton/stentor_myoneme_system.yaml",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/data/structures/cytoskeleton/stentor_myoneme_system.yaml"
+          },
+          {
+            "text": "corpus JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "index JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.json"
+          },
+          {
+            "text": "LinkML schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:06.929665+00:00",
+        "title": "Protein sequence map (ESM-2) \u00b7 CellStructureMech",
+        "headings": [
+          "Protein sequence map (pLM)",
+          "UniProtKB:A0A0H3C8I9 \u2014 DEAD-box ATP-dependent RNA helicase RhpA",
+          "Cell structure records (1)"
+        ],
+        "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+        "counts": [
+          {
+            "id": "seq-status",
+            "cls": "meta",
+            "text": "469 of 469 proteins shown"
+          },
+          {
+            "id": "seq-details",
+            "cls": "map-details",
+            "text": "UniProtKB:A0A0H3C8I9 \u2014 DEAD-box ATP-dependent RNA helicase RhpA\n\nOrganism: Caulobacter vibrioides \u00b7 Length: 517 aa (501-1,022 aa) \u00b7 Primary category: Ribonucleoprotein \u00b7 Role: Component / complex example\n\nCell structure records (1)\nRNP body (GO:0140365) \u2014 Component / complex example \u00b7 Ribonucleoprot"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 1,
+        "svg": 0,
+        "body_excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nProtein sequence map (pLM)\n\n2D PACMAP projection of 469 unique protein sequences across 140 microbial cell structures (1169 protein\u2013structure mentions), embedded with facebook/esm2_t33_650M_UR50D (revision 08e4846e537177426273712802403f7ba8261b6c, 1280-d mean-pooled residue representations).\n\nEach point represents a curated UniProtKB protein from a cell structure component or assembly machinery entry. Positions depend only on amino-acid sequence; structure categories, component roles, and extraction channels are layered on as colors and filters. Click a protein to inspect its linked structure records; scroll to zoom, drag to pan, double-click to reset view.\n\nSEARCH PROTEINS OR STRUCTURES\nCOLOR POINTS BY\nStructure category\nComponent role\nExtraction channel\nSequence length\nSTRUCTURE CATEGORY\nAll catego",
+        "field_excerpts": [
+          "CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech",
+          "",
+          "kg-microbe \u00b7 METPO",
+          "",
+          "All Mech projects"
+        ],
+        "selected_links": [
+          {
+            "text": "CellStructureMech",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html"
+          },
+          {
+            "text": "Text map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Data JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "Schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "RNP body",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/ribonucleoprotein/rnp_body.html"
+          },
+          {
+            "text": "corpus JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json"
+          },
+          {
+            "text": "index JSON",
+            "url": "https://culturebotai.github.io/CellStructureMech/pages/index.json"
+          },
+          {
+            "text": "LinkML schema",
+            "url": "https://github.com/CultureBotAI/CellStructureMech/blob/main/src/cellstructuremech/schema/cellstructuremech.yaml"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#seq-color",
+            "value": "group",
+            "visible": true,
+            "options": [
+              {
+                "value": "group",
+                "text": "Structure category",
+                "disabled": false
+              },
+              {
+                "value": "role",
+                "text": "Component role",
+                "disabled": false
+              },
+              {
+                "value": "channel",
+                "text": "Extraction channel",
+                "disabled": false
+              },
+              {
+                "value": "length_bin",
+                "text": "Sequence length",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#seq-cat",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All categories (469)",
+                "disabled": false
+              },
+              {
+                "value": "Appendage",
+                "text": "Appendage",
+                "disabled": false
+              },
+              {
+                "value": "Cytoskeleton",
+                "text": "Cytoskeleton",
+                "disabled": false
+              },
+              {
+                "value": "Division machinery",
+                "text": "Division machinery",
+                "disabled": false
+              },
+              {
+                "value": "Energy complex",
+                "text": "Energy complex",
+                "disabled": false
+              },
+              {
+                "value": "Envelope",
+                "text": "Envelope",
+                "disabled": false
+              }
+            ],
+            "option_count": 13
+          },
+          {
+            "selector": "#seq-role",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All component roles",
+                "disabled": false
+              },
+              {
+                "value": "EXAMPLE",
+                "text": "Component / complex example",
+                "disabled": false
+              },
+              {
+                "value": "GRAPH_NODE",
+                "text": "Causal graph node",
+                "disabled": false
+              },
+              {
+                "value": "REFERENCE",
+                "text": "Text / evidence reference",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#seq-channel",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All channels",
+                "disabled": false
+              },
+              {
+                "value": "canonical_example_reference",
+                "text": "canonical_example_reference",
+                "disabled": false
+              },
+              {
+                "value": "causal_node_grounding",
+                "text": "causal_node_grounding",
+                "disabled": false
+              },
+              {
+                "value": "causal_node_xref",
+                "text": "causal_node_xref",
+                "disabled": false
+              },
+              {
+                "value": "complex_participant",
+                "text": "complex_participant",
+                "disabled": false
+              },
+              {
+                "value": "component_protein_example",
+                "text": "component_protein_example",
+                "disabled": false
+              },
+              {
+                "value": "evidence_reference",
+                "text": "evidence_reference",
+                "disabled": false
+              },
+              {
+                "value": "text_reference",
+                "text": "text_reference",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#seq-length",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All lengths",
+                "disabled": false
+              },
+              {
+                "value": "<= 200 aa",
+                "text": "<= 200 aa",
+                "disabled": false
+              },
+              {
+                "value": "201-500 aa",
+                "text": "201-500 aa",
+                "disabled": false
+              },
+              {
+                "value": "501-1,022 aa",
+                "text": "501-1,022 aa",
+                "disabled": false
+              },
+              {
+                "value": "> 1,022 aa",
+                "text": "> 1,022 aa",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "actions": {
+      "query:GO:0097589": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=GO%3A0097589",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": "GO:0097589"
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 1,
+        "first_results": [
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "query:MitoStore": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=MitoStore",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": "MitoStore"
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 1,
+        "first_results": [
+          "MitoStore\n\nA transient cytosolic protein granule characterized in budding yeast that sequesters non-imported mitochondrial precursor proteins, is enriched for presequence-containing cargo and associates with the mitochondrial surface.\n\n\tcellstructuremech:mitostore\tInclusion\tInclusion body\tProposed"
+        ],
+        "error": null
+      },
+      "query:cellstructuremech:insoluble_protein_deposit": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=cellstructuremech%3Ainsoluble_protein_deposit",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": "cellstructuremech:insoluble_protein_deposit"
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 1,
+        "first_results": [
+          "insoluble protein deposit\n\nA perivacuolar cytoplasmic protein inclusion characterized in budding yeast that accumulates poorly mobile, insoluble protein aggregates, including amyloid and prion cargo, at a site distinct from nuclear and juxtanuclear quality-control deposits.\n\n\tcellstructuremech:insoluble_protein_deposit\tInclusion\tInclusion body\tProposed"
+        ],
+        "error": null
+      },
+      "query:no-such-record-nov4-audit": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=no-such-record-nov4-audit",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "0 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": "no-such-record-nov4-audit"
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "clear_query": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "sort:": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "sort:label-desc": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=label-desc",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "label-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "zeta DNA polymerase complex\n\nAn error-prone eukaryotic DNA polymerase complex that carries out translesion DNA synthesis and damage-tolerance mutagenesis; in Saccharomyces cerevisiae, DNA polymerase zeta contains Rev3, Rev7, and the Pol31 and Pol32 accessory subunits shared with DNA polymerase delta.\n\n\tGO:0016035\tOther\tMultiprotein complex\tProposed",
+          "Y-shaped link\n\nA Y-shaped protein complex in the ciliary transition zone that connects the cilium axoneme to the ciliary necklace. Both protein sorting and protein gating occur at this point in the cilium allowing some, but not all proteins to enter the cilium.\n\n\tGO:0097537\tAppendage\tMultiprotein complex\tProposed",
+          "Woronin body\n\nA peroxisome-derived dense-core vesicle of filamentous fungi that seals septal pores upon hyphal wounding.\n\n\tGO:0140266\tMembrane organelle\tMembrane bounded organelle\tProposed"
+        ],
+        "error": null
+      },
+      "sort:id-asc": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=id-asc",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "id-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "AcrAB-TolC multidrug efflux transport complex\n\nAn Escherichia coli tripartite multidrug efflux pump complex composed of AcrB inner-membrane RND transporters, AcrA periplasmic adaptor proteins, and the TolC outer-membrane channel that exports xenobiotics across the cell envelope.\n\n\tcellstructuremech:acrab_tolc_multidrug_efflux_transport_complex\tOther\tMultiprotein complex\tProposed",
+          "AcrAD-TolC multidrug efflux transport complex\n\nAn Escherichia coli RND-family cell-envelope efflux pump complex composed of AcrA, AcrD, and TolC subunits that exports aminoglycosides and other xenobiotic substrates across the cell envelope.\n\n\tcellstructuremech:acrad_tolc_multidrug_efflux_transport_complex\tOther\tMultiprotein complex\tProposed",
+          "AcrEF-TolC multidrug efflux transport complex\n\nAn Escherichia coli Resistance-Nodulation-Division-family cell-envelope efflux pump complex composed of AcrE, AcrF, and TolC subunits that exports acriflavines, indoles, and other xenobiotic substrates across the cell envelope.\n\n\tcellstructuremech:acref_tolc_multidrug_efflux_transport_complex\tOther\tMultiprotein complex\tProposed"
+        ],
+        "error": null
+      },
+      "sort:category-asc": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=category-asc",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "category-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "sort:kind-asc": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=kind-asc",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "kind-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "sort:status-asc": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "status-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "1,3-beta-D-glucan synthase complex\n\nA protein complex that catalyzes the transfer of a glucose group from UDP-glucose to a (1->3)-beta-D-glucan chain.\n\n\tGO:0000148\tOther\tMultiprotein complex\tProposed",
+          "3-phenylpropionate dioxygenase complex\n\nEnzyme complex consisting of four proteins: the two subunits of the hydroxylase component (hcaE and hcaF), a ferredoxin (hcaC) and a ferredoxin reductase (hcaD). Converts 3-phenylpropionic acid (PP) into cis-3-(3-carboxyethyl)-3,5-cyclohexadiene-1,2-diol (PP-dihydrodiol).\n\n\tGO:0009334\tOther\tMultiprotein complex\tProposed",
+          "7SK snRNP\n\nA ribonucleoprotein complex that contains the 7SK snRNA. The 7SK snRNP plays a central role in RNA polymerase II elongation control by regulating the availability of active P-TEFb.\n\n\tGO:0120259\tRibonucleoprotein\tRibonucleoprotein complex\tProposed"
+        ],
+        "error": null
+      },
+      "facet:#record-category": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "58 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "status-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 58,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "facet:#record-kind": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "27 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-kind",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": "status-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 27,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "facet:#record-status": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE&status=PROPOSED",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "27 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-kind",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-status",
+            "value": "PROPOSED"
+          },
+          {
+            "id": "record-sort",
+            "value": "status-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 27,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      },
+      "combined_query": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE&status=PROPOSED&q=cellstructuremech%3Ainsoluble_protein_deposit",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "0 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": "cellstructuremech:insoluble_protein_deposit"
+          },
+          {
+            "id": "record-category",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-kind",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-status",
+            "value": "PROPOSED"
+          },
+          {
+            "id": "record-sort",
+            "value": "status-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "restored": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE&status=PROPOSED&q=cellstructuremech%3Ainsoluble_protein_deposit",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "0 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": "cellstructuremech:insoluble_protein_deposit"
+          },
+          {
+            "id": "record-category",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-kind",
+            "value": "APPENDAGE"
+          },
+          {
+            "id": "record-status",
+            "value": "PROPOSED"
+          },
+          {
+            "id": "record-sort",
+            "value": "status-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "reset": {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "record-count",
+            "text": "1022 of 1022 records shown"
+          }
+        ],
+        "controls": [
+          {
+            "id": "record-query",
+            "value": ""
+          },
+          {
+            "id": "record-category",
+            "value": ""
+          },
+          {
+            "id": "record-kind",
+            "value": ""
+          },
+          {
+            "id": "record-status",
+            "value": ""
+          },
+          {
+            "id": "record-sort",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 1022,
+        "first_results": [
+          "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair pr",
+          "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+          "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+        ],
+        "error": null
+      }
+    },
+    "failure_cases": {
+      "https://culturebotai.github.io/CellStructureMech/pages/browse.html": {
+        "aborted": [],
+        "excerpt": []
+      },
+      "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html": {
+        "aborted": [
+          "https://culturebotai.github.io/CellStructureMech/pages/data/structure_text_map.json",
+          "https://culturebotai.github.io/CellStructureMech/pages/data/structure_text_neighbors.json"
+        ],
+        "excerpt": [
+          "",
+          "Could not load embedding artifacts: Failed to fetch",
+          "Select a structure"
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Independent representative-route review, not a crawl of every record. Shared rubric and root schema/download arbitrations applied.",
+    "Absence judgments are scoped to the independently captured routes and controls."
+  ],
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/cellstructuremech-skeptic-b.json",
+    "sha256": "37e6370030a7eef550d41e2880da55c2cda932488839a8d35a5c1ecf6dd11bb3",
+    "bytes": 335954
+  }
+}

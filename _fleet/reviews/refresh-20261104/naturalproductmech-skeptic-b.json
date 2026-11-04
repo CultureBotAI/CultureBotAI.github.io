@@ -1,0 +1,2030 @@
+{
+  "mech": "NaturalProductMech",
+  "reviewer": "central_directory independent skeptic of deployment_review",
+  "pin": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+  "started_at": "2026-11-04T11:58:56.614258+00:00",
+  "finished_at": "2026-11-04T12:07:29.036382+00:00",
+  "browser_finished_at": "2026-11-04T11:59:35.748727+00:00",
+  "deployment_before": {
+    "id": 7457625249,
+    "sha": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+    "created_at": "2026-10-31T10:52:21Z",
+    "state": "success",
+    "status_created_at": "2026-10-31T10:52:40Z",
+    "http_status": 200,
+    "last_modified": "Sat, 31 Oct 2026 10:52:37 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:58:57 GMT"
+  },
+  "deployment_after": {
+    "id": 7457625249,
+    "sha": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+    "created_at": "2026-10-31T10:52:21Z",
+    "state": "success",
+    "status_created_at": "2026-10-31T10:52:40Z",
+    "http_status": 200,
+    "last_modified": "Sat, 31 Oct 2026 10:52:37 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:59:35 GMT"
+  },
+  "raw_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/naturalproductmech-skeptic-b-observations.json",
+  "raw_sha256": "7aef6df3dc35779ca0570e418127d21a5cd42cd59b6bd9fe5c584a4843b245e5",
+  "auditor_report": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json",
+  "features": {
+    "search": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Independent identifier, label and unmatched queries were executed; their live counts and result rows are retained.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/search",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/search",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "facets": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Property-filter selection, combination with search and reset were independently exercised.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/facets",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/facets",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+    },
+    "result_counts": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Observed counts respond to queries and facets and are distinct from the total.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/result_counts",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/result_counts",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+    },
+    "sorting": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Each available sort option was selected, with URL/control state and first result rows retained.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/sorting",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/sorting",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+    },
+    "shareable_state": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "A combined query/filter/sort view was reloaded and its controls and matching count compared.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/shareable_state",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/shareable_state",
+      "independent_evidence": "receipts.actions",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+    },
+    "full_catalogue": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/full_catalogue",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/full_catalogue",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+    },
+    "record_pages": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Multiple stable individual record URLs opened successfully from a fresh browser navigation.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/record_pages",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/record_pages",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html"
+    },
+    "term_links": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Main biosynthetic/producer terms remain CURIE text without resolver anchors on the sampled records.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/term_links",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/term_links",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/rebeccamycin.html"
+    },
+    "evidence": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "PMID/DOI references in sampled record text remain unlinked; source-database links do not remedy the citation section.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/evidence",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/evidence",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html"
+    },
+    "review_status": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record headers explicitly state their workflow state.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/review_status",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/review_status",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html"
+    },
+    "curation_history": {
+      "status": "missing",
+      "auditor_status": "missing",
+      "agreement": true,
+      "rationale": "The sampled record headings and bodies do not display an event-by-event curation history.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/curation_history",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/curation_history",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/staurosporine-2.html"
+    },
+    "source_link": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record pages link their own YAML source file rather than just the repository root.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/source_link",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/source_link",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html"
+    },
+    "domain_view": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Domain figures or maps rendered in the independently opened routes, with data-bearing visuals.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/domain_view",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/domain_view",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Sampled record content includes a direct link to a specific sibling record; navigation links were excluded.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/cross_mech_links",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/cross_mech_links",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "corpus_stats": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "The generated landing figures were read from the browser and compared with the audited corpus counts.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/corpus_stats",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/corpus_stats",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+    },
+    "category_browse": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Landing links lead into distinct category subsets with continuation where needed.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/category_browse",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/category_browse",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+    },
+    "suite_nav": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Visible suite-directory links occur in the reviewed navigation or footer.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/suite_nav",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/suite_nav",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+    },
+    "downloads": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Index and plotted coordinate exports cover entries but omit their substantive record evidence.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/downloads",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/downloads",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "schema_docs": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/schema_docs",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/schema_docs",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+    },
+    "license": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Reviewed landing, browser, records and maps distinguish CC BY data from BSD code.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/license",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/license",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+    },
+    "build_provenance": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "The footer identifies an undated corpus digest plus upstream retrieval date, not a dated own-record build.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/build_provenance",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/build_provenance",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+    },
+    "theme_toggle": {
+      "status": "present",
+      "auditor_status": "present",
+      "agreement": true,
+      "rationale": "Dark was selected and independently carried across the valid reviewed routes.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/theme_toggle",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/theme_toggle",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    },
+    "responsive": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Fresh and resized 390px views independently reproduce anisomycin 409px, rebeccamycin 407px, staurosporine 415px and the long diketopiperazine record 464px.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/responsive",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/responsive",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/dehydrohistidyltryptophanyldiketopiperazine.html"
+    },
+    "load_failure": {
+      "status": "partial",
+      "auditor_status": "partial",
+      "agreement": true,
+      "rationale": "Blocking sequence_map.json gives a real error initially; typing protein then replaces it with Showing 0 of 0 proteins.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/NaturalProductMech/features/load_failure",
+      "auditor_evidence": "_fleet/reviews/refresh-20261104/naturalproductmech-auditor-a.json#/features/load_failure",
+      "independent_evidence": "receipts.pages",
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html",
+      "targeted_challenges": "_fleet/reviews/refresh-20261104/group-a-skeptic-challenges.json"
+    }
+  },
+  "receipts": {
+    "pages": {
+      "https://culturebotai.github.io/NaturalProductMech/pages/index.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:58:59.672765+00:00",
+        "title": "NaturalProductMech",
+        "headings": [
+          "NaturalProductMech",
+          "Explore maps & browse",
+          "By filing pathway",
+          "What the corpus holds",
+          "Downloads & Schema"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\nNaturalProductMech\n\n3136 natural product structures, one record per Standard InChIKey, harmonized from 10 adopted sources.\n\nSearch\n\nA producer is not an occurrence. This corpus keeps the two apart because most sources do not. 3441 producer claims say a taxon makes the compound, and only 840 of those rest on evidence that addressed the organism. 2351 records carry a cited occurrence, which says only that someone found the compound there. Nothing promotes one to the other.\n\nExplore maps & browse\nFaceted browse\nFilter 3136 compounds by pathway, causal producer, gene cluster, or target\nStructure map (2D UMAP)\nChiral Morgan fingerprint Tanimoto neighborhoods\nCorpus map (text PaCMAP)\n2D projection of curated mechanism & producer descriptions\nSequence map (pLM)\n2D PaCMAP of ESM-2 embeddin",
+        "field_excerpts": [
+          "",
+          "LinkML Schema (YAML)",
+          "Formal schema for natural product structures, producer claims, occurrences, BGCs, and causal graphs (mech_shared.yaml, history.yaml)",
+          "Curated YAML Corpus (3136 records)",
+          "One YAML file per Standard InChIKey organized by NPClassifier pathway"
+        ],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Faceted browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map (2D UMAP)",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map (text PaCMAP)",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map (pLM)",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Alkaloids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/index.html"
+          },
+          {
+            "text": "Amino acids and peptides",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/amino_acids_and_peptides/index.html"
+          },
+          {
+            "text": "Carbohydrates",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/carbohydrates/index.html"
+          },
+          {
+            "text": "Fatty acids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/fatty_acids/index.html"
+          },
+          {
+            "text": "Polyketides",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/polyketides/index.html"
+          },
+          {
+            "text": "Shikimates and phenylpropanoids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/shikimates_and_phenylpropanoids/index.html"
+          },
+          {
+            "text": "Terpenoids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/terpenoids/index.html"
+          },
+          {
+            "text": "Unclassified",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/unclassified/index.html"
+          },
+          {
+            "text": "LinkML Schema (YAML)",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/src/naturalproductmech/schema/naturalproductmech.yaml"
+          },
+          {
+            "text": "mech_shared.yaml",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/src/naturalproductmech/schema/mech_shared.yaml"
+          },
+          {
+            "text": "history.yaml",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/src/naturalproductmech/schema/history.yaml"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/browse.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:02.350074+00:00",
+        "title": "Browse \u2014 NaturalProductMech",
+        "headings": [
+          "Browse",
+          "Alkaloids 512",
+          "Amino acids and peptides 661",
+          "Carbohydrates 104",
+          "Fatty acids 87",
+          "Polyketides 869",
+          "Shikimates and phenylpropanoids 64",
+          "Terpenoids 213",
+          "Unclassified 626"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [
+          {
+            "id": "browse-status",
+            "cls": "",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\nBrowse\n\n3136 records across 8 filing pathways.\n\nSearch compounds by name, identifier, synonym or filing pathway\nFiling pathway\nAll filing pathways\nAlkaloids (512)\nAmino acids and peptides (661)\nCarbohydrates (104)\nFatty acids (87)\nPolyketides (869)\nShikimates and phenylpropanoids (64)\nTerpenoids (213)\nUnclassified (626)\nProducer & occurrence evidence\nAll records\nHas causal producer\nHas any producer\nHas cited occurrence\nCurated annotations\nHas gene cluster\nHas molecular target\nHas bioactivity\nSort compounds by\nCompound name (A\u2013Z)\nCompound name (Z\u2013A)\nCausal producers (high\u2013low)\nGene clusters (high\u2013low)\nBioactivities (high\u2013low)\nIdentifier (A\u2013Z)\nReset\n\n3136 of 3136 compounds match\n\nAlkaloids 512\n(\u2212)-anisomycin\n(\u2212)-chuangxinmycin\n(\u2212)-marinopyrrole A\n(\u2212)-marinopyrrole B\n(\u2212)-noscapine\n(3R",
+        "field_excerpts": [],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "(\u2212)-anisomycin",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html"
+          },
+          {
+            "text": "(\u2212)-chuangxinmycin",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/chuangxinmycin.html"
+          },
+          {
+            "text": "(\u2212)-marinopyrrole A",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/marinopyrrole-a.html"
+          },
+          {
+            "text": "(\u2212)-marinopyrrole B",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/marinopyrrole-b.html"
+          },
+          {
+            "text": "(\u2212)-noscapine",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/noscapine.html"
+          },
+          {
+            "text": "(3R,5S)-5-(4-hydroxybenzyl)-3-methyl-3-((2E,4E,6E,8E,10E)-4,8,10-trimethyldodeca-2,4,6,8,10-pentaenoyl)pyrrolidine-2,4-dione",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/3r-5s-5-4-hydroxybenzyl-3-methyl-3-2e-4e-6e-8e-10e-4-8-10-trimethyldodeca-2-4-6-.html"
+          },
+          {
+            "text": "(S,S)-2,5-di-(p-hydroxybenzyl)piperazine",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/s-s-2-5-di-p-hydroxybenzyl-piperazine.html"
+          },
+          {
+            "text": "1,6-phenazinedimethanol",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/1-6-phenazinedimethanol.html"
+          },
+          {
+            "text": "12-epi-fischerindole I isonitrile",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/12-epi-fischerindole-i-isonitrile.html"
+          },
+          {
+            "text": "12-epi-fischerindole U isonitrile",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/12-epi-fischerindole-u-isonitrile.html"
+          },
+          {
+            "text": "12-epi-hapalindole C isonitrile",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/12-epi-hapalindole-c-isonitrile.html"
+          },
+          {
+            "text": "12-epi-hapalindole E",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/12-epi-hapalindole-e.html"
+          },
+          {
+            "text": "12-epi-hapalindole J isonitrile",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/12-epi-hapalindole-j-isonitrile.html"
+          },
+          {
+            "text": "13-epi-dorrigocin A",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/13-epi-dorrigocin-a.html"
+          },
+          {
+            "text": "17-hydroxy-8-desmethoxy-isomigrastatin",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/17-hydroxy-8-desmethoxy-isomigrastatin.html"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#facet-pathway",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All filing pathways",
+                "disabled": false
+              },
+              {
+                "value": "alkaloids",
+                "text": "Alkaloids (512)",
+                "disabled": false
+              },
+              {
+                "value": "amino_acids_and_peptides",
+                "text": "Amino acids and peptides (661)",
+                "disabled": false
+              },
+              {
+                "value": "carbohydrates",
+                "text": "Carbohydrates (104)",
+                "disabled": false
+              },
+              {
+                "value": "fatty_acids",
+                "text": "Fatty acids (87)",
+                "disabled": false
+              },
+              {
+                "value": "polyketides",
+                "text": "Polyketides (869)",
+                "disabled": false
+              },
+              {
+                "value": "shikimates_and_phenylpropanoids",
+                "text": "Shikimates and phenylpropanoids (64)",
+                "disabled": false
+              },
+              {
+                "value": "terpenoids",
+                "text": "Terpenoids (213)",
+                "disabled": false
+              },
+              {
+                "value": "unclassified",
+                "text": "Unclassified (626)",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#facet-claim",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All records",
+                "disabled": false
+              },
+              {
+                "value": "causal",
+                "text": "Has causal producer",
+                "disabled": false
+              },
+              {
+                "value": "producer",
+                "text": "Has any producer",
+                "disabled": false
+              },
+              {
+                "value": "occurrence",
+                "text": "Has cited occurrence",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#facet-sort",
+            "value": "label-asc",
+            "visible": true,
+            "options": [
+              {
+                "value": "label-asc",
+                "text": "Compound name (A\u2013Z)",
+                "disabled": false
+              },
+              {
+                "value": "label-desc",
+                "text": "Compound name (Z\u2013A)",
+                "disabled": false
+              },
+              {
+                "value": "causal-desc",
+                "text": "Causal producers (high\u2013low)",
+                "disabled": false
+              },
+              {
+                "value": "clusters-desc",
+                "text": "Gene clusters (high\u2013low)",
+                "disabled": false
+              },
+              {
+                "value": "bioactivity-desc",
+                "text": "Bioactivities (high\u2013low)",
+                "disabled": false
+              },
+              {
+                "value": "id-asc",
+                "text": "Identifier (A\u2013Z)",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/anisomycin.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:04.952401+00:00",
+        "title": "(\u2212)-anisomycin \u2014 NaturalProductMech",
+        "headings": [
+          "(\u2212)-anisomycin",
+          "Structure",
+          "Filing pathway",
+          "Producer organisms 1",
+          "Occurrences 3",
+          "Biosynthetic gene clusters 1",
+          "Mechanism & Biosynthesis Overview",
+          "Elsewhere in the fleet",
+          "Explore across X-Mech",
+          "Provenance"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 409
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 409
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\n\nBrowse \u00b7 Alkaloids \u00b7 (\u2212)-anisomycin\n\nSearch\n(\u2212)-anisomycin\n\nCHEBI:338412 EXACT SEEDED antiviral\n\nWhat these status tags mean\n\nAn antibiotic isolated from various Streptomyces species. It interferes with protein and DNA synthesis by inhibiting peptidyl transferase or the 80S ribosome system.\n\nStructure\nStandard InChIKey\tYKJYKKNCCRKFSL-RDBSUJKOSA-N\nSMILES\tCOC1=CC=C(C[C@H]2NC[C@H](O)[C@H]2OC(C)=O)C=C1\nStereochemistry\tfully defined\nCross-references\tnpatlas:NPA017379\nFiling pathway\n\nAlkaloids \u2014 computed by NPClassifier npclassifier.gnps2.org@2026-09-07, which is why it is pinned rather than recomputed. The gene cluster's asserted class is other, from MIBiG.\n\nProducer organisms 1\n\nA claim that this taxon makes the compound. The basis says what the evidence addressed \u2014 a knockout and a d",
+        "field_excerpts": [
+          "(\u2212)-anisomycin",
+          "",
+          "CHEBI:338412 EXACT SEEDED antiviral",
+          "",
+          "What these status tags mean",
+          "SMILES\tCOC1=CC=C(C[C@H]2NC[C@H](O)[C@H]2OC(C)=O)C=C1",
+          "Stereochemistry\tfully defined",
+          "Cross-references\tnpatlas:NPA017379",
+          "Filing pathway",
+          "",
+          "Taxon\tBasis\tCluster\tEvidence",
+          "Streptomyces hygrospinosus",
+          "NCBITaxon:516360\tSOURCE_ASSERTION\tmibig:BGC0001510\tPMID:28373542",
+          "Occurrences 3",
+          "",
+          "AntibioticMech ((\u2212)-anisomycin) \u2197",
+          "MediaIngredientMech (CHEBI:338412) \u2197",
+          "TaxonMech: Streptomyces hygrospinosus (NCBITaxon:516360) \u2197",
+          "PathwayMech (mibig:BGC0001510) \u2197",
+          "Provenance"
+        ],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Alkaloids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/index.html"
+          },
+          {
+            "text": "record history",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/commits/main/data/natural_products/alkaloids/anisomycin.yaml"
+          },
+          {
+            "text": "CHEBI:338412",
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/antiviral/anisomycin.html"
+          },
+          {
+            "text": "AntibioticMech ((\u2212)-anisomycin) \u2197",
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=YKJYKKNCCRKFSL-RDBSUJKOSA-N"
+          },
+          {
+            "text": "TaxonMech: Streptomyces hygrospinosus (NCBITaxon:516360) \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=NCBITaxon%3A516360"
+          },
+          {
+            "text": "PathwayMech (mibig:BGC0001510) \u2197",
+            "url": "https://culturebotai.github.io/PathwayMech/browse.html?q=mibig%3ABGC0001510"
+          },
+          {
+            "text": "data/natural_products/alkaloids/anisomycin.yaml",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/data/natural_products/alkaloids/anisomycin.yaml"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/rebeccamycin.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/rebeccamycin.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:07.489904+00:00",
+        "title": "rebeccamycin \u2014 NaturalProductMech",
+        "headings": [
+          "rebeccamycin",
+          "Structure",
+          "Filing pathway",
+          "Producer organisms 1",
+          "Occurrences 6",
+          "Biosynthetic gene clusters 1",
+          "Biosynthesis curated",
+          "Mechanism & Biosynthesis Overview",
+          "Causal graph \u2014 biosynthesis 3 nodes, 2 edges",
+          "Causal graph \u2014 biosynthesis 3 nodes, 2 edges",
+          "Causal graph \u2014 biosynthesis 11 nodes, 10 edges",
+          "Causal graph \u2014 biosynthesis 8 nodes, 8 edges",
+          "Causal graph \u2014 biosynthesis 8 nodes, 8 edges",
+          "Causal graph \u2014 biosynthesis 5 nodes, 4 edges",
+          "Causal graph \u2014 biosynthesis 5 nodes, 4 edges",
+          "Causal graph \u2014 biosynthesis 8 nodes, 7 edges",
+          "Causal graph \u2014 biosynthesis 3 nodes, 2 edges",
+          "Causal graph \u2014 biosynthesis 7 nodes, 6 edges",
+          "Causal graph \u2014 biosynthesis 5 nodes, 4 edges",
+          "Causal graph \u2014 biosynthesis 3 nodes, 2 edges",
+          "Explore across X-Mech",
+          "Provenance"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 407
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 407
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\n\nBrowse \u00b7 Alkaloids \u00b7 rebeccamycin\n\nSearch\nrebeccamycin\n\nCHEBI:135511 EXACT SEEDED\n\nWhat these status tags mean\n\nAn N-glycosyl compound consisting of a heteropolycyclic ring system with a glucosyl group attached to one of the indolic nitrogens.\n\nStructure\nStandard InChIKey\tQEHOIJJIZXRMAN-QZQSLCQPSA-N\nSMILES\tCO[C@@H]1[C@H](O[C@H]([C@@H]([C@H]1O)O)N2C3=C(C=CC=C3Cl)C4=C5C(=C6C7=C(C(=CC=C7)Cl)NC6=C42)C(=O)NC5=O)CO\nStereochemistry\tfully defined\nCross-references\tnpatlas:NPA08169, pubchem:73110\nFiling pathway\n\nAlkaloids \u2014 computed by NPClassifier npclassifier.gnps2.org@2026-09-07, which is why it is pinned rather than recomputed. The gene cluster's asserted class is other, from MIBiG.\n\nProducer organisms 1\n\nA claim that this taxon makes the compound. The basis says what the evidence addre",
+        "field_excerpts": [
+          "rebeccamycin",
+          "",
+          "CHEBI:135511 EXACT SEEDED",
+          "",
+          "What these status tags mean",
+          "SMILES\tCO[C@@H]1[C@H](O[C@H]([C@@H]([C@H]1O)O)N2C3=C(C=CC=C3Cl)C4=C5C(=C6C7=C(C(=CC=C7)Cl)NC6=C42)C(=O)NC5=O)CO",
+          "Stereochemistry\tfully defined",
+          "Cross-references\tnpatlas:NPA08169, pubchem:73110",
+          "Filing pathway",
+          "",
+          "Partial L. aerocolonigenes rebeccamycin biosynthesis graph for RebM-catalyzed terminal 4'-O-methylation.",
+          "",
+          "Subject\tPredicate\tObject\tNotes\tEvidence",
+          "4'-demethylrebeccamycin\tis methylated by\tRebM demethylrebeccamycin-D-glucose O-methyltransferase\tRebM methylates the glucosyl 4'-hydroxy group of 4'-demethylrebeccamycin.\t",
+          "DOI:10.1074/jbc.M800503200",
+          "https://ftp.expasy.org/databases/rhea/tsv/rhea2uniprot_sprot.tsv",
+          "",
+          "Every edge carries its own citation; an uncited edge is refused by the corpus tests.",
+          "",
+          "Causal graph \u2014 biosynthesis 3 nodes, 2 edges",
+          "Partial L. aerocolonigenes rebeccamycin biosynthesis graph for RebG-catalyzed N-glycosylation.",
+          ""
+        ],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Alkaloids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/index.html"
+          },
+          {
+            "text": "record history",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/commits/main/data/natural_products/alkaloids/rebeccamycin.yaml"
+          },
+          {
+            "text": "AntibioticMech (rebeccamycin) \u2197",
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=QEHOIJJIZXRMAN-QZQSLCQPSA-N"
+          },
+          {
+            "text": "TaxonMech: Lechevalieria aerocolonigenes (NCBITaxon:68170) \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=NCBITaxon%3A68170"
+          },
+          {
+            "text": "PathwayMech (mibig:BGC0000821) \u2197",
+            "url": "https://culturebotai.github.io/PathwayMech/browse.html?q=mibig%3ABGC0000821"
+          },
+          {
+            "text": "data/natural_products/alkaloids/rebeccamycin.yaml",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/data/natural_products/alkaloids/rebeccamycin.yaml"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/staurosporine-2.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/staurosporine-2.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:10.040101+00:00",
+        "title": "staurosporine \u2014 NaturalProductMech",
+        "headings": [
+          "staurosporine",
+          "Structure",
+          "Filing pathway",
+          "Producer organisms 1",
+          "Occurrences 21",
+          "Biosynthetic gene clusters 1",
+          "Mechanism & Biosynthesis Overview",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 4 nodes, 3 edges",
+          "Causal graph \u2014 bioactivity 5 nodes, 4 edges",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 3 nodes, 2 edges",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 3 nodes, 2 edges",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 3 nodes, 2 edges",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 bioactivity 2 nodes, 1 edge",
+          "Causal graph \u2014 biosynthesis 8 nodes, 8 edges",
+          "Molecular targets 25",
+          "Bioactivities 25",
+          "Explore across X-Mech",
+          "Provenance"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 415
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 415
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\n\nBrowse \u00b7 Alkaloids \u00b7 staurosporine\n\nSearch\nstaurosporine\n\nnaturalproductmech:mibig-c702c4be08 MINTED SEEDED cytotoxicenzyme inhibitor\n\nGrounding review: No 3-star ChEBI entry shares this structure, so the record keeps a content-hashed identifier.\nWhat these status tags mean\nStructure\nStandard InChIKey\tHKSZLNNOFSGOKW-UHFFFAOYSA-N\nSMILES\tCNC1CC2OC(C)(C1OC)N1C3=CC=CC=C3C3=C4CNC(=O)C4=C4C5=C(C=CC=C5)N2C4=C13\nStereochemistry\tundefined stereocentres \u2014 the InChIKey does not distinguish this compound from its stereoisomers\nCross-references\tnpatlas:NPA014588, pubchem:44259\nFiling pathway\n\nAlkaloids \u2014 computed by NPClassifier npclassifier.gnps2.org@2026-09-07, which is why it is pinned rather than recomputed. The gene cluster's asserted class is other, from MIBiG.\n\nProducer organisms 1\n\nA c",
+        "field_excerpts": [
+          "staurosporine",
+          "",
+          "naturalproductmech:mibig-c702c4be08 MINTED SEEDED cytotoxicenzyme inhibitor",
+          "",
+          "Grounding review: No 3-star ChEBI entry shares this structure, so the record keeps a content-hashed identifier.",
+          "SMILES\tCNC1CC2OC(C)(C1OC)N1C3=CC=CC=C3C3=C4CNC(=O)C4=C4C5=C(C=CC=C5)N2C4=C13",
+          "Stereochemistry\tundefined stereocentres \u2014 the InChIKey does not distinguish this compound from its stereoisomers",
+          "Cross-references\tnpatlas:NPA014588, pubchem:44259",
+          "Filing pathway",
+          "",
+          "Staurosporine inhibits human PDK1.",
+          "",
+          "Subject\tPredicate\tObject\tNotes\tEvidence",
+          "staurosporine\tinhibits\thuman 3-phosphoinositide-dependent protein kinase 1\tBindingDB exact InChIKey: IC50 6.5 nM, residues 51-359; UniProt O15530 = human PDPK1.\t",
+          "DOI:10.1042/BJ20031119",
+          "",
+          "Every edge carries its own citation; an uncited edge is refused by the corpus tests.",
+          "",
+          "Causal graph \u2014 bioactivity 4 nodes, 3 edges",
+          "Staurosporine inhibits human AKT1, AKT2, and AKT3.",
+          "",
+          "Subject\tPredicate\tObject\tNotes\tEvidence"
+        ],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Alkaloids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/index.html"
+          },
+          {
+            "text": "record history",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/commits/main/data/natural_products/alkaloids/staurosporine-2.yaml"
+          },
+          {
+            "text": "AntibioticMech (staurosporine) \u2197",
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=HKSZLNNOFSGOKW-UHFFFAOYSA-N"
+          },
+          {
+            "text": "TaxonMech: Streptomyces sp. TP-A0274 (NCBITaxon:171258) \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=NCBITaxon%3A171258"
+          },
+          {
+            "text": "PathwayMech (mibig:BGC0000825) \u2197",
+            "url": "https://culturebotai.github.io/PathwayMech/browse.html?q=mibig%3ABGC0000825"
+          },
+          {
+            "text": "data/natural_products/alkaloids/staurosporine-2.yaml",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/data/natural_products/alkaloids/staurosporine-2.yaml"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:13.527042+00:00",
+        "title": "Chemical structure map \u2014 NaturalProductMech",
+        "headings": [
+          "Chemical structure map",
+          "Select a compound",
+          "Search results"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [
+          {
+            "id": "map-status",
+            "cls": "map-status",
+            "text": "Showing 3136 of 3136 compounds."
+          },
+          {
+            "id": "map-search-count",
+            "cls": "",
+            "text": ""
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 1,
+        "svg": 0,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\nChemical structure map\n\nThis view places 3136 records using chemical structure only: chiral Morgan count fingerprints and Tanimoto distance, projected to two dimensions with UMAP. Labels, filing pathways, producers, and curation fields can color or filter the view, but they do not affect position.\n\nRead local neighborhoods, not the axes or global spacing. UMAP preserves nearby structure better than map-wide distance. Current full-corpus trustworthiness@10 is 0.975 and 2D neighbor overlap@10 is 0.535. Multi-fragment structures are retained exactly as their records define them and are visibly marked.\n\nFind a compound\nShow pathway\nAll filing pathways\nALKALOIDS\nAMINO ACIDS AND PEPTIDES\nCARBOHYDRATES\nFATTY ACIDS\nPOLYKETIDES\nSHIKIMATES AND PHENYLPROPANOIDS\nTERPENOIDS\nUNCLASSIFIED\nColor p",
+        "field_excerpts": [
+          "Chemical structure map",
+          "",
+          "This view places 3136 records using chemical structure only: chiral Morgan count fingerprints and Tanimoto distance, projected to two dimensions with UMAP. Labels, filing pathways, producers, and curation fields can color or filter the view, but they do not affect position.",
+          "",
+          "Read local neighborhoods, not the axes or global spacing. UMAP preserves nearby structure better than map-wide distance. Current full-corpus trustworthiness@10 is 0.975 and 2D neighbor overlap@10 is 0.535. Multi-fragment structures are retained exactly as their records define them and are visibly marked."
+        ],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "sorts_and_facets": [
+          {
+            "selector": "#map-class",
+            "value": "",
+            "visible": true,
+            "options": [
+              {
+                "value": "",
+                "text": "All filing pathways",
+                "disabled": false
+              },
+              {
+                "value": "ALKALOIDS",
+                "text": "ALKALOIDS",
+                "disabled": false
+              },
+              {
+                "value": "AMINO_ACIDS_AND_PEPTIDES",
+                "text": "AMINO ACIDS AND PEPTIDES",
+                "disabled": false
+              },
+              {
+                "value": "CARBOHYDRATES",
+                "text": "CARBOHYDRATES",
+                "disabled": false
+              },
+              {
+                "value": "FATTY_ACIDS",
+                "text": "FATTY ACIDS",
+                "disabled": false
+              },
+              {
+                "value": "POLYKETIDES",
+                "text": "POLYKETIDES",
+                "disabled": false
+              },
+              {
+                "value": "SHIKIMATES_AND_PHENYLPROPANOIDS",
+                "text": "SHIKIMATES AND PHENYLPROPANOIDS",
+                "disabled": false
+              },
+              {
+                "value": "TERPENOIDS",
+                "text": "TERPENOIDS",
+                "disabled": false
+              },
+              {
+                "value": "UNCLASSIFIED",
+                "text": "UNCLASSIFIED",
+                "disabled": false
+              }
+            ]
+          },
+          {
+            "selector": "#map-color",
+            "value": "class",
+            "visible": true,
+            "options": [
+              {
+                "value": "class",
+                "text": "Filing pathway",
+                "disabled": false
+              },
+              {
+                "value": "input",
+                "text": "Structure input",
+                "disabled": false
+              },
+              {
+                "value": "fragments",
+                "text": "Single vs multi-fragment",
+                "disabled": false
+              }
+            ]
+          }
+        ]
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/dehydrohistidyltryptophanyldiketopiperazine.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/dehydrohistidyltryptophanyldiketopiperazine.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:16.125895+00:00",
+        "title": "dehydrohistidyltryptophanyldiketopiperazine \u2014 NaturalProductMech",
+        "headings": [
+          "dehydrohistidyltryptophanyldiketopiperazine",
+          "Structure",
+          "Filing pathway",
+          "Producer organisms 1",
+          "Occurrences 0",
+          "Biosynthetic gene clusters 1",
+          "Mechanism & Biosynthesis Overview",
+          "Explore across X-Mech",
+          "Provenance"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 464
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 464
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\n\nBrowse \u00b7 Alkaloids \u00b7 dehydrohistidyltryptophanyldiketopiperazine\n\nSearch\ndehydrohistidyltryptophanyldiketopiperazine\n\nnaturalproductmech:mibig-9fae2cc0f2 MINTED SEEDED\n\nGrounding review: No 3-star ChEBI entry shares this structure, so the record keeps a content-hashed identifier.\nWhat these status tags mean\nStructure\nStandard InChIKey\tITXQTTPWGBFRNK-GIDUJCDVSA-N\nSMILES\tC1=CC=C2C(=C1)C(=CN2)CC3C(=O)N/C(=C/C4=CN=CN4)/C(=O)N3\nStereochemistry\tundefined stereocentres \u2014 the InChIKey does not distinguish this compound from its stereoisomers\nCross-references\tCHEBI:182170\nFiling pathway\n\nAlkaloids \u2014 computed by NPClassifier npclassifier.gnps2.org@2026-09-07, which is why it is pinned rather than recomputed. The gene cluster's asserted class is nrps, from MIBiG.\n\nProducer organisms 1\n\nA cla",
+        "field_excerpts": [
+          "dehydrohistidyltryptophanyldiketopiperazine",
+          "",
+          "naturalproductmech:mibig-9fae2cc0f2 MINTED SEEDED",
+          "",
+          "Grounding review: No 3-star ChEBI entry shares this structure, so the record keeps a content-hashed identifier.",
+          "SMILES\tC1=CC=C2C(=C1)C(=CN2)CC3C(=O)N/C(=C/C4=CN=CN4)/C(=O)N3",
+          "Stereochemistry\tundefined stereocentres \u2014 the InChIKey does not distinguish this compound from its stereoisomers",
+          "Cross-references\tCHEBI:182170",
+          "Filing pathway",
+          "",
+          "AntibioticMech (dehydrohistidyltryptophanyldiketopiperazine) \u2197",
+          "MediaIngredientMech (naturalproductmech:mibig-9fae2cc0f2) \u2197",
+          "TaxonMech: Penicillium rubens Wisconsin 54-1255 (NCBITaxon:500485) \u2197",
+          "PathwayMech (mibig:BGC0000420) \u2197",
+          "Provenance"
+        ],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Alkaloids",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/alkaloids/index.html"
+          },
+          {
+            "text": "record history",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/commits/main/data/natural_products/alkaloids/dehydrohistidyltryptophanyldiketopiperazine.yaml"
+          },
+          {
+            "text": "AntibioticMech (dehydrohistidyltryptophanyldiketopiperazine) \u2197",
+            "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=ITXQTTPWGBFRNK-GIDUJCDVSA-N"
+          },
+          {
+            "text": "TaxonMech: Penicillium rubens Wisconsin 54-1255 (NCBITaxon:500485) \u2197",
+            "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=NCBITaxon%3A500485"
+          },
+          {
+            "text": "PathwayMech (mibig:BGC0000420) \u2197",
+            "url": "https://culturebotai.github.io/PathwayMech/browse.html?q=mibig%3ABGC0000420"
+          },
+          {
+            "text": "data/natural_products/alkaloids/dehydrohistidyltryptophanyldiketopiperazine.yaml",
+            "url": "https://github.com/CultureBotAI/NaturalProductMech/blob/main/data/natural_products/alkaloids/dehydrohistidyltryptophanyldiketopiperazine.yaml"
+          }
+        ],
+        "sorts_and_facets": []
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/map.html": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T11:59:18.723196+00:00",
+        "title": "Corpus map \u2014 NaturalProductMech",
+        "headings": [
+          "Corpus map"
+        ],
+        "footer": "Generated from the committed corpus (3136 records \u00b7 from sources retrieved 2026-10-31 \u00b7 corpus SHA-256 2838a2004e52). Every page is derived; edit the record or the extractor, never the page. Project-authored records are CC BY 4.0; code is BSD-3-Clause. Upstream terms apply; see ATTRIBUTION.md.",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 1,
+        "svg": 0,
+        "body_excerpt": "NaturalProductMech\nBrowse\nStructure map\nCorpus map\nSequence map\nDownloads & Schema\nSource\nAll Mech projects\nCorpus map\n\n3114 compounds projected from their record text into two dimensions (PACMAP over BAAI/bge-large-en-v1.5).\n\nProximity means described similarly: same pathway, family, activity, producing organism, where it was found. Not structurally similar.\n\nPathways separate without the projection being told them: 84% of a compound's ten nearest neighbours share its filing pathway, against a 20% baseline. Measured on this corpus, not inherited. That is a property of the map you are looking at \u2014 the underlying embedding scores 83%, and PaCMAP tightens neighbourhoods by construction.\n\nProximity means described similarly \u2014 same pathway, family, activity and producer \u2014 not structurally similar. These are text embeddings of what the corpus says about a compound; SMILES and InChI are delibe",
+        "field_excerpts": [],
+        "selected_links": [
+          {
+            "text": "NaturalProductMech",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html"
+          },
+          {
+            "text": "Browse",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html"
+          },
+          {
+            "text": "Structure map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html"
+          },
+          {
+            "text": "Corpus map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/map.html"
+          },
+          {
+            "text": "Sequence map",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html"
+          },
+          {
+            "text": "Downloads & Schema",
+            "url": "https://culturebotai.github.io/NaturalProductMech/pages/index.html#downloads"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          }
+        ],
+        "sorts_and_facets": []
+      }
+    },
+    "actions": {
+      "query:CHEBI:338412": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?q=CHEBI%3A338412",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "1 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": "CHEBI:338412"
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "query:marneral": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?q=marneral",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "1 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": "marneral"
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "query:no-such-record-nov4-audit": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?q=no-such-record-nov4-audit",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "0 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": "no-such-record-nov4-audit"
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "clear_query": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "sort:label-asc": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "sort:label-desc": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=label-desc",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "sort:causal-desc": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=causal-desc",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "causal-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "sort:clusters-desc": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=clusters-desc",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "clusters-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "sort:bioactivity-desc": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=bioactivity-desc",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "bioactivity-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "sort:id-asc": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=id-asc",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "id-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "facet:#facet-pathway": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=id-asc&pathway=alkaloids",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "512 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": "alkaloids"
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "id-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "facet:#facet-claim": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=id-asc&pathway=alkaloids&claim=causal",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "141 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": "alkaloids"
+          },
+          {
+            "id": "facet-claim",
+            "value": "causal"
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "id-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "combined_query": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=id-asc&pathway=alkaloids&claim=causal&q=marneral",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "0 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": "marneral"
+          },
+          {
+            "id": "facet-pathway",
+            "value": "alkaloids"
+          },
+          {
+            "id": "facet-claim",
+            "value": "causal"
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "id-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "restored": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html?sort=id-asc&pathway=alkaloids&claim=causal&q=marneral",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "0 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": "marneral"
+          },
+          {
+            "id": "facet-pathway",
+            "value": "alkaloids"
+          },
+          {
+            "id": "facet-claim",
+            "value": "causal"
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "id-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      },
+      "reset": {
+        "url": "https://culturebotai.github.io/NaturalProductMech/pages/browse.html",
+        "counts": [
+          {
+            "id": "browse-status",
+            "text": "3136 of 3136 compounds match"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-query",
+            "value": ""
+          },
+          {
+            "id": "facet-pathway",
+            "value": ""
+          },
+          {
+            "id": "facet-claim",
+            "value": ""
+          },
+          {
+            "id": "facet-bgc",
+            "value": "on"
+          },
+          {
+            "id": "facet-target",
+            "value": "on"
+          },
+          {
+            "id": "facet-bioactivity",
+            "value": "on"
+          },
+          {
+            "id": "facet-sort",
+            "value": "label-asc"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": [],
+        "error": null
+      }
+    },
+    "failure_cases": {
+      "https://culturebotai.github.io/NaturalProductMech/pages/browse.html": {
+        "aborted": [],
+        "excerpt": []
+      },
+      "https://culturebotai.github.io/NaturalProductMech/pages/chemical-map.html": {
+        "aborted": [
+          "https://culturebotai.github.io/NaturalProductMech/pages/data/chemical-structure-map.json"
+        ],
+        "excerpt": [
+          "Legend",
+          "Chemical map could not be loaded: Failed to fetch",
+          "Select a compound"
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Independent representative-route review, not a crawl of every record. Shared rubric and root schema/download arbitrations applied.",
+    "Absence judgments are scoped to the independently captured routes and controls."
+  ],
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/naturalproductmech-skeptic-b.json",
+    "sha256": "e9b3134ce2bdf49ba6b9af6a99c47e8e2c613d1fc9af6acef8597243a28b1e22",
+    "bytes": 98936
+  }
+}

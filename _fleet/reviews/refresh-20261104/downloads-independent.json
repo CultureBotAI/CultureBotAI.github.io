@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-11-04T12:05:41.981591+00:00",
+  "DUFMech": {
+    "url": "https://culturebotai.github.io/DUFMech/index.json",
+    "sha256": "374a2c411a54dae55d673cd38f12edeef3c5a19f00e05ccff32ccaf2cecf0222",
+    "pin": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+    "native_path": "data/families/PF04149.yaml",
+    "native_sha256": "6cfb39bdec2c6ad486836b52a328143b574889bf69337b5415eb7fe15770fbfa",
+    "families": 8296,
+    "metadata_records": 8296,
+    "entries_with_embedded_record": 8296,
+    "record_fields": [
+      "causal_graphs",
+      "characterization_status",
+      "counters",
+      "curation_events",
+      "curation_history",
+      "curation_status",
+      "description",
+      "id",
+      "interpro_id",
+      "name",
+      "pfam_id",
+      "provenance",
+      "seed_status",
+      "short_name",
+      "source_url"
+    ],
+    "native_fields": [
+      "id",
+      "pfam_id",
+      "name",
+      "short_name",
+      "seed_status",
+      "characterization_status",
+      "curation_status",
+      "source_url",
+      "counters",
+      "provenance",
+      "interpro_id",
+      "description",
+      "curation_history",
+      "causal_graphs",
+      "curation_events"
+    ],
+    "native_record_equal": true,
+    "native_field_differences": [],
+    "graph_count": 3,
+    "curation_event_count": 7
+  },
+  "TaxonMech": {
+    "url": "https://culturebotai.github.io/TaxonMech/pages/index.json.gz",
+    "sha256": "ed283ae2b34a61197af783e51b0a20147be656649f14394e62615577e62677df",
+    "rows": 626048,
+    "first_row": {
+      "identifier": "NCBITaxon:3879924",
+      "label": "Abyssiniarchaeum dallolvicinus (SeqCode)",
+      "rank": "SPECIES",
+      "domain": "ARCHAEA",
+      "status": "SEEDED",
+      "page": "taxon.html?id=NCBITaxon:3879924",
+      "sources": [
+        "NCBITAXON"
+      ],
+      "strain_count": 0,
+      "has_type_strain": false,
+      "gtdb_mapping_count": 0,
+      "gtdb_pooled_mapping_count": 0
+    },
+    "fields": [
+      "identifier",
+      "label",
+      "rank",
+      "domain",
+      "status",
+      "page",
+      "sources",
+      "strain_count",
+      "has_type_strain",
+      "gtdb_mapping_count",
+      "gtdb_pooled_mapping_count"
+    ],
+    "interpretation": "Catalogue rows contain browse fields, not full taxon source records with nested assertions, source evidence and history."
+  }
+}

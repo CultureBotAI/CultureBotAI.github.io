@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "18774380e032acb6da0d195214c59368cd47594f",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/18774380e032acb6da0d195214c59368cd47594f/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "09b39ca8d0d1b7395249a1b3ae527ce36f7d8d7e",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/09b39ca8d0d1b7395249a1b3ae527ce36f7d8d7e/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -42,6 +42,26 @@
     "vendored_sync": {},
     "unmapped_inventory_input": {},
     "source_catalogue": {},
+    "evidence_reference_validation": {
+      "settings": {
+        "cache_dir": {
+          "type": "string",
+          "required_when_enabled": true
+        },
+        "reference_fields": {
+          "type": "string_list"
+        },
+        "snippet_fields": {
+          "type": "string_list"
+        },
+        "evidence_fields": {
+          "type": "string_list"
+        },
+        "evidence_paths": {
+          "type": "string_list"
+        }
+      }
+    },
     "corpus_statistics": {
       "settings": {
         "fields": {
@@ -218,6 +238,10 @@
       "key": "culturemech",
       "github": "CultureBotAI/CultureMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Literature quote fields exist, but no deterministic CI gate matches quotes against committed sources; the shared cache/profile contract requires later rollout."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -382,6 +406,30 @@
       "key": "mediaingredientmech",
       "github": "CultureBotAI/MediaIngredientMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "enabled",
+          "settings": {
+            "cache_dir": "references_cache",
+            "reference_fields": [
+              "pmid",
+              "doi",
+              "reference"
+            ],
+            "snippet_fields": [
+              "snippet",
+              "excerpt",
+              "supporting_text"
+            ],
+            "evidence_fields": [
+              "evidence"
+            ],
+            "evidence_paths": [
+              "ontology_mapping.evidence",
+              "role_assignments[].evidence",
+              "cellular_role_assignments[].evidence"
+            ]
+          }
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -535,6 +583,10 @@
       "key": "communitymech",
       "github": "CultureBotAI/CommunityMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Native reference validation and committed caches exist, but validation is on demand rather than a CI gate, with documented evidence-repair backlog; shared CI adoption is deferred."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -692,6 +744,10 @@
       "key": "traitmech",
       "github": "CultureBotAI/TraitMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Verbatim-snippet reviewer instructions are not a deterministic source-matching gate; a committed source-cache/profile contract and CI adoption remain unverified."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -863,6 +919,10 @@
       "key": "proteintraitsmech",
       "github": "CultureBotAI/proteintraitsmech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Populated supporting-text fields include source assertions; a reviewed quote-versus-database-assertion adapter, committed source cache and deterministic CI gate are not adopted."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -1002,6 +1062,10 @@
       "key": "antibioticmech",
       "github": "CultureBotAI/AntibioticMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Literature discovery and snippet-bearing records do not establish deterministic cached-source validation; shared profile/cache/CI adoption is deferred."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -1153,6 +1217,10 @@
       "key": "cellstructuremech",
       "github": "CultureBotAI/CellStructureMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Literature-evidence authoring exists, but a deterministic CI gate matching quotes against committed sources is not established."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -1330,6 +1398,10 @@
       "key": "habitatmech",
       "github": "CultureBotAI/HabitatMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Snippet-bearing evidence is present, but shared deterministic cached-source validation is not adopted in CI."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -1523,6 +1595,10 @@
       "key": "naturalproductmech",
       "github": "CultureBotAI/NaturalProductMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Snippet-bearing records do not establish source validation; shared quote/cache profile and CI gate adoption are deferred."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -1695,6 +1771,10 @@
       "key": "taxonmech",
       "github": "CultureBotAI/TaxonMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "The native EvidenceItem declares optional verbatim snippets beyond database provenance, but the shared committed-cache quote gate is not adopted."
+        },
         "id_label_validation": {
           "status": "enabled"
         },
@@ -1865,6 +1945,10 @@
       "key": "pathwaymech",
       "github": "CultureBotAI/PathwayMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Native evidence distinguishes quote from source_assertion and uses record-local reference_id; that mapping and committed source-cache validation need a reviewed adapter before enabling."
+        },
         "id_label_validation": {
           "status": "disabled",
           "reason": "Every taxon, participant and reaction pairs a CURIE with a label (CHEBI, NCBITaxon, RHEA, EC, SGD and others), so the check applies. The vendored scripts/validate_id_label_correspondence.py is present, but nothing runs it over the records: there is no conf/id_label_targets.yaml telling it which id and label slots to read, and its only callers are the vendored tests, on synthetic fixtures. Enable once it runs over data/pathways/ on every pull request.",
@@ -2058,6 +2142,10 @@
       "key": "dufmech",
       "github": "CultureBotAI/DUFMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Curated family evidence includes quote-like fields beyond seeded database provenance, but the shared committed-cache quote gate is not adopted."
+        },
         "id_label_validation": {
           "status": "enabled",
           "reason": "conf/id_label_targets.yaml uses genuine OAK against a verified frozen Pfam reference, captured independently from family record labels by src/dufmech/id_labels.py. This checks retained-source correspondence, not live ontology freshness or scientific characterization.",
@@ -2241,6 +2329,10 @@
       "key": "cmmmech",
       "github": "CultureBotAI/CMMMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Native MechanismEvidence uses source_ref/supports/explanation without a verbatim-quote slot; a reviewed quote/cache adapter is required before shared gate adoption."
+        },
         "id_label_validation": {
           "status": "disabled",
           "reason": "The native validator checks identifier syntax, not ontology correspondence. No conf/id_label_targets.yaml configures the shared correspondence gate.",
@@ -2417,6 +2509,10 @@
       "key": "aimech",
       "github": "CultureBotAI/AIMech",
       "capabilities": {
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Current main includes maintained curated concepts with source/locator citations in addition to AIO imports; a native quote/cache validation adapter and deterministic CI gate are not adopted."
+        },
         "id_label_validation": {
           "status": "disabled",
           "reason": "Native AIO snapshot validation does not establish a shared ontology correspondence adapter. No conf/id_label_targets.yaml configures one.",
@@ -2584,5 +2680,5 @@
       }
     }
   },
-  "artifact_count": 24
+  "artifact_count": 26
 }

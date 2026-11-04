@@ -1,0 +1,2419 @@
+{
+  "mech": "ProteinTraitsMech",
+  "reviewer": "central_directory group B auditor",
+  "pin": "fa794e90b67bdafe7972f48c1288e0c939c53eea",
+  "started_at": "2026-11-04T11:49:19.578096+00:00",
+  "finished_at": "2026-11-04T11:53:48.068846+00:00",
+  "deployment_before": {
+    "id": 7540102078,
+    "sha": "568e78869fb08b86849d13f6a23b3a32ec27cd08",
+    "created_at": "2026-11-04T07:02:39Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T07:03:39Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 07:03:33 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:49:20 GMT"
+  },
+  "deployment_after": {
+    "id": 7540102078,
+    "sha": "568e78869fb08b86849d13f6a23b3a32ec27cd08",
+    "created_at": "2026-11-04T07:02:39Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T07:03:39Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 07:03:32 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:53:17 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "Searching cd05137 returns one linked record; homogentisate 1,2-dioxygenase returns 16 after the relevant shards finish loading.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.search",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Axis, source, category and status facets combine with text search. Selecting active sites gives 1,004 records and adding racemase gives nine; controls provide a facet reset.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "Matching results are shown separately from the 429,421-record total; the active-site category plus racemase gives nine and an unmatched query gives zero.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The browser offers Identifier (A\u2013Z), Label (A\u2013Z), Label (Z\u2013A), Axis & category, Source. Changing each option reorders the displayed results.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.sorting",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "A cold #cat=STRUCT_ACTIVE_SITE&q=racemase URL and its reload restore the category and search with nine matching records.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The facet manifest totals 429,421 records in 73 shards; selecting all five axes exposes the full count through paginated results.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Cold browse.html#record=CURIE routes open individual record details, including MCSA:1, METPO:1000639 and ECOD:F.3755.3.1.364.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      }
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "Labeled ontology and internal record links are available, but some primary identifiers such as ECOD:F.3755.3.1.364 explicitly lack a source-entry resolver.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Reference-bearing record details link PMID and DOI evidence separately from database-source links.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Record details and status facets expose SEEDED, PROPOSED and REVIEWED workflow states; the runtime manifest has 39,591 REVIEWED records.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "evidence": {
+        "locator": "receipts.review_status",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Record details show dated curation actions, curators and change summaries, including the MCSA:1 curation event.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Record detail views link the record\u2019s individual YAML path on GitHub, separately from external database-entry links.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Record views provide sequences, annotations and causal diagrams where available. The corpus map covers 344,797 current records; protein and sequence maps show 68,657 and 12,705 proteins.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "evidence": {
+        "locator": "receipts.domain_view",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      }
+    },
+    "cross_mech_links": {
+      "status": "missing",
+      "note": "Checked record views link external databases and other ProteinTraitsMech records; their main sections do not link specific sibling-Mech or kg-microbe records.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639",
+      "evidence": {
+        "locator": "receipts.cross_mech_links",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "Runtime statistics show 429,421 records: 118,338 structure, 147,149 sequence, 392 sequence/structure, 163,527 function and 15 evolution, across 63 categories and 34 source labels.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/",
+      "evidence": {
+        "locator": "receipts.corpus_stats",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      }
+    },
+    "category_browse": {
+      "status": "partial",
+      "note": "Landing axis/category/source links select filters in the common browser rather than standalone category pages.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "The browser links facet counts and listing shards for all 429,421 records; complete detail is fetched per record, and map CSVs contain plotted points rather than the full corpus records.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.downloads",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "schema_docs": {
+      "status": "present",
+      "note": "The linked schema guide explains ProteinTraitRecord, enums and causal graph fields and links its LinkML source.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/schema.html",
+      "evidence": {
+        "locator": "receipts.schema_docs",
+        "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+      }
+    },
+    "license": {
+      "status": "partial",
+      "note": "Core pages and maps distinguish CC BY 4.0 data from BSD-3-Clause code. The linked SLC10 pilot does not state both project licenses.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html",
+      "evidence": {
+        "locator": "receipts.license",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      }
+    },
+    "build_provenance": {
+      "status": "partial",
+      "note": "Core pages show upstream releases and retained map coverage but no site build date or deployed revision; the embedding date is explicitly unrecorded.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/",
+      "evidence": {
+        "locator": "receipts.suite_nav",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      }
+    },
+    "theme_toggle": {
+      "status": "partial",
+      "note": "The injected Browse toggle works, but the landing\u2019s existing empty theme button does not respond. The linked SLC10 pilot has no theme toggle.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html",
+      "evidence": {
+        "locator": "receipts.theme_toggle",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      }
+    },
+    "responsive": {
+      "status": "partial",
+      "note": "Core sampled routes fit 390px, but expanding all 63 category values widens the document to 400px.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.responsive",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    },
+    "load_failure": {
+      "status": "present",
+      "note": "Blocked catalogue requests produce an explicit index-load failure; map requests display unavailable/error states instead of presenting zero coverage.",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "evidence": {
+        "locator": "receipts.load_failure",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.search",
+      "before": {
+        "status": "present",
+        "note": "Searching the full corpus finds cd05137 (one record) and homogentisate 1,2-dioxygenase (16 records), with results loaded from the published shards.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Searching cd05137 returns one linked record; homogentisate 1,2-dioxygenase returns 16 after the relevant shards finish loading.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.facets",
+      "before": {
+        "status": "present",
+        "note": "Axis, Source, Category and Status checkboxes filter records. STRUCT_ACTIVE_SITE selects 1,004 records; adding racemase gives nine. Clear all resets facets while retaining the search text; the search box is cleared separately.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Axis, source, category and status facets combine with text search. Selecting active sites gives 1,004 records and adding racemase gives nine; controls provide a facet reset.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.result_counts",
+      "before": {
+        "status": "present",
+        "note": "The results count updates independently of the 429,394-record badge. STRUCT_ACTIVE_SITE plus racemase shows nine matches, an unmatched query shows zero, and facet counts explicitly state whether they include search text.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Matching results are shown separately from the 429,421-record total; the active-site category plus racemase gives nine and an unmatched query gives zero.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.sorting",
+      "before": {
+        "status": "present",
+        "note": "browse.html supports sorting across displayed protein trait records by name, axis, category, status, and identifier.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The browser offers Identifier (A\u2013Z), Label (A\u2013Z), Label (Z\u2013A), Axis & category, Source. Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.shareable_state",
+      "before": {
+        "status": "present",
+        "note": "Search and facet changes update the URL. A cold load of #cat=STRUCT_ACTIVE_SITE&q=racemase restores both controls and nine matching records; #cat=STRUCT_ACTIVE_SITE&sta=REVIEWED restores 1,003 reviewed active-site records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "A cold #cat=STRUCT_ACTIVE_SITE&q=racemase URL and its reload restore the category and search with nine matching records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED"
+      },
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.full_catalogue",
+      "before": {
+        "status": "present",
+        "note": "Selecting all five axes exposes all 429,394 records across paged result shards, matching the site total; hash routes open individual records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The facet manifest totals 429,421 records in 73 shards; selecting all five axes exposes the full count through paginated results.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.suite_nav",
+      "before": {
+        "status": "present",
+        "note": "The landing, browser, maps and sampled record pages visibly link All Mech projects to the suite directory. The linked SLC10 pilot has separate navigation without that link.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.record_pages",
+      "before": {
+        "status": "present",
+        "note": "Cold browse.html#record=CURIE links open individual records. MCSA:1, METPO:1000639 and ECOD:F.3755.3.1.364 render their own detail views.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Cold browse.html#record=CURIE routes open individual record details, including MCSA:1, METPO:1000639 and ECOD:F.3755.3.1.364.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.term_links",
+      "before": {
+        "status": "partial",
+        "note": "METPO:1000639 has a labeled OLS source link, and parent traits have internal record routes. MCSA:1 and ECOD:F.3755.3.1.364 explicitly say their source entry link is unavailable, so own identifiers do not all resolve.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Labeled ontology and internal record links are available, but some primary identifiers such as ECOD:F.3755.3.1.364 explicitly lack a source-entry resolver.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364"
+      },
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.evidence",
+      "before": {
+        "status": "present",
+        "note": "Reference-bearing records expose linked PMIDs and DOIs; MCSA:1 includes linked M-CSA mechanism citations. Source links remain separate from scientific references.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Reference-bearing record details link PMID and DOI evidence separately from database-source links.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.review_status",
+      "before": {
+        "status": "present",
+        "note": "Record cards and detail views show SEEDED, PROPOSED or REVIEWED status, and the Status facet filters the corpus.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Record details and status facets expose SEEDED, PROPOSED and REVIEWED workflow states; the runtime manifest has 39,591 REVIEWED records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.curation_history",
+      "before": {
+        "status": "present",
+        "note": "Record details render Curation history with timestamp, curator, action and LLM-assisted attribution; MCSA:1 shows its edison-causal-graphs SEEDED-to-REVIEWED event.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Record details show dated curation actions, curators and change summaries, including the MCSA:1 curation event.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.source_link",
+      "before": {
+        "status": "present",
+        "note": "Record details link the repository YAML source, including the MCSA glutamate-racemase record, separately from the external database entry.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Record detail views link the record\u2019s individual YAML path on GitHub, separately from external database-entry links.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.domain_view",
+      "before": {
+        "status": "present",
+        "note": "MCSA:1 displays a 254-residue sequence with 40 stored features and Mermaid causal graphs. Corpus (344,881 records), protein (68,657 proteins), and ESM-2 sequence (12,705 proteins) embedding maps provide complementary views.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Record views provide sequences, annotations and causal diagrams where available. The corpus map covers 344,797 current records; protein and sequence maps show 68,657 and 12,705 proteins.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1"
+      },
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.cross_mech_links",
+      "before": {
+        "status": "missing",
+        "note": "Checked record views link databases and other ProteinTraitsMech records, but not specific sibling-Mech or kg-microbe records. METPO:1000639 opens OLS rather than a TraitMech record.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639"
+      },
+      "replacement": {
+        "status": "missing",
+        "note": "Checked record views link external databases and other ProteinTraitsMech records; their main sections do not link specific sibling-Mech or kg-microbe records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639"
+      },
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.corpus_stats",
+      "before": {
+        "status": "present",
+        "note": "The landing page reports 429,394 records (39,591 REVIEWED), five trait axes, 56 categories, and 34 source labels. The corpus map states that 344,881 current records are plotted; the protein and sequence maps show 68,657 and 12,705 proteins.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Runtime statistics show 429,421 records: 118,338 structure, 147,149 sequence, 392 sequence/structure, 163,527 function and 15 evolution, across 63 categories and 34 source labels.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.category_browse",
+      "before": {
+        "status": "partial",
+        "note": "The landing axis, category and source links select hash-based filters in the generic record browser. A cold active-site and REVIEWED route restores 1,003 records; these filtered views meet the partial category-browsing criterion.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Landing axis/category/source links select filters in the common browser rather than standalone category pages.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.downloads",
+      "before": {
+        "status": "present",
+        "note": "Site provides bulk JSON and CSV index/corpus exports alongside the facet/shard manifest and per-record YAML links.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "The browser links facet counts and listing shards for all 429,421 records; complete detail is fetched per record, and map CSVs contain plotted points rather than the full corpus records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.schema_docs",
+      "before": {
+        "status": "present",
+        "note": "The schema guide describes ProteinTraitRecord, enums and causal graphs and links the LinkML schema in the repository; related guides explain worked examples and biophysical records.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The linked schema guide explains ProteinTraitRecord, enums and causal graph fields and links its LinkML source.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+      },
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.license",
+      "before": {
+        "status": "partial",
+        "note": "Core pages and maps state data CC BY 4.0 and code BSD-3-Clause. The linked SLC10 pilot mentions source licenses but omits the project data/code license statement.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Core pages and maps distinguish CC BY 4.0 data from BSD-3-Clause code. The linked SLC10 pilot does not state both project licenses.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      },
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.build_provenance",
+      "before": {
+        "status": "partial",
+        "note": "Pages identify upstream releases and explain retained embedding coverage, but do not provide a site build date, repository commit or dated complete corpus version.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Core pages show upstream releases and retained map coverage but no site build date or deployed revision; the embedding date is explicitly unrecorded.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/"
+      },
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.theme_toggle",
+      "before": {
+        "status": "partial",
+        "note": "The shared toggle carries dark mode across core browse, record, map and documentation pages. The linked SLC10 pilot ignores the saved setting and has no theme toggle.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "The injected Browse toggle works, but the landing\u2019s existing empty theme button does not respond. The linked SLC10 pilot has no theme toggle.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+      },
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.responsive",
+      "before": {
+        "status": "partial",
+        "note": "Core pages, three cold record routes, the three checked map modes and the SLC10 pilot fit 390 px. Expanding CATEGORY with Show all (56) widens the browser to 400 px, including after selecting STRUCT_ACTIVE_SITE.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "partial",
+        "note": "Core sampled routes fit 390px, but expanding all 63 category values widens the document to 400px.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.ProteinTraitsMech.features.load_failure",
+      "before": {
+        "status": "present",
+        "note": "Aborting the browser facet index displays Failed to load index: Failed to fetch rather than an empty corpus. Sampled record views separately label absent source entries or supplemental information.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Blocked catalogue requests produce an explicit index-load failure; map requests display unavailable/error states instead of presenting zero coverage.",
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+      },
+      "evidence": "features.load_failure.evidence"
+    }
+  ],
+  "limits": [
+    "Representative route audit, not an HTTP crawl of every record. Complete counts are listing/export counts where stated.",
+    "Independent skeptic must verify all changed verdicts before editor applies them.",
+    "Supplemental cold-route, theme, download and schema evidence is recorded in group-b-supplement.json."
+  ],
+  "receipts": {
+    "search": {
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "query:cd05137": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#q=cd05137",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "1 record \u00b7 filtered\n\u2039 Prev\nPage 1 / 1\nNext \u203a\nCDD:cd05137\nRasGAP_CLA2_BUD2\n\nRas-GTPase Activating Domain of CLA2/BUD2. CLA2/BUD2 functions as a GTPase-activating protein (GAP) for BUD1/RSR1 and is necessary for prop\u2026\n\nSEQUENCE\nSEQ_DOMAIN\nCDD\nSEEDED\n1 record \u00b7 filtered\n\u2039 Prev\nPage 1 / 1\nNext \u203a"
+            },
+            {
+              "id": "",
+              "text": "1 record \u00b7 filtered"
+            },
+            {
+              "id": "",
+              "text": "1 record \u00b7 filtered"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": "cd05137"
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:homogentisate 1,2-dioxygenase": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#q=homogentisate+1%2C2-dioxygenase",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "16 records \u00b7 filtered\n\u2039 Prev\nPage 1 / 1\nNext \u203a\nMCSA:547\nhomogentisate 1,2-dioxygenase\n\nHomogentistate dioxygenase (HGO) catalyses the metabolic degredation of Phe and Tyr amino acids. The ring opening reaction requires non-hem\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nCDD:cd07000\ncupin_HGO_N\n\nhomogentisate 1,2-dioxygenase and related proteins, N-terminal cupin domain. This family includes homogentisate 1,2-dioxygenase (also known\u2026\n\nSEQUENCE\nSEQ_DOMAIN\nCDD\nSEEDED\nInterPro:IPR046451\nHomogentisate 1,2-dioxygenase, C-terminal domain\n\nAlkaptonuria (AKU), a rare hereditary disorder, was the firs"
+            },
+            {
+              "id": "",
+              "text": "16 records \u00b7 filtered"
+            },
+            {
+              "id": "",
+              "text": "16 records \u00b7 filtered"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": "homogentisate 1,2-dioxygenase"
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "query:no-such-record-nov4-audit": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#q=no-such-record-nov4-audit",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "0 records \u00b7 filtered\n\u2039 Prev\nPage 1 / 1\nNext \u203a\nNo records match. Clear filters or the search box."
+            },
+            {
+              "id": "",
+              "text": "0 records \u00b7 filtered"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        }
+      }
+    },
+    "facets": {
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "active_site_query": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&q=racemase",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": "1 active"
+            },
+            {
+              "id": "results",
+              "text": "9 records \u00b7 filtered\n\u2039 Prev\nPage 1 / 1\nNext \u203a\nMCSA:1\nglutamate racemase\n\nGlutamate racemase is responsible for the synthesis of D-glutamate, an essential building block of peptidoglycan, found in bacterial cell w\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nMCSA:187\nmandelate racemase\n\nMandelate racemase enzymes catalyse the interconversion of the (R)- and (S)-enantiomers of mandelate, in the pathway for catabolism of mand\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nMCSA:213\nalanine racemase\n\nAlanine racemase catalyses the pyridoxal-dependent conversion of L-alanine into D-alanine, a key co"
+            },
+            {
+              "id": "",
+              "text": "9 records \u00b7 filtered"
+            },
+            {
+              "id": "",
+              "text": "9 records \u00b7 filtered"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": "racemase"
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [
+            {
+              "value": "STRUCT_ACTIVE_SITE",
+              "dataset": {
+                "facet": "cat"
+              }
+            }
+          ],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "restored": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&q=racemase",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": "1 active"
+            },
+            {
+              "id": "results",
+              "text": "9 records \u00b7 filtered\n\u2039 Prev\nPage 1 / 1\nNext \u203a\nMCSA:1\nglutamate racemase\n\nGlutamate racemase is responsible for the synthesis of D-glutamate, an essential building block of peptidoglycan, found in bacterial cell w\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nMCSA:187\nmandelate racemase\n\nMandelate racemase enzymes catalyse the interconversion of the (R)- and (S)-enantiomers of mandelate, in the pathway for catabolism of mand\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nMCSA:213\nalanine racemase\n\nAlanine racemase catalyses the pyridoxal-dependent conversion of L-alanine into D-alanine, a key co"
+            },
+            {
+              "id": "",
+              "text": "9 records \u00b7 filtered"
+            },
+            {
+              "id": "",
+              "text": "9 records \u00b7 filtered"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": "racemase"
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [
+            {
+              "value": "STRUCT_ACTIVE_SITE",
+              "dataset": {
+                "facet": "cat"
+              }
+            }
+          ],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "active_site_reviewed": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": "2 active"
+            },
+            {
+              "id": "results",
+              "text": "1,003 records \u00b7 filtered\n\u2039 Prev\nPage 1 / 17\nNext \u203a\nMCSA:1\nglutamate racemase\n\nGlutamate racemase is responsible for the synthesis of D-glutamate, an essential building block of peptidoglycan, found in bacterial cell w\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nMCSA:10\n3-hydroxydecanoyl-[acyl-carrier-protein] dehydratase\n\nIn Escherichia coli, the enzyme beta-hydroxydecanoyl thiol ester dehydrase is responsible for the key step, where an unsaturated intermedia\u2026\n\nSTRUCTURE\nSTRUCT_ACTIVE_SITE\nM-CSA\nREVIEWED\nMCSA:100\nbetaine-aldehyde dehydrogenase\n\nAldehyde dehydrogenases (ALDHs) catalyse the ir"
+            },
+            {
+              "id": "",
+              "text": "1,003 records \u00b7 filtered"
+            },
+            {
+              "id": "",
+              "text": "1,003 records \u00b7 filtered"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": ""
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [
+            {
+              "value": "STRUCT_ACTIVE_SITE",
+              "dataset": {
+                "facet": "cat"
+              }
+            },
+            {
+              "value": "REVIEWED",
+              "dataset": {
+                "facet": "sta"
+              }
+            }
+          ],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        }
+      }
+    },
+    "sorting": {
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "sort:id": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "429,421 trait records. Pick an axis, category or source on the left \u2014 or search \u2014 to load records. (Records are loaded from filter-aware shards on demand.)\n\n163,527\nFUNCTION\n147,149\nSEQUENCE\n118,338\nSTRUCTURE\n392\nSEQUENCE_STRUCTURE\n15\nEVOLUTION"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": ""
+            },
+            {
+              "id": "sort",
+              "value": "id"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "sort:label": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#sort=label",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "429,421 trait records. Pick an axis, category or source on the left \u2014 or search \u2014 to load records. (Records are loaded from filter-aware shards on demand.)\n\n163,527\nFUNCTION\n147,149\nSEQUENCE\n118,338\nSTRUCTURE\n392\nSEQUENCE_STRUCTURE\n15\nEVOLUTION"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": ""
+            },
+            {
+              "id": "sort",
+              "value": "label"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "sort:label-desc": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#sort=label-desc",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "429,421 trait records. Pick an axis, category or source on the left \u2014 or search \u2014 to load records. (Records are loaded from filter-aware shards on demand.)\n\n163,527\nFUNCTION\n147,149\nSEQUENCE\n118,338\nSTRUCTURE\n392\nSEQUENCE_STRUCTURE\n15\nEVOLUTION"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": ""
+            },
+            {
+              "id": "sort",
+              "value": "label-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "sort:axis": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#sort=axis",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "429,421 trait records. Pick an axis, category or source on the left \u2014 or search \u2014 to load records. (Records are loaded from filter-aware shards on demand.)\n\n163,527\nFUNCTION\n147,149\nSEQUENCE\n118,338\nSTRUCTURE\n392\nSEQUENCE_STRUCTURE\n15\nEVOLUTION"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": ""
+            },
+            {
+              "id": "sort",
+              "value": "axis"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        },
+        "sort:source": {
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#sort=source",
+          "counts": [
+            {
+              "id": "record-count",
+              "text": "429,421 records"
+            },
+            {
+              "id": "active-count",
+              "text": ""
+            },
+            {
+              "id": "results",
+              "text": "429,421 trait records. Pick an axis, category or source on the left \u2014 or search \u2014 to load records. (Records are loaded from filter-aware shards on demand.)\n\n163,527\nFUNCTION\n147,149\nSEQUENCE\n118,338\nSTRUCTURE\n392\nSEQUENCE_STRUCTURE\n15\nEVOLUTION"
+            }
+          ],
+          "controls": [
+            {
+              "id": "q",
+              "value": ""
+            },
+            {
+              "id": "sort",
+              "value": "source"
+            }
+          ],
+          "checked": [],
+          "rows": 0,
+          "first_results": [],
+          "error": null
+        }
+      }
+    },
+    "full_catalogue": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "163,527\nFUNCTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=FUNCTION"
+        },
+        {
+          "text": "147,149\nSEQUENCE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE"
+        },
+        {
+          "text": "118,338\nSTRUCTURE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=STRUCTURE"
+        },
+        {
+          "text": "392\nSEQUENCE_STRUCTURE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE_STRUCTURE"
+        },
+        {
+          "text": "15\nEVOLUTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=EVOLUTION"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ]
+    },
+    "suite_nav": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/",
+      "headings": [
+        "ProteinTraitsMech",
+        "Record browser",
+        "Schema & docs",
+        "Molecular explanations pilot",
+        "GitHub",
+        "Trait axes",
+        "Trait categories",
+        "Corpus at a glance \u2014 sources",
+        "Curation model"
+      ],
+      "footer_excerpt": "KG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO\n\u00b7Project data:\nCC BY 4.0\n; code:\nBSD-3-Clause\n. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech\nKnowledge Base",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text embedding browser \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "ESM-2 pLM sequence embedding map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html#map=sequence"
+        },
+        {
+          "text": "429,421\nTRAIT RECORDS",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "118,338\nSTRUCTURE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=STRUCTURE"
+        },
+        {
+          "text": "147,149\nSEQUENCE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE"
+        },
+        {
+          "text": "392\nSEQ+STRUCT",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE_STRUCTURE"
+        },
+        {
+          "text": "163,527\nFUNCTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=FUNCTION"
+        },
+        {
+          "text": "15\nEVOLUTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=EVOLUTION"
+        },
+        {
+          "text": "34\nSOURCES",
+          "url": "https://culturebotai.github.io/proteintraitsmech/#sources"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "Protein map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html#proteins"
+        },
+        {
+          "text": "Sequence map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html#sequences"
+        },
+        {
+          "text": "View schema \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "Example \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "Explore SLC10 evidence \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "View on GitHub \u2192",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "75,935",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=SEQ_DOMAIN"
+        }
+      ]
+    },
+    "record_pages": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)",
+        "glutamate racemase"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "\u2190 back to results",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#"
+        },
+        {
+          "text": "PMID:10194325",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10194325"
+        },
+        {
+          "text": "PMID:10331867",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10331867"
+        },
+        {
+          "text": "PMID:11371180",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11371180"
+        },
+        {
+          "text": "PMID:12213801",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12213801"
+        },
+        {
+          "text": "PMID:16405345",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16405345"
+        },
+        {
+          "text": "PMID:17286428",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17286428"
+        },
+        {
+          "text": "PMID:18757813",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18757813"
+        },
+        {
+          "text": "PMID:19227983",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19227983"
+        },
+        {
+          "text": "PMID:22984984",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22984984"
+        },
+        {
+          "text": "PMID:29140459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29140459"
+        },
+        {
+          "text": "PMID:29140459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29140459"
+        },
+        {
+          "text": "data/traits/structure/active_site/mcsa/glutamate-racemase-mcsa1.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/data/traits/structure/active_site/mcsa/glutamate-racemase-mcsa1.yaml"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        }
+      ],
+      "supplement": "_fleet/reviews/refresh-20261104/group-b-supplement.json"
+    },
+    "term_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)",
+        "WIP_coiled_coil"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "\u2190 back to results",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#"
+        },
+        {
+          "text": "ECOD:T.3755.3.1",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AT.3755.3.1"
+        },
+        {
+          "text": "PMID:25452340",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25452340"
+        },
+        {
+          "text": "PMID:37156916",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37156916"
+        },
+        {
+          "text": "data/traits/structure/fold/ecod/wip-coiled-coil-3755_3_1_364.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/data/traits/structure/fold/ecod/wip-coiled-coil-3755_3_1_364.yaml"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ],
+      "supplement": "_fleet/reviews/refresh-20261104/group-b-supplement.json"
+    },
+    "review_status": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)",
+        "glutamate racemase"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "\u2190 back to results",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#"
+        },
+        {
+          "text": "PMID:10194325",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10194325"
+        },
+        {
+          "text": "PMID:10331867",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10331867"
+        },
+        {
+          "text": "PMID:11371180",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11371180"
+        },
+        {
+          "text": "PMID:12213801",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12213801"
+        },
+        {
+          "text": "PMID:16405345",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16405345"
+        },
+        {
+          "text": "PMID:17286428",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17286428"
+        },
+        {
+          "text": "PMID:18757813",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18757813"
+        },
+        {
+          "text": "PMID:19227983",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19227983"
+        },
+        {
+          "text": "PMID:22984984",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22984984"
+        },
+        {
+          "text": "PMID:29140459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29140459"
+        },
+        {
+          "text": "PMID:29140459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29140459"
+        },
+        {
+          "text": "data/traits/structure/active_site/mcsa/glutamate-racemase-mcsa1.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/data/traits/structure/active_site/mcsa/glutamate-racemase-mcsa1.yaml"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        }
+      ]
+    },
+    "domain_view": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)",
+        "glutamate racemase"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "\u2190 back to results",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#"
+        },
+        {
+          "text": "PMID:10194325",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10194325"
+        },
+        {
+          "text": "PMID:10331867",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10331867"
+        },
+        {
+          "text": "PMID:11371180",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11371180"
+        },
+        {
+          "text": "PMID:12213801",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12213801"
+        },
+        {
+          "text": "PMID:16405345",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16405345"
+        },
+        {
+          "text": "PMID:17286428",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17286428"
+        },
+        {
+          "text": "PMID:18757813",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18757813"
+        },
+        {
+          "text": "PMID:19227983",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19227983"
+        },
+        {
+          "text": "PMID:22984984",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22984984"
+        },
+        {
+          "text": "PMID:29140459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29140459"
+        },
+        {
+          "text": "PMID:29140459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29140459"
+        },
+        {
+          "text": "data/traits/structure/active_site/mcsa/glutamate-racemase-mcsa1.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/data/traits/structure/active_site/mcsa/glutamate-racemase-mcsa1.yaml"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        }
+      ],
+      "excerpt": "ProteinTraitsMech\n429,421 records\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A\u2013Z)\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nAxis & category\nSource\n\u24d8\nCounts reflect the active filters; empty values are hidden.\nAXIS\nShow all (5)\nSOURCE\nShow all (34)\nCATEGORY\nShow all (63)\nSTATUS\nShow all (3)\nClear all\n\u2190 back to results\nglutamate racemase\nMCSA:1\n\nSource entry link unavailable for MCSA:1.\n\nSTRUCTURE STRUCT_ACTIVE_SITE M-CSA REVIEWED\nDEFINITION\nGlutamate racemase is responsible for the synthesis of D-glutamate, an essential building block of peptidoglycan, found in bacterial cell walls where it provides structural integrity. Due to its uniqueness to bacteria, peptidoglycan, and enzymes involved in its biosynthesis, are targets for designing new antibacterial drugs. Peptidoglycan is formed from a repeating unit of a disaccharide, N-acetylglucosamine and N-acetylmuramic acid to which a small group of amino acids (L-alanine, D-alanine, D\u2026\nAXIS\nSTRUCTURE\nCATEGORY\nSTRUCT_ACTIVE_SITE\nSOURCE\nM-CSA\nSTATUS\nREVIEWED\nEXAMPLE PROTEINS (1)\nUniProtKB:P56868\nglutamate racemase\ncurator\nSequence & feature map (254 aa, 40 features)\nstructure\n\u2014 HELIX\u00d715, STRAND\u00d712, BINDING\u00d75, TURN\u00d75, ACT_SITE\u00d72\nsequence\n\u2014 CHAIN\u00d71\n1\nM\nK\nI\nG\nI\nF\nD\nS\nG\nV\nG\nG\nL\nT\nV\nL\nK\nA\nI\nR\nN\nR\nY\nR\nK\nV\nD\nI\nV\nY\nL\nG\nD\nT\nA\nR\nV\nP\nY\nG\nI\nR\nS\nK\nD\nT\nI\nI\nR\nY\nS\nL\nE\nC\nA\nG\nF\nL\nK\nD\n61\nK\nG\nV\nD\nI\nI\nV\nV\nA\nC\nN\nT\nA\nS\nA\nY\nA\nL\nE\nR\nL\nK\nK\nE\nI\nN\nV\nP\nV\nF\nG\nV\nI\nE\nP\nG\nV\nK\nE\nA\nL\nK\nK\nS\nR\nN\nK\nK\nI\nG\nV\nI\nG\nT\nP\nA\nT\nV\nK\nS\n121\nG\nA\nY\nQ\nR\nK\nL\nE\nE\nG\nG\nA\nD\nV\nF\nA\nK\nA\nC\nP\nL\nF\nV\nP\nL\nA\nE\nE\nG\nL\nL\nE\nG\nE\nI\nT\nR\nK\nV\nV\nE\nH\nY\nL\nK\nE\nF\nK\nG\nK\nI\nD\nT\nL\nI\nL\nG\nC\nT\nH\n181\nY\nP\nL\nL\nK\nK\nE\nI\nK\nK\nF\nL\nG\nD\nV\nE\nV\nV\nD\nS\nS\nE\nA\nL\nS\nL\nS\nL\nH\nN\nF\nI\nK",
+      "supplement": "_fleet/reviews/refresh-20261104/group-b-supplement.json"
+    },
+    "cross_mech_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)",
+        "chemolithotrophic"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "\u2190 back to results",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#"
+        },
+        {
+          "text": "METPO:1000631",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000631"
+        },
+        {
+          "text": "PMID:27899665",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27899665"
+        },
+        {
+          "text": "PMID:36219571",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36219571"
+        },
+        {
+          "text": "data/traits/function/enzymatic_activity/metpo/chemolithotrophic-metpo1000639.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/data/traits/function/enzymatic_activity/metpo/chemolithotrophic-metpo1000639.yaml"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ]
+    },
+    "corpus_stats": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/",
+      "headings": [
+        "ProteinTraitsMech",
+        "Record browser",
+        "Schema & docs",
+        "Molecular explanations pilot",
+        "GitHub",
+        "Trait axes",
+        "Trait categories",
+        "Corpus at a glance \u2014 sources",
+        "Curation model"
+      ],
+      "footer_excerpt": "KG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO\n\u00b7Project data:\nCC BY 4.0\n; code:\nBSD-3-Clause\n. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech\nKnowledge Base",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text embedding browser \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "ESM-2 pLM sequence embedding map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html#map=sequence"
+        },
+        {
+          "text": "429,421\nTRAIT RECORDS",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "118,338\nSTRUCTURE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=STRUCTURE"
+        },
+        {
+          "text": "147,149\nSEQUENCE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE"
+        },
+        {
+          "text": "392\nSEQ+STRUCT",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE_STRUCTURE"
+        },
+        {
+          "text": "163,527\nFUNCTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=FUNCTION"
+        },
+        {
+          "text": "15\nEVOLUTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=EVOLUTION"
+        },
+        {
+          "text": "34\nSOURCES",
+          "url": "https://culturebotai.github.io/proteintraitsmech/#sources"
+        },
+        {
+          "text": "Browse records \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "Protein map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html#proteins"
+        },
+        {
+          "text": "Sequence map \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html#sequences"
+        },
+        {
+          "text": "View schema \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "Example \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "Explore SLC10 evidence \u2192",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "View on GitHub \u2192",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "75,935",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=SEQ_DOMAIN"
+        }
+      ],
+      "excerpt": "ProteinTraitsMech\nKnowledge Base\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nGitHub\nAll Mech projects\nProteinTraitsMech\n\nKnowledge base of protein sequence, structure, and function traits \u2014 one YAML per trait, LinkML-validated, with evidence-backed causal graphs.\n\nSearch traits\nText embedding browser \u2192\nESM-2 pLM sequence embedding map \u2192\n429,421\nTRAIT RECORDS\n118,338\nSTRUCTURE\n147,149\nSEQUENCE\n392\nSEQ+STRUCT\n163,527\nFUNCTION\n15\nEVOLUTION\n34\nSOURCES\nBrowse records \u2192\nCorpus map \u2192\nProtein map \u2192\nSequence map \u2192\nRecord browser\n\nFaceted, client-side browser over all protein-trait records \u2014 search by label, identifier, or definition; filter by axis, category, and source. Each record shows semantically related traits from a local text-embedding model.\n\nThree 2-D maps sit alongside it: the corpus map projects a retained subset of record text embeddings (full-record or definition-only), the protein map lays out 68,657 Swiss-Prot proteins by the traits they carry, coloured by domain of life, and the sequence map lays out the canonical-example proteins by their ESM-2 protein-language-model embedding \u2014 sequence only, no annotation in the input \u2014 coloured by domain of life and filterable by sequence length and, for the half of them that carry one, by CATH class.\n\nView schema \u2192\nExample \u2192\nSchema & docs\n\nThe LinkML schema (ProteinTraitRecord, causal graphs), a worked P25888 example, and the curation model.\n\nExplore SLC10 evidence \u2192\nMolecular explanations pilot\n\nA research comparison of SLC10 proteins: experimentally observed contacts, derived residue correspondence, assay results, and source-backed mechanisms. Conserved sites are not automatically functional sites.\n\nView on GitHub \u2192\nGitH"
+    },
+    "downloads": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/browse.html']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "headings": [
+        "AXIS\nShow all (5)",
+        "SOURCE\nShow all (34)",
+        "CATEGORY\nShow all (63)",
+        "STATUS\nShow all (3)"
+      ],
+      "footer_excerpt": "Client-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "SLC10 Pilot",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "P25888 example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "163,527\nFUNCTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=FUNCTION"
+        },
+        {
+          "text": "147,149\nSEQUENCE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE"
+        },
+        {
+          "text": "118,338\nSTRUCTURE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=STRUCTURE"
+        },
+        {
+          "text": "392\nSEQUENCE_STRUCTURE",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=SEQUENCE_STRUCTURE"
+        },
+        {
+          "text": "15\nEVOLUTION",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#axis=EVOLUTION"
+        },
+        {
+          "text": "record-shard manifest and facet counts",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+        },
+        {
+          "text": "proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ],
+      "field_inventory": "group-b-bulk-inventory.json::ProteinTraitsMech"
+    },
+    "schema_docs": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/schema.html']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/schema.html",
+      "headings": [
+        "ProteinTraitsMech",
+        "Schema",
+        "Root class \u2014 ProteinTraitRecord",
+        "TraitAxisEnum",
+        "ProteinTraitCategoryEnum",
+        "SEQUENCE",
+        "STRUCTURE",
+        "SEQUENCE_STRUCTURE (mixed)",
+        "FUNCTION",
+        "Administrative",
+        "Axis / category pairing",
+        "FUNCTION vs localised STRUCTURE",
+        "CausalGraph / CausalNode / CausalEdge",
+        "Prefixes declared in the schema",
+        "Biophysical descriptor observations"
+      ],
+      "footer_excerpt": "KG-Microbe Mechs:\nCultureMech\n\u00b7\nMediaIngredientMech\n\u00b7\nCommunityMech\n\u00b7\nTraitMech\n\u00b7\nProteinTraitsMech\nkg-microbe\n\u00b7\nMETPO\n\u00b7Project data:\nCC BY 4.0\n; code:\nBSD-3-Clause\n. Third-party terms and attribution apply.\n\nAll Mech projects",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "Home",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "Record browser",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus map",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "Schema",
+          "url": "https://culturebotai.github.io/proteintraitsmech/schema.html"
+        },
+        {
+          "text": "Example",
+          "url": "https://culturebotai.github.io/proteintraitsmech/example.html"
+        },
+        {
+          "text": "GitHub",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech"
+        },
+        {
+          "text": "src/proteintraitsmech/schema/proteintraitsmech.yaml",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/src/proteintraitsmech/schema/proteintraitsmech.yaml"
+        },
+        {
+          "text": "\u2190 back to index",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "\u2190 back to index",
+          "url": "https://culturebotai.github.io/proteintraitsmech/"
+        },
+        {
+          "text": "biophysical pilot guide",
+          "url": "https://culturebotai.github.io/proteintraitsmech/biophysical.html"
+        },
+        {
+          "text": "CultureMech",
+          "url": "https://culturebotai.github.io/CultureMech/"
+        },
+        {
+          "text": "MediaIngredientMech",
+          "url": "https://culturebotai.github.io/MediaIngredientMech/"
+        },
+        {
+          "text": "CommunityMech",
+          "url": "https://culturebotai.github.io/CommunityMech/"
+        },
+        {
+          "text": "TraitMech",
+          "url": "https://culturebotai.github.io/TraitMech/"
+        },
+        {
+          "text": "kg-microbe",
+          "url": "https://github.com/Knowledge-Graph-Hub/kg-microbe"
+        },
+        {
+          "text": "CC BY 4.0",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-DATA"
+        },
+        {
+          "text": "BSD-3-Clause",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        }
+      ]
+    },
+    "license": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/proteintraitsmech/slc10.html']",
+      "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html",
+      "headings": [
+        "How do individual residues change transport?",
+        "Explanations we can test",
+        "Reduced cell-surface availability is a supported explanation for the R252H taurocholate-uptake defect in the tested cells.",
+        "S267F changes NTCP transport in a substrate-dependent way, not simply by eliminating all transporter activity or surface abundance.",
+        "The 2015 taurocholate uptake result is explained by loss of NTCP sodium-contacting side-chain residue identities in SLC10A4.",
+        "Differences at mapped NTCP sites are sufficient to explain an absence of NTCP-like bile-acid transport by human SLC10A7.",
+        "Detectable preS1 binding alone establishes productive viral infection in the tested system.",
+        "1. Observed coordinates \u2192 computed contact candidates",
+        "2. Apo predictions are a separate comparison",
+        "3. What did the experiments measure?",
+        "4. Small, source-backed mechanisms",
+        "Human NTCP E257 and Q261 participate in distinct sodium sites",
+        "Two modeled bile-salt molecules bind within the NTCP tunnel",
+        "NTCP TM4 residues interact with the bulevirtide myristoyl group",
+        "Bulevirtide inhibits NTCP-mediated taurocholate uptake",
+        "NTCP E257A reduces taurocholate uptake",
+        "NTCP R252H links deficient surface availability to reduced uptake",
+        "NTCP S267F has opposite effects on two assayed substrates",
+        "5. Residue chemistry, local context and measured outcomes",
+        "Human NTCP S267F",
+        "Human NTCP R252H",
+        "Human NTCP E257A",
+        "Reuse an explanation without losing its limits"
+      ],
+      "footer_excerpt": "ProteinTraitsMech \u00b7 SLC10 research pilot \u00b7 Source licences remain attached to their artifacts.",
+      "relevant_links": [
+        {
+          "text": "ProteinTraitsMech",
+          "url": "https://culturebotai.github.io/proteintraitsmech/index.html"
+        },
+        {
+          "text": "Browse",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html"
+        },
+        {
+          "text": "Corpus & Sequence Maps",
+          "url": "https://culturebotai.github.io/proteintraitsmech/map.html"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Download evidence JSON",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/slc10-pilot-v1.json"
+        },
+        {
+          "text": "Export manifest",
+          "url": "https://culturebotai.github.io/proteintraitsmech/data/slc10-pilot-manifest.json"
+        },
+        {
+          "text": "Related SBF-family trait",
+          "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#q=Pfam%3APF01758"
+        },
+        {
+          "text": "R252H: surface availability and uptake",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html#slc10-mechanism:ntcp-r252h-surface-availability"
+        },
+        {
+          "text": "S267F: opposite effects on two substrates",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html#slc10-mechanism:ntcp-s267f-substrate-selectivity"
+        },
+        {
+          "text": "E257A: reference sodium-site context and reduced uptake",
+          "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html#slc10-mechanism:ntcp-e257a-uptake-reduction"
+        },
+        {
+          "text": "https://doi.org/10.1002/hep.27240",
+          "url": "https://doi.org/10.1002/hep.27240"
+        },
+        {
+          "text": "https://doi.org/10.1074/jbc.RA120.014889",
+          "url": "https://doi.org/10.1074/jbc.RA120.014889"
+        },
+        {
+          "text": "https://doi.org/10.2210/pdb7ZYI/pdb",
+          "url": "https://doi.org/10.2210/pdb7ZYI/pdb"
+        },
+        {
+          "text": "https://doi.org/10.1016/j.ejcb.2007.06.001",
+          "url": "https://doi.org/10.1016/j.ejcb.2007.06.001"
+        },
+        {
+          "text": "https://doi.org/10.2210/pdb7ZYI/pdb",
+          "url": "https://doi.org/10.2210/pdb7ZYI/pdb"
+        },
+        {
+          "text": "https://doi.org/10.1128/JVI.03540-12",
+          "url": "https://doi.org/10.1128/JVI.03540-12"
+        },
+        {
+          "text": "https://doi.org/10.2210/pdb7ZYI/pdb",
+          "url": "https://doi.org/10.2210/pdb7ZYI/pdb"
+        },
+        {
+          "text": "https://doi.org/10.1038/s41467-024-46706-w",
+          "url": "https://doi.org/10.1038/s41467-024-46706-w"
+        },
+        {
+          "text": "https://doi.org/10.1038/s41422-022-00680-4",
+          "url": "https://doi.org/10.1038/s41422-022-00680-4"
+        },
+        {
+          "text": "https://doi.org/10.1038/s41422-022-00680-4",
+          "url": "https://doi.org/10.1038/s41422-022-00680-4"
+        },
+        {
+          "text": "https://doi.org/10.1038/s41467-024-46706-w",
+          "url": "https://doi.org/10.1038/s41467-024-46706-w"
+        },
+        {
+          "text": "https://doi.org/10.1038/s41467-024-46706-w",
+          "url": "https://doi.org/10.1038/s41467-024-46706-w"
+        },
+        {
+          "text": "https://doi.org/10.1128/JVI.03478-13",
+          "url": "https://doi.org/10.1128/JVI.03478-13"
+        },
+        {
+          "text": "https://doi.org/10.1002/hep.27240",
+          "url": "https://doi.org/10.1002/hep.27240"
+        },
+        {
+          "text": "https://doi.org/10.1002/hep.27240",
+          "url": "https://doi.org/10.1002/hep.27240"
+        }
+      ]
+    },
+    "theme_toggle": {
+      "url": "https://culturebotai.github.io/proteintraitsmech/slc10.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages[*].theme / saved_theme",
+      "themes": {
+        "https://culturebotai.github.io/proteintraitsmech/": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED": {
+          "theme": null,
+          "saved": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1": {
+          "theme": null,
+          "saved": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364": {
+          "theme": null,
+          "saved": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639": {
+          "theme": null,
+          "saved": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/schema.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/slc10.html": {
+          "theme": null,
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html": {
+          "theme": null,
+          "saved": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html#proteins": {
+          "theme": null,
+          "saved": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html#sequences": {
+          "theme": null,
+          "saved": null
+        }
+      },
+      "supplement": "_fleet/reviews/refresh-20261104/group-b-supplement.json"
+    },
+    "responsive": {
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "pages[*].fresh_390 / resized_390",
+      "widths": {
+        "https://culturebotai.github.io/proteintraitsmech/": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/schema.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/slc10.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": null
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html#proteins": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html#sequences": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        }
+      },
+      "supplement": "_fleet/reviews/refresh-20261104/group-b-supplement.json"
+    },
+    "load_failure": {
+      "url": "https://culturebotai.github.io/proteintraitsmech/browse.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-browser-b.json",
+      "capture_locator": "failure_cases",
+      "cases": {
+        "https://culturebotai.github.io/proteintraitsmech/browse.html": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+          ],
+          "excerpt": "ProteinTraitsMech\n\u2026\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A\u2013Z)\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nAxis & category\nSource\n\u24d8\nCounts are global corpus totals; record shards load on demand.\nFailed to load index: Failed to fetch Retry\n\nClient-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects\n\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#cat=STRUCT_ACTIVE_SITE&sta=REVIEWED": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+          ],
+          "excerpt": "ProteinTraitsMech\n\u2026\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A\u2013Z)\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nAxis & category\nSource\n\u24d8\nCounts are global corpus totals; record shards load on demand.\nFailed to load index: Failed to fetch Retry\n\nClient-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects\n\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=ECOD%3AF.3755.3.1.364": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+          ],
+          "excerpt": "ProteinTraitsMech\n\u2026\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A\u2013Z)\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nAxis & category\nSource\n\u24d8\nCounts are global corpus totals; record shards load on demand.\nFailed to load index: Failed to fetch Retry\n\nClient-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects\n\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=MCSA%3A1": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+          ],
+          "excerpt": "ProteinTraitsMech\n\u2026\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A\u2013Z)\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nAxis & category\nSource\n\u24d8\nCounts are global corpus totals; record shards load on demand.\nFailed to load index: Failed to fetch Retry\n\nClient-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects\n\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/browse.html#record=METPO%3A1000639": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/facets.json"
+          ],
+          "excerpt": "ProteinTraitsMech\n\u2026\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A\u2013Z)\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nAxis & category\nSource\n\u24d8\nCounts are global corpus totals; record shards load on demand.\nFailed to load index: Failed to fetch Retry\n\nClient-side facets over record-shard manifest and facet counts \u00b7 schema at proteintraitsmech.yaml \u00b7 Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects\n\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/map-coverage.json",
+            "https://culturebotai.github.io/proteintraitsmech/data/corpus_map.json"
+          ],
+          "excerpt": "Corpus map\n\nSelected map could not be loaded. \u00b7 home \u00b7 browse \u00b7 SLC10 pilot \u00b7 All Mech projects\n\nBrowse\n\nCurrent browser coverage could not be loaded. Retry the map to reload coverage.\n\nTotal\u2014\nVisible\u2014\nEMBEDDING SPACE\nFull record\nDefinition only\nProteins\nSequences (pLM)\nSearch plotted items\nFilter category\nAnnotation depth\nINTERACTIVE FACETS (CLICK TO TOGGLE)\n\nThis map could not be loaded. Check your connection and try again. Retry map\n\nDownload data (CSV)\nData-table fallback for this dense scatter \u2014 the CSV lists every plotted point (identifier / CURIE, trait axis, trait category, x, y).\nProject data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply. All Mech projects\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html#proteins": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/protein_map.json"
+          ],
+          "excerpt": "Corpus map\n\nSelected map could not be loaded. \u00b7 home \u00b7 browse \u00b7 SLC10 pilot \u00b7 All Mech projects\n\nBrowse\n\nTotal\u2014\nVisible\u2014\nEMBEDDING SPACE\nFull record\nDefinition only\nProteins\nSequences (pLM)\nSearch plotted items\nFilter category\nAnnotation depth\nINTERACTIVE FACETS (CLICK TO TOGGLE)\n\nThis map could not be loaded. Check your connection and try again. Retry map\n\nDownload data (CSV)\nData-table fallback for this dense scatter \u2014 the CSV lists every plotted point (identifier / CURIE, trait axis, trait category, x, y).\nProject data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply. All Mech projects\n\u263e"
+        },
+        "https://culturebotai.github.io/proteintraitsmech/map.html#sequences": {
+          "aborted": [
+            "https://culturebotai.github.io/proteintraitsmech/data/sequence_map.json"
+          ],
+          "excerpt": "Corpus map\n\nSelected map could not be loaded. \u00b7 home \u00b7 browse \u00b7 SLC10 pilot \u00b7 All Mech projects\n\nBrowse\n\nTotal\u2014\nVisible\u2014\nEMBEDDING SPACE\nFull record\nDefinition only\nProteins\nSequences (pLM)\nSearch plotted items\nFilter category\nAnnotation depth\nINTERACTIVE FACETS (CLICK TO TOGGLE)\n\nThis map could not be loaded. Check your connection and try again. Retry map\n\nDownload data (CSV)\nData-table fallback for this dense scatter \u2014 the CSV lists every plotted point (identifier / CURIE, trait axis, trait category, x, y).\nProject data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply. All Mech projects\n\u263e"
+        }
+      }
+    }
+  },
+  "independent_review": "group-b-independent-review.json",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/proteintraitsmech-auditor-b.json",
+    "sha256": "4262a7da2b8aa6ba90cbebcc301a0d4976d4d09ccbc6eaa756d3d5db95d3a9cd",
+    "bytes": 156440
+  }
+}

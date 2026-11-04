@@ -1,0 +1,1927 @@
+{
+  "mech": "CultureMech",
+  "reviewer": "central_directory redeployment auditor",
+  "pin": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+  "previous_deployed_revision": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+  "started_at": "2026-11-04T12:14:24.112237+00:00",
+  "finished_at": "2026-11-04T12:15:35.522760+00:00",
+  "deployment_before": {
+    "id": 7545180210,
+    "sha": "09f908802989670d2cc799f75f67cf56f7834178",
+    "created_at": "2026-11-04T11:53:07Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T11:54:29Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT",
+    "header_date": "Wed, 04 Nov 2026 12:14:25 GMT"
+  },
+  "deployment_after": {
+    "id": 7545180210,
+    "sha": "09f908802989670d2cc799f75f67cf56f7834178",
+    "created_at": "2026-11-04T11:53:07Z",
+    "state": "success",
+    "status_created_at": "2026-11-04T11:54:29Z",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT",
+    "header_date": "Wed, 04 Nov 2026 12:15:35 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "CultureMech:000252 returns one recipe and Halophilic medium returns four, with individual recipe links.",
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+      "prior_status": "present",
+      "prior_note": "CultureMech:000252 returns one recipe and Halophilic medium returns four, with individual recipe links.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/search",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "locator": "receipts.actions"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "The category facet selects 14,332 bacterial recipes; combining it with Halophilic medium leaves two. Clear All restores all 15,915.",
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+      "prior_status": "present",
+      "prior_note": "The category facet selects 14,332 bacterial recipes; combining it with Halophilic medium leaves two. Clear All restores all 15,915.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/facets",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "locator": "receipts.actions"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The live count distinguishes one identifier match, four label matches, two bacterial label matches and zero for an unmatched query.",
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+      "prior_status": "present",
+      "prior_note": "The live count distinguishes one identifier match, four label matches, two bacterial label matches and zero for an unmatched query.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/result_counts",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "locator": "receipts.actions"
+      }
+    },
+    "sorting": {
+      "status": "missing",
+      "note": "The recipe browser has no reader-facing sort selector, sort button or sortable table. Its facet lists are internally ordered, which does not provide record sorting.",
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+      "prior_status": "missing",
+      "prior_note": "The recipe browser has no reader-facing sort selector, sort button or sortable table. Its facet lists are internally ordered, which does not provide record sorting.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/sorting",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "locator": "receipts.actions"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Search and property filters restore from the URL: Halophilic medium with category=bacterial reloads with the same two recipes.",
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+      "prior_status": "present",
+      "prior_note": "Search and property filters restore from the URL: Halophilic medium with category=bacterial reloads with the same two recipes.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/shareable_state",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "locator": "receipts.actions"
+      }
+    },
+    "full_catalogue": {
+      "status": "partial",
+      "note": "The main browser covers 15,915 normalized recipes. The landing also counts 6,325 merged recipes, whose separate pages/index.html listing is outside the main browser navigation.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/index.html",
+      "prior_status": "partial",
+      "prior_note": "The main browser covers 15,915 normalized recipes. The landing also counts 6,325 merged recipes, whose separate pages/index.html listing is outside the main browser navigation.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/full_catalogue",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/index.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/CultureMech/app/",
+      "prior_status": "present",
+      "prior_note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/suite_nav",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/",
+        "locator": "receipts.pages"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Normalized and merged recipes have stable individual URLs; sampled normalized pages display composition, organisms and provenance.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+      "prior_status": "present",
+      "prior_note": "Normalized and merged recipes have stable individual URLs; sampled normalized pages display composition, organisms and provenance.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/record_pages",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "Ingredient and organism terms have labels and resolver links, but mediadive.medium:1399 on recipe 000252 is shown as source link unavailable.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+      "prior_status": "partial",
+      "prior_note": "Ingredient and organism terms have labels and resolver links, but mediadive.medium:1399 on recipe 000252 is shown as source link unavailable.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/term_links",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "evidence": {
+      "status": "partial",
+      "note": "Sampled records link formal DOI references, but source URLs embedded in Notes remain plain text.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+      "prior_status": "partial",
+      "prior_note": "Sampled records link formal DOI references, but source URLs embedded in Notes remain plain text.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/evidence",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "review_status": {
+      "status": "missing",
+      "note": "Sampled recipe pages do not state record curation or review status. The separate growth-evidence report does not provide a status for each recipe.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html",
+      "prior_status": "missing",
+      "prior_note": "Sampled recipe pages do not state record curation or review status. The separate growth-evidence report does not provide a status for each recipe.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/review_status",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Recipe Provenance tables show timestamps, curators or scripts, actions and notes.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+      "prior_status": "present",
+      "prior_note": "Recipe Provenance tables show timestamps, curators or scripts, actions and notes.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/curation_history",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "source_link": {
+      "status": "partial",
+      "note": "The source YAML path appears as plain text in sampled record footers rather than as a link to that file.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+      "prior_status": "partial",
+      "prior_note": "The source YAML path appears as plain text in sampled record footers rather than as a link to that file.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/source_link",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Text and chemically derived media maps and an ingredient map render interactive corpus views.",
+      "url": "https://culturebotai.github.io/CultureMech/app/umap.html",
+      "prior_status": "present",
+      "prior_note": "Text and chemically derived media maps and an ingredient map render interactive corpus views.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/domain_view",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/umap.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "Recipe 015438 links CommunityMech:000064 to the specific pinned Soybean_N_Fixation_sfSynCom.yaml record.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/015438.html",
+      "prior_status": "present",
+      "prior_note": "Recipe 015438 links CommunityMech:000064 to the specific pinned Soybean_N_Fixation_sfSynCom.yaml record.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/cross_mech_links",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/015438.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing shows 15,915 normalized recipes, 6,325 merged recipes and five populated categories.",
+      "url": "https://culturebotai.github.io/CultureMech/app/",
+      "prior_status": "present",
+      "prior_note": "The landing shows 15,915 normalized recipes, 6,325 merged recipes and five populated categories.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/corpus_stats",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/",
+        "locator": "receipts.pages"
+      }
+    },
+    "category_browse": {
+      "status": "partial",
+      "note": "Categories are browser facets and headed sections on long indexes; the landing does not link separate category pages.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html",
+      "prior_status": "partial",
+      "prior_note": "Categories are browser facets and headed sections on long indexes; the landing does not link separate category pages.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/category_browse",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "The landing links JSON and TSV indexes covering 15,915 normalized recipes, but these omit full compositions and record evidence; a complete bulk record export is not linked.",
+      "url": "https://culturebotai.github.io/CultureMech/app/recipes.json",
+      "prior_status": "partial",
+      "prior_note": "The landing links JSON and TSV indexes covering 15,915 normalized recipes, but these omit full compositions and record evidence; a complete bulk record export is not linked.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/downloads",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/recipes.json",
+        "locator": "receipts.pages"
+      }
+    },
+    "schema_docs": {
+      "status": "present",
+      "note": "The linked app/schema.html guide documents 51 classes and 34 enumerations, including MediaRecipe and growth-evidence structures.",
+      "url": "https://culturebotai.github.io/CultureMech/app/schema.html",
+      "prior_status": "present",
+      "prior_note": "The linked app/schema.html guide documents 49 classes and 33 enumerations, including MediaRecipe and growth-evidence structures.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/schema_docs",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/schema.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "license": {
+      "status": "partial",
+      "note": "The reviewed landing, schema and record footers identify BSD-3-Clause but do not consistently distinguish the project data license from the code license.",
+      "url": "https://culturebotai.github.io/CultureMech/app/",
+      "prior_status": "partial",
+      "prior_note": "The reviewed landing, schema and record footers identify BSD-3-Clause but do not consistently distinguish the project data license from the code license.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/license",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/",
+        "locator": "receipts.pages"
+      }
+    },
+    "build_provenance": {
+      "status": "missing",
+      "note": "The reviewed landing, browser and recipe footers do not state a site build, deployment revision or dated corpus version; recipe curation dates describe individual events.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+      "prior_status": "missing",
+      "prior_note": "The reviewed landing, browser and recipe footers do not state a site build, deployment revision or dated corpus version; recipe curation dates describe individual events.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/build_provenance",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "theme_toggle": {
+      "status": "partial",
+      "note": "Dark mode persists through the core browser, indexes, maps and records. The linked growth-evidence report has no toggle and does not adopt the saved choice.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html",
+      "prior_status": "partial",
+      "prior_note": "Dark mode persists through the core browser, indexes, maps and records. The linked growth-evidence report has no toggle and does not adopt the saved choice.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/theme_toggle",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "responsive": {
+      "status": "partial",
+      "note": "Core reviewed pages and the normalized index fit 390px. The linked growth-evidence report still widens the document to 520px.",
+      "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html",
+      "prior_status": "partial",
+      "prior_note": "Core reviewed pages and the normalized index fit 390px. The linked growth-evidence report still widens the document to 520px.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/responsive",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html",
+        "locator": "receipts.pages"
+      }
+    },
+    "load_failure": {
+      "status": "present",
+      "note": "Blocking data.js shows Recipes could not be loaded and a retry control rather than a zero-record catalogue.",
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+      "prior_status": "present",
+      "prior_note": "Blocking data.js shows Recipes could not be loaded and a retry control rather than a zero-record catalogue.",
+      "claim_locator": "_fleet/data/site_features.json#/mechs/CultureMech/features/load_failure",
+      "evidence": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "locator": "receipts.pages"
+      }
+    }
+  },
+  "receipts": {
+    "pages": {
+      "https://culturebotai.github.io/CultureMech/app/": {
+        "url": "https://culturebotai.github.io/CultureMech/app/",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:27.417676+00:00",
+        "title": "CultureMech \u2014 culture media",
+        "headings": [
+          "CultureMech",
+          "Record browser",
+          "Embedding browser",
+          "Schema & Downloads",
+          "GitHub"
+        ],
+        "footer": "All Mech projects \u00b7 LinkML Schema \u00b7 Download JSON \u00b7 Download TSV\n\nKG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTraitsMech\nkg-microbe\u00b7METPO\u00b7GitHub (CultureBotAI/CultureMech)\u00b7Schema: https://w3id.org/culturebotai/culturemech (v0.1.0, BSD-3-Clause)",
+        "counts": [
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "15,915\nNORMALIZED RECORDS"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "6,325\nMERGED RECORDS"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "5\nPOPULATED CATEGORIES"
+          },
+          {
+            "id": "",
+            "cls": "stat",
+            "text": "512-D\nV3 EMBEDDINGS"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CultureMech\n\nMicrobial growth-media knowledge base \u2014 curated culture-media recipes from MediaDive, JCM, KOMODO and more.\n\n15,915\nNORMALIZED RECORDS\n6,325\nMERGED RECORDS\n5\nPOPULATED CATEGORIES\n512-D\nV3 EMBEDDINGS\nSearch\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects \u2197\nBrowse records \u2192\nRecord browser\n\nFaceted search across every media recipe \u2014 filter by category, medium type, physical state, target organism, and key ingredients.\n\nText Map \u2192\nDerived \u2192\nDirect \u2192\nGraph layout \u2192\nIngredients \u2192\nEmbedding browser\n\nInteractive 2D maps of media similarity \u2014 dense text embeddings (BAAI/bge-small-en-v1.5) plus KG-Microbe deepwalk embeddings (derived, direct, and ingredient-level).\n\nLinkML Schema \u2192\nJSON \u2193\nTSV \u2193\nSchema & Downloads\n\nBrowse the LinkML data model (classes, slots, and controlled vocabularies) or download the complete normalized recipe catalo",
+        "selected_links": [
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse Recipes",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects \u2197",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Browse records \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Derived \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html#umap-derived"
+          },
+          {
+            "text": "Direct \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct"
+          },
+          {
+            "text": "Graph layout \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredients \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "LinkML Schema \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "JSON \u2193",
+            "url": "https://culturebotai.github.io/CultureMech/app/recipes.json"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/app/browser.html": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:31.480238+00:00",
+        "title": "CultureMech - Microbial Growth Media Browser",
+        "headings": [
+          "CultureMech",
+          "Filters",
+          "CATEGORY",
+          "MEDIUM TYPE",
+          "PHYSICAL STATE",
+          "TARGET ORGANISMS",
+          "HIGH METAL CONTENT",
+          "HIGH REE CONTENT",
+          "KEY INGREDIENTS",
+          "APPLICATIONS",
+          "STERILIZATION",
+          "SOURCE DATABASE",
+          "CULTURE TYPE"
+        ],
+        "footer": "CultureMech \u00b7 LinkML Schema \u00b7 JSON \u00b7 TSV \u00b7 GitHub (CultureBotAI/CultureMech) \u00b7 CultureBotAI Mech Suite \u00b7 BSD-3-Clause",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "cls": "results-count",
+            "text": "15915 recipes"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 15915,
+        "unique_record_links": 15915,
+        "record_links_sha256": "a4e8531bc6e3428eb793cabbc40fcfe6390e5bff327cd941964f3ad5abb954c0",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CultureMech\n\nMicrobial Growth Media Knowledge Base\n\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects\nSearch media \nRecipe filters\n\nCounts show totals in the complete catalog, before filtering.\n\nFilters\nClear All\nCATEGORY\nbacterial\n14332\narchaea\n747\nspecialized\n455\nalgae\n255\nfungal\n126\nMEDIUM TYPE\ncomplex\n8908\ndefined\n2220\nbuffer\n1\nnegative_control\n1\nPHYSICAL STATE\nliquid\n7401\nsolid_agar\n3716\nbiphasic\n8\nsemisolid\n5\nTARGET ORGANISMS\nShewanella oneidensis MR-1\n8\nCandidatus Pelagibacter sp. HTCC7211\n6\nLactococcus lactis subsp. lactis\n5\nHelicobacter pylori\n3\nCorynebacterium glutamicum\n3\nLactococcus cremoris subsp. cremoris MG1363\n3\nPhaeodactylum tricornutum\n2\nThalassiosira pseudonana\n2\nChaetoceros gracilis\n2\nSynechocystis sp. PCC 6803\n2\nChlorella vulgaris\n2\nCandidatus Pelagibacter ubique\n2\nLactiplantibacillus plantarum WCFS1\n2\nRhizobium etli CFN",
+        "selected_links": [
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse Recipes",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Download JSON",
+            "url": "https://culturebotai.github.io/CultureMech/app/recipes.json"
+          },
+          {
+            "text": "Download TSV",
+            "url": "https://culturebotai.github.io/CultureMech/app/recipes.tsv"
+          },
+          {
+            "text": "1_1_dyiii_pea_gr_medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000001.html"
+          },
+          {
+            "text": "View in Text Map \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html?q=1_1_dyiii_pea_gr_medium"
+          },
+          {
+            "text": "MediaIngredientMech: Pea \u2197",
+            "url": "https://culturebotai.github.io/MediaIngredientMech/browse.html?q=Pea"
+          },
+          {
+            "text": "1_2_chev_diatom_medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000002.html"
+          },
+          {
+            "text": "View in Text Map \u2192",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html?q=1_2_chev_diatom_medium"
+          },
+          {
+            "text": "MediaIngredientMech: CR1 Soil \u2197",
+            "url": "https://culturebotai.github.io/MediaIngredientMech/browse.html?q=CR1%20Soil"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/pages/index.html": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/index.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:41.201366+00:00",
+        "title": "CultureMech \u2014 Media index",
+        "headings": [
+          "CultureMech \u2014 Media index",
+          "algae (101)",
+          "archaea (554)",
+          "bacterial (5254)",
+          "fungal (60)",
+          "specialized (356)"
+        ],
+        "footer": "6,325 CultureMech media records \u00b7 LinkML Schema \u00b7 JSON / TSV \u00b7 GitHub \u00b7 BSD-3-Clause",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 6325,
+        "unique_record_links": 6325,
+        "record_links_sha256": "6e55751c5f881d5944153b42d567c513c2129c1168e803f7696ed7a34b26ddac",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to record content\nHome \u00b7 Browse media \u00b7 Text Map \u00b7 Media PaCMAP \u00b7 Media Graph \u00b7 Ingredient PaCMAP \u00b7 Schema \u00b7 All Mech projects\nCultureMech \u2014 Media index\n\n6,325 media records.\n\nSearch\n\nMedia growth evidence review\n\nalgae (101)\nCultureMech:000038 \u2014 2asw\nCultureMech:000039 \u2014 3n_bbm_v\nCultureMech:000040 \u2014 abm\nCultureMech:000041 \u2014 ajs\nCultureMech:000042 \u2014 ant\nCultureMech:000050 \u2014 asw\nCultureMech:000045 \u2014 asw_150_barley\nCultureMech:000047 \u2014 asw_225_barley\nCultureMech:000049 \u2014 asw_300_barley\nCultureMech:000043 \u2014 asw_barley\nCultureMech:000051 \u2014 aswp\nCultureMech:000053 \u2014 bb\nCultureMech:000054 \u2014 bb_merds\nCultureMech:000055 \u2014 bg\nCultureMech:015451 \u2014 BG11 no bicarb\nCultureMech:015452 \u2014 BG11 noNitrogen\nCultureMech:015453 \u2014 BG11 TES no bicarb\nCultureMech:015454 \u2014 BG11C\nCultureMech:015455 \u2014 BG11C TES\nCultureMech:015456 \u2014 BG11R\nCultureMech:000057 \u2014 c_medium_modified\nCultureMech:000058 \u2014 cgm\nCulture",
+        "selected_links": [
+          {
+            "text": "Skip to record content",
+            "url": "https://culturebotai.github.io/CultureMech/pages/index.html#main-content"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse media",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Media growth evidence review",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html"
+          },
+          {
+            "text": "CultureMech:000038",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media/000038.html"
+          },
+          {
+            "text": "CultureMech:000039",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media/000039.html"
+          },
+          {
+            "text": "CultureMech:000040",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media/000040.html"
+          },
+          {
+            "text": "CultureMech:000041",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media/000041.html"
+          },
+          {
+            "text": "CultureMech:000042",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media/000042.html"
+          },
+          {
+            "text": "CultureMech:000050",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media/000050.html"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:44.492686+00:00",
+        "title": "halophilic_medium (CultureMech:000252) \u2014 CultureMech",
+        "headings": [
+          "halophilic_medium",
+          "Overview",
+          "Composition",
+          "Ingredients (5)",
+          "Preparation",
+          "Solutions",
+          "Total Salts",
+          "Target organisms",
+          "Provenance"
+        ],
+        "footer": "Generated from data/normalized_yaml/archaea/DSMZ_1399_HALOPHILIC_MEDIUM.yaml \u00b7 LinkML Schema \u00b7 JSON / TSV \u00b7 GitHub \u00b7 BSD-3-Clause",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 4,
+        "unique_record_links": 3,
+        "record_links_sha256": "a595b0c966535127f3e13616ec7c2f0320cd65d8e3639443090fb4a61755a18c",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to record content\nHome \u00b7 Browse media \u00b7 Text Map \u00b7 Media PaCMAP \u00b7 Media Graph \u00b7 Ingredient PaCMAP \u00b7 Schema \u00b7 Media Index \u00b7 All Mech projects \u203a CultureMech:000252\nhalophilic_medium\nCultureMech:000252 archaea COMPLEX SOLID_AGAR\nOriginal name: HALOPHILIC MEDIUM\nSearch\nOverview\nExternal ontology\nmediadive.medium:1399 (source link unavailable) \u2014 HALOPHILIC MEDIUM\nApplications\nMicrobial cultivation\npH\n7.0\nHigh-metal flag\nTrue\nNotes\nSource: DSMZ | Link: https://www.dsmz.de/microorganisms/medium/pdf/DSMZ_Medium1399.pdf\nCross-Mech\nMediaIngredientMech \u00b7 CommunityMech \u00b7 TaxonMech \u00b7 TraitMech \u00b7 HabitatMech \u00b7 CMMMech\nComposition\nIngredients (5)\n#\tINGREDIENT\tCONCENTRATION\tONTOLOGY\tNOTES\n1\tProteose peptone no. 3\nCross-Mech: MediaIngredientMech \u00b7 CMMMech\n\t5 G_PER_L\t\tSource material: Proteose peptone no. 3 (Difco).\n2\tYeast extract\nCross-Mech: MediaIngredientMech \u00b7 CMMMech\n\t5 G_PER_L\t\t\n3\tGlucose\nC6H1",
+        "selected_links": [
+          {
+            "text": "Skip to record content",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000252.html#main-content"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse media",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "Media Index",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "MediaIngredientMech",
+            "url": "https://culturebotai.github.io/MediaIngredientMech/?q=Proteose%20peptone%20no.%203"
+          },
+          {
+            "text": "CommunityMech",
+            "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=halophilic_medium"
+          },
+          {
+            "text": "TaxonMech",
+            "url": "https://culturebotai.github.io/TaxonMech/#q=halophilic_medium"
+          },
+          {
+            "text": "TraitMech",
+            "url": "https://culturebotai.github.io/TraitMech/?q=halophilic_medium"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/?q=halophilic_medium"
+          },
+          {
+            "text": "CMMMech",
+            "url": "https://culturebotai.github.io/CMMMech/pages/chemicals.html?q=Proteose%20peptone%20no.%203"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:47.120208+00:00",
+        "title": "2asw (CultureMech:000038) \u2014 CultureMech",
+        "headings": [
+          "2asw",
+          "Overview",
+          "Composition",
+          "Ingredients (13)",
+          "Target organisms and growth evidence",
+          "Recipe variants",
+          "Provenance"
+        ],
+        "footer": "Generated from data/normalized_yaml/algae/2asw.yaml \u00b7 LinkML Schema \u00b7 JSON / TSV \u00b7 GitHub \u00b7 BSD-3-Clause",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 3,
+        "unique_record_links": 3,
+        "record_links_sha256": "b854d4a2685d0744b6774b047824ed56ae813f062c05ae70364924b48429c948",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to record content\nHome \u00b7 Browse media \u00b7 Text Map \u00b7 Media PaCMAP \u00b7 Media Graph \u00b7 Ingredient PaCMAP \u00b7 Schema \u00b7 Media Index \u00b7 All Mech projects \u203a CultureMech:000038\n2asw\nCultureMech:000038 algae COMPLEX LIQUID\nOriginal name: 2ASW\nSearch\nOverview\nApplications\nAlgae cultivationPhytoplankton cultureMicroalgae research\nNotes\nFull recipe available at https://www.ccap.ac.uk/wp-content/uploads/MR_2ASW.pdf\nCross-Mech\nMediaIngredientMech \u00b7 CommunityMech \u00b7 TaxonMech \u00b7 TraitMech \u00b7 HabitatMech \u00b7 CMMMech\nComposition\nIngredients (13)\n#\tINGREDIENT\tCONCENTRATION\tONTOLOGY\tNOTES\n1\tNaNO3\nNO3.Na 84.994 g/mol\nCross-Mech: MediaIngredientMech \u00b7 CMMMech\n\t15.00 G_PER_L\tCHEBI:63005\nsodium nitrate\n\tFrom CCAP Medium MR_2ASW.pdf; Curated from CCAP Medium MR_2ASW.pdf specification; Identity verified against CCAP MR_2ASW.pdf revision 002, approved/reviewed 2026-05-29. The retained 15.00 g/L is the extra-salts stock ",
+        "selected_links": [
+          {
+            "text": "Skip to record content",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html#main-content"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse media",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "Media Index",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "MediaIngredientMech",
+            "url": "https://culturebotai.github.io/MediaIngredientMech/?q=NaNO3"
+          },
+          {
+            "text": "CommunityMech",
+            "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=2asw"
+          },
+          {
+            "text": "TaxonMech",
+            "url": "https://culturebotai.github.io/TaxonMech/#q=Dunaliella%20salina"
+          },
+          {
+            "text": "TraitMech",
+            "url": "https://culturebotai.github.io/TraitMech/?q=Dunaliella%20salina"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/?q=2asw"
+          },
+          {
+            "text": "CMMMech",
+            "url": "https://culturebotai.github.io/CMMMech/pages/chemicals.html?q=NaNO3"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/app/umap.html": {
+        "url": "https://culturebotai.github.io/CultureMech/app/umap.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:51.182729+00:00",
+        "title": "CultureMech Media Embedding Map (PaCMAP)",
+        "headings": [
+          "CultureMech Media Embedding Map (PaCMAP)",
+          "FILTER POINTS",
+          "Derived Media Embeddings",
+          "Direct Media Embeddings"
+        ],
+        "footer": "",
+        "counts": [
+          {
+            "id": "facet-count",
+            "cls": "",
+            "text": "22,764"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 2,
+        "body_excerpt": "CultureMech Media Embedding Map (PaCMAP)\n\nRetained media and stock-solution maps\n\nThese are historical coordinate snapshots retained in the repository as of 2026-10-05; the original embedding generation date is not recorded. Each panel covers only the records with coordinates in its own embedding dataset, not the current browser corpus. Missing points do not imply missing recipes or biological similarity. Use the browser for current record coverage.\n\nHome \u2190 Back to Media Browser Text Map Media PaCMAP Media Graph Ingredient PaCMAP Schema All Mech projects\nFILTER POINTS\nCategory\nalgae\n217\narchaea\n134\nbacterial\n12,599\nfungal\n55\nsolution\n9,358\nspecialized\n401\nShowing 22,764 of 22,764 points\nDerived Media Embeddings\n\nAggregated from ingredient and organism embeddings; includes media and stock solutions.\n\nTotal:\n14,666\nVisible:\n14666\nAll\nMedia Only\nSolutions Only\n\n14,666 plotted records: 10,08",
+        "selected_links": [
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "\u2190 Back to Media Browser",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/pages/normalized/015438.html": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/015438.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:54.467139+00:00",
+        "title": "nitrogen_free_plant_nutrient_solution_for_soybean_growth (CultureMech:015438) \u2014 CultureMech",
+        "headings": [
+          "nitrogen_free_plant_nutrient_solution_for_soybean_growth",
+          "Overview",
+          "Composition",
+          "Ingredients (4)",
+          "Target organisms",
+          "Provenance"
+        ],
+        "footer": "Generated from data/normalized_yaml/specialized/Nitrogen_free_plant_nutrient_solution_for_soybean_growth.yaml \u00b7 LinkML Schema \u00b7 JSON / TSV \u00b7 GitHub \u00b7 BSD-3-Clause",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 3,
+        "unique_record_links": 3,
+        "record_links_sha256": "ab43439d8c98416519214edee2ec5f4bc8a535697c7a2ff35bbd621d318aad6e",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to record content\nHome \u00b7 Browse media \u00b7 Text Map \u00b7 Media PaCMAP \u00b7 Media Graph \u00b7 Ingredient PaCMAP \u00b7 Schema \u00b7 Media Index \u00b7 All Mech projects \u203a CultureMech:015438\nnitrogen_free_plant_nutrient_solution_for_soybean_growth\nCultureMech:015438 specialized DEFINED LIQUID\nOriginal name: Nitrogen-free plant nutrient solution for soybean growth\nSearch\nOverview\npH\n6.5\nNotes\nVessel type: Leonard jars or pots with vermiculite\nLight regime: 16h light / 8h dark\nLight intensity: 250\n\nNitrogen-free growth medium for soybean to study symbiotic nitrogen fixation. Leonard jar system or vermiculite substrate watered with nitrogen-free nutrient solution. Plants inoculated with sfSynCom (Bradyrhizobium BXYD3 plus Pantoea helper strains) to assess nodulation efficiency and nitrogen fixation capacity.\n\nCross-Mech\nMediaIngredientMech \u00b7 CommunityMech \u00b7 TaxonMech \u00b7 TraitMech \u00b7 HabitatMech \u00b7 CMMMech\nComposition",
+        "selected_links": [
+          {
+            "text": "Skip to record content",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/015438.html#main-content"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse media",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "Media Index",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "MediaIngredientMech",
+            "url": "https://culturebotai.github.io/MediaIngredientMech/?q=Potassium%20phosphate"
+          },
+          {
+            "text": "CommunityMech",
+            "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=nitrogen_free_plant_nutrient_solution_for_soybean_growth"
+          },
+          {
+            "text": "TaxonMech",
+            "url": "https://culturebotai.github.io/TaxonMech/#q=nitrogen_free_plant_nutrient_solution_for_soybean_growth"
+          },
+          {
+            "text": "TraitMech",
+            "url": "https://culturebotai.github.io/TraitMech/?q=nitrogen_free_plant_nutrient_solution_for_soybean_growth"
+          },
+          {
+            "text": "HabitatMech",
+            "url": "https://culturebotai.github.io/HabitatMech/?q=nitrogen_free_plant_nutrient_solution_for_soybean_growth"
+          },
+          {
+            "text": "CMMMech",
+            "url": "https://culturebotai.github.io/CMMMech/pages/chemicals.html?q=Potassium%20phosphate"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/pages/normalized/index.html": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:14:57.521736+00:00",
+        "title": "CultureMech \u2014 Media index",
+        "headings": [
+          "CultureMech \u2014 Media index",
+          "algae (255)",
+          "archaea (747)",
+          "bacterial (14332)",
+          "fungal (126)",
+          "specialized (455)"
+        ],
+        "footer": "15,915 CultureMech media records \u00b7 LinkML Schema \u00b7 JSON / TSV \u00b7 GitHub \u00b7 BSD-3-Clause",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 15916,
+        "unique_record_links": 15916,
+        "record_links_sha256": "c69fb974bd8c1387ad676543a1fb6f5a91d1d06323b9dfaf0a0882e39f97b8b4",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Skip to record content\nHome \u00b7 Browse media \u00b7 Text Map \u00b7 Media PaCMAP \u00b7 Media Graph \u00b7 Ingredient PaCMAP \u00b7 Schema \u00b7 All Mech projects\nCultureMech \u2014 Media index\n\n15,915 media records.\n\nSearch\n\nMedia growth evidence review\n\nalgae (255)\nCultureMech:000001 \u2014 1_1_dyiii_pea_gr_medium\nCultureMech:000002 \u2014 1_2_chev_diatom_medium\nCultureMech:000003 \u2014 1_2_enriched_seawater\nCultureMech:000004 \u2014 1_2_erdschreiber_medium\nCultureMech:000005 \u2014 1_2_soil_seawater_medium\nCultureMech:000006 \u2014 1_3_chev_diatom_medium\nCultureMech:000007 \u2014 1_3_soil_seawater_medium\nCultureMech:000008 \u2014 1_4_erdschreibers_medium\nCultureMech:000009 \u2014 1_4_soil_seawater_medium\nCultureMech:000010 \u2014 1_5_chev_diatom_medium\nCultureMech:000011 \u2014 1_5_soil_seawater_medium\nCultureMech:000012 \u2014 1_f_2_medium\nCultureMech:000013 \u2014 20_allen_80_erdschreiber_1_4_medium\nCultureMech:000017 \u2014 2_3_chev_diatom_medium\nCultureMech:000018 \u2014 2_3_enriched_seaw",
+        "selected_links": [
+          {
+            "text": "Skip to record content",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/index.html#main-content"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse media",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Media growth evidence review",
+            "url": "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html"
+          },
+          {
+            "text": "CultureMech:000001",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000001.html"
+          },
+          {
+            "text": "CultureMech:000002",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000002.html"
+          },
+          {
+            "text": "CultureMech:000003",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000003.html"
+          },
+          {
+            "text": "CultureMech:000004",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000004.html"
+          },
+          {
+            "text": "CultureMech:000005",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000005.html"
+          },
+          {
+            "text": "CultureMech:000006",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000006.html"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/app/schema.html": {
+        "url": "https://culturebotai.github.io/CultureMech/app/schema.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:15:01.252647+00:00",
+        "title": "CultureMech - Microbial Growth Media Schema \u2014 CultureMech",
+        "headings": [
+          "CultureMech - Microbial Growth Media Schema",
+          "Classes (51)",
+          "MediaRecipe",
+          "SolutionRecipe",
+          "RecipeSynonym",
+          "MergeMetadata",
+          "Descriptor",
+          "Term",
+          "MediaTypeDescriptor",
+          "IngredientDescriptor",
+          "SolutionDescriptor",
+          "OrganismDescriptor",
+          "SourceEnvironmentDescriptor",
+          "CofactorDescriptor",
+          "SourceReference",
+          "IngredientSynonym",
+          "IngredientCurationMetadata",
+          "IngredientReference",
+          "ConcentrationValue",
+          "ConcentrationCandidate",
+          "GrowthMetrics",
+          "PerturbationContext",
+          "StrainModification",
+          "NutrientOverride",
+          "TemperatureValue",
+          "PhRange",
+          "PreparationStep",
+          "SterilizationDescriptor",
+          "StorageConditions",
+          "MediaVariant",
+          "MediaRecipeReference",
+          "SupplierInfo",
+          "PublicationReference",
+          "EvidenceItem",
+          "CurationEvent",
+          "SourceData",
+          "CofactorRequirement",
+          "TransporterAnnotation",
+          "ProteinExample",
+          "CausalEdge",
+          "ChemicalEntityTerm",
+          "ChebiTerm",
+          "OrganismTerm",
+          "GTDBTerm",
+          "MediaDatabaseTerm",
+          "MediaIngredientMechTerm",
+          "MediaIngredientMechChebiTerm",
+          "CultureMechTerm",
+          "EnvironmentTerm",
+          "UniProtTerm",
+          "CausalTerm",
+          "ImportMetadata",
+          "UpdateEvent",
+          "Enumerations (34)",
+          "RecordKindEnum",
+          "MediumTypeEnum",
+          "MediumCompositionTypeEnum",
+          "MediumNutritionalClassEnum",
+          "MediumFunctionalRoleEnum",
+          "PhysicalStateEnum",
+          "ConcentrationBasisEnum",
+          "ConcentrationUnitEnum",
+          "TemperatureUnitEnum",
+          "AtmosphereEnum",
+          "PreparationActionEnum",
+          "SterilizationMethodEnum",
+          "LightConditionEnum",
+          "ModifierEnum",
+          "EvidenceItemSupportEnum",
+          "CategoryEnum",
+          "OrganismCultureTypeEnum",
+          "CofactorCategoryEnum",
+          "CommunityOrganismRoleEnum",
+          "TransporterTypeEnum",
+          "VariantTypeEnum",
+          "MediaVariantRelationshipEnum",
+          "MergeReasonEnum",
+          "SourceDatabaseEnum",
+          "UpdateActionEnum",
+          "PerturbationTypeEnum",
+          "StrainModificationTypeEnum",
+          "GrowthModeEnum",
+          "MergeModeEnum",
+          "FingerprintModeEnum",
+          "GrowthPhaseEnum",
+          "TermMatchTypeEnum",
+          "SynonymTypeEnum",
+          "CausalPredicateEnum"
+        ],
+        "footer": "CultureMech \u00b7 Home \u00b7 Browse Recipes \u00b7 LinkML YAML \u00b7 GitHub (CultureBotAI/CultureMech) \u00b7 BSD-3-Clause",
+        "counts": [],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "CultureMech - Microbial Growth Media Schema\n\nLinkML schema for modeling microbial culture media recipes and formulations. Follows the dismech architecture pattern with descriptor classes for ontology grounding.\n\nSchema URI: https://w3id.org/culturemech \u00b7 License: BSD-3-Clause \u00b7 Download LinkML YAML \u2193\n\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects \u2197\n51 classes \u00b7 34 enums \u00b7 Download JSON \u00b7 Download TSV\nClasses (51)\nMediaRecipe\n\nA complete growth medium formulation for culturing microorganisms. This is the root entity - one per YAML file.\n\nAttribute\tRange\tCardinality\tStatus\tDescription\nid\tstring\tsingle\trequired\tStable canonical external CultureMech identifier for this media recipe. Immutable after issuance and never reused; lifecycle is published in data/culturemech_recipe_catalog.tsv.\nid_lineage_token\tstring\tsingle\toptional\tInternal immuta",
+        "selected_links": [
+          {
+            "text": "Download LinkML YAML \u2193",
+            "url": "https://culturebotai.github.io/CultureMech/app/culturemech.yaml"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse Recipes",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects \u2197",
+            "url": "https://culturebotai.github.io/mechs/"
+          },
+          {
+            "text": "Download JSON",
+            "url": "https://culturebotai.github.io/CultureMech/app/recipes.json"
+          },
+          {
+            "text": "Download TSV",
+            "url": "https://culturebotai.github.io/CultureMech/app/recipes.tsv"
+          },
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse Recipes",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "LinkML YAML",
+            "url": "https://culturebotai.github.io/CultureMech/app/culturemech.yaml"
+          },
+          {
+            "text": "GitHub (CultureBotAI/CultureMech)",
+            "url": "https://github.com/CultureBotAI/CultureMech"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html": {
+        "url": "https://culturebotai.github.io/CultureMech/pages/media_growth_review.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:15:03.821485+00:00",
+        "title": "CultureMech Media Growth Evidence Review",
+        "headings": [
+          "CultureMech Media Growth Evidence Review",
+          "Review Status",
+          "Records By Directory",
+          "Reviewed Records"
+        ],
+        "footer": "",
+        "counts": [
+          {
+            "id": "",
+            "cls": "metric",
+            "text": "15,915\nTotal normalized YAML records"
+          },
+          {
+            "id": "",
+            "cls": "metric",
+            "text": "33\nRecords covered by proposals or applied evidence (0.2%)"
+          },
+          {
+            "id": "",
+            "cls": "metric",
+            "text": "33\nRecords with applied growth metrics"
+          },
+          {
+            "id": "",
+            "cls": "metric",
+            "text": "83\nRecords with supported applied evidence"
+          },
+          {
+            "id": "",
+            "cls": "metric",
+            "text": "13\nRecords with genome assembly identifiers"
+          },
+          {
+            "id": "",
+            "cls": "metric",
+            "text": "104\nRecords with modeled variants"
+          },
+          {
+            "id": "visibleCount",
+            "cls": "",
+            "text": "33"
+          }
+        ],
+        "theme": null,
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 520
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 520
+        },
+        "record_links_count": 33,
+        "unique_record_links": 33,
+        "record_links_sha256": "ab61061fe6d919a26129db786ad9675c1e735d3e2732d749dfc50c9de6f85562",
+        "canvas": 0,
+        "svg": 0,
+        "body_excerpt": "Media index\nCultureMech Media Growth Evidence Review\n\nCoverage report for medium-centered growth-evidence review. Generated 2026-11-04T11:52:03+00:00 from reports/media_growth_review_manifest.tsv.\n\nNormalized corpus snapshot: 09f908802989670d2cc799f75f67cf56f7834178. Manifest SHA256: 4fb4c11e4fa5fd3f7770966391574b4337619138736ae188a171a6cc6aa32068. Includes media and supporting solution records; category and primary-target counts are reported below. Proposal coverage includes only proposal files present at build time; absence is not evidence that a recipe was never researched.\n\n15,915\nTotal normalized YAML records\n33\nRecords covered by proposals or applied evidence (0.2%)\n33\nRecords with applied growth metrics\n83\nRecords with supported applied evidence\n13\nRecords with genome assembly identifiers\n104\nRecords with modeled variants\nReview Status\nApplied evidence\t33\nSupported candidate\t0\nRev",
+        "selected_links": [
+          {
+            "text": "Media index",
+            "url": "https://culturebotai.github.io/CultureMech/pages/index.html"
+          },
+          {
+            "text": "2ASW",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000038.html"
+          },
+          {
+            "text": "Artificial Seawater Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000025.html"
+          },
+          {
+            "text": "Bold Basal Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000034.html"
+          },
+          {
+            "text": "Bristol Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000037.html"
+          },
+          {
+            "text": "TAP Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000139.html"
+          },
+          {
+            "text": "F/2 Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000170.html"
+          },
+          {
+            "text": "Spirulina Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000232.html"
+          },
+          {
+            "text": "TAP Medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000233.html"
+          },
+          {
+            "text": "BG11",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/015450.html"
+          },
+          {
+            "text": "METHANOSARCINA MEDIUM",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/000660.html"
+          },
+          {
+            "text": "PYROCOCCUS MEDIUM",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/001478.html"
+          },
+          {
+            "text": "FRIIS medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/003730.html"
+          },
+          {
+            "text": "MRS medium",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/003940.html"
+          },
+          {
+            "text": "COLUMBIA BLOOD AGAR",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/005268.html"
+          },
+          {
+            "text": "HALOTHERMOTHRIX ORENII",
+            "url": "https://culturebotai.github.io/CultureMech/pages/normalized/006416.html"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/app/text_map.html": {
+        "url": "https://culturebotai.github.io/CultureMech/app/text_map.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:15:06.528287+00:00",
+        "title": "CultureMech - Text Embedding Map",
+        "headings": [
+          "CultureMech Text Embedding Map",
+          "FACET FILTERS"
+        ],
+        "footer": "",
+        "counts": [
+          {
+            "id": "visible-stats",
+            "cls": "stats-pill",
+            "text": "6,320 / 6,320 recipes"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "CultureMech Text Embedding Map\n\nSemantic landscape of canonical culture media recipes encoded with BAAI/bge-small-en-v1.5\n\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects \u2197\nFACET FILTERS\nReset all\nCATEGORY\nbacterial\n5250\narchaea\n553\nspecialized\n356\nalgae\n101\nfungal\n60\nMEDIUM TYPE\ncomplex\n5038\ndefined\n1282\nPHYSICAL STATE\nliquid\n4622\nsolid_agar\n1696\nsemisolid\n2\nSOURCE DATABASE\nTOGO\n2496\nJCM\n987\nDSMZ\n832\nkomodo.medium\n830\nMEDIADB\n368\nOther\n319\nMediaDive\n298\nCCAP\n76\njcm.grmd\n59\nNBRC\n29\nUTEX\n14\nnbrc.medium\n12\nColor by:\nCategory\nMedium Type\nPhysical State\nSource Database\nProjection:\nPaCMAP 2D\nPCA 2D\nReset Zoom\n6,320 / 6,320 recipes\nbacterial\narchaea\nspecialized\nalgae\nfungal\n\u2600",
+        "selected_links": [
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "Browse Recipes",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects \u2197",
+            "url": "https://culturebotai.github.io/mechs/"
+          }
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html": {
+        "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html",
+        "http_status": 200,
+        "checked_at": "2026-11-04T12:15:09.205386+00:00",
+        "title": "CultureMech Ingredient PaCMAP",
+        "headings": [
+          "CultureMech Ingredient PaCMAP",
+          "Ingredient Embedding Space"
+        ],
+        "footer": "",
+        "counts": [
+          {
+            "id": "total-count",
+            "cls": "",
+            "text": "653"
+          },
+          {
+            "id": "visible-count",
+            "cls": "",
+            "text": "653"
+          }
+        ],
+        "theme": "dark",
+        "saved_theme": "dark",
+        "fresh_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "resized_390": {
+          "width": 390,
+          "scroll": 390
+        },
+        "record_links_count": 0,
+        "unique_record_links": 0,
+        "record_links_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canvas": 0,
+        "svg": 1,
+        "body_excerpt": "CultureMech Ingredient PaCMAP\n\n653 CHEBI ingredients \u2014 top100: 100 \u00a0|\u00a0 top500: 394 \u00a0|\u00a0 other: 159\n\nHome \u2190 Back to Media Browser Text Map Media PaCMAP Media Graph Ingredient PaCMAP Schema All Mech projects\nOccurrence Tier:top500(394)other(159)top100(100)\nMedia Count:2-4 media(157)5-19 media(151)100+ media(150)20-99 media(126)1 medium(69)\nCAS-RN:Has CAS-RN(522)No CAS-RN(131)\nKG Node:Mapped via CHEBI(361)Direct KG match(292)\nClear facets\nIngredient Embedding Space\n\nEach point = one CHEBI ingredient in KG-Microbe (512-dim DeepWalk, PaCMAP 2D). Size = occurrence frequency (log scale). Color = occurrence tier. Scroll to zoom \u2022 Drag to pan \u2022 Hover for details.\n\nTotal: 653\nVisible: 653\nAll\nTop 100\nTop 500\nOther\nReset zoom\nTop 100 (most frequent)\nTop 500\nOther\nPoint size reflects log-scale occurrence frequency across CultureMech media.\nView data as table\n\u2600",
+        "selected_links": [
+          {
+            "text": "Home",
+            "url": "https://culturebotai.github.io/CultureMech/app/index.html"
+          },
+          {
+            "text": "\u2190 Back to Media Browser",
+            "url": "https://culturebotai.github.io/CultureMech/app/browser.html"
+          },
+          {
+            "text": "Text Map",
+            "url": "https://culturebotai.github.io/CultureMech/app/text_map.html"
+          },
+          {
+            "text": "Media PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap.html"
+          },
+          {
+            "text": "Media Graph",
+            "url": "https://culturebotai.github.io/CultureMech/app/umap_graph.html"
+          },
+          {
+            "text": "Ingredient PaCMAP",
+            "url": "https://culturebotai.github.io/CultureMech/app/ingredient_umap.html"
+          },
+          {
+            "text": "Schema",
+            "url": "https://culturebotai.github.io/CultureMech/app/schema.html"
+          },
+          {
+            "text": "All Mech projects",
+            "url": "https://culturebotai.github.io/mechs/"
+          }
+        ]
+      }
+    },
+    "actions": {
+      "query:CultureMech:000252": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=CultureMech%3A000252",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "1 recipe"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": "CultureMech:000252"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": []
+      },
+      "query:Halophilic medium": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=Halophilic+medium",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "4 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": "Halophilic medium"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": []
+      },
+      "query:no-such-record-nov4-audit": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=no-such-record-nov4-audit",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "0 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": "no-such-record-nov4-audit"
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": []
+      },
+      "clear_query": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "15915 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": []
+      },
+      "sorting_absence": {
+        "selects": 0,
+        "sort_buttons": 0
+      },
+      "facet:first": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?category=bacterial",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "14332 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": ""
+          }
+        ],
+        "checked": [
+          {
+            "value": "on",
+            "dataset": {
+              "facet": "category",
+              "value": "bacterial"
+            }
+          }
+        ],
+        "rows": 0,
+        "first_results": []
+      },
+      "combined_query": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=Halophilic+medium&category=bacterial",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "2 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": "Halophilic medium"
+          }
+        ],
+        "checked": [
+          {
+            "value": "on",
+            "dataset": {
+              "facet": "category",
+              "value": "bacterial"
+            }
+          }
+        ],
+        "rows": 0,
+        "first_results": []
+      },
+      "restored": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=Halophilic+medium&category=bacterial",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "2 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": "Halophilic medium"
+          }
+        ],
+        "checked": [
+          {
+            "value": "on",
+            "dataset": {
+              "facet": "category",
+              "value": "bacterial"
+            }
+          }
+        ],
+        "rows": 0,
+        "first_results": []
+      },
+      "reset": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "counts": [
+          {
+            "id": "resultsCount",
+            "text": "15915 recipes"
+          }
+        ],
+        "controls": [
+          {
+            "id": "searchInput",
+            "value": ""
+          }
+        ],
+        "checked": [],
+        "rows": 0,
+        "first_results": []
+      }
+    },
+    "failure_cases": {
+      "https://culturebotai.github.io/CultureMech/app/browser.html": {
+        "aborted": [
+          "https://culturebotai.github.io/CultureMech/app/data.js"
+        ],
+        "excerpt": [
+          "Recipes could not be loaded.",
+          "Download JSON",
+          "Download TSV",
+          "The catalog is unavailable. Retry loading recipes"
+        ]
+      },
+      "https://culturebotai.github.io/CultureMech/app/umap.html": {
+        "aborted": [
+          "https://culturebotai.github.io/CultureMech/app/map-record-links.json"
+        ],
+        "excerpt": []
+      }
+    },
+    "bulk": {
+      "https://culturebotai.github.io/CultureMech/app/recipes.json": {
+        "http_status": 200,
+        "bytes": 16328780,
+        "sha256": "69fe0bae5fee370a53c55c0f490be5571d585bad29b47d2903657c334f931e38",
+        "record_count": 15915,
+        "sample_field_names": [
+          "id",
+          "name",
+          "category",
+          "description",
+          "medium_type",
+          "physical_state",
+          "high_metal",
+          "high_ree",
+          "target_organism_names",
+          "organism_culture_type",
+          "organism_ids",
+          "ingredient_names",
+          "applications",
+          "sterilization_method",
+          "media_database",
+          "media_database_id",
+          "num_ingredients",
+          "num_solutions",
+          "num_preparation_steps",
+          "source_file",
+          "html_page",
+          "ph_value",
+          "ph_range"
+        ]
+      }
+    }
+  },
+  "changed_files": [
+    {
+      "filename": ".claude/skills/culturemech-evolve-workflow/SKILL.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1
+    },
+    {
+      "filename": ".claude/skills/curate-causal-graphs/SKILL.md",
+      "status": "added",
+      "additions": 134,
+      "deletions": 0
+    },
+    {
+      "filename": "AGENTS.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "INFRA_TASKS.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 19
+    },
+    {
+      "filename": "conf/id_label_targets.yaml",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0
+    },
+    {
+      "filename": "conf/oak_config.yaml",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0
+    },
+    {
+      "filename": "docs/ENRICHMENT_GUIDE.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0
+    },
+    {
+      "filename": "docs/KGX_SEMANTIC_MODEL.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0
+    },
+    {
+      "filename": "project.justfile",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 0
+    },
+    {
+      "filename": "scripts/apply_causal_graphs.py",
+      "status": "added",
+      "additions": 317,
+      "deletions": 0
+    },
+    {
+      "filename": "scripts/validate_causal_graphs.py",
+      "status": "added",
+      "additions": 133,
+      "deletions": 0
+    },
+    {
+      "filename": "scripts/validate_strict.py",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 0
+    },
+    {
+      "filename": "src/culturemech/export/kgx_export.py",
+      "status": "modified",
+      "additions": 166,
+      "deletions": 0
+    },
+    {
+      "filename": "src/culturemech/schema/culturemech.schema.json",
+      "status": "modified",
+      "additions": 143,
+      "deletions": 0
+    },
+    {
+      "filename": "src/culturemech/schema/culturemech.yaml",
+      "status": "modified",
+      "additions": 187,
+      "deletions": 0
+    },
+    {
+      "filename": "src/culturemech/schema/culturemech_dataclasses.py",
+      "status": "modified",
+      "additions": 200,
+      "deletions": 1
+    },
+    {
+      "filename": "src/culturemech/validation/causal_graphs.py",
+      "status": "added",
+      "additions": 627,
+      "deletions": 0
+    },
+    {
+      "filename": "src/culturemech/validation/write_validated.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/test_causal_graphs.py",
+      "status": "added",
+      "additions": 563,
+      "deletions": 0
+    },
+    {
+      "filename": "workflow/mech-workflow.yaml",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 6
+    }
+  ],
+  "compare_url": "https://github.com/CultureBotAI/CultureMech/compare/a74dd489720c9df96cc073ffd11568d407d3c06c...09f908802989670d2cc799f75f67cf56f7834178",
+  "source_change_assessment": "One infrastructure commit adds typed causal graph schema, validation, writer and KGX export. No normalized or merged recipe data or page renderer changed. Browser checks were nevertheless repeated across all 24 criteria.",
+  "schema_observation": {
+    "url": "https://culturebotai.github.io/CultureMech/app/schema.html",
+    "classes": 51,
+    "enums": 34,
+    "excerpt": "CultureMech - Microbial Growth Media Schema\n\nLinkML schema for modeling microbial culture media recipes and formulations. Follows the dismech architecture pattern with descriptor classes for ontology grounding.\n\nSchema URI: https://w3id.org/culturemech \u00b7 License: BSD-3-Clause \u00b7 Download LinkML YAML \u2193\n\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects \u2197\n51 classes \u00b7 34 enums \u00b7 Download JSON \u00b7 Download TSV\nClasses (51)\nMediaRecipe\n\nA complete growth medium formulation for culturing microorganisms. This is the root entity - one per YAML file.\n\nAttribute\tRange\tCardinality\tStatus\tDescription\nid\tstring\tsingle\trequired\tStable canonical external CultureMech identifier for this media recipe. Immutable after issuance and never reused; lifecycle is published in data/culturemech_recipe_catalog.tsv.\nid_lineage_token\tstring\tsingle\toptional\tInternal immutable lineage witness for legacy records that predate the ID-assignment curation event. This is not an external identifier and must never be copied to another record or changed after publication.\nname\tstring\tsingle\trequired\tHuman-readable medium name (e.g., \"LB Broth\", \"M9 Minimal Medium\")\noriginal_name\tstring\tsingle\toptional\tOriginal name from source database before filename sanitization. May contain special characters like /, :, %, (, ), ', \", <, >, &, #, etc. This field preserves the exact name as it appears in the source database.\ncategory\tCategoryEnum\tsingle\trecommended\tBroad category for o"
+  },
+  "archive": {
+    "raw_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/culturemech-redeployment-09f9088-raw.json",
+    "raw_sha256": "d2b17dcb7c308894ef6a9475e70b2b58b2f00756807e1625c505f2699853238e",
+    "compare": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/culturemech-redeployment-09f9088-compare.json",
+    "compare_sha256": "08f9b46429fc348b0fe8d15d4a9b3f14cd41060210ce89461a28c0824965f735"
+  },
+  "independent_review": "culturemech-redeployment-skeptic.json: deployment_review independently verified this deployment and agrees with all 24 statuses."
+}

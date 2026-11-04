@@ -1,0 +1,1118 @@
+{
+  "reviewer": "deployment_review independent skeptic of group B",
+  "checked_at": "2026-11-04T12:06:38.779128+00:00",
+  "method": "Read each of 168 criterion verdicts against captured live-page and action evidence, inspected the browser helper, and independently re-exercised the challenged behaviors in Chromium.",
+  "challenges": "group-b-skeptic-challenges.json",
+  "features": {
+    "CultureMech": {
+      "search": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/culturemech-auditor-b.json#/features/load_failure/evidence"
+      }
+    },
+    "MediaIngredientMech": {
+      "search": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/mediaingredientmech-auditor-b.json#/features/load_failure/evidence"
+      }
+    },
+    "CommunityMech": {
+      "search": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "not_applicable",
+        "auditor": "not_applicable",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/communitymech-auditor-b.json#/features/load_failure/evidence"
+      }
+    },
+    "ProteinTraitsMech": {
+      "search": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/proteintraitsmech-auditor-b.json#/features/load_failure/evidence"
+      }
+    },
+    "DUFMech": {
+      "search": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/dufmech-auditor-b.json#/features/load_failure/evidence"
+      }
+    },
+    "CMMMech": {
+      "search": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "not_applicable",
+        "auditor": "not_applicable",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/cmmmech-auditor-b.json#/features/load_failure/evidence"
+      }
+    },
+    "AIMech": {
+      "search": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/search/evidence"
+      },
+      "facets": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/facets/evidence"
+      },
+      "result_counts": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/result_counts/evidence"
+      },
+      "sorting": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/sorting/evidence"
+      },
+      "shareable_state": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/shareable_state/evidence"
+      },
+      "full_catalogue": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/full_catalogue/evidence"
+      },
+      "record_pages": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/record_pages/evidence"
+      },
+      "term_links": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/term_links/evidence"
+      },
+      "evidence": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/evidence/evidence"
+      },
+      "review_status": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/review_status/evidence"
+      },
+      "curation_history": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/curation_history/evidence"
+      },
+      "source_link": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/source_link/evidence"
+      },
+      "domain_view": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/domain_view/evidence"
+      },
+      "cross_mech_links": {
+        "skeptic": "missing",
+        "auditor": "missing",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/cross_mech_links/evidence"
+      },
+      "corpus_stats": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/corpus_stats/evidence"
+      },
+      "category_browse": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/category_browse/evidence"
+      },
+      "suite_nav": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/suite_nav/evidence"
+      },
+      "downloads": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/downloads/evidence"
+      },
+      "schema_docs": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/schema_docs/evidence"
+      },
+      "license": {
+        "skeptic": "partial",
+        "auditor": "partial",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/license/evidence"
+      },
+      "build_provenance": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/build_provenance/evidence"
+      },
+      "theme_toggle": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/theme_toggle/evidence"
+      },
+      "responsive": {
+        "skeptic": "present",
+        "auditor": "present",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/responsive/evidence"
+      },
+      "load_failure": {
+        "skeptic": "not_applicable",
+        "auditor": "not_applicable",
+        "agree": true,
+        "reviewed_evidence": "_fleet/reviews/refresh-20261104/aimech-auditor-b.json#/features/load_failure/evidence"
+      }
+    }
+  },
+  "disagreements": [],
+  "full_export_check": {
+    "evidence": "group-b-bulk-inventory.json#/DUFMech/structure/metadata",
+    "metadata_records": 8296,
+    "sample_complete_record_fields": [
+      "causal_graphs",
+      "characterization_status",
+      "counters",
+      "curation_events",
+      "curation_history",
+      "curation_status",
+      "description",
+      "id",
+      "interpro_id",
+      "name",
+      "pfam_id",
+      "provenance",
+      "seed_status",
+      "short_name",
+      "source_url"
+    ],
+    "decision": "Present: exported metadata includes full source records, curation events and provenance in addition to browsing rows.",
+    "native_comparison": {
+      "evidence": "downloads-independent.json#/DUFMech",
+      "native_record_equal": true,
+      "embedded_records": 8296,
+      "sample_graphs": 3,
+      "sample_curation_events": 7
+    }
+  },
+  "limits": [
+    "This independently re-exercises challenged behaviors, not every previously captured action.",
+    "Root arbitration requires substantive scientific record-corpus exports; navigation-only indexes remain partial. Rendered schema docs or a guide are required for present schema_docs."
+  ],
+  "protein_search_check": {
+    "evidence": "protein-search-independent.json",
+    "settled_result_headers": {
+      "cd05137": "1 record \u00b7 filtered",
+      "homogentisate 1,2-dioxygenase": "16 records \u00b7 filtered",
+      "no-such-record-nov4-audit": "0 records \u00b7 filtered"
+    }
+  },
+  "culture_redeployment": {
+    "receipt": "culturemech-redeployment-skeptic.json",
+    "verified_at": "2026-11-04T12:21:04.415270+00:00",
+    "corpus_pin": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+    "served_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+    "deployment": {
+      "id": 7545180210,
+      "sha": "09f908802989670d2cc799f75f67cf56f7834178",
+      "created_at": "2026-11-04T11:53:07Z",
+      "latest_status": {
+        "state": "success",
+        "created_at": "2026-11-04T11:54:29Z",
+        "environment_url": "https://culturebotai.github.io/CultureMech/"
+      },
+      "header_url": "https://culturebotai.github.io/CultureMech/app/",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT"
+    },
+    "schema_classes": 51,
+    "schema_enums": 34,
+    "criteria_reconciled": 24,
+    "status_disagreements": 0
+  },
+  "cmm_redeployment": {
+    "receipt": "cmmmech-redeployment-skeptic.json",
+    "verified_at": "2026-11-04T12:31:28.548272+00:00",
+    "corpus_pin": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+    "served_revision": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+    "deployment": {
+      "id": 7545798616,
+      "sha": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+      "created_at": "2026-11-04T12:22:25Z",
+      "latest_status": {
+        "state": "success",
+        "created_at": "2026-11-04T12:22:49Z",
+        "environment_url": "https://culturebotai.github.io/CMMMech/"
+      },
+      "header_url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 12:22:42 GMT"
+    },
+    "criteria_reconciled": 24,
+    "status_disagreements": 0,
+    "changed_records_checked": 10,
+    "digest": "92117fbb1ec5"
+  }
+}

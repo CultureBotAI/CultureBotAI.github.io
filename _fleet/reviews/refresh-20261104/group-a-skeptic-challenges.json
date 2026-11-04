@@ -1,0 +1,446 @@
+{
+  "reviewer": "central_directory independent challenge",
+  "started_at": "2026-11-04T12:05:49.167060+00:00",
+  "checks": {
+    "AntibioticMech_broad_search": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=a",
+      "counts": [
+        {
+          "id": "browse-count",
+          "text": "3064 of 3064 compounds match (first 500 shown)."
+        }
+      ],
+      "controls": [
+        {
+          "id": "q",
+          "value": "a"
+        },
+        {
+          "id": "facet-class",
+          "value": ""
+        },
+        {
+          "id": "facet-grounding",
+          "value": ""
+        },
+        {
+          "id": "facet-status",
+          "value": ""
+        },
+        {
+          "id": "facet-source",
+          "value": ""
+        },
+        {
+          "id": "facet-sort",
+          "value": "name-asc"
+        },
+        {
+          "id": "facet-target",
+          "value": "1"
+        },
+        {
+          "id": "facet-moa",
+          "value": "2"
+        },
+        {
+          "id": "facet-res",
+          "value": "4"
+        },
+        {
+          "id": "facet-act",
+          "value": "8"
+        }
+      ],
+      "checked": [],
+      "rows": 507,
+      "first_results": [
+        "(+)-(11R,2'S)-erythro-mefloquine\tantiprotozoal\t\u2014\tEXACT\tSEEDED\tCHEBI",
+        "(+)-albicanol\tantifungal\t\u2014\tEXACT\tSEEDED\tCHEBI",
+        "(+)-aplasmomycin\tantibacterial\tmacrolide antibiotic\tEXACT\tSEEDED\tARO, CHEBI"
+      ]
+    },
+    "HabitatMech_broad_search": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=a",
+      "counts": [
+        {
+          "id": "browse-count",
+          "text": "Showing 200 of 3178 matching habitats"
+        }
+      ],
+      "controls": [
+        {
+          "id": "browse-q",
+          "value": "a"
+        },
+        {
+          "id": "browse-grounding",
+          "value": ""
+        },
+        {
+          "id": "browse-sort",
+          "value": "assertions-desc"
+        }
+      ],
+      "checked": [],
+      "rows": 208,
+      "first_results": [
+        "HOST_ASSOCIATED\t1655\t1180\tHabitats defined by a living host, including anatomical sites.",
+        "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+        "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+      ]
+    },
+    "Habitat_failed_search": {
+      "blocked": [
+        "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/engineered.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/other.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/food.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/air.json",
+        "https://culturebotai.github.io/HabitatMech/pages/category/clinical.json"
+      ],
+      "state": {
+        "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water",
+        "counts": [
+          {
+            "id": "browse-count",
+            "text": "Showing 0 of 0 matching habitats"
+          }
+        ],
+        "controls": [
+          {
+            "id": "browse-q",
+            "value": "water"
+          },
+          {
+            "id": "browse-grounding",
+            "value": ""
+          },
+          {
+            "id": "browse-sort",
+            "value": "assertions-desc"
+          }
+        ],
+        "checked": [],
+        "rows": 2,
+        "first_results": [
+          "ENGINEERED\t488\t241\tBuilt or managed environments: bioreactors, wastewater, industry.",
+          "AQUATIC\t468\t346\tMarine, freshwater and other water-column or aquatic-sediment environments."
+        ]
+      }
+    },
+    "AntibioticMech_failed_sequence_search": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html",
+      "blocked": [
+        "https://culturebotai.github.io/AntibioticMech/pages/data/sequence_map.json"
+      ],
+      "before": [
+        "Sequence map could not be loaded: Failed to fetch"
+      ],
+      "after": [
+        "Showing 0 of 0 proteins.",
+        "0 matching proteins (0 listed)."
+      ]
+    },
+    "NaturalProductMech_failed_sequence_search": {
+      "url": "https://culturebotai.github.io/NaturalProductMech/pages/sequence-map.html",
+      "blocked": [
+        "https://culturebotai.github.io/NaturalProductMech/pages/data/sequence_map.json"
+      ],
+      "before": [
+        "Sequence map could not be loaded: Failed to fetch"
+      ],
+      "after": [
+        "Showing 0 of 0 proteins.",
+        "0 matching proteins (0 listed)."
+      ]
+    },
+    "Habitat_dark_selected": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+      "theme": "dark"
+    },
+    "Habitat_map_dark": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/index.html",
+      "theme": null,
+      "toggle_count": 0,
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "Habitat_Taxon_target": {
+      "url": "https://culturebotai.github.io/TaxonMech/browse.html?q=Sulfurimonas",
+      "status": 404
+    },
+    "Cell_downloads": [
+      {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json",
+        "text": "Data JSON",
+        "status": 200,
+        "type": "dict",
+        "keys": [
+          "corpus",
+          "record_count",
+          "corpus_updated",
+          "corpus_digest",
+          "schema",
+          "records"
+        ],
+        "sample_fields": {
+          "records": [
+            "identifier",
+            "label",
+            "structure_category",
+            "structure_kind",
+            "definition",
+            "definition_source",
+            "mapping_status",
+            "parent_structures",
+            "has_part",
+            "synonyms",
+            "components",
+            "taxonomic_distribution",
+            "canonical_examples",
+            "functions",
+            "evidence",
+            "causal_graphs",
+            "curation_history"
+          ]
+        }
+      },
+      {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json",
+        "text": "Full corpus JSON",
+        "status": 200,
+        "type": "dict",
+        "keys": [
+          "corpus",
+          "record_count",
+          "corpus_updated",
+          "corpus_digest",
+          "schema",
+          "records"
+        ],
+        "sample_fields": {
+          "records": [
+            "identifier",
+            "label",
+            "structure_category",
+            "structure_kind",
+            "definition",
+            "definition_source",
+            "mapping_status",
+            "parent_structures",
+            "has_part",
+            "synonyms",
+            "components",
+            "taxonomic_distribution",
+            "canonical_examples",
+            "functions",
+            "evidence",
+            "causal_graphs",
+            "curation_history"
+          ]
+        }
+      },
+      {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/index.json",
+        "text": "Catalogue index JSON",
+        "status": 200,
+        "type": "list",
+        "count": 1022,
+        "first_fields": [
+          "identifier",
+          "label",
+          "category",
+          "kind",
+          "status",
+          "page",
+          "definition",
+          "synonyms"
+        ]
+      },
+      {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/corpus.json",
+        "text": "corpus JSON",
+        "status": 200,
+        "type": "dict",
+        "keys": [
+          "corpus",
+          "record_count",
+          "corpus_updated",
+          "corpus_digest",
+          "schema",
+          "records"
+        ],
+        "sample_fields": {
+          "records": [
+            "identifier",
+            "label",
+            "structure_category",
+            "structure_kind",
+            "definition",
+            "definition_source",
+            "mapping_status",
+            "parent_structures",
+            "has_part",
+            "synonyms",
+            "components",
+            "taxonomic_distribution",
+            "canonical_examples",
+            "functions",
+            "evidence",
+            "causal_graphs",
+            "curation_history"
+          ]
+        }
+      },
+      {
+        "url": "https://culturebotai.github.io/CellStructureMech/pages/index.json",
+        "text": "index JSON",
+        "status": 200,
+        "type": "list",
+        "count": 1022,
+        "first_fields": [
+          "identifier",
+          "label",
+          "category",
+          "kind",
+          "status",
+          "page",
+          "definition",
+          "synonyms"
+        ]
+      }
+    ],
+    "Pathway_downloads": [
+      {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json",
+        "status": 200,
+        "data": {
+          "format": "KGX TSV",
+          "pathway_records": 280,
+          "version": "sha256:44bdfa27c57707735c0752c0f94148010007a038fb529835a74c0a37feedd5f1",
+          "data_license": "CC-BY-4.0",
+          "third_party_terms": "Upstream source terms still apply.",
+          "files": {
+            "nodes.tsv": {
+              "sha256": "98b2c43eec993075882897d6e73f4cee2140855c7f4d7674a8fff7c7cda6c201",
+              "rows": 5466
+            },
+            "edges.tsv": {
+              "sha256": "7ce6f3a71e06f30b4dc761598a0f557e158fe8b995498c7c15eb89b1f1312075",
+              "rows": 14788
+            }
+          }
+        }
+      },
+      {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/pathway_index.json",
+        "status": 200,
+        "data": {
+          "format": "pathwaymech-pathway-index/1",
+          "source": "https://github.com/CultureBotAI/PathwayMech",
+          "record_count": 280,
+          "first_record": {
+            "id": "GO:0010139",
+            "label": "pyrimidine deoxyribonucleotide salvage",
+            "pathway_type": "pyrimidine-deoxyribonucleotide-salvage",
+            "page": "records/GO_0010139.html",
+            "url": "https://culturebotai.github.io/PathwayMech/pages/records/GO_0010139.html",
+            "taxa": [
+              {
+                "id": "NCBITaxon:511145",
+                "label": "Escherichia coli str. K-12 substr. MG1655"
+              }
+            ],
+            "proteins": [
+              {
+                "id": "UniProtKB:P0ABF6",
+                "label": "Cytidine deaminase"
+              },
+              {
+                "id": "UniProtKB:P07650",
+                "label": "Thymidine phosphorylase"
+              },
+              {
+                "id": "UniProtKB:P23331",
+                "label": "Thymidine kinase"
+              }
+            ],
+            "reactions": [
+              "RHEA:13434",
+              "RHEA:22825",
+              "RHEA:16039",
+              "RHEA:28207",
+              "RHEA:19130"
+            ]
+          }
+        }
+      },
+      {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/downloads/nodes.tsv",
+        "status": 200,
+        "header_and_first_row": [
+          "id\tname\tcategory\tprovided_by\tsource_category\tdirection\tsource_contexts",
+          "MetaCyc:PWY-5901\t2,3-dihydroxybenzoate biosynthesis\tbiolink:Pathway\tinfores:pathwaymech\t\t\t\"[{\"\"collection\"\": \"\"pathway\"\", \"\"label\"\": \"\"2,3-dihydroxybenzoate biosynthesis\"\", \"\"record_id\"\": \"\"MetaCyc:PWY-5901\"\"}]\""
+        ]
+      },
+      {
+        "url": "https://culturebotai.github.io/PathwayMech/pages/downloads/edges.tsv",
+        "status": 200,
+        "header_and_first_row": [
+          "id\tsubject\tpredicate\tobject\tcategory\tprimary_knowledge_source\tknowledge_level\tagent_type\tsource_records\tdescription\tevidence\treference_metadata\tendpoint_qualifiers",
+          "pathwaymech:MetaCyc_PWY-5901_dhb-edge-001_4cb1a2d5f705\tCHEBI:29748\tpathwaymech:consumes\tRHEA:18986\tbiolink:Association\tinfores:pathwaymech\tknowledge_assertion\tmanual_validation_of_automated_agent\tRHEA:18986\t\t\"[{\"\"reference_id\"\": \"\"RHEA:18986\"\", \"\"source_assertion\"\": \"\"RHEA:18986 assigns CHEBI:29748 to its substrates, coefficient 1 via rh:contains1.\"\", \"\"source_locator\"\": \"\"http://rdf.rhea-db.org/18986 rh:substrates; http://rdf.rhea-db.org/18985_L rh:contains1 http://rdf.rhea-db.org/Participant_18985_compound_3304; http://rdf.rhea-db.org/Participant_18985_compound_3304 rh:compound http://rdf.rhea-db.org/Compound_3304; rh:chebi\"\"}]\"\t\"[{\"\"id\"\": \"\"RHEA:18986\"\", \"\"source_sha256\"\": \"\"8ee48d7044cf3eef1001fa730dae2a491902ab25b259b519d6826796bb8acedf\"\", \"\"source_version\"\": \"\"Rhea 142, 2026-09-02; digest covers complete compressed RDF, with exact subjects selected by evidence locators\"\", \"\"title\"\": \"\"Rhea directional reaction 18986\"\", \"\"url\"\": \"\"https://ftp.expasy.org/databases/rhea/rdf/rhea.rdf.gz\"\"}]\"\t\"\""
+        ]
+      }
+    ]
+  },
+  "deployment_after": {
+    "AntibioticMech": {
+      "id": 7538651315,
+      "sha": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+      "created_at": "2026-11-04T05:22:04Z",
+      "state": "success",
+      "status_created_at": "2026-11-04T05:22:55Z",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 05:22:46 GMT",
+      "header_date": "Wed, 04 Nov 2026 12:06:10 GMT"
+    },
+    "NaturalProductMech": {
+      "id": 7457625249,
+      "sha": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+      "created_at": "2026-10-31T10:52:21Z",
+      "state": "success",
+      "status_created_at": "2026-10-31T10:52:40Z",
+      "http_status": 200,
+      "last_modified": "Sat, 31 Oct 2026 10:52:37 GMT",
+      "header_date": "Wed, 04 Nov 2026 12:06:11 GMT"
+    },
+    "HabitatMech": {
+      "id": 7541124068,
+      "sha": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+      "created_at": "2026-11-04T08:06:38Z",
+      "state": "success",
+      "status_created_at": "2026-11-04T08:07:13Z",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 08:06:59 GMT",
+      "header_date": "Wed, 04 Nov 2026 12:06:12 GMT"
+    },
+    "CellStructureMech": {
+      "id": 7543581273,
+      "sha": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+      "created_at": "2026-11-04T10:23:54Z",
+      "state": "success",
+      "status_created_at": "2026-11-04T10:24:09Z",
+      "http_status": 200,
+      "last_modified": "Wed, 04 Nov 2026 10:24:05 GMT",
+      "header_date": "Wed, 04 Nov 2026 12:06:13 GMT"
+    }
+  },
+  "finished_at": "2026-11-04T12:06:13.207904+00:00",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/group-a-skeptic-challenges.json",
+    "sha256": "86b71c681b9fb6ccc648edb34f68353deae4502a5da468067bfa90d9aef33f72",
+    "bytes": 536805
+  }
+}

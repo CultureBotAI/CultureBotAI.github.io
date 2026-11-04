@@ -1,0 +1,26 @@
+# HabitatMech independent review — 2026-11-04
+
+- search: **partial**. water finds 310 and shows 200; broad query a finds 3178 and shows 200, with no result continuation.
+- facets: **present**. Property-filter selection, combination with search and reset were independently exercised.
+- result_counts: **present**. Observed counts respond to queries and facets and are distinct from the total.
+- sorting: **present**. Each available sort option was selected, with URL/control state and first result rows retained.
+- shareable_state: **present**. A combined query/filter/sort view was reloaded and its controls and matching count compared.
+- full_catalogue: **present**. The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.
+- record_pages: **present**. Multiple stable individual record URLs opened successfully from a fresh browser navigation.
+- term_links: **partial**. Associated taxa are named but NCBITaxon identifiers remain plain text in a main record section.
+- evidence: **partial**. Sampled PMID and DOI citation strings are not resolver anchors.
+- review_status: **present**. Sampled record headers explicitly state their workflow state.
+- curation_history: **present**. Sampled records show dated curation-event sections with attribution and action text.
+- source_link: **present**. Sampled record pages link their own YAML source file rather than just the repository root.
+- domain_view: **present**. Domain figures or maps rendered in the independently opened routes, with data-bearing visuals.
+- cross_mech_links: **partial**. Associated taxa have specific names/identifiers, but the Taxon search target /TaxonMech/browse.html?q=Sulfurimonas returns 404. This is partial under the broken-related-record criterion.
+- corpus_stats: **present**. The generated landing figures were read from the browser and compared with the audited corpus counts.
+- category_browse: **present**. Landing links lead into distinct category subsets with continuation where needed.
+- suite_nav: **present**. Visible suite-directory links occur in the reviewed navigation or footer.
+- downloads: **partial**. Category indexes contain listing metadata and do not export complete environmental/taxon evidence records.
+- schema_docs: **partial**. Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.
+- license: **partial**. The standalone text-map-source page does not state both licenses although ordinary pages do.
+- build_provenance: **partial**. Generated from kg-microbe on 2026-08-16 dates the upstream source, not the current own-record corpus.
+- theme_toggle: **partial**. After explicitly selecting Dark, the standalone text-map-source route has no data-theme value or toggle and ignores that saved choice.
+- responsive: **partial**. The aquatic-macrophyte-associated record independently reaches 404px at a 390px viewport.
+- load_failure: **partial**. Abort the eight lazy category JSON requests and search water: the browser reports zero matches rather than a load failure.

@@ -1,0 +1,645 @@
+{
+  "mech": "CellStructureMech",
+  "reviewer": "deployment_review redeployment auditor",
+  "started_at": "2026-11-04T12:23:59.237972+00:00",
+  "corpus_pin": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+  "served_revision": "d4d24c6c38d06ef27a6bac2c25ed381d50e96431",
+  "source_diff": {
+    "compare_url": "https://github.com/CultureBotAI/CellStructureMech/compare/6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc...d4d24c6c38d06ef27a6bac2c25ed381d50e96431",
+    "commits": 1,
+    "changed_files": [
+      "reviews/structured/20261022T072021Z-get-complex-audit/review.md",
+      "reviews/structured/20261022T072021Z-get-complex-audit/review.yaml",
+      "reviews/structured/20261022T072023Z-gins-complex-audit/review.md",
+      "reviews/structured/20261022T072023Z-gins-complex-audit/review.yaml",
+      "reviews/structured/20261022T072024Z-glideosome-audit/review.md",
+      "reviews/structured/20261022T072024Z-glideosome-audit/review.yaml",
+      "reviews/structured/20261022T072025Z-glutamate-synthase-complex-audit/review.md",
+      "reviews/structured/20261022T072025Z-glutamate-synthase-complex-audit/review.yaml",
+      "reviews/structured/20261022T072026Z-glutamate-synthase-complex-nadph-audit/review.md",
+      "reviews/structured/20261022T072026Z-glutamate-synthase-complex-nadph-audit/review.yaml",
+      "reviews/structured/20261022T072027Z-glycine-cleavage-complex-audit/review.md",
+      "reviews/structured/20261022T072027Z-glycine-cleavage-complex-audit/review.yaml",
+      "reviews/structured/20261022T072028Z-glycine-reductase-complex-audit/review.md",
+      "reviews/structured/20261022T072028Z-glycine-reductase-complex-audit/review.yaml",
+      "reviews/structured/20261022T072029Z-gpi-anchor-transamidase-complex-audit/review.md",
+      "reviews/structured/20261022T072029Z-gpi-anchor-transamidase-complex-audit/review.yaml",
+      "reviews/structured/20261022T072030Z-groel-groes-complex-audit/review.md",
+      "reviews/structured/20261022T072030Z-groel-groes-complex-audit/review.yaml",
+      "reviews/structured/20261022T072031Z-gtr1-gtr2-gtpase-complex-audit/review.md",
+      "reviews/structured/20261022T072031Z-gtr1-gtr2-gtpase-complex-audit/review.yaml",
+      "reviews/structured/20261104T104546Z-pr2393-current-record-followup/review.md",
+      "reviews/structured/20261104T104546Z-pr2393-current-record-followup/review.yaml"
+    ],
+    "root_trees_excluding_reviews": {
+      ".agents": {
+        "old": "db97ca74a08f1490534f662a2663d66e3e2f808d",
+        "new": "db97ca74a08f1490534f662a2663d66e3e2f808d",
+        "equal": true
+      },
+      ".claude": {
+        "old": "5f848a5f58ac756c807bd80f1f2b99aec1f8db32",
+        "new": "5f848a5f58ac756c807bd80f1f2b99aec1f8db32",
+        "equal": true
+      },
+      ".github": {
+        "old": "36e640cf22094cf488888f02eccfe8276025ffc1",
+        "new": "36e640cf22094cf488888f02eccfe8276025ffc1",
+        "equal": true
+      },
+      ".gitignore": {
+        "old": "2a8934c3f06be83341dded0023927ef1b1284dfd",
+        "new": "2a8934c3f06be83341dded0023927ef1b1284dfd",
+        "equal": true
+      },
+      ".nojekyll": {
+        "old": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "new": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "equal": true
+      },
+      ".python-version": {
+        "old": "24ee5b1be9961e38a503c8e764b7385dbb6ba124",
+        "new": "24ee5b1be9961e38a503c8e764b7385dbb6ba124",
+        "equal": true
+      },
+      "AGENTS.md": {
+        "old": "599ba6f4745d13c638156cdca57e134f08155665",
+        "new": "599ba6f4745d13c638156cdca57e134f08155665",
+        "equal": true
+      },
+      "CLAUDE.md": {
+        "old": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+        "new": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+        "equal": true
+      },
+      "INFRA_TASKS.md": {
+        "old": "adcf98aaaea5f3cfd395facda95bd7825a21ab64",
+        "new": "adcf98aaaea5f3cfd395facda95bd7825a21ab64",
+        "equal": true
+      },
+      "LICENSE": {
+        "old": "21c0b20c5776ce0d49aa139577a822aade704e71",
+        "new": "21c0b20c5776ce0d49aa139577a822aade704e71",
+        "equal": true
+      },
+      "LICENSE-CODE": {
+        "old": "460bd4bbb33ca3ed7b32ea9ccef374c3304e82d8",
+        "new": "460bd4bbb33ca3ed7b32ea9ccef374c3304e82d8",
+        "equal": true
+      },
+      "LICENSE-DATA": {
+        "old": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+        "new": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+        "equal": true
+      },
+      "README.md": {
+        "old": "5b7b905ee16af08bc813806e34b35e7f4ef933b1",
+        "new": "5b7b905ee16af08bc813806e34b35e7f4ef933b1",
+        "equal": true
+      },
+      "conf": {
+        "old": "56859531b3b89360b159561c9942acae8231c32a",
+        "new": "56859531b3b89360b159561c9942acae8231c32a",
+        "equal": true
+      },
+      "curation": {
+        "old": "5f2990476a1602f7b13cc502aa9a15a144b40d5b",
+        "new": "5f2990476a1602f7b13cc502aa9a15a144b40d5b",
+        "equal": true
+      },
+      "data": {
+        "old": "38f10e3d32c956d510b63da5ac4921667fea1f8e",
+        "new": "38f10e3d32c956d510b63da5ac4921667fea1f8e",
+        "equal": true
+      },
+      "docs": {
+        "old": "7f9d7fb56b10da37a6f1f29b2878ab70de8ac05b",
+        "new": "7f9d7fb56b10da37a6f1f29b2878ab70de8ac05b",
+        "equal": true
+      },
+      "history": {
+        "old": "3c3cebb05a70e468fc66972f415d91c0645ae767",
+        "new": "3c3cebb05a70e468fc66972f415d91c0645ae767",
+        "equal": true
+      },
+      "index.html": {
+        "old": "3db1c2e12d657c9a23892b36f7dd3f70365d7fdb",
+        "new": "3db1c2e12d657c9a23892b36f7dd3f70365d7fdb",
+        "equal": true
+      },
+      "justfile": {
+        "old": "cf3ae135d0affb4b1327386b464b9eaa376d5d29",
+        "new": "cf3ae135d0affb4b1327386b464b9eaa376d5d29",
+        "equal": true
+      },
+      "pages": {
+        "old": "4b6f35c3c9e6e3936438169d26374a9df0e450f9",
+        "new": "4b6f35c3c9e6e3936438169d26374a9df0e450f9",
+        "equal": true
+      },
+      "prompts": {
+        "old": "7b2d1c59d72df04ce26eb6db92e1f365f0528d34",
+        "new": "7b2d1c59d72df04ce26eb6db92e1f365f0528d34",
+        "equal": true
+      },
+      "pyproject.toml": {
+        "old": "3c82246b38d04fb1d43a892d974e5b6f44daf7fe",
+        "new": "3c82246b38d04fb1d43a892d974e5b6f44daf7fe",
+        "equal": true
+      },
+      "reports": {
+        "old": "7f3afd6f55fe56d5c738d249f2aa0e37c192d059",
+        "new": "7f3afd6f55fe56d5c738d249f2aa0e37c192d059",
+        "equal": true
+      },
+      "research": {
+        "old": "0f2af2575e9ab8b437de07d2a78ec17820fe37e4",
+        "new": "0f2af2575e9ab8b437de07d2a78ec17820fe37e4",
+        "equal": true
+      },
+      "schema": {
+        "old": "e4a6a9f172080b7118cc1b6b73014a29e58e044a",
+        "new": "e4a6a9f172080b7118cc1b6b73014a29e58e044a",
+        "equal": true
+      },
+      "scripts": {
+        "old": "0326744e8a978585011985e347fc4b90cf2b46d5",
+        "new": "0326744e8a978585011985e347fc4b90cf2b46d5",
+        "equal": true
+      },
+      "src": {
+        "old": "f7fd1116592c13140de9dd321a9562d80cc2e33f",
+        "new": "f7fd1116592c13140de9dd321a9562d80cc2e33f",
+        "equal": true
+      },
+      "templates": {
+        "old": "8fe5988d91c50f3df3fd29c8479bb789181681e8",
+        "new": "8fe5988d91c50f3df3fd29c8479bb789181681e8",
+        "equal": true
+      },
+      "tests": {
+        "old": "8b8d9284effb86e1e335526380d26828fc5b0abb",
+        "new": "8b8d9284effb86e1e335526380d26828fc5b0abb",
+        "equal": true
+      },
+      "uv.lock": {
+        "old": "fbc2dbab455567c52ce321cf3531d3323ca0f185",
+        "new": "fbc2dbab455567c52ce321cf3531d3323ca0f185",
+        "equal": true
+      },
+      "workflow": {
+        "old": "5275a87b84a1a96da7b8e8fdc9fd430a83b53544",
+        "new": "5275a87b84a1a96da7b8e8fdc9fd430a83b53544",
+        "equal": true
+      }
+    },
+    "assessment": "Only 22 structured-review report files changed. Every other root tree/blob, including published pages, source templates, data and configuration, has the identical Git object hash."
+  },
+  "pages": {
+    "pages/index.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+      "http_status": 200,
+      "h1": "CellStructureMech",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "08bf8890d887df6b8499a4c81dddf6f199ef878d627ece9ed62a1b367f824bb6",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse\nText map\nSequence map\nData JSON\nSchema\nAll Mech projects\nGitHub\nCellStructureMech\n\nOrganelles, envelope layers, appendages, microcompartments and multi-protein complexes of microbial cells \u2014 each grounded in GO cellular component where a term exists, and backed by cited evidence.\n\nSearch structures\nSearch\n1022\nSTRUCTURE RECORDS\n13\nCATEGORIES\n873\nGO-GROUNDED\nBrowse records\n"
+    },
+    "pages/browse.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "http_status": 200,
+      "h1": "All records",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "38f6062c318e1178eb25527d8d1ed01761b04cf3fd544d801a1cf9ef5d1f5352",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nAll records\nSEARCH RECORDS\nCATEGORY\nAll categories\nAppendage\nCytoskeleton\nDivision machinery\nEnergy complex\nEnvelope\nInclusion\nMembrane organelle\nMicrocompartment\nNucleoid\nOther\nRibonucleoprotein\nSecretion system\nSpore\nKIND\nAll kinds\nAppendage\nEnvelope layer\nFilament\nInclusion body\nMembrane\nMembrane bounded or"
+    },
+    "pages/structures/appendage/archaeal_type_flagellum.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html",
+      "http_status": 200,
+      "h1": "archaeal-type flagellum",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "ee93dce9d925dc3cec8b784df8424abdd1a937e604b39397bfcd75471cd44e76",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Appendage \u00b7 archaeal-type flagellum\n\narchaeal-type flagellum\n\nGO:0097589 \u00b7 Appendage \u00b7 Appendage \u00b7 Proposed\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through "
+    },
+    "pages/structures/appendage/attachment_organelle_membrane.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle_membrane.html",
+      "http_status": 200,
+      "h1": "attachment organelle membrane",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "ed8e54f70968fbac85d07d79d7929f4cf81951fc760217e0ccbe109a5135ae85",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Appendage \u00b7 attachment organelle membrane\n\nattachment organelle membrane\n\nGO:0033111 \u00b7 Appendage \u00b7 Membrane \u00b7 Proposed\n\nThe membrane surrounding the attachment organelle. [GO:0033111]\n\nPart of: attachment organelle (GO:0033099); plasma membrane (GO:0005886)\n\nXrefs: uniprot.location:SL-0021 \u2014 Attachme"
+    },
+    "pages/embedding-map.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html",
+      "http_status": 200,
+      "h1": "Text embedding map",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "747ed1a7cc28ccc94c0382dd7379cfdf6f03ff67b6f5f7eef63f6edc056e0803",
+      "svg_counts": [
+        {
+          "id": "",
+          "classes": null,
+          "width": 945.625,
+          "height": 546.359375,
+          "circles": 1022,
+          "paths": 0,
+          "rects": 0
+        }
+      ],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nText embedding map\n\nAn exploratory semantic view of the corpus. Each point embeds the record's definition, canonical components, functions, taxonomic scope, and physical-property context.\n\nThe committed sentence-transformers/all-MiniLM-L6-v2 vectors are projected with PCA after unit normalization. Two-dimensio"
+    },
+    "pages/structures/envelope/s_layer.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/envelope/s_layer.html",
+      "http_status": 200,
+      "h1": "S-layer",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "17943092e351c91517a72a6e4832ddd398237a2ae08eec0c12378058f82ca1de",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Envelope \u00b7 S-layer\n\nS-layer\n\nGO:0030115 \u00b7 Envelope \u00b7 Envelope layer \u00b7 Proposed\n\nA paracrystalline monomolecular array of one or more (glyco)protein species that self-assemble on the outermost surface of the cell envelope, with oblique, square or hexagonal lattice symmetry. S-layers are common in Arch"
+    },
+    "pages/structures/cytoskeleton/stentor_myoneme_system.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/stentor_myoneme_system.html",
+      "http_status": 200,
+      "h1": "Stentor myoneme system",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "914e834aa3289932ea2b4e3cc89e2fe38e901f21598c115e55746ac1b00a1de7",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\n\nBrowse \u00b7 Cytoskeleton \u00b7 Stentor myoneme system\n\nStentor myoneme system\n\ncellstructuremech:stentor_myoneme_system \u00b7 Cytoskeleton \u00b7 Other \u00b7 Proposed\n\nThe cortical system of longitudinal contractile filament bundles, historically termed M bands, characterized in Stentor coeruleus. Its prominent posterior myoneme"
+    },
+    "pages/sequence-map.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html",
+      "http_status": 200,
+      "h1": "Protein sequence map (pLM)",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "5217f74aaba671a4d6ec20654d03a6fcf7fdcf3b5e49bb3971be49d0cfe45cd6",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nProtein sequence map (pLM)\n\n2D PACMAP projection of 469 unique protein sequences across 140 microbial cell structures (1169 protein\u2013structure mentions), embedded with facebook/esm2_t33_650M_UR50D (revision 08e4846e537177426273712802403f7ba8261b6c, 1280-d mean-pooled residue representations).\n\nEach point repres"
+    },
+    "pages/grounded.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/grounded.html",
+      "http_status": 200,
+      "h1": "GO-grounded structures",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "c232102b7842af3ba9a315f12b826ae042623d772392657c7fbeaeca9e0572cf",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nGO-grounded structures\n\n873 structures use an exact Gene Ontology cellular-component identifier.\n\nSEARCH RECORDS\nCATEGORY\nAll categories\nAppendage\nCytoskeleton\nDivision machinery\nEnergy complex\nEnvelope\nInclusion\nMembrane organelle\nMicrocompartment\nNucleoid\nOther\nRibonucleoprotein\nSecretion system\nSpore\nKIND\nA"
+    },
+    "pages/category/microcompartment.html": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/category/microcompartment.html",
+      "http_status": 200,
+      "h1": "Microcompartment",
+      "footer": "CellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
+      "theme": "dark",
+      "resized_width": 390,
+      "fresh_width": 390,
+      "body_sha256": "0fc0bbf779e9f4ebc434f3850450293c2ac79b7941bcf2728db0c04ba288716d",
+      "svg_counts": [],
+      "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nMicrocompartment\n\nProtein-shelled organelles \u2014 carboxysomes, metabolosomes, encapsulins.\n\nSEARCH RECORDS\nCATEGORY\nAll categories\nMicrocompartment\nKIND\nAll kinds\nMultiprotein complex\nProtein shelled organelle\nMAPPING STATUS\nAll statuses\nProposed\nSORT BY\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nIdentifier (A\u2013Z)\nCategory\nKind\nMap"
+    }
+  },
+  "actions": {
+    "query:GO:0097589": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=GO%3A0097589",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "firstRows": [
+        "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+      ],
+      "visibleRows": 1,
+      "width": 1280,
+      "scrollWidth": 1280
+    },
+    "query:MitoStore": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=MitoStore",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "firstRows": [
+        "MitoStore\n\nA transient cytosolic protein granule characterized in budding yeast that sequesters non-imported mitochondrial precursor proteins, is enriched for presequence-containing cargo and associates with the mitochondrial surface.\n\n\tcellstructuremech:mitostore\tInclusion\tInclusion body\tProposed"
+      ],
+      "visibleRows": 1,
+      "width": 1280,
+      "scrollWidth": 1280
+    },
+    "query:no-such-cell-redeploy-audit": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=no-such-cell-redeploy-audit",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "0 of 1022 records shown"
+        }
+      ],
+      "firstRows": [],
+      "visibleRows": 0,
+      "width": 1280,
+      "scrollWidth": 1280
+    },
+    "sort:": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "firstRows": [
+        "9+2 motile cilium\n\nA motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme). A canonical motile cilium (or eukaryotic flagellum) whose axoneme consists of nine peripheral microtubule doublets surrounding a central pair of singlet microtubules (the 9+2 arrangement). Conserved across Chlamydomonas reinhardtii, Tetrahymena thermophila, and Trypanosoma brucei, the 9+2 motile cilium integrates central pair projections, radial spokes, nexin-dynein regulatory complexes, and dynein arms to produce planar or ciliary waveforms.\n\n\tGO:0097729\tAppendage\tAppendage\tProposed",
+        "archaeal cannula\n\nAn extracellular hollow tubular archaeal cell projection, characterized in Pyrodictium species, that extends from the cell envelope as a proteinaceous filament and forms networks between cells.\n\n\tcellstructuremech:archaeal_cannula\tAppendage\tAppendage\tProposed",
+        "archaeal-type flagellum\n\nA non-membrane-bounded motility organelle, also called the archaellum, characterized in Archaea and in the bacterium Litorilinea aerophila; a membrane-associated motor drives swimming through rotation of extracellular type-IV-pilin-like archaellin filaments.\n\n\tGO:0097589\tAppendage\tAppendage\tProposed"
+      ],
+      "visibleRows": 1022,
+      "width": 1280,
+      "scrollWidth": 1280
+    },
+    "sort:label-desc": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=label-desc",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "firstRows": [
+        "zeta DNA polymerase complex\n\nAn error-prone eukaryotic DNA polymerase complex that carries out translesion DNA synthesis and damage-tolerance mutagenesis; in Saccharomyces cerevisiae, DNA polymerase zeta contains Rev3, Rev7, and the Pol31 and Pol32 accessory subunits shared with DNA polymerase delta.\n\n\tGO:0016035\tOther\tMultiprotein complex\tProposed",
+        "Y-shaped link\n\nA Y-shaped protein complex in the ciliary transition zone that connects the cilium axoneme to the ciliary necklace. Both protein sorting and protein gating occur at this point in the cilium allowing some, but not all proteins to enter the cilium.\n\n\tGO:0097537\tAppendage\tMultiprotein complex\tProposed",
+        "Woronin body\n\nA peroxisome-derived dense-core vesicle of filamentous fungi that seals septal pores upon hyphal wounding.\n\n\tGO:0140266\tMembrane organelle\tMembrane bounded organelle\tProposed"
+      ],
+      "visibleRows": 1022,
+      "width": 1280,
+      "scrollWidth": 1280
+    },
+    "before_reload": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=label-desc",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "firstRows": [
+        "zeta DNA polymerase complex\n\nAn error-prone eukaryotic DNA polymerase complex that carries out translesion DNA synthesis and damage-tolerance mutagenesis; in Saccharomyces cerevisiae, DNA polymerase zeta contains Rev3, Rev7, and the Pol31 and Pol32 accessory subunits shared with DNA polymerase delta.\n\n\tGO:0016035\tOther\tMultiprotein complex\tProposed",
+        "Y-shaped link\n\nA Y-shaped protein complex in the ciliary transition zone that connects the cilium axoneme to the ciliary necklace. Both protein sorting and protein gating occur at this point in the cilium allowing some, but not all proteins to enter the cilium.\n\n\tGO:0097537\tAppendage\tMultiprotein complex\tProposed",
+        "Woronin body\n\nA peroxisome-derived dense-core vesicle of filamentous fungi that seals septal pores upon hyphal wounding.\n\n\tGO:0140266\tMembrane organelle\tMembrane bounded organelle\tProposed"
+      ],
+      "visibleRows": 1022,
+      "width": 1280,
+      "scrollWidth": 1280
+    },
+    "after_reload": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=label-desc",
+      "theme": "dark",
+      "savedTheme": "dark",
+      "statuses": [
+        {
+          "id": "record-status",
+          "text": "All statuses\nProposed"
+        },
+        {
+          "id": "record-count",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "firstRows": [
+        "zeta DNA polymerase complex\n\nAn error-prone eukaryotic DNA polymerase complex that carries out translesion DNA synthesis and damage-tolerance mutagenesis; in Saccharomyces cerevisiae, DNA polymerase zeta contains Rev3, Rev7, and the Pol31 and Pol32 accessory subunits shared with DNA polymerase delta.\n\n\tGO:0016035\tOther\tMultiprotein complex\tProposed",
+        "Y-shaped link\n\nA Y-shaped protein complex in the ciliary transition zone that connects the cilium axoneme to the ciliary necklace. Both protein sorting and protein gating occur at this point in the cilium allowing some, but not all proteins to enter the cilium.\n\n\tGO:0097537\tAppendage\tMultiprotein complex\tProposed",
+        "Woronin body\n\nA peroxisome-derived dense-core vesicle of filamentous fungi that seals septal pores upon hyphal wounding.\n\n\tGO:0140266\tMembrane organelle\tMembrane bounded organelle\tProposed"
+      ],
+      "visibleRows": 1022,
+      "width": 1280,
+      "scrollWidth": 1280
+    }
+  },
+  "deployment_before": {
+    "id": 7545767004,
+    "sha": "d4d24c6c38d06ef27a6bac2c25ed381d50e96431",
+    "created_at": "2026-11-04T12:20:59Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T12:21:15Z",
+      "environment_url": "https://culturebotai.github.io/CellStructureMech/"
+    },
+    "header_url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:21:12 GMT"
+  },
+  "failure_check": {
+    "blocked": [
+      "https://culturebotai.github.io/CellStructureMech/pages/data/structure_text_map.json",
+      "https://culturebotai.github.io/CellStructureMech/pages/data/structure_text_neighbors.json"
+    ],
+    "excerpt": "CellStructureMech\nBrowse Text map Sequence map Data JSON Schema All Mech projects GitHub\nText embedding map\n\nAn exploratory semantic view of the corpus. Each point embeds the record's definition, canonical components, functions, taxonomic scope, and physical-property context.\n\nThe committed sentence-transformers/all-MiniLM-L6-v2 vectors are projected with PCA after unit normalization. Two-dimensional distance is lossy; use cosine neighbours for the full-vector comparison.\n\nFIND A STRUCTURE\nCATEGORY\nAll categories\nMATCHING STRUCTURES\nSelect a structure\n\nCATEGORY LEGEND\n\nCould not load embedding artifacts: Failed to fetch\nSelect a structure\n\nChoose a point or find a structure in the sidebar to inspect its nearest semantic neighbours. The selected point is labelled. Browse all records as a table.\n\nCellStructureMech \u00b7 project data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party terms apply \u00b7 corpus JSON \u00b7 index JSON \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py \u00b7 corpus as of 2026-11-03 05:55:11 UTC (digest d7c5fef867d9, 1022 records)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects\n\n\u263e"
+  },
+  "deployment_after": {
+    "id": 7545767004,
+    "sha": "d4d24c6c38d06ef27a6bac2c25ed381d50e96431",
+    "created_at": "2026-11-04T12:20:59Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T12:21:15Z",
+      "environment_url": "https://culturebotai.github.io/CellStructureMech/"
+    },
+    "header_url": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 12:21:12 GMT"
+  },
+  "criterion_reconciliation": {
+    "search": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/search",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "facets": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/facets",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "result_counts": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/result_counts",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "sorting": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/sorting",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "shareable_state": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/shareable_state",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "full_catalogue": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/full_catalogue",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "record_pages": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/record_pages",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "term_links": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/term_links",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "evidence": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/evidence",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "review_status": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/review_status",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "curation_history": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/curation_history",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "source_link": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/source_link",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "domain_view": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/domain_view",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/cross_mech_links",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "corpus_stats": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/corpus_stats",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "category_browse": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/category_browse",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "suite_nav": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/suite_nav",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "downloads": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/downloads",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "schema_docs": {
+      "status": "partial",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/schema_docs",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "license": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/license",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "build_provenance": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/build_provenance",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "theme_toggle": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/theme_toggle",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "responsive": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/responsive",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    },
+    "load_failure": {
+      "status": "present",
+      "previous_evidence": "cellstructuremech-auditor-a.json#/features/load_failure",
+      "basis": "The source and published-page trees are byte-identical; post-deployment route/control checks agree with the prior complete audit."
+    }
+  },
+  "finished_at": "2026-11-04T12:24:26.349550+00:00",
+  "raw_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/cell-redeployment-d4d24c6-raw.json",
+    "sha256": "3aaa6e33aa0bb13c663c1eb5acb158607efaac96a50c99e9b487fd2834302d72"
+  }
+}

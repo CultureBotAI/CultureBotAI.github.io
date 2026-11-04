@@ -1,0 +1,384 @@
+{
+  "started_at": "2026-11-04T11:54:48.607096+00:00",
+  "finished_at": "2026-11-04T11:55:19.240628+00:00",
+  "checks": {
+    "CultureMech:https://culturebotai.github.io/CultureMech/app/": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CultureMech/app/",
+        "h1": "CultureMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CultureMech\n\nMicrobial growth-media knowledge base — curated culture-media recipes from MediaDive, JCM, KOMODO and more.\n\n15,915\nNORMALIZED RECORDS\n6,325\nMERGED RECORDS\n5\nPOPULATED CATEGORIES\n512-D\nV3 EMBEDDINGS\nSearch\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects ↗\nBrowse records →\nRecord browser\n\nFaceted search across every media recipe — filter by category, medium type, physical state, target organism, and key ingredients.\n\nText Map →\nDerived →\nDirect →\nGraph layout →\nIngredients →\nEmbedding browser\n\nInteractive 2D maps of media similarity — dense text embeddings (BAAI/bge-small-en-v1.5) plus KG-Microbe deepwalk embeddings (derived, direct, and ingredient-level).\n\nLinkML Schema →\nJSON ↓\nTSV ↓\nSchema & Downloads\n\nBrowse the LinkML data model (classes, slots, and controlled vocabularies) or download the complete normalized recipe catalog as JSON or TSV.\n\nView on GitHub →\nGitHub\n\nSource code, data, schema, and the curation workflow.\n\nAll Mech projects · LinkML Schema · Download JSON · Download TSV\n\nKG-Microbe Mechs: CultureMech·MediaIngredientMech·CommunityMech·TraitMech·ProteinTraitsMech\nkg-microbe·METPO·GitHub (CultureBotAI/CultureMech)·Schema: https://w3id.org/culturebotai/culturemech (v0.1.0, BSD-3-Clause)\n☾",
+        "statuses": []
+      }
+    },
+    "CultureMech:https://culturebotai.github.io/CultureMech/app/browser.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html",
+        "h1": "CultureMech",
+        "width": 1280,
+        "scrollWidth": 2866,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CultureMech\n\nMicrobial Growth Media Knowledge Base\n\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects\nSearch media \nRecipe filters\n\nCounts show totals in the complete catalog, before filtering.\n\nFilters\nClear All\nCATEGORY\nbacterial\n14332\narchaea\n747\nspecialized\n455\nalgae\n255\nfungal\n126\nMEDIUM TYPE\ncomplex\n8908\ndefined\n2220\nbuffer\n1\nnegative_control\n1\nPHYSICAL STATE\nliquid\n7401\nsolid_agar\n3716\nbiphasic\n8\nsemisolid\n5\nTARGET ORGANISMS\nShewanella oneidensis MR-1\n8\nCandidatus Pelagibacter sp. HTCC7211\n6\nLactococcus lactis subsp. lactis\n5\nHelicobacter pylori\n3\nCorynebacterium glutamicum\n3\nLactococcus cremoris subsp. cremoris MG1363\n3\nPhaeodactylum tricornutum\n2\nThalassiosira pseudonana\n2\nChaetoceros gracilis\n2\nSynechocystis sp. PCC 6803\n2\nChlorella vulgaris\n2\nCandidatus Pelagibacter ubique\n2\nLactiplantibacillus plantarum WCFS1\n2\nRhizobium etli CFN42\n2\nRhizobium etli CFNX186-4\n2\nRhizobium etli CFNX186-24\n2\nChlamydomonas reinhardtii\n2\nDunaliella salina\n1\nHemiaulus hauckii\n1\nRichelia intracellularis\n1\nScenedesmus quadricauda\n1\nChlorella pyrenoidosa\n1\nNeochloris aquatica\n1\nNeochloris minuta\n1\nNeochloris pyrenoidosa\n1\nNeochloris oleoabundans\n1\nNeochloris pseudostigmata\n1\nNeochloris cohaerens\n1\nNeochloris vigensis\n1\nEttlia fusispora\n1\nEttlia ter\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "resultsCount",
+            "text": "15915 recipes"
+          }
+        ]
+      }
+    },
+    "CultureMech:sort_controls": {
+      "selects": [],
+      "sortNodes": []
+    },
+    "MediaIngredientMech:https://culturebotai.github.io/MediaIngredientMech/": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/MediaIngredientMech/",
+        "h1": "MediaIngredientMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "Home\nBrowse\nText Map\nKG PaCMAP\nGraph Layout\nRecord Index\nSchema\nDownloads\nGitHub\nAll Mech projects\nMediaIngredientMech\n\nCurated media-ingredient ontology mappings — CHEBI · FOODON · NCIT · CAS.\n\nSearch ingredients\nSearch\n2,956\nINGREDIENTS\n2,611\nMAPPED\n88%\nCOVERAGE\nBrowse records →\nRecord browser\n\nSearch ingredients by name, synonym, or ontology ID; filter by source, mapping status, and mapping quality; sort by occurrences or media count.\n\nExplore text map →\nText embedding map\n\nInteractive 2D PaCMAP & PCA projection of bge-large-en-v1.5 ingredient text embeddings with sticky facet sidebar.\n\nExplore embedding (PaCMAP) →\nGraph layout →\nEmbedding browser\n\nInteractive PaCMAP projection of ingredient embeddings in KG-Microbe space.\n\nSchema reference →\nMarkdown spec →\nLinkML schema\n\nBrowse classes, slots, enumerations, and types for IngredientRecord, ontology mappings, component partonomy, and roles.\n\nCatalog JSON ↓\nAll CSV ↓\nData downloads & exports\n\nBulk exports: Mapped CSV · Unmapped CSV · Label index CSV · PaCMAP JSON · Build receipt JSON\n\nView on GitHub →\nGitHub\n\nSource code, data, schema, and the curation workflow.\n\nAll Mech projects · Schema Reference · Build Provenance (SHA-256 Receipt) · Data: CC BY 4.0 / Code: BSD-3-Clause\n\nKG-Microbe Mechs:\nCultureMech\n·\nMediaIngredientMech\n·\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "ingredient-count",
+            "text": "2,956"
+          },
+          {
+            "id": "mapped-count",
+            "text": "2,611"
+          },
+          {
+            "id": "coverage-count",
+            "text": "88%"
+          }
+        ]
+      }
+    },
+    "MediaIngredientMech:https://culturebotai.github.io/MediaIngredientMech/browser.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/MediaIngredientMech/browser.html",
+        "h1": "MediaIngredientMech Browser",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "MediaIngredientMech Browser\n\nExplore 2,956 curated media ingredients with ontology mappings\n\nHome Browse Text Map KG PaCMAP Graph Layout Record Index Schema Downloads GitHub All Mech projects\nSearch ingredients \nMapping Status\nAll Statuses\nAMBIGUOUS\nMAPPED\nREJECTED\nUNMAPPED\nOntology Source\nAll Sources\nNot specified\nBTO\nCAS\nCHEBI\nENVO\nFOODON\nMESH\nMICRO\nNCIT\nUBERON\nkgmicrobe.compound\nkgmicrobe.ingredient\nMapping Quality\nAll Qualities\nNot specified\nBROAD_MATCH\nCAS_RN_LOOKUP\nCLOSE_MATCH\nEXACT_MATCH\nFALLBACK_REGISTRY\nLEXICAL_MATCH\nMANUAL_CURATION\nNARROW_MATCH\nPLACEHOLDER\nSYNONYM_MATCH\nSort By\nDefault Order\nName (A → Z)\nName (Z → A)\nMedia Count (Most → Least)\nOccurrences (Most → Least)\nSynonyms (Most → Least)\nClear search and filters\n2956\nTotal Ingredients\n2611\nMapped to Ontologies\n262\nUnmapped\n2956\nCurrently Showing\n\nAMBIGUOUS: 1 · MAPPED: 2611 · REJECTED: 82 · UNMAPPED: 262\n\nShowing 2956 of 2956 ingredients\n\n(-)-anisomycin\nMAPPED\nCHEBI:338412 — (-)-anisomycin (EXACT_MATCH)\nID: CHEBI:338412\nOccurrences: 0\nMedia Count: 0\nCurator: classify_ingredient_type\nView in Text Map →\n(-)-quinic Acid\nMAPPED\nCHEBI:17521 — (-)-quinic acid (EXACT_MATCH)\nID: CHEBI:17521\nOccurrences: 6\nMedia Count: 6\nCurator: refresh_occurrence_statistics\nView in Text Map →\nD-lyxose\nMAPPED\nCHEBI:62318 — D-lyxose (SYNON\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "filter-status",
+            "text": "All Statuses\nAMBIGUOUS\nMAPPED\nREJECTED\nUNMAPPED"
+          },
+          {
+            "id": "total-count",
+            "text": "2956"
+          },
+          {
+            "id": "mapped-count",
+            "text": "2611"
+          },
+          {
+            "id": "unmapped-count",
+            "text": "262"
+          },
+          {
+            "id": "filtered-count",
+            "text": "2956"
+          },
+          {
+            "id": "status-summary",
+            "text": "AMBIGUOUS: 1 · MAPPED: 2611 · REJECTED: 82 · UNMAPPED: 262"
+          },
+          {
+            "id": "results-status",
+            "text": "Showing 2956 of 2956 ingredients"
+          }
+        ]
+      }
+    },
+    "CommunityMech:https://culturebotai.github.io/CommunityMech/": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CommunityMech/",
+        "h1": "CommunityMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CommunityMech\nHome\nBrowse\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nDownloads\nGitHub\nAll Mech projects\nCommunityMech\n\nMicrobial community knowledge base — curated, evidence-backed interaction networks.\n\nSearch communities\nSearch\n485\nCOMMUNITIES\n16\nCATEGORIES\n384-D\nTEXT EMBEDDINGS\n512-D\nV3 EMBEDDINGS\n1280-D\nESM-2 SEQUENCES\nBrowse records →\nRecord browser\n\nFaceted browser of microbial communities — filter by category, ecological state, metals, and rare-earth elements.\n\nText embedding map →\nTaxonomic UMAP →\nGraph layout →\nEmbedding browser\n\nInteractive 2D PaCMAP & PCA projections of text embeddings (BAAI/bge-small-en-v1.5) and KG-Microbe taxonomic DeepWalk embeddings.\n\nESM-2 sequence map →\nProtein sequence map (pLM)\n\nInteractive 1,280-D ESM-2 protein language model embedding space for CommunityMech functional genes and guild markers.\n\nSchema reference →\nLinkML Schema\n\nBrowse classes, slots, ontology prefixes (NCBITaxon, ENVO, ChEBI, GO, METPO), and permissible enums in the CommunityMech schema.\n\nDownload JSON ↓\nDownload TSV ↓\nBrowser index (JS) ↓\nDownloads & bulk data\n\nDownload the full 485-community dataset as structured JSON or tabular TSV, or inspect individual YAML records in kb/communities/.\n\nView on GitHub →\nGitHub\n\nSource code, data, schema, and the curation workflo\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "CommunityMech:https://culturebotai.github.io/CommunityMech/browser.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+        "h1": "CommunityMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "Skip to communities\n← Home Text Map Taxonomic UMAP Sequence Map Network Schema JSON TSV All Mech projects\nCommunityMech\n\nMicrobial Community Knowledge Base\n\nSearch communities\n✕\nSort communities\nName (A → Z)\nName (Z → A)\nMembers (Most → Fewest)\nMembers (Fewest → Most)\nCategory (A → Z)\nCategory\n−\nAll\nNone\nBIOTECHNOLOGY\n(96)\nBIOREMEDIATION\n(85)\nRHIZOSPHERE\n(80)\nOTHER\n(44)\nLIGNOCELLULOSE\n(37)\nSYNTROPHY\n(34)\nPHYTOPLANKTON\n(19)\nMETHANOGENESIS\n(17)\nBIOMINING\n(17)\nEXTREME ENVIRONMENT\n(16)\nCARBON SEQUESTRATION\n(12)\nDIET\n(11)\nAMD\n(7)\nORAL\n(5)\nMETAL REDUCTION\n(3)\nPHAGE PREDATION\n(2)\nEcological State\n−\nENGINEERED\n(379)\nSTABLE\n(80)\nPERTURBED\n(25)\nTRANSIENT\n(1)\nMetals\n+\nRare Earth Elements\n+\nMetal Relevance\n+\nShowing 485 of 485 communities\nExplore Community & Sequence Embedding Spaces\n\nView interactive 2D PaCMAP & PCA projections of community text embeddings, KG-Microbe taxonomic composition embeddings, and ESM-2 protein sequence embeddings.\n\nText Embedding Map → Taxonomic UMAP → ESM-2 Sequence Map →\nAalborg East Full-Scale EBPR Activated Sludge Community\n\nAn engineered full-scale activated sludge microbial community from the Aalborg East wastewater treatment plant in Denmark carrying out enhanced biological phosphorus removal. The community was profiled with an 18.2 Gb Illumina metagenome an\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "",
+            "text": "Showing 485 of 485 communities"
+          },
+          {
+            "id": "results-count",
+            "text": "485"
+          }
+        ]
+      }
+    },
+    "CommunityMech:search:CommunityMech:000134": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000134",
+      "h1": "CommunityMech",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "theme": null,
+      "savedTheme": null,
+      "text": "Skip to communities\n← Home Text Map Taxonomic UMAP Sequence Map Network Schema JSON TSV All Mech projects\nCommunityMech\n\nMicrobial Community Knowledge Base\n\nSearch communities\n✕\nSort communities\nName (A → Z)\nName (Z → A)\nMembers (Most → Fewest)\nMembers (Fewest → Most)\nCategory (A → Z)\nActive Filters:\nClear All\nSearch: \"CommunityMech:000134\"\n✕\nCategory\n−\nAll\nNone\nBIOTECHNOLOGY\n(0)\nBIOREMEDIATION\n(0)\nRHIZOSPHERE\n(0)\nOTHER\n(0)\nLIGNOCELLULOSE\n(0)\nSYNTROPHY\n(0)\nPHYTOPLANKTON\n(0)\nMETHANOGENESIS\n(0)\nBIOMINING\n(0)\nEXTREME ENVIRONMENT\n(0)\nCARBON SEQUESTRATION\n(0)\nDIET\n(0)\nAMD\n(0)\nORAL\n(0)\nMETAL REDUCTION\n(0)\nPHAGE PREDATION\n(0)\nEcological State\n−\nENGINEERED\n(0)\nSTABLE\n(0)\nPERTURBED\n(0)\nTRANSIENT\n(0)\nMetals\n+\nRare Earth Elements\n+\nMetal Relevance\n+\nShowing 0 of 485 communities\nExplore Community & Sequence Embedding Spaces\n\nView interactive 2D PaCMAP & PCA projections of community text embeddings, KG-Microbe taxonomic composition embeddings, and ESM-2 protein sequence embeddings.\n\nText Embedding Map → Taxonomic UMAP → ESM-2 Sequence Map →\n\nGenerated by CommunityMech | LinkML Schema (https://w3id.org/communitymech) | Source: kb/communities/ (485 records) | Downloads: JSON, TSV | License: BSD-3-Clause | View on GitHub\n\n☾",
+      "statuses": [
+        {
+          "id": "",
+          "text": "Showing 0 of 485 communities"
+        },
+        {
+          "id": "results-count",
+          "text": "0"
+        }
+      ]
+    },
+    "CommunityMech:search:CommunityMech:000139": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000139",
+      "h1": "CommunityMech",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "theme": null,
+      "savedTheme": null,
+      "text": "Skip to communities\n← Home Text Map Taxonomic UMAP Sequence Map Network Schema JSON TSV All Mech projects\nCommunityMech\n\nMicrobial Community Knowledge Base\n\nSearch communities\n✕\nSort communities\nName (A → Z)\nName (Z → A)\nMembers (Most → Fewest)\nMembers (Fewest → Most)\nCategory (A → Z)\nActive Filters:\nClear All\nSearch: \"CommunityMech:000139\"\n✕\nCategory\n−\nAll\nNone\nBIOTECHNOLOGY\n(0)\nBIOREMEDIATION\n(0)\nRHIZOSPHERE\n(0)\nOTHER\n(0)\nLIGNOCELLULOSE\n(0)\nSYNTROPHY\n(0)\nPHYTOPLANKTON\n(0)\nMETHANOGENESIS\n(0)\nBIOMINING\n(0)\nEXTREME ENVIRONMENT\n(0)\nCARBON SEQUESTRATION\n(0)\nDIET\n(0)\nAMD\n(0)\nORAL\n(0)\nMETAL REDUCTION\n(0)\nPHAGE PREDATION\n(0)\nEcological State\n−\nENGINEERED\n(0)\nSTABLE\n(0)\nPERTURBED\n(0)\nTRANSIENT\n(0)\nMetals\n+\nRare Earth Elements\n+\nMetal Relevance\n+\nShowing 0 of 485 communities\nExplore Community & Sequence Embedding Spaces\n\nView interactive 2D PaCMAP & PCA projections of community text embeddings, KG-Microbe taxonomic composition embeddings, and ESM-2 protein sequence embeddings.\n\nText Embedding Map → Taxonomic UMAP → ESM-2 Sequence Map →\n\nGenerated by CommunityMech | LinkML Schema (https://w3id.org/communitymech) | Source: kb/communities/ (485 records) | Downloads: JSON, TSV | License: BSD-3-Clause | View on GitHub\n\n☾",
+      "statuses": [
+        {
+          "id": "",
+          "text": "Showing 0 of 485 communities"
+        },
+        {
+          "id": "results-count",
+          "text": "0"
+        }
+      ]
+    },
+    "CommunityMech:search:methylotroph": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=methylotroph",
+      "h1": "CommunityMech",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "theme": null,
+      "savedTheme": null,
+      "text": "Skip to communities\n← Home Text Map Taxonomic UMAP Sequence Map Network Schema JSON TSV All Mech projects\nCommunityMech\n\nMicrobial Community Knowledge Base\n\nSearch communities\n✕\nSort communities\nName (A → Z)\nName (Z → A)\nMembers (Most → Fewest)\nMembers (Fewest → Most)\nCategory (A → Z)\nActive Filters:\nClear All\nSearch: \"methylotroph\"\n✕\nCategory\n−\nAll\nNone\nBIOTECHNOLOGY\n(1)\nBIOREMEDIATION\n(1)\nRHIZOSPHERE\n(0)\nOTHER\n(0)\nLIGNOCELLULOSE\n(1)\nSYNTROPHY\n(0)\nPHYTOPLANKTON\n(1)\nMETHANOGENESIS\n(1)\nBIOMINING\n(0)\nEXTREME ENVIRONMENT\n(0)\nCARBON SEQUESTRATION\n(3)\nDIET\n(0)\nAMD\n(0)\nORAL\n(0)\nMETAL REDUCTION\n(0)\nPHAGE PREDATION\n(0)\nEcological State\n−\nENGINEERED\n(4)\nSTABLE\n(1)\nPERTURBED\n(3)\nTRANSIENT\n(0)\nMetals\n+\nRare Earth Elements\n+\nMetal Relevance\n+\nShowing 8 of 485 communities\nExplore Community & Sequence Embedding Spaces\n\nView interactive 2D PaCMAP & PCA projections of community text embeddings, KG-Microbe taxonomic composition embeddings, and ESM-2 protein sequence embeddings.\n\nText Embedding Map → Taxonomic UMAP → ESM-2 Sequence Map →\nAlgal-Methanotroph Biogas Valorization Coculture\n\nA laboratory enriched haloalkaliphilic microalga-methanotroph co-culture assembled by mixing a halotolerant methanotrophic consortium with a non-axenic algal culture. Triplicate 2.1 L gas-tight glass bioreactors co\n[Excerpt; complete capture archived.]",
+      "statuses": [
+        {
+          "id": "",
+          "text": "Showing 8 of 485 communities"
+        },
+        {
+          "id": "results-count",
+          "text": "8"
+        }
+      ]
+    },
+    "ProteinTraitsMech:https://culturebotai.github.io/proteintraitsmech/": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/proteintraitsmech/",
+        "h1": "ProteinTraitsMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "ProteinTraitsMech\nKnowledge Base\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nGitHub\nAll Mech projects\nProteinTraitsMech\n\nKnowledge base of protein sequence, structure, and function traits — one YAML per trait, LinkML-validated, with evidence-backed causal graphs.\n\nSearch traits\nText embedding browser →\nESM-2 pLM sequence embedding map →\n429,421\nTRAIT RECORDS\n118,338\nSTRUCTURE\n147,149\nSEQUENCE\n392\nSEQ+STRUCT\n163,527\nFUNCTION\n15\nEVOLUTION\n34\nSOURCES\nBrowse records →\nCorpus map →\nProtein map →\nSequence map →\nRecord browser\n\nFaceted, client-side browser over all protein-trait records — search by label, identifier, or definition; filter by axis, category, and source. Each record shows semantically related traits from a local text-embedding model.\n\nThree 2-D maps sit alongside it: the corpus map projects a retained subset of record text embeddings (full-record or definition-only), the protein map lays out 68,657 Swiss-Prot proteins by the traits they carry, coloured by domain of life, and the sequence map lays out the canonical-example proteins by their ESM-2 protein-language-model embedding — sequence only, no annotation in the input — coloured by domain of life and filterable by sequence length and, for the half of them that carry one, by CATH class.\n\nView schema →\nExample →\nSchem\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "ProteinTraitsMech:https://culturebotai.github.io/proteintraitsmech/browse.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/proteintraitsmech/browse.html#",
+        "h1": null,
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "ProteinTraitsMech\n429,421 records\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nSchema\nP25888 example\nGitHub\nAll Mech projects\nSort by\nIdentifier (A–Z)\nLabel (A–Z)\nLabel (Z–A)\nAxis & category\nSource\nⓘ\nCounts reflect the active filters; empty values are hidden.\nAXIS\nShow all (5)\nSOURCE\nShow all (34)\nCATEGORY\nShow all (63)\nSTATUS\nShow all (3)\nClear all\n\n429,421 trait records. Pick an axis, category or source on the left — or search — to load records. (Records are loaded from filter-aware shards on demand.)\n\n163,527\nFUNCTION\n147,149\nSEQUENCE\n118,338\nSTRUCTURE\n392\nSEQUENCE_STRUCTURE\n15\nEVOLUTION\n\nClient-side facets over record-shard manifest and facet counts · schema at proteintraitsmech.yaml · Project data: CC BY 4.0; code: BSD-3-Clause. Third-party terms and attribution apply.\n\nAll Mech projects\n\n☾",
+        "statuses": [
+          {
+            "id": "record-count",
+            "text": "429,421 records"
+          }
+        ]
+      }
+    },
+    "ProteinTraitsMech:home_toggle": {
+      "before": {
+        "theme": null,
+        "savedTheme": null
+      },
+      "after": {
+        "url": "https://culturebotai.github.io/proteintraitsmech/",
+        "h1": "ProteinTraitsMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "ProteinTraitsMech\nKnowledge Base\nHome\nBrowse\nCorpus & Sequence Maps\nSLC10 Pilot\nGitHub\nAll Mech projects\nProteinTraitsMech\n\nKnowledge base of protein sequence, structure, and function traits — one YAML per trait, LinkML-validated, with evidence-backed causal graphs.\n\nSearch traits\nText embedding browser →\nESM-2 pLM sequence embedding map →\n429,421\nTRAIT RECORDS\n118,338\nSTRUCTURE\n147,149\nSEQUENCE\n392\nSEQ+STRUCT\n163,527\nFUNCTION\n15\nEVOLUTION\n34\nSOURCES\nBrowse records →\nCorpus map →\nProtein map →\nSequence map →\nRecord browser\n\nFaceted, client-side browser over all protein-trait records — search by label, identifier, or definition; filter by axis, category, and source. Each record shows semantically related traits from a local text-embedding model.\n\nThree 2-D maps sit alongside it: the corpus map projects a retained subset of record text embeddings (full-record or definition-only), the protein map lays out 68,657 Swiss-Prot proteins by the traits they carry, coloured by domain of life, and the sequence map lays out the canonical-example proteins by their ESM-2 protein-language-model embedding — sequence only, no annotation in the input — coloured by domain of life and filterable by sequence length and, for the half of them that carry one, by CATH class.\n\nView schema →\nExample →\nSchem\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "CMMMech:https://culturebotai.github.io/CMMMech/pages/index.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+        "h1": "Critical Materials, Minerals & Microbial Mechanisms",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCritical Materials, Minerals & Microbial Mechanisms\n\nAn evidence-backed knowledge base for critical minerals and materials, connecting strategic commodities and mineral hosts to microbial extraction, biomineralization, and recovery mechanisms.\n\nSearch\n678\nMaterials & Commodities\n609\nCurated Mechanisms\n500\nMaterials with Mechanisms\n90\nDesignated Critical Materials\nMaterial Kinds\n\nRecords distinguish chemical elements, mineral species and groups, commodities, and primary and secondary resources.\n\nElements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.\n\nMinerals\n427 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nSecondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.\n\nCommodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.\n\nPrimary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, and run-of-mine materials.\n\nMineral Groups\n7 records\n\nMineral supergroups and solid-solution series sharing related crystal structures.\n\nCurated Processes\n\nMechanism records describe biological and abi\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "CMMMech:https://culturebotai.github.io/CMMMech/pages/browse.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CMMMech/pages/browse.html",
+        "h1": "Browse Critical Materials and Minerals",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Browse\nBrowse Critical Materials and Minerals\n\nExplore all 678 materials, minerals, and resources with their criticality assessments and microbial transformation mechanisms.\n\nFILTER RECORDS\nSearch materials\nMaterial Kind\nAll kinds (678)\nElement (66)\nMineral (427)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nMechanism Process\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nCriticality\nAll criticality\nDesignated Critical\nSort by\nMaterial name (A–Z)\nMaterial name (Z–A)\nMechanisms (high–low)\nMicrobial agents (high–low)\nMaterial kind (A–Z)\nCriticality (critical first)\nClear filters\n\n678 of 678 materials shown\n\nDownload index.json\n\nCurated Materials and Minerals\nMaterial\tKind\tCriticality\tMechanisms\tMicrobial Agents\tIdentifier\nAcanthite\n\nAcanthite is the monoclinic silver sulfide mineral Ag2S, listed as grandfathered with original-description year 1855 in the September 2026 IMA master list. It is distinct from elemental silver, generic silver-containing nanoparticles and the high-temperature cubic Ag2S form commonly called argentite. A laboratory bacterial study identifie\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "record-count",
+            "text": "678 of 678 materials shown"
+          }
+        ]
+      }
+    },
+    "CMMMech:schema_html": {
+      "status": 404,
+      "text": "404\n\nFile not found\n\nThe site configured at this address does not contain the requested file.\n\nIf this is your site, make sure that the filename case matches the URL as well as any file permissions.\nFor root URLs (like http://example.com/) you must provide an index.html file.\n\nRead the full documentation for more information about using GitHub Pages.\n\nGitHub Status — @githubstatus"
+    },
+    "CMMMech:narrow:https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
+        "h1": "Cobalt Element Critical Material",
+        "width": 390,
+        "scrollWidth": 597,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Element > Cobalt\nSearch\nCobalt Element Critical Material\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\nExplore across X-Mech: MediaIngredientMech · CultureMech · CommunityMech · HabitatMech · TraitMech · CMMMech Network Graph\n\nIdentifiers & Classification\nSystem\tIdentifier\tLabel\nCHEBI\tCHEBI:27638\tcobalt atom\nCriticality Designations\nJurisdiction\tList Name\tEdition / Document\tClassification\tSource\nEuropean Union\tRegulation (EU) 2024/1252, Annex II, Section 1, List of critical raw materials\t2024; original regulation published 3 May 2024; entry (h) cobalt\tCritical\teu_crma_2024\nUnited States of America\tUSGS Final List of Critical Minerals\t2025; Federal Register 90:50494-50497; published 7 November 2025\tCritical\tusgs2025\nMicrobial & Biochemical Mechanisms (1)\nCobalt\nbioleaching\nAcidophilic consortium biolea\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "CMMMech:narrow:https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/CMMMech/pages/materials/akaganeite.html",
+        "h1": "Akaganeite Mineral",
+        "width": 390,
+        "scrollWidth": 669,
+        "theme": null,
+        "savedTheme": null,
+        "text": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Mineral > Akaganeite\nSearch\nAkaganeite Mineral\n\nAkaganeite is a distinct iron oxyhydroxide mineral species, listed with formula (Fe(III),Ni(II))8(OH,O)16Cl1.25·nH2O, renamed status (Rn), and IMA number 1962-004 in the September 2026 IMA master list. The experimental abbreviation beta-FeOOH identifies the synthetic phase assignment used by the study; it does not establish the ideal IMA composition or nickel content of that preparation. This record is separate from iron element, other iron oxyhydroxide species, iron-ore commodities, and mixed waste feeds. No constituent criticality designation is inherited.\n\nExplore across X-Mech: MediaIngredientMech · CultureMech · CommunityMech · HabitatMech · TraitMech · CMMMech Network Graph\n\nIdentifiers & Classification\nSystem\tIdentifier\tLabel\nIMA\tIMA:1962-004\tAkaganeite\nMicrobial & Biochemical Mechanisms (1)\nAkaganeite\nredox transformation\nCondition-dependent akaganeite reducti (Geobacter sulfurre)\nCondition-dependent akaganeite reduction by Geobacter sulfurreducens PCA\nRedox Transformation Microbial\n\nAssociated Organisms: Geobacter sulfurreducens PCA (NCBITaxon:243231) [TaxonMech]\n\nLiving wild-type Geobacter sulfurreducens PCA cultures increased acid-\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "AIMech:https://culturebotai.github.io/AIMech/pages/index.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+        "h1": "AIMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nAIMech\n\nA provenance-bearing computational grounding between the Artificial Intelligence Ontology (AIO) and inspected scientific literature. AIMech provides machine-readable definitions, explicit mathematical mechanisms, empirical scopes, and verified citations.\n\nSearch\n1929\nTOTAL AI CONCEPTS\n1487\nCURATED CONCEPTS\n442\nAIO IMPORTED CLASSES\n5149\nCURATED CLAIMS\n3269\nEVIDENCE CITATIONS\nCurated Concept Kinds\nView all 1487 curated concepts →\nAlgorithms\n1047\nDefined computational procedures, solvers, optimizers, and search techniques.\nMathematical Methods\n175\nFormal mathematical formulations, kernels, transforms, and sampling algorithms.\nArchitectures\n121\nStructural blueprints and macro-designs for deep learning models.\nModel Families\n91\nPinned classes and model lineages sharing core design characteristics.\nLayers & Modules\n20\nDefined neural network components that transform representations between stages.\nLearning Paradigms\n13\nHigh-level training frameworks such as contrastive or self-supervised learning.\nPreprocessing Methods\n7\nFeature engineering, data augmentation, and tokenization procedures.\nEvaluation Methods\n5\nEmpirical protocols and test methodologies for measuring AI system performance.\nE\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "AIMech:https://culturebotai.github.io/AIMech/pages/browse.html": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/AIMech/pages/browse.html",
+        "h1": "Browse AI Concepts & Ontology Classes",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nBrowse\nBrowse AI Concepts & Ontology Classes\n\nExplore 1929 artificial intelligence concepts, comprising 1487 evidence-curated algorithms, architectures, and model families alongside 442 classes projected from the Artificial Intelligence Ontology (AIO).\n\nFilter concepts\nSEARCH\nSORT BY\nConcept name (A–Z)\nConcept name (Z–A)\nCurated claims (high–low)\nEvidence sources (high–low)\nOrigin (Curated first)\nIdentifier (A–Z)\nORIGIN\nAll Origins (1929)\nCurated AIMech (1487)\nAIO Imported (442)\nCONCEPT KIND\nAll Kinds\nAlgorithms (1047)\nMathematical Methods (175)\nArchitectures (121)\nModel Families (91)\nLayers & Modules (20)\nLearning Paradigms (13)\nPreprocessing Methods (7)\nEvaluation Methods (5)\nEvaluation Criteria (5)\nBiases (1)\nCoordination Mechanisms (1)\nComputational Paradigms (1)\nAIO BRANCH\nAll Branches\nLayers (168)\nModels (76)\nBiases (61)\nML Tasks (57)\nNetworks (52)\nMathematical Functions (14)\nPreprocessing (10)\nTraining Strategies (4)\nShowing 1929 of 1929\nReset\nConcept\tOrigin\tKind / Branch\tIdentifier\tEvidence / Status\n0/1 Adam (Linearized Adaptive-Freezing and Local-Step Compressed Adam)\naka 0/1 Adam, Zero-One Adam…\nA single-stage communication-efficient distributed Adam optimization algorithm t\n[Excerpt; complete capture archived.]",
+        "statuses": []
+      }
+    },
+    "AIMech:schema_html": {
+      "status": 404,
+      "text": "404\n\nFile not found\n\nThe site configured at this address does not contain the requested file.\n\nIf this is your site, make sure that the filename case matches the URL as well as any file permissions.\nFor root URLs (like http://example.com/) you must provide an index.html file.\n\nRead the full documentation for more information about using GitHub Pages.\n\nGitHub Status — @githubstatus"
+    },
+    "AIMech:map": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/AIMech/pages/map.html",
+        "h1": "Concept Embedding Map",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nAIMech\n/\nText map\nSearch\nConcept Embedding Map\n\n1259 AIMech concepts (curated records and AIO ontology classes) embedded with BAAI/bge-large-en-v1.5 over names, definitions, synonyms, classification, computational roles, and relationships, projected to 2D with PaCMAP. Points are colored by origin and kind/branch; click a point to open its concept page.\n\nFilter map\nSEARCH CONCEPTS\n1259 concepts shown\nORIGIN\nAll\nCurated\nAIO\nKIND / BRANCH\nAll / none\nBias\nAIO · 61\nLayer\nAIO · 168\nMachineLearningTask\nAIO · 57\nMathematicalFunction\nAIO · 14\nModel\nAIO · 76\nNetwork\nAIO · 52\nPreprocessing\nAIO · 10\nTrainingStrategy\nAIO · 4\nalgorithm\nCurated · 567\narchitecture\nCurated · 71\ncomputational paradigm\nCurated · 1\ncoordination mechanism\nCurated · 1\nevaluation criterion\nCurated · 5\nevaluation method\nCurated · 3\nlayer\nCurated · 18\nlearning paradigm\nCurated · 4\nmathematical method\nCurated · 52\nmodel family\nCurated · 91\npreprocessing method\nCurated · 4\nscroll to zoom · drag to pan · double-click to reset · click point to open concept · Esc clears filter\n\nAIMech · Artificial Intelligence Ontology Grounding & Curated Claim Evidence · data: index.json · corpus_map.json · LinkML schema · CC BY 4.0 / BSD-3-Clause · cod\n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "map-count",
+            "text": "1259 concepts shown"
+          }
+        ]
+      }
+    },
+    "DUFMech:https://culturebotai.github.io/DUFMech/": {
+      "status": 200,
+      "state": {
+        "url": "https://culturebotai.github.io/DUFMech/",
+        "h1": "DUFMech",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "theme": null,
+        "savedTheme": null,
+        "text": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\nDUFMech\n\nDomain and protein families of unknown function, including historical DUFs.\n\nSearch the DUFMech catalogue (8,296 families)\nSearch families\n\nOr explore visually: Text embedding map · Protein sequence map (ESM-2 pLM) · Seed categories\n\n8,296\nFamilies\n8,238\nFamilies with InterPro IDs\n1,906\nFamilies with structures\n8,242\nFamilies with AlphaFold models\n17,971,301\nPer-family protein total\n19,768,727\nPer-family match total\nDUF examples curated in other Mechs\n\nPer-family totals are sums of reported InterPro counters, not unique proteins or matches. 0 families lack protein counts; 0 lack match counts.\n\nBrowse by seed category\n\nEX DUF: 1,796\nKNOWN HISTORICAL DUF: 373\nUNKNOWN CANDIDATE: 6,127\nResidue-level domain matches\nPF04149: Domain of unknown function (DUF397) (2 supplied protein members)\nFamilies\n\nDownload the complete family index (JSON)\n\nSearch accession or family\nSeed status\nAll seed statuses\nEX DUF\nKNOWN HISTORICAL DUF\nUNKNOWN CANDIDATE\nCharacterization\nAll characterizations\nUNSCORED\nCuration status\nAll curation statuses\nIN PROGRESS\nSEEDED\nSort by\nProteins: high to low\nProteins: low to high\nPfam accession\nFamily name: \n[Excerpt; complete capture archived.]",
+        "statuses": [
+          {
+            "id": "family-count",
+            "text": "8,296 of 8,296 families match."
+          },
+          {
+            "id": "status-guide",
+            "text": "Status and evidence"
+          }
+        ]
+      }
+    }
+  },
+  "detailed_capture": {
+    "path": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/group-b-skeptic-challenges.json",
+    "sha256": "1d66ffc9306f26e3b8b9d7a0f9ce9ace9bcdaabf2c117e740e84692adf522ee7",
+    "bytes": 770865
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "reviewer": "deployment_review independent redeployment skeptic",
+  "started_at": "2026-11-04T12:20:53.123992+00:00",
+  "corpus_pin": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+  "served_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+  "source_diff": {
+    "compare_url": "https://github.com/CultureBotAI/CultureMech/compare/a74dd489720c9df96cc073ffd11568d407d3c06c...09f908802989670d2cc799f75f67cf56f7834178",
+    "commits": 1,
+    "changed_files": [
+      ".claude/skills/culturemech-evolve-workflow/SKILL.md",
+      ".claude/skills/curate-causal-graphs/SKILL.md",
+      "AGENTS.md",
+      "INFRA_TASKS.md",
+      "conf/id_label_targets.yaml",
+      "conf/oak_config.yaml",
+      "docs/ENRICHMENT_GUIDE.md",
+      "docs/KGX_SEMANTIC_MODEL.md",
+      "project.justfile",
+      "scripts/apply_causal_graphs.py",
+      "scripts/validate_causal_graphs.py",
+      "scripts/validate_strict.py",
+      "src/culturemech/export/kgx_export.py",
+      "src/culturemech/schema/culturemech.schema.json",
+      "src/culturemech/schema/culturemech.yaml",
+      "src/culturemech/schema/culturemech_dataclasses.py",
+      "src/culturemech/validation/causal_graphs.py",
+      "src/culturemech/validation/write_validated.py",
+      "tests/test_causal_graphs.py",
+      "workflow/mech-workflow.yaml"
+    ],
+    "changed_recipe_data": [],
+    "changed_page_renderers": [],
+    "assessment": "Schema, causal-graph validation/writer and KGX-export infrastructure changed. Recipe data and page renderers are outside the diff. The schema document is regenerated from changed source.",
+    "raw": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-a/culture-redeployment-compare.json",
+    "sha256": "1c64b9a10bb61977e44a8ae542cac550e5378d81fba1c6463e88501eb6ffca6d"
+  },
+  "deployment_before": {
+    "id": 7545180210,
+    "sha": "09f908802989670d2cc799f75f67cf56f7834178",
+    "created_at": "2026-11-04T11:53:07Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T11:54:29Z",
+      "environment_url": "https://culturebotai.github.io/CultureMech/"
+    },
+    "header_url": "https://culturebotai.github.io/CultureMech/app/",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT"
+  },
+  "schema": {
+    "url": "https://culturebotai.github.io/CultureMech/app/schema.html",
+    "status": 200,
+    "verbatim_counts": "51 classes \u00b7 34 enums",
+    "classes": 51,
+    "enums": 34,
+    "new_terms_present": {
+      "CausalEdge": true,
+      "CausalTerm": true,
+      "CausalPredicateEnum": true
+    },
+    "excerpt": "CultureMech - Microbial Growth Media Schema\n\nLinkML schema for modeling microbial culture media recipes and formulations. Follows the dismech architecture pattern with descriptor classes for ontology grounding.\n\nSchema URI: https://w3id.org/culturemech \u00b7 License: BSD-3-Clause \u00b7 Download LinkML YAML \u2193\n\nHome\nBrowse Recipes\nText Map\nMedia PaCMAP\nMedia Graph\nIngredient PaCMAP\nSchema\nAll Mech projects \u2197\n51 classes \u00b7 34 enums \u00b7 Download JSON \u00b7 Download TSV\nClasses (51)\nMediaRecipe\n\nA complete growth medium formulation for culturing microorganisms. This is the root entity - one per YAML file.\n\nAttribute\tRange\tCardinality\tStatus\tDescription",
+    "locator": "body schema count summary and generated class/enum sections"
+  },
+  "browser": {
+    "sort_selects": 0,
+    "sort_buttons": 0,
+    "queries": {
+      "CultureMech:000252": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=CultureMech%3A000252",
+        "verbatim_count": "1 recipe"
+      },
+      "Halophilic medium": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=Halophilic+medium",
+        "verbatim_count": "4 recipes"
+      },
+      "no-such-record-nov4-skeptic": {
+        "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=no-such-record-nov4-skeptic",
+        "verbatim_count": "0 recipes"
+      }
+    },
+    "combined": {
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=Halophilic+medium&category=bacterial",
+      "verbatim_count": "2 recipes"
+    },
+    "reload": {
+      "url": "https://culturebotai.github.io/CultureMech/app/browser.html?q=Halophilic+medium&category=bacterial",
+      "verbatim_count": "2 recipes",
+      "query": "Halophilic medium"
+    }
+  },
+  "deployment_after": {
+    "id": 7545180210,
+    "sha": "09f908802989670d2cc799f75f67cf56f7834178",
+    "created_at": "2026-11-04T11:53:07Z",
+    "latest_status": {
+      "state": "success",
+      "created_at": "2026-11-04T11:54:29Z",
+      "environment_url": "https://culturebotai.github.io/CultureMech/"
+    },
+    "header_url": "https://culturebotai.github.io/CultureMech/app/",
+    "http_status": 200,
+    "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT"
+  },
+  "criterion_comparison": {
+    "criteria": 24,
+    "status_disagreements": [],
+    "only_note_change": "schema_docs count 49 classes / 33 enums becomes 51 classes / 34 enums",
+    "auditor_supplement": "culturemech-redeployment-20261104.json",
+    "decision": "Prior feature verdicts remain valid for this served revision. Schema docs remain present."
+  },
+  "finished_at": "2026-11-04T12:21:04.415270+00:00"
+}

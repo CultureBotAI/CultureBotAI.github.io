@@ -1,0 +1,2463 @@
+{
+  "mech": "DUFMech",
+  "reviewer": "central_directory group B auditor",
+  "pin": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+  "started_at": "2026-11-04T11:49:19.578305+00:00",
+  "finished_at": "2026-11-04T11:50:17.848707+00:00",
+  "deployment_before": {
+    "id": 7453408729,
+    "sha": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+    "created_at": "2026-10-31T03:09:19Z",
+    "state": "success",
+    "status_created_at": "2026-10-31T03:09:46Z",
+    "http_status": 200,
+    "last_modified": "Sat, 31 Oct 2026 03:09:36 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:49:20 GMT"
+  },
+  "deployment_after": {
+    "id": 7453408729,
+    "sha": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+    "created_at": "2026-10-31T03:09:19Z",
+    "state": "success",
+    "status_created_at": "2026-10-31T03:09:46Z",
+    "http_status": 200,
+    "last_modified": "Sat, 31 Oct 2026 03:09:36 GMT",
+    "header_date": "Wed, 04 Nov 2026 11:50:17 GMT"
+  },
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "PF04149, IPR007278 and Domain of unknown function (DUF397) each return one linked family from the 8,296-family catalogue.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.search",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "facets": {
+      "status": "present",
+      "note": "Seed status, characterization and curation status filters combine with search; Clear search and filters restores all 8,296 families.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "The live count shows one of 8,296 for each tested identifier/label and zero for an unmatched query.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "sorting": {
+      "status": "present",
+      "note": "The browser offers Proteins: high to low, Proteins: low to high, Pfam accession, Family name: A to Z, Structures: high to low. Changing each option reorders the displayed results.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.sorting",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "shareable_state": {
+      "status": "present",
+      "note": "Query, seed status, characterization, curation status, sort and page are retained in the URL; the exercised combined filter state restores after reload.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.facets",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "The complete index and catalogue contain 8,296 families. The browser provides numbered pagination and links individual family pages.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Family accessions have stable families/PFxxxxx.html pages; PF04149, PF02698 and PF18141 opened successfully.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      }
+    },
+    "term_links": {
+      "status": "present",
+      "note": "Sampled family grounding shows readable names with linked Pfam and InterPro identifiers.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      }
+    },
+    "evidence": {
+      "status": "present",
+      "note": "Family views link frozen source descriptions and citations. Curated mechanism evidence is distinguished from imported descriptions and unresolved source citations.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html",
+      "evidence": {
+        "locator": "receipts.evidence",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html"
+      }
+    },
+    "review_status": {
+      "status": "present",
+      "note": "Family headers and browser rows display curation status alongside seed classification and characterization tier.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html",
+      "evidence": {
+        "locator": "receipts.record_pages",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      }
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "The sampled family views show retained dated curation events and reviews with attribution and outcomes.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      }
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Family pages link their individual YAML at the retained source revision, plus build-local YAML and JSON copies.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      }
+    },
+    "domain_view": {
+      "status": "present",
+      "note": "Family pages display domain tracks and causal diagrams where available; linked text and protein sequence maps provide corpus views.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "evidence": {
+        "locator": "receipts.domain_view",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      }
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "Sampled family pages link specific retained ProteinTraitsMech records, including Pfam:PF18141; the previous claim that PF18141 was outside the scan no longer applies.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "evidence": {
+        "locator": "receipts.term_links",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      }
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The landing reports 8,296 families, 8,238 with InterPro IDs, 1,906 with structures and 8,242 with AlphaFold models; seed subsets total 1,796 EX_DUF, 373 historical DUFs and 6,127 unknown candidates.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.corpus_stats",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "category_browse": {
+      "status": "present",
+      "note": "The linked category index opens distinct paginated seed-status subsets.",
+      "url": "https://culturebotai.github.io/DUFMech/categories.html",
+      "evidence": {
+        "locator": "receipts.category_browse",
+        "url": "https://culturebotai.github.io/DUFMech/categories.html"
+      }
+    },
+    "downloads": {
+      "status": "present",
+      "note": "Sources & schema and the catalogue link the complete index.json export containing all 8,296 families and retained provenance.",
+      "url": "https://culturebotai.github.io/DUFMech/sources.html",
+      "evidence": {
+        "locator": "receipts.downloads",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      }
+    },
+    "schema_docs": {
+      "status": "present",
+      "note": "The linked schema.html guide documents family records, curation, evidence, history and enums, and provides the schema source.",
+      "url": "https://culturebotai.github.io/DUFMech/schema.html",
+      "evidence": {
+        "locator": "receipts.schema_docs",
+        "url": "https://culturebotai.github.io/DUFMech/schema.html"
+      }
+    },
+    "license": {
+      "status": "present",
+      "note": "Reviewed footers distinguish CC BY 4.0 project data from BSD 3-Clause code and retain third-party terms.",
+      "url": "https://culturebotai.github.io/DUFMech/sources.html",
+      "evidence": {
+        "locator": "receipts.license",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      }
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "Footers identify the site build, retained corpus source revision and dated frozen upstream inputs.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.full_catalogue",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "theme_toggle": {
+      "status": "present",
+      "note": "The System/Light/Dark selector persists Dark across the reviewed landing, families, categories, schema, sources and maps.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.theme_toggle",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    },
+    "responsive": {
+      "status": "present",
+      "note": "Reviewed landing, sampled families, category index, sources, schema and maps fit 390px; wide tables scroll within their containers.",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "evidence": {
+        "locator": "receipts.responsive",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      }
+    },
+    "load_failure": {
+      "status": "present",
+      "note": "Blocking catalogue.json visibly reports that interactive search is unavailable while retaining static rows and pagination.",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "evidence": {
+        "locator": "receipts.load_failure",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      }
+    }
+  },
+  "proposed_changes": [
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.search",
+      "before": {
+        "status": "present",
+        "note": "The labeled search covers all 8,296 families. PF04149, its label Domain of unknown function (DUF397), IPR007278 and the new PF18141 each give one openable result.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "PF04149, IPR007278 and Domain of unknown function (DUF397) each return one linked family from the 8,296-family catalogue.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.search.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.facets",
+      "before": {
+        "status": "present",
+        "note": "Seed-status and characterization filters have a reset. EX_DUF gives 1,796, historical DUFs 373 and unknown candidates 6,127; Reset restores all 8,296.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Seed status, characterization and curation status filters combine with search; Clear search and filters restores all 8,296 families.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.facets.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.result_counts",
+      "before": {
+        "status": "present",
+        "note": "The matching count updates separately from the total: tested identifiers and labels give 1 of 8,296, while an unmatched query gives 0 and an empty state.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The live count shows one of 8,296 for each tested identifier/label and zero for an unmatched query.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.result_counts.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.sorting",
+      "before": {
+        "status": "present",
+        "note": "All five sort options work: protein count ascending/descending, Pfam accession, family name and structure count. The first displayed rows change consistently with the chosen order.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The browser offers Proteins: high to low, Proteins: low to high, Pfam accession, Family name: A to Z, Structures: high to low. Changing each option reorders the displayed results.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.sorting.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.shareable_state",
+      "before": {
+        "status": "present",
+        "note": "Search, seed status, characterization, sort and page are encoded in the URL. A second-page DUF search with UNKNOWN_CANDIDATE, UNSCORED and Pfam ascending restores every control and its page on reload.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Query, seed status, characterization, curation status, sort and page are retained in the URL; the exercised combined filter state restores after reload.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.shareable_state.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.full_catalogue",
+      "before": {
+        "status": "present",
+        "note": "The complete served index contains 8,296 families, matching 8,296 committed family HTML routes and 166 static listing pages. Sampled family pages open; the last static page works without JavaScript and contains 46 rows.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The complete index and catalogue contain 8,296 families. The browser provides numbered pagination and links individual family pages.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.full_catalogue.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.suite_nav",
+      "before": {
+        "status": "present",
+        "note": "Visible All Mech projects links on landing, category, record, sources, schema and cross-Mech pages target culturebotai.github.io/mechs/.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Visible All Mech projects links connect the reviewed landing, browser, records and visualizations to the central suite directory.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.suite_nav.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.record_pages",
+      "before": {
+        "status": "present",
+        "note": "Every measured Pfam identifier has a committed families/PFxxxxx.html route, linked from the catalogue. PF04149, PF02698 and the newly added PF18141 opened successfully.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Family accessions have stable families/PFxxxxx.html pages; PF04149, PF02698 and PF18141 opened successfully.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      },
+      "evidence": "features.record_pages.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.term_links",
+      "before": {
+        "status": "present",
+        "note": "Sampled family grounding shows readable labels with linked Pfam and integrated InterPro identifiers, including PF04149/IPR007278 and PF18141/IPR040812.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled family grounding shows readable names with linked Pfam and InterPro identifiers.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": "features.term_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.evidence",
+      "before": {
+        "status": "present",
+        "note": "Family views link frozen source descriptions and references. PF02698 links UniProt accessions and unresolved InterPro PUB citations to their source entry; those citations are not presented as invented PMIDs or new functional validation.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Family views link frozen source descriptions and citations. Curated mechanism evidence is distinguished from imported descriptions and unresolved source citations.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html"
+      },
+      "evidence": "features.evidence.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.review_status",
+      "before": {
+        "status": "present",
+        "note": "The served index and family headers display curation status across all 8,296 families (141 IN_PROGRESS with proposed mechanisms and 8,155 SEEDED) alongside seed classification and characterization tier.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Family headers and browser rows display curation status alongside seed classification and characterization tier.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html"
+      },
+      "evidence": "features.review_status.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.curation_history",
+      "before": {
+        "status": "present",
+        "note": "PF04149 retains its dated Codex REVIEW event, no_change outcome and scoped non-scientific reports. PF18141 explicitly says no retained events or review were supplied.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The sampled family views show retained dated curation events and reviews with attribution and outcomes.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": "features.curation_history.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.source_link",
+      "before": {
+        "status": "present",
+        "note": "Sampled family pages link their own YAML on GitHub at the pinned corpus source revision, plus a build-local YAML and JSON download.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Family pages link their individual YAML at the retained source revision, plus build-local YAML and JSON copies.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": "features.source_link.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.domain_view",
+      "before": {
+        "status": "present",
+        "note": "Family pages show protein-domain coordinate tracks and interactive Mermaid causal graphs for proposed mechanisms; map.html renders a 2D text embedding scatter across all 8,296 families and sequence-map.html renders an ESM-2 protein sequence embedding map (634 representative proteins across 660 families).",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Family pages display domain tracks and causal diagrams where available; linked text and protein sequence maps provide corpus views.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": "features.domain_view.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.cross_mech_links",
+      "before": {
+        "status": "present",
+        "note": "PF04149 links specific ProteinTraitsMech Pfam and InterPro records at the retained source revision. The new PF18141 page explicitly marks it outside the historical cross-Mech scan.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sampled family pages link specific retained ProteinTraitsMech records, including Pfam:PF18141; the previous claim that PF18141 was outside the scan no longer applies.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": "features.cross_mech_links.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.corpus_stats",
+      "before": {
+        "status": "present",
+        "note": "The generated landing shows 8,296 families, 8,238 with InterPro IDs, 1,906 with structures, and 8,242 with AlphaFold models, plus seed categories (6,127 unknown candidates, 373 historical DUFs, 1,796 EX_DUF) and curation status breakdown (141 IN_PROGRESS, 8,155 SEEDED).",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The landing reports 8,296 families, 8,238 with InterPro IDs, 1,906 with structures and 8,242 with AlphaFold models; seed subsets total 1,796 EX_DUF, 373 historical DUFs and 6,127 unknown candidates.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.corpus_stats.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.category_browse",
+      "before": {
+        "status": "present",
+        "note": "The linked Categories index opens separate paginated EX_DUF, historical-DUF and unknown-candidate subsets with totals 1,796, 373 and 6,127. All three subset routes were opened.",
+        "url": "https://culturebotai.github.io/DUFMech/categories.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The linked category index opens distinct paginated seed-status subsets.",
+        "url": "https://culturebotai.github.io/DUFMech/categories.html"
+      },
+      "evidence": "features.category_browse.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.downloads",
+      "before": {
+        "status": "present",
+        "note": "Sources & schema links the full index.json export, which returned 200 and contained all 8,296 families and provenance. Per-family YAML/JSON and the sampled-member files supplement the full export.",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Sources & schema and the catalogue link the complete index.json export containing all 8,296 families and retained provenance.",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      },
+      "evidence": "features.downloads.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.schema_docs",
+      "before": {
+        "status": "present",
+        "note": "Sources & schema links readable LinkML documentation for FamilyRecord, FamilyCuration, evidence/history fields and enums, with a downloadable schema.",
+        "url": "https://culturebotai.github.io/DUFMech/schema.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The linked schema.html guide documents family records, curation, evidence, history and enums, and provides the schema source.",
+        "url": "https://culturebotai.github.io/DUFMech/schema.html"
+      },
+      "evidence": "features.schema_docs.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.license",
+      "before": {
+        "status": "present",
+        "note": "Shared page footers state project data CC BY 4.0 and code BSD 3-Clause, link their license files and retain third-party terms, consistent with the repository license policy.",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Reviewed footers distinguish CC BY 4.0 project data from BSD 3-Clause code and retain third-party terms.",
+        "url": "https://culturebotai.github.io/DUFMech/sources.html"
+      },
+      "evidence": "features.license.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.build_provenance",
+      "before": {
+        "status": "present",
+        "note": "Footers state the site build revision, corpus source revision, and dated frozen upstream input IDs alongside the GitHub Pages deployment revision.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Footers identify the site build, retained corpus source revision and dated frozen upstream inputs.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.build_provenance.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.theme_toggle",
+      "before": {
+        "status": "present",
+        "note": "System/Light/Dark controls are available. Choosing Dark persisted through landing, category index, all three subsets, sources, schema, cross-Mech and three sampled family pages.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "The System/Light/Dark selector persists Dark across the reviewed landing, families, categories, schema, sources and maps.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.theme_toggle.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.responsive",
+      "before": {
+        "status": "present",
+        "note": "Landing, main navigation pages and three sampled families fit 390 px in the initial theme; the same pages plus all three category subsets also fit in Dark. Wide tables stay within their scrolling regions.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Reviewed landing, sampled families, category index, sources, schema and maps fit 390px; wide tables scroll within their containers.",
+        "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+      },
+      "evidence": "features.responsive.evidence"
+    },
+    {
+      "locator": "_fleet/data/site_features.json::mechs.DUFMech.features.load_failure",
+      "before": {
+        "status": "present",
+        "note": "Aborting catalogue.json produces an explicit search-unavailable message stating URL parameters were not applied, while retaining 50 static rows and numbered pages. The last static page also works without JavaScript.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "replacement": {
+        "status": "present",
+        "note": "Blocking catalogue.json visibly reports that interactive search is unavailable while retaining static rows and pagination.",
+        "url": "https://culturebotai.github.io/DUFMech/"
+      },
+      "evidence": "features.load_failure.evidence"
+    }
+  ],
+  "limits": [
+    "Representative route audit, not an HTTP crawl of every record. Complete counts are listing/export counts where stated.",
+    "Independent skeptic must verify all changed verdicts before editor applies them.",
+    "Supplemental cold-route, theme, download and schema evidence is recorded in group-b-supplement.json."
+  ],
+  "receipts": {
+    "search": {
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "query:PF04149": {
+          "url": "https://culturebotai.github.io/DUFMech/?q=PF04149&seed=&sort=proteins-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "1 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": "PF04149"
+            },
+            {
+              "id": "family-query",
+              "value": "PF04149"
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 21,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "query:Domain of unknown function (DUF397)": {
+          "url": "https://culturebotai.github.io/DUFMech/?q=Domain+of+unknown+function+%28DUF397%29&seed=&sort=proteins-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "1 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": "Domain of unknown function (DUF397)"
+            },
+            {
+              "id": "family-query",
+              "value": "Domain of unknown function (DUF397)"
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 21,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "query:IPR007278": {
+          "url": "https://culturebotai.github.io/DUFMech/?q=IPR007278&seed=&sort=proteins-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "1 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": "IPR007278"
+            },
+            {
+              "id": "family-query",
+              "value": "IPR007278"
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 21,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "query:no-such-record-nov4-audit": {
+          "url": "https://culturebotai.github.io/DUFMech/?q=no-such-record-nov4-audit&seed=&sort=proteins-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "0 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "family-query",
+              "value": "no-such-record-nov4-audit"
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 20,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        }
+      }
+    },
+    "facets": {
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "combined_query": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=EX_DUF&sort=structures-desc&page=1&characterization=UNSCORED&curation=IN_PROGRESS&q=IPR007278#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "0 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": "IPR007278"
+            },
+            {
+              "id": "family-query",
+              "value": "IPR007278"
+            },
+            {
+              "id": "seed-filter",
+              "value": "EX_DUF"
+            },
+            {
+              "id": "characterization-filter",
+              "value": "UNSCORED"
+            },
+            {
+              "id": "curation-filter",
+              "value": "IN_PROGRESS"
+            },
+            {
+              "id": "family-sort",
+              "value": "structures-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 20,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "restored": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=EX_DUF&sort=structures-desc&page=1&characterization=UNSCORED&curation=IN_PROGRESS&q=IPR007278#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "0 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": "IPR007278"
+            },
+            {
+              "id": "family-query",
+              "value": "IPR007278"
+            },
+            {
+              "id": "seed-filter",
+              "value": "EX_DUF"
+            },
+            {
+              "id": "characterization-filter",
+              "value": "UNSCORED"
+            },
+            {
+              "id": "curation-filter",
+              "value": "IN_PROGRESS"
+            },
+            {
+              "id": "family-sort",
+              "value": "structures-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 20,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "reset": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=&sort=proteins-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "8,296 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": ""
+            },
+            {
+              "id": "family-query",
+              "value": ""
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 70,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        }
+      }
+    },
+    "sorting": {
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "actions",
+      "actions": {
+        "sort:proteins-desc": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=&sort=proteins-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "8,296 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": ""
+            },
+            {
+              "id": "family-query",
+              "value": ""
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 70,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "sort:proteins-asc": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=&sort=proteins-asc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "8,296 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": ""
+            },
+            {
+              "id": "family-query",
+              "value": ""
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "proteins-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 70,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "sort:pfam_id-asc": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=&sort=pfam_id-asc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "8,296 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": ""
+            },
+            {
+              "id": "family-query",
+              "value": ""
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "pfam_id-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 70,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "sort:name-asc": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=&sort=name-asc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "8,296 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": ""
+            },
+            {
+              "id": "family-query",
+              "value": ""
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "name-asc"
+            }
+          ],
+          "checked": [],
+          "rows": 70,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        },
+        "sort:structures-desc": {
+          "url": "https://culturebotai.github.io/DUFMech/?seed=&sort=structures-desc&page=1#families",
+          "counts": [
+            {
+              "id": "family-count",
+              "text": "8,296 of 8,296 families match."
+            }
+          ],
+          "controls": [
+            {
+              "id": "theme-control",
+              "value": "dark"
+            },
+            {
+              "id": "hero-search-input",
+              "value": ""
+            },
+            {
+              "id": "family-query",
+              "value": ""
+            },
+            {
+              "id": "seed-filter",
+              "value": ""
+            },
+            {
+              "id": "characterization-filter",
+              "value": ""
+            },
+            {
+              "id": "curation-filter",
+              "value": ""
+            },
+            {
+              "id": "family-sort",
+              "value": "structures-desc"
+            }
+          ],
+          "checked": [],
+          "rows": 70,
+          "first_results": [
+            "",
+            "",
+            ""
+          ],
+          "error": null
+        }
+      }
+    },
+    "full_catalogue": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/']",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "headings": [
+        "DUFMech",
+        "Residue-level domain matches",
+        "Families",
+        "Seed categories",
+        "Embedding browsers",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text embedding map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Protein sequence map (ESM-2 pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Seed categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Lactobacillus delbrueckii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii subsp. lactis",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii_subsp_lactis.yaml"
+        },
+        {
+          "text": "Lactobacillus leichmannii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_leichmannii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii subsp. lactis",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii_subsp_lactis.yaml"
+        },
+        {
+          "text": "Lactobacillus leichmannii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_leichmannii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii subsp. lactis",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii_subsp_lactis.yaml"
+        },
+        {
+          "text": "Lactobacillus leichmannii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_leichmannii.yaml"
+        },
+        {
+          "text": "H-body",
+          "url": "https://github.com/CultureBotAI/CellStructureMech/blob/55c4e773da4e6638a17ccc68780b3005f9f94e67/data/structures/ribonucleoprotein/h_body.yaml"
+        },
+        {
+          "text": "TmaR condensate",
+          "url": "https://github.com/CultureBotAI/CellStructureMech/blob/55c4e773da4e6638a17ccc68780b3005f9f94e67/data/structures/ribonucleoprotein/tmar_condensate.yaml"
+        },
+        {
+          "text": "GmrSD_N (PF03235)",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF03235.html"
+        },
+        {
+          "text": "Sinorhizobium xinjiangense",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/sinorhizobium_xinjiangense.yaml"
+        }
+      ]
+    },
+    "record_pages": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/families/PF18141.html']",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html",
+      "headings": [
+        "PF18141: UPF1_1B_dom",
+        "Grounding",
+        "Source description",
+        "Evidence and references",
+        "Curated functional assertions",
+        "Causal graphs",
+        "Protein sequence examples",
+        "Domain matches",
+        "Snapshot counters",
+        "Classification basis",
+        "Related Mech records",
+        "Curation history and reviews",
+        "Record source",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF18141.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "All families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "FASTA",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF18141.fasta"
+        },
+        {
+          "text": "O76512",
+          "url": "https://rest.uniprot.org/uniprotkb/O76512.json"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF18141",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/upf1-1b-dom-pf18141.yaml"
+        },
+        {
+          "text": "P30771",
+          "url": "https://rest.uniprot.org/uniprotkb/P30771.json"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF18141",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/upf1-1b-dom-pf18141.yaml"
+        },
+        {
+          "text": "Q92900",
+          "url": "https://rest.uniprot.org/uniprotkb/Q92900.json"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF18141",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/upf1-1b-dom-pf18141.yaml"
+        },
+        {
+          "text": "Q9EPU0",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9EPU0.json"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF18141",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/upf1-1b-dom-pf18141.yaml"
+        },
+        {
+          "text": "Q9FJR0",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9FJR0.json"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF18141",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/upf1-1b-dom-pf18141.yaml"
+        },
+        {
+          "text": "Q9VYS3",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9VYS3.json"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF18141",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/upf1-1b-dom-pf18141.yaml"
+        },
+        {
+          "text": "data/families/PF18141.yaml",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/families/PF18141.yaml"
+        },
+        {
+          "text": "Family YAML in this build",
+          "url": "https://culturebotai.github.io/DUFMech/source/data/families/PF18141.yaml"
+        }
+      ]
+    },
+    "term_links": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/families/PF04149.html']",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "headings": [
+        "PF04149: DUF397",
+        "Grounding",
+        "Source description",
+        "Evidence and references",
+        "Curated functional assertions",
+        "Causal graphs",
+        "Scr2-dependent actinorhodin induction",
+        "SCO7615/SCO7616 deletion on R2YE",
+        "SCO7615/SCO7616 deletion on NMMP",
+        "Protein sequence examples",
+        "Domain matches",
+        "Snapshot counters",
+        "Classification basis",
+        "Related Mech records",
+        "Curation history and reviews",
+        "Record source",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "All families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "https://rest.uniprot.org/uniprotkb/Q9KZY4.json",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9KZY4.json"
+        },
+        {
+          "text": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json"
+        },
+        {
+          "text": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json"
+        },
+        {
+          "text": "FASTA",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.fasta"
+        },
+        {
+          "text": "A0A852TVM8",
+          "url": "https://rest.uniprot.org/uniprotkb/A0A852TVM8.json"
+        },
+        {
+          "text": "UniProt family search, rank 1",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "A0AAC9N0X6",
+          "url": "https://rest.uniprot.org/uniprotkb/A0AAC9N0X6.json"
+        },
+        {
+          "text": "UniProt family search, rank 2",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "A0A010YFW0",
+          "url": "https://rest.uniprot.org/uniprotkb/A0A010YFW0.json"
+        },
+        {
+          "text": "UniProt family search, rank 3",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "UniProt family query",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "Frozen member dataset and attribution",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html#member-dataset"
+        },
+        {
+          "text": "DUF397 (PF04149)",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+        },
+        {
+          "text": "Domain of unknown function DUF397",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/71499ae52aa05d60c781991df5cbf8dcc20eca10/data/traits/sequence/domain/interpro/domain-of-unknown-function-duf397-ipr007278.yaml"
+        },
+        {
+          "text": "DUF397 (PF04149)",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+        }
+      ]
+    },
+    "evidence": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/families/PF02698.html']",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html",
+      "headings": [
+        "PF02698: DUF218",
+        "Grounding",
+        "Source description",
+        "Evidence and references",
+        "Curated functional assertions",
+        "Causal graphs",
+        "Protein sequence examples",
+        "Domain matches",
+        "Snapshot counters",
+        "Classification basis",
+        "Related Mech records",
+        "Curation history and reviews",
+        "Record source",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF02698.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "All families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "FASTA",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF02698.fasta"
+        },
+        {
+          "text": "P0AB01",
+          "url": "https://rest.uniprot.org/uniprotkb/P0AB01.json"
+        },
+        {
+          "text": "ProteinTraitsMech: GO:0043164",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/function/pathway/go/gram-negative-bacterium-type-cell-wall-biogenesis-go0043164.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: NCBIfam:NF007794",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/function/protein_family/ncbifam/envelope-biogenesis-factor-elyc-nf007794.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: CDD:cd06259",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/cdd/ydcf-like-ydcf-like-is-a-large-family-of-mainly-bacterial-proteins-wit-cd06259.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: InterPro:IPR003848",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/interpro/domain-of-unknown-function-duf218-ipr003848.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF02698",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/duf218-pf02698.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: UniProtKB:P0AB01",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/grounding/protein_registry.jsonl"
+        },
+        {
+          "text": "P0AFY2",
+          "url": "https://rest.uniprot.org/uniprotkb/P0AFY2.json"
+        },
+        {
+          "text": "ProteinTraitsMech: NCBIfam:NF008092",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/function/protein_family/ncbifam/outer-membrane-permeability-protein-sana-nf008092.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: CDD:cd06259",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/cdd/ydcf-like-ydcf-like-is-a-large-family-of-mainly-bacterial-proteins-wit-cd06259.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: InterPro:IPR003848",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/interpro/domain-of-unknown-function-duf218-ipr003848.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: Pfam:PF02698",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/traits/sequence/domain/pfam/duf218-pf02698.yaml"
+        },
+        {
+          "text": "ProteinTraitsMech: UniProtKB:P0AFY2",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/70edd6f8458845f7d7783ac4f416df519f5e1de6/data/grounding/protein_registry.jsonl"
+        },
+        {
+          "text": "P34209",
+          "url": "https://rest.uniprot.org/uniprotkb/P34209.json"
+        }
+      ]
+    },
+    "domain_view": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/families/PF04149.html']",
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "headings": [
+        "PF04149: DUF397",
+        "Grounding",
+        "Source description",
+        "Evidence and references",
+        "Curated functional assertions",
+        "Causal graphs",
+        "Scr2-dependent actinorhodin induction",
+        "SCO7615/SCO7616 deletion on R2YE",
+        "SCO7615/SCO7616 deletion on NMMP",
+        "Protein sequence examples",
+        "Domain matches",
+        "Snapshot counters",
+        "Classification basis",
+        "Related Mech records",
+        "Curation history and reviews",
+        "Record source",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "All families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "https://rest.uniprot.org/uniprotkb/Q9KZY4.json",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9KZY4.json"
+        },
+        {
+          "text": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json"
+        },
+        {
+          "text": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json",
+          "url": "https://rest.uniprot.org/uniprotkb/Q9F3E1.json"
+        },
+        {
+          "text": "FASTA",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.fasta"
+        },
+        {
+          "text": "A0A852TVM8",
+          "url": "https://rest.uniprot.org/uniprotkb/A0A852TVM8.json"
+        },
+        {
+          "text": "UniProt family search, rank 1",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "A0AAC9N0X6",
+          "url": "https://rest.uniprot.org/uniprotkb/A0AAC9N0X6.json"
+        },
+        {
+          "text": "UniProt family search, rank 2",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "A0A010YFW0",
+          "url": "https://rest.uniprot.org/uniprotkb/A0A010YFW0.json"
+        },
+        {
+          "text": "UniProt family search, rank 3",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "UniProt family query",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=xref%3Apfam-PF04149&fields=accession%2Creviewed%2Cprotein_name%2Corganism_name%2Corganism_id%2Csequence%2Clength%2Csequence_version%2Cxref_pfam%2Cannotation_score&sort=annotation_score+desc%2Caccession+asc&size=3&format=json"
+        },
+        {
+          "text": "Frozen member dataset and attribution",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html#member-dataset"
+        },
+        {
+          "text": "DUF397 (PF04149)",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+        },
+        {
+          "text": "Domain of unknown function DUF397",
+          "url": "https://github.com/CultureBotAI/proteintraitsmech/blob/71499ae52aa05d60c781991df5cbf8dcc20eca10/data/traits/sequence/domain/interpro/domain-of-unknown-function-duf397-ipr007278.yaml"
+        },
+        {
+          "text": "DUF397 (PF04149)",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html"
+        }
+      ],
+      "excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\n\nAll families / PF04149\n\nPF04149: DUF397\n\nDomain of unknown function (DUF397)\n\nCuration status\nIN PROGRESS\nSeed status\nUNKNOWN CANDIDATE\nCharacterization\nUNSCORED\nGrounding\n\nPF04149: Domain of unknown function (DUF397)\nIPR007278: integrated entry for Domain of unknown function (DUF397)\n\nSource description\n\nThe function of this family is unknown.\n\nEvidence and references\nFrozen description source: InterPro/Pfam API\n\nSource descriptions and links are provenance, not independent functional validation.\n\nEvidence counts: not scored.\n\nCurated functional assertions\n\nNo curated functional assertions supplied.\n\nCausal graphs\nScr2-dependent actinorhodin induction\n\nPHENOTYPIC\n\nScope\nScr2 (SCO4442; UniProtKB:Q9KZY4), not all DUF397 proteins or an isolated domain.\nContext\nS. coelicolor M145 and scr2-deletion derivatives, Scr1 overexpression, liquid YES plus xylose, eight days.\nFamily mapping\nUniProt Q9KZY4 sequence version 1 is 63 residues; its Pfam PF04149 annotation spans residues 10-62. The experiment perturbs the whole gene.\nLimitations\nNo direct Scr1-Scr2 binding or catalytic mechanism established here; no family-wide transfer. Other media, times and paralogs require separate graphs.\nscr2-present: Scr2 present in a Scr1-overexpression background; STATE; UniProtKB:Q9KZY4\ninduced-act: Scr1-induced actinorhodin production; PHENOTYPE; Ungrounded\nDirected causal edges\nSource\tRelation\tTarget\tSupport\tMechanism and evidence\nscr2-present: Scr2 present in a Scr1-overexpression background\trequired for\tinduced-act: Scr1-induced actinorhod"
+    },
+    "corpus_stats": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/']",
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "headings": [
+        "DUFMech",
+        "Residue-level domain matches",
+        "Families",
+        "Seed categories",
+        "Embedding browsers",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Text embedding map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Protein sequence map (ESM-2 pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Seed categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Lactobacillus delbrueckii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii subsp. lactis",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii_subsp_lactis.yaml"
+        },
+        {
+          "text": "Lactobacillus leichmannii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_leichmannii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii subsp. lactis",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii_subsp_lactis.yaml"
+        },
+        {
+          "text": "Lactobacillus leichmannii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_leichmannii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii.yaml"
+        },
+        {
+          "text": "Lactobacillus delbrueckii subsp. lactis",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_delbrueckii_subsp_lactis.yaml"
+        },
+        {
+          "text": "Lactobacillus leichmannii",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/lactobacillus_leichmannii.yaml"
+        },
+        {
+          "text": "H-body",
+          "url": "https://github.com/CultureBotAI/CellStructureMech/blob/55c4e773da4e6638a17ccc68780b3005f9f94e67/data/structures/ribonucleoprotein/h_body.yaml"
+        },
+        {
+          "text": "TmaR condensate",
+          "url": "https://github.com/CultureBotAI/CellStructureMech/blob/55c4e773da4e6638a17ccc68780b3005f9f94e67/data/structures/ribonucleoprotein/tmar_condensate.yaml"
+        },
+        {
+          "text": "GmrSD_N (PF03235)",
+          "url": "https://culturebotai.github.io/DUFMech/families/PF03235.html"
+        },
+        {
+          "text": "Sinorhizobium xinjiangense",
+          "url": "https://github.com/CultureBotAI/TaxonMech/blob/700c6732cee83d9939c58e7e8c922c7c91b9fabf/data/taxa/bacteria/sinorhizobium_xinjiangense.yaml"
+        }
+      ],
+      "excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\nDUFMech\n\nDomain and protein families of unknown function, including historical DUFs.\n\nSearch the DUFMech catalogue (8,296 families)\nSearch families\n\nOr explore visually: Text embedding map \u00b7 Protein sequence map (ESM-2 pLM) \u00b7 Seed categories\n\n8,296\nFamilies\n8,238\nFamilies with InterPro IDs\n1,906\nFamilies with structures\n8,242\nFamilies with AlphaFold models\n17,971,301\nPer-family protein total\n19,768,727\nPer-family match total\nDUF examples curated in other Mechs\n\nPer-family totals are sums of reported InterPro counters, not unique proteins or matches. 0 families lack protein counts; 0 lack match counts.\n\nBrowse by seed category\n\nEX DUF: 1,796\nKNOWN HISTORICAL DUF: 373\nUNKNOWN CANDIDATE: 6,127\nResidue-level domain matches\nPF04149: Domain of unknown function (DUF397) (2 supplied protein members)\nFamilies\n\nDownload the complete family index (JSON)\n\nSearch accession or family\nSeed status\nAll seed statuses\nEX DUF\nKNOWN HISTORICAL DUF\nUNKNOWN CANDIDATE\nCharacterization\nAll characterizations\nUNSCORED\nCuration status\nAll curation statuses\nIN PROGRESS\nSEEDED\nSort by\nProteins: high to low\nProteins: low to high\nPfam accession\nFamily name: A to Z\nStructures: high to low\nClear search and filters\nSeed categories\nAll families (8,296)\nEX DUF (1,796)\nKNOWN HISTORICAL DUF (373)\nUNKNOWN CANDIDATE (6,127)\nEmbedding browsers\nText embedding map\nSequence map (ESM-2 pLM)\n\n8,296 of 8,296 families match.\n\nPfam\tFamily\tSeed status\tCharacterization\tEvidence counts\tProteins\tStructures\tAlphaFold\tOther Mechs\tCuration status\nPF13193\tAMP-binding enzyme C"
+    },
+    "category_browse": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/categories.html']",
+      "url": "https://culturebotai.github.io/DUFMech/categories.html",
+      "headings": [
+        "Family categories",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "EX DUF",
+          "url": "https://culturebotai.github.io/DUFMech/category/ex_duf.html"
+        },
+        {
+          "text": "KNOWN HISTORICAL DUF",
+          "url": "https://culturebotai.github.io/DUFMech/category/known_historical_duf.html"
+        },
+        {
+          "text": "UNKNOWN CANDIDATE",
+          "url": "https://culturebotai.github.io/DUFMech/category/unknown_candidate.html"
+        },
+        {
+          "text": "Corpus source a2e6fb8d5ad7",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/worklists/interpro-pfam-duf-2026-10-10.json"
+        },
+        {
+          "text": "BSD 3-Clause",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "License policy",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/main/LICENSE"
+        }
+      ]
+    },
+    "downloads": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/sources.html']",
+      "url": "https://culturebotai.github.io/DUFMech/sources.html",
+      "headings": [
+        "Sources and schema",
+        "Frozen inputs",
+        "Protein domain match dataset",
+        "Protein sequence example dataset",
+        "Retained reviews",
+        "Record schema",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Complete family index, metadata and provenance (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/index.json"
+        },
+        {
+          "text": "data/cross_mech/cross-mech-duf-examples-2026-10-10.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/cross_mech/cross-mech-duf-examples-2026-10-10.json"
+        },
+        {
+          "text": "data/worklists/pfam-uniprot-uniref90-2026-10-07.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/worklists/pfam-uniprot-uniref90-2026-10-07.json"
+        },
+        {
+          "text": "data/protein_examples/duf-protein-examples-direct-2026-10-13.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/protein_examples/duf-protein-examples-direct-2026-10-13.json"
+        },
+        {
+          "text": "src/dufmech/schema/dufmech.yaml",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/src/dufmech/schema/dufmech.yaml"
+        },
+        {
+          "text": "src/dufmech/schema/mech_shared.yaml",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/src/dufmech/schema/mech_shared.yaml"
+        },
+        {
+          "text": "data/worklists/interpro-pfam-duf-2026-10-10.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/worklists/interpro-pfam-duf-2026-10-10.json"
+        },
+        {
+          "text": "Download frozen member rows (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/pfam-uniprot-uniref90-2026-10-07.json"
+        },
+        {
+          "text": "Download checksum manifest (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/pfam-uniprot-uniref90-2026-10-07.manifest.json"
+        },
+        {
+          "text": "Download member table (TSV)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/pfam-uniprot-uniref90-2026-10-07.tsv"
+        },
+        {
+          "text": "Frozen examples (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/duf-protein-examples-direct-2026-10-13.json"
+        },
+        {
+          "text": "Manifest",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/duf-protein-examples-direct-2026-10-13.manifest.json"
+        },
+        {
+          "text": "2026-10-07T07:24:23.895662Z: NEEDS_FOLLOWUP by Codex (GPT-6), scoped implementation audit",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/repo_review/20261007T072423Z-review-history-workflows.md"
+        },
+        {
+          "text": "2026-10-07T07:24:23.895662Z: SEED_ONLY by Codex (GPT-6), scoped implementation audit",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/yaml_category_review/20261007T072423Z-two-seed-provenance.md"
+        },
+        {
+          "text": "2026-10-07T07:24:23.895662Z: SEED_ONLY by Codex (GPT-6), scoped implementation audit",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/yaml_record_review/20261007T072423Z-PF04149.md"
+        },
+        {
+          "text": "2026-10-07T08:06:30Z: SEED_ONLY by Codex (GPT-5 coding agent), independent scoped reviewer",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/yaml_record_review/20261007T080630Z-PF04149.md"
+        }
+      ],
+      "field_inventory": "group-b-bulk-inventory.json::DUFMech"
+    },
+    "schema_docs": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/schema.html']",
+      "url": "https://culturebotai.github.io/DUFMech/schema.html",
+      "headings": [
+        "DUFMech LinkML schema",
+        "FamilyRecord",
+        "FamilyCuration",
+        "CurationEvent",
+        "FamilyCounters",
+        "SnapshotProvenance",
+        "FunctionalAssertion",
+        "CausalGraph",
+        "CausalNode",
+        "CausalEdge",
+        "ClaimEvidence",
+        "Enumerations"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/schema.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Download LinkML schema",
+          "url": "https://culturebotai.github.io/DUFMech/schema/dufmech.yaml"
+        },
+        {
+          "text": "Corpus source a2e6fb8d5ad7",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/worklists/interpro-pfam-duf-2026-10-10.json"
+        },
+        {
+          "text": "BSD 3-Clause",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/main/LICENSE-CODE"
+        },
+        {
+          "text": "License policy",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/main/LICENSE"
+        }
+      ]
+    },
+    "license": {
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages['https://culturebotai.github.io/DUFMech/sources.html']",
+      "url": "https://culturebotai.github.io/DUFMech/sources.html",
+      "headings": [
+        "Sources and schema",
+        "Frozen inputs",
+        "Protein domain match dataset",
+        "Protein sequence example dataset",
+        "Retained reviews",
+        "Record schema",
+        "Status and evidence"
+      ],
+      "footer_excerpt": "Site build 9594251a8dd6130c. Corpus source a2e6fb8d5ad7\ncross_mech: cross-mech-duf-examples-2026-10-10 / members: pfam-uniprot-uniref90-2026-10-07 / protein_examples: duf-protein-examples-direct-2026-10-13 / worklist: interpro-pfam-duf-2026-10-10\n\nProject data: CC BY 4.0. Code: BSD 3-Clause. Redistributed source material retains its applicable third-party terms. License policy.",
+      "relevant_links": [
+        {
+          "text": "Skip to content",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html#main"
+        },
+        {
+          "text": "DUFMech",
+          "url": "https://culturebotai.github.io/DUFMech/index.html"
+        },
+        {
+          "text": "Browse families",
+          "url": "https://culturebotai.github.io/DUFMech/index.html#families"
+        },
+        {
+          "text": "Text map",
+          "url": "https://culturebotai.github.io/DUFMech/map.html"
+        },
+        {
+          "text": "Sequence map (pLM)",
+          "url": "https://culturebotai.github.io/DUFMech/sequence-map.html"
+        },
+        {
+          "text": "Categories",
+          "url": "https://culturebotai.github.io/DUFMech/categories.html"
+        },
+        {
+          "text": "Sources & schema",
+          "url": "https://culturebotai.github.io/DUFMech/sources.html"
+        },
+        {
+          "text": "Repository",
+          "url": "https://github.com/CultureBotAI/DUFMech"
+        },
+        {
+          "text": "All Mech projects",
+          "url": "https://culturebotai.github.io/mechs/"
+        },
+        {
+          "text": "Complete family index, metadata and provenance (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/index.json"
+        },
+        {
+          "text": "data/cross_mech/cross-mech-duf-examples-2026-10-10.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/cross_mech/cross-mech-duf-examples-2026-10-10.json"
+        },
+        {
+          "text": "data/worklists/pfam-uniprot-uniref90-2026-10-07.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/worklists/pfam-uniprot-uniref90-2026-10-07.json"
+        },
+        {
+          "text": "data/protein_examples/duf-protein-examples-direct-2026-10-13.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/protein_examples/duf-protein-examples-direct-2026-10-13.json"
+        },
+        {
+          "text": "src/dufmech/schema/dufmech.yaml",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/src/dufmech/schema/dufmech.yaml"
+        },
+        {
+          "text": "src/dufmech/schema/mech_shared.yaml",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/src/dufmech/schema/mech_shared.yaml"
+        },
+        {
+          "text": "data/worklists/interpro-pfam-duf-2026-10-10.json",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/data/worklists/interpro-pfam-duf-2026-10-10.json"
+        },
+        {
+          "text": "Download frozen member rows (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/pfam-uniprot-uniref90-2026-10-07.json"
+        },
+        {
+          "text": "Download checksum manifest (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/pfam-uniprot-uniref90-2026-10-07.manifest.json"
+        },
+        {
+          "text": "Download member table (TSV)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/pfam-uniprot-uniref90-2026-10-07.tsv"
+        },
+        {
+          "text": "Frozen examples (JSON)",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/duf-protein-examples-direct-2026-10-13.json"
+        },
+        {
+          "text": "Manifest",
+          "url": "https://culturebotai.github.io/DUFMech/datasets/duf-protein-examples-direct-2026-10-13.manifest.json"
+        },
+        {
+          "text": "2026-10-07T07:24:23.895662Z: NEEDS_FOLLOWUP by Codex (GPT-6), scoped implementation audit",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/repo_review/20261007T072423Z-review-history-workflows.md"
+        },
+        {
+          "text": "2026-10-07T07:24:23.895662Z: SEED_ONLY by Codex (GPT-6), scoped implementation audit",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/yaml_category_review/20261007T072423Z-two-seed-provenance.md"
+        },
+        {
+          "text": "2026-10-07T07:24:23.895662Z: SEED_ONLY by Codex (GPT-6), scoped implementation audit",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/yaml_record_review/20261007T072423Z-PF04149.md"
+        },
+        {
+          "text": "2026-10-07T08:06:30Z: SEED_ONLY by Codex (GPT-5 coding agent), independent scoped reviewer",
+          "url": "https://github.com/CultureBotAI/DUFMech/blob/a2e6fb8d5ad7a06bb7a86cb4118b9fe2acf793e3/reports/yaml_record_review/20261007T080630Z-PF04149.md"
+        }
+      ]
+    },
+    "theme_toggle": {
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages[*].theme / saved_theme",
+      "themes": {
+        "https://culturebotai.github.io/DUFMech/": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/families/PF18141.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/families/PF04149.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/families/PF02698.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/categories.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/sources.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/schema.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/map.html": {
+          "theme": "dark",
+          "saved": "dark"
+        },
+        "https://culturebotai.github.io/DUFMech/sequence-map.html": {
+          "theme": "dark",
+          "saved": "dark"
+        }
+      }
+    },
+    "responsive": {
+      "url": "https://culturebotai.github.io/DUFMech/families/PF04149.html",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "pages[*].fresh_390 / resized_390",
+      "widths": {
+        "https://culturebotai.github.io/DUFMech/": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/families/PF18141.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/families/PF04149.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/families/PF02698.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/categories.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/sources.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/schema.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        },
+        "https://culturebotai.github.io/DUFMech/sequence-map.html": {
+          "fresh": {
+            "width": 390,
+            "scroll": 390
+          },
+          "resized": {
+            "width": 390,
+            "scroll": 390
+          }
+        }
+      }
+    },
+    "load_failure": {
+      "url": "https://culturebotai.github.io/DUFMech/",
+      "capture_file": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-browser-b.json",
+      "capture_locator": "failure_cases",
+      "cases": {
+        "https://culturebotai.github.io/DUFMech/": {
+          "aborted": [
+            "https://culturebotai.github.io/DUFMech/catalogue.json"
+          ],
+          "excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\nDUFMech\n\nDomain and protein families of unknown function, including historical DUFs.\n\nSearch the DUFMech catalogue (8,296 families)\nSearch families\n\nOr explore visually: Text embedding map \u00b7 Protein sequence map (ESM-2 pLM) \u00b7 Seed categories\n\n8,296\nFamilies\n8,238\nFamilies with InterPro IDs\n1,906\nFamilies with structures\n8,242\nFamilies with AlphaFold models\n17,971,301\nPer-family protein total\n19,768,727\nPer-family match total\nDUF examples curated in other Mechs\n\nPer-family totals are sums of reported InterPro counters, not unique proteins or matches. 0 families lack protein counts; 0 lack match counts.\n\nBrowse by seed category\n\nEX DUF: 1,796\nKNOWN HISTORICAL DUF: 373\nUNKNOWN CANDIDATE: 6,127\nResidue-level domain matches\nPF04149: Domain of unknown function (DUF397) (2 supplied protein members)\nFamilies\n\nDownload the complete family index (JSON)\n\nSeed categories\nAll families (8,296)\nEX DUF (1,796)\nKNOWN HISTORICAL DUF (373)\nUNKNOWN CANDIDATE (6,127)\nEmbedding browsers\nText embedding map\nSequence map (ESM-2 pLM)\n\n8,296 of 8,296 families. Page 1 of 166.\n\nSearch is unavailable because the catalogue could not be loaded. The table below is the static catalogue page; search parameters have not been applied. Use the numbered pages or complete JSON download. Retry\n\nPfam\tFamily\tSeed status\tCharacterization\tEvidence counts\tProteins\tStructures\tAlphaFold\tOther Mechs\tCuration status\nPF13193\tAMP-binding enzyme C-terminal domain\nAMP-binding_C\tEX DUF\tUNSCORED\tNot scored\t284,163\t297\t168,232\tnot covered by the cross-Mech scan\tSEEDED\nPF00672\tHAMP domain\nHAMP\tEX DUF\tUNSCORED\tNot scored\t257,581\t46\t151,473\tnot covered by the cross-Mech scan\t"
+        },
+        "https://culturebotai.github.io/DUFMech/map.html": {
+          "aborted": [
+            "https://culturebotai.github.io/DUFMech/text-map.json"
+          ],
+          "excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\nText embedding map\n\nInteractive 2D PaCMAP projection of 8,296 DUF/Pfam family records embedded with BAAI/bge-small-en-v1.5 (384-dimensional text vectors over family accession, name, status, and frozen InterPro/Pfam descriptions).\n\nCatalogue table | Sequence embedding map (ESM-2 pLM) | Download text map coordinates (JSON)\n\nSearch Pfam, DUF, or name\nColor by\nSeed status\nCuration status\nCross-Mech linkage\nSeed status\nAll seed statuses\nUNKNOWN CANDIDATE\nEX DUF\nKNOWN HISTORICAL DUF\nCuration status\nAll curation statuses\nIN PROGRESS\nSEEDED\nCross-Mech linkage\nAll records\nCross-Mech linked\nDUFMech only\nReset view and filters\n\nText embedding map could not be loaded. Retry\n\nClick or hover any point to inspect the Pfam/DUF family and open its detail page. Drag to pan; scroll or pinch to zoom.\n\nStatus and evidence\nSeed status\nA name-based classification of frozen InterPro/Pfam metadata. UNKNOWN CANDIDATE means the metadata explicitly says the function is unknown. KNOWN HISTORICAL DUF means a DUF name matched without that wording; this heuristic is not proof of a known function and does not establish experimental characterization. EX DUF means Pfam renamed the family away from a DUF/UPF name, as recorded in Pfam's previous identifiers; a rename usually follows published work on some members but is naming history, not proof of function for every member. Some EX DUF families' current names or descriptions still say the function is unknown; their classification basis lists this, and scoring does not treat them as characterized. FALSE POSITIVE TEXT HIT means the naming rules did not match.\nCharacterization\nA separate evidence-scoring "
+        },
+        "https://culturebotai.github.io/DUFMech/sequence-map.html": {
+          "aborted": [
+            "https://culturebotai.github.io/DUFMech/sequence-map.json"
+          ],
+          "excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\nProtein sequence embedding map (pLM)\n\nInteractive 2D PaCMAP projection of 634 verified UniProtKB protein sequence examples across 660 DUF/Pfam families, embedded with protein language model facebook/esm2_t33_650M_UR50D (1280-dimensional mean-pooled residue representations).\n\nCatalogue table | Text embedding map | Download sequence map coordinates (JSON)\n\nSearch UniProt, Pfam, protein, or organism\nColor by\nPrimary seed status\nPrimary curation status\nDiscovery channel\nSequence length\nSeed status\nAll seed statuses\nUNKNOWN CANDIDATE\nEX DUF\nKNOWN HISTORICAL DUF\nCuration status\nAll curation statuses\nIN PROGRESS\nSEEDED\nDiscovery channel\nAll channels\nPTM REGISTRY MIRROR\nUNIPROT FETCH\nSequence length\nAll lengths\n<= 200 aa\n201-500 aa\n501-1,022 aa\n> 1,022 aa\nReset view and filters\n\nSequence embedding map could not be loaded. Retry\n\nClick or hover any protein point to inspect its UniProtKB accession, organism, length, and linked DUF/Pfam families.\n\nStatus and evidence\nSeed status\nA name-based classification of frozen InterPro/Pfam metadata. UNKNOWN CANDIDATE means the metadata explicitly says the function is unknown. KNOWN HISTORICAL DUF means a DUF name matched without that wording; this heuristic is not proof of a known function and does not establish experimental characterization. EX DUF means Pfam renamed the family away from a DUF/UPF name, as recorded in Pfam's previous identifiers; a rename usually follows published work on some members but is naming history, not proof of function for every member. Some EX DUF families' current names or descriptions still say the function is unknown; their classification basis lists this,"
+        }
+      }
+    }
+  },
+  "independent_review": "group-b-independent-review.json",
+  "evidence_compacted": {
+    "full_capture": "/private/tmp/xmech-refresh-20261104-browser-evidence/group-b/dufmech-auditor-b.json",
+    "sha256": "8e80fb4f47334d8aaaad34a36c2b041ec04f8e4def7168c50666d818a2789883",
+    "bytes": 186414
+  }
+}

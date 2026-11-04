@@ -55,7 +55,7 @@ The site lists fourteen Mechs. Membership counts, badges and prose about
 undeclared projects come from `data/manifest.json`; suite coverage does not
 imply CLAW admission. A project's capability row remains undeclared until the
 snapshot contains its declaration. Tests exercise undeclared and declared
-membership independently of the current snapshot. The October 29 refresh
+membership independently of the current snapshot. The November 4 refresh
 includes AIMech in the census, shared-term assets and statistics, and updates
 all fourteen source pins together.
 DUFMech's contribution to that census is a measured seed worklist, labeled as
@@ -194,8 +194,9 @@ credited to it in the file that implements it. Rules that have come up:
 
 The October 29 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators records 59 directed references.
-TaxonMech supplies history machinery used by 99 PathwayMech records carrying
-122 events. PathwayMech's typed links and candidate reports, and
+The November 4 refresh rechecked all 59 references at the new pins.
+TaxonMech supplies history machinery used by 104 PathwayMech records carrying
+127 events. PathwayMech's typed links and candidate reports, and
 ProteinTraitsMech's six-sibling protein-mention snapshot, add data relationships
 with their identity and validation limits stated. MediaIngredientMech's allowed
 sibling enums remain schema-only references: no native causal graphs populate
@@ -208,8 +209,8 @@ These evidence leads do not establish functional validation or kg-microbe ingest
 
 ## Vocabulary census updates
 
-The October 29, 2026 census measures all fourteen Mechs. PathwayMech contributes
-275 pathway records. DUFMech contributes 8,296 seed-family rows from its frozen
+The November 4, 2026 census measures all fourteen Mechs. PathwayMech contributes
+280 pathway records. DUFMech contributes 8,296 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
 A worklist row is one measured family; the JSON container and its redundant TSV
 copy are not additional records. TaxonMech joined the census in #87; its 626,048 records are species-level and infraspecific taxa keyed by NCBI Taxonomy
@@ -360,7 +361,7 @@ retaining the biological scale order.
 The table includes measured numeric rows for every suite member, including
 PathwayMech and DUFMech.
 Every cell opens the summary below the table. All 342 populated cells across 163 vocabularies at the
-October 29 pins have record-list assets, including DOI,
+November 4 pins have record-list assets, including DOI,
 PMID and other citation namespaces. Each list reports the full distinct-record
 total and shows up to 300 record links; repeated occurrences in one record still
 count separately in the heatmap. Zero cells show an empty summary without
@@ -381,10 +382,10 @@ defines the namespace and the same model/reaction identifiers carried by
 PathwayMech. The identifier namespace is counted separately from ontology
 terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-## Published-site refresh (October 29, 2026)
+## Published-site refresh (November 4, 2026)
 
 All fourteen Mechs were pinned at their published `main` revisions, with a
-common acquisition bound of 2026-10-30 04:50 UTC. The census, shared-term subsets, heatmap record lists,
+common acquisition bound of 2026-11-04 11:34 UTC. The census, shared-term subsets, heatmap record lists,
 repository statistics and `data/site_audit.json` record the same revisions; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
@@ -404,8 +405,8 @@ The dedicated Mech pages link to the same pinned repository revisions.
 
 Card figures follow the published browsers, except CultureMech's generated
 README inventory, DUFMech's frozen JSON worklist and the CMMMech/AIMech Git-tree
-inventories. CommunityMech's browser lists 480 communities; its repository
-additionally includes nine isolates, so the census and statistics count 489.
+inventories. CommunityMech's browser lists 485 communities; its repository
+additionally includes nine isolates, so the census and statistics count 494.
 DUFMech's 8,296 rows describe 6,127 unknown candidates, 373 historical DUFs and
 1,796 EX_DUF families renamed away from former DUF/UPF names. These labels
 describe metadata and naming history, not functional validation. All families
@@ -413,17 +414,17 @@ remain UNSCORED. Native family records with schema, evidence and history do
 not replace the worklist in this census. AIMech counts 442 imported AIO concepts
 and 1,487 maintained concepts; their NOT_REVIEWED/DRAFT states do not imply
 scientific review. The aggregate label includes records, seed families and concepts.
-PathwayMech contributes 275 records,
-14,691 mechanistic edges and 105 taxa. Its KGX and SSSOM products are available in
+PathwayMech contributes 280 records,
+14,788 mechanistic edges and 105 taxa. Its KGX and SSSOM products are available in
 the repository; their existence does not establish ingestion into kg-microbe.
 
-CellStructureMech's pin contains 1,001 records, 852 GO-grounded, and TraitMech's
-contains 1,130 records with 100.0% embedding coverage and 748 graph-bearing records.
-NaturalProductMech records 806 evidence-supported producer claims; 185 records
-describe biosynthetic pathways and 297 have causal graphs (795 individual
+CellStructureMech's pin contains 1,022 records, 873 GO-grounded, and TraitMech's
+contains 1,130 records with 100.0% embedding coverage and 761 graph-bearing records.
+NaturalProductMech records 840 evidence-supported producer claims; 216 records
+describe biosynthetic pathways and 317 have causal graphs (815 individual
 graphs after resolving 246 referenced components). The census keeps its existing
 owner-record globs; it does not separately scan component files. Its
-3,116-record total matches its landing page.
+3,136-record total matches its landing page.
 Live sites may advance after the pins;
 `check_cards.py` applies its documented grace window before declaring them stale.
 
@@ -434,9 +435,9 @@ checker retains the committed README as its stable count source.
 
 Follow client-side meta refreshes from site roots to `pages/` or `app/`. Read
 JavaScript-backed figures from their data files: MediaIngredientMech uses
-`data/ingredients.json` (2,953 ingredients; 2,611 MAPPED), and ProteinTraitsMech
-uses `data/facets.json` (429,394 records; 34 source labels). ProteinTraitsMech's
-static HTML states 429,291 while runtime `data/facets.json` and the YAML corpus have 429,394.
+`data/ingredients.json` (2,956 ingredients; 2,611 MAPPED), and ProteinTraitsMech
+uses `data/facets.json` (429,421 records; 34 source labels). ProteinTraitsMech's
+static HTML states 429,291 while runtime `data/facets.json` and the YAML corpus have 429,421.
 
 Reviewed-record counts are reported only where the measured corpus has a
 schema-defined status that can mark a record REVIEWED. DUFMech's seed worklist has no such field even
@@ -445,8 +446,10 @@ REVIEWED-bearing status still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All fourteen repositories
 participate in statistics collection.
 
-The CLAW governance snapshot at 1877438 declares all fourteen members, 24
-governed artifacts and 27 capabilities, including record-review declarations.
+The CLAW governance snapshot at 09b39ca declares all fourteen members, 26
+governed artifacts and 28 capabilities, including record-review declarations.
+The added evidence-reference validation contract is enabled for MediaIngredientMech;
+the other thirteen members record explicit reasons for leaving it disabled.
 The capability table preserves CLAW's full
 catalogue and recorded reasons. Capability adoption does not establish that all
 CLAW workflows execute unattended.
@@ -457,7 +460,7 @@ data and derived `data/aio` imports under CC BY 4.0; it does not specify a
 data-license grant for maintained `data/curated` concepts. AIMech code is
 BSD-3-Clause. Redistributed source material retains its applicable terms.
 
-The kg-microbe integration was checked at `1408e7099d039026d7611c240938d8e177753406`.
+The kg-microbe integration was checked at `ba19536867b1d1e93fe14745dac6b232bffcd4d3`.
 Its reviewed ingredient mappings and optional ingredient-context graph are
 candidate inputs; production promotion and a graph release remain separate
 review and validation steps. The graph and related pages preserve that
@@ -474,8 +477,8 @@ reading the old snapshot indefinitely.
 CMMMech joins every Mech surface: ladder, card, graph node, vocabulary census,
 shared-term edges, statistics and both support tables. The canonical corpus is
 `data/records/**/*.yaml` and `*.yml`, matching its native CLI and CLAW manifest;
-fixtures, reviews and history sidecars are not additional records. Its 663
-records at `4f543693bee75b97389de4d4c915a1e451297f1f` have no REVIEWED-bearing
+fixtures, reviews and history sidecars are not additional records. Its 678
+records at `8bf82c8dfa25a35f12b60617b86751bc3ce7df71` have no REVIEWED-bearing
 status slot. A null statistic makes no claim about scientific review artifacts.
 Its record links use the pinned GitHub records, which match the census pin;
 its website first deployed on October 12, 2026, and has its own
@@ -492,9 +495,10 @@ directory and filename for each
 record, with labels distinguishing imports from maintained concepts.
 
 All fourteen corpora were rescanned at the common refresh pins. CELEX, AIO,
-arXiv and the registry aliases apply consistently to every row. The unchanged
-kg-microbe archive was rescanned with the same expanded namespace registry;
-its counts remain 1,379,336 nodes and 64 tracked vocabularies.
+arXiv and the registry aliases apply consistently to every row. The November 4
+refresh reused the existing kg-microbe comparison after verifying its source
+and namespace-registry hashes; it did not rescan the archive. Its counts remain
+1,379,336 nodes and 64 tracked vocabularies.
 
 kg-microbe is a **heatmap comparison**, outside Mech membership. It never joins
 `roots.ORDER`, the Mech statistics, cards, capability table or shared-term edge

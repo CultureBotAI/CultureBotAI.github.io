@@ -1,0 +1,26 @@
+# AntibioticMech independent review — 2026-11-04
+
+- search: **partial**. Identifier and label queries work, but query a matches 3064 and renders only the first 500 without a continuation control.
+- facets: **present**. Property-filter selection, combination with search and reset were independently exercised.
+- result_counts: **present**. Observed counts respond to queries and facets and are distinct from the total.
+- sorting: **present**. Each available sort option was selected, with URL/control state and first result rows retained.
+- shareable_state: **present**. A combined query/filter/sort view was reloaded and its controls and matching count compared.
+- full_catalogue: **present**. The total is backed by linked listings/category pagination or complete indexed corpus; search-result caps are assessed separately.
+- record_pages: **present**. Multiple stable individual record URLs opened successfully from a fresh browser navigation.
+- term_links: **partial**. The avibactam record retains a broader ChEBI grounding with Label unavailable, so the main grounding section is not fully labeled.
+- evidence: **present**. Sampled record references include working-format PMID/DOI/source URL anchors rather than only database navigation.
+- review_status: **present**. Sampled record headers explicitly state their workflow state.
+- curation_history: **present**. Sampled records show dated curation-event sections with attribution and action text.
+- source_link: **present**. Sampled record pages link their own YAML source file rather than just the repository root.
+- domain_view: **present**. Domain figures or maps rendered in the independently opened routes, with data-bearing visuals.
+- cross_mech_links: **present**. Sampled record content includes a direct link to a specific sibling record; navigation links were excluded.
+- corpus_stats: **present**. The generated landing figures were read from the browser and compared with the audited corpus counts.
+- category_browse: **present**. Landing links lead into distinct category subsets with continuation where needed.
+- suite_nav: **present**. Visible suite-directory links occur in the reviewed navigation or footer.
+- downloads: **partial**. The linked index and individual record files do not constitute a linked bulk scientific record export.
+- schema_docs: **partial**. Visible schema links reach raw LinkML YAML; consistent fleet arbitration requires partial when rendered schema documentation is not provided.
+- license: **present**. Reviewed landing, browser, records and maps distinguish CC BY data from BSD code.
+- build_provenance: **partial**. The date refers to ChEBI/CARD upstream retrieval; the corpus digest is not a dated own-record release.
+- theme_toggle: **present**. Dark was selected and independently carried across the valid reviewed routes.
+- responsive: **present**. Every valid reviewed route was checked at fresh and resized 390px; none exceeded the viewport.
+- load_failure: **partial**. Blocking sequence_map.json first shows Failed to fetch; entering protein then replaces it with Showing 0 of 0 proteins. Independent reproduction confirms partial.
