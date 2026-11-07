@@ -76,8 +76,15 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 `resources.md` to follow the data flow from recipes to ingredients to communities.
 
 ### The X-Mech Suite page
-The suite has fourteen Mechs, all under https://github.com/CultureBotAI, plus the
-orchestrator `culturebotai-claw`. Three have pages here; the others link to their
+The suite has fourteen corpus Mechs, all under https://github.com/CultureBotAI,
+plus the orchestrator `culturebotai-claw` and separately declared infrastructure.
+The November 7, 2026 membership-only update adds EdgeMech as infrastructure at
+CLAW pin `64cd157ecd37cbd5a1550465d89eb804c5b59409`. Its checked scope is in
+`_fleet/infrastructure.json`: no scientific corpus or Pages browser enters this
+audit, and none of the November 4 corpus counts, pins or historical PR totals
+changes. Infrastructure gets a repository description and canonical capability
+row, without a numeric card, graph node or website-feature verdict. Three corpus
+Mechs have pages here; the others link to their
 own GitHub Pages sites. CMMMech and AIMech began publishing theirs on October 12, 2026; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
 snapshot, the source of its count. Its native FamilyRecord corpus now has a
 LinkML schema, history and individual pages; the census still measures the
