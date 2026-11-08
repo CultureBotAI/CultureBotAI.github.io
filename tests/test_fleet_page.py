@@ -42,7 +42,7 @@ class FleetPageTests(unittest.TestCase):
         catalogue = list(self.snapshot["capability_catalogue"])
         self.assertEqual(len(re.findall(r"<th[ >]", head)), len(catalogue) + 1)
         rows = re.findall(r"<tr>(.*?)</tr>", table[table.index("<tbody>"):], re.S)
-        self.assertEqual(len(rows), len(roots.ORDER))
+        self.assertEqual(len(rows), len(set(roots.ORDER) | set(self.snapshot["mechs"])))
         for row in rows:
             self.assertEqual(len(re.findall(r"<td[ >]", row)), len(catalogue))
             self.assertTrue(row.startswith('<th scope="row">'))  # #314
