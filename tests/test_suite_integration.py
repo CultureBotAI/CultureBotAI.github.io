@@ -38,7 +38,7 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
         self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
                          len(set(figures) - members))
-        self.assertIn(f"The manifest declares {number_word(len(members))} of the fourteen projects", page)
+        self.assertIn(f"The manifest declares {number_word(len(members & set(figures)))} of the fourteen projects", page)
 
     def test_undeclared_duf_fixture_retains_a_seed_card_and_unknown_capabilities(self):
         self.inputs[1]["mechs"].pop("DUFMech", None)
@@ -64,7 +64,7 @@ class SuiteIntegrationTests(unittest.TestCase):
         snapshot["mechs"]["DUFMech"]["capabilities"]["strict_validation"] = {"status": "enabled"}
         feature_data = json.dumps(self.inputs[4], sort_keys=True)
         page = self.render()
-        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), 14)
+        self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(snapshot["mechs"]))
         self.assertNotIn('<span class="badge">not yet in fleet manifest</span>', page)
         self.assertIn("The manifest declares fourteen of the fourteen projects", page)
         self.assertIn("All projects shown here have a manifest declaration.", page)

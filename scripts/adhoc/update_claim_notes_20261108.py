@@ -73,10 +73,10 @@ def main():
             elif after not in notes['notes'][name]:
                 raise ValueError(f'{name}: expected {before!r} in {notes["notes"][name]!r}')
     notes['notes']['culturebotai-claw'] = (
-        'The e36c6ae canonical snapshot declares fourteen members, twenty-six governed artifacts and twenty-eight capabilities per member. '
-        'The added evidence_reference_validation contract is enabled for MediaIngredientMech, CellStructureMech and HabitatMech, and disabled with explicit reasons for the other eleven Mechs. '
-        'Capability tooltips preserve the canonical status, settings and reasons, including native validation or history that does not yet meet a shared adapter contract. '
-        'Contract adoption and separate scientific review artifacts do not imply that a record has a REVIEWED-bearing status or that every workflow runs unattended.'
+        'The 0ca25b8 canonical snapshot declares 15 members (fourteen corpus Mechs plus EdgeMech curation infrastructure), 26 governed artifacts and 28 capabilities per member. '
+        'EdgeMech does not add a scientific corpus, published browser, record count or historical PR total. '
+        'The evidence_reference_validation contract is enabled for MediaIngredientMech, CellStructureMech and HabitatMech, and disabled with explicit reasons for the other twelve members. '
+        'Capability tooltips preserve canonical statuses, settings and reasons; inherited native review is not independent scientific approval, and contract adoption does not imply that a record has a REVIEWED-bearing status or that every workflow runs unattended.'
     )
     pins = json.loads((args.snapshot / 'revisions.json').read_text())
     notes['scope'] = (

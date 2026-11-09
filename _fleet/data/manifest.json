@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "e36c6ae4bfc1cdcb41912270a22af99a5ce96421",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/e36c6ae4bfc1cdcb41912270a22af99a5ce96421/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -2703,6 +2703,123 @@
         "unmapped_inventory_input": {
           "status": "not_applicable",
           "reason": "AI concepts are not a culture-medium ingredient corpus."
+        }
+      }
+    },
+    "EdgeMech": {
+      "key": "edgemech",
+      "github": "CultureBotAI/EdgeMech",
+      "capabilities": {
+        "id_label_validation": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "curation_history": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "record_review": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "strict_validation": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "schema_sync": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "release_management": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "build_coordination": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "documentation": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "testing": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "refactoring": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "coordination_hooks": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "deep_research": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "edison_key_discovery": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "environment_coverage": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "knowledge_gap_scan": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "vendored_sync": {
+          "status": "enabled"
+        },
+        "unmapped_inventory_input": {
+          "status": "not_applicable",
+          "reason": "External edge accounting is not a culture-medium ingredient corpus."
+        },
+        "source_catalogue": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "evidence_reference_validation": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "corpus_statistics": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "causal_graph_coverage": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "page_budgets": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "kgx_export": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "source_queue": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "metpo_proposal": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "sssom_export": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "writer_audit": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
+        },
+        "site_contract": {
+          "status": "disabled",
+          "reason": "Initial integration scaffold; this fleet capability has not been verified."
         }
       }
     }

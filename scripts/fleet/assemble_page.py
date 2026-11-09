@@ -467,14 +467,58 @@ def recent_terms_markup(recent, suite_order, stats=None):
     return suite_box + '\n<div class="fleet-recent-grid">\n' + "\n".join(cards) + '\n</div>'
 
 
-def assemble(template, fragment, data, snapshot, stats, census, features, recent=None):
+def infrastructure_markup(document, snapshot):
+    """Describe explicit infrastructure members without fabricating corpus data."""
+    if set(document) != {"version", "members"} or document["version"] != 1:
+        raise ValueError("Invalid infrastructure metadata version or fields")
+    entries = document["members"]
+    if not isinstance(entries, dict) or set(entries) & set(ORDER):
+        raise ValueError("Infrastructure members must remain separate from corpus membership")
+    rows = []
+    required = {"repository", "description", "scope_note", "corpus", "site", "checked_on", "evidence_url"}
+    for name, item in entries.items():
+        if not _text(name) or not isinstance(item, dict) or set(item) != required:
+            raise ValueError("Incomplete infrastructure declaration")
+        repository = item["repository"]
+        url = "https://github.com/" + repository if isinstance(repository, str) else ""
+        if not REPOSITORY.fullmatch(url):
+            raise ValueError("Invalid infrastructure repository")
+        member = snapshot["mechs"].get(name)
+        if member is not None and member["github"] != repository:
+            raise ValueError("Infrastructure repository differs from canonical membership")
+        if item["corpus"] is not None or item["site"] is not None:
+            raise ValueError("Infrastructure corpus or website requires a separate reviewed admission")
+        if not _text(item["description"]) or not _text(item["scope_note"]):
+            raise ValueError("Infrastructure description and scope must be explicit")
+        _audit_date(item["checked_on"], "infrastructure checked_on")
+        if not isinstance(item["evidence_url"], str) or not item["evidence_url"].startswith("https://"):
+            raise ValueError("Infrastructure evidence must have an HTTPS locator")
+        badge = "in fleet manifest" if member is not None else "not yet in fleet manifest"
+        rows.append(
+            f'<article class="fleet-infrastructure" data-infrastructure="{escape(name, quote=True)}">'
+            f'<h3><a href="{escape(url, quote=True)}">{escape(name)}</a></h3>'
+            f'<p><span class="badge">{badge}</span> {escape(item["description"])}</p>'
+            f'<p>{escape(item["scope_note"])}</p>'
+            f'<p><small>Infrastructure scope checked {escape(item["checked_on"])}. '
+            f'<a href="{escape(item["evidence_url"], quote=True)}">Pinned fleet declaration</a>'
+            '</small></p></article>'
+        )
+    return "\n".join(rows)
+
+
+def assemble(template, fragment, data, snapshot, stats, census, features, recent=None, infrastructure=None):
     if recent is None:
         recent = json.loads((FLEET / "data/recent_terms.json").read_text())
     validate(snapshot)
     members = set(snapshot["mechs"])
-    # The site measures the suite; CLAW declares its governed members. A new
-    # canonical admission still requires a corresponding card and graph node.
-    names = set(ORDER) | members
+    if infrastructure is None:
+        infrastructure = json.loads((FLEET / "infrastructure.json").read_text())
+    infrastructure_html = infrastructure_markup(infrastructure, snapshot)
+    infrastructure_names = set(infrastructure["members"])
+    # A declared infrastructure project has no fabricated numeric corpus card,
+    # biological graph node or historical audit row. Undeclared additions still
+    # fail unless explicitly represented as infrastructure or a corpus.
+    names = (set(ORDER) | members) - infrastructure_names
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
     if len(badges) != len(names) or set(badges) != names:
         raise ValueError("Mech cards must match declared suite membership exactly")
@@ -559,13 +603,19 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
         "<!--FLEET_PRS_TOTAL-->": f"{prs_total:,}",
         "<!--FLEET_PR_REPO_COUNT-->": str(pr_repo_count),
         "<!--FLEET_ARTIFACT_COUNT-->": str(snapshot["artifact_count"]),
-        "<!--FLEET_MANIFEST_COUNT_WORD-->": number_word(len(members)),
+        "<!--FLEET_MANIFEST_COUNT_WORD-->": number_word(len(members & names)),
+        "<!--FLEET_INFRASTRUCTURE-->": infrastructure_html,
+        "<!--FLEET_INFRASTRUCTURE_NOTE-->": (
+            f'The manifest also declares {number_word(len(members & infrastructure_names))} '
+            'infrastructure member' + ('s' if len(members & infrastructure_names) != 1 else '') +
+            ': ' + ", ".join(escape(name) for name in sorted(members & infrastructure_names)) + '.'
+            if members & infrastructure_names else "No infrastructure member has a manifest declaration."),
         "<!--FLEET_UNDECLARED_NOTE-->": (
             "Separately listed projects without a declaration: "
-            + ", ".join(escape(name) for name in cards if name not in members) + "."
-            if names - members else "All projects shown here have a manifest declaration."),
+            + ", ".join(escape(name) for name in cards + sorted(infrastructure_names) if name not in members) + "."
+            if (names | infrastructure_names) - members else "All projects shown here have a manifest declaration."),
         "<!--FLEET_MANIFEST_SOURCE-->": f'<a href="{escape(source["url"], quote=True)}">CLAW fleet manifest at {escape(source["revision"][:7])}</a>',
-        "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot, cards),
+        "<!--FLEET_CAPABILITIES-->": capability_rows(snapshot, cards + sorted(infrastructure_names)),
         "<!--FLEET_CAPABILITY_HEAD-->": capability_head(snapshot),
         "<!--FLEET_SITE_COLGROUPS-->": site_feature_colgroups(features),
         "<!--FLEET_SITE_HEAD-->": site_feature_head(features),

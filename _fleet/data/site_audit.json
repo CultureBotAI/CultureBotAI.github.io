@@ -1,5 +1,5 @@
 {
- "checked_at_utc": "2026-11-09T03:04:33+00:00",
+ "checked_at_utc": "2026-11-09T07:08:49+00:00",
  "local_date": "2026-11-08",
  "pinned_at_utc": "2026-11-08T20:35:54.673900+00:00",
  "scope": "All fourteen Mechs and culturebotai-claw were pinned from one GitHub head query for the November 8, 2026 refresh. The common pin-time bound is 2026-11-08T20:35:54.673900+00:00. Census occurrences, shared-term overlap assets, complete heatmap record lists, recent-record histories and repository statistics use those same immutable revisions. Record globs, namespace recognition and normalization, shared-term extraction and the separately pinned kg-microbe release comparison are unchanged. Card figures and secondary claims were rechecked against pinned source files and live sites; repository and published-browser totals retain their stated distinctions. Merged-PR counts are all-time totals queried during this refresh for fourteen Mechs, CLAW and this website. Website feature verdicts have their own dates, served revisions and browser-review scope in site_features.json. The separately versioned kg-microbe core release comparison remains excluded from Mech record totals and shared-term graph indexes.",
@@ -27,9 +27,10 @@
    "figure_at_pin": 3105,
    "merged_prs": 728,
    "site": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
-   "site_html_sha256": "06eb6fcb73d346ecec4a289bce796b4e44d15353316c12454e17173a505e0e8c",
+   "site_html_sha256": "865a6e8da75f0b28ddd23a8c31dfe2df5ce5506f6f22d2b8cba1a3bf9e650c18",
    "site_html_sha256_at_pin": "6c00233d1d0ac940ad8af72a72e74a914d013871f7cb4abcd17fc5558dcba61a",
-   "notes": "3,105 data/antibiotics records at the pin, equal to the published stat tile: 2,767 ontology-grounded and 338 minted. The README and corpus contain 145 REVIEWED, 155 PROPOSED and 2,805 SEEDED records, 539 with a mode of action and 361 with a molecular target. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin."
+   "notes": "3,105 data/antibiotics records at the pin, equal to the published stat tile: 2,767 ontology-grounded and 338 minted. The README and corpus contain 145 REVIEWED, 155 PROPOSED and 2,805 SEEDED records, 539 with a mode of action and 361 with a molecular target. The live index.html had moved past the pin when this audit was written; site_html_sha256 is the live copy and site_html_sha256_at_pin is pages/index.html at the pin. The site moved past the pin during the refresh and showed 3,125 when this audit was written; the card keeps the pinned figure, 3,105.",
+   "site_figure_at_check": 3125
   },
   {
    "repo": "CellStructureMech",
@@ -54,7 +55,7 @@
    "merged_prs": 197,
    "site": "https://github.com/CultureBotAI/CMMMech/tree/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records",
    "data_url": "https://api.github.com/repos/CultureBotAI/CMMMech/git/trees/main?recursive=1",
-   "data_sha256": "18b3434d36e119d67f1634102c9dd8215f7fad7b09030d3807c82b7f65ee0a4f",
+   "data_sha256": "c4f21e5f8b2cfbca2d43f15f475ee54d469c05da71d6871074bd1404d84c7687",
    "data_sha256_at_pin": "21f85e578c15c862a314de417451e7328e75340c88f04a9ebde4540ceb81cea7",
    "notes": "698 canonical data/records material records: 447 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. The 66 element records carry ChEBI identities; 284 records carry NCBITaxon organism identifiers. 500 records describe 609 mechanisms with cited evidence, assay context and limitations; 198 remain identity and characterization records without assigned mechanisms or inherited criticality. Scientific review artifacts and append-only curation history are committed. The LinkML CriticalMineralRecord schema and native strict validator exist, but there is no top-level REVIEWED-bearing status slot, so review-status statistics remain null. Counts come from the complete Git tree inventory of data/records YAML files, excluding tests and review artifacts. Record links point to pinned repository files; its website first deployed on October 12, 2026. The pin contains CC BY 4.0 project-data and BSD-3-Clause code licenses, retaining upstream terms. The live records inventory had moved past the pin when this audit was written; data_sha256 is the live copy and data_sha256_at_pin is data/records inventory at the pin."
   },
@@ -74,10 +75,10 @@
   },
   {
    "repo": "culturebotai-claw",
-   "sha": "e36c6ae4bfc1cdcb41912270a22af99a5ce96421",
-   "commit_date": "2026-11-08T04:03:47Z",
-   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/e36c6ae4bfc1cdcb41912270a22af99a5ce96421/README.md",
-   "notes": "The e36c6ae canonical snapshot declares fourteen members, twenty-six governed artifacts and twenty-eight capabilities per member. The added evidence_reference_validation contract is enabled for MediaIngredientMech, CellStructureMech and HabitatMech, and disabled with explicit reasons for the other eleven Mechs. Capability tooltips preserve the canonical status, settings and reasons, including native validation or history that does not yet meet a shared adapter contract. Contract adoption and separate scientific review artifacts do not imply that a record has a REVIEWED-bearing status or that every workflow runs unattended."
+   "sha": "0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34",
+   "commit_date": "2026-11-09T01:25:28Z",
+   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34/README.md",
+   "notes": "The 0ca25b8 canonical snapshot declares 15 members (fourteen corpus Mechs plus EdgeMech curation infrastructure), 26 governed artifacts and 28 capabilities per member. EdgeMech does not add a scientific corpus, published browser, record count or historical PR total. The evidence_reference_validation contract is enabled for MediaIngredientMech, CellStructureMech and HabitatMech, and disabled with explicit reasons for the other twelve members. Capability tooltips preserve canonical statuses, settings and reasons; inherited native review is not independent scientific approval, and contract adoption does not imply that a record has a REVIEWED-bearing status or that every workflow runs unattended."
   },
   {
    "repo": "CultureMech",

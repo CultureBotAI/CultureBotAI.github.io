@@ -74,11 +74,12 @@ def pin(args):
         raise ValueError("pins already exist; refusing to repin")
     manifest = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
     mechs_map = manifest["mechs"]
-    if set(mechs_map.keys()) != set(roots.ORDER):
+    infrastructure = json.loads((ROOT / "_fleet/infrastructure.json").read_text())["members"]
+    if set(mechs_map.keys()) - set(infrastructure) != set(roots.ORDER):
         raise ValueError("manifest membership differs from the unchanged census scope")
 
     started = dt.datetime.now(dt.timezone.utc).isoformat()
-    repos = {name: item["github"] for name, item in mechs_map.items()}
+    repos = {name: item["github"] for name, item in mechs_map.items() if name in roots.ORDER}
     repos["__claw__"] = "CultureBotAI/culturebotai-claw"
 
     results = {}

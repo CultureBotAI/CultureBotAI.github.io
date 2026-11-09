@@ -10,6 +10,10 @@
   hand-curated at the top of the script.
 - `data/manifest.json` — membership and all capability declarations from a pinned
   commit of CLAW's canonical manifest, plus the canonical artifact count.
+- `infrastructure.json` — explicit infrastructure members and checked scope,
+  separate from scientific corpora. EdgeMech has a repository and canonical
+  capability row, with no numeric corpus card, graph node or published browser
+  in this audit. Admission to the corpus census requires a separate review.
 - `data/site_features.json` — the hand-curated website feature table, judged on the live
   sites on `checked_on` rather than at the repository pins. Top level: `checked_on` (ISO
   date), `scope` (what was checked and how), `groups` (each `title` with its `features`, in
@@ -51,7 +55,16 @@
 
 ## Membership and capability updates
 
-The site lists fourteen Mechs. Membership counts, badges and prose about
+The site lists fourteen corpus Mechs and separate infrastructure members.
+The November 7, 2026 membership-only update added EdgeMech as infrastructure,
+and the November 8, 2026 refresh pins CLAW at
+`0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34`: the canonical snapshot declares
+15 members (all fourteen corpus Mechs plus EdgeMech infrastructure), 26 governed
+artifacts and 28 capabilities, including record-review declarations and the
+`evidence_reference_validation` contract (enabled for MediaIngredientMech,
+CellStructureMech and HabitatMech, and disabled with explicit reasons for the
+other twelve members).
+Membership counts, badges and prose about
 undeclared projects come from `data/manifest.json`; suite coverage does not
 imply CLAW admission. A project's capability row remains undeclared until the
 snapshot contains its declaration. Tests exercise undeclared and declared
@@ -72,10 +85,14 @@ python3 scripts/fleet/assemble_page.py
 python3 -m unittest discover -s tests -v
 ```
 
-When a Mech joins, add its curated card, graph facts and scale label to the
-template/fragment and update the home-page links. The assembler refuses to omit
-a manifest member from the cards or graph. Its capability table and badges must
-never be maintained by hand. The rendered page links to the source revision.
+When a corpus Mech joins, add its curated card, graph facts and scale label to
+the template/fragment and update the home-page links. An infrastructure member
+must instead have an explicit `infrastructure.json` declaration with its scope
+and checked evidence. The assembler refuses to silently omit a manifest member
+or manufacture corpus data for it. All declared members appear in the canonical
+capability table; infrastructure contributes no record count or historical PR
+total. The table and badges must never be maintained by hand. The rendered page
+links to the source revision.
 
 The card headline figures are hand-curated from each Mech's published browser,
 except CultureMech's committed README inventory, DUFMech's frozen JSON worklist,

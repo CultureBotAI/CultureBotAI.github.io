@@ -244,13 +244,19 @@ Beyond shared vocabulary, Mechs name one another directly, in record fields, in 
   <div style="--c: var(--mech-dufmech); --ci: var(--mech-dufmech-ink); --ci2: var(--mech-proteintraitsmech-ink)"><div class="pair"><b>DUFMech</b><i>→</i><b class="to">ProteinTraitsMech</b></div><div>ProteinTraitsMech retains 40 UniProt protein mentions from DUFMech family descriptions in its frozen cross-Mech snapshot. All forty have the REFERENCE role; they preserve source records and text spans without qualifying a canonical example or validating a family&#x27;s function.<small>Record data · <a href="https://github.com/CultureBotAI/proteintraitsmech/blob/8d08b33cfbee1e9d1c2fdb2211b82b49dd0c8b1f/data/cross_mech/manifest.json#L106">data/cross_mech/manifest.json@8d08b33cfbee1e9d1c2fdb2211b82b49dd0c8b1f:110; protein_mentions.jsonl (all 40 DUFMech rows have role REFERENCE)</a></small></div></div>
 </div>
 
+## Shared curation infrastructure
+
+The corpus cards and their historical census above measure scientific records, seed families and concepts. Infrastructure membership is listed separately and contributes no record total or biological graph node.
+
+<!--FLEET_INFRASTRUCTURE-->
+
 ## Orchestration: culturebotai-claw
 {: .fleet-section-target}
 
 [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) is the fleet's coordinator. It does not hold science of its own; it holds the definition of the fleet, the artifacts every Mech must share byte-for-byte, and tooling for cross-repository curation and validation.
 
 <div class="fleet-orch">
-  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. The manifest declares <!--FLEET_MANIFEST_COUNT_WORD--> of the <!--FLEET_COUNT_WORD--> projects shown here. <!--FLEET_UNDECLARED_NOTE--> Every member declares every capability exactly once as enabled, disabled or not applicable, and every disabled or not-applicable entry gives a reason, so nothing is silently off.</p></div>
+  <div><h4>Fleet manifest</h4><p><code>fleet.yaml</code> is the single source of truth for which repositories form the fleet. The manifest declares <!--FLEET_MANIFEST_COUNT_WORD--> of the <!--FLEET_COUNT_WORD--> projects shown in the corpus cards. <!--FLEET_UNDECLARED_NOTE--> <!--FLEET_INFRASTRUCTURE_NOTE--> Every member declares every capability exactly once as enabled, disabled or not applicable, and every disabled or not-applicable entry gives a reason, so nothing is silently off.</p></div>
   <div><h4>Vendored governance</h4><p>Shared LinkML modules (<code>mech_shared.yaml</code>, <code>history.yaml</code>), validators and behavioral contracts live in claw and are vendored into its declared members byte-identically, pinned to one immutable claw commit and checked in CI. The canonical registry defines <!--FLEET_ARTIFACT_COUNT--> artifacts, with each member receiving the contracts that apply to it.</p></div>
   <div><h4>Pipelines and skills</h4><p>CLAW provides pipeline discovery, repository checks, shared curation tools and validated dry runs. Agent and pipeline execution through <code>openclaw-cli</code> is not implemented; environment-curation and unified ingredient-mapping apply modes are disabled pending transactional writers. Deep-research tooling supports provider triage and dry-run result capture; provider execution is not implemented.</p></div>
 </div>
