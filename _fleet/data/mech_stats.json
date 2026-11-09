@@ -1,24 +1,24 @@
 {
- "as_of": "2026-11-08",
- "merged_prs_total": 8127,
+ "as_of": "2026-11-09",
+ "merged_prs_total": 8168,
  "mechs": [
   {
    "mech": "HabitatMech",
    "repo": "HabitatMech",
    "records": 3209,
-   "reviewed": 1295,
+   "reviewed": 1298,
    "status_field": "mapping_status",
-   "merged_prs": 1119,
-   "source_revision": "8e2744f4c33769669e5e9a66a4ae9e27a9642590"
+   "merged_prs": 1123,
+   "source_revision": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12"
   },
   {
    "mech": "CommunityMech",
    "repo": "CommunityMech",
-   "records": 524,
+   "records": 529,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 766,
-   "source_revision": "cafbbc8cf1c146901ba4941042b391eaac011aea"
+   "merged_prs": 771,
+   "source_revision": "686618cc71b4c4c73fb5b595d27e91a7d200fa58"
   },
   {
    "mech": "TraitMech",
@@ -26,8 +26,8 @@
    "records": 1130,
    "reviewed": 427,
    "status_field": "mapping_status",
-   "merged_prs": 1120,
-   "source_revision": "0c20b4c82a8b5ae4a883cbc536abfd6fdca6380a"
+   "merged_prs": 1121,
+   "source_revision": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb"
   },
   {
    "mech": "PathwayMech",
@@ -35,8 +35,8 @@
    "records": 282,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 352,
-   "source_revision": "9584009d49579267233124f4a1057b9425a007d9"
+   "merged_prs": 353,
+   "source_revision": "3a407d22ff5d578869af286a42b13be7d9dcf67a"
   },
   {
    "mech": "CellStructureMech",
@@ -45,7 +45,7 @@
    "reviewed": 0,
    "status_field": "mapping_status",
    "merged_prs": 1145,
-   "source_revision": "3b1731a6325fa3117e40c70b7753ea9cfd737c00"
+   "source_revision": "6e0cbc219a1a600680373f141efb92f221c02493"
   },
   {
    "mech": "ProteinTraitsMech",
@@ -71,17 +71,17 @@
    "records": 3136,
    "reviewed": 20,
    "status_field": "curation_status",
-   "merged_prs": 599,
-   "source_revision": "18ca5dd6b9023670f10355084b45a8757a7a4e9e"
+   "merged_prs": 600,
+   "source_revision": "001dcd3f712b5e53c7bf7baaf3311aab503579df"
   },
   {
    "mech": "AntibioticMech",
    "repo": "AntibioticMech",
-   "records": 3105,
-   "reviewed": 145,
+   "records": 3125,
+   "reviewed": 159,
    "status_field": "curation_status",
-   "merged_prs": 728,
-   "source_revision": "9d3d0205b298bbb5ef04218fb8245ccb4e471ca7"
+   "merged_prs": 733,
+   "source_revision": "defe41100737cee8dc1e4722a2930e9752e6bee8"
   },
   {
    "mech": "CMMMech",
@@ -89,8 +89,8 @@
    "records": 698,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 197,
-   "source_revision": "8287b17e542ab6626a69e50787f798a417ce4f4a"
+   "merged_prs": 203,
+   "source_revision": "93349cda911887c28694c29df5ef69a865da7a0f"
   },
   {
    "mech": "MediaIngredientMech",
@@ -98,8 +98,8 @@
    "records": 2956,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 517,
-   "source_revision": "0dac278466699129a083343a921c2e0ca18a9ab4"
+   "merged_prs": 523,
+   "source_revision": "e522df1c9aa57cf4cab3d708998061618472f625"
   },
   {
    "mech": "CultureMech",
@@ -108,7 +108,7 @@
    "reviewed": null,
    "status_field": null,
    "merged_prs": 293,
-   "source_revision": "199cd9191881e8e929cd95ea0ed13aabe388e58c"
+   "source_revision": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8"
   },
   {
    "mech": "TaxonMech",
@@ -116,8 +116,8 @@
    "records": 626048,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 99,
-   "source_revision": "af17bce5e92041f70a09950de5cdfdb92c986441"
+   "merged_prs": 102,
+   "source_revision": "f8fb450426f2a3713ab45e163ece521635bc4012"
   },
   {
    "mech": "AIMech",
@@ -125,18 +125,18 @@
    "records": 1929,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 320,
-   "source_revision": "0d2eea9863af2f88908cb9cc8a5ecec0d86263aa"
+   "merged_prs": 321,
+   "source_revision": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0"
   }
  ],
  "additional_repositories": [
   {
    "repo": "culturebotai-claw",
-   "merged_prs": 253
+   "merged_prs": 260
   },
   {
    "repo": "CultureBotAI.github.io",
-   "merged_prs": 72
+   "merged_prs": 73
   }
  ]
 }

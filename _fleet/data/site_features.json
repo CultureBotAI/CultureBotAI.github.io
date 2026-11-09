@@ -1,6 +1,6 @@
 {
-  "checked_on": "2026-11-08",
-  "scope": "Live GitHub Pages sites checked on November 8, 2026 against all 24 existing catalogue criteria. Each site had an auditor and an independent skeptic; the root editor resolved rubric disagreements and compared each feature across the fleet. Checks exercised identifier and label searches, filters and reset, sorting and URL restoration, representative record pages, scientific links and downloads, theme persistence, 390-pixel layouts and failed data requests. Corpus-wide claims additionally used complete published indexes or pinned source inventories. Record-page rendering was sampled rather than exhaustive. Each recorded deployed revision had a successful deployment status and a served Last-Modified date no earlier than its deployment request. These live-site checks are separate from the common corpus pins.",
+  "checked_on": "2026-11-09",
+  "scope": "Live GitHub Pages sites checked on November 9, 2026 against all 24 existing catalogue criteria. Each site had an auditor and an independent skeptic; the root editor resolved rubric disagreements and compared each feature across the fleet. Checks exercised identifier and label searches, filters and reset, sorting and URL restoration, representative record pages, scientific links and downloads, theme persistence, 390-pixel layouts and failed data requests. Corpus-wide claims additionally used complete published indexes or pinned source inventories. Record-page rendering was sampled rather than exhaustive. Each recorded deployed revision had a successful deployment status and a served Last-Modified date no earlier than its deployment request (where a newer deployment request failed without replacing the served site, the prior verified deployed revision was preserved). These live-site checks are separate from the common corpus pins.",
   "groups": [
     {
       "title": "Find records",
@@ -173,7 +173,7 @@
     "AntibioticMech": {
       "site": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/AntibioticMech",
-      "deployed_revision": "817d3f186fdf61b437a8a56b4499328e57e97e46",
+      "deployed_revision": "defe41100737cee8dc1e4722a2930e9752e6bee8",
       "features": {
         "search": {
           "status": "partial",
@@ -187,7 +187,7 @@
         },
         "result_counts": {
           "status": "present",
-          "note": "Matching counts respond to identifier, label, unmatched-query and property-filter changes, separately from the 3,105-record corpus.",
+          "note": "Matching counts respond to identifier, label, unmatched-query and property-filter changes, separately from the 3,125-record corpus.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html"
         },
         "sorting": {
@@ -202,7 +202,7 @@
         },
         "full_catalogue": {
           "status": "present",
-          "note": "The 3,105-record browse index and linked paginated class listings provide routes into the complete corpus; the interactive result panel itself is capped at 500.",
+          "note": "The 3,125-record browse index and linked paginated class listings provide routes into the complete corpus; the interactive result panel itself is capped at 500.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html"
         },
         "record_pages": {
@@ -237,7 +237,7 @@
         },
         "domain_view": {
           "status": "present",
-          "note": "The chemical map displays all 3,105 compounds and the sequence map 132 proteins; the corpus text map renders separately. Sampled causal mechanisms are available as node/edge tables.",
+          "note": "The chemical map displays all 3,125 compounds and the sequence map 132 proteins; the corpus text map renders separately. Sampled causal mechanisms are available as node/edge tables.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html"
         },
         "cross_mech_links": {
@@ -247,12 +247,12 @@
         },
         "corpus_stats": {
           "status": "present",
-          "note": "The landing reports 3,105 compounds and generated grounding, review and mechanism statistics; its notice states 2,799 SEEDED records.",
+          "note": "The landing reports 3,125 compounds and generated grounding, review and mechanism statistics; its notice states 2,799 SEEDED records.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html"
         },
         "category_browse": {
           "status": "present",
-          "note": "Browse and the landing link antimicrobial class listings, including Antibacterial with 1,182 directly filed records and 1,260 including its 78-record antimycobacterial subclass; Antifungal has 613.",
+          "note": "Browse and the landing link antimicrobial class listings, including Antibacterial with 1,196 directly filed records and 1,274 including its 78-record antimycobacterial subclass; Antifungal has 617.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html"
         },
         "suite_nav": {
@@ -262,7 +262,7 @@
         },
         "downloads": {
           "status": "partial",
-          "note": "The landing links a 3,105-entry browse index and chemical-map coordinates, while sampled record pages link complete individual JSON.gz records. No bulk complete-record corpus export is linked; the old corpus.json/corpus.csv claim is unsupported.",
+          "note": "The landing links a 3,125-entry browse index and chemical-map coordinates, while sampled record pages link complete individual JSON.gz records. No bulk complete-record corpus export is linked; the old corpus.json/corpus.csv claim is unsupported.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html"
         },
         "schema_docs": {
@@ -277,7 +277,7 @@
         },
         "build_provenance": {
           "status": "partial",
-          "note": "The footer displays corpus digest 03fdb6772528 and 3,105 records, but its only date is the upstream ChEBI/CARD input date 2026-08-30; it does not identify a dated build of its own corpus.",
+          "note": "The footer displays corpus digest fe34ebf5e05b and 3,125 records, but its only date is the upstream ChEBI/CARD input date 2026-08-30; it does not identify a dated build of its own corpus.",
           "url": "https://culturebotai.github.io/AntibioticMech/pages/index.html"
         },
         "theme_toggle": {
@@ -427,7 +427,7 @@
     "CommunityMech": {
       "site": "https://culturebotai.github.io/CommunityMech/",
       "repository": "https://github.com/CultureBotAI/CommunityMech",
-      "deployed_revision": "201f5b09872e231fe13b76e215f521310f94891d",
+      "deployed_revision": "bf8e8626114487765f67879cc6040cdc412e7c4f",
       "features": {
         "search": {
           "status": "partial",
@@ -808,7 +808,7 @@
     "HabitatMech": {
       "site": "https://culturebotai.github.io/HabitatMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/HabitatMech",
-      "deployed_revision": "43f770cbc8682e74d226be6ca05caa1acc5ed048",
+      "deployed_revision": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
       "features": {
         "search": {
           "status": "partial",
@@ -1062,7 +1062,7 @@
     "NaturalProductMech": {
       "site": "https://culturebotai.github.io/NaturalProductMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/NaturalProductMech",
-      "deployed_revision": "18ca5dd6b9023670f10355084b45a8757a7a4e9e",
+      "deployed_revision": "001dcd3f712b5e53c7bf7baaf3311aab503579df",
       "features": {
         "search": {
           "status": "present",
@@ -1189,7 +1189,7 @@
     "PathwayMech": {
       "site": "https://culturebotai.github.io/PathwayMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/PathwayMech",
-      "deployed_revision": "9584009d49579267233124f4a1057b9425a007d9",
+      "deployed_revision": "3a407d22ff5d578869af286a42b13be7d9dcf67a",
       "features": {
         "search": {
           "status": "present",
@@ -1570,7 +1570,7 @@
     "TraitMech": {
       "site": "https://culturebotai.github.io/TraitMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/TraitMech",
-      "deployed_revision": "b2972cd2655e72b9b15ec8d0d13648e034ea2821",
+      "deployed_revision": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
       "features": {
         "search": {
           "status": "present",
@@ -1697,7 +1697,7 @@
     "CMMMech": {
       "site": "https://culturebotai.github.io/CMMMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/CMMMech",
-      "deployed_revision": "8287b17e542ab6626a69e50787f798a417ce4f4a",
+      "deployed_revision": "93349cda911887c28694c29df5ef69a865da7a0f",
       "features": {
         "search": {
           "status": "present",
@@ -1801,7 +1801,7 @@
         },
         "build_provenance": {
           "status": "present",
-          "note": "Footers state 698 materials, 609 mechanisms, latest curation 2026-11-06 and corpus digest 5644b56e7db2.",
+          "note": "Footers state 698 materials, 609 mechanisms, latest curation 2026-11-09 and corpus digest 6a9b35ddc871.",
           "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
         },
         "theme_toggle": {
@@ -1824,7 +1824,7 @@
     "AIMech": {
       "site": "https://culturebotai.github.io/AIMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/AIMech",
-      "deployed_revision": "0d2eea9863af2f88908cb9cc8a5ecec0d86263aa",
+      "deployed_revision": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
       "features": {
         "search": {
           "status": "present",
