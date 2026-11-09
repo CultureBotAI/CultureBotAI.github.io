@@ -9,9 +9,9 @@ permalink: /mediaingredientmech/
 
 ## Overview
 
-**MediaIngredientMech** is an autonomous knowledge factory for culture-media ingredient identity and ontology mappings, with LLM-assisted curation and human oversight. It maintains ingredient records, synonyms, mapping quality, environmental context, and an audit trail for curation decisions. [Repository overview](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/README.md).
+**MediaIngredientMech** is an autonomous knowledge factory for culture-media ingredient identity and ontology mappings, with LLM-assisted curation and human oversight. It maintains ingredient records, synonyms, mapping quality, environmental context, and an audit trail for curation decisions. [Repository overview](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/README.md).
 
-The published browser contains **2,956 ingredients: 2,611 MAPPED, 262 UNMAPPED, 82 REJECTED, and 1 AMBIGUOUS**, giving **88% mapped coverage** after rounding. These figures were checked on November 4, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
+The published browser contains **2,956 ingredients: 2,611 MAPPED, 262 UNMAPPED, 82 REJECTED, and 1 AMBIGUOUS**, giving **88% mapped coverage** after rounding. These figures were checked on November 8, 2026 against the [browser's live data index](https://culturebotai.github.io/MediaIngredientMech/data/ingredients.json).
 
 ## Explore the Published Site
 
@@ -21,19 +21,19 @@ The published browser contains **2,956 ingredients: 2,611 MAPPED, 262 UNMAPPED, 
 
 ## Recent Additions
 
-Five most recently added ingredient records in the pinned repository snapshot ([`0874614`](https://github.com/CultureBotAI/MediaIngredientMech/tree/0874614ea8a2a939c82707d19056b2208606c1b7)):
+Five most recently added ingredient records in the pinned repository snapshot ([`0dac278`](https://github.com/CultureBotAI/MediaIngredientMech/tree/0dac278466699129a083343a921c2e0ca18a9ab4)):
 
-1. **[2,5-didehydro-D-gluconate](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/25-didehydro-D-gluconate.yaml)** (`CHEBI:11449`, added 2026-11-02)
-2. **[Na2MoO4 x H2O](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/unmapped/Na2moo4_X_H2o.yaml)** (`UNMAPPED_0851`, added 2026-11-01)
-3. **[Trisodium citrate x 3 H2O](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/unmapped/Trisodium_Citrate_X_3_H2o.yaml)** (`UNMAPPED_0852`, added 2026-11-01)
-4. **[Na2-citrate](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/Na2-citrate.yaml)** (`cas:144-33-2`, added 2026-09-24)
-5. **[Nitrilotriacetic acid, trisodium salt](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml)** (`CHEBI:132766`, added 2026-09-22)
+1. **[2,5-didehydro-D-gluconate](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/25-didehydro-D-gluconate.yaml)** (`CHEBI:11449`, added 2026-11-02)
+2. **[Na2MoO4 x H2O](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/unmapped/Na2moo4_X_H2o.yaml)** (`UNMAPPED_0851`, added 2026-11-01)
+3. **[Trisodium citrate x 3 H2O](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/unmapped/Trisodium_Citrate_X_3_H2o.yaml)** (`UNMAPPED_0852`, added 2026-11-01)
+4. **[Na2-citrate](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/Na2-citrate.yaml)** (`cas:144-33-2`, added 2026-09-24)
+5. **[Nitrilotriacetic acid, trisodium salt](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml)** (`CHEBI:132766`, added 2026-09-22)
 
 See all fourteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
 
 ## What a Record Represents
 
-An ingredient record identifies a practical reagent or formulation used in media. Curation distinguishes salts, hydrates, mixtures, and other forms, preserves raw names as synonyms, and records the convention used when sources are ambiguous. Mapping quality and curation status are separate fields. [Mapping semantics](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/MAPPING_SEMANTICS.md).
+An ingredient record identifies a practical reagent or formulation used in media. Curation distinguishes salts, hydrates, mixtures, and other forms, preserves raw names as synonyms, and records the convention used when sources are ambiguous. Mapping quality and curation status are separate fields. [Mapping semantics](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/MAPPING_SEMANTICS.md).
 
 The current model includes:
 
@@ -43,13 +43,13 @@ The current model includes:
 - **Curation events** that record provenance and LLM assistance.
 - **Component relationships** for ingredients made of other components, with evidence and validation.
 
-See the [schema reference](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/SCHEMA_REFERENCE.md), [environmental-context model](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/schema/environmental_context.md), and [component model](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/stock_components.md).
+See the [schema reference](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/SCHEMA_REFERENCE.md), [environmental-context model](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/schema/environmental_context.md), and [component model](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/stock_components.md).
 
 ## Curation Workflow
 
 Curators compare upstream recipe changes with the tracked ingredient corpus, make scoped updates with provenance, and validate ontology identifiers and labels through OAK/OLS. Ingredient occurrence counts help prioritize unmapped records. Validated mapping artifacts can then support coordinated downstream updates to [CultureMech](/culturemech/).
 
-The former CultureMech collection writers are retired because their aggregate projections could overwrite ingredient curation. Current guidance is to review upstream changes and apply scoped updates to MIM-owned records. [Current workflow and migration status](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/README.md#use-the-curated-corpus).
+The former CultureMech collection writers are retired because their aggregate projections could overwrite ingredient curation. Current guidance is to review upstream changes and apply scoped updates to MIM-owned records. [Current workflow and migration status](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/README.md#use-the-curated-corpus).
 
 ## Getting Started
 
@@ -71,21 +71,21 @@ just curate
 just report
 ```
 
-These are the repository's documented commands. See the [curation guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/CURATION_GUIDE.md) and [role-curation workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/ROLE_CURATION_WORKFLOW.md) for record editing and validation.
+These are the repository's documented commands. See the [curation guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/CURATION_GUIDE.md) and [role-curation workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/ROLE_CURATION_WORKFLOW.md) for record editing and validation.
 
 ## Exports and Integration
 
-The project provides YAML records, browser JSON, generated inventories, SSSOM mappings, and a [standalone KGX ingredient graph](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/KGX_EXPORT.md). The [reviewed SSSOM release](https://github.com/CultureBotAI/MediaIngredientMech/releases/tag/mim-sssom-2026-09-21) holds 1,763 supported mappings. It keeps the 1,255 withheld mappings in a separate file. An [earlier release](https://github.com/CultureBotAI/MediaIngredientMech/releases/tag/mim-supported-2026-09-21) carries a KGX snapshot limited to supported assertions. SSSOM predicates preserve distinctions between exact, close, broader, and narrower matches. Registry identity mappings and ontology assertions have different meanings; downstream consumers should follow the [mapping contract](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/MAPPING_SEMANTICS.md).
+The project provides YAML records, browser JSON, generated inventories, SSSOM mappings, and a [standalone KGX ingredient graph](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/KGX_EXPORT.md). The [reviewed SSSOM release](https://github.com/CultureBotAI/MediaIngredientMech/releases/tag/mim-sssom-2026-09-21) holds 1,763 supported mappings. It keeps the 1,255 withheld mappings in a separate file. An [earlier release](https://github.com/CultureBotAI/MediaIngredientMech/releases/tag/mim-supported-2026-09-21) carries a KGX snapshot limited to supported assertions. SSSOM predicates preserve distinctions between exact, close, broader, and narrower matches. Registry identity mappings and ontology assertions have different meanings; downstream consumers should follow the [mapping contract](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/MAPPING_SEMANTICS.md).
 
 kg-microbe stages reviewed ingredient mappings as candidates; production integration still requires its separate review and validation steps. [Current integration status](https://github.com/Knowledge-Graph-Hub/kg-microbe/blob/ba19536867b1d1e93fe14745dac6b232bffcd4d3/docs/MIM_REVIEWED_RELEASE.md#status-and-scope).
 
-Deep-research tools help select providers and prepare ingredient research. Their results remain curation proposals until identity and evidence are validated. [Provider workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/README.md#deep-research-provider-triage).
+Deep-research tools help select providers and prepare ingredient research. Their results remain curation proposals until identity and evidence are validated. [Provider workflow](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/README.md#deep-research-provider-triage).
 
 ## Repository & Documentation
 
 - **[Repository](https://github.com/CultureBotAI/MediaIngredientMech)** and **[published site](https://culturebotai.github.io/MediaIngredientMech/)**
-- **[Current mapping inventory](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/curated/ALL_INGREDIENTS.md)**
-- **[Workflow guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/docs/WORKFLOWS.md)**
+- **[Current mapping inventory](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/curated/ALL_INGREDIENTS.md)**
+- **[Workflow guide](https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/docs/WORKFLOWS.md)**
 - **Licensing policy:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for data; [BSD-3-Clause](https://opensource.org/license/bsd-3-clause) for code. Redistributed source material retains its applicable terms.
 
 ---

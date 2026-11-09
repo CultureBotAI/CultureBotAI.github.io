@@ -2,61 +2,61 @@
   "count_per_mech": 5,
   "latest_across_suite": [
     {
-      "id": "PathBank:SMP0002100",
-      "label": "Trehalose Biosynthesis I",
-      "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002100.html",
-      "path": "data/pathways/trehalose-biosynthesis-i-escherichia-coli.yaml",
-      "commit": "eedfc06",
-      "added_at": "2026-11-04T06:35:00Z",
-      "added_date": "2026-11-04",
-      "mech": "PathwayMech"
+      "id": "CommunityMech:000530",
+      "label": "Bacillus subtilis 168 BS0 Brewing-Wastewater Wild-Type Isolate Baseline",
+      "url": "https://github.com/CultureBotAI/CommunityMech/blob/cafbbc8cf1c146901ba4941042b391eaac011aea/data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml",
+      "path": "data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml",
+      "commit": "c3f3870",
+      "added_at": "2026-11-08T05:32:13Z",
+      "added_date": "2026-11-08",
+      "mech": "CommunityMech"
     },
     {
-      "id": "antibioticmech:curator-de88acbd62",
-      "label": "alnumycin A",
-      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/alnumycin-a.html",
-      "path": "data/antibiotics/antibacterial/alnumycin-a.yaml",
-      "commit": "b81cd0f",
-      "added_at": "2026-11-03T22:25:22Z",
-      "added_date": "2026-11-03",
+      "id": "cmmmech:belmonteite",
+      "label": "Belmonteite",
+      "url": "https://github.com/CultureBotAI/CMMMech/blob/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records/belmonteite.yaml",
+      "path": "data/records/belmonteite.yaml",
+      "commit": "8287b17",
+      "added_at": "2026-11-06T18:51:28Z",
+      "added_date": "2026-11-06",
+      "mech": "CMMMech"
+    },
+    {
+      "id": "antibioticmech:curator-9eed5a1b11",
+      "label": "1,6-dihydro-8-propylanthraquinone",
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/1-6-dihydro-8-propylanthraquinone.html",
+      "path": "data/antibiotics/antibacterial/1-6-dihydro-8-propylanthraquinone.yaml",
+      "commit": "47beb3f",
+      "added_at": "2026-11-06T04:46:28Z",
+      "added_date": "2026-11-06",
       "mech": "AntibioticMech"
     },
     {
-      "id": "cmmmech:fengruiite",
-      "label": "Fengruiite",
-      "url": "https://github.com/CultureBotAI/CMMMech/blob/8bf82c8dfa25a35f12b60617b86751bc3ce7df71/data/records/fengruiite.yaml",
-      "path": "data/records/fengruiite.yaml",
-      "commit": "fa7431a",
-      "added_at": "2026-11-03T11:22:33Z",
-      "added_date": "2026-11-03",
-      "mech": "CMMMech"
+      "id": "PathBank:SMP0002057",
+      "label": "Tetrahydromonapterin Biosynthesis",
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002057.html",
+      "path": "data/pathways/tetrahydromonapterin-biosynthesis-escherichia-coli.yaml",
+      "commit": "9584009",
+      "added_at": "2026-11-05T20:14:04Z",
+      "added_date": "2026-11-05",
+      "mech": "PathwayMech"
     },
     {
       "id": "CHEBI:11449",
       "label": "2,5-didehydro-D-gluconate",
-      "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
+      "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
       "path": "data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
       "commit": "467aa31",
       "added_at": "2026-11-02T23:33:47Z",
       "added_date": "2026-11-02",
       "mech": "MediaIngredientMech"
-    },
-    {
-      "id": "CommunityMech:000498",
-      "label": "Cyantraniliprole Bioremediation Consortium T1",
-      "url": "https://culturebotai.github.io/CommunityMech/communities/Cyantraniliprole_Consortium_T1.html",
-      "path": "kb/communities/Cyantraniliprole_Consortium_T1.yaml",
-      "commit": "5ee21bb",
-      "added_at": "2026-11-01T06:20:34Z",
-      "added_date": "2026-11-01",
-      "mech": "CommunityMech"
     }
   ],
   "mechs": [
     {
       "mech": "HabitatMech",
       "repo": "HabitatMech",
-      "source_revision": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+      "source_revision": "8e2744f4c33769669e5e9a66a4ae9e27a9642590",
       "records": [
         {
           "id": "habitatmech:BACDIVE.0f078d72a7",
@@ -108,59 +108,59 @@
     {
       "mech": "CommunityMech",
       "repo": "CommunityMech",
-      "source_revision": "a4e963e5bebc49fa7a9908ac441d003e3ad4a817",
+      "source_revision": "cafbbc8cf1c146901ba4941042b391eaac011aea",
       "records": [
         {
-          "id": "CommunityMech:000498",
-          "label": "Cyantraniliprole Bioremediation Consortium T1",
-          "url": "https://culturebotai.github.io/CommunityMech/communities/Cyantraniliprole_Consortium_T1.html",
-          "path": "kb/communities/Cyantraniliprole_Consortium_T1.yaml",
-          "commit": "5ee21bb",
-          "added_at": "2026-11-01T06:20:34Z",
-          "added_date": "2026-11-01"
+          "id": "CommunityMech:000530",
+          "label": "Bacillus subtilis 168 BS0 Brewing-Wastewater Wild-Type Isolate Baseline",
+          "url": "https://github.com/CultureBotAI/CommunityMech/blob/cafbbc8cf1c146901ba4941042b391eaac011aea/data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml",
+          "path": "data/isolates/Bacillus_Subtilis_BS0_Brewing_Wastewater_Isolate_Baseline.yaml",
+          "commit": "c3f3870",
+          "added_at": "2026-11-08T05:32:13Z",
+          "added_date": "2026-11-08"
         },
         {
-          "id": "CommunityMech:000499",
-          "label": "Cyantraniliprole Bioremediation Consortium T2",
-          "url": "https://culturebotai.github.io/CommunityMech/communities/Cyantraniliprole_Consortium_T2.html",
-          "path": "kb/communities/Cyantraniliprole_Consortium_T2.yaml",
-          "commit": "5ee21bb",
-          "added_at": "2026-11-01T06:20:34Z",
-          "added_date": "2026-11-01"
+          "id": "CommunityMech:000529",
+          "label": "Bacillus subtilis 168 BS3 Brewing-Wastewater Metal-Resistant Isolate Baseline",
+          "url": "https://github.com/CultureBotAI/CommunityMech/blob/cafbbc8cf1c146901ba4941042b391eaac011aea/data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml",
+          "path": "data/isolates/Bacillus_Subtilis_BS3_Brewing_Wastewater_Isolate_Baseline.yaml",
+          "commit": "c3f3870",
+          "added_at": "2026-11-08T05:32:13Z",
+          "added_date": "2026-11-08"
         },
         {
-          "id": "CommunityMech:000500",
-          "label": "Cyantraniliprole Bioremediation Consortium T3",
-          "url": "https://culturebotai.github.io/CommunityMech/communities/Cyantraniliprole_Consortium_T3.html",
-          "path": "kb/communities/Cyantraniliprole_Consortium_T3.yaml",
-          "commit": "5ee21bb",
-          "added_at": "2026-11-01T06:20:34Z",
-          "added_date": "2026-11-01"
+          "id": "CommunityMech:000526",
+          "label": "SO3-Delta-mtrC-BS3 Lithium-ion Battery Bioleaching Consortium",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.html",
+          "path": "kb/communities/SO3_DeltaMtrC_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+          "commit": "c3f3870",
+          "added_at": "2026-11-08T05:32:13Z",
+          "added_date": "2026-11-08"
         },
         {
-          "id": "CommunityMech:000497",
-          "label": "Synechocystis Escherichia coli Acetate-Butanol Coculture",
-          "url": "https://culturebotai.github.io/CommunityMech/communities/Synechocystis_Ecoli_Acetate_Butanol_Coculture.html",
-          "path": "kb/communities/Synechocystis_Ecoli_Acetate_Butanol_Coculture.yaml",
-          "commit": "5ee21bb",
-          "added_at": "2026-11-01T06:20:34Z",
-          "added_date": "2026-11-01"
+          "id": "CommunityMech:000528",
+          "label": "SO3-Delta-mtrC-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.html",
+          "path": "kb/communities/SO3_DeltaMtrC_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+          "commit": "c3f3870",
+          "added_at": "2026-11-08T05:32:13Z",
+          "added_date": "2026-11-08"
         },
         {
-          "id": "CommunityMech:000496",
-          "label": "Methylomicrobium-Arthrospira Biogas Conversion Coculture",
-          "url": "https://culturebotai.github.io/CommunityMech/communities/Methylomicrobium_Arthrospira_Biogas_Conversion_Coculture.html",
-          "path": "kb/communities/Methylomicrobium_Arthrospira_Biogas_Conversion_Coculture.yaml",
-          "commit": "5704621",
-          "added_at": "2026-10-31T15:11:16Z",
-          "added_date": "2026-10-31"
+          "id": "CommunityMech:000527",
+          "label": "SO3-Delta-omcA-BS3 Lithium-ion Battery Bioleaching Consortium",
+          "url": "https://culturebotai.github.io/CommunityMech/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.html",
+          "path": "kb/communities/SO3_DeltaOmcA_BS3_Lithium_Battery_Bioleaching_Consortium.yaml",
+          "commit": "c3f3870",
+          "added_at": "2026-11-08T05:32:13Z",
+          "added_date": "2026-11-08"
         }
       ]
     },
     {
       "mech": "TraitMech",
       "repo": "TraitMech",
-      "source_revision": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+      "source_revision": "0c20b4c82a8b5ae4a883cbc536abfd6fdca6380a",
       "records": [
         {
           "id": "traitmech:000735",
@@ -212,8 +212,26 @@
     {
       "mech": "PathwayMech",
       "repo": "PathwayMech",
-      "source_revision": "bc9795173651f6b032afcdd7270228392dd5ff99",
+      "source_revision": "9584009d49579267233124f4a1057b9425a007d9",
       "records": [
+        {
+          "id": "PathBank:SMP0002057",
+          "label": "Tetrahydromonapterin Biosynthesis",
+          "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002057.html",
+          "path": "data/pathways/tetrahydromonapterin-biosynthesis-escherichia-coli.yaml",
+          "commit": "9584009",
+          "added_at": "2026-11-05T20:14:04Z",
+          "added_date": "2026-11-05"
+        },
+        {
+          "id": "PathBank:SMP0002086",
+          "label": "Guanine and Guanosine Salvage",
+          "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002086.html",
+          "path": "data/pathways/guanine-and-guanosine-salvage-escherichia-coli.yaml",
+          "commit": "b5960b1",
+          "added_at": "2026-11-05T10:22:13Z",
+          "added_date": "2026-11-05"
+        },
         {
           "id": "PathBank:SMP0002100",
           "label": "Trehalose Biosynthesis I",
@@ -240,31 +258,13 @@
           "commit": "281f8c9",
           "added_at": "2026-10-31T16:46:27Z",
           "added_date": "2026-10-31"
-        },
-        {
-          "id": "PathBank:SMP0001910",
-          "label": "Curcumin Degradation",
-          "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0001910.html",
-          "path": "data/pathways/curcumin-degradation-escherichia-coli.yaml",
-          "commit": "b93b5fc",
-          "added_at": "2026-10-31T02:56:18Z",
-          "added_date": "2026-10-31"
-        },
-        {
-          "id": "PathBank:SMP0002070",
-          "label": "Conversion of Succinate to Propanoate",
-          "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002070.html",
-          "path": "data/pathways/conversion-of-succinate-to-propanoate-escherichia-coli.yaml",
-          "commit": "3245150",
-          "added_at": "2026-10-30T16:34:37Z",
-          "added_date": "2026-10-30"
         }
       ]
     },
     {
       "mech": "CellStructureMech",
       "repo": "CellStructureMech",
-      "source_revision": "6ef043ed4d3ca7ee0e3934cc1d12c073551fbacc",
+      "source_revision": "3b1731a6325fa3117e40c70b7753ea9cfd737c00",
       "records": [
         {
           "id": "GO:0031250",
@@ -316,7 +316,7 @@
     {
       "mech": "ProteinTraitsMech",
       "repo": "proteintraitsmech",
-      "source_revision": "fa794e90b67bdafe7972f48c1288e0c939c53eea",
+      "source_revision": "8d08b33cfbee1e9d1c2fdb2211b82b49dd0c8b1f",
       "records": [
         {
           "id": "proteintraitsmech:MEMBRANE_FACING_CHANNEL_FENESTRATION",
@@ -368,7 +368,7 @@
     {
       "mech": "DUFMech",
       "repo": "DUFMech",
-      "source_revision": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+      "source_revision": "de2fdf959acb5e7a1cb1e4139e6936f4ffdf5498",
       "records": [
         {
           "id": "Pfam:PF18141",
@@ -420,7 +420,7 @@
     {
       "mech": "NaturalProductMech",
       "repo": "NaturalProductMech",
-      "source_revision": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+      "source_revision": "18ca5dd6b9023670f10355084b45a8757a7a4e9e",
       "records": [
         {
           "id": "CHEBI:90132",
@@ -472,116 +472,116 @@
     {
       "mech": "AntibioticMech",
       "repo": "AntibioticMech",
-      "source_revision": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+      "source_revision": "9d3d0205b298bbb5ef04218fb8245ccb4e471ca7",
       "records": [
         {
-          "id": "antibioticmech:curator-de88acbd62",
-          "label": "alnumycin A",
-          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/alnumycin-a.html",
-          "path": "data/antibiotics/antibacterial/alnumycin-a.yaml",
-          "commit": "b81cd0f",
-          "added_at": "2026-11-03T22:25:22Z",
-          "added_date": "2026-11-03"
+          "id": "antibioticmech:curator-9eed5a1b11",
+          "label": "1,6-dihydro-8-propylanthraquinone",
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/1-6-dihydro-8-propylanthraquinone.html",
+          "path": "data/antibiotics/antibacterial/1-6-dihydro-8-propylanthraquinone.yaml",
+          "commit": "47beb3f",
+          "added_at": "2026-11-06T04:46:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "CHEBI:213360",
-          "label": "aranciamycin",
-          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/aranciamycin.html",
-          "path": "data/antibiotics/antibacterial/aranciamycin.yaml",
-          "commit": "b81cd0f",
-          "added_at": "2026-11-03T22:25:22Z",
-          "added_date": "2026-11-03"
+          "id": "CHEBI:226154",
+          "label": "benastatin A",
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/benastatin-a.html",
+          "path": "data/antibiotics/antibacterial/benastatin-a.yaml",
+          "commit": "47beb3f",
+          "added_at": "2026-11-06T04:46:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "antibioticmech:curator-25de7e9f51",
-          "label": "bottromycin D",
-          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/bottromycin-d.html",
-          "path": "data/antibiotics/antibacterial/bottromycin-d.yaml",
-          "commit": "b81cd0f",
-          "added_at": "2026-11-03T22:25:22Z",
-          "added_date": "2026-11-03"
+          "id": "CHEBI:200324",
+          "label": "benastatin B",
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/benastatin-b.html",
+          "path": "data/antibiotics/antibacterial/benastatin-b.yaml",
+          "commit": "47beb3f",
+          "added_at": "2026-11-06T04:46:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "CHEBI:218214",
-          "label": "endophenazine A",
-          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/endophenazine-a.html",
-          "path": "data/antibiotics/antibacterial/endophenazine-a.yaml",
-          "commit": "b81cd0f",
-          "added_at": "2026-11-03T22:25:22Z",
-          "added_date": "2026-11-03"
+          "id": "antibioticmech:curator-a3ec30b285",
+          "label": "elloramycin",
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/elloramycin.html",
+          "path": "data/antibiotics/antibacterial/elloramycin.yaml",
+          "commit": "47beb3f",
+          "added_at": "2026-11-06T04:46:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "CHEBI:219469",
-          "label": "hormaomycin",
-          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/hormaomycin.html",
-          "path": "data/antibiotics/antibacterial/hormaomycin.yaml",
-          "commit": "b81cd0f",
-          "added_at": "2026-11-03T22:25:22Z",
-          "added_date": "2026-11-03"
+          "id": "antibioticmech:curator-d867155b54",
+          "label": "fredericamycin A",
+          "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/fredericamycin-a.html",
+          "path": "data/antibiotics/antibacterial/fredericamycin-a.yaml",
+          "commit": "47beb3f",
+          "added_at": "2026-11-06T04:46:28Z",
+          "added_date": "2026-11-06"
         }
       ]
     },
     {
       "mech": "CMMMech",
       "repo": "CMMMech",
-      "source_revision": "8bf82c8dfa25a35f12b60617b86751bc3ce7df71",
+      "source_revision": "8287b17e542ab6626a69e50787f798a417ce4f4a",
       "records": [
         {
-          "id": "cmmmech:fengruiite",
-          "label": "Fengruiite",
-          "url": "https://github.com/CultureBotAI/CMMMech/blob/8bf82c8dfa25a35f12b60617b86751bc3ce7df71/data/records/fengruiite.yaml",
-          "path": "data/records/fengruiite.yaml",
-          "commit": "fa7431a",
-          "added_at": "2026-11-03T11:22:33Z",
-          "added_date": "2026-11-03"
+          "id": "cmmmech:belmonteite",
+          "label": "Belmonteite",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records/belmonteite.yaml",
+          "path": "data/records/belmonteite.yaml",
+          "commit": "8287b17",
+          "added_at": "2026-11-06T18:51:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "cmmmech:igelstromite",
-          "label": "Igelstr\u00f6mite",
-          "url": "https://github.com/CultureBotAI/CMMMech/blob/8bf82c8dfa25a35f12b60617b86751bc3ce7df71/data/records/igelstromite.yaml",
-          "path": "data/records/igelstromite.yaml",
-          "commit": "fa7431a",
-          "added_at": "2026-11-03T11:22:33Z",
-          "added_date": "2026-11-03"
+          "id": "cmmmech:dacostaite",
+          "label": "Dacostaite",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records/dacostaite.yaml",
+          "path": "data/records/dacostaite.yaml",
+          "commit": "8287b17",
+          "added_at": "2026-11-06T18:51:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "cmmmech:johanngeorgenstadtite",
-          "label": "Johanngeorgenstadtite",
-          "url": "https://github.com/CultureBotAI/CMMMech/blob/8bf82c8dfa25a35f12b60617b86751bc3ce7df71/data/records/johanngeorgenstadtite.yaml",
-          "path": "data/records/johanngeorgenstadtite.yaml",
-          "commit": "fa7431a",
-          "added_at": "2026-11-03T11:22:33Z",
-          "added_date": "2026-11-03"
+          "id": "cmmmech:fluormacraeite",
+          "label": "Fluormacraeite",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records/fluormacraeite.yaml",
+          "path": "data/records/fluormacraeite.yaml",
+          "commit": "8287b17",
+          "added_at": "2026-11-06T18:51:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "cmmmech:lazerckerite",
-          "label": "Lazerckerite",
-          "url": "https://github.com/CultureBotAI/CMMMech/blob/8bf82c8dfa25a35f12b60617b86751bc3ce7df71/data/records/lazerckerite.yaml",
-          "path": "data/records/lazerckerite.yaml",
-          "commit": "fa7431a",
-          "added_at": "2026-11-03T11:22:33Z",
-          "added_date": "2026-11-03"
+          "id": "cmmmech:macraeite",
+          "label": "Macraeite",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records/macraeite.yaml",
+          "path": "data/records/macraeite.yaml",
+          "commit": "8287b17",
+          "added_at": "2026-11-06T18:51:28Z",
+          "added_date": "2026-11-06"
         },
         {
-          "id": "cmmmech:plumbogottlobite",
-          "label": "Plumbogottlobite",
-          "url": "https://github.com/CultureBotAI/CMMMech/blob/8bf82c8dfa25a35f12b60617b86751bc3ce7df71/data/records/plumbogottlobite.yaml",
-          "path": "data/records/plumbogottlobite.yaml",
-          "commit": "fa7431a",
-          "added_at": "2026-11-03T11:22:33Z",
-          "added_date": "2026-11-03"
+          "id": "cmmmech:zhiqinite",
+          "label": "Zhiqinite",
+          "url": "https://github.com/CultureBotAI/CMMMech/blob/8287b17e542ab6626a69e50787f798a417ce4f4a/data/records/zhiqinite.yaml",
+          "path": "data/records/zhiqinite.yaml",
+          "commit": "8287b17",
+          "added_at": "2026-11-06T18:51:28Z",
+          "added_date": "2026-11-06"
         }
       ]
     },
     {
       "mech": "MediaIngredientMech",
       "repo": "MediaIngredientMech",
-      "source_revision": "0874614ea8a2a939c82707d19056b2208606c1b7",
+      "source_revision": "0dac278466699129a083343a921c2e0ca18a9ab4",
       "records": [
         {
           "id": "CHEBI:11449",
           "label": "2,5-didehydro-D-gluconate",
-          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
           "path": "data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
           "commit": "467aa31",
           "added_at": "2026-11-02T23:33:47Z",
@@ -590,7 +590,7 @@
         {
           "id": "UNMAPPED_0851",
           "label": "Na2MoO4 x H2O",
-          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/unmapped/Na2moo4_X_H2o.yaml",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/unmapped/Na2moo4_X_H2o.yaml",
           "path": "data/ingredients/unmapped/Na2moo4_X_H2o.yaml",
           "commit": "40b787d",
           "added_at": "2026-11-01T04:36:11Z",
@@ -599,7 +599,7 @@
         {
           "id": "UNMAPPED_0852",
           "label": "Trisodium citrate x 3 H2O",
-          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/unmapped/Trisodium_Citrate_X_3_H2o.yaml",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/unmapped/Trisodium_Citrate_X_3_H2o.yaml",
           "path": "data/ingredients/unmapped/Trisodium_Citrate_X_3_H2o.yaml",
           "commit": "40b787d",
           "added_at": "2026-11-01T04:36:11Z",
@@ -608,7 +608,7 @@
         {
           "id": "cas:144-33-2",
           "label": "Na2-citrate",
-          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/Na2-citrate.yaml",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/Na2-citrate.yaml",
           "path": "data/ingredients/mapped/Na2-citrate.yaml",
           "commit": "dfce1c9",
           "added_at": "2026-09-24T08:38:41Z",
@@ -617,7 +617,7 @@
         {
           "id": "CHEBI:132766",
           "label": "Nitrilotriacetic acid, trisodium salt",
-          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0874614ea8a2a939c82707d19056b2208606c1b7/data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml",
+          "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/0dac278466699129a083343a921c2e0ca18a9ab4/data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml",
           "path": "data/ingredients/mapped/Nitrilotriacetic_Acid_Trisodium_Salt.yaml",
           "commit": "0859480",
           "added_at": "2026-09-22T02:58:47Z",
@@ -628,12 +628,12 @@
     {
       "mech": "CultureMech",
       "repo": "CultureMech",
-      "source_revision": "a74dd489720c9df96cc073ffd11568d407d3c06c",
+      "source_revision": "199cd9191881e8e929cd95ea0ed13aabe388e58c",
       "records": [
         {
           "id": "CultureMech:015918",
           "label": "AMMONIA OXIDIZING BACTERIA MEDIUM",
-          "url": "https://github.com/CultureBotAI/CultureMech/blob/a74dd489720c9df96cc073ffd11568d407d3c06c/data/merge_yaml/merged/ammonia_oxidizing_bacteria_medium.yaml",
+          "url": "https://github.com/CultureBotAI/CultureMech/blob/199cd9191881e8e929cd95ea0ed13aabe388e58c/data/merge_yaml/merged/ammonia_oxidizing_bacteria_medium.yaml",
           "path": "data/merge_yaml/merged/ammonia_oxidizing_bacteria_medium.yaml",
           "commit": "231e0ba",
           "added_at": "2026-10-22T04:22:22Z",
@@ -642,7 +642,7 @@
         {
           "id": "CultureMech:015920",
           "label": "AUTOTROPHIC NITROBACTER MEDIUM",
-          "url": "https://github.com/CultureBotAI/CultureMech/blob/a74dd489720c9df96cc073ffd11568d407d3c06c/data/merge_yaml/merged/autotrophic_nitrobacter_medium_jcm_1503.yaml",
+          "url": "https://github.com/CultureBotAI/CultureMech/blob/199cd9191881e8e929cd95ea0ed13aabe388e58c/data/merge_yaml/merged/autotrophic_nitrobacter_medium_jcm_1503.yaml",
           "path": "data/merge_yaml/merged/autotrophic_nitrobacter_medium_jcm_1503.yaml",
           "commit": "231e0ba",
           "added_at": "2026-10-22T04:22:22Z",
@@ -651,7 +651,7 @@
         {
           "id": "CultureMech:015919",
           "label": "BAP+ MEDIUM FOR FRANKIA",
-          "url": "https://github.com/CultureBotAI/CultureMech/blob/a74dd489720c9df96cc073ffd11568d407d3c06c/data/merge_yaml/merged/bap_medium_for_frankia_jcm_1492.yaml",
+          "url": "https://github.com/CultureBotAI/CultureMech/blob/199cd9191881e8e929cd95ea0ed13aabe388e58c/data/merge_yaml/merged/bap_medium_for_frankia_jcm_1492.yaml",
           "path": "data/merge_yaml/merged/bap_medium_for_frankia_jcm_1492.yaml",
           "commit": "231e0ba",
           "added_at": "2026-10-22T04:22:22Z",
@@ -660,7 +660,7 @@
         {
           "id": "CultureMech:015916",
           "label": "METHANOCORPUSCULUM AGGREGANS MEDIUM",
-          "url": "https://github.com/CultureBotAI/CultureMech/blob/a74dd489720c9df96cc073ffd11568d407d3c06c/data/merge_yaml/merged/methanocorpusculum_aggregans_medium_jcm_1422.yaml",
+          "url": "https://github.com/CultureBotAI/CultureMech/blob/199cd9191881e8e929cd95ea0ed13aabe388e58c/data/merge_yaml/merged/methanocorpusculum_aggregans_medium_jcm_1422.yaml",
           "path": "data/merge_yaml/merged/methanocorpusculum_aggregans_medium_jcm_1422.yaml",
           "commit": "231e0ba",
           "added_at": "2026-10-22T04:22:22Z",
@@ -669,7 +669,7 @@
         {
           "id": "CultureMech:015917",
           "label": "MODIFIED UREAPLASMA MEDIUM",
-          "url": "https://github.com/CultureBotAI/CultureMech/blob/a74dd489720c9df96cc073ffd11568d407d3c06c/data/merge_yaml/merged/modified_ureaplasma_medium.yaml",
+          "url": "https://github.com/CultureBotAI/CultureMech/blob/199cd9191881e8e929cd95ea0ed13aabe388e58c/data/merge_yaml/merged/modified_ureaplasma_medium.yaml",
           "path": "data/merge_yaml/merged/modified_ureaplasma_medium.yaml",
           "commit": "231e0ba",
           "added_at": "2026-10-22T04:22:22Z",
@@ -680,7 +680,7 @@
     {
       "mech": "TaxonMech",
       "repo": "TaxonMech",
-      "source_revision": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+      "source_revision": "af17bce5e92041f70a09950de5cdfdb92c986441",
       "records": [
         {
           "id": "NCBITaxon:5755",
@@ -732,12 +732,12 @@
     {
       "mech": "AIMech",
       "repo": "AIMech",
-      "source_revision": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+      "source_revision": "0d2eea9863af2f88908cb9cc8a5ecec0d86263aa",
       "records": [
         {
           "id": "AIMech:ACPropMomentumCenteringAsynchronousAdaptiveGradientOptimization",
           "label": "ACProp Momentum-Centered Asynchronous Adaptive Gradient Optimization",
-          "url": "https://github.com/CultureBotAI/AIMech/blob/7ad7d92709e8816ab33bc8979d7187dec109a1ab/data/curated/ACPropMomentumCenteringAsynchronousAdaptiveGradientOptimization.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/0d2eea9863af2f88908cb9cc8a5ecec0d86263aa/data/curated/ACPropMomentumCenteringAsynchronousAdaptiveGradientOptimization.yaml",
           "path": "data/curated/ACPropMomentumCenteringAsynchronousAdaptiveGradientOptimization.yaml",
           "commit": "621a86e",
           "added_at": "2026-10-24T11:27:45Z",
@@ -746,7 +746,7 @@
         {
           "id": "AIMech:ADOREOptimizingDenseRetrievalModelTrainingWithHardNegatives",
           "label": "ADORE and STAR Hard-Negative Dense Retrieval Training Framework",
-          "url": "https://github.com/CultureBotAI/AIMech/blob/7ad7d92709e8816ab33bc8979d7187dec109a1ab/data/curated/ADOREOptimizingDenseRetrievalModelTrainingWithHardNegatives.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/0d2eea9863af2f88908cb9cc8a5ecec0d86263aa/data/curated/ADOREOptimizingDenseRetrievalModelTrainingWithHardNegatives.yaml",
           "path": "data/curated/ADOREOptimizingDenseRetrievalModelTrainingWithHardNegatives.yaml",
           "commit": "621a86e",
           "added_at": "2026-10-24T11:27:45Z",
@@ -755,7 +755,7 @@
         {
           "id": "AIMech:AMCAccelerationAndModelCompressionOnMobileDevicesWithRL",
           "label": "AMC (AutoML for Model Compression and Acceleration on Mobile Devices)",
-          "url": "https://github.com/CultureBotAI/AIMech/blob/7ad7d92709e8816ab33bc8979d7187dec109a1ab/data/curated/AMCAccelerationAndModelCompressionOnMobileDevicesWithRL.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/0d2eea9863af2f88908cb9cc8a5ecec0d86263aa/data/curated/AMCAccelerationAndModelCompressionOnMobileDevicesWithRL.yaml",
           "path": "data/curated/AMCAccelerationAndModelCompressionOnMobileDevicesWithRL.yaml",
           "commit": "621a86e",
           "added_at": "2026-10-24T11:27:45Z",
@@ -764,7 +764,7 @@
         {
           "id": "AIMech:AMISAdaptiveMultipleImportanceSamplingWithPastWeightRecycling",
           "label": "AMIS Adaptive Multiple Importance Sampling with Past-Weight Recycling",
-          "url": "https://github.com/CultureBotAI/AIMech/blob/7ad7d92709e8816ab33bc8979d7187dec109a1ab/data/curated/AMISAdaptiveMultipleImportanceSamplingWithPastWeightRecycling.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/0d2eea9863af2f88908cb9cc8a5ecec0d86263aa/data/curated/AMISAdaptiveMultipleImportanceSamplingWithPastWeightRecycling.yaml",
           "path": "data/curated/AMISAdaptiveMultipleImportanceSamplingWithPastWeightRecycling.yaml",
           "commit": "621a86e",
           "added_at": "2026-10-24T11:27:45Z",
@@ -773,7 +773,7 @@
         {
           "id": "AIMech:ANCEApproximateNearestNeighborNegativeContrastiveLearning",
           "label": "ANCE Approximate Nearest Neighbor Negative Contrastive Learning",
-          "url": "https://github.com/CultureBotAI/AIMech/blob/7ad7d92709e8816ab33bc8979d7187dec109a1ab/data/curated/ANCEApproximateNearestNeighborNegativeContrastiveLearning.yaml",
+          "url": "https://github.com/CultureBotAI/AIMech/blob/0d2eea9863af2f88908cb9cc8a5ecec0d86263aa/data/curated/ANCEApproximateNearestNeighborNegativeContrastiveLearning.yaml",
           "path": "data/curated/ANCEApproximateNearestNeighborNegativeContrastiveLearning.yaml",
           "commit": "621a86e",
           "added_at": "2026-10-24T11:27:45Z",
