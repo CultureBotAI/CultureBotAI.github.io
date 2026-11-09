@@ -1,6 +1,6 @@
 {
-  "started_at_utc": "2026-11-09T03:06:18.877708+00:00",
-  "snapshot": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261108",
+  "started_at_utc": "2026-11-09T05:41:57.908783+00:00",
+  "snapshot": "$SNAP/xmech-refresh-20261108",
   "commands": {
     "unit-tests": {
       "argv": [
@@ -13,8 +13,8 @@
         "-v"
       ],
       "exit_code": 0,
-      "log": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/validation-logs-20261108/unit-tests.log",
-      "log_sha256": "27af86ce8777cb1d3491b9fe2bc7df06ccc634dee1cf845eadaad648bfeb9577",
+      "log": "$LOGS/validation-logs-20261108/unit-tests.log",
+      "log_sha256": "f34298161842ca0ec52f5cd179c6c513e500123519bb3d37c45b4a155bde66e0",
       "tail": [
         "test_an_unconfirmed_first_deployment_is_not_claimed_as_a_new_site (test_suite_updates.SuiteUpdateTests.test_an_unconfirmed_first_deployment_is_not_claimed_as_a_new_site) ... ok",
         "test_every_failed_or_malformed_answer_is_not_checked (test_suite_updates.SuiteUpdateTests.test_every_failed_or_malformed_answer_is_not_checked) ... ok",
@@ -31,7 +31,7 @@
         "test_unsuccessful_deployment_requests_are_not_claimed_as_served (test_suite_updates.SuiteUpdateTests.test_unsuccessful_deployment_requests_are_not_claimed_as_served) ... ok",
         "",
         "----------------------------------------------------------------------",
-        "Ran 246 tests in 10.887s",
+        "Ran 246 tests in 7.280s",
         "",
         "OK"
       ]
@@ -43,7 +43,7 @@
         "--check"
       ],
       "exit_code": 0,
-      "log": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/validation-logs-20261108/assembled-page.log",
+      "log": "$LOGS/validation-logs-20261108/assembled-page.log",
       "log_sha256": "4b899e9e5dc096d9a621f79563116853cdb104d2d6b537a5d1baa592e0525842",
       "tail": [
         "Generated mechs.md is current"
@@ -54,11 +54,11 @@
         "/Users/marcin/.pyenv/versions/3.12.11/bin/python3.12",
         "scripts/fleet/refresh_manifest.py",
         "--claw-root",
-        "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261108/claw",
+        "$SNAP/xmech-refresh-20261108/claw",
         "--check"
       ],
       "exit_code": 0,
-      "log": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/validation-logs-20261108/pinned-manifest.log",
+      "log": "$LOGS/validation-logs-20261108/pinned-manifest.log",
       "log_sha256": "36786cf10a463ba3847d2b68ed5f043adb7981869be3787eb8df183548fe0343",
       "tail": [
         "Fleet snapshot matches CLAW: 14 members"
@@ -70,14 +70,14 @@
         "scripts/fleet/check_cards.py"
       ],
       "exit_code": 0,
-      "log": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/validation-logs-20261108/cards.log",
-      "log_sha256": "d5ad8c281594049043b5a59dedad9e0d4728ed7f2c7106b6b8baaa469ba85254",
+      "log": "$LOGS/validation-logs-20261108/cards.log",
+      "log_sha256": "c5f119c35433644d5b42260f030343d8dea64910eefa8d27077a01e519e4f7b6",
       "tail": [
         "  ok        AIMech                   1,929",
         "  ok        AntibioticMech           3,105",
         "  ok        CMMMech                    698",
         "  ok        CellStructureMech        1,022",
-        "  grew      CommunityMech        card 510, site 511 (+1 in the 6 hours since the pin)",
+        "  grew      CommunityMech        card 510, site 511 (+1 in the 9 hours since the pin)",
         "  ok        CultureMech              6,325",
         "  ok        DUFMech                  8,296",
         "  ok        HabitatMech              3,209",
@@ -98,27 +98,27 @@
         "scripts/fleet/check_updates.py"
       ],
       "exit_code": 0,
-      "log": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/validation-logs-20261108/updates.log",
-      "log_sha256": "884c328b1c6df5dd097eb55854bdded8b1424da1cc670dfab7a3617a6c700518",
+      "log": "$LOGS/validation-logs-20261108/updates.log",
+      "log_sha256": "3fbf95d194610a3b7ca9904a8122084259422697503bb58be0c6a7a46ba6b535",
       "tail": [
         "## Website feature table (baseline audit: 2026-11-08)",
         "",
         "- same AIMech (audit date: 2026-11-08): still serves 0d2eea9",
-        "- same AntibioticMech (audit date: 2026-11-08): still serves 817d3f1",
-        "- redeployed CMMMech (audit date: 2026-11-08): 8287b17 when checked, now df061de (deployed 2026-11-09T02:11:00Z)",
+        "- redeployed AntibioticMech (audit date: 2026-11-08): 817d3f1 when checked, now 1b879b0 (deployed 2026-11-09T03:22:36Z)",
+        "- redeployed CMMMech (audit date: 2026-11-08): 8287b17 when checked, now 7946847 (deployed 2026-11-09T03:52:51Z)",
         "- same CellStructureMech (audit date: 2026-11-08): still serves 6e0cbc2",
         "- redeployed CommunityMech (audit date: 2026-11-08): 201f5b0 when checked, now 2f37c20 (deployed 2026-11-09T01:54:01Z)",
         "- same CultureMech (audit date: 2026-11-08): still serves 09f9088",
         "- same DUFMech (audit date: 2026-11-08): still serves de2fdf9",
-        "- redeployed HabitatMech (audit date: 2026-11-08): 43f770c when checked, now ab70967 (deployed 2026-11-09T02:06:08Z)",
+        "- redeployed HabitatMech (audit date: 2026-11-08): 43f770c when checked, now 7ed4f45 (deployed 2026-11-09T04:13:51Z)",
         "- same MediaIngredientMech (audit date: 2026-11-08): still serves e1f6497",
         "- same NaturalProductMech (audit date: 2026-11-08): still serves 18ca5dd",
         "- same PathwayMech (audit date: 2026-11-08): still serves 9584009",
         "- same ProteinTraitsMech (audit date: 2026-11-08): still serves 543f453",
-        "- same TaxonMech (audit date: 2026-11-08): still serves 4162c24",
-        "- same TraitMech (audit date: 2026-11-08): still serves b2972cd",
+        "- redeployed TaxonMech (audit date: 2026-11-08): 4162c24 when checked, now 75b553a (deployed 2026-11-09T03:48:32Z)",
+        "- redeployed TraitMech (audit date: 2026-11-08): b2972cd when checked, now 69d6c88 (deployed 2026-11-09T03:11:30Z)",
         "",
-        "**GitHub Pages:** current: Pages serves main (868f143, built 2026-11-08T21:35:46Z). **Refresh would change:** repositories: AntibioticMech, CMMMech, CommunityMech, culturebotai-claw, HabitatMech, TaxonMech; cards: CommunityMech (grew); fleet membership or capabilities (CLAW manifest); website feature verdicts to re-check on redeployed sites: CMMMech, CommunityMech, HabitatMech."
+        "**GitHub Pages:** current: Pages serves main (868f143, built 2026-11-08T21:35:46Z). **Refresh would change:** repositories: AntibioticMech, CMMMech, CommunityMech, culturebotai-claw, HabitatMech, TaxonMech; cards: CommunityMech (grew); fleet membership or capabilities (CLAW manifest); website feature verdicts to re-check on redeployed sites: AntibioticMech, CMMMech, CommunityMech, HabitatMech, TaxonMech, TraitMech."
       ]
     },
     "diff-whitespace": {
@@ -128,7 +128,7 @@
         "--check"
       ],
       "exit_code": 0,
-      "log": "/Users/marcin/.gemini/antigravity-cli/brain/fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/validation-logs-20261108/diff-whitespace.log",
+      "log": "$LOGS/validation-logs-20261108/diff-whitespace.log",
       "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "tail": []
     }
@@ -147,7 +147,7 @@
     "_fleet/data/prefix_census.json": "b41f94549d8715caa6c33a0d1951982d5194577dcadca27651a7bb6212a290a4",
     "_fleet/data/recent_terms.json": "710118fe24af2a605bb8ae346545ab50eb8f0a291a8a0aa1605b35b4cb8df7c2",
     "_fleet/data/site_audit.json": "11ba773d4b78cce1a8f9e5867b6e41deca2f7db9fcedbd17f89610bb3f3a5de7",
-    "_fleet/data/site_features.json": "b3e4094f63a478b4af653766cdaa6cc6fce03e0846a452ef5e9491ec2d309c42",
+    "_fleet/data/site_features.json": "5eb59b22bf22dbac9f22f8d121588060e8661cc2cf0914f27a06f93bde4eb72f",
     "_fleet/data/subsets_summary.json": "279f23b767572f448086b23865e79995d9f71470988e0a50e75b382a072a3469",
     "_fleet/fleet_fragment.html": "7160fb8761840314b1ef25ce7e5698a7306ce2befc57de04475e7471069b1c5c",
     "_fleet/mechs_template.md": "9376fa311f2ed642775290f42543a6af8520b47a9ccf3e7886912cae561c0069",
@@ -626,7 +626,7 @@
     "assets/fleet/edges/TraitMech--PathwayMech.json": "d0dd351989389ef2080a8ee5c5f002fc213674fd98d538c82d42d28643644f61",
     "assets/fleet/edges/TraitMech--ProteinTraitsMech.json": "d7de09dfc9dc16725bfb3002f1131bc56087caac192645d2e2c90ccfef6319d2",
     "assets/fleet/edges/TraitMech--TaxonMech.json": "44f36017f71768870dd2b313e6ff1f43498033256a4fa47c10939ea25de457c6",
-    "mechs.md": "1b6ad0977f5cc09c61e5fb326f0846d6ac8588722048a582a9f5d4e8d2996d2f"
+    "mechs.md": "9ccfe4a1cd5354e41bca418efd8187a52a669d8a637af013b98c7218009d079e"
   },
-  "completed_at_utc": "2026-11-09T03:07:36.615339+00:00"
+  "completed_at_utc": "2026-11-09T05:43:14.970380+00:00"
 }

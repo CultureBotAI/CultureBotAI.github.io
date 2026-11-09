@@ -68,9 +68,10 @@ def main():
     }
     for name, edits in replacements.items():
         for before, after in edits:
-            if before not in notes['notes'][name]:
+            if before in notes['notes'][name]:
+                notes['notes'][name] = notes['notes'][name].replace(before, after)
+            elif after not in notes['notes'][name]:
                 raise ValueError(f'{name}: expected {before!r} in {notes["notes"][name]!r}')
-            notes['notes'][name] = notes['notes'][name].replace(before, after)
     notes['notes']['culturebotai-claw'] = (
         'The e36c6ae canonical snapshot declares fourteen members, twenty-six governed artifacts and twenty-eight capabilities per member. '
         'The added evidence_reference_validation contract is enabled for MediaIngredientMech, CellStructureMech and HabitatMech, and disabled with explicit reasons for the other eleven Mechs. '
@@ -96,10 +97,20 @@ def main():
         path = ROOT / file
         text = path.read_text()
         for before, after in shared.items():
-            if before not in text:
+            if before in text:
+                text = text.replace(before, after)
+            elif after not in text:
                 raise ValueError(f'{file}: expected {before!r}')
-            text = text.replace(before, after)
         output[path] = text
+    readme_path = ROOT / '_fleet/README.md'
+    readme_text = readme_path.read_text()
+    old_readme_hist = 'TaxonMech supplies history machinery used by 104 PathwayMech records carrying\n127 events.'
+    new_readme_hist = 'TaxonMech supplies history machinery used by 106 PathwayMech records carrying\n129 events.'
+    if old_readme_hist in readme_text:
+        readme_text = readme_text.replace(old_readme_hist, new_readme_hist)
+    elif new_readme_hist not in readme_text:
+        raise ValueError('_fleet/README.md: expected PathwayMech history sentence')
+    output[readme_path] = readme_text
     if args.apply:
         for path, text in output.items():
             path.write_text(text)

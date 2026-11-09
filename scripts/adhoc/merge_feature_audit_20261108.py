@@ -144,7 +144,7 @@ def main():
             for old_sub, new_sub in mech_updates.get(key, []):
                 if old_sub not in note:
                     raise ValueError(f'{name}.{key}: expected substring {old_sub!r} not in {note!r}')
-                note = note.replace(old_sub, new_sub, 1)
+                note = note.replace(old_sub, new_sub)
             verdict = {
                 'status': old_verdict['status'],
                 'note': note,

@@ -31,8 +31,10 @@ def main():
         'updates': [sys.executable, 'scripts/fleet/check_updates.py'],
         'diff-whitespace': ['git', 'diff', '--check'],
     }
+    snap_label = f'$SNAP/{args.snapshot.name}'
+    logs_label = f'$LOGS/{args.logs.name}'
     receipt = {'started_at_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
-               'snapshot': str(args.snapshot), 'commands': {}, 'production_sha256': {}}
+               'snapshot': snap_label, 'commands': {}, 'production_sha256': {}}
     env = dict(os.environ, PYTHONUNBUFFERED='1')
     try:
         Path.home().joinpath('.gitconfig').read_bytes()
@@ -45,8 +47,9 @@ def main():
         with log.open('w') as handle:
             done = subprocess.run(command, cwd=ROOT, env=env, stdout=handle, stderr=subprocess.STDOUT)
         content = log.read_text()
-        receipt['commands'][name] = {'argv': command, 'exit_code': done.returncode,
-                                     'log': str(log), 'log_sha256': hashlib.sha256(log.read_bytes()).hexdigest(),
+        display_argv = [arg.replace(str(args.snapshot), snap_label) for arg in command]
+        receipt['commands'][name] = {'argv': display_argv, 'exit_code': done.returncode,
+                                     'log': f'{logs_label}/{log.name}', 'log_sha256': hashlib.sha256(log.read_bytes()).hexdigest(),
                                      'tail': content.splitlines()[-18:]}
         print(f'{name}: exit {done.returncode}\n' + '\n'.join(content.splitlines()[-4:]), flush=True)
     tracked = subprocess.check_output(['git', '-C', str(ROOT), 'ls-files', '--cached', '--others', '--exclude-standard', '-z'], env=env, text=True).split('\0')

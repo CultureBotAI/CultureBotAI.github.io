@@ -2,14 +2,13 @@
 """Audit live GitHub Pages deployments and exercise browser controls for the Nov 8 refresh PR.
 
 Inputs: _fleet/data/site_features.json, $SNAP/revisions.json, GitHub deployments API, live Pages via Playwright.
-Outputs:
-  - _fleet/reviews/refresh-20261108/site-deployments-auditor.json
-  - updated _fleet/data/site_features.json (when --apply is passed)
-Date: 2026-11-08; serves X-Mech Suite November 8 refresh PR.
+Outputs: _fleet/reviews/refresh-20261108/site-deployments-auditor.json.
+Serves #542 and #544; Date: 2026-11-08.
 """
 import argparse
 import datetime as dt
 import email.utils
+import glob
 import hashlib
 import json
 import os
@@ -20,12 +19,24 @@ import urllib.request
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]
-CHROME = "/Users/marcin/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell"
 GH_ENV = dict(
     os.environ,
     GIT_CONFIG_GLOBAL="/dev/null",
     GIT_CONFIG_NOSYSTEM="1",
 )
+
+
+def resolve_chrome_executable(explicit: str | None = None) -> str | None:
+    if explicit:
+        return explicit
+    env_path = os.environ.get("PLAYWRIGHT_CHROME_EXECUTABLE")
+    if env_path and Path(env_path).is_file():
+        return env_path
+    candidates = sorted(
+        glob.glob(str(Path.home() / "Library/Caches/ms-playwright/chromium_headless_shell-*/chrome-headless-shell-*/chrome-headless-shell")),
+        reverse=True,
+    )
+    return candidates[0] if candidates else None
 
 PAGE_STATE_JS = """() => ({
   url: location.href,
@@ -120,7 +131,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--snapshot", type=Path, required=True)
     ap.add_argument("--only", help="Canary a single Mech first")
-    ap.add_argument("--apply", action="store_true", help="Write updated site_features.json")
+    ap.add_argument("--chrome-executable", help="Optional path to headless Chromium binary")
     args = ap.parse_args()
 
     sf_path = ROOT / "_fleet/data/site_features.json"
@@ -236,8 +247,12 @@ def main() -> None:
         "mechs": {},
     }
 
+    chrome_exec = resolve_chrome_executable(args.chrome_executable)
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(executable_path=CHROME, headless=True)
+        launch_kwargs = {"headless": True}
+        if chrome_exec:
+            launch_kwargs["executable_path"] = chrome_exec
+        browser = pw.chromium.launch(**launch_kwargs)
         for mech in mechs_to_run:
             entry = sf["mechs"][mech]
             repo_name = pins[mech]["repo"]

@@ -195,8 +195,8 @@ credited to it in the file that implements it. Rules that have come up:
 The October 29 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators records 59 directed references.
 The November 8 refresh rechecked all 59 references at the new pins.
-TaxonMech supplies history machinery used by 104 PathwayMech records carrying
-127 events. PathwayMech's typed links and candidate reports, and
+TaxonMech supplies history machinery used by 106 PathwayMech records carrying
+129 events. PathwayMech's typed links and candidate reports, and
 ProteinTraitsMech's six-sibling protein-mention snapshot, add data relationships
 with their identity and validation limits stated. MediaIngredientMech's allowed
 sibling enums remain schema-only references: no native causal graphs populate
