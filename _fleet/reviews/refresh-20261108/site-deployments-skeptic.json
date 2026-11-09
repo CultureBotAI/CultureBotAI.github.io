@@ -1,0 +1,2150 @@
+{
+  "checked_on": "2026-11-08",
+  "verdict_count": 336,
+  "disagreements": [],
+  "note_updates_count": 32,
+  "sites": {
+    "AntibioticMech": {
+      "deployed_revision": "817d3f186fdf61b437a8a56b4499328e57e97e46",
+      "prior_deployed_revision": "47746980c7f56e7d9a37ebb7eb4d475d3a7ea6e5",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": true
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": true
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "CellStructureMech": {
+      "deployed_revision": "6e0cbc219a1a600680373f141efb92f221c02493",
+      "prior_deployed_revision": "d4d24c6c38d06ef27a6bac2c25ed381d50e96431",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "CommunityMech": {
+      "deployed_revision": "201f5b09872e231fe13b76e215f521310f94891d",
+      "prior_deployed_revision": "88314cf16ca1db9580d379babd4ec808e334d898",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": true
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "category_browse": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": true
+        },
+        "schema_docs": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "not_applicable",
+          "skeptic": "not_applicable",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "CultureMech": {
+      "deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+      "prior_deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+      "changed_deployed_sha": false,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "DUFMech": {
+      "deployed_revision": "de2fdf959acb5e7a1cb1e4139e6936f4ffdf5498",
+      "prior_deployed_revision": "aa7d08bcf3a9a03879d06cffd075bc083d29788f",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "HabitatMech": {
+      "deployed_revision": "43f770cbc8682e74d226be6ca05caa1acc5ed048",
+      "prior_deployed_revision": "13ae9f8a89e7b002257470e911453a6c7d38c0f5",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "MediaIngredientMech": {
+      "deployed_revision": "e1f6497c50507d667ca528cd372658e4152aa2c1",
+      "prior_deployed_revision": "b538ec76094e0d2d0667e5c3bd2455b24deceded",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "NaturalProductMech": {
+      "deployed_revision": "18ca5dd6b9023670f10355084b45a8757a7a4e9e",
+      "prior_deployed_revision": "b0fb4c22274771cd75308eaf5e209b584c12bcdf",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "PathwayMech": {
+      "deployed_revision": "9584009d49579267233124f4a1057b9425a007d9",
+      "prior_deployed_revision": "bc9795173651f6b032afcdd7270228392dd5ff99",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "cross_mech_links": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "category_browse": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "not_applicable",
+          "skeptic": "not_applicable",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "ProteinTraitsMech": {
+      "deployed_revision": "543f453c598f97aee686440dfaab51732614d57a",
+      "prior_deployed_revision": "568e78869fb08b86849d13f6a23b3a32ec27cd08",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "TaxonMech": {
+      "deployed_revision": "4162c24b37706e78c8a897488485a121089a86e5",
+      "prior_deployed_revision": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "TraitMech": {
+      "deployed_revision": "b2972cd2655e72b9b15ec8d0d13648e034ea2821",
+      "prior_deployed_revision": "c7627fdb55a2b3352a4a12b2da8dbc98a4d1c8c6",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "term_links": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "cross_mech_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "CMMMech": {
+      "deployed_revision": "8287b17e542ab6626a69e50787f798a417ce4f4a",
+      "prior_deployed_revision": "ff4a9841deb7e4f6e9fff025eccd2ffa07b5493c",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "cross_mech_links": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": true
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "not_applicable",
+          "skeptic": "not_applicable",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    },
+    "AIMech": {
+      "deployed_revision": "0d2eea9863af2f88908cb9cc8a5ecec0d86263aa",
+      "prior_deployed_revision": "7ad7d92709e8816ab33bc8979d7187dec109a1ab",
+      "changed_deployed_sha": true,
+      "verdicts": 24,
+      "disagreements": [],
+      "features": {
+        "search": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "facets": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "result_counts": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "sorting": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "shareable_state": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "full_catalogue": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "record_pages": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "term_links": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "evidence": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "review_status": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "curation_history": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "source_link": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "domain_view": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "cross_mech_links": {
+          "auditor": "missing",
+          "skeptic": "missing",
+          "agree": true,
+          "note_updated": false
+        },
+        "corpus_stats": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "category_browse": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "suite_nav": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "downloads": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "schema_docs": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "license": {
+          "auditor": "partial",
+          "skeptic": "partial",
+          "agree": true,
+          "note_updated": false
+        },
+        "build_provenance": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": true
+        },
+        "theme_toggle": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "responsive": {
+          "auditor": "present",
+          "skeptic": "present",
+          "agree": true,
+          "note_updated": false
+        },
+        "load_failure": {
+          "auditor": "not_applicable",
+          "skeptic": "not_applicable",
+          "agree": true,
+          "note_updated": false
+        }
+      }
+    }
+  }
+}

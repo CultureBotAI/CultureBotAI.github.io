@@ -1,0 +1,1851 @@
+{
+  "ProteinTraitsMech": {
+    "pin": "8d08b33cfbee1e9d1c2fdb2211b82b49dd0c8b1f",
+    "proteins_by_status": {
+      "DISCOVERY_ONLY": 996,
+      "LEGACY_EXAMPLES_ONLY": 648,
+      "HAS_QUALIFIED_PTM_EXAMPLE": 958
+    },
+    "inventory_sha256_matches_coverage": true,
+    "protein_mentions": 16082,
+    "mentions_sha256": "91879cdf5a53156aad8fbed431347eba4f5102ee12ccaae7f233ab42d612e669",
+    "mention_roles": {
+      "TARGET": 482,
+      "REFERENCE": 11558,
+      "EXAMPLE": 3004,
+      "GRAPH_NODE": 1015,
+      "SUBSTRATE": 1,
+      "CROSSWALK": 22
+    }
+  },
+  "DUFMech": {
+    "pin": "de2fdf959acb5e7a1cb1e4139e6936f4ffdf5498",
+    "native_families": 8296,
+    "native_curation_status": {
+      "IN_PROGRESS": 142,
+      "SEEDED": 8154
+    },
+    "native_characterization_status": {
+      "UNSCORED": 8296
+    },
+    "all_native_hashes_match_manifest": true,
+    "cross_mech_rows": 16298,
+    "cross_mech_hash_matches_manifest": true,
+    "scanned_families": 6532,
+    "unscanned_families": 1764
+  },
+  "NaturalProductMech": {
+    "pin": "18ca5dd6b9023670f10355084b45a8757a7a4e9e",
+    "referencing_owners": 27,
+    "referenced_components": 246,
+    "owner_id_inchikey_and_graph_id_match": true,
+    "components": [
+      {
+        "owner": "data/natural_products/alkaloids/pyoluteorin.yaml",
+        "record_id": "CHEBI:156453",
+        "inchikey": "JPGWTZORMBTNMF-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/JPGWTZORMBTNMF-UHFFFAOYSA-N/pyoluteorin-2005-plti-pltj-production-phenotypes.yaml",
+        "sha256": "4d278f7d51abf0d4ecc8dc137d49b16effcac642521ddab21936147ce21c124e"
+      },
+      {
+        "owner": "data/natural_products/alkaloids/pyrrolnitrin.yaml",
+        "record_id": "CHEBI:32079",
+        "inchikey": "QJBZDBLBQWFTPZ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/QJBZDBLBQWFTPZ-UHFFFAOYSA-N/pyrrolnitrin-2005-ssue-assisted-oxygenation.yaml",
+        "sha256": "2183b4fb669f0beaf83f1f2753d571ba740c03feff81907f42becff0594c6dd3"
+      },
+      {
+        "owner": "data/natural_products/alkaloids/staurosporine-2.yaml",
+        "record_id": "naturalproductmech:mibig-c702c4be08",
+        "inchikey": "HKSZLNNOFSGOKW-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/HKSZLNNOFSGOKW-UHFFFAOYSA-N/staurosporine-aglycone-assays.yaml",
+        "sha256": "c4c8d950984fc32bc3be03913900f2b94770c268e3bde4d9b929937cbd85cadb"
+      },
+      {
+        "owner": "data/natural_products/alkaloids/tenellin.yaml",
+        "record_id": "naturalproductmech:mibig-34ab171b17",
+        "inchikey": "YELFBSBOFKWHSL-QDPFKYGGSA-N",
+        "component": "data/causal_graphs/YELFBSBOFKWHSL-QDPFKYGGSA-N/tenellin-cbs-protein-references.yaml",
+        "sha256": "6edd7f5c1dbb52873953655ca959d8c0ac3bd93d506e0899bf88534518145dc3"
+      },
+      {
+        "owner": "data/natural_products/alkaloids/tenellin.yaml",
+        "record_id": "naturalproductmech:mibig-34ab171b17",
+        "inchikey": "YELFBSBOFKWHSL-QDPFKYGGSA-N",
+        "component": "data/causal_graphs/YELFBSBOFKWHSL-QDPFKYGGSA-N/tenellin-arsef-protein-references.yaml",
+        "sha256": "58da7ab39cf5210f7fb3c9bc08919b3fa377ff2909313f2cdbf5d7d72a178021"
+      },
+      {
+        "owner": "data/natural_products/alkaloids/tenellin.yaml",
+        "record_id": "naturalproductmech:mibig-34ab171b17",
+        "inchikey": "YELFBSBOFKWHSL-QDPFKYGGSA-N",
+        "component": "data/causal_graphs/YELFBSBOFKWHSL-QDPFKYGGSA-N/tenellin-arsef-siderophore-gene-effects.yaml",
+        "sha256": "b42bd6dc4594aab4f4fa0fa6625306cd22d84039e54c58b8bc2e455c194295ec"
+      },
+      {
+        "owner": "data/natural_products/amino_acids_and_peptides/bottromycin-a2-2.yaml",
+        "record_id": "naturalproductmech:mibig-d717cc8774",
+        "inchikey": "KSIZLOPUXFSFNR-XZNJZDOZSA-N",
+        "component": "data/causal_graphs/KSIZLOPUXFSFNR-XZNJZDOZSA-N/bottromycin-a2-bmb-follower-binding-assays.yaml",
+        "sha256": "7b86a50f2568b63144d303a9fba45f5c1d2cd63d227f7b1def8ef6b3bc3c5805"
+      },
+      {
+        "owner": "data/natural_products/amino_acids_and_peptides/bottromycin-a2-2.yaml",
+        "record_id": "naturalproductmech:mibig-d717cc8774",
+        "inchikey": "KSIZLOPUXFSFNR-XZNJZDOZSA-N",
+        "component": "data/causal_graphs/KSIZLOPUXFSFNR-XZNJZDOZSA-N/bottromycin-a2-bmb-supplementation-assays.yaml",
+        "sha256": "cb5c34231d66b2b11a632804a985eb053a98eab355dc9181ee7fd04086046b6c"
+      },
+      {
+        "owner": "data/natural_products/amino_acids_and_peptides/fellutamide-b.yaml",
+        "record_id": "naturalproductmech:mibig-a7c02b2a6d",
+        "inchikey": "MFXAGCQVWGPEJH-LRSLUSHPSA-N",
+        "component": "data/causal_graphs/MFXAGCQVWGPEJH-LRSLUSHPSA-N/fellutamide-b-yeast-proteasome-reference-assembly.yaml",
+        "sha256": "2335c5239de518e0176ff7e9517e0aec081a13b3ced06bb61c9b78b68b2f26e5"
+      },
+      {
+        "owner": "data/natural_products/amino_acids_and_peptides/fellutamide-b.yaml",
+        "record_id": "naturalproductmech:mibig-a7c02b2a6d",
+        "inchikey": "MFXAGCQVWGPEJH-LRSLUSHPSA-N",
+        "component": "data/causal_graphs/MFXAGCQVWGPEJH-LRSLUSHPSA-N/fellutamide-b-human-proteasome-beta5.yaml",
+        "sha256": "40d86c407f4b096c2bb420ba990514e75b75b53d1b037050bd1bab65ef1a27d5"
+      },
+      {
+        "owner": "data/natural_products/amino_acids_and_peptides/staphyloferrin-b.yaml",
+        "record_id": "CHEBI:134612",
+        "inchikey": "SIAZVTIHOHTZDD-PWJLMRLQSA-N",
+        "component": "data/causal_graphs/SIAZVTIHOHTZDD-PWJLMRLQSA-N/staphyloferrin-b-newman-sbnab-genetic-evidence.yaml",
+        "sha256": "597461f0bfe935baadb0fdf84d2be170acefbe42e8868217248770388e7e2ba5"
+      },
+      {
+        "owner": "data/natural_products/amino_acids_and_peptides/vancomycin.yaml",
+        "record_id": "CHEBI:28001",
+        "inchikey": "MYPYJXKWCTUITO-LYRMYLQWSA-N",
+        "component": "data/causal_graphs/MYPYJXKWCTUITO-LYRMYLQWSA-N/vancomycin-2014-oxyabc-predicted-cyclization.yaml",
+        "sha256": "14cc674c6a269778beeb657a144b4e1b650a20c5ca46261fe53d5b566094c495"
+      },
+      {
+        "owner": "data/natural_products/carbohydrates/avilamycin-a.yaml",
+        "record_id": "naturalproductmech:mibig-69e644c0de",
+        "inchikey": "XIRGHRXBGGPPKY-RTWAPUGOSA-N",
+        "component": "data/causal_graphs/XIRGHRXBGGPPKY-RTWAPUGOSA-N/avilamycin-a-avig4-database-methylation-unresolved-identity.yaml",
+        "sha256": "a87afdc3cd57c85a6e85aeb0cc919e51794eab6542f1f86e9c4cb3c986d53bb6"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-pf5-2005-phld-phlacb-assays.yaml",
+        "sha256": "0876df460da5ad78995c3a798e2a37853ec9326453d3d140eeb66c2145a2bcef"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-2025-gaca-reporter-genetics.yaml",
+        "sha256": "4db20745ebbdb90ed47db58f35f70184915f6a69ee3f53aa324c949bf71cab6c"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/phlh-2p24-reference-7e1l-apo-assembly.yaml",
+        "sha256": "d28ad70b719dc5bbfde8e2a21db3ed84e09c66ceeb1a9643c95b66c16cdfde62"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-pf5-2025-rsme-alphascreen.yaml",
+        "sha256": "d8edb21669d4cf41f9bb36a3738d59cca4b6dfc3ba620fafe20dabc0fe810fad"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-f113-2004-phle-production-genetics.yaml",
+        "sha256": "097b069304aa3cd31ca2d6e1272e57af67129bfad98d6794907c12fd48c681fb"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-phlabc-5m3k-deposited-assembly.yaml",
+        "sha256": "7f320e3d17377345f8edb70ff3a480cc33880ca2701027c5dbea9065511e2134"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-cha0-2006-phlg-degradation.yaml",
+        "sha256": "b6dec3223e4ceb81b1e3b48236b412a4ce4beba5ddc725171af20edf98e6dfb0"
+      },
+      {
+        "owner": "data/natural_products/polyketides/2-4-diacetylphloroglucinol.yaml",
+        "record_id": "CHEBI:78688",
+        "inchikey": "PIFFQYJYNWXNGE-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/PIFFQYJYNWXNGE-UHFFFAOYSA-N/dapg-cha0-2006-phlf-phlh-reporter-regulation.yaml",
+        "sha256": "07d521f4936ea2688b585b88d6d6ccb001ae81200d785d6f1cdaae31c1e2d7a7"
+      },
+      {
+        "owner": "data/natural_products/polyketides/fumagillin.yaml",
+        "record_id": "CHEBI:48635",
+        "inchikey": "NGGMYCMLYOUNGM-CSDLUJIJSA-N",
+        "component": "data/causal_graphs/NGGMYCMLYOUNGM-CSDLUJIJSA-N/fumagillin-fumr-vea-laea-regulation.yaml",
+        "sha256": "8467a5d47c033afd464967ebadf667d68045982e96c5d1a65acf56f1fc874c34"
+      },
+      {
+        "owner": "data/natural_products/polyketides/fumagillin.yaml",
+        "record_id": "CHEBI:48635",
+        "inchikey": "NGGMYCMLYOUNGM-CSDLUJIJSA-N",
+        "component": "data/causal_graphs/NGGMYCMLYOUNGM-CSDLUJIJSA-N/fumagillin-acea-copper-transcript.yaml",
+        "sha256": "edb6bedc9733da0cc43da090b8c4f8375a300eb2fbef31f0be7c2f4b3846fc23"
+      },
+      {
+        "owner": "data/natural_products/polyketides/fumagillin.yaml",
+        "record_id": "CHEBI:48635",
+        "inchikey": "NGGMYCMLYOUNGM-CSDLUJIJSA-N",
+        "component": "data/causal_graphs/NGGMYCMLYOUNGM-CSDLUJIJSA-N/fumagillin-ppta-loss-rescue.yaml",
+        "sha256": "baeb0d88c7400054278833ad127319c114e38834cc1473d3c033b96a38a06f40"
+      },
+      {
+        "owner": "data/natural_products/polyketides/fumagillin.yaml",
+        "record_id": "CHEBI:48635",
+        "inchikey": "NGGMYCMLYOUNGM-CSDLUJIJSA-N",
+        "component": "data/causal_graphs/NGGMYCMLYOUNGM-CSDLUJIJSA-N/fumagillin-ppza-iron-depletion.yaml",
+        "sha256": "68b395ea1a190cbc5748b7f84e5f59538fa0ac0167f6578e10911e04d78d7ef6"
+      },
+      {
+        "owner": "data/natural_products/polyketides/fumagillin.yaml",
+        "record_id": "CHEBI:48635",
+        "inchikey": "NGGMYCMLYOUNGM-CSDLUJIJSA-N",
+        "component": "data/causal_graphs/NGGMYCMLYOUNGM-CSDLUJIJSA-N/fumagillin-srea-hapx-iron-regulation.yaml",
+        "sha256": "3d356083b4439720facb09e62ca1503e97e3c91bbb60442c4d1febbbf2964290"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-japonicus-qdo-structural-database-bioactivity.yaml",
+        "sha256": "abfb52e9963564ef79fc2a2d178760f97be630cd0605b8078bd53fd6796883ce"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-flavus-kojart-database-biosynthesis-secretion.yaml",
+        "sha256": "2719504e925668d4c4aa8fdbf214b51fee69ed765717c4d560006e76da21944a"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-pir-yhhw-database-inhibition.yaml",
+        "sha256": "06c0a8e521bfc98bb8f0612610bcf9732dae681d77d3b75c710c48c45b00c83f"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-apricot-ppo-database-inhibition.yaml",
+        "sha256": "0f4d5d6f4c7495ee0f7d166eb14604502aeb357ed042c2e0478d5d0d350b40e3"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-tyrp1-deposited-structures.yaml",
+        "sha256": "0fbff11f980aa29cf1abef4e835ef5dfd76819ed396ca98883c269b3422cb051"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-tyrbm-deposited-structures.yaml",
+        "sha256": "075ea6dafcd8759bf4335097d7b860f1bf7e220498bf59b26366a9c804958700"
+      },
+      {
+        "owner": "data/natural_products/polyketides/kojic-acid.yaml",
+        "record_id": "CHEBI:43572",
+        "inchikey": "BEJNERDRQOWKJM-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/BEJNERDRQOWKJM-UHFFFAOYSA-N/kojic-acid-hst4-database-go-regulation.yaml",
+        "sha256": "7c3637d868689fc775acdc5ee9907c61d1c063b2a4200e9c7edeb5efcf0324e4"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-native-genetic-phenotypes.yaml",
+        "sha256": "049b828b8c26b7b2822ae369b47a638e7ca23eca57da3fb1547ac4ff25389c84"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-bounded-nmr-partner-tests.yaml",
+        "sha256": "b0d23616fcb963e4d664698ae50860473380c85484694550a40f66f9505b082f"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-coupled-first-extension.yaml",
+        "sha256": "cf7bc5e64f431c91b25b3bbbf2b543d5b20b9add811f657bcb2ef511cd460ce1"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-mupe-surrogate-reduction.yaml",
+        "sha256": "4726745978a5ff85b0e98e3af0dfc6700aa4848247f207e438a05943969dc0b1"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-coupled-second-extension.yaml",
+        "sha256": "9822f79d7a3cfe70b3d291245f41431eaa404633fa5e90e769db4bf6f301e826"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-mmpb-ks-self-loading.yaml",
+        "sha256": "db2babc84e914961449262e12966ea21a65d361681261ef4e179512db47bf7e3"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-mmpb-ks-third-extension.yaml",
+        "sha256": "f793f3a3926d93d346befa876a6e6b24de02915c6d61dace614b02f99f744ca7"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2022-bounded-dh-domain-tests.yaml",
+        "sha256": "ac3257acd2c911a7bfa6b1524cc6fca977091331767de636c4cadd85bc99e4cd"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2020-priming-coupled-starter-assays.yaml",
+        "sha256": "a08ca66b36fe94563d820f0596d047e785d0b214edf25d617b76073313ba4b9e"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2020-priming-cross-origin-loading.yaml",
+        "sha256": "39a3fc1bee482553283bba934821029a3f966069b20c094068693d36a792a807"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2020-priming-cross-origin-reduction.yaml",
+        "sha256": "91d5318e715714c968f4517b6676a9ced86ff9446a7f0ed91e7e5564f38dfc5c"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2020-priming-a-carrier-substitution-controls.yaml",
+        "sha256": "adbe77cc6efcf12a400d013e81dc9a74ff3be6f3592512b4568930753efb39bc"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2023-mupa-native-deletion-phenotypes.yaml",
+        "sha256": "a1499fdb6a8e76dbbd4f30d259c41c3d27edb9c9f25eb828244a0410db06be62"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2023-mupa-bounded-nmr-partner-tests.yaml",
+        "sha256": "ca359abd6aef9469da6ae79397ccb49017e53cc4f2b3c780b3468f3889e93261"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2023-mupa-carrier-dependent-ms-assays.yaml",
+        "sha256": "50e29ea74e5ab542d853071358532814034321265aba7024bf0c309d97ed6173"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2023-mupa-free-substrate-negative-controls.yaml",
+        "sha256": "da6c565fe73fe46328f48b6fbb5f7ecd7d5622c9a564c3093720a2243d2d874f"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2023-mupa-isotope-nmr-ms-readouts.yaml",
+        "sha256": "7b7be6fcd2fadb44ed5bed5a0ab7bcab9c6c54dbd366e58bd7bf1efcc2d2eb6f"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2023-mupa-bounded-ks-transfer.yaml",
+        "sha256": "f4a3377d25a90d416d043f2a3b7648bd7c3fb491a997bfe79ed31701f13bdb7d"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2017-muppv-native-deletion-metabolites.yaml",
+        "sha256": "43c2dd31aa574fbcaf5473e26946d6bbc413c5e8c6c4f24fc683dc3b9d1c73dd"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2017-muppv-desepoxy-feeding.yaml",
+        "sha256": "d19044e1f2c2d6ff2600d5eb54338cab4720662a68aaeb269ce314368b68876d"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2017-muppv-bounded-functional-proposals.yaml",
+        "sha256": "7b7ee978e4006465525ae1bfcf6c436599955d520b2cb661e8f8ceeb9fed4828"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2007-tailoring-cf-single-mutant-phenotypes.yaml",
+        "sha256": "7600b3f911b11b70160dc40dfe915de0d6b2aa03c05d4ff8cdbde79742015884"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2007-tailoring-ouve-single-mutant-phenotypes.yaml",
+        "sha256": "7e2533331bf1ff59080368eb38bba8b90619523d6aea5b21a0b71e6ec6e2e452"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2007-tailoring-c-double-mutants-and-order.yaml",
+        "sha256": "1c365f925cd9a6ae631bec047efce4e8dfd1b15eb6849b5ad0c651dee1ad63b4"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2007-muphjk-bounded-genetic-proposals.yaml",
+        "sha256": "7574d242f826e69e400adce44a29f1063e1fb8f0c3878b5beb3e2f14b92652a9"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mupirocin.yaml",
+        "record_id": "CHEBI:7025",
+        "inchikey": "MINDHVHHQZYEEK-HBBNESRFSA-N",
+        "component": "data/causal_graphs/MINDHVHHQZYEEK-HBBNESRFSA-N/mupirocin-2001-mupri-regulatory-deletions.yaml",
+        "sha256": "e3205c55c73b50269c7f0d5ec170198be25649f6eff72268b9cff513f9304a9b"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mycophenolic-acid.yaml",
+        "record_id": "CHEBI:168396",
+        "inchikey": "HPNSFSBZBAHARI-RUDMXATFSA-N",
+        "component": "data/causal_graphs/HPNSFSBZBAHARI-RUDMXATFSA-N/mycophenolic-acid-nrrl864-core-biosynthesis-reference.yaml",
+        "sha256": "2ab8f5960aba823b7215fcec7b601f8a4ba799479422454bf136621c54f72cc8"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mycophenolic-acid.yaml",
+        "record_id": "CHEBI:168396",
+        "inchikey": "HPNSFSBZBAHARI-RUDMXATFSA-N",
+        "component": "data/causal_graphs/HPNSFSBZBAHARI-RUDMXATFSA-N/mycophenolic-acid-ibt23078-core-biosynthesis-reference.yaml",
+        "sha256": "8c35c391d79f6907afcdcffa6b61b426d67a2701f08da905ee16629a5984df24"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mycophenolic-acid.yaml",
+        "record_id": "CHEBI:168396",
+        "inchikey": "HPNSFSBZBAHARI-RUDMXATFSA-N",
+        "component": "data/causal_graphs/HPNSFSBZBAHARI-RUDMXATFSA-N/mycophenolic-acid-pb864-sidechain-reconstitution.yaml",
+        "sha256": "eba7c05ac6166c89e9463e78884b79aaca4e17fe3c0d94632a36a5e55fcfd560"
+      },
+      {
+        "owner": "data/natural_products/polyketides/mycophenolic-acid.yaml",
+        "record_id": "CHEBI:168396",
+        "inchikey": "HPNSFSBZBAHARI-RUDMXATFSA-N",
+        "component": "data/causal_graphs/HPNSFSBZBAHARI-RUDMXATFSA-N/mycophenolic-acid-mpah-prime-structural-reference.yaml",
+        "sha256": "dff15ee2092c86713a14e3df95c10e207da81d59684bdcdca56e9ed97e297df5"
+      },
+      {
+        "owner": "data/natural_products/polyketides/polyketomycin.yaml",
+        "record_id": "naturalproductmech:mibig-96ff336a6a",
+        "inchikey": "OWRCRVABZYJUES-AWECJWJISA-N",
+        "component": "data/causal_graphs/OWRCRVABZYJUES-AWECJWJISA-N/polyketomycin-poko4-bounded-genetics-and-rescue-cocarriage.yaml",
+        "sha256": "1ac672a710bd3309f5043fd8153877e9b498a47b68d9377ab04b021e45484bb6"
+      },
+      {
+        "owner": "data/natural_products/polyketides/polyketomycin.yaml",
+        "record_id": "naturalproductmech:mibig-96ff336a6a",
+        "inchikey": "OWRCRVABZYJUES-AWECJWJISA-N",
+        "component": "data/causal_graphs/OWRCRVABZYJUES-AWECJWJISA-N/polyketomycin-poko1-poko2-genetics-and-functional-compensation.yaml",
+        "sha256": "92e637f93d90e736908a8fa59861d16d146d7fcd22fa16cd490a90d990a83adb"
+      },
+      {
+        "owner": "data/natural_products/polyketides/polyketomycin.yaml",
+        "record_id": "naturalproductmech:mibig-96ff336a6a",
+        "inchikey": "OWRCRVABZYJUES-AWECJWJISA-N",
+        "component": "data/causal_graphs/OWRCRVABZYJUES-AWECJWJISA-N/polyketomycin-poko3-sequence-based-quinone-hypothesis.yaml",
+        "sha256": "820457b4dfb12359d7a1b51e00d59dbf7a13e55f6a03adf46d16bbe0ef7d5cac"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simr-binding-and-footprints.yaml",
+        "sha256": "91b5d28eba158c9d1b7973df59ec4f05523d2e735dd168e5e231c5d31cc52f52"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simr-dna-length-and-proteolysis.yaml",
+        "sha256": "0dc14d12183b3b2f3ecd0fb3595a7b94e37fc79cfb5d6f7b2ba1d9417888b98d"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simr-structural-contacts-and-states.yaml",
+        "sha256": "f96645f80e20dae784a643a4bc549eb6c75a919274707068d1b985c1d593ae0b"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simx-simex2-resistance-and-export.yaml",
+        "sha256": "785acd5b86d6dce6ff5a0b0b4b044199eb2ed537ed86316376c7f364f3776d0a"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simc7-heterologous-genetics.yaml",
+        "sha256": "ded2130a4e5803b2c3aaab87bcf344008910be5fca7eba63bb6b11c7edc778d4"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simc7-ketoreduction-and-assay-limits.yaml",
+        "sha256": "0fb3dc223a666f17cc33882a7464743f175a163dcf0130005defbaea37872052"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simc7-mutant-activities-and-cd-controls.yaml",
+        "sha256": "11e2cadbc3530f68e3c09a9a6d07be63ac1b64ee66db0c40a43b3c7adea4f5ac"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-siml-amide-ligation-and-substrate-scope.yaml",
+        "sha256": "c828ca233cb0ba04d3e42b039b98f8ef20b8749ff63d8da81bdc43d76bf73147"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-siml-recombinant-scar-and-surrogate-activity.yaml",
+        "sha256": "6d682ea42363f9cd9662fc88e19d068b0f93b6e0c6ef7f47662c981079ada2bf"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simb3-insertion-genetics-and-sequence-limits.yaml",
+        "sha256": "2c46eb5de9540fa3547f96fbeb39df27641142d630d6f9201d180295900fb2d9"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simc1b-ks-replacement-and-retained-production.yaml",
+        "sha256": "f6a10ff45643f6b54ce025c26d81028d896292ed1bfc99a5ca959345a580224c"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simh-simy-identities-and-adenylation.yaml",
+        "sha256": "42b832a2cf082914896189ef5fe998c6804e413c73c0317133e19a47f72e5a39"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simh-simy-association-and-stoichiometry-limits.yaml",
+        "sha256": "b9a47a20cb7d3d59c6fd7f6b8c9c6f90ca89ba83ea9841f528e63dccb9b80d6b"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simj1-crossover-genetics-and-feeding-limits.yaml",
+        "sha256": "ef7fa94743c13e5b915f914525b95338385c168062b5597c0b8882a478c61d50"
+      },
+      {
+        "owner": "data/natural_products/polyketides/simocyclinone-d8.yaml",
+        "record_id": "naturalproductmech:mibig-e03313fa44",
+        "inchikey": "PLEGMCYXNQPJNV-TYXWGSLYSA-N",
+        "component": "data/causal_graphs/PLEGMCYXNQPJNV-TYXWGSLYSA-N/simocyclinone-d8-simj2-constructs-and-unexamined-production.yaml",
+        "sha256": "38f190b7052990c2d1d3409e620e3cfa29b4d43be7a756b7f3cd8339fd950231"
+      },
+      {
+        "owner": "data/natural_products/polyketides/thiomarinol.yaml",
+        "record_id": "naturalproductmech:mibig-6fc5164982",
+        "inchikey": "JIEMCPGFAXNCQW-BFHPBESDSA-N",
+        "component": "data/causal_graphs/JIEMCPGFAXNCQW-BFHPBESDSA-N/thiomarinol-tmub-native-i109n-genetics.yaml",
+        "sha256": "75196dd39d3f61c1ff12396958ac33606c41e55b338cbea8ba8cbbbed6f517cf"
+      },
+      {
+        "owner": "data/natural_products/polyketides/thiomarinol.yaml",
+        "record_id": "naturalproductmech:mibig-6fc5164982",
+        "inchikey": "JIEMCPGFAXNCQW-BFHPBESDSA-N",
+        "component": "data/causal_graphs/JIEMCPGFAXNCQW-BFHPBESDSA-N/thiomarinol-tmub-bounded-purified-preparation-biochemistry.yaml",
+        "sha256": "6b00dfb40c2bf4ce7a0a2f8f318ebb6a5aeb6a4fd76e2d3e9cf3bd8e56132936"
+      },
+      {
+        "owner": "data/natural_products/polyketides/thiomarinol.yaml",
+        "record_id": "naturalproductmech:mibig-6fc5164982",
+        "inchikey": "JIEMCPGFAXNCQW-BFHPBESDSA-N",
+        "component": "data/causal_graphs/JIEMCPGFAXNCQW-BFHPBESDSA-N/thiomarinol-tmlwz-tmlw-resting-cell-assay.yaml",
+        "sha256": "ccd642c7b3d7daa5f70298aef76714b9eb2dd7197fc420d74d14869e4cefbcd6"
+      },
+      {
+        "owner": "data/natural_products/polyketides/thiomarinol.yaml",
+        "record_id": "naturalproductmech:mibig-6fc5164982",
+        "inchikey": "JIEMCPGFAXNCQW-BFHPBESDSA-N",
+        "component": "data/causal_graphs/JIEMCPGFAXNCQW-BFHPBESDSA-N/thiomarinol-tmlwz-mixed-mupw-tmlz-cell-assay.yaml",
+        "sha256": "435058172853b8f911a4bc615d6e2d6abc10ea3bb90b2943c365d709419d097e"
+      },
+      {
+        "owner": "data/natural_products/polyketides/thiomarinol.yaml",
+        "record_id": "naturalproductmech:mibig-6fc5164982",
+        "inchikey": "JIEMCPGFAXNCQW-BFHPBESDSA-N",
+        "component": "data/causal_graphs/JIEMCPGFAXNCQW-BFHPBESDSA-N/thiomarinol-tmlwz-tmlw-heterologous-genetic-rescue.yaml",
+        "sha256": "971248ac1ec3d40b972411ec938e3c296a1f7691f20712497c1f32af6f2e9e91"
+      },
+      {
+        "owner": "data/natural_products/polyketides/trypacidin.yaml",
+        "record_id": "naturalproductmech:mibig-cfc470b905",
+        "inchikey": "KMZYINVXZDQCKC-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/KMZYINVXZDQCKC-UHFFFAOYSA-N/trypacidin-native-catalytic-references.yaml",
+        "sha256": "c08e5cf7e2db0fb6078baba478f89d75ab8e8652eef64f81098eb1ae90b324a5"
+      },
+      {
+        "owner": "data/natural_products/polyketides/trypacidin.yaml",
+        "record_id": "naturalproductmech:mibig-cfc470b905",
+        "inchikey": "KMZYINVXZDQCKC-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/KMZYINVXZDQCKC-UHFFFAOYSA-N/trypacidin-native-genetic-regulatory-references.yaml",
+        "sha256": "1429719a85124a79d309b6c560b680583c3bf323dbf234e087e2d44adf896321"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novl-coul-chimera-constructs-and-preparations.yaml",
+        "sha256": "eec0fc5fcd730598943e9a5a1324badcdc85eb383d6f1c00066887bac28c2a22"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novl-coul-chimera-substrate-panel-and-limits.yaml",
+        "sha256": "36e54104187f34e6756d15facacacaf522b82b43085df998c20401c38dca51a8"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novq-native-identity-and-precursor-evidence.yaml",
+        "sha256": "2791bb69f5b4b38d1010ad963532c36257b858da3283c39f5604a3be96bdde46"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novq-fusion-expression-and-processing-limits.yaml",
+        "sha256": "ffcabdb8339a1f6816774168762b8811e3e734537e4c466ebad45bce0c72ee1a"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novq-e281-variants-and-surrogate-assay-limits.yaml",
+        "sha256": "1774a3c991b1ae948774ee3be5f7fba37f4b8b9cf4de8d4c3ce58dc125196007"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novo-native-identity-and-engineered-preparations.yaml",
+        "sha256": "9260e12cb69a0b3b59abe10676ebcaa9b5dc6837bf614ba03fb5a6c29a2384ec"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novo-mutant-endpoints-and-loading-conflict.yaml",
+        "sha256": "50116fdca18238a788bcb99ffabd494555d723e136464279608a3ce3fa4177b6"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novo-sah-structure-and-mechanistic-model-limits.yaml",
+        "sha256": "a3ecb3a099d29d03a9eb12dc90c502b4c90564f25e1fa4739ee458c03dd2487f"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novo-ph-isotope-assays-and-kinetic-conflicts.yaml",
+        "sha256": "a6a177cf63af9ce880184150f13c90f936cb5f778c8886235bd906c44894f614"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novp-native-identity-and-tagged-preparation.yaml",
+        "sha256": "01e86442bbdb5af07368ef5c1752daa8dff6c0f480b1f0ed8ff7b4f0c67479eb"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novp-assembly-evidence-and-solution-size-disagreement.yaml",
+        "sha256": "e08b4d17262116618c8e41d9b17dfea224f37e6435009b5f185061874b6a4779"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novp-sah-structure-contacts-and-residue-label-conflict.yaml",
+        "sha256": "eee1b78d354a8abfd03c67d1058ad617172de06946504414b9b843c7415aebf1"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novp-docking-and-untested-mechanistic-proposals.yaml",
+        "sha256": "19e05fcf30a6052894cf1f48396d11e7a5a411bf4927bd076c5de3d07b4d9a86"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novn-native-identity-and-his6-preparation.yaml",
+        "sha256": "2a6e77d25b64e61767c71541b603c141ca72f94272967a1acede57388eb94fab"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novn-carbamoylation-cofactors-and-kinetic-limits.yaml",
+        "sha256": "2f0e0cd42ff6fdef35b977371ef5a438cead0986af936a76d74aa2fdf657c563"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novn-analogue-products-and-substrate-conditioned-kinetics.yaml",
+        "sha256": "a4591dcbbab371b7cee49cf16afafdf140783ee2126369ecdb3e6bf665c30718"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novn-heterologous-production-and-cloning-conflict.yaml",
+        "sha256": "4c6b266d5826820476c272f82afdc15201406167bb0536d3597da4a517b48591"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novn-assembly-disagreement-and-unsolved-crystal-forms.yaml",
+        "sha256": "e4949f007115b1dcbbe7c8f7743fe3506b09dfd32aa6ce30f2e661c1d2760c8e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novn-9s2t-structure-and-partial-metal-limits.yaml",
+        "sha256": "c640f0b03a193cda50e3bf77f928659acea31b37d5a296179e8eaed363393096"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novhi-native-identities-and-early-precursor-reactions.yaml",
+        "sha256": "080bb4c91ee428ac7e3034175c73de3d4e2500e80c9e5e1180196c7dd7878fc8"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novhi-2011-novh-construct-and-host-preparations.yaml",
+        "sha256": "a83d669d819a85c6d92d8144399c1738aac199a65ea848fc4bd70273b3cf15a6"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novhi-novh-kinetics-and-model-limits.yaml",
+        "sha256": "b4235f2d8dbc2ec9f5d089c7c4b3d351a96ec4faf7894364d1bc25943c15619e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novhi-mbth-partner-identities-and-cross-activation.yaml",
+        "sha256": "21b704ec33e96d26341fb6f1f939aaf0ccb12e455496fd64ae488dfe70a0e27f"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novjk-native-identities-and-tethered-precursor-oxidation.yaml",
+        "sha256": "8d510c43ed79300ca631e8d86ece1037d314dd77a1e5025dc1fa2bc2789fae48"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novjk-individual-constructs-and-primer-conflicts.yaml",
+        "sha256": "9e8a1773d482c796b2c77c6727f1930e11229cc2a3f5125aeea70a972cca1702"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novjk-reported-assembly-and-sec-interpretation-limits.yaml",
+        "sha256": "456a6b3c0ecaa143d25a7282f55061363ea3b4d64aa593e0e671df3e4882ea87"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novjk-database-mutants-and-residue-evidence-limits.yaml",
+        "sha256": "9e3122dc03716bff3b86f84212ff035a315f44f0786bfaa522960af667850fe6"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novm-native-identity-and-precursor-glycosylation.yaml",
+        "sha256": "84e3f667a9acfbc41cb81b3becd8ced9d6d66aa26eed7834acbfff56f3410acd"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novm-substrate-scope-and-tandem-assay-boundaries.yaml",
+        "sha256": "57c3304d9558743761ed6d11cd7c0d1aa297a9e95955211d54833393209b5cca"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novm-redox-reagents-and-early-methylation-tests.yaml",
+        "sha256": "51799e8102fb702cbf6fbf4055fc24b1e784e9106f9eeb41e7e3c3357bc4b8be"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novm-staged-tailoring-and-product-mass-conflict.yaml",
+        "sha256": "415eb291c42a84beda2e423168719484a36ce30f13083c312a04ce681860f5c2"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novwus-native-identities-and-sequence-boundaries.yaml",
+        "sha256": "7fe622505de001eae9db38ddbeacaee8616f81f8bf1347bb190a50223aac1e22"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novwus-joint-reactions-and-product-annotation-conflict.yaml",
+        "sha256": "53059b9b9abbe5a3491b88e1e525fda101a0c1c9a897ecd03424d5006e6586aa"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novwus-novw-preparation-support-proteins-and-functional-revision.yaml",
+        "sha256": "e796e41eacea08945b3682c84ae6f87f28e8f98c2d4eaba38f946354f6f0db8e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novwus-novw-structure-assembly-and-missing-atom-limits.yaml",
+        "sha256": "a8ef5831d71776ef5a7ef2c07d67d2ed124c3a623e83deec2ce4d5f53f298732"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-nove-native-cassette-phenotype.yaml",
+        "sha256": "5bb3953daa1177d84fb5c78e4732ebc0d0f8d94fe6cb8f1abdf708d532e7d084"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novg-heterologous-deletion-and-rescue.yaml",
+        "sha256": "15ba247ac403d1519a73314e9f049c2e2b7a814358c14e51fdc8376cd50d1a2d"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-novg-preparation-and-fragment-binding.yaml",
+        "sha256": "db95da1a6edbd03e7ab53c7b5a304d4e0aeaaa6146dfda042fb4e04a410ff9b1"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-nove-heterologous-deletion-and-regulator-rescue.yaml",
+        "sha256": "382569a1342a5eae42954c736cc6a1ec2d60f991f24f1b0fd8479e9ae0b0116f"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-nove-binding-limits-and-basal-transcription.yaml",
+        "sha256": "caf7992ff4bd80316364406055e2842f0768c3d596b803aed5bb593860ffb6fa"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/cathomycin.yaml",
+        "record_id": "naturalproductmech:mibig-d4379ab45b",
+        "inchikey": "YJQPYGGHQPGBLI-HHJGLNSVSA-N",
+        "component": "data/causal_graphs/YJQPYGGHQPGBLI-HHJGLNSVSA-N/cathomycin-nove-novg-transcriptional-cascade-bounds.yaml",
+        "sha256": "1412b16027f62f0ec293ed9c14f922a7fbcdfe54b6dfc1c3623a08ecc8a2083a"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloq-variant-constructs-and-preparations.yaml",
+        "sha256": "aff3abe35767b6a08f1100c8cea68406e77df5b8319bced3b88c7a88469eb91c"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloq-mutant-activities-and-substrate-kinetics.yaml",
+        "sha256": "f07301787fa7a4ce90befb2773e866d2a20f178473a8778a7590c50615f27424"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloq-structures-and-mechanistic-limits.yaml",
+        "sha256": "9b6328de4a0e9452953beb81bd146b041e12d64cb3d20e9b9e9e6957e471565e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clou-native-identities-and-literal-construct-boundaries.yaml",
+        "sha256": "b1bd9871494f858e7a60d5845ef3bd32243d1ac0b15693c2c0ff16b5451a2f3d"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clou-heterologous-production-and-rescue-limits.yaml",
+        "sha256": "9e356a48f1985d5c754ca0e8f90ae28d2a9bb13e7ae444c4efd2e8a52d9ba207"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clou-product-structures-and-inferred-enzyme-roles.yaml",
+        "sha256": "3b9997013cc43cc4b3eef4fc29c74e784afb52497a6d0d785bef08d9cf3e2028"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-sugar-native-references-and-construct-boundaries.yaml",
+        "sha256": "abe47cec0971337fd506b26e04e46df8d239a01540d94ffe94b6f6abaca71abd"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-sugar-prham-pmpu-production-and-inferred-roles.yaml",
+        "sha256": "72322b1f63fbf53d8a7c3bbfc2b0f462c3d9d3a0d29acbf714a0bee142d0333c"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-sugar-elmgt-reporter-and-sugar-supply-limits.yaml",
+        "sha256": "d029c8001ba1ff3fb40550a34d2c36562abd89feb2a7ede37f7536ab7decd3c8"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clop-native-identity-and-bounded-deletion-evidence.yaml",
+        "sha256": "121fecb196ae8eefb4b42261b45ba38ddc69f67966f924ba22f5281995be374a"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clop-natural-producer-observations-and-unproven-order.yaml",
+        "sha256": "1fa91e6c0802403aaea41ed16e6acabd8f92ab1ae94c25cb77d345fd3ea07e84"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon-native-identities-and-deletion-constructs.yaml",
+        "sha256": "55518932b7e0e1d9c13a89ee0cee60db92bd0cdd91c250ff528cffa1e7764dfb"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon-heterologous-genetics-products-and-partial-rescue.yaml",
+        "sha256": "52f1c8b4f9c1e248bedb4937dcc1a4cf304764638903c43f17ebd0fbe0145076"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon-recombinant-constructs-and-expression-limits.yaml",
+        "sha256": "301c0a4af3293522eb91d2fca213e6d8b5de6ddc88dfeea344fdb5d46ce7d8b7"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon-native-clon2-genetics-and-bounded-feeding-evidence.yaml",
+        "sha256": "5768c17f7a255c3bf21db5aa6e9e3e727600f85d09715bc6c742fe0eee6aa156"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon3456-native-identities-and-motif-limits.yaml",
+        "sha256": "f8367133c3baf769a8bf8b83154ca867873ef021c0a6942b7e512a267fd9d18f"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon3456-bounded-pyrrole-precursor-reactions.yaml",
+        "sha256": "33b5ae2ac3797b3536833f50b5813d7a56bf5500d1f24edc702c62a4ada364dd"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon3456-constructs-and-literal-primer-conflicts.yaml",
+        "sha256": "5175612473977cad47ca3e96b41a5f582aafd9475574101f8dd38a86fcb41a94"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon3456-expression-attempts-and-host-limits.yaml",
+        "sha256": "4a15f0127ac094c8a0b4139104a38852af4774eb58ce19bbb2a0461075f737d9"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon3456-peptide-identification-and-purification-limits.yaml",
+        "sha256": "af91f18f973c2bf3d7266a0b5d7c666b29a6938b67e61a1f157b96785a3e436d"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-clon3456-genetics-titers-and-cassette-limits.yaml",
+        "sha256": "03803caf1c6997e5a3d42321b512e7b6903ec7b3e9928cb4ad146e2ed265218e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloy-mbth-native-references-and-genetic-compensation.yaml",
+        "sha256": "d5fb436c95fbce2462e562e2ee350a662e920f8e65bbb9e2588e123ff1ccc879"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloy-mbth-congener-feeding-and-mechanism-limits.yaml",
+        "sha256": "3a7d83ee10aa30e25768494d7e8904068014f90a03fa220534fd4ebc11a1e2de"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloh-native-preparations-and-adenylation.yaml",
+        "sha256": "974cb88159f4aa48ce096b766f41b51d715e4f514d64f59575ac64374b0461f8"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloh-cloy-association-and-l383m-limits.yaml",
+        "sha256": "40b15e5da75b1ad19d9c9614a2d0cc80267cd2b55170434d5b28c2961beac586"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/clorobiocin.yaml",
+        "record_id": "naturalproductmech:mibig-619480541f",
+        "inchikey": "FJAQNRBDVKIIKK-LFLQOBSNSA-N",
+        "component": "data/causal_graphs/FJAQNRBDVKIIKK-LFLQOBSNSA-N/clorobiocin-cloh-mbth-cross-activation-and-partner-boundaries.yaml",
+        "sha256": "485d2863824a00bfac5bb9f8b020fbae62f0374b4b34209141fc5e880722b23a"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-couo-native-identity-and-precursor-evidence.yaml",
+        "sha256": "f13039b270d6fc042ac03927b5055da74d7dc29fe8e2357a27cef0f3f8227f7c"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-couo-constructs-and-soluble-protein-preparations.yaml",
+        "sha256": "c0e04abf16d7ab6e64b1ce07e13a9497413502093d90576ade44a31f318a189e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-couo-lysate-normalization-and-mutant-endpoint-limits.yaml",
+        "sha256": "1b3e54226e40adb0e88b7649b1f5d024a1f32434baeb436ce5a3a2ca9680b3fe"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-couo-sah-structure-dimer-and-model-limits.yaml",
+        "sha256": "c73eb5e39d86145b997a2da9d27dda6711db749981d81c2bdc80d30159ec2308"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun17-native-identities-and-annotation-limits.yaml",
+        "sha256": "f9a7461ea3af618f627311d2d6b663162fb41a690301be3e7c15cb5d19dd6111"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun17-carrier-loading-and-terminal-transfer.yaml",
+        "sha256": "300b8f85cf756435114a90f5358937e4cac0ffdeb4ea230436cabc39d61a5a18"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun17-reversible-shuttling-and-covalent-intermediate.yaml",
+        "sha256": "50e4f0be584a3c74664fe468cf6b0a252af60dffec6871e52f1d53fb4a81f035"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun17-engineered-substrate-panel-and-supporting-material-limits.yaml",
+        "sha256": "845b497d571bccdb1d1305434c9c165f649091af14802692ea9d647de63fe3c0"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-native-identities-and-sequence-revisions.yaml",
+        "sha256": "85ad3fce986966bcdf8522e75815e2a9e2cfeb39bf5e666cc0de71ba90e86c47"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-individual-deletion-constructs-and-pcr-limits.yaml",
+        "sha256": "d75abb21881f1f5907b3969443a7b432f25831b11f894689b67942dd5b904ccb"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-genetic-titers-cpm-feeding-and-partial-rescue.yaml",
+        "sha256": "5492b6b7b32c41acec058a6de22da326625fb4e6286c0a379cb9882d8cc5ae2c"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-phosphothreonine-feeding-and-strain-label-conflict.yaml",
+        "sha256": "02d9625f953fa9fe9b2d7dd43f648946fb9c59a0712a32f9fb543062996ff0fc"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-isotope-precursor-evidence-and-historical-pathway-model.yaml",
+        "sha256": "97cb886fbfb5a5c5f03bfdff643b33c9fa3048e874992ca59aa5b51e154ff292"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-minimal-expression-constructs-and-coordinate-limits.yaml",
+        "sha256": "3b0477348a58babe5ea904b31c96c94ed91aaa261c70c6ca1b6ab8b8f9df1d3e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-heterologous-cpm-production-and-unit-limits.yaml",
+        "sha256": "ff89076526e22bcd73e47f38f077c3762c667fa423116c60f724027656b7562e"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-cour-cour3-preparation-atpase-and-unconfirmed-kinase.yaml",
+        "sha256": "76bd74ba4b3a42390cd419c137b9cf7aef8d1ef352f0cae7913657c2c22146b7"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun23456-native-identities-and-version-conflicts.yaml",
+        "sha256": "fdbef28a3f445efa3b3555c0d25d3e83420af65ff2ff21e5aa19cc2b46203129"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun23456-coun3-deletion-and-historical-allele-limits.yaml",
+        "sha256": "74f7ccce61cf77409be077d68b23526707dc3552ebeb71e28f2d7276bcadcada"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun23456-coun4-insertion-and-source-conflicts.yaml",
+        "sha256": "53a911bcec5316c802c019d51c619e80367dacf30a92af9396608a20d8004957"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun23456-native-genetic-phenotypes-and-product-boundaries.yaml",
+        "sha256": "a80e4f86bf97d1282bee63ef3c9865075a05ba395b6420a6b6d5a3e9c5e0e151"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coun23456-proline-loading-and-oxidation-assay-boundaries.yaml",
+        "sha256": "1d0ab86d450ed025fc32e9f45e39dbc2710283ca6228d61b41146347948fc9e9"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coump-native-references-and-bounded-tandem-reactions.yaml",
+        "sha256": "c4794c900fa7f9f618d8d55107b882a9c03e96aff010f3167fd3900606c544cc"
+      },
+      {
+        "owner": "data/natural_products/shikimates_and_phenylpropanoids/coumermycin-a1.yaml",
+        "record_id": "CHEBI:3907",
+        "inchikey": "WTIJXIZOODAMJT-DHFGXMAYSA-N",
+        "component": "data/causal_graphs/WTIJXIZOODAMJT-DHFGXMAYSA-N/coumermycin-a1-coump-coup-deletion-and-demethyl-product-boundaries.yaml",
+        "sha256": "3393544c720602178971fbca625864d0c000b59c4b6fe81e0643ed8d4028bb57"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-sgr-native-proposed-roles.yaml",
+        "sha256": "75c62611be5b682bf101f620f60892c5139c90531d99755e9c2842f1c380161f"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-sace-native-proposed-roles.yaml",
+        "sha256": "249606f748b9d865568f3fc41dba1c070f2a841c7b4280cadc3250a7d741ec2e"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-ambo-native-proposed-roles.yaml",
+        "sha256": "7fa37d0f7fef97e85e54e473c6fa13a98ce51159317d19fef8acfc303dd6daaf"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-three-canonical-references-coupled-assays.yaml",
+        "sha256": "443100638fd2663edbfc1b0e2488dcd3f4c11a814e467964294b9bc22673ed4d"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-sco7701-database-role.yaml",
+        "sha256": "abdebe433161973866bfc91814a4324787d30d2b7d113860652eaa06ad81757a"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-13189-similarity-proposed-role.yaml",
+        "sha256": "667de1ca8109db09a0495c27fbb73aaa4a2cef4cfa3cea6d17767374f590cc0a"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/2-methylisoborneol.yaml",
+        "record_id": "naturalproductmech:mibig-0eb8c93c6f",
+        "inchikey": "LFYXNXGVLGKVCJ-UHFFFAOYSA-N",
+        "component": "data/causal_graphs/LFYXNXGVLGKVCJ-UHFFFAOYSA-N/mib-lasali-deposited-database-roles.yaml",
+        "sha256": "f6002623f7f625b91e5cac02c47ae65f653dcc064db6ec9cce61b11b17974c81"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crty-p21687-database.yaml",
+        "sha256": "64002ef516369041ae2764f1c96c98c3f4ebd022f335d6675bde57b23e6795dc"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crty-b0r753-database.yaml",
+        "sha256": "615bb6c3512f7dffe785b0a9c8f9e80fcebf30e634a90b78ddadc4c581a62688"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crty-p54974-database.yaml",
+        "sha256": "c0745339d48118896b77f374a816c8e4e97dc670080e976c6b0b0796e767414b"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crty-q9hne5-database.yaml",
+        "sha256": "7a0384ad85857b5e345ffe88183e376fb32f9256e14f45d2357df9d0bd401e64"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crty-q01331-database.yaml",
+        "sha256": "06370fcf87af901e6a1f85c584859f63673bed69d80475a2a55fe8d8e5ec2198"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-carra-q9p854-database.yaml",
+        "sha256": "eae69ff7e5c64818424dcec51a2001a666d7fa7f5c1baeddafb6cc6fcd7bcf05"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crtl-q55276-database.yaml",
+        "sha256": "022c21431a398482ecaf35861172a9998c10396a945d8817cfa865ca757b3cc8"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-carrp-q9uuq6-database.yaml",
+        "sha256": "75533933e242a0c38555e9aa8d173da6697bb1ea8a5f17c68cd0c49c9e2ab76e"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-carra-q67gh9-database.yaml",
+        "sha256": "5429ce66fa5bf4aef17ea556f513e4bb9502efd0b5b15123eba4d2b40181761c"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-crtyb-q7z859-database.yaml",
+        "sha256": "fb7c80d8e3212f0cf612dd75361de15c485af7cc2daf5ec942222e503539abc2"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-al2-p37295-database.yaml",
+        "sha256": "4db8cf99c750cc0c309c50cff2801ce498471b93398e60e061cf95e5e8608261"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-lcy1-q43415-database.yaml",
+        "sha256": "6eb3819060d2951ae161c416f8055d1d1268dbd26fe1699f39b01e8fc6836c0e"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-umag06287-q4p0s6-similarity.yaml",
+        "sha256": "3a2dad03069ae2e71f8833a9aebb47cc6b234bc2e1b7222d5914d0d2ed0864c5"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-sr13176-e6zz11-similarity.yaml",
+        "sha256": "e2d3dc74f5b718e298610b5d708083863fefd68406c2715e9999b23dad9e14b7"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-pa1-15240-b2atb0-similarity.yaml",
+        "sha256": "e9577342bb98203d5556f4335c810109ca9b919792bb8b3621b40d74ef149311"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-ptrg07366-b2waq3-similarity.yaml",
+        "sha256": "5859056bf038b156453e48fcdd9fc8b9331edbe9b8aff483b2032293dce1074c"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-ao090020000159-q2u4x9-similarity.yaml",
+        "sha256": "2bb7bedadf793c9fd3a761d0b37be528a1249af18e22c141ae4c86aa59d89fdd"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-lemap1140901-e4zub5-similarity.yaml",
+        "sha256": "d0d6fd8e2c6c446a36bdfd591b4d21a7bcade3209668e6a3a17c1abd3bc295c6"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-trv03236-d4d802-similarity.yaml",
+        "sha256": "346b38ed7909d703b40b964e00b4956d7733ee084f5db39b79b79d844ff2c354"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-smac01277-d1z4k7-similarity.yaml",
+        "sha256": "be4c61c60b5dbab4ba2ef8a348d48960c5af51dd3c7ac52f8de4816acc5524a4"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-glrg02475-e3q717-similarity.yaml",
+        "sha256": "7ab6054433ca4a5048197dae9135bc04596ea629fd226ca2e66c774e8b98714d"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-mgyg02096-e4upp6-similarity.yaml",
+        "sha256": "2440e82864481a59ba8b655c6e082206880d122cf3ac8d44a60ee98baf49e4b0"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-snog00339-q0v6m5-similarity.yaml",
+        "sha256": "50d4ede038558463772fbcd1dbbdfbbbc3756162a73a976315f6a6ae1a9b786f"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-an07g00800-a2qm49-similarity.yaml",
+        "sha256": "a58285201642dde76189824e7dbf51b26ad330a1487c153636809f79d566e95b"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-lcyb-q38933-db.yaml",
+        "sha256": "48d9974e55e434c7cda76aca545d8a2f792092544002c43231cc037246e79182"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-lcyb-q40424-db.yaml",
+        "sha256": "5901e21fc1633b856f18b3ac882d856820f66d4538dfe8b0b0dd2131a1ea5b38"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-lcyb-q43503-db.yaml",
+        "sha256": "88dcd48075b09d2f6ee39ce775dbfef07e31ce0329625c222b1a1f589ed9ca8f"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-lcyb-d9il23-db.yaml",
+        "sha256": "3c57de277bbc311ac4d6b1d63644e970a34e860f467d62c803fee17efaf977df"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-lcyb-q43578-db.yaml",
+        "sha256": "8152b3a22e93f8615c9480e1ff80b86b5011228790517a4378f8855230475b66"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-dclcyb1-complementation.yaml",
+        "sha256": "824daeba5cb196fd54eef4a7140d3f6900c862a4ccb0c62e6c66ee4464b862e0"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/carotene.yaml",
+        "record_id": "CHEBI:17579",
+        "inchikey": "OENHQHLEOONYIE-JLTXGRSLSA-N",
+        "component": "data/causal_graphs/OENHQHLEOONYIE-JLTXGRSLSA-N/beta-carotene-dclcyb2-krd-complementation.yaml",
+        "sha256": "a62d01b630d824b4f7d6fe150f11c1b42e16a6447018c4aa757b05db73d1b608"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/pentalenolactone.yaml",
+        "record_id": "CHEBI:70816",
+        "inchikey": "NUPNVWUYFVEAIT-UJJBCWTCSA-N",
+        "component": "data/causal_graphs/NUPNVWUYFVEAIT-UJJBCWTCSA-N/pentalenolactone-pnti-engineered-redox-support.yaml",
+        "sha256": "fddd43d8b07d24d865f77c284786483cf66bb3049ec6d821da6e73b152a8687c"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-crtz-p21688-database.yaml",
+        "sha256": "08c0da6319181a439a7719ef37cc27ed57fb5f7d6b213fcc1da18872aef024e6"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-crtz-p54973-database.yaml",
+        "sha256": "934712d378d724b111f762d46e5fac357cc7e014109d4f820c3523cb5c183215"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-crtz-q44262-database.yaml",
+        "sha256": "dc1b1986607a147fe6d6a62c220277481e3b1e67372e6af9ac6bdedcd13d7570"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-ca1-o49815-database.yaml",
+        "sha256": "a3a28b0203ad5f131a962dbb9ae1342e23312c9fdcb5626e43fbe90b205cc696"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-crtz-q9spk6-database.yaml",
+        "sha256": "805d85af28864c4c556d3ac17ae70d10a7cc660bf21c82f8ec88b4754225d353"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-bch1-q9szz8-database.yaml",
+        "sha256": "3abdc8e671923a69ed76ff763358076065de241f360206220a15bc8a54896789"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-bch2-q9ltg0-database.yaml",
+        "sha256": "329da5159d992dbdf98d17fc7d147d3bc3e1263dd474cdf21149232b986e56c3"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-bhy-b3sgl0-database.yaml",
+        "sha256": "d43ced08d5c409c11065f24694c34717abc0923f0a53881093da2b31be39a4d4"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-hyb-c3veq1-database.yaml",
+        "sha256": "862fdea664f62191149c197f193f0e7ece5b7db228821f74ab3c4104b0b6e5ff"
+      },
+      {
+        "owner": "data/natural_products/terpenoids/zeaxanthin.yaml",
+        "record_id": "CHEBI:27547",
+        "inchikey": "JKQXZKUSFCKOGQ-QAYBQHTQSA-N",
+        "component": "data/causal_graphs/JKQXZKUSFCKOGQ-QAYBQHTQSA-N/zeaxanthin-ca2-o49814-database.yaml",
+        "sha256": "f78825acddc4eca451e4ef2d7820a1ab166f97240fde3848e292e1a8159e1f6a"
+      },
+      {
+        "owner": "data/natural_products/unclassified/epothilone-b.yaml",
+        "record_id": "CHEBI:31550",
+        "inchikey": "QXRSDHAAWVKZLJ-PVYNADRNSA-N",
+        "component": "data/causal_graphs/QXRSDHAAWVKZLJ-PVYNADRNSA-N/epothilone-soce90-proposed-biosynthetic-participants.yaml",
+        "sha256": "812d2a6d2845f1168293e039d0aa733a534d17906c9916741366a2f72d0d5315"
+      },
+      {
+        "owner": "data/natural_products/unclassified/epothilone-b.yaml",
+        "record_id": "CHEBI:31550",
+        "inchikey": "QXRSDHAAWVKZLJ-PVYNADRNSA-N",
+        "component": "data/causal_graphs/QXRSDHAAWVKZLJ-PVYNADRNSA-N/epothilone-so0157-2-proposed-biosynthetic-participants.yaml",
+        "sha256": "8f5c1b7dd4675c24821fad86257a7aa4f741bd1594cf688b1c5cef37c24306ea"
+      },
+      {
+        "owner": "data/natural_products/unclassified/epothilone-b.yaml",
+        "record_id": "CHEBI:31550",
+        "inchikey": "QXRSDHAAWVKZLJ-PVYNADRNSA-N",
+        "component": "data/causal_graphs/QXRSDHAAWVKZLJ-PVYNADRNSA-N/epothilone-kyc3013-proposed-biosynthetic-participants.yaml",
+        "sha256": "c8b3acfbd6457b887c0ac0048b8e02f1166cbea5ab2ba13aad7b8ab7617db53e"
+      },
+      {
+        "owner": "data/natural_products/unclassified/epothilone-b.yaml",
+        "record_id": "CHEBI:31550",
+        "inchikey": "QXRSDHAAWVKZLJ-PVYNADRNSA-N",
+        "component": "data/causal_graphs/QXRSDHAAWVKZLJ-PVYNADRNSA-N/epothilone-b-9pnd-deposited-tubulin-model.yaml",
+        "sha256": "77144f274ec203dcbf6674cb8c4871c311753c937848361661a21c019c281bf6"
+      },
+      {
+        "owner": "data/natural_products/unclassified/epothilone-b.yaml",
+        "record_id": "CHEBI:31550",
+        "inchikey": "QXRSDHAAWVKZLJ-PVYNADRNSA-N",
+        "component": "data/causal_graphs/QXRSDHAAWVKZLJ-PVYNADRNSA-N/epothilone-b-6s8m-deposited-motor-tubulin-model.yaml",
+        "sha256": "50e069de76894be19a1afe453f1cb19bb2531567f42274579a9ef17da83c62d7"
+      },
+      {
+        "owner": "data/natural_products/unclassified/epothilone-b.yaml",
+        "record_id": "CHEBI:31550",
+        "inchikey": "QXRSDHAAWVKZLJ-PVYNADRNSA-N",
+        "component": "data/causal_graphs/QXRSDHAAWVKZLJ-PVYNADRNSA-N/epothilone-b-7dae-deposited-tubulin-partner-model.yaml",
+        "sha256": "ad1bd45add3808a75f55bdbfa01115ecfebf69c9be2d9ce241346f8c688fcedd"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plam1-genetics-and-inferred-function.yaml",
+        "sha256": "a9c698a0d279b238bd748952430bebf8a374034a2c02485db2ec80bf9760857e"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plao4-genetics-and-inferred-function.yaml",
+        "sha256": "23f54b9589df51384a04d5be01f72d753d9d9a51ab8196591aaaea5b7b835081"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plao1-genetics-and-inferred-function.yaml",
+        "sha256": "acc13836fb4cc09de81dddf644f8df3ce4744dfc418a2dad83398a269875c05d"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plat-native-genetics.yaml",
+        "sha256": "ba27a65238b58cfd9e65f1492b04bc3fe786e0babb67d679257db1840018cf61"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plat-core-reconstitution.yaml",
+        "sha256": "d8cc403b25be542f386229fa4c9cf60b10e77edbd150fec2f2b99703e2f95334"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plao5-genetics-and-biochemistry.yaml",
+        "sha256": "e473f2c32e097e4dd757d0bba646cf4aa149a43c4b7e9d68a7633a0a2d991f21"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plav-genetics-and-inferred-acetylation.yaml",
+        "sha256": "9b36f5101747df24dab538cc361c661cfee4d8a627b0b09e531910c4c119827a"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plau-plaz-bounded-genetics.yaml",
+        "sha256": "ec2d1f5d87583fa9fa3b31c5b7e7702152a554ccbab3f9df1479138717d36c75"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plao2-bounded-genetics.yaml",
+        "sha256": "76e705a4e3b5a2f339ef8a4cae3bf52a59431871a622409ca7e0886ef28ffcb9"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plao3-genetics-and-inferred-function.yaml",
+        "sha256": "d495ffafb8e60e0eb6d480511a247f40cb80bf17a430e4eb8dc6071f4d5b33d4"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plat5-plat6-joint-constructs.yaml",
+        "sha256": "f6c9a2779e32b17e0eadb21ee9d26ccefd71d73de9706323d2b94c7ca387600b"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plar-genetics-and-promoter-reporters.yaml",
+        "sha256": "5f54bc55ca66e9f53f85c251bb98db0f76741df52226fd6418bbed32a1587374"
+      },
+      {
+        "owner": "data/natural_products/unclassified/phenalinolactone-a.yaml",
+        "record_id": "naturalproductmech:mibig-e29f83c77b",
+        "inchikey": "LULQRLKBANNSOX-AFCHNXSNSA-N",
+        "component": "data/causal_graphs/LULQRLKBANNSOX-AFCHNXSNSA-N/phenalinolactone-a-plam2-translational-reporter.yaml",
+        "sha256": "e7ab564ed5509218fe0a2ee80bc3805be33405079eeccca33732ca3c1fa6c0c6"
+      }
+    ]
+  },
+  "TaxonMech": {
+    "pin": "af17bce5e92041f70a09950de5cdfdb92c986441",
+    "previous_pin": "e0cc7c86ac2107242ab499db610737f5fcad1c9b",
+    "graph_records": 15,
+    "graph_node_types": {
+      "TAXON": 15,
+      "GENE_OR_PROTEIN": 108,
+      "MOLECULAR_FUNCTION": 15,
+      "BIOLOGICAL_PROCESS": 20,
+      "CHEMICAL": 7,
+      "TRAIT": 2
+    },
+    "trait_node_records": [
+      "data/taxa/bacteria/bacillus_subtilis.yaml",
+      "data/taxa/bacteria/bacillus_subtilis_subsp_subtilis_str_168.yaml"
+    ],
+    "trait_groundings": {
+      "METPO:1000874": 2
+    },
+    "changed_record_count": 11,
+    "changed_records_unchanged_outside_history_and_graphs": [
+      {
+        "path": "data/taxa/archaea/methanocaldococcus_jannaschii.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/archaea/methanocaldococcus_jannaschii_dsm_2661.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/bacillus_subtilis.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/bacillus_subtilis_subsp_subtilis_str_168.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/escherichia_coli.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/escherichia_coli_k_12.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/escherichia_coli_str_k_12_substr_mg1655.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/pseudomonas_aeruginosa.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/bacteria/pseudomonas_aeruginosa_pao1.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/eukaryota/cryptococcus_neoformans.yaml",
+        "equal_outside_history_and_graphs": true
+      },
+      {
+        "path": "data/taxa/eukaryota/cryptococcus_neoformans_h99.yaml",
+        "equal_outside_history_and_graphs": true
+      }
+    ],
+    "pinned_source_figures": [
+      {
+        "source": "pages/index.html",
+        "value": "100745",
+        "source_excerpt": "    <a class=\"stat\" href=\"browse.html\"><b>100745</b><span>distinct listed strains</span></a>"
+      },
+      {
+        "source": "pages/index.html",
+        "value": "20648",
+        "source_excerpt": "    <a class=\"stat\" href=\"type-strains.html\"><b>20648</b><span>with a type strain</span></a>"
+      },
+      {
+        "source": "README.md",
+        "value": "21,071",
+        "source_excerpt": "**21,071 listed strains have genome identifier links.** Coverage below is deduplicated across records, with NCBI assemblies first:"
+      }
+    ]
+  }
+}
