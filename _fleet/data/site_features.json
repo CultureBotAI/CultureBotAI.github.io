@@ -540,9 +540,9 @@
           "url": "https://culturebotai.github.io/CommunityMech/"
         },
         "responsive": {
-          "status": "present",
-          "note": "The reviewed landing, browser, maps, schema and four records fit a 390px viewport.",
-          "url": "https://culturebotai.github.io/CommunityMech/browser.html"
+          "status": "partial",
+          "note": "The reviewed landing, browser, maps and sampled community records fit a 390px viewport, but schema.html widens the document to 1,321px on fresh and resized loads.",
+          "url": "https://culturebotai.github.io/CommunityMech/schema.html"
         },
         "load_failure": {
           "status": "not_applicable",
@@ -554,7 +554,7 @@
     "CultureMech": {
       "site": "https://culturebotai.github.io/CultureMech/app/",
       "repository": "https://github.com/CultureBotAI/CultureMech",
-      "deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+      "deployed_revision": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
       "features": {
         "search": {
           "status": "present",
@@ -808,7 +808,7 @@
     "HabitatMech": {
       "site": "https://culturebotai.github.io/HabitatMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/HabitatMech",
-      "deployed_revision": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
+      "deployed_revision": "19d3ccb65e6b5128b9b0a5ae39cb509bf3f2bf39",
       "features": {
         "search": {
           "status": "partial",
@@ -1697,16 +1697,16 @@
     "CMMMech": {
       "site": "https://culturebotai.github.io/CMMMech/pages/index.html",
       "repository": "https://github.com/CultureBotAI/CMMMech",
-      "deployed_revision": "93349cda911887c28694c29df5ef69a865da7a0f",
+      "deployed_revision": "7449fa912e2d92f8aff400481ee75b49edbb685e",
       "features": {
         "search": {
           "status": "present",
-          "note": "CHEBI:27638 and cmmmech:copper each return one linked material; Cobalt returns 23 of 698.",
+          "note": "CHEBI:27638 and cmmmech:copper each return one linked material; Cobalt returns 23 of 703.",
           "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
         },
         "facets": {
           "status": "present",
-          "note": "Kind, mechanism process and criticality filters have Clear filters. Element selects 66 records; adding bioleaching selects 15; reset restores all 698.",
+          "note": "Kind, mechanism process and criticality filters have Clear filters. Element selects 66 records; adding bioleaching selects 15; reset restores all 703.",
           "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
         },
         "result_counts": {
@@ -1726,7 +1726,7 @@
         },
         "full_catalogue": {
           "status": "present",
-          "note": "The complete browser and its machine-readable export cover 698 published records; sampled record links open successfully.",
+          "note": "The complete browser and its machine-readable export cover 703 published records; sampled record links open successfully.",
           "url": "https://culturebotai.github.io/CMMMech/pages/browse.html"
         },
         "record_pages": {
@@ -1761,7 +1761,7 @@
         },
         "domain_view": {
           "status": "present",
-          "note": "The mechanism graph renders 654 nodes and 972 edges; the text map retains 602 material points, a subset of the 698-record catalogue.",
+          "note": "The mechanism graph renders 654 nodes and 972 edges; the text map retains 602 material points, a subset of the 703-record catalogue.",
           "url": "https://culturebotai.github.io/CMMMech/pages/graph.html"
         },
         "cross_mech_links": {
@@ -1771,12 +1771,12 @@
         },
         "corpus_stats": {
           "status": "present",
-          "note": "The landing reports 698 materials, 609 mechanisms, 500 materials with mechanisms and 90 designated critical materials across six kinds.",
+          "note": "The landing reports 703 materials, 609 mechanisms, 500 materials with mechanisms and 90 designated critical materials across six kinds.",
           "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
         },
         "category_browse": {
           "status": "present",
-          "note": "Landing cards link six material-kind and process listings. Kind totals are 66 elements, 447 minerals, 111 secondary resources, 36 commodities, 31 primary resources and seven mineral groups.",
+          "note": "Landing cards link six material-kind and process listings. Kind totals are 66 elements, 452 minerals, 111 secondary resources, 36 commodities, 31 primary resources and seven mineral groups.",
           "url": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
         },
         "suite_nav": {
@@ -1786,7 +1786,7 @@
         },
         "downloads": {
           "status": "partial",
-          "note": "Linked index.json covers all 698 catalogue entries but contains listing metadata and mechanism counts, not full mechanism evidence; map exports and individual YAML links are also available.",
+          "note": "Linked index.json covers all 703 catalogue entries but contains listing metadata and mechanism counts, not full mechanism evidence; map exports and individual YAML links are also available.",
           "url": "https://culturebotai.github.io/CMMMech/pages/index.html"
         },
         "schema_docs": {
@@ -1801,7 +1801,7 @@
         },
         "build_provenance": {
           "status": "present",
-          "note": "Footers state 698 materials, 609 mechanisms, latest curation 2026-11-09 and corpus digest 6a9b35ddc871.",
+          "note": "Footers state 703 materials, 609 mechanisms, latest curation 2026-11-09 and corpus digest f2a56c7f5564.",
           "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
         },
         "theme_toggle": {
@@ -1937,9 +1937,9 @@
           "url": "https://culturebotai.github.io/AIMech/pages/index.html"
         },
         "responsive": {
-          "status": "present",
-          "note": "Reviewed landing, Browse, sampled records and visualizations fit a 390px viewport.",
-          "url": "https://culturebotai.github.io/AIMech/pages/curated/Adam.html"
+          "status": "partial",
+          "note": "Reviewed landing, Browse, visualizations and sampled curated records fit a 390px viewport, but the sampled imported AIO record TrainingStrategy.html widens the document to 412px on fresh and resized loads.",
+          "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html"
         },
         "load_failure": {
           "status": "not_applicable",

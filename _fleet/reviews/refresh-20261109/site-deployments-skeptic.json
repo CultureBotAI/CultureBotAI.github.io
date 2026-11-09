@@ -2,14 +2,14 @@
   "checked_on": "2026-11-09",
   "verdict_count": 336,
   "disagreements": [],
-  "note_updates_count": 8,
+  "note_updates_count": 17,
   "sites": {
     "AntibioticMech": {
       "deployed_revision": "defe41100737cee8dc1e4722a2930e9752e6bee8",
       "prior_deployed_revision": "817d3f186fdf61b437a8a56b4499328e57e97e46",
       "changed_deployed_sha": true,
-      "preserved_prior_deployed_revision": false,
-      "latest_deployment_state": "success",
+      "preserved_prior_deployed_revision": true,
+      "latest_deployment_state": "failure",
       "verdicts": 24,
       "disagreements": [],
       "features": {
@@ -456,10 +456,10 @@
           "note_updated": false
         },
         "responsive": {
-          "auditor": "present",
-          "skeptic": "present",
+          "auditor": "partial",
+          "skeptic": "partial",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "load_failure": {
           "auditor": "not_applicable",
@@ -470,9 +470,9 @@
       }
     },
     "CultureMech": {
-      "deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
+      "deployed_revision": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
       "prior_deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
-      "changed_deployed_sha": false,
+      "changed_deployed_sha": true,
       "preserved_prior_deployed_revision": false,
       "latest_deployment_state": "success",
       "verdicts": 24,
@@ -780,7 +780,7 @@
       }
     },
     "HabitatMech": {
-      "deployed_revision": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
+      "deployed_revision": "19d3ccb65e6b5128b9b0a5ae39cb509bf3f2bf39",
       "prior_deployed_revision": "43f770cbc8682e74d226be6ca05caa1acc5ed048",
       "changed_deployed_sha": true,
       "preserved_prior_deployed_revision": false,
@@ -1865,7 +1865,7 @@
       }
     },
     "CMMMech": {
-      "deployed_revision": "93349cda911887c28694c29df5ef69a865da7a0f",
+      "deployed_revision": "7449fa912e2d92f8aff400481ee75b49edbb685e",
       "prior_deployed_revision": "8287b17e542ab6626a69e50787f798a417ce4f4a",
       "changed_deployed_sha": true,
       "preserved_prior_deployed_revision": false,
@@ -1877,13 +1877,13 @@
           "auditor": "present",
           "skeptic": "present",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "facets": {
           "auditor": "present",
           "skeptic": "present",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "result_counts": {
           "auditor": "present",
@@ -1907,7 +1907,7 @@
           "auditor": "present",
           "skeptic": "present",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "record_pages": {
           "auditor": "present",
@@ -1949,7 +1949,7 @@
           "auditor": "present",
           "skeptic": "present",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "cross_mech_links": {
           "auditor": "missing",
@@ -1961,13 +1961,13 @@
           "auditor": "present",
           "skeptic": "present",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "category_browse": {
           "auditor": "present",
           "skeptic": "present",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "suite_nav": {
           "auditor": "present",
@@ -1979,7 +1979,7 @@
           "auditor": "partial",
           "skeptic": "partial",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "schema_docs": {
           "auditor": "partial",
@@ -2161,10 +2161,10 @@
           "note_updated": false
         },
         "responsive": {
-          "auditor": "present",
-          "skeptic": "present",
+          "auditor": "partial",
+          "skeptic": "partial",
           "agree": true,
-          "note_updated": false
+          "note_updated": true
         },
         "load_failure": {
           "auditor": "not_applicable",

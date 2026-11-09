@@ -101,6 +101,10 @@ def main():
         text = text.replace('2026-11-08 20:35 UTC', '2026-11-09 12:41 UTC')
         text = text.replace('0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34', 'e539df04bc92364727c2f22c46fe7ecbac3ce116')
         text = text.replace('snapshot at e36c6ae', 'snapshot at e539df0')
+        text = text.replace(
+            'The CLAW governance snapshot at e539df0 declares all fourteen members, 26\ngoverned artifacts and 28 capabilities, including record-review declarations.\nThe added evidence-reference validation contract is enabled for MediaIngredientMech,\nCellStructureMech and HabitatMech; the other eleven members record explicit reasons\nfor leaving it disabled.',
+            'The CLAW governance snapshot at e539df0 declares 15 members (fourteen corpus\nMechs plus EdgeMech curation infrastructure), 26 governed artifacts and 28 capabilities,\nincluding record-review declarations. The added evidence-reference validation contract is\nenabled for MediaIngredientMech, CellStructureMech and HabitatMech; the other twelve\nmembers record explicit reasons for leaving it disabled.'
+        )
         if text != before:
             changes.append(file)
             if args.apply:

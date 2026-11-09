@@ -101,16 +101,17 @@ def main():
                 )
             if name == "HabitatMech":
                 counts["trait_nodes"] += sum(n.get("node_type") == "TRAIT" for n in nodes(doc))
-                sources = set()
-                for n in nodes(doc):
-                    ref = n.get("reference")
-                    if isinstance(ref, str) and ref.strip():
-                        sources.add(ref.strip())
+                sources = {
+                    a.get("source")
+                    for a in (doc.get("source_attestations") or [])
+                    if isinstance(a, dict) and a.get("source")
+                }
                 counts["attested_by_at_least_2_sources"] += len(sources) >= 2
             if name == "AntibioticMech":
                 ident = str(doc.get("identifier", ""))
-                counts["minted_ids"] += ident.startswith("AntibioticMech:")
-                counts["grounded_ids"] += not ident.startswith("AntibioticMech:")
+                is_minted = ident.lower().startswith("antibioticmech:")
+                counts["minted_ids"] += is_minted
+                counts["grounded_ids"] += not is_minted
             if name == "NaturalProductMech":
                 counts["antibiotic_linked_records"] += any(
                     link.get("corpus") == "AntibioticMech"

@@ -40,10 +40,34 @@ NOTE_UPDATES = {
         'build_provenance': [('digest 03fdb6772528 and 3,105 records', 'digest fe34ebf5e05b and 3,125 records')],
     },
     'CMMMech': {
+        'search': [('23 of 698.', '23 of 703.')],
+        'facets': [('restores all 698.', 'restores all 703.')],
+        'full_catalogue': [('698 published records', '703 published records')],
+        'domain_view': [('698-record catalogue.', '703-record catalogue.')],
+        'corpus_stats': [('698 materials', '703 materials')],
+        'category_browse': [('447 minerals', '452 minerals')],
+        'downloads': [('698 catalogue entries', '703 catalogue entries')],
         'build_provenance': [(
             '698 materials, 609 mechanisms, latest curation 2026-11-06 and corpus digest 5644b56e7db2.',
-            '698 materials, 609 mechanisms, latest curation 2026-11-09 and corpus digest 6a9b35ddc871.'
+            '703 materials, 609 mechanisms, latest curation 2026-11-09 and corpus digest f2a56c7f5564.'
         )],
+    },
+}
+
+STATUS_OVERRIDES = {
+    'CommunityMech': {
+        'responsive': {
+            'status': 'partial',
+            'note': 'The reviewed landing, browser, maps and sampled community records fit a 390px viewport, but schema.html widens the document to 1,321px on fresh and resized loads.',
+            'url': 'https://culturebotai.github.io/CommunityMech/schema.html',
+        },
+    },
+    'AIMech': {
+        'responsive': {
+            'status': 'partial',
+            'note': 'Reviewed landing, Browse, visualizations and sampled curated records fit a 390px viewport, but the sampled imported AIO record TrainingStrategy.html widens the document to 412px on fresh and resized loads.',
+            'url': 'https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html',
+        },
     },
 }
 
@@ -87,16 +111,13 @@ def main():
         if state == 'success' and modified and email.utils.parsedate_to_datetime(modified) >= dt.datetime.fromisoformat(deployment['created_at'].replace('Z', '+00:00')):
             effective_sha = deployment['sha']
         elif deployment.get('preserve_prior_deployed_revision'):
-            effective_sha = prior['deployed_revision']
+            effective_sha = audit.get('prior_deployed_revision') or prior['deployed_revision']
             preserved_prior = True
         else:
             raise ValueError(name + ': deployment not verified')
-        if prior['features']['responsive']['status'] == 'present':
-            for page_url, page_info in audit.get('pages', {}).items():
-                if page_url.endswith('/schema.html'):
-                    continue
-                if page_info.get('resized_390', 390) > 390 or page_info.get('fresh_390', 390) > 390:
-                    raise ValueError(f'{name}: unexpected horizontal overflow at 390px on {page_url}')
+        for page_url, page_info in audit.get('pages', {}).items():
+            if page_info.get('resized_390') is None or page_info.get('fresh_390') is None:
+                raise ValueError(f'{name}: missing 390px viewport measurement on {page_url}')
 
         entry = {
             'site': prior['site'],
@@ -106,18 +127,23 @@ def main():
         }
         skeptic_features = {}
         mech_updates = NOTE_UPDATES.get(name, {})
+        mech_overrides = STATUS_OVERRIDES.get(name, {})
         for key in catalogue:
             old_verdict = prior['features'][key]
-            note = old_verdict['note']
-            for old_sub, new_sub in mech_updates.get(key, []):
-                if old_sub not in note:
-                    raise ValueError(f'{name}.{key}: expected substring {old_sub!r} not in {note!r}')
-                note = note.replace(old_sub, new_sub)
-            verdict = {
-                'status': old_verdict['status'],
-                'note': note,
-                'url': old_verdict['url'],
-            }
+            if key in mech_overrides:
+                verdict = dict(mech_overrides[key])
+                note = verdict['note']
+            else:
+                note = old_verdict['note']
+                for old_sub, new_sub in mech_updates.get(key, []):
+                    if old_sub not in note:
+                        raise ValueError(f'{name}.{key}: expected substring {old_sub!r} not in {note!r}')
+                    note = note.replace(old_sub, new_sub)
+                verdict = {
+                    'status': old_verdict['status'],
+                    'note': note,
+                    'url': old_verdict['url'],
+                }
             entry['features'][key] = verdict
             skeptic_features[key] = {
                 'auditor': verdict['status'],
@@ -141,6 +167,10 @@ def main():
                     'old_note': old_verdict['note'],
                     'new_note': note,
                 })
+        if entry['features']['responsive']['status'] == 'present':
+            for page_url, page_info in audit.get('pages', {}).items():
+                if page_info['resized_390'] > 390 or page_info['fresh_390'] > 390:
+                    raise ValueError(f'{name}: unexpected horizontal overflow at 390px on {page_url}')
         data['mechs'][name] = entry
         skeptic_sites[name] = {
             'deployed_revision': effective_sha,

@@ -1,37 +1,37 @@
 {
-  "started_at_utc": "2026-11-09T12:59:17.358141+00:00",
+  "started_at_utc": "2026-11-09T17:34:17.070700+00:00",
   "reviewer": "central_directory live-site auditor",
   "mechs": {
     "AntibioticMech": {
       "pin": "defe41100737cee8dc1e4722a2930e9752e6bee8",
-      "prior_deployed_revision": "817d3f186fdf61b437a8a56b4499328e57e97e46",
+      "prior_deployed_revision": "defe41100737cee8dc1e4722a2930e9752e6bee8",
       "deployment_before": {
-        "id": 7653659544,
-        "sha": "defe41100737cee8dc1e4722a2930e9752e6bee8",
-        "created_at": "2026-11-09T11:35:47Z",
-        "state": "success",
-        "status_created_at": "2026-11-09T11:36:18Z",
+        "id": 7657539060,
+        "sha": "0b7380c610b9c07b8858c5e748ca724218b76f55",
+        "created_at": "2026-11-09T14:39:22Z",
+        "state": "failure",
+        "status_created_at": "2026-11-09T14:49:54Z",
         "environment_url": "https://culturebotai.github.io/AntibioticMech/",
         "site_url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
         "http_status": 200,
         "last_modified": "Mon, 09 Nov 2026 11:36:05 GMT",
-        "served_not_older_than_request": true,
-        "verified": true,
-        "preserve_prior_deployed_revision": false
+        "served_not_older_than_request": false,
+        "verified": false,
+        "preserve_prior_deployed_revision": true
       },
       "deployment_after": {
-        "id": 7653659544,
-        "sha": "defe41100737cee8dc1e4722a2930e9752e6bee8",
-        "created_at": "2026-11-09T11:35:47Z",
-        "state": "success",
-        "status_created_at": "2026-11-09T11:36:18Z",
+        "id": 7657539060,
+        "sha": "0b7380c610b9c07b8858c5e748ca724218b76f55",
+        "created_at": "2026-11-09T14:39:22Z",
+        "state": "failure",
+        "status_created_at": "2026-11-09T14:49:54Z",
         "environment_url": "https://culturebotai.github.io/AntibioticMech/",
         "site_url": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
         "http_status": 200,
         "last_modified": "Mon, 09 Nov 2026 11:36:05 GMT",
-        "served_not_older_than_request": true,
-        "verified": true,
-        "preserve_prior_deployed_revision": false
+        "served_not_older_than_request": false,
+        "verified": false,
+        "preserve_prior_deployed_revision": true
       },
       "pages": {
         "https://culturebotai.github.io/AntibioticMech/pages/index.html": {
@@ -132,7 +132,9 @@
           "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest fe34ebf5e05b, 3125 records). Download index (JSON) \u00b7 LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer \u2014 molecular_targets, mode_of_action, causal_graphs \u2014 is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
           "statuses": [],
           "text_sha256": "430c885685be84b1122d4258cfae01359228404f9d03d37995fda5d1fa33fd4b",
-          "text_excerpt": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse \u00b7 ANTIBACTERIAL\n\nSearch\namikacin\n\nCHEBI:2637 \u00b7resolve \u00b7ANTIBACTERIAL \u00b7EXACT SEEDED\n\nAn amino cyclitol glycoside that is kanamycin A acylated at the N-1 position by a 4-amino-2-hydroxybutyryl group. \u2014 ChEBI\n\nMachine-generated and unreviewed. Identity, structure and cross-references come straight from ChEBI's and CARD's own data; no curator has signed off on this record yet.\n\nClassification\n\naminoglycoside antibioticARO:0000016\n\nStrictly broader compounds or drug classes this molecule belongs to.\n\nLabel unavailable CHEBI:22390\nLabel unavailable CHEBI:22479\nLabel unavailable CHEBI:37622\nLabel unavailable CHEBI:47779\naminoglycoside antibiotic ARO:0000016\nChemical structure\nCOMPUTED STRUCTURE PROPERTIES\nMOLECULAR FORMULA\tC22H43N5O13\nCHARGE\t0\nAVERAGE MASS\t585.608 Da\nMONOISOTOPIC MASS\t585."
+          "text_excerpt": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse \u00b7 ANTIBACTERIAL\n\nSearch\namikacin\n\nCHEBI:2637 \u00b7resolve \u00b7ANTIBACTERIAL \u00b7EXACT SEEDED\n\nAn amino cyclitol glycoside that is kanamycin A acylated at the N-1 position by a 4-amino-2-hydroxybutyryl group. \u2014 ChEBI\n\nMachine-generated and unreviewed. Identity, structure and cross-references come straight from ChEBI's and CARD's own data; no curator has signed off on this record yet.\n\nClassification\n\naminoglycoside antibioticARO:0000016\n\nStrictly broader compounds or drug classes this molecule belongs to.\n\nLabel unavailable CHEBI:22390\nLabel unavailable CHEBI:22479\nLabel unavailable CHEBI:37622\nLabel unavailable CHEBI:47779\naminoglycoside antibiotic ARO:0000016\nChemical structure\nCOMPUTED STRUCTURE PROPERTIES\nMOLECULAR FORMULA\tC22H43N5O13\nCHARGE\t0\nAVERAGE MASS\t585.608 Da\nMONOISOTOPIC MASS\t585.",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html": {
           "url": "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html",
@@ -144,7 +146,9 @@
           "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest fe34ebf5e05b, 3125 records). Download index (JSON) \u00b7 LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer \u2014 molecular_targets, mode_of_action, causal_graphs \u2014 is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
           "statuses": [],
           "text_sha256": "d4f5d5ba6bf6f6c985dfd40bcc86b8a48bb16fcce781a38812c871b401d1e2a5",
-          "text_excerpt": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse \u00b7 ANTIBACTERIAL\n\nSearch\navibactam\n\nCHEBI:85984 \u00b7resolve \u00b7ANTIBACTERIAL \u00b7EXACT REVIEWED\n\nA member of the class of azabicycloalkanes that is (2S,5R)-7-oxo-1,6-diazabicyclo[3.2.1]octane-2-carboxamide in which the amino hydrogen at position 6 is replaced by a sulfooxy group. Used (in the form of its sodium salt) in combination with ceftazidime pentahydrate for the treatment of complicated urinary tract infections including pyelonephritis. \u2014 ChEBI\n\nClassification\n\nStrictly broader compounds or drug classes this molecule belongs to.\n\nLabel unavailable CHEBI:29347\nLabel unavailable CHEBI:38025\nLabel unavailable CHEBI:38295\nLabel unavailable CHEBI:47857\nChemical structure\nCOMPUTED STRUCTURE PROPERTIES\nMOLECULAR FORMULA\tC7H11N3O6S\nCHARGE\t0\nAVERAGE MASS\t265.247 Da\nMONOISOTOPIC MASS\t265.03686 "
+          "text_excerpt": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse \u00b7 ANTIBACTERIAL\n\nSearch\navibactam\n\nCHEBI:85984 \u00b7resolve \u00b7ANTIBACTERIAL \u00b7EXACT REVIEWED\n\nA member of the class of azabicycloalkanes that is (2S,5R)-7-oxo-1,6-diazabicyclo[3.2.1]octane-2-carboxamide in which the amino hydrogen at position 6 is replaced by a sulfooxy group. Used (in the form of its sodium salt) in combination with ceftazidime pentahydrate for the treatment of complicated urinary tract infections including pyelonephritis. \u2014 ChEBI\n\nClassification\n\nStrictly broader compounds or drug classes this molecule belongs to.\n\nLabel unavailable CHEBI:29347\nLabel unavailable CHEBI:38025\nLabel unavailable CHEBI:38295\nLabel unavailable CHEBI:47857\nChemical structure\nCOMPUTED STRUCTURE PROPERTIES\nMOLECULAR FORMULA\tC7H11N3O6S\nCHARGE\t0\nAVERAGE MASS\t265.247 Da\nMONOISOTOPIC MASS\t265.03686 ",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine.html": {
           "url": "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine.html",
@@ -156,7 +160,9 @@
           "footer": "Generated from ChEBI and CARD/ARO on 2026-08-30 (corpus digest fe34ebf5e05b, 3125 records). Download index (JSON) \u00b7 LinkML schema. Project-authored data: CC BY 4.0; code: BSD-3-Clause. Upstream terms and attribution apply.\n\nWorkflow status does not establish human review. Identity, structure and cross-references come from ChEBI and CARD's own data; the mechanism layer \u2014 molecular_targets, mode_of_action, causal_graphs \u2014 is curated incrementally. Treat any record marked SEEDED as a starting point, not a fully reviewed claim. Current workflow counts.\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech\n\nkg-microbe \u00b7 METPO\n\nAll Mech projects",
           "statuses": [],
           "text_sha256": "cbf894367ad7dfe18cb584087dc86f8667736217b92d881a4e81d9282ac67d73",
-          "text_excerpt": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse \u00b7 ANTIMYCOBACTERIAL\n\nSearch\nD-cycloserine\n\nCHEBI:40009 \u00b7resolve \u00b7ANTIMYCOBACTERIAL \u00b7EXACT REVIEWED\n\nA 4-amino-1,2-oxazolidin-3-one that has R configuration. It is an antibiotic produced by Streptomyces garyphalus or S. orchidaceus and is used as part of a multi-drug regimen for the treatment of tuberculosis when resistance to, or toxicity from, primary drugs has developed. An analogue of D-alanine, it interferes with bacterial cell wall synthesis in the cytoplasm by competitive inhibition of L-alanine racemase (which forms D-alanine from L-alanine) and D-alanine\u2014D-alanine ligase (which incorporates D-alanine into the pentapeptide required for peptidoglycan formation and bacterial cell wall synthesis). \u2014 ChEBI\n\nClassification\n\ncycloserine-like antibioticARO:3007154\n\nStrictly broader "
+          "text_excerpt": "AntibioticMech\nOverview Browse Map Chemical map Sequence map (pLM) Schema Source All Mech projects\n\nBrowse \u00b7 ANTIMYCOBACTERIAL\n\nSearch\nD-cycloserine\n\nCHEBI:40009 \u00b7resolve \u00b7ANTIMYCOBACTERIAL \u00b7EXACT REVIEWED\n\nA 4-amino-1,2-oxazolidin-3-one that has R configuration. It is an antibiotic produced by Streptomyces garyphalus or S. orchidaceus and is used as part of a multi-drug regimen for the treatment of tuberculosis when resistance to, or toxicity from, primary drugs has developed. An analogue of D-alanine, it interferes with bacterial cell wall synthesis in the cytoplasm by competitive inhibition of L-alanine racemase (which forms D-alanine from L-alanine) and D-alanine\u2014D-alanine ligase (which incorporates D-alanine into the pentapeptide required for peptidoglycan formation and bacterial cell wall synthesis). \u2014 ChEBI\n\nClassification\n\ncycloserine-like antibioticARO:3007154\n\nStrictly broader ",
+          "resized_390": 390,
+          "fresh_390": 390
         }
       },
       "actions": {
@@ -299,7 +305,7 @@
     },
     "CommunityMech": {
       "pin": "686618cc71b4c4c73fb5b595d27e91a7d200fa58",
-      "prior_deployed_revision": "201f5b09872e231fe13b76e215f521310f94891d",
+      "prior_deployed_revision": "bf8e8626114487765f67879cc6040cdc412e7c4f",
       "deployment_before": {
         "id": 7651632987,
         "sha": "bf8e8626114487765f67879cc6040cdc412e7c4f",
@@ -418,7 +424,9 @@
             }
           ],
           "text_sha256": "400aa9a66d8fd3d0eaf1ade6c48bb7d8b941af805d93f3cff8351ad878d94470",
-          "text_excerpt": "Home\n\u2190 Back to Communities\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nAll Mech projects\nSearch\nANME-SRB Marine Methane Seep Consortium\nCOMMUNITY ID\nCommunityMech:000134\nECOLOGICAL STATE\nSTABLE\nENVIRONMENT\nmarine sediment \u2014 ontology label: sediment\nENVO:00002007 \u00b7 HabitatMech \u2197\n\nNatural marine methane-seep consortia in which anaerobic methanotrophic archaea (ANME) grow in syntrophic partnership with sulfate-reducing bacteria (SRB). These structured aggregates couple anaerobic oxidation of methane to sulfate reduction, limiting methane release from ocean sediments. The interaction is frequently organized as multicellular consortia containing ANME archaeal cells and bacterial sulfate reducers, with genomic evidence supporting direct interspecies electron transfer from ANME to the SRB partner.\n\nTaxonomy\nTaxon\tOntology ID\tFunctional Roles\tAbundance\nanaerobic methanotrophic archaea \u2014 "
+          "text_excerpt": "Home\n\u2190 Back to Communities\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nAll Mech projects\nSearch\nANME-SRB Marine Methane Seep Consortium\nCOMMUNITY ID\nCommunityMech:000134\nECOLOGICAL STATE\nSTABLE\nENVIRONMENT\nmarine sediment \u2014 ontology label: sediment\nENVO:00002007 \u00b7 HabitatMech \u2197\n\nNatural marine methane-seep consortia in which anaerobic methanotrophic archaea (ANME) grow in syntrophic partnership with sulfate-reducing bacteria (SRB). These structured aggregates couple anaerobic oxidation of methane to sulfate reduction, limiting methane release from ocean sediments. The interaction is frequently organized as multicellular consortia containing ANME archaeal cells and bacterial sulfate reducers, with genomic evidence supporting direct interspecies electron transfer from ANME to the SRB partner.\n\nTaxonomy\nTaxon\tOntology ID\tFunctional Roles\tAbundance\nanaerobic methanotrophic archaea \u2014 ",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html": {
           "url": "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html",
@@ -439,7 +447,9 @@
             }
           ],
           "text_sha256": "989cecf6c4e3533bc123cb7dec1ce6f0a4e1af81bc431a85ed73cb2ab2f0f62b",
-          "text_excerpt": "Home\n\u2190 Back to Communities\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nAll Mech projects\nSearch\nCopper Biomining Heap Leach Consortium\nCOMMUNITY ID\nCommunityMech:000019\nECOLOGICAL STATE\nENGINEERED\nENVIRONMENT\nmine tailing\nENVO:00000003 \u00b7 HabitatMech \u2197\n\nAn industrial microbial consortium used for commercial copper bioleaching from low-grade sulfide ores in heap leach operations. This acidophilic community oxidizes ferrous iron and reduced sulfur compounds, generating ferric iron (Fe\u00b3\u207a) and sulfuric acid that solubilize copper from chalcopyrite (CuFeS\u2082) and other copper sulfide minerals. The consortium demonstrates temporal succession over the 200-300 day leaching cycle, with Acidithiobacillus ferrooxidans dominating early stages (pH >2, low Fe, ~10\u2077 copies/ml at 200 days), followed by Leptospirillum ferriphilum and Ferroplasma acidiphilum in aged heaps (pH 1.67-1.83, high Fe\u00b3\u207a ~1."
+          "text_excerpt": "Home\n\u2190 Back to Communities\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nAll Mech projects\nSearch\nCopper Biomining Heap Leach Consortium\nCOMMUNITY ID\nCommunityMech:000019\nECOLOGICAL STATE\nENGINEERED\nENVIRONMENT\nmine tailing\nENVO:00000003 \u00b7 HabitatMech \u2197\n\nAn industrial microbial consortium used for commercial copper bioleaching from low-grade sulfide ores in heap leach operations. This acidophilic community oxidizes ferrous iron and reduced sulfur compounds, generating ferric iron (Fe\u00b3\u207a) and sulfuric acid that solubilize copper from chalcopyrite (CuFeS\u2082) and other copper sulfide minerals. The consortium demonstrates temporal succession over the 200-300 day leaching cycle, with Acidithiobacillus ferrooxidans dominating early stages (pH >2, low Fe, ~10\u2077 copies/ml at 200 days), followed by Leptospirillum ferriphilum and Ferroplasma acidiphilum in aged heaps (pH 1.67-1.83, high Fe\u00b3\u207a ~1.",
+          "resized_390": 390,
+          "fresh_390": 390
         }
       },
       "actions": {
@@ -453,29 +463,29 @@
       "pin": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
       "prior_deployed_revision": "09f908802989670d2cc799f75f67cf56f7834178",
       "deployment_before": {
-        "id": 7545180210,
-        "sha": "09f908802989670d2cc799f75f67cf56f7834178",
-        "created_at": "2026-11-04T11:53:07Z",
+        "id": 7660378691,
+        "sha": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
+        "created_at": "2026-11-09T16:36:53Z",
         "state": "success",
-        "status_created_at": "2026-11-04T11:54:29Z",
+        "status_created_at": "2026-11-09T16:37:15Z",
         "environment_url": "https://culturebotai.github.io/CultureMech/",
         "site_url": "https://culturebotai.github.io/CultureMech/app/",
         "http_status": 200,
-        "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT",
+        "last_modified": "Mon, 09 Nov 2026 16:37:07 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
       },
       "deployment_after": {
-        "id": 7545180210,
-        "sha": "09f908802989670d2cc799f75f67cf56f7834178",
-        "created_at": "2026-11-04T11:53:07Z",
+        "id": 7660378691,
+        "sha": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
+        "created_at": "2026-11-09T16:36:53Z",
         "state": "success",
-        "status_created_at": "2026-11-04T11:54:29Z",
+        "status_created_at": "2026-11-09T16:37:15Z",
         "environment_url": "https://culturebotai.github.io/CultureMech/",
         "site_url": "https://culturebotai.github.io/CultureMech/app/",
         "http_status": 200,
-        "last_modified": "Wed, 04 Nov 2026 11:53:19 GMT",
+        "last_modified": "Mon, 09 Nov 2026 16:37:07 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
@@ -653,38 +663,40 @@
             }
           ],
           "text_sha256": "7606f23800b93ef6c213d668ef085c8eb4bbcce6dd9a1cb83b84f00f84f24eeb",
-          "text_excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\n\nAll families / PF04149\n\nPF04149: DUF397\n\nDomain of unknown function (DUF397)\n\nCuration status\nIN PROGRESS\nSeed status\nUNKNOWN CANDIDATE\nCharacterization\nUNSCORED\nGrounding\n\nPF04149: Domain of unknown function (DUF397)\nIPR007278: integrated entry for Domain of unknown function (DUF397)\n\nSource description\n\nThe function of this family is unknown.\n\nEvidence and references\nFrozen description source: InterPro/Pfam API\n\nSource descriptions and links are provenance, not independent functional validation.\n\nEvidence counts: not scored.\n\nCurated functional assertions\n\nNo curated functional assertions supplied.\n\nCausal graphs\nScr2-dependent actinorhodin induction\n\nPHENOTYPIC\n\nScope\nScr2 (SCO4442; UniProtKB:Q9KZY4), not all DUF397 proteins or an"
+          "text_excerpt": "Skip to content\nDUFMech\nBrowse families\nText map\nSequence map (pLM)\nCategories\nSources & schema\nRepository\nAll Mech projects\nSearch\nTheme\nSystem\nLight\nDark\n\nAll families / PF04149\n\nPF04149: DUF397\n\nDomain of unknown function (DUF397)\n\nCuration status\nIN PROGRESS\nSeed status\nUNKNOWN CANDIDATE\nCharacterization\nUNSCORED\nGrounding\n\nPF04149: Domain of unknown function (DUF397)\nIPR007278: integrated entry for Domain of unknown function (DUF397)\n\nSource description\n\nThe function of this family is unknown.\n\nEvidence and references\nFrozen description source: InterPro/Pfam API\n\nSource descriptions and links are provenance, not independent functional validation.\n\nEvidence counts: not scored.\n\nCurated functional assertions\n\nNo curated functional assertions supplied.\n\nCausal graphs\nScr2-dependent actinorhodin induction\n\nPHENOTYPIC\n\nScope\nScr2 (SCO4442; UniProtKB:Q9KZY4), not all DUF397 proteins or an",
+          "resized_390": 390,
+          "fresh_390": 390
         }
       },
       "actions": {}
     },
     "HabitatMech": {
       "pin": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
-      "prior_deployed_revision": "43f770cbc8682e74d226be6ca05caa1acc5ed048",
+      "prior_deployed_revision": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
       "deployment_before": {
-        "id": 7653540850,
-        "sha": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
-        "created_at": "2026-11-09T11:29:56Z",
+        "id": 7661445106,
+        "sha": "19d3ccb65e6b5128b9b0a5ae39cb509bf3f2bf39",
+        "created_at": "2026-11-09T17:23:26Z",
         "state": "success",
-        "status_created_at": "2026-11-09T11:30:29Z",
+        "status_created_at": "2026-11-09T17:24:00Z",
         "environment_url": "https://culturebotai.github.io/HabitatMech/",
         "site_url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 11:30:16 GMT",
+        "last_modified": "Mon, 09 Nov 2026 17:23:47 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
       },
       "deployment_after": {
-        "id": 7653540850,
-        "sha": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
-        "created_at": "2026-11-09T11:29:56Z",
+        "id": 7661445106,
+        "sha": "19d3ccb65e6b5128b9b0a5ae39cb509bf3f2bf39",
+        "created_at": "2026-11-09T17:23:26Z",
         "state": "success",
-        "status_created_at": "2026-11-09T11:30:29Z",
+        "status_created_at": "2026-11-09T17:24:00Z",
         "environment_url": "https://culturebotai.github.io/HabitatMech/",
         "site_url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 11:30:16 GMT",
+        "last_modified": "Mon, 09 Nov 2026 17:23:47 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
@@ -775,26 +787,28 @@
           "footer": "Generated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
           "statuses": [],
           "text_sha256": "95d30ddc6059d767431e44e70955a54728fd6e186386b60c0fc6a78318811388",
-          "text_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u25d0 Auto\nBrowse \u00b7 HOST_ASSOCIATED \u00b7 aquatic macrophyte-associated environment\nSearch\naquatic macrophyte-associated environment\n\nhabitatmech:BACDIVE.38260eea00 \u00b7HOST_ASSOCIATED \u00b7UNGROUNDED REVIEWED\n\nAn environmental system determined by an aquatic macrophyte, or by a part of an aquatic macrophyte. \u2014 HabitatMech\n\nSource attestations\n\nEach upstream vocabulary's own account of this habitat. Assertion counts are per-source units and are not comparable across sources \u2014 GOLD counts organisms, BacDive strains, PREGO taxa.\n\nWHAT EACH UPSTREAM VOCABULARY SAYS ABOUT THIS HABITAT\nSOURCE\tLABEL / PATH\tASSERTIONS\tUNIT\nBACDIVE\tAquatic-plant\t66\tSTRAIN\nBroader habitats\nenvironmental system determined by an organism ENVO:01001000\nAssociated taxa\n\nTaxa reported from this habitat, w"
+          "text_excerpt": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u25d0 Auto\nBrowse \u00b7 HOST_ASSOCIATED \u00b7 aquatic macrophyte-associated environment\nSearch\naquatic macrophyte-associated environment\n\nhabitatmech:BACDIVE.38260eea00 \u00b7HOST_ASSOCIATED \u00b7UNGROUNDED REVIEWED\n\nAn environmental system determined by an aquatic macrophyte, or by a part of an aquatic macrophyte. \u2014 HabitatMech\n\nSource attestations\n\nEach upstream vocabulary's own account of this habitat. Assertion counts are per-source units and are not comparable across sources \u2014 GOLD counts organisms, BacDive strains, PREGO taxa.\n\nWHAT EACH UPSTREAM VOCABULARY SAYS ABOUT THIS HABITAT\nSOURCE\tLABEL / PATH\tASSERTIONS\tUNIT\nBACDIVE\tAquatic-plant\t66\tSTRAIN\nBroader habitats\nenvironmental system determined by an organism ENVO:01001000\nAssociated taxa\n\nTaxa reported from this habitat, w",
+          "resized_390": 404,
+          "fresh_390": 404
         }
       },
       "actions": {
         "search:ENVO:03000033": [
           {
             "id": "browse-count",
-            "text": "Showing 1 of 1 matching habitats"
+            "text": "Loading category indexes\u2026"
           }
         ],
         "search:marine sediment": [
           {
             "id": "browse-count",
-            "text": "Showing 3 of 3 matching habitats"
+            "text": "Loading category indexes\u2026"
           }
         ],
         "search:no-such-habitat-20261109": [
           {
             "id": "browse-count",
-            "text": "Showing 0 of 0 matching habitats"
+            "text": "Loading category indexes\u2026"
           }
         ]
       }
@@ -920,7 +934,7 @@
     },
     "NaturalProductMech": {
       "pin": "001dcd3f712b5e53c7bf7baaf3311aab503579df",
-      "prior_deployed_revision": "18ca5dd6b9023670f10355084b45a8757a7a4e9e",
+      "prior_deployed_revision": "001dcd3f712b5e53c7bf7baaf3311aab503579df",
       "deployment_before": {
         "id": 7648300262,
         "sha": "001dcd3f712b5e53c7bf7baaf3311aab503579df",
@@ -1025,7 +1039,7 @@
     },
     "PathwayMech": {
       "pin": "3a407d22ff5d578869af286a42b13be7d9dcf67a",
-      "prior_deployed_revision": "9584009d49579267233124f4a1057b9425a007d9",
+      "prior_deployed_revision": "3a407d22ff5d578869af286a42b13be7d9dcf67a",
       "deployment_before": {
         "id": 7648134625,
         "sha": "3a407d22ff5d578869af286a42b13be7d9dcf67a",
@@ -1269,7 +1283,7 @@
         "environment_url": "https://culturebotai.github.io/TaxonMech/",
         "site_url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 07:28:11 GMT",
+        "last_modified": "Mon, 09 Nov 2026 07:28:12 GMT",
         "served_not_older_than_request": false,
         "verified": false,
         "preserve_prior_deployed_revision": true
@@ -1283,7 +1297,7 @@
         "environment_url": "https://culturebotai.github.io/TaxonMech/",
         "site_url": "https://culturebotai.github.io/TaxonMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 07:28:11 GMT",
+        "last_modified": "Mon, 09 Nov 2026 07:28:12 GMT",
         "served_not_older_than_request": false,
         "verified": false,
         "preserve_prior_deployed_revision": true
@@ -1364,7 +1378,7 @@
     },
     "TraitMech": {
       "pin": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
-      "prior_deployed_revision": "b2972cd2655e72b9b15ec8d0d13648e034ea2821",
+      "prior_deployed_revision": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
       "deployment_before": {
         "id": 7646059495,
         "sha": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
@@ -1518,7 +1532,9 @@
           "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nRecord as of 2026-08-26 03:23 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
           "statuses": [],
           "text_sha256": "b594c955dc22e525189615296c355b296c1204f193130a5a00fe5d67c1113ef7",
-          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a ECOLOGY\n\nSearch\nanimal pathogen\n\nMETPO:1004002 \u00b7 CLASS \u00b7 REVIEWED\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\nTrait evidence (2)\nDOI:10.1146/annurev.micro.62.081307.162938\nvirulence factors\n\nVirulence-factor review supports adaptation of bacterial virulence programs to animal hosts.\n\nDOI:10.1038/nrmicro1592\nsecretion systems\n\nSecretion-systems review supports T3SS/T6SS effector delivery as a major mechanism by which bacteria infect animal hosts.\n\nAnimal-pathogen metazoan host adaptation\n\nDOI-backed graph linking metazoan-adapted virulence factors, immune-evasion strategies, and animal-tissue colonization to the animal-pathogen phenotype.\n\nNONMECHANISTIC \u00b7 This broad ecological, host-relationship, habitat, or hazard classification spans multiple taxa an"
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a ECOLOGY\n\nSearch\nanimal pathogen\n\nMETPO:1004002 \u00b7 CLASS \u00b7 REVIEWED\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\nTrait evidence (2)\nDOI:10.1146/annurev.micro.62.081307.162938\nvirulence factors\n\nVirulence-factor review supports adaptation of bacterial virulence programs to animal hosts.\n\nDOI:10.1038/nrmicro1592\nsecretion systems\n\nSecretion-systems review supports T3SS/T6SS effector delivery as a major mechanism by which bacteria infect animal hosts.\n\nAnimal-pathogen metazoan host adaptation\n\nDOI-backed graph linking metazoan-adapted virulence factors, immune-evasion strategies, and animal-tissue colonization to the animal-pathogen phenotype.\n\nNONMECHANISTIC \u00b7 This broad ecological, host-relationship, habitat, or hazard classification spans multiple taxa an",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html": {
           "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html",
@@ -1530,7 +1546,9 @@
           "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nRecord as of 2026-10-23 16:05 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
           "statuses": [],
           "text_sha256": "71a3176b839fe1c117493fee600e827189a2f90dc20120a516515f6423d08a17",
-          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a METABOLISM\n\nSearch\nWood-Ljungdahl pathway\n\ntraitmech:000022 \u00b7 CLASS \u00b7 REVIEWED\n\nAn autotrophic carbon-fixation pathway (the reductive acetyl-CoA pathway) in which two molecules of CO2 are reduced and combined into acetyl-CoA. It is energetically efficient and used by acetogenic bacteria, methanogenic archaea, and some sulfate-reducing bacteria.\n\nTrait evidence (2)\nDOI:10.1016/j.bbapap.2008.08.012\nuse the reductive acetyl-CoA or Wood-Ljungdahl pathway as their main mechanism for energy conservation and for synthesis of acetyl-CoA and cell carbon from CO2\n\nRagsdale & Pierce (2008) review the enzymology and bioenergetics of the Wood\u2013Ljungdahl pathway.\n\nDOI:10.1128/AEM.02473-10\n\nBerg review places the reductive acetyl-CoA (Wood-Ljungdahl) pathway among the recognized auto"
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a METABOLISM\n\nSearch\nWood-Ljungdahl pathway\n\ntraitmech:000022 \u00b7 CLASS \u00b7 REVIEWED\n\nAn autotrophic carbon-fixation pathway (the reductive acetyl-CoA pathway) in which two molecules of CO2 are reduced and combined into acetyl-CoA. It is energetically efficient and used by acetogenic bacteria, methanogenic archaea, and some sulfate-reducing bacteria.\n\nTrait evidence (2)\nDOI:10.1016/j.bbapap.2008.08.012\nuse the reductive acetyl-CoA or Wood-Ljungdahl pathway as their main mechanism for energy conservation and for synthesis of acetyl-CoA and cell carbon from CO2\n\nRagsdale & Pierce (2008) review the enzymology and bioenergetics of the Wood\u2013Ljungdahl pathway.\n\nDOI:10.1128/AEM.02473-10\n\nBerg review places the reductive acetyl-CoA (Wood-Ljungdahl) pathway among the recognized auto",
+          "resized_390": 390,
+          "fresh_390": 390
         }
       },
       "actions": {
@@ -1562,31 +1580,31 @@
     },
     "CMMMech": {
       "pin": "93349cda911887c28694c29df5ef69a865da7a0f",
-      "prior_deployed_revision": "8287b17e542ab6626a69e50787f798a417ce4f4a",
+      "prior_deployed_revision": "93349cda911887c28694c29df5ef69a865da7a0f",
       "deployment_before": {
-        "id": 7654637576,
-        "sha": "93349cda911887c28694c29df5ef69a865da7a0f",
-        "created_at": "2026-11-09T12:26:06Z",
+        "id": 7658338129,
+        "sha": "7449fa912e2d92f8aff400481ee75b49edbb685e",
+        "created_at": "2026-11-09T15:12:58Z",
         "state": "success",
-        "status_created_at": "2026-11-09T12:26:27Z",
+        "status_created_at": "2026-11-09T15:17:43Z",
         "environment_url": "https://culturebotai.github.io/CMMMech/",
         "site_url": "https://culturebotai.github.io/CMMMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 12:26:20 GMT",
+        "last_modified": "Mon, 09 Nov 2026 15:17:29 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
       },
       "deployment_after": {
-        "id": 7654637576,
-        "sha": "93349cda911887c28694c29df5ef69a865da7a0f",
-        "created_at": "2026-11-09T12:26:06Z",
+        "id": 7658338129,
+        "sha": "7449fa912e2d92f8aff400481ee75b49edbb685e",
+        "created_at": "2026-11-09T15:12:58Z",
         "state": "success",
-        "status_created_at": "2026-11-09T12:26:27Z",
+        "status_created_at": "2026-11-09T15:17:43Z",
         "environment_url": "https://culturebotai.github.io/CMMMech/",
         "site_url": "https://culturebotai.github.io/CMMMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 12:26:20 GMT",
+        "last_modified": "Mon, 09 Nov 2026 15:17:29 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
@@ -1599,10 +1617,10 @@
           "h1": "Critical Materials, Minerals & Microbial Mechanisms",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [],
-          "text_sha256": "8fcacbe0fff55aa4ded3cc1004e5bb1aea3062ead2f6122b02c76709e1e3676b",
-          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCritical Materials, Minerals & Microbial Mechanisms\n\nAn evidence-backed knowledge base for critical minerals and materials, connecting strategic commodities and mineral hosts to microbial extraction, biomineralization, and recovery mechanisms.\n\nSearch\n698\nMaterials & Commodities\n609\nCurated Mechanisms\n500\nMaterials with Mechanisms\n90\nDesignated Critical Materials\nMaterial Kinds\n\nRecords distinguish chemical elements, mineral species and groups, commodities, and primary and secondary resources.\n\nElements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.\n\nMinerals\n447 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nSecondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and sc",
+          "text_sha256": "3a7abfbe745162d6c9b061524272fd0bac17266c0c3ff62aaac2b3cc34b1dce0",
+          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCritical Materials, Minerals & Microbial Mechanisms\n\nAn evidence-backed knowledge base for critical minerals and materials, connecting strategic commodities and mineral hosts to microbial extraction, biomineralization, and recovery mechanisms.\n\nSearch\n703\nMaterials & Commodities\n609\nCurated Mechanisms\n500\nMaterials with Mechanisms\n90\nDesignated Critical Materials\nMaterial Kinds\n\nRecords distinguish chemical elements, mineral species and groups, commodities, and primary and secondary resources.\n\nElements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.\n\nMinerals\n452 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nSecondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and sc",
           "resized_390": 390,
           "fresh_390": 390
         },
@@ -1613,15 +1631,15 @@
           "h1": "Browse Critical Materials and Minerals",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [
             {
               "id": "record-count",
-              "text": "698 of 698 materials shown"
+              "text": "703 of 703 materials shown"
             }
           ],
-          "text_sha256": "73a149adebf7a8b266051647172a9e15ed7524d3ec93047d26f6c23941c54cfe",
-          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Browse\nBrowse Critical Materials and Minerals\n\nExplore all 698 materials, minerals, and resources with their criticality assessments and microbial transformation mechanisms.\n\nFILTER RECORDS\nSearch materials\nMaterial Kind\nAll kinds (698)\nElement (66)\nMineral (447)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nMechanism Process\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nCriticality\nAll criticality\nDesignated Critical\nSort by\nMaterial name (A\u2013Z)\nMaterial name (Z\u2013A)\nMechanisms (high\u2013low)\nMicrobial agents (high\u2013low)\nMaterial kind (A\u2013Z)\nCriticality (critical first)\nClear filters\n\n698 of 698 materials shown\n\nDownload index.json\n\nCurated Materials and Minerals\nMaterial\tKind\tCr",
+          "text_sha256": "a1831706a4a7c58edd52a2393b61153fb7ac1d5cf03cea38e5d67a6a902d4cd2",
+          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Browse\nBrowse Critical Materials and Minerals\n\nExplore all 703 materials, minerals, and resources with their criticality assessments and microbial transformation mechanisms.\n\nFILTER RECORDS\nSearch materials\nMaterial Kind\nAll kinds (703)\nElement (66)\nMineral (452)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nMechanism Process\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nCriticality\nAll criticality\nDesignated Critical\nSort by\nMaterial name (A\u2013Z)\nMaterial name (Z\u2013A)\nMechanisms (high\u2013low)\nMicrobial agents (high\u2013low)\nMaterial kind (A\u2013Z)\nCriticality (critical first)\nClear filters\n\n703 of 703 materials shown\n\nDownload index.json\n\nCurated Materials and Minerals\nMaterial\tKind\tCr",
           "resized_390": 390,
           "fresh_390": 390
         },
@@ -1632,15 +1650,15 @@
           "h1": "Material\u2013Process\u2013Organism Mechanism Network",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [
             {
               "id": "graph-count",
               "text": "654 nodes \u00b7 972 edges"
             }
           ],
-          "text_sha256": "22879e2f244cc9f3b80823f87ad7f638a9084ffc6ce0e508f3dc9491a0387862",
-          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Mechanism graph\nMaterial\u2013Process\u2013Organism Mechanism Network\n\nInteractive causal and relational network connecting 654 critical materials, transformation processes, and microbial taxa across 972 curated mechanism links. Click a node to open its material, process, or taxon record.\n\nFILTER NETWORK\nSEARCH NODES\n654 nodes \u00b7 972 edges\nMECHANISM PROCESS\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nMATERIAL KIND\nAll kinds\nElement (66)\nMineral (447)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nNODE LEGEND\nCritical / strategic material\nTransformation process hub\nMicrobial agent (taxon)\nscroll to zoom \u00b7 drag to pan \u00b7 double-click to reset \u00b7 click node to open record \u00b7 Esc clears f",
+          "text_sha256": "ad7b9bdea4b89978d96e32afa177bc812ae6a74723083109ecfe8b404da3b150",
+          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Mechanism graph\nMaterial\u2013Process\u2013Organism Mechanism Network\n\nInteractive causal and relational network connecting 654 critical materials, transformation processes, and microbial taxa across 972 curated mechanism links. Click a node to open its material, process, or taxon record.\n\nFILTER NETWORK\nSEARCH NODES\n654 nodes \u00b7 972 edges\nMECHANISM PROCESS\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nMATERIAL KIND\nAll kinds\nElement (66)\nMineral (452)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nNODE LEGEND\nCritical / strategic material\nTransformation process hub\nMicrobial agent (taxon)\nscroll to zoom \u00b7 drag to pan \u00b7 double-click to reset \u00b7 click node to open record \u00b7 Esc clears f",
           "resized_390": 390,
           "fresh_390": 390
         },
@@ -1651,14 +1669,14 @@
           "h1": "Material & Mechanism Embedding Map",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [
             {
               "id": "map-count",
               "text": "602 materials shown"
             }
           ],
-          "text_sha256": "58b1135a9d072a59d64bb27195bf28f06597b25d7d60b4b789f1604ee3f60b45",
+          "text_sha256": "975a48f08bd1fccc3f7378014c438e97b667b5417413a356b8b59a4bb8ec058c",
           "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Text map\nMaterial & Mechanism Embedding Map\n\n602 CMMMech materials, minerals, commodities, and resources embedded with BAAI/bge-large-en-v1.5 over names, descriptions, identifiers, criticality designations, and curated microbial mechanisms, projected to 2D with PaCMAP. Points are colored by material kind; click a point to open its material record.\n\nFILTER MAP\nSEARCH MATERIALS\n602 materials shown\nMECHANISM PROCESS\nAll processes\nBioleaching\nBiomineralization\nRedox transformation\nBiosorption\nSeparation\nRecovery\nOther\nMATERIAL KIND\nAll / none\ncommodity\n33\nelement\n66\nmineral\n354\nmineral group\n7\nprimary resource\n31\nsecondary resource\n111\nscroll to zoom \u00b7 drag to pan \u00b7 double-click to reset \u00b7 click point to open material \u00b7 Esc clears filter\n\nCMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 ",
           "resized_390": 390,
           "fresh_390": 390
@@ -1670,15 +1688,17 @@
           "h1": "Minerals",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [
             {
               "id": "record-count",
-              "text": "447 of 447 materials shown"
+              "text": "452 of 452 materials shown"
             }
           ],
-          "text_sha256": "7f6a383b5d57f0dfa8d87227aeff84d1d55f95c1f3bb97b37d3e9434481eb9be",
-          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Browse > Minerals\nMinerals\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nFILTER RECORDS\nSearch materials\nMaterial Kind\nAll kinds (447)\nElement (66)\nMineral (447)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nMechanism Process\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nCriticality\nAll criticality\nDesignated Critical\nSort by\nMaterial name (A\u2013Z)\nMaterial name (Z\u2013A)\nMechanisms (high\u2013low)\nMicrobial agents (high\u2013low)\nMaterial kind (A\u2013Z)\nCriticality (critical first)\nClear filters\n\n447 of 447 materials shown\n\nDownload index.json\n\nCurated Materials and Minerals\nMaterial\tKind\tCriticality\tMechanisms\tMicrobial Agents\tIdentifier\nAcanthite\n\n"
+          "text_sha256": "37eb1488737e282a775dea308881e0a4db1cdf42296ff3204f65f31c474baf01",
+          "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Browse > Minerals\nMinerals\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nFILTER RECORDS\nSearch materials\nMaterial Kind\nAll kinds (452)\nElement (66)\nMineral (452)\nSecondary resource (111)\nCommodity (36)\nPrimary resource (31)\nMineral group (7)\nMechanism Process\nAll processes\nBioleaching (157)\nBiomineralization (95)\nRedox transformation (58)\nBiosorption (16)\nSeparation (29)\nRecovery (19)\nOther (160)\nCriticality\nAll criticality\nDesignated Critical\nSort by\nMaterial name (A\u2013Z)\nMaterial name (Z\u2013A)\nMechanisms (high\u2013low)\nMicrobial agents (high\u2013low)\nMaterial kind (A\u2013Z)\nCriticality (critical first)\nClear filters\n\n452 of 452 materials shown\n\nDownload index.json\n\nCurated Materials and Minerals\nMaterial\tKind\tCriticality\tMechanisms\tMicrobial Agents\tIdentifier\nAcanthite\n\n",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html": {
           "url": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html",
@@ -1687,7 +1707,7 @@
           "h1": "Cobalt Element Critical Material",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [],
           "text_sha256": "9410bcfe9a4ecb2931a8eb35a2d40f9e1c838c5f5227629d34ef32d54ad20688",
           "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Element > Cobalt\nSearch\nCobalt Element Critical Material\n\nCobalt (Co), atomic number 27. This element-level record uses the ChEBI cobalt-atom identifier for chemical identity. Cobalt-bearing cathodes and mixed battery black mass are material forms and secondary resources, respectively; neither is a mineral species or synonymous with the element. The dated US designation maps the listed cobalt commodity to this element record; it does not designate every cobalt-bearing mineral or waste stream.\n\nExplore across X-Mech: MediaIngredientMech \u00b7 CultureMech \u00b7 CommunityMech \u00b7 HabitatMech \u00b7 TraitMech \u00b7 CMMMech Network Graph\n\nIdentifiers & Classification\nSystem\tIdentifier\tLabel\nCHEBI\tCHEBI:27638\tcobalt atom\nCriticality Designations\nJurisdiction\tList Name\tEdition / Document\tClassification\tSource\nEuropean Unio",
@@ -1701,7 +1721,7 @@
           "h1": "Akaganeite Mineral",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [],
           "text_sha256": "a3c78d5fb1a925399c22b824fdcda27049c4c132e4a5f08ab43fdef05a58d844",
           "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Mineral > Akaganeite\nSearch\nAkaganeite Mineral\n\nAkaganeite is a distinct iron oxyhydroxide mineral species, listed with formula (Fe(III),Ni(II))8(OH,O)16Cl1.25\u00b7nH2O, renamed status (Rn), and IMA number 1962-004 in the September 2026 IMA master list. The experimental abbreviation beta-FeOOH identifies the synthetic phase assignment used by the study; it does not establish the ideal IMA composition or nickel content of that preparation. This record is separate from iron element, other iron oxyhydroxide species, iron-ore commodities, and mixed waste feeds. No constituent criticality designation is inherited.\n\nExplore across X-Mech: MediaIngredientMech \u00b7 CultureMech \u00b7 CommunityMech \u00b7 HabitatMech \u00b7 TraitMech \u00b7 CMMMech Network Graph\n\nIdentifiers & Classification\nSystem\tIdentifier\tLabel\nIMA\tIMA:1962-004\t",
@@ -1715,7 +1735,7 @@
           "h1": "Copper Element Critical Material",
           "theme": null,
           "savedTheme": null,
-          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (698 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest 6a9b35ddc871)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
+          "footer": "CMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (703 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-09 \u00b7 corpus digest f2a56c7f5564)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects",
           "statuses": [],
           "text_sha256": "43b940ab58b109e62f57371529074ed8b06f9a82af3aa2da09595936ada04b76",
           "text_excerpt": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCMMMech > Element > Copper\nSearch\nCopper Element Critical Material\n\nCopper is the element Cu, grounded by the ChEBI copper-atom identifier. The United States 2025 designation names the copper commodity; it does not designate every copper-bearing mineral or waste. Experimental copper released from chalcopyrite concentrate is distinct from elemental copper metal and from a recovered, purified product.\n\nExplore across X-Mech: MediaIngredientMech \u00b7 CultureMech \u00b7 CommunityMech \u00b7 HabitatMech \u00b7 TraitMech \u00b7 CMMMech Network Graph\n\nIdentifiers & Classification\nSystem\tIdentifier\tLabel\nCHEBI\tCHEBI:28694\tcopper atom\nCriticality Designations\nJurisdiction\tList Name\tEdition / Document\tClassification\tSource\nUnited States of America\tU.S. Department of the Interior Final List of Critical Minerals\t2025 (published November 7, 2",
@@ -1727,44 +1747,44 @@
         "search:CHEBI:27638": [
           {
             "id": "record-count",
-            "text": "1 of 698 materials shown"
+            "text": "1 of 703 materials shown"
           }
         ],
         "search:cmmmech:copper": [
           {
             "id": "record-count",
-            "text": "1 of 698 materials shown"
+            "text": "1 of 703 materials shown"
           }
         ],
         "search:Cobalt": [
           {
             "id": "record-count",
-            "text": "23 of 698 materials shown"
+            "text": "23 of 703 materials shown"
           }
         ],
         "search:no-such-material-20261109": [
           {
             "id": "record-count",
-            "text": "0 of 698 materials shown"
+            "text": "0 of 703 materials shown"
           }
         ],
         "facet:element": [
           {
             "id": "record-count",
-            "text": "66 of 698 materials shown"
+            "text": "66 of 703 materials shown"
           }
         ],
         "facet:element+bioleaching": [
           {
             "id": "record-count",
-            "text": "15 of 698 materials shown"
+            "text": "15 of 703 materials shown"
           }
         ]
       }
     },
     "AIMech": {
       "pin": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
-      "prior_deployed_revision": "0d2eea9863af2f88908cb9cc8a5ecec0d86263aa",
+      "prior_deployed_revision": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
       "deployment_before": {
         "id": 7647959891,
         "sha": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
@@ -1774,7 +1794,7 @@
         "environment_url": "https://culturebotai.github.io/AIMech/",
         "site_url": "https://culturebotai.github.io/AIMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 05:47:31 GMT",
+        "last_modified": "Mon, 09 Nov 2026 05:47:22 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
@@ -1788,7 +1808,7 @@
         "environment_url": "https://culturebotai.github.io/AIMech/",
         "site_url": "https://culturebotai.github.io/AIMech/pages/index.html",
         "http_status": 200,
-        "last_modified": "Mon, 09 Nov 2026 05:47:31 GMT",
+        "last_modified": "Mon, 09 Nov 2026 05:47:22 GMT",
         "served_not_older_than_request": true,
         "verified": true,
         "preserve_prior_deployed_revision": false
@@ -1870,7 +1890,9 @@
           "footer": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-11-04 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
           "statuses": [],
           "text_sha256": "23bb7514016837192c075cf8d9dd0b58c35d25b40634fe5c8bf5c74452691ac0",
-          "text_excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nCurated\n/\nAlgorithms\n/\nAdam\nSearch\nAdam\nAlgorithms\nAIMech:Adam\nDRAFT\nAliases: Adaptive moment estimation\nStochastic gradient optimization using bias-corrected exponential estimates of first and second gradient moments to scale parameter updates.\nIDENTITY NOTES & CONCEPT SCOPE\nAdam specifies adaptive moment-based updates; the local SGD concept does not require these estimates. It is an optimizer, not a training task or a trained model.\nClaims & Grounded Evidence\n2 Claims\nMechanism\n#mechanism\nThe update divides the bias-corrected first moment by the square root of the bias-corrected second raw moment plus a numerical stabilizer.\nsupports\nSource: Adam: A Method for Stochastic Optimization\n\u00b7 Locator: Section 2 and Algorithm 1, PDF/printed p. 2\nLimitation\n#convergence-counterexample\nIn the paper's"
+          "text_excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nCurated\n/\nAlgorithms\n/\nAdam\nSearch\nAdam\nAlgorithms\nAIMech:Adam\nDRAFT\nAliases: Adaptive moment estimation\nStochastic gradient optimization using bias-corrected exponential estimates of first and second gradient moments to scale parameter updates.\nIDENTITY NOTES & CONCEPT SCOPE\nAdam specifies adaptive moment-based updates; the local SGD concept does not require these estimates. It is an optimizer, not a training task or a trained model.\nClaims & Grounded Evidence\n2 Claims\nMechanism\n#mechanism\nThe update divides the bias-corrected first moment by the square root of the bias-corrected second raw moment plus a numerical stabilizer.\nsupports\nSource: Adam: A Method for Stochastic Optimization\n\u00b7 Locator: Section 2 and Algorithm 1, PDF/printed p. 2\nLimitation\n#convergence-counterexample\nIn the paper's",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html": {
           "url": "https://culturebotai.github.io/AIMech/pages/curated/KernelPCA.html",
@@ -1882,7 +1904,9 @@
           "footer": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-11-04 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
           "statuses": [],
           "text_sha256": "48b06061dc4c5be3f00615d4ee8d71dfd4c64601452b3454fd969e00207991a9",
-          "text_excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nCurated\n/\nAlgorithms\n/\nKernel Principal Component Analysis\nSearch\nKernel Principal Component Analysis\nAlgorithms\nAIMech:KernelPCA\nDRAFT\nAliases: Kernel PCA, KPCA\nA spectral feature-extraction algorithm that performs principal component analysis on centered implicit feature vectors by eigendecomposing a positive-semidefinite kernel Gram matrix and evaluating new-point coordinates through kernel expansions.\nIDENTITY NOTES & CONCEPT SCOPE\nThe Sch\u00f6lkopf-Smola-M\u00fcller kernel eigenvalue construction generalizes ordinary PCA to a kernel-defined feature space. It includes linear PCA as a special case but is not the identity of ordinary input-space PCA, an SVM classifier, a dot-product KernelLayer, Isomap, LLE or Diffusion Maps. A trained embedding, chosen kernel and preimage approximation are not sepa"
+          "text_excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nCurated\n/\nAlgorithms\n/\nKernel Principal Component Analysis\nSearch\nKernel Principal Component Analysis\nAlgorithms\nAIMech:KernelPCA\nDRAFT\nAliases: Kernel PCA, KPCA\nA spectral feature-extraction algorithm that performs principal component analysis on centered implicit feature vectors by eigendecomposing a positive-semidefinite kernel Gram matrix and evaluating new-point coordinates through kernel expansions.\nIDENTITY NOTES & CONCEPT SCOPE\nThe Sch\u00f6lkopf-Smola-M\u00fcller kernel eigenvalue construction generalizes ordinary PCA to a kernel-defined feature space. It includes linear PCA as a special case but is not the identity of ordinary input-space PCA, an SVM classifier, a dot-product KernelLayer, Isomap, LLE or Diffusion Maps. A trained embedding, chosen kernel and preimage approximation are not sepa",
+          "resized_390": 390,
+          "fresh_390": 390
         },
         "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html": {
           "url": "https://culturebotai.github.io/AIMech/pages/aio/TrainingStrategy.html",
@@ -1894,7 +1918,9 @@
           "footer": "AIMech \u00b7 Artificial Intelligence Ontology Grounding & Curated Claim Evidence \u00b7 data: index.json \u00b7 corpus_map.json \u00b7 LinkML schema \u00b7 CC BY 4.0 / BSD-3-Clause \u00b7 code: BSD-3-Clause \u00b7 generated by scripts/render_pages.py \u00b7 snapshot 2026-11-04 (de5b593fee12)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nberkeleybop/artificial-intelligence-ontology \u00b7 kg-microbe \u00b7 All Mech projects",
           "statuses": [],
           "text_sha256": "ba123a07b7740693a3d3afa49eddc6fb0fdd99dbcf8358ab30fbdc4426fdae30",
-          "text_excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nAIO Classes\n/\nTrainingStrategy\n/\nTrainingStrategy\nSearch\nTrainingStrategy\nTrainingStrategy\nAIO:TrainingStrategy\nNOT_REVIEWED\nA preprocessing used to train machine learning models including techniques such as supervised learning unsupervised learning reinforcement learning and transfer learning aimed at optimizing model performance.\nOntology IRI: https://w3id.org/aio/TrainingStrategy\nOntology Structure & Relationships\nPARENT CLASSES\nowl:Thing\nBRANCHES\nTrainingStrategy\nAnnotations & Sources\nSynonyms:\nInstructional Methods exact\nLearning Techniques exact\nSubsets:\nhttps://w3id.org/aio/TrainingStrategySubset\nCurated AIMech Concepts Grounded to this Class\n50 Concepts\nCurated Concept\tKind\tMapping Relation\tRationale\nAMSGrad\nAIMech:AMSGrad\n\tAlgorithms\trelated_match\tAn optimizer can implement parameter"
+          "text_excerpt": "AIMech\nAI\nHome\nBrowse\nText map\nNetwork graph\nCurated\nAIO Classes\nAll Mech projects\nGitHub\nHome\n/\nAIO Classes\n/\nTrainingStrategy\n/\nTrainingStrategy\nSearch\nTrainingStrategy\nTrainingStrategy\nAIO:TrainingStrategy\nNOT_REVIEWED\nA preprocessing used to train machine learning models including techniques such as supervised learning unsupervised learning reinforcement learning and transfer learning aimed at optimizing model performance.\nOntology IRI: https://w3id.org/aio/TrainingStrategy\nOntology Structure & Relationships\nPARENT CLASSES\nowl:Thing\nBRANCHES\nTrainingStrategy\nAnnotations & Sources\nSynonyms:\nInstructional Methods exact\nLearning Techniques exact\nSubsets:\nhttps://w3id.org/aio/TrainingStrategySubset\nCurated AIMech Concepts Grounded to this Class\n50 Concepts\nCurated Concept\tKind\tMapping Relation\tRationale\nAMSGrad\nAIMech:AMSGrad\n\tAlgorithms\trelated_match\tAn optimizer can implement parameter",
+          "resized_390": 412,
+          "fresh_390": 412
         }
       },
       "actions": {
@@ -1904,5 +1930,5 @@
       }
     }
   },
-  "finished_at_utc": "2026-11-09T13:02:30.601570+00:00"
+  "finished_at_utc": "2026-11-09T17:37:46.823996+00:00"
 }

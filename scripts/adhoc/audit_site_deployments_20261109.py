@@ -260,8 +260,8 @@ def main() -> None:
             page = ctx.new_page()
             pages_out = {}
             actions_out = {}
-            for idx, url in enumerate(routes_by_mech[mech]):
-                pages_out[url] = visit_page(browser, ctx, page, url, check_390=(idx < 4 or "materials/" in url or "map.html" in url))
+            for url in routes_by_mech[mech]:
+                pages_out[url] = visit_page(browser, ctx, page, url, check_390=True)
 
             if mech == "AntibioticMech":
                 page.goto("https://culturebotai.github.io/AntibioticMech/pages/browse.html", wait_until="networkidle")

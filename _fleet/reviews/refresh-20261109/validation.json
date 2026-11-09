@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-11-09T13:12:03.876673+00:00",
+  "started_at_utc": "2026-11-09T17:42:05.837176+00:00",
   "snapshot": "$SNAP/xmech-refresh-20261109",
   "commands": {
     "unit-tests": {
@@ -14,7 +14,7 @@
       ],
       "exit_code": 0,
       "log": "$LOGS/validation-logs/unit-tests.log",
-      "log_sha256": "fbb814e670096b6dc07d37982ae1dc079c764c23d9498d0ff16d715b50fe3526",
+      "log_sha256": "a426f30347c27c7bf5af2efa45dfd6c354e1cc6cc5bf5eefd2238b79e80f6cf4",
       "tail": [
         "test_an_unconfirmed_first_deployment_is_not_claimed_as_a_new_site (test_suite_updates.SuiteUpdateTests.test_an_unconfirmed_first_deployment_is_not_claimed_as_a_new_site) ... ok",
         "test_every_failed_or_malformed_answer_is_not_checked (test_suite_updates.SuiteUpdateTests.test_every_failed_or_malformed_answer_is_not_checked) ... ok",
@@ -31,7 +31,7 @@
         "test_unsuccessful_deployment_requests_are_not_claimed_as_served (test_suite_updates.SuiteUpdateTests.test_unsuccessful_deployment_requests_are_not_claimed_as_served) ... ok",
         "",
         "----------------------------------------------------------------------",
-        "Ran 252 tests in 6.604s",
+        "Ran 252 tests in 7.061s",
         "",
         "OK"
       ]
@@ -71,11 +71,11 @@
       ],
       "exit_code": 0,
       "log": "$LOGS/validation-logs/cards.log",
-      "log_sha256": "a69996784ecd7852476b83e9111535dbe621799caefb1fb018587ce65adc6545",
+      "log_sha256": "a717fc6e96df9ee5a5b55b1016f81759460ca84d3c5725ada9b153a949fde743",
       "tail": [
         "  ok        AIMech                   1,929",
         "  ok        AntibioticMech           3,125",
-        "  ok        CMMMech                    698",
+        "  grew      CMMMech              card 698, site 703 (+5 in the 5 hours since the pin)",
         "  ok        CellStructureMech        1,022",
         "  ok        CommunityMech              511",
         "  ok        CultureMech              6,325",
@@ -88,7 +88,8 @@
         "  ok        TaxonMech              626,048",
         "  ok        TraitMech                1,130",
         "",
-        "14 ok."
+        "1 grew, 13 ok.",
+        "Passing with warnings; see above."
       ]
     },
     "updates": {
@@ -98,18 +99,18 @@
       ],
       "exit_code": 0,
       "log": "$LOGS/validation-logs/updates.log",
-      "log_sha256": "2f888ba23e44e1618bfa549c70a8ae543d7a873721881d1cd3ba425abdaaf4e0",
+      "log_sha256": "a4bf5606528e90de17a9c297124df47b529b6a3bc74a782bb1146e57e35263ed",
       "tail": [
         "## Website feature table (baseline audit: 2026-11-09)",
         "",
         "- same AIMech (audit date: 2026-11-09): still serves 78dcdfa",
-        "- same AntibioticMech (audit date: 2026-11-09): still serves defe411",
-        "- same CMMMech (audit date: 2026-11-09): still serves 93349cd",
+        "- NOT CHECKED AntibioticMech (audit date: 2026-11-09): latest deployment is failure; currently served revision not verified",
+        "- same CMMMech (audit date: 2026-11-09): still serves 7449fa9",
         "- same CellStructureMech (audit date: 2026-11-09): still serves 6e0cbc2",
         "- same CommunityMech (audit date: 2026-11-09): still serves bf8e862",
-        "- same CultureMech (audit date: 2026-11-09): still serves 09f9088",
+        "- same CultureMech (audit date: 2026-11-09): still serves 2c9ac2a",
         "- same DUFMech (audit date: 2026-11-09): still serves de2fdf9",
-        "- same HabitatMech (audit date: 2026-11-09): still serves fed6696",
+        "- same HabitatMech (audit date: 2026-11-09): still serves 19d3ccb",
         "- same MediaIngredientMech (audit date: 2026-11-09): still serves e1f6497",
         "- same NaturalProductMech (audit date: 2026-11-09): still serves 001dcd3",
         "- same PathwayMech (audit date: 2026-11-09): still serves 3a407d2",
@@ -117,7 +118,7 @@
         "- NOT CHECKED TaxonMech (audit date: 2026-11-09): latest deployment is failure; currently served revision not verified",
         "- same TraitMech (audit date: 2026-11-09): still serves 69d6c88",
         "",
-        "**GitHub Pages:** current: Pages serves main (59ff865, built 2026-11-09T07:13:42Z). **Refresh would change:** nothing found. **Not checked:** site deployment TaxonMech."
+        "**GitHub Pages:** current: Pages serves main (59ff865, built 2026-11-09T07:13:42Z). **Refresh would change:** repositories: CMMMech, HabitatMech; cards: CMMMech (grew). **Not checked:** site deployment AntibioticMech, site deployment TaxonMech."
       ]
     },
     "diff-whitespace": {
@@ -141,11 +142,11 @@
     "_fleet/data/mech_stats.json": "e2d334310a5fca1db2c87e779505f9b125f11062cb13d171e2b7dccaec96424e",
     "_fleet/data/prefix_census.json": "d67515127ebd71dc42efbd21dca06270732a74faa7b0cff225e9c5cf97ce6425",
     "_fleet/data/recent_terms.json": "65e16d71f4515b3fceb577d8373eac6cf17c20941a00fb6830e83a3cf3c41866",
-    "_fleet/data/site_audit.json": "e3d54543bb2dba0733d08632dc83e866dc5d46317fb79f528a49525d25793996",
-    "_fleet/data/site_features.json": "6314a6cb6fe1868a1b842a6e63083edafe22a5966cbcac277e88f5bda1a0b2e7",
+    "_fleet/data/site_audit.json": "36b2dbfe897e1ab2357145d70dae36bf188b117fdabdfba96a594d17f0dba9c7",
+    "_fleet/data/site_features.json": "13ef52e453f70b001e952c49d4bd93c15f5cb0960dd519fa347b1ef39df920ea",
     "_fleet/data/subsets_summary.json": "ae3154106d7ef616cc0e1941ff01cab2da34d95c7eef01b303a439d320306910",
     "_fleet/fleet_fragment.html": "7320abf8e401eae58190b8ee9955f938378f6b76a7bf17be0708c43567d34d0d",
-    "_fleet/mechs_template.md": "93d48a8045ab0e4e125ce8b7709b86a8e35e8e19a1fe3aea3072849e32aa1b26",
+    "_fleet/mechs_template.md": "318be16979610c85136198db4a956453a54384905957fdec8f5ce3dbcb804312",
     "assets/fleet/cells/AIMech--AIO.json": "af1b9d3600bf8c89b9e8c283e99ac5f651ea558bb75e8c97d2ec057ca113811b",
     "assets/fleet/cells/AIMech--BFO.json": "1775193407143ec253512ad3b631df2e944b906ea8c01513bb5733581316e5c3",
     "assets/fleet/cells/AIMech--DOI.json": "6230872816c739009cdb9f3b64cfffd238f205780f819691c12503c747f19dad",
@@ -625,7 +626,7 @@
     "assets/fleet/edges/TraitMech--PathwayMech.json": "d0dd351989389ef2080a8ee5c5f002fc213674fd98d538c82d42d28643644f61",
     "assets/fleet/edges/TraitMech--ProteinTraitsMech.json": "d7de09dfc9dc16725bfb3002f1131bc56087caac192645d2e2c90ccfef6319d2",
     "assets/fleet/edges/TraitMech--TaxonMech.json": "44f36017f71768870dd2b313e6ff1f43498033256a4fa47c10939ea25de457c6",
-    "mechs.md": "bee216a25f3104bd8ac37ac613e576e8161a7a64f711ae451eaaaeeab99abf0d"
+    "mechs.md": "ad07438d856fe1fd8bdcb2b8e4911e3d6b035b6e394fdd5db516e61667c5ef64"
   },
-  "completed_at_utc": "2026-11-09T13:13:19.580219+00:00"
+  "completed_at_utc": "2026-11-09T17:43:16.023123+00:00"
 }

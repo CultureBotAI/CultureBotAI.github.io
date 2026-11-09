@@ -11,7 +11,7 @@ permalink: /communitymech/
 
 **CommunityMech** is an autonomous knowledge factory for microbial community composition, ecological interactions, cultivation conditions, environments, and supporting evidence, with human oversight. Canonical YAML records feed schema validation, static browsing, and graph exports. [Repository overview](https://github.com/CultureBotAI/CommunityMech/blob/686618cc71b4c4c73fb5b595d27e91a7d200fa58/README.md).
 
-The repository contains **515 community records** and **nine additional isolate records**. The published browser lists **511 communities across 16 categories**, matching the landing page checked on November 9, 2026. Its landing page also advertises **512-dimensional v3 embeddings**; the embedding views are separate derived artifacts and can cover a different set of records from the current browser. [Published site](https://culturebotai.github.io/CommunityMech/).
+The repository contains **511 community records** and **eighteen additional isolate records**. The published browser lists **511 communities across 16 categories**, matching the landing page checked on November 9, 2026. Its landing page also advertises **512-dimensional v3 embeddings**; the embedding views are separate derived artifacts and can cover a different set of records from the current browser. [Published site](https://culturebotai.github.io/CommunityMech/).
 
 ## Explore the Published Site
 

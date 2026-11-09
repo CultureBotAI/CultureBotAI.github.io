@@ -23,6 +23,9 @@ def main():
     auxiliary = json.loads((evidence / 'hand-claims-auxiliary.json').read_text())
     assert secondary['PathwayMech']['counts']['source_assertions'] == 22178
     assert secondary['PathwayMech']['counts']['quoted_evidence_items'] == 884
+    assert secondary['HabitatMech']['counts']['attested_by_at_least_2_sources'] == 175
+    assert secondary['AntibioticMech']['counts']['minted_ids'] == 343
+    assert secondary['AntibioticMech']['counts']['grounded_ids'] == 2782
     assert links['NaturalProductMech']['related_record_counts']['AntibioticMech'] == 213
     assert links['HabitatMech']['trait_nodes'] == {'nodes': 9}
     assert links['MediaIngredientMech']['related_record_counts']['communitymech-unmapped'] == 18

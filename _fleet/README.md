@@ -463,11 +463,11 @@ REVIEWED-bearing status still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All fourteen repositories
 participate in statistics collection.
 
-The CLAW governance snapshot at e539df0 declares all fourteen members, 26
-governed artifacts and 28 capabilities, including record-review declarations.
-The added evidence-reference validation contract is enabled for MediaIngredientMech,
-CellStructureMech and HabitatMech; the other eleven members record explicit reasons
-for leaving it disabled.
+The CLAW governance snapshot at e539df0 declares 15 members (fourteen corpus
+Mechs plus EdgeMech curation infrastructure), 26 governed artifacts and 28 capabilities,
+including record-review declarations. The added evidence-reference validation contract is
+enabled for MediaIngredientMech, CellStructureMech and HabitatMech; the other twelve
+members record explicit reasons for leaving it disabled.
 The capability table preserves CLAW's full
 catalogue and recorded reasons. Capability adoption does not establish that all
 CLAW workflows execute unattended.
