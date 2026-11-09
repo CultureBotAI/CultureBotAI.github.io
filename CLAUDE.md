@@ -79,8 +79,8 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 The suite has fourteen corpus Mechs, all under https://github.com/CultureBotAI,
 plus the orchestrator `culturebotai-claw` and separately declared infrastructure.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
-and the November 8, 2026 refresh pins `culturebotai-claw` at
-`0ca25b8ee68d1fbccb4d05dcc2002fa8a64c0c34`. Its checked scope is in
+and the November 9, 2026 refresh pins `culturebotai-claw` at
+`e539df04bc92364727c2f22c46fe7ecbac3ce116`. Its checked scope is in
 `_fleet/infrastructure.json`: no scientific corpus or Pages browser enters this
 audit, and it does not contribute a corpus count, pin or historical PR total.
 Infrastructure gets a repository description and canonical capability
@@ -162,8 +162,8 @@ Sources, refreshed differently:
   date and other sites unchanged. Schema-documentation prose reflects the
   website verdict, never an inference about whether a repository has a schema.
 
-The November 8, 2026 refresh pins all fourteen Mechs, with a common acquisition
-bound of 2026-11-08 20:35 UTC. All participate in the census, overlap assets and
+The November 9, 2026 refresh pins all fourteen Mechs, with a common acquisition
+bound of 2026-11-09 12:41 UTC. All participate in the census, overlap assets and
 repository statistics, including PathwayMech's 282 records, DUFMech's 8,296
 seed families, CMMMech's 698 material records and AIMech's 1,929 concepts.
 TraitMech has 1,130 records and CellStructureMech 1,022 at those pins. TaxonMech joined the census in

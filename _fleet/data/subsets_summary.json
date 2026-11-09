@@ -1,19 +1,19 @@
 {
  "_revisions": {
-  "HabitatMech": "8e2744f4c33769669e5e9a66a4ae9e27a9642590",
-  "CommunityMech": "cafbbc8cf1c146901ba4941042b391eaac011aea",
-  "TraitMech": "0c20b4c82a8b5ae4a883cbc536abfd6fdca6380a",
-  "PathwayMech": "9584009d49579267233124f4a1057b9425a007d9",
-  "CellStructureMech": "3b1731a6325fa3117e40c70b7753ea9cfd737c00",
+  "HabitatMech": "fed66962a4c3f39f6d1514fd80c6841b2bfa9e12",
+  "CommunityMech": "686618cc71b4c4c73fb5b595d27e91a7d200fa58",
+  "TraitMech": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
+  "PathwayMech": "3a407d22ff5d578869af286a42b13be7d9dcf67a",
+  "CellStructureMech": "6e0cbc219a1a600680373f141efb92f221c02493",
   "ProteinTraitsMech": "8d08b33cfbee1e9d1c2fdb2211b82b49dd0c8b1f",
   "DUFMech": "de2fdf959acb5e7a1cb1e4139e6936f4ffdf5498",
-  "NaturalProductMech": "18ca5dd6b9023670f10355084b45a8757a7a4e9e",
-  "AntibioticMech": "9d3d0205b298bbb5ef04218fb8245ccb4e471ca7",
-  "CMMMech": "8287b17e542ab6626a69e50787f798a417ce4f4a",
-  "MediaIngredientMech": "0dac278466699129a083343a921c2e0ca18a9ab4",
-  "CultureMech": "199cd9191881e8e929cd95ea0ed13aabe388e58c",
-  "TaxonMech": "af17bce5e92041f70a09950de5cdfdb92c986441",
-  "AIMech": "0d2eea9863af2f88908cb9cc8a5ecec0d86263aa"
+  "NaturalProductMech": "001dcd3f712b5e53c7bf7baaf3311aab503579df",
+  "AntibioticMech": "defe41100737cee8dc1e4722a2930e9752e6bee8",
+  "CMMMech": "93349cda911887c28694c29df5ef69a865da7a0f",
+  "MediaIngredientMech": "e522df1c9aa57cf4cab3d708998061618472f625",
+  "CultureMech": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
+  "TaxonMech": "f8fb450426f2a3713ab45e163ece521635bc4012",
+  "AIMech": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0"
  },
  "edges": {
   "HabitatMech|CommunityMech": {
@@ -149,9 +149,9 @@
    ]
   },
   "HabitatMech|AntibioticMech": {
-   "n": 52,
+   "n": 54,
    "by": {
-    "NCBITaxon": 52
+    "NCBITaxon": 54
    },
    "ex": [
     {
@@ -366,10 +366,10 @@
    ]
   },
   "CommunityMech|AntibioticMech": {
-   "n": 80,
+   "n": 82,
    "by": {
     "CHEBI": 45,
-    "NCBITaxon": 34,
+    "NCBITaxon": 36,
     "GO": 1
    },
    "ex": [
@@ -388,11 +388,11 @@
    ]
   },
   "CommunityMech|CMMMech": {
-   "n": 64,
+   "n": 66,
    "by": {
     "NCBITaxon": 53,
     "CHEBI": 8,
-    "GO": 3
+    "GO": 5
    },
    "ex": [
     {
@@ -601,10 +601,10 @@
    ]
   },
   "TraitMech|CMMMech": {
-   "n": 54,
+   "n": 55,
    "by": {
     "NCBITaxon": 31,
-    "GO": 14,
+    "GO": 15,
     "UniProt": 7,
     "InterPro": 2
    },
@@ -614,12 +614,12 @@
      "label": "Acidithiobacillus ferrooxidans"
     },
     {
-     "id": "GO:0009061",
-     "label": "anaerobic respiration"
-    },
-    {
      "id": "NCBITaxon:211586",
      "label": "Shewanella oneidensis MR-1"
+    },
+    {
+     "id": "GO:0009061",
+     "label": "anaerobic respiration"
     }
    ]
   },
@@ -783,20 +783,20 @@
    ]
   },
   "PathwayMech|CMMMech": {
-   "n": 17,
+   "n": 18,
    "by": {
     "NCBITaxon": 10,
-    "GO": 5,
+    "GO": 6,
     "UniProt": 2
    },
    "ex": [
     {
-     "id": "GO:0042597",
-     "label": "periplasmic space"
-    },
-    {
      "id": "GO:0005886",
      "label": "plasma membrane"
+    },
+    {
+     "id": "GO:0042597",
+     "label": "periplasmic space"
     },
     {
      "id": "GO:0005737",
@@ -846,10 +846,10 @@
    ]
   },
   "PathwayMech|TaxonMech": {
-   "n": 115,
+   "n": 116,
    "by": {
     "NCBITaxon": 109,
-    "UniProt": 5,
+    "UniProt": 6,
     "CHEBI": 1
    },
    "ex": [
@@ -927,12 +927,12 @@
    ]
   },
   "CellStructureMech|AntibioticMech": {
-   "n": 54,
+   "n": 56,
    "by": {
-    "NCBITaxon": 28,
+    "NCBITaxon": 29,
     "UniProt": 14,
-    "CHEBI": 6,
-    "GO": 6
+    "GO": 7,
+    "CHEBI": 6
    },
    "ex": [
     {
@@ -950,10 +950,10 @@
    ]
   },
   "CellStructureMech|CMMMech": {
-   "n": 30,
+   "n": 32,
    "by": {
+    "GO": 12,
     "NCBITaxon": 12,
-    "GO": 10,
     "InterPro": 6,
     "CHEBI": 1,
     "UniProt": 1
@@ -1082,14 +1082,14 @@
    ]
   },
   "ProteinTraitsMech|AntibioticMech": {
-   "n": 2700,
+   "n": 2706,
    "by": {
     "ARO": 1732,
     "CHEBI": 605,
     "PDB": 141,
-    "NCBITaxon": 116,
-    "UniProt": 91,
-    "GO": 15
+    "NCBITaxon": 118,
+    "UniProt": 93,
+    "GO": 17
    },
    "ex": [
     {
@@ -1107,13 +1107,13 @@
    ]
   },
   "ProteinTraitsMech|CMMMech": {
-   "n": 480,
+   "n": 512,
    "by": {
-    "InterPro": 218,
-    "Pfam": 73,
+    "InterPro": 233,
+    "Pfam": 80,
     "NCBITaxon": 66,
     "CHEBI": 58,
-    "GO": 43,
+    "GO": 53,
     "UniProt": 22
    },
    "ex": [
@@ -1175,10 +1175,10 @@
    ]
   },
   "ProteinTraitsMech|TaxonMech": {
-   "n": 7478,
+   "n": 7479,
    "by": {
     "NCBITaxon": 7456,
-    "UniProt": 14,
+    "UniProt": 15,
     "GO": 6,
     "CHEBI": 2
    },
@@ -1211,10 +1211,10 @@
    ]
   },
   "NaturalProductMech|AntibioticMech": {
-   "n": 367,
+   "n": 375,
    "by": {
     "CHEBI": 202,
-    "NCBITaxon": 160,
+    "NCBITaxon": 168,
     "UniProt": 5
    },
    "ex": [
@@ -1378,9 +1378,9 @@
    ]
   },
   "AntibioticMech|TaxonMech": {
-   "n": 183,
+   "n": 192,
    "by": {
-    "NCBITaxon": 182,
+    "NCBITaxon": 191,
     "CHEBI": 1
    },
    "ex": [
@@ -1434,8 +1434,8 @@
      "label": "Gluconobacter oxydans"
     },
     {
-     "id": "NCBITaxon:5061",
-     "label": "Aspergillus niger"
+     "id": "NCBITaxon:24",
+     "label": "Shewanella putrefaciens"
     }
    ]
   },
@@ -1507,18 +1507,18 @@
  "cells": {
   "HabitatMech|BTO": 625,
   "HabitatMech|CHEBI": 15,
-  "HabitatMech|ENVO": 1592,
+  "HabitatMech|ENVO": 1594,
   "HabitatMech|FOODON": 90,
   "HabitatMech|GO": 2,
   "HabitatMech|NCBITaxon": 923,
   "HabitatMech|PATO": 4,
   "HabitatMech|UBERON": 778,
   "HabitatMech|UniProt": 39,
-  "CommunityMech|CHEBI": 420,
-  "CommunityMech|ENVO": 500,
+  "CommunityMech|CHEBI": 421,
+  "CommunityMech|ENVO": 501,
   "CommunityMech|GO": 423,
   "CommunityMech|GTDB": 423,
-  "CommunityMech|NCBITaxon": 510,
+  "CommunityMech|NCBITaxon": 511,
   "CommunityMech|UBERON": 10,
   "TraitMech|CHEBI": 220,
   "TraitMech|ENVO": 14,
@@ -1570,18 +1570,18 @@
   "NaturalProductMech|UniProt": 321,
   "AntibioticMech|ARO": 568,
   "AntibioticMech|CAS": 1797,
-  "AntibioticMech|CHEBI": 2980,
-  "AntibioticMech|GO": 44,
+  "AntibioticMech|CHEBI": 3000,
+  "AntibioticMech|GO": 52,
   "AntibioticMech|KEGG": 1154,
-  "AntibioticMech|NCBITaxon": 360,
+  "AntibioticMech|NCBITaxon": 388,
   "AntibioticMech|PDB": 348,
-  "AntibioticMech|UniProt": 168,
+  "AntibioticMech|UniProt": 176,
   "CMMMech|CHEBI": 67,
-  "CMMMech|GO": 28,
-  "CMMMech|InterPro": 169,
+  "CMMMech|GO": 38,
+  "CMMMech|InterPro": 179,
   "CMMMech|NCBITaxon": 284,
-  "CMMMech|Pfam": 169,
-  "CMMMech|UniProt": 169,
+  "CMMMech|Pfam": 179,
+  "CMMMech|UniProt": 179,
   "MediaIngredientMech|BTO": 1,
   "MediaIngredientMech|CAS": 742,
   "MediaIngredientMech|CHEBI": 2237,

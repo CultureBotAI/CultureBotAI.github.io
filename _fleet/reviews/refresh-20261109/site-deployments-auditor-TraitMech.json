@@ -1,0 +1,209 @@
+{
+  "started_at_utc": "2026-11-09T17:33:56.691695+00:00",
+  "reviewer": "central_directory live-site auditor",
+  "mechs": {
+    "TraitMech": {
+      "pin": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
+      "prior_deployed_revision": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
+      "deployment_before": {
+        "id": 7646059495,
+        "sha": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
+        "created_at": "2026-11-09T03:11:30Z",
+        "state": "success",
+        "status_created_at": "2026-11-09T03:37:51Z",
+        "environment_url": "https://culturebotai.github.io/TraitMech/",
+        "site_url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "http_status": 200,
+        "last_modified": "Mon, 09 Nov 2026 03:37:40 GMT",
+        "served_not_older_than_request": true,
+        "verified": true,
+        "preserve_prior_deployed_revision": false
+      },
+      "deployment_after": {
+        "id": 7646059495,
+        "sha": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
+        "created_at": "2026-11-09T03:11:30Z",
+        "state": "success",
+        "status_created_at": "2026-11-09T03:37:51Z",
+        "environment_url": "https://culturebotai.github.io/TraitMech/",
+        "site_url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "http_status": 200,
+        "last_modified": "Mon, 09 Nov 2026 03:37:40 GMT",
+        "served_not_older_than_request": true,
+        "verified": true,
+        "preserve_prior_deployed_revision": false
+      },
+      "pages": {
+        "https://culturebotai.github.io/TraitMech/pages/index.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "TraitMech",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTraitsMech\nkg-microbe\u00b7METPO\u00b7traits.json\u00b7LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nCorpus as of 2026-11-05 08:45 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords\n\nAll Mech projects",
+          "statuses": [],
+          "text_sha256": "035d7b013c42c08a15d13ad532428b08256e236b64badee5918f36bb12c38ed7",
+          "text_excerpt": "Browse\nText map\nSequence map (pLM)\nEmbedding space\nGraph layout\nData JSON\nSchema\nGitHub\nTraitMech\n\nMicrobial ecophysiological trait knowledge base, seeded from METPO and curated incrementally.\n\nSearch\n1130\nTRAIT RECORDS\n10\nCATEGORIES\n100.0%\nEMBEDDED\n\ud83d\udd0e\nBrowse records \u2192\nRecord browser\n\nBrowse traits by category with left-hand facets \u2014 definitions, causal graphs, kg-microbe matches, and nearest neighbors.\n\n\ud83d\uddfa\ufe0f\nText map (1130) \u2192\nSequence map (pLM) \u2192\nExplore embedding (PaCMAP) \u2192\nGraph layout \u2192\nEmbedding browser\n\nInteractive PaCMAP projections of full-corpus BGE-large text embeddings, ESM-2 protein sequence embeddings, and KG-Microbe deepwalk space.\n\n\ud83d\udcbb\nView on GitHub \u2192\nDownload traits.json \u2192\nLinkML schema \u2192\nData, Schema & GitHub\n\nSource code, bulk corpus JSON export, LinkML schema, and the curation workflow.\n\nKG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTrait",
+          "resized_390": 390,
+          "fresh_390": 390
+        },
+        "https://culturebotai.github.io/TraitMech/pages/browse.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/browse.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "Record browser",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nCorpus as of 2026-11-05 08:45 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
+          "statuses": [
+            {
+              "id": "record-count",
+              "text": "1130 of 1130 records shown"
+            }
+          ],
+          "text_sha256": "302ec79449eaa72fdf704c177f0822123e295a3804d14641306096be59902844",
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a Record browser\n\nRecord browser\n\nBrowse 1130 trait records across 10 categories. Each record carries METPO provenance, causal graphs, kg-microbe matches, and nearest neighbors.\n\nAll records\nFILTER RECORDS\nCategory\nAll categories\n1130\nECOLOGY\n40\nENVIRONMENT\n122\nGENOMICS\n387\nMETABOLISM\n180\nMORPHOLOGY\n129\nOBSERVATION\n20\nOTHER\n32\nPHYSIOLOGY\n205\nQUANTITATIVE PROPERTY\n7\nUPPER\n8\nTerm kind\nAll kinds\n1130\nCLASS\n1029\nDATATYPE PROPERTY\n7\nOBJECT PROPERTY\n94\nClear all filters\nSearch records\nCategory\nAll categories\nECOLOGY\nENVIRONMENT\nGENOMICS\nMETABOLISM\nMORPHOLOGY\nOBSERVATION\nOTHER\nPHYSIOLOGY\nQUANTITATIVE_PROPERTY\nUPPER\nKind\nAll kinds\nCLASS\nDATATYPE_PROPERTY\nOBJECT_PROPERTY\nSort by\nLabel (A\u2013Z)\nLabel (Z\u2013A)\nIdentifier (A\u2013Z)\nCategory\nKind\nkg-microbe nodes (high\u2013low)\nSynonyms (high\u2013low",
+          "resized_390": 390,
+          "fresh_390": 390
+        },
+        "https://culturebotai.github.io/TraitMech/pages/umap.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/umap.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "Trait embedding space",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nCorpus as of 2026-11-05 08:45 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
+          "statuses": [
+            {
+              "id": "facet-count",
+              "text": "1,130"
+            },
+            {
+              "id": "visible-count",
+              "text": "1130 visible"
+            },
+            {
+              "id": "map-status",
+              "text": "1130 records loaded."
+            }
+          ],
+          "text_sha256": "1e7fea2d47356c6a10d4e71045a5cb74bddef644197ec0c6ba25c4c5551857e7",
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a Embedding space\n\nTrait embedding space\n\nPaCMAP projection of 1130 METPO trait embeddings from kg-microbe's 2026-04-25 deepwalk (512-D, n_neighbors=15). Hover for label, click to open the trait page.\n\nFILTER POINTS\nCategory\necology\n40\nenvironment\n122\ngenomics\n387\nmetabolism\n180\nmorphology\n129\nobservation\n20\nother\n32\nphysiology\n205\nquantitative_property\n7\nupper\n8\nShowing 1,130 of 1,130 points\nSearch\n1130 visible\n\n1130 records loaded.\n\necology (40)\nenvironment (122)\ngenomics (387)\nmetabolism (180)\nmorphology (129)\nobservation (20)\nother (32)\nphysiology (205)\nquantitative_property (7)\nupper (8)\nView data as table\nKG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data",
+          "resized_390": 390,
+          "fresh_390": 390
+        },
+        "https://culturebotai.github.io/TraitMech/pages/map.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/map.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "Full-corpus text embedding map (BGE-large + PaCMAP)",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nCorpus as of 2026-11-05 08:45 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
+          "statuses": [
+            {
+              "id": "facet-count",
+              "text": "1,130"
+            },
+            {
+              "id": "visible-count",
+              "text": "1130 visible"
+            },
+            {
+              "id": "map-status",
+              "text": "1130 records loaded."
+            }
+          ],
+          "text_sha256": "64fe5006998bc04a0c1c0f2e9b5b7409e5843b823cbac3dd6521eca7679620a3",
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a Text embedding map\n\nFull-corpus text embedding map (BGE-large + PaCMAP)\n\nPaCMAP 2D projection of 1130 TraitMech records embedded with BAAI/bge-large-en-v1.5 (1024-D text embeddings over label, category, definition, synonyms, causal mechanisms, and canonical taxa). Hover for details; click to open the trait page.\n\nFILTER POINTS\nCategory\nECOLOGY\n40\nENVIRONMENT\n122\nGENOMICS\n387\nMETABOLISM\n180\nMORPHOLOGY\n129\nOBSERVATION\n20\nOTHER\n32\nPHYSIOLOGY\n205\nQUANTITATIVE_PROPERTY\n7\nUPPER\n8\nTerm kind\nCLASS\n1,029\nDATATYPE_PROPERTY\n7\nOBJECT_PROPERTY\n94\nShowing 1,130 of 1,130 traits\nSearch\n1130 visible\n\n1130 records loaded.\n\nView data as table\nKG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML sche",
+          "resized_390": 793,
+          "fresh_390": 553
+        },
+        "https://culturebotai.github.io/TraitMech/pages/sequence-map.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/sequence-map.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "Protein sequence embedding map (ESM-2 pLM + PaCMAP)",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nCorpus as of 2026-11-05 08:45 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
+          "statuses": [
+            {
+              "id": "facet-count",
+              "text": "156"
+            },
+            {
+              "id": "visible-count",
+              "text": "156 visible"
+            },
+            {
+              "id": "map-status",
+              "text": "156 proteins loaded."
+            }
+          ],
+          "text_sha256": "a4cdacd188d259be735e1b492c6ddc45b594cd41782a5a8fded31376644075a3",
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a Protein sequence map (pLM)\n\nProtein sequence embedding map (ESM-2 pLM + PaCMAP)\n\nPaCMAP 2D projection of 156 curated UniProtKB protein examples across TraitMech causal graphs, embedded with the evolutionary protein language model facebook/esm2_t33_650M_UR50D (1,280-D mean-pooled residue representations). Hover to inspect protein and organism; click to open the trait record.\n\nFILTER PROTEINS\nTrait category\nECOLOGY\n2\nENVIRONMENT\n10\nGENOMICS\n9\nMETABOLISM\n56\nMORPHOLOGY\n36\nPHYSIOLOGY\n43\nShowing 156 of 156 proteins\nSearch\n156 visible\n\n156 proteins loaded.\n\nView protein embeddings as table\nKG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-C",
+          "resized_390": 793,
+          "fresh_390": 553
+        },
+        "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/traits/ecology/animal_pathogen.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "animal pathogen",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nRecord as of 2026-08-26 03:23 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
+          "statuses": [],
+          "text_sha256": "b594c955dc22e525189615296c355b296c1204f193130a5a00fe5d67c1113ef7",
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a ECOLOGY\n\nSearch\nanimal pathogen\n\nMETPO:1004002 \u00b7 CLASS \u00b7 REVIEWED\n\nA pathogen that infects organisms in the kingdom Metazoa.\n\nTrait evidence (2)\nDOI:10.1146/annurev.micro.62.081307.162938\nvirulence factors\n\nVirulence-factor review supports adaptation of bacterial virulence programs to animal hosts.\n\nDOI:10.1038/nrmicro1592\nsecretion systems\n\nSecretion-systems review supports T3SS/T6SS effector delivery as a major mechanism by which bacteria infect animal hosts.\n\nAnimal-pathogen metazoan host adaptation\n\nDOI-backed graph linking metazoan-adapted virulence factors, immune-evasion strategies, and animal-tissue colonization to the animal-pathogen phenotype.\n\nNONMECHANISTIC \u00b7 This broad ecological, host-relationship, habitat, or hazard classification spans multiple taxa an",
+          "resized_390": 390,
+          "fresh_390": 390
+        },
+        "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html": {
+          "url": "https://culturebotai.github.io/TraitMech/pages/traits/metabolism/wood_ljungdahl_pathway.html",
+          "http_status": 200,
+          "desktop_width": 1280,
+          "h1": "Wood-Ljungdahl pathway",
+          "theme": null,
+          "savedTheme": null,
+          "footer": "KG-Microbe Mechs: CultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech\nkg-microbe \u00b7 METPO \u00b7 traits.json \u00b7 LinkML schema\nProject data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 third-party source terms apply\nRecord as of 2026-10-23 16:05 UTC \u00b7 Ontology baseline: METPO 2026-06-12 \u00b7 1130 TraitRecords \u00b7 embedding coverage 100.0% (kg-microbe deepwalk 512-D, 2026-04-25)\n\nAll Mech projects",
+          "statuses": [],
+          "text_sha256": "71a3176b839fe1c117493fee600e827189a2f90dc20120a516515f6423d08a17",
+          "text_excerpt": "TraitMech\nHome Browse Text map Sequence map (pLM) Embedding space Graph layout Data JSON Schema GitHub METPO\n\nTraitMech \u203a METABOLISM\n\nSearch\nWood-Ljungdahl pathway\n\ntraitmech:000022 \u00b7 CLASS \u00b7 REVIEWED\n\nAn autotrophic carbon-fixation pathway (the reductive acetyl-CoA pathway) in which two molecules of CO2 are reduced and combined into acetyl-CoA. It is energetically efficient and used by acetogenic bacteria, methanogenic archaea, and some sulfate-reducing bacteria.\n\nTrait evidence (2)\nDOI:10.1016/j.bbapap.2008.08.012\nuse the reductive acetyl-CoA or Wood-Ljungdahl pathway as their main mechanism for energy conservation and for synthesis of acetyl-CoA and cell carbon from CO2\n\nRagsdale & Pierce (2008) review the enzymology and bioenergetics of the Wood\u2013Ljungdahl pathway.\n\nDOI:10.1128/AEM.02473-10\n\nBerg review places the reductive acetyl-CoA (Wood-Ljungdahl) pathway among the recognized auto",
+          "resized_390": 390,
+          "fresh_390": 390
+        }
+      },
+      "actions": {
+        "search:METPO:1004002": [
+          {
+            "id": "record-count",
+            "text": "1 of 1130 records shown"
+          }
+        ],
+        "search:traitmech:000616": [
+          {
+            "id": "record-count",
+            "text": "1 of 1130 records shown"
+          }
+        ],
+        "search:bipolar mating system": [
+          {
+            "id": "record-count",
+            "text": "2 of 1130 records shown"
+          }
+        ],
+        "search:no-such-trait-20261109": [
+          {
+            "id": "record-count",
+            "text": "0 of 1130 records shown"
+          }
+        ]
+      }
+    }
+  },
+  "finished_at_utc": "2026-11-09T17:34:16.917122+00:00"
+}
