@@ -85,6 +85,13 @@ class InfrastructureMembershipTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 infrastructure_markup(changed, self.inputs[1])
 
+    def test_committed_infrastructure_claw_evidence_url_matches_manifest_source(self):
+        manifest_url = self.inputs[1]["source"]["url"]
+        for name, item in self.infrastructure["members"].items():
+            url = item.get("evidence_url", "")
+            if "/culturebotai-claw/blob/" in url and url.endswith("/src/kg_microbe_fleet/fleet.yaml"):
+                self.assertEqual(url, manifest_url, f"{name} evidence_url does not match manifest.json source.url")
+
 
 class WithheldMechExclusionTests(unittest.TestCase):
     """ScaleupMech must stay excluded from public view, pages, and all statistics."""
