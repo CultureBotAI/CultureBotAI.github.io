@@ -60,6 +60,10 @@ def no_request(request, timeout):
 
 class SuiteUpdateTests(unittest.TestCase):
     def setUp(self):
+        public = roots.public_names() | {name for letter in 'abcde' for name in (letter + 'mech', 'culturebotai/' + letter + 'mech')}
+        patcher = mock.patch.object(roots, 'public_names', return_value=public)
+        patcher.start()
+        self.addCleanup(patcher.stop)
         audit = json.loads((ROOT / "_fleet/data/site_audit.json").read_text())
         self.entries = {entry["repo"]: entry for entry in audit["repositories"]}
 

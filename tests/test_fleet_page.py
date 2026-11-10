@@ -12,6 +12,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
@@ -23,6 +24,10 @@ import roots
 
 class FleetPageTests(unittest.TestCase):
     def setUp(self):
+        public = roots.public_names() | {'newmech', 'ghostmech', 'culturebotai/newmech'}
+        patcher = mock.patch.object(roots, 'public_names', return_value=public)
+        patcher.start()
+        self.addCleanup(patcher.stop)
         self.snapshot = json.loads((ROOT / "_fleet/data/manifest.json").read_text())
         self.template = (ROOT / "_fleet/mechs_template.md").read_text()
         self.fragment = (ROOT / "_fleet/fleet_fragment.html").read_text()
@@ -281,15 +286,17 @@ class FleetPageTests(unittest.TestCase):
             def git(*args):
                 return subprocess.check_output(['git', '-C', str(root), *args], text=True, stderr=subprocess.DEVNULL)
             git('init', '-q')
+            git('remote', 'add', 'origin', 'https://github.com/CultureBotAI/culturebotai-claw.git')
             manifest = {'capability_catalogue': self.snapshot['capability_catalogue'], 'mechs': {}}
             for name, entry in self.snapshot['mechs'].items():
                 manifest['mechs'][entry['key']] = dict(entry, display_name=name)
             registry = {'canonical_repository': 'CultureBotAI/culturebotai-claw',
-                        'artifacts': [{}] * self.snapshot['artifact_count']}
+                        'artifacts': [{'consumers': 'all'}] * self.snapshot['artifact_count']}
             for path, data in [(MANIFEST_PATH, manifest), (ARTIFACT_PATH, registry)]:
                 target = root / path
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(json.dumps(data))
+            shutil.copyfile(ROOT / 'tests/fixtures/pinned_fleet_api.py', root / 'src/kg_microbe_fleet/__init__.py')
             git('add', '.')
             git('-c', 'user.name=Test', '-c', 'user.email=test@example.org',
                 '-c', 'commit.gpgsign=false', 'commit', '-qm', 'fixture')
@@ -372,6 +379,7 @@ def census_sandbox():
         shutil.copytree(ROOT / "scripts/fleet", root / "scripts/fleet")
         data = root / "_fleet/data"
         data.mkdir(parents=True)
+        shutil.copyfile(ROOT / '_fleet/data/manifest.json', data / 'manifest.json')
         (root / "empty").mkdir()
         yield root, data, dict(os.environ,
                                PYTHONPATH=str(root / "scripts/fleet"),
@@ -524,12 +532,14 @@ class CensusImportGuardTests(unittest.TestCase):
         # a timeout. The sandbox means the child cannot touch the real tree
         # whatever it does.
         with census_sandbox() as (root, data, environment):
+            membership_before = (data / "manifest.json").read_bytes()
             done = subprocess.run([sys.executable, "-c", "import prefix_census"],
                                   env=environment, timeout=60,
                                   capture_output=True, text=True)
             # Positive evidence, and independent of the exit code: a scan that
             # ran would have left its census here.
-            written = sorted(path.name for path in data.iterdir())
+            written = sorted(path.name for path in data.iterdir() if path.name != "manifest.json")
+            self.assertEqual((data / "manifest.json").read_bytes(), membership_before)
         self.assertEqual(done.returncode, 0,
                          f"importing prefix_census did work:\n{done.stderr}")
         self.assertEqual(written, [], f"importing prefix_census wrote {written}")
@@ -595,6 +605,10 @@ class CardCheckTests(unittest.TestCase):
     def setUp(self):
         import check_cards
         from unittest import mock
+        public = roots.public_names() | {m.lower() for m in self.NAMES} | {'dmech'} | {f'm{i}mech' for i in range(20)}
+        patcher = mock.patch.object(roots, 'public_names', return_value=public)
+        patcher.start()
+        self.addCleanup(patcher.stop)
         self.check_cards = check_cards
         self.real_sources = dict(check_cards.SOURCES)
         self.sources = mock.patch.dict(check_cards.SOURCES, {
@@ -1279,7 +1293,7 @@ class UpdateCheckTests(unittest.TestCase):
 
     def test_a_main_behind_or_diverged_from_its_pin_is_not_at_pin(self):
         # #300
-        row = self.c.drift({"repo": "T", "sha": "a" * 40}, "TraitMech", set(),
+        row = self.c.drift({"repo": "TraitMech", "sha": "a" * 40}, "TraitMech", set(),
                            api=lambda path: {"ahead_by": 0, "behind_by": 3, "status": "behind", "files": []})
         self.assertIn("behind", self.c.verdict(row))
 

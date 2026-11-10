@@ -310,7 +310,7 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     """
     rows = []
     for mech, entry in sorted(features["mechs"].items()):
-        if is_withheld(mech) or (isinstance(entry, dict) and is_withheld(entry.get("repository"))):
+        if is_withheld(mech):
             raise ValueError(f"{mech}: withheld Mech must not appear in website feature table")
         has_site = entry.get("site") is not None
         try:
@@ -318,6 +318,8 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
             if not (isinstance(repository, str) and
                     re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?", repository)):
                 raise ValueError("repository must be a GitHub repository URL")
+            if is_withheld(repository):
+                raise ValueError("withheld repository must not be queried")
             repo = repository.removeprefix("https://github.com/").rstrip("/")
             if has_site and not (isinstance(entry["site"], str) and SITE_URL.fullmatch(entry["site"])):
                 raise ValueError("site must be an https URL in printable ASCII, with no spaces")
