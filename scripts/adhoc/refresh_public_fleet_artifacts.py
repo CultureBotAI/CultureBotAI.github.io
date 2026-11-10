@@ -9,12 +9,14 @@ import argparse
 import json
 import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from contextlib import contextmanager
 
 ROOT = Path(__file__).resolve().parents[2]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--claw-root', type=Path, required=True)
+parser.add_argument('--claw-ref', help='Exact published CLAW commit; defaults to checkout HEAD')
 parser.add_argument('--apply', action='store_true')
 args = parser.parse_args()
 claw = args.claw_root.resolve()
@@ -26,6 +28,7 @@ from kg_microbe_fleet.roots import resolve_culturebotai_site_root
 import roots
 from refresh_manifest import read_canonical, validate
 from assemble_page import assemble
+from membership_audit import refresh_membership_audit
 
 resolved = resolve_culturebotai_site_root(claw_root=claw, environ={'CULTUREBOTAI_SITE_ROOT': str(ROOT)})
 assert resolved == ROOT
@@ -42,7 +45,7 @@ def encoded(document):
 
 
 def prepare():
-    snapshot = read_canonical(claw)
+    snapshot = read_canonical(claw, args.claw_ref)
     revision = snapshot['source']['revision']
     infrastructure = read('_fleet/infrastructure.json')
     for name in ('CofactorMech', 'AssayMech'):
@@ -63,11 +66,9 @@ def prepare():
     )
     audit = read('_fleet/data/site_audit.json')
     date = subprocess.check_output(['git', '-C', str(claw), 'show', '-s', '--format=%cI', revision], text=True).strip()
-    for row in audit['repositories']:
-        if row['repo'] == 'culturebotai-claw':
-            row.update(sha=revision, commit_date=date,
-                       readme_url=f'https://github.com/CultureBotAI/culturebotai-claw/blob/{revision}/README.md',
-                       notes=notes['notes']['culturebotai-claw'])
+    audit, notes = refresh_membership_audit(
+        audit, notes, snapshot, date, datetime.now(timezone.utc).isoformat()
+    )
     # Generate against the candidate public snapshot before promoting any file.
     previous = roots.public_names
     roots.public_names = lambda: frozenset(token.lower() for name, row in snapshot['mechs'].items()

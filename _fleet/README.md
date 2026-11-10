@@ -590,3 +590,9 @@ before validation. The separate nightly check compares with current CLAW main.
 This prevents a manually edited allowlist from adding a member that the pinned
 canonical public projection excludes, without making ordinary site PRs depend
 on unrelated newer fleet revisions.
+
+Membership-only audit refreshes record `membership_checked_at_utc` separately
+from the retained corpus `checked_at_utc` and `pinned_at_utc`. The membership
+observation must not predate the CLAW commit it describes. Saved audit rows
+and note keys are projected through the candidate public membership before
+staging; removed members cannot persist in the retained public JSON.

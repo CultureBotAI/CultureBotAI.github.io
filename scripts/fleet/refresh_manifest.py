@@ -112,7 +112,7 @@ def project(manifest, registry, revision):
     return json.loads(json.dumps(snapshot))
 
 
-def read_canonical(root):
+def read_canonical(root, revision=None):
     def git(*args):
         return subprocess.check_output(["git", "-C", str(root), *args], text=True)
     if Path(git("rev-parse", "--show-toplevel").strip()).resolve() != Path(root).resolve():
@@ -123,7 +123,9 @@ def read_canonical(root):
         urls = git("remote", "get-url", *direction, "--all", "origin").splitlines()
         if not urls or any(url not in allowed for url in urls):
             raise ValueError("CLAW origin must match the canonical authority")
-    revision = git("rev-parse", "HEAD").strip()
+    revision = revision or git("rev-parse", "HEAD").strip()
+    if not isinstance(revision, str) or not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise ValueError("Canonical revision must be an immutable full commit SHA")
     # Read the same immutable commit for both inputs, never dirty checkout files.
     manifest = yaml.safe_load(git("show", f"{revision}:{MANIFEST_PATH}"))
     registry = json.loads(git("show", f"{revision}:{ARTIFACT_PATH}"))

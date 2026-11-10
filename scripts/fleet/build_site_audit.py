@@ -33,6 +33,7 @@ from pathlib import Path
 import check_cards
 from card_markup import card_figures
 from roots import contains_unlisted_mech, is_withheld
+from membership_audit import validate_membership_observation
 
 REPO = Path(__file__).resolve().parents[2]
 AUDIT = REPO / "_fleet/data/site_audit.json"
@@ -234,6 +235,7 @@ def build(pins: dict, notes: dict, template: str, stats: dict, fetch, shower, cl
     serialized = json.dumps(result)
     if contains_unlisted_mech(serialized):
         raise SystemExit("withheld Mech must not appear in public output")
+    validate_membership_observation(result)
     return result
 
 
