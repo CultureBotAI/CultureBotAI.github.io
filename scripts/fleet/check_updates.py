@@ -45,7 +45,7 @@ import urllib.request
 from pathlib import Path
 
 import check_cards
-from roots import EXCLUDE_DIRS, RECORD_GLOBS, SITE_URL
+from roots import EXCLUDE_DIRS, RECORD_GLOBS, SITE_URL, is_withheld
 
 UPDATE_RECORD_GLOBS = RECORD_GLOBS
 
@@ -176,6 +176,8 @@ def classify(mech: str | None, files: list[dict], cited: set[str]) -> dict:
 def drift(entry: dict, mech: str | None, cited: set[str], api=gh) -> dict:
     """How far one repository has moved since its pin, and what the moves touch."""
     repo, pin = entry["repo"], entry["sha"]
+    if is_withheld(repo) or is_withheld(mech):
+        raise ValueError(f"{repo or mech}: withheld Mech must not appear in update check")
     try:
         compare = api(f"repos/CultureBotAI/{repo}/compare/{pin}...main")
     except (Unchecked, ValueError, OSError) as error:  # #289: one repository, not the report
@@ -308,6 +310,8 @@ def site_feature_check(features: dict, api=gh, opener=urllib.request.urlopen) ->
     """
     rows = []
     for mech, entry in sorted(features["mechs"].items()):
+        if is_withheld(mech) or (isinstance(entry, dict) and is_withheld(entry.get("repository"))):
+            raise ValueError(f"{mech}: withheld Mech must not appear in website feature table")
         has_site = entry.get("site") is not None
         try:
             repository = entry.get("repository")

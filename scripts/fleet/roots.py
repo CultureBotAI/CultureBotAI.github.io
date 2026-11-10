@@ -62,6 +62,31 @@ EXCLUDE_DIRS: dict[str, list[str]] = {
     "MediaIngredientMech": ["data/ingredients/mapped/backups/"],
 }
 
+# Private or withheld Mechs excluded from public view, pages, manifest
+# snapshots, and all suite/corpus/PR statistics until further notice.
+WITHHELD_MECHS: tuple[str, ...] = ("ScaleupMech",)
+WITHHELD_KEYS: frozenset[str] = frozenset(m.lower() for m in WITHHELD_MECHS)
+WITHHELD_REPOS: frozenset[str] = frozenset(
+    r for m in WITHHELD_MECHS for r in (m.lower(), f"culturebotai/{m.lower()}")
+)
+
+
+def is_withheld(value: str | None) -> bool:
+    """True when a Mech name, key, repository or URL names a withheld Mech."""
+    if not isinstance(value, str):
+        return False
+    lowered = value.strip().lower()
+    if not lowered:
+        return False
+    return any(
+        re.search(rf"(?<![a-z0-9]){re.escape(key)}(?![a-z0-9])", lowered)
+        for key in WITHHELD_KEYS
+    )
+
+
+if any(is_withheld(name) for name in RECORD_GLOBS):
+    raise RuntimeError("RECORD_GLOBS must not include a withheld Mech")
+
 ORDER = list(RECORD_GLOBS)
 
 # What the vocabulary census counts (#84, decided 2026-09-28): every external
@@ -91,6 +116,8 @@ SITE_URL = re.compile(r"https://[!-~]+")
 
 def mech_root(name: str) -> str:
     """The checkout for one Mech, verified to exist."""
+    if is_withheld(name):
+        raise SystemExit(f"{name}: withheld from public view and statistics.")
     root = os.path.join(MECHS_ROOT, name)
     if not os.path.isdir(root):
         raise SystemExit(

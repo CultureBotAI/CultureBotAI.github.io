@@ -56,6 +56,13 @@ moves for two reasons at once.
   files. Build a snapshot from their object stores instead (step 2), which reads
   them and writes nothing into them.
 - **`mechs.md` is generated.** Edit `_fleet/`, never `mechs.md`.
+- **Withheld Mechs (`roots.WITHHELD_MECHS`).** `ScaleupMech` is withheld from public
+  view until further notice. It must never appear on `/mechs/` or any other site
+  page, in `_fleet/data/*.json` or `_fleet/infrastructure.json`, or contribute to
+  any Mech, record, vocabulary, review, or merged-PR statistics. `refresh_manifest.py`
+  filters `roots.WITHHELD_MECHS` out of the public manifest snapshot automatically,
+  and `assemble_page.py`, `roots.py`, `mech_stats.py`, and `build_site_audit.py`
+  fail closed if a withheld Mech is ever present.
 - **The three numbers** differ legitimately; know which one a figure is before
   changing it. Card figures are *published-site totals*. The census and stats are
   *pinned-checkout counts*. They disagree whenever a Mech's site lags its repo,
