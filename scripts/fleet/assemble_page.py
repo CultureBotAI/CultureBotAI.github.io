@@ -9,7 +9,7 @@ import re
 from card_markup import card_figures, card_names, markup_problems
 from mech_stats import ADDITIONAL_REPOS, GH_REPO
 from refresh_manifest import validate
-from roots import ORDER, SITE_URL
+from roots import ORDER, SITE_URL, WITHHELD_MECHS, is_withheld
 
 REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
@@ -123,6 +123,8 @@ def validate_site_features(features, names):
     if set(features["mechs"]) != set(names):
         raise ValueError("Site features must cover every suite Mech exactly once")
     for name, mech in features["mechs"].items():
+        if is_withheld(name) or is_withheld(mech.get("repository")):
+            raise ValueError(f"{name}: withheld Mech must not appear in site features")
         if "checked_on" in mech or "scope" in mech:
             checked = _audit_date(mech.get("checked_on"), name)
             if checked < baseline:
@@ -362,6 +364,8 @@ def pr_activity(stats):
             or {row["repo"] for row in extra} != set(ADDITIONAL_REPOS)):
         raise ValueError("PR activity must include CLAW and the project website exactly once")
     rows = stats["mechs"] + extra
+    if any(is_withheld(row.get("mech")) or is_withheld(row.get("repo")) for row in rows):
+        raise ValueError("PR activity must not include a withheld Mech")
     if any(row["repo"] != GH_REPO.get(row["mech"], row["mech"]) for row in stats["mechs"]):
         raise ValueError("PR activity repository must match its Mech")
     repos = [row["repo"] for row in rows]
@@ -384,6 +388,9 @@ def validate_recent_terms(recent, names, stats=None):
     mechs = recent.get("mechs")
     if not isinstance(mechs, list):
         raise ValueError("Recent terms must include a list of Mechs")
+    if any(isinstance(e, dict) and (is_withheld(e.get("mech")) or is_withheld(e.get("repo")))
+           for e in list(mechs) + list(recent.get("latest_across_suite") or [])):
+        raise ValueError("Recent terms must not include a withheld Mech")
     by_name = {entry.get("mech"): entry for entry in mechs if isinstance(entry, dict)}
     if len(by_name) != len(mechs) or set(by_name) != set(names):
         raise ValueError("Recent terms must cover every suite Mech exactly once")
@@ -477,6 +484,8 @@ def infrastructure_markup(document, snapshot):
     rows = []
     required = {"repository", "description", "scope_note", "corpus", "site", "checked_on", "evidence_url"}
     for name, item in entries.items():
+        if is_withheld(name) or (isinstance(item, dict) and is_withheld(item.get("repository"))):
+            raise ValueError(f"{name}: withheld Mech must not appear in infrastructure")
         if not _text(name) or not isinstance(item, dict) or set(item) != required:
             raise ValueError("Incomplete infrastructure declaration")
         repository = item["repository"]
@@ -520,13 +529,17 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
     # fail unless explicitly represented as infrastructure or a corpus.
     names = (set(ORDER) | members) - infrastructure_names
     badges = re.findall(r"<!--FLEET_BADGE:([^>]+)-->", template)
-    if len(badges) != len(names) or set(badges) != names:
-        raise ValueError("Mech cards must match declared suite membership exactly")
     cards = card_names(template)
-    if len(cards) != len(names) or set(cards) != names:
-        raise ValueError("Actual Mech cards must match declared suite membership exactly")
     metadata = fragment.split("var MECHS = {", 1)[1].split("\n  };", 1)[0]
     node_names = re.findall(r"^\s+([A-Za-z]+Mech):\s*\{", metadata, re.MULTILINE)
+    if any(is_withheld(n) for n in (
+            list(names) + badges + cards + node_names + list(data.get("order", ()))
+            + list(data.get("heat", ())) + [k for k in census if not k.startswith("_")])):
+        raise ValueError("Withheld Mech must not appear on the X-Mech page or in its statistics")
+    if len(badges) != len(names) or set(badges) != names:
+        raise ValueError("Mech cards must match declared suite membership exactly")
+    if len(cards) != len(names) or set(cards) != names:
+        raise ValueError("Actual Mech cards must match declared suite membership exactly")
     if len(node_names) != len(names) or set(node_names) != names:
         raise ValueError("Graph metadata must match declared suite membership exactly")
     measured = set(data["order"])
@@ -648,6 +661,9 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
         raise ValueError("Unresolved fleet placeholder")
     if "{{" in page or "{%" in page:
         raise ValueError("Liquid tags would be interpreted by Jekyll")
+    for withheld in WITHHELD_MECHS:
+        if re.search(rf"\b{re.escape(withheld)}\b", page, re.I):
+            raise ValueError(f"Withheld Mech {withheld} must not appear in assembled page")
     return page
 
 

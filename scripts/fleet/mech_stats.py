@@ -50,7 +50,7 @@ except ModuleNotFoundError:  # the only pipeline script that needs it; see #68
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from roots import ORDER, RECORD_GLOBS, mech_root, record_documents, record_paths, revision, unchanged
+from roots import ORDER, RECORD_GLOBS, is_withheld, mech_root, record_documents, record_paths, revision, unchanged
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(REPO, "_fleet", "data", "mech_stats.json")
@@ -86,6 +86,8 @@ def review_slot(mech: str) -> str | None:
     MediaIngredientMech and CultureMech would otherwise report zero reviewed
     off a mapping_status that cannot take the value.
     """
+    if is_withheld(mech):
+        raise SystemExit(f"{mech}: withheld Mech must not contribute to suite statistics")
     # The fleet still measures DUFMech's frozen seed worklist, not its newer
     # native FamilyRecord corpus. That worklist has no review-status field;
     # adopting a native schema must not turn unknown review coverage into zero.
@@ -116,6 +118,8 @@ def review_slot(mech: str) -> str | None:
 
 def review_census(mech: str) -> tuple[int, int | None, str | None, str | None]:
     """Records, reviewed records, the field that said so, and the revision read."""
+    if is_withheld(mech):
+        raise SystemExit(f"{mech}: withheld Mech must not contribute to suite statistics")
     paths = record_paths(mech)
     # Taken before the reads and checked after, as in prefix_census.py (#122).
     rev = revision(mech, paths)
@@ -134,6 +138,8 @@ def review_census(mech: str) -> tuple[int, int | None, str | None, str | None]:
 
 def merged_prs(mech: str) -> int:
     repo = GH_REPO.get(mech, mech)
+    if is_withheld(mech) or is_withheld(repo):
+        raise SystemExit(f"{mech}: withheld Mech must not contribute to suite statistics")
     out = subprocess.run(
         ["gh", "api", "-X", "GET", "search/issues", "-f",
          f"q=repo:CultureBotAI/{repo} is:pr is:merged", "--jq", ".total_count"],
@@ -164,6 +170,8 @@ def cached_prs() -> dict[str, int]:
             if not isinstance(row, dict):
                 raise SystemExit(f"--no-prs found an invalid cached {field} row")
             name = row.get(key)
+            if is_withheld(name) or is_withheld(row.get("repo")):
+                raise SystemExit(f"--no-prs found withheld Mech {name or row.get('repo')} in {OUT}")
             if name not in required:
                 continue
             expected_repo = GH_REPO.get(name, name)

@@ -7,12 +7,25 @@ import subprocess
 
 import yaml
 
+from roots import is_withheld
+
 REPO = Path(__file__).resolve().parents[2]
 SNAPSHOT = REPO / "_fleet/data/manifest.json"
 AUTHORITY = "CultureBotAI/culturebotai-claw"
 MANIFEST_PATH = "src/kg_microbe_fleet/fleet.yaml"
 ARTIFACT_PATH = "src/kg_microbe_governance/vendored_artifacts.json"
 STATUSES = {"enabled", "disabled", "not_applicable"}
+
+
+def public_artifacts(registry):
+    """Artifacts applicable outside withheld Mechs."""
+    kept = []
+    for artifact in registry["artifacts"]:
+        consumers = artifact.get("consumers")
+        if isinstance(consumers, list) and consumers and all(is_withheld(c) for c in consumers):
+            continue
+        kept.append(artifact)
+    return kept
 
 
 def validate(snapshot):
@@ -29,6 +42,8 @@ def validate(snapshot):
     keys = set()
     repositories = set()
     for name, mech in snapshot["mechs"].items():
+        if is_withheld(name) or is_withheld(mech.get("key")) or is_withheld(mech.get("github")):
+            raise ValueError(f"{name}: withheld Mech must not appear in public manifest snapshot")
         if not name or mech["key"] in keys or mech["github"] in repositories:
             raise ValueError("Duplicate or empty Mech identity")
         keys.add(mech["key"])
@@ -50,6 +65,8 @@ def project(manifest, registry, revision):
         raise ValueError("Unexpected governance authority")
     mechs = {}
     for key, mech in manifest["mechs"].items():
+        if is_withheld(key) or is_withheld(mech.get("display_name")) or is_withheld(mech.get("github")):
+            continue
         name = mech["display_name"]
         if name in mechs:
             raise ValueError(f"Duplicate display name: {name}")
@@ -61,7 +78,7 @@ def project(manifest, registry, revision):
                    "url": f"https://github.com/{AUTHORITY}/blob/{revision}/{MANIFEST_PATH}"},
         "capability_catalogue": manifest["capability_catalogue"],
         "mechs": mechs,
-        "artifact_count": len(registry["artifacts"]),
+        "artifact_count": len(public_artifacts(registry)),
     }
     validate(snapshot)
     return snapshot
