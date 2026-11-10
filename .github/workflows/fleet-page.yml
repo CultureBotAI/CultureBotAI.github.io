@@ -16,6 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: canonical-pin
+        run: python3 scripts/fleet/print_manifest_pin.py >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: CultureBotAI/culturebotai-claw
+          ref: ${{ steps.canonical-pin.outputs.revision }}
+          path: .claw-pinned
+          persist-credentials: false
       - if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -27,6 +35,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r scripts/fleet/requirements.txt
+      - run: python scripts/fleet/refresh_manifest.py --claw-root .claw-pinned --check
       - run: python -m unittest discover -s tests -v
       - run: python scripts/fleet/assemble_page.py --check
       # The two steps below read state that moves on its own schedule, so they

@@ -258,3 +258,10 @@ front matter.
 - `github-pages`, the meta-gem with GitHub Pages' Jekyll and plugins
 - `jekyll-feed`, `jekyll-sitemap`, `jekyll-seo-tag`
 - The fleet pipeline needs Python 3.12 and `scripts/fleet/requirements.txt`
+
+The prepared membership-only integration pins CLAW
+`7ddbc84d8fa4d3aa94f0e2760cd5cdfe8204b171`, adding CofactorMech and AssayMech
+as empty-default-branch infrastructure registrations. Existing corpus pins,
+figures and statistics retain their November 9 provenance. Public membership
+is CLAW's tag-filtered projection; it is the site's allowlist and does not
+redefine CLAW's complete internal fleet.

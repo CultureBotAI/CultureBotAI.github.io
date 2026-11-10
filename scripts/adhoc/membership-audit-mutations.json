@@ -1,0 +1,20 @@
+[
+  {
+    "mutation": "audit_rows",
+    "test": "tests/test_membership_audit.py::MembershipAuditTests::test_public_projection_precedes_retained_audit_and_note_serialization",
+    "exit_code": 1,
+    "detected": true
+  },
+  {
+    "mutation": "audit_notes",
+    "test": "tests/test_membership_audit.py::MembershipAuditTests::test_public_projection_precedes_retained_audit_and_note_serialization",
+    "exit_code": 1,
+    "detected": true
+  },
+  {
+    "mutation": "membership_timestamp",
+    "test": "tests/test_membership_audit.py::MembershipAuditTests::test_observation_before_new_claw_commit_is_refused",
+    "exit_code": 1,
+    "detected": true
+  }
+]

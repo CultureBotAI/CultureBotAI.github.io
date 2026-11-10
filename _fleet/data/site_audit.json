@@ -2,7 +2,7 @@
  "checked_at_utc": "2026-11-09T17:40:28+00:00",
  "local_date": "2026-11-09",
  "pinned_at_utc": "2026-11-09T12:41:41.170118+00:00",
- "scope": "All fourteen Mechs and culturebotai-claw were pinned from one GitHub head query for the November 9, 2026 refresh. The common pin-time bound is 2026-11-09T12:41:41.170118+00:00. Census occurrences, shared-term overlap assets, complete heatmap record lists, recent-record histories and repository statistics use those same immutable revisions. Record globs, namespace recognition and normalization, shared-term extraction and the separately pinned kg-microbe release comparison are unchanged. Card figures and secondary claims were rechecked against pinned source files and live sites; repository and published-browser totals retain their stated distinctions. Merged-PR counts are all-time totals queried during this refresh for fourteen Mechs, CLAW and this website. Website feature verdicts have their own dates, served revisions and browser-review scope in site_features.json. The separately versioned kg-microbe core release comparison remains excluded from Mech record totals and shared-term graph indexes.",
+ "scope": "Retained public corpus figures, source pins, overlap assets and historical repository statistics keep their original corpus observation at 2026-11-09T17:40:28+00:00 and pin-time bound 2026-11-09T12:41:41.170118+00:00. Public fleet membership was checked separately at 2026-11-10T05:14:04+00:00 against CLAW 7ddbc84d8fa4d3aa94f0e2760cd5cdfe8204b171. This membership-only refresh does not recount corpora, recheck live sites or refresh historical PR totals. Website feature verdicts retain their separately recorded dates and browser-review scope. The pinned kg-microbe comparison remains outside Mech statistics.",
  "repositories": [
   {
    "repo": "AIMech",
@@ -74,10 +74,10 @@
   },
   {
    "repo": "culturebotai-claw",
-   "sha": "e539df04bc92364727c2f22c46fe7ecbac3ce116",
-   "commit_date": "2026-11-09T04:21:29Z",
-   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/e539df04bc92364727c2f22c46fe7ecbac3ce116/README.md",
-   "notes": "The e539df0 canonical snapshot declares 15 members (fourteen corpus Mechs plus EdgeMech curation infrastructure), 26 governed artifacts and 28 capabilities per member. EdgeMech does not add a scientific corpus, published browser, record count or historical PR total. The evidence_reference_validation contract is enabled for MediaIngredientMech, CellStructureMech and HabitatMech, and disabled with explicit reasons for the other twelve members. Capability tooltips preserve canonical statuses, settings and reasons; inherited native review is not independent scientific approval, and contract adoption does not imply that a record has a REVIEWED-bearing status or that every workflow runs unattended."
+   "sha": "7ddbc84d8fa4d3aa94f0e2760cd5cdfe8204b171",
+   "commit_date": "2026-11-09T21:02:46-08:00",
+   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/7ddbc84d8fa4d3aa94f0e2760cd5cdfe8204b171/README.md",
+   "notes": "Membership-only refresh at 7ddbc84d8fa4d3aa94f0e2760cd5cdfe8204b171. The public canonical projection declares 17 members. CofactorMech and AssayMech have no committed corpus at their inspected default-branch tips and enter only the infrastructure listing. Existing corpus pins, figures and statistics are retained unchanged."
   },
   {
    "repo": "CultureMech",
@@ -199,5 +199,6 @@
    "site_html_sha256_at_pin": "9b4359051b5cfee843169f59b5054e97952dbb5a85d1846634d5fe47d817078d",
    "notes": "1,130 data/traits records at the pin: 427 REVIEWED, 615 PROPOSED, 50 DEPRECATED and 38 SEEDED. The README and corpus contain 769 records with causal graphs. The pinned page shows 10 populated categories and 100.0% embedded (1,130 of 1,130). The live index.html is byte-identical to pages/index.html at the pin."
   }
- ]
+ ],
+ "membership_checked_at_utc": "2026-11-10T05:14:04+00:00"
 }

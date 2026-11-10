@@ -39,7 +39,7 @@ class InfrastructureMembershipTests(unittest.TestCase):
         page = self.render()
         self.assertIn('data-infrastructure="EdgeMech"', page)
         self.assertIn('<tr><th scope="row">EdgeMech</th>', page)
-        self.assertIn("The manifest also declares one infrastructure member: EdgeMech.", page)
+        self.assertIn("The manifest also declares three infrastructure members: AssayMech, CofactorMech, EdgeMech.", page)
         self.assertIn("No published scientific corpus or Pages browser", page)
         self.assertIn("not independent scientific approvals", page)
         self.assertEqual(len(card_names(page)), 14)
@@ -53,7 +53,7 @@ class InfrastructureMembershipTests(unittest.TestCase):
         self.inputs[1]["mechs"].pop("EdgeMech")
         page = self.render()
         self.assertIn("Separately listed projects without a declaration: EdgeMech.", page)
-        self.assertIn("No infrastructure member has a manifest declaration.", page)
+        self.assertIn("The manifest also declares two infrastructure members: AssayMech, CofactorMech.", page)
         self.assertIn('<span class="badge">not yet in fleet manifest</span>', page)
         self.assertNotIn("All projects shown here have a manifest declaration.", page)
 
@@ -110,7 +110,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
                       "ScaleupMech--CHEBI",
                       "ScaleupMech|CHEBI"):
             self.assertTrue(roots.is_withheld(token), token)
-        for allowed in ("CultureMech", "CofactorMech", "AssayMech", "EdgeMech", None, ""):
+        for allowed in ("CultureMech", "EdgeMech", None, ""):
             self.assertFalse(roots.is_withheld(allowed), allowed)
         self.assertNotIn("ScaleupMech", roots.RECORD_GLOBS)
         self.assertNotIn("ScaleupMech", roots.ORDER)
@@ -119,41 +119,6 @@ class WithheldMechExclusionTests(unittest.TestCase):
         self.assertNotIn("ScaleupMech", mech_stats.ADDITIONAL_REPOS)
         with self.assertRaisesRegex(SystemExit, "withheld"):
             roots.mech_root("ScaleupMech")
-
-    def test_manifest_projection_strips_scaleupmech_and_preserves_public_snapshot(self):
-        snapshot = self.inputs[1]
-        manifest = {
-            "capability_catalogue": deepcopy(snapshot["capability_catalogue"]),
-            "mechs": {
-                mech["key"]: {
-                    "display_name": name,
-                    "github": mech["github"],
-                    "capabilities": deepcopy(mech["capabilities"]),
-                }
-                for name, mech in snapshot["mechs"].items()
-            },
-        }
-        manifest["mechs"]["scaleupmech"] = {
-            "display_name": "ScaleupMech",
-            "github": "CultureBotAI/ScaleupMech",
-            "capabilities": {
-                key: {"status": "disabled", "reason": "Withheld private bootstrap."}
-                for key in snapshot["capability_catalogue"]
-            },
-        }
-        registry = {
-            "canonical_repository": "CultureBotAI/culturebotai-claw",
-            "artifacts": (
-                [{"id": f"shared-{i}", "consumers": ["culturemech", "scaleupmech"]}
-                 for i in range(snapshot["artifact_count"])]
-                + [{"id": "scaleup-only", "consumers": ["scaleupmech"]}]
-                + [{"id": "scaleupmech_schema", "source": "ScaleupMech/schema.yaml", "consumers": []}]
-            ),
-        }
-        projected = project(manifest, registry, snapshot["source"]["revision"])
-        self.assertNotIn("ScaleupMech", projected["mechs"])
-        self.assertEqual(projected["artifact_count"], snapshot["artifact_count"])
-        self.assertEqual(semantic(projected), semantic(snapshot))
 
     def test_manifest_validation_rejects_withheld_mech(self):
         bad = deepcopy(self.inputs[1])
@@ -222,7 +187,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
 
         orig_template = self.template
         self.template = orig_template + "\n<!-- scaleupmech_export -->"
-        with self.assertRaisesRegex(ValueError, "Withheld Mech ScaleupMech"):
+        with self.assertRaisesRegex(ValueError, "withheld Mech"):
             self.render()
         self.template = orig_template
 

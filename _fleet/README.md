@@ -560,3 +560,39 @@ biological-order ties. kg-microbe is always the final row, with a small gap
 above it. Tests check
 source and namespace-registry hashes, complete cell coverage, matching counts and isolation from
 fleet membership and graph indexes.
+
+## Public fleet membership
+
+The membership-only integration at CLAW `7ddbc84d8fa4d3aa94f0e2760cd5cdfe8204b171`
+adds CofactorMech and AssayMech to the infrastructure listing while their
+inspected default branches remain empty. The existing corpus pins, numeric
+cards and census remain unchanged; these registrations do not establish a
+scientific corpus or published browser.
+
+CLAW's shared `FleetManifest.public()` method applies the reserved
+`exclude-from-public` tag before the manifest snapshot and artifact count are
+constructed. The snapshot contains only public identities. Site producers
+use it as an allowlist and refuse unlisted Mech inputs before serializing or
+aggregating statistics, audits, cards, graphs or downloadable cell indexes.
+The site keeps no separate excluded-name registry. A stale corpus scope fails
+closed and requires a reviewed refresh. The canonical manifest remains the
+complete inventory for CLAW's internal operations.
+
+Regenerate this membership-only change with
+`scripts/adhoc/refresh_public_fleet_artifacts.py --claw-root <checkout>` and
+then `--apply`. The first run validates the complete staged set; the second
+uses CLAW's repository lease and transactional writer and verifies every
+promoted file. This candidate pin is published on its review branch; it does
+not establish a merged governance release or deployed site.
+
+Every site PR reproduces the snapshot from its exact published CLAW revision
+before validation. The separate nightly check compares with current CLAW main.
+This prevents a manually edited allowlist from adding a member that the pinned
+canonical public projection excludes, without making ordinary site PRs depend
+on unrelated newer fleet revisions.
+
+Membership-only audit refreshes record `membership_checked_at_utc` separately
+from the retained corpus `checked_at_utc` and `pinned_at_utc`. The membership
+observation must not predate the CLAW commit it describes. Saved audit rows
+and note keys are projected through the candidate public membership before
+staging; removed members cannot persist in the retained public JSON.

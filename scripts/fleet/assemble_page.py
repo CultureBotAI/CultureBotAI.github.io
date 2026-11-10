@@ -9,7 +9,7 @@ import re
 from card_markup import card_figures, card_names, markup_problems
 from mech_stats import ADDITIONAL_REPOS, GH_REPO
 from refresh_manifest import validate
-from roots import ORDER, SITE_URL, WITHHELD_MECHS, is_withheld
+from roots import contains_unlisted_mech, ORDER, SITE_URL, is_withheld
 
 REPO = Path(__file__).resolve().parents[2]
 FLEET = REPO / "_fleet"
@@ -123,8 +123,8 @@ def validate_site_features(features, names):
     if set(features["mechs"]) != set(names):
         raise ValueError("Site features must cover every suite Mech exactly once")
     for name, mech in features["mechs"].items():
-        if is_withheld(name) or is_withheld(mech.get("repository")):
-            raise ValueError(f"{name}: withheld Mech must not appear in site features")
+        if is_withheld(name):
+            raise ValueError(f"{name}: withheld Mech repository must not appear in site features")
         if "checked_on" in mech or "scope" in mech:
             checked = _audit_date(mech.get("checked_on"), name)
             if checked < baseline:
@@ -147,6 +147,8 @@ def validate_site_features(features, names):
         # when a Mech without a site starts publishing one (#405, #410).
         if not (isinstance(mech.get("repository"), str) and REPOSITORY.fullmatch(mech["repository"])):
             raise ValueError(f"{name}: repository must be a GitHub repository URL")
+        if is_withheld(mech["repository"]):
+            raise ValueError(f"{name}: repository must be in canonical public membership")
         if mech.get("site") is None:
             continue
         # The rule check_updates.site_feature_check applies before reading the site (#439, #459).
@@ -534,7 +536,7 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
     node_names = re.findall(r"^\s+([A-Za-z]+Mech):\s*\{", metadata, re.MULTILINE)
     if any(is_withheld(n) for n in (
             list(names) + badges + cards + node_names + list(data.get("order", ()))
-            + list(data.get("heat", ())) + [k for k in census if not k.startswith("_")])):
+            + [k for k in data.get("heat", ()) if k != "kg-microbe"] + [k for k in census if not k.startswith("_")])):
         raise ValueError("Withheld Mech must not appear on the X-Mech page or in its statistics")
     if len(badges) != len(names) or set(badges) != names:
         raise ValueError("Mech cards must match declared suite membership exactly")
@@ -542,6 +544,13 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
         raise ValueError("Actual Mech cards must match declared suite membership exactly")
     if len(node_names) != len(names) or set(node_names) != names:
         raise ValueError("Graph metadata must match declared suite membership exactly")
+    # Hand-maintained graph relations also have structured member identities.
+    for variable, fields in (("XREFS", ("from", "to")), ("HUB", ("mech",))):
+        block = fragment.split("var " + variable + " = [", 1)[1].split("\n  ];", 1)[0]
+        for field in fields:
+            identities = re.findall(r"\b" + field + r':\s*"([^"\n]+)"', block)
+            if any(identity not in names for identity in identities):
+                raise ValueError("Graph references must use public corpus members")
     measured = set(data["order"])
     if not measured or len(data["order"]) != len(measured) or not measured <= names:
         raise ValueError("Census order must be a unique subset of fleet members")
@@ -661,9 +670,8 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
         raise ValueError("Unresolved fleet placeholder")
     if "{{" in page or "{%" in page:
         raise ValueError("Liquid tags would be interpreted by Jekyll")
-    for withheld in WITHHELD_MECHS:
-        if re.search(re.escape(withheld), page, re.I):
-            raise ValueError(f"Withheld Mech {withheld} must not appear in assembled page")
+    if contains_unlisted_mech(page):
+        raise ValueError("withheld Mech must not appear in public output")
     return page
 
 

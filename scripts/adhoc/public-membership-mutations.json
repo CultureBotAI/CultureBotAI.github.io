@@ -1,0 +1,26 @@
+[
+  {
+    "mutation": "canonical_projection",
+    "test": "test_public_projection.PublicProjectionTests.test_shared_projection_removes_identity_and_distinct_artifact_contributions",
+    "exit_code": 1,
+    "detected": true
+  },
+  {
+    "mutation": "identity_guard",
+    "test": "test_public_projection.PublicProjectionTests.test_guard_uses_public_allowlist_instead_of_a_named_private_repository",
+    "exit_code": 1,
+    "detected": true
+  },
+  {
+    "mutation": "aggregate_guard",
+    "test": "test_public_projection.PublicProjectionTests.test_unprojected_nonzero_census_is_refused_before_aggregation",
+    "exit_code": 1,
+    "detected": true
+  },
+  {
+    "mutation": "graph_guard",
+    "test": "test_public_projection.PublicProjectionTests.test_arbitrary_private_graph_endpoint_is_refused",
+    "exit_code": 1,
+    "detected": true
+  }
+]
