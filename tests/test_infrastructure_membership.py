@@ -102,7 +102,13 @@ class WithheldMechExclusionTests(unittest.TestCase):
 
     def test_withheld_identifier_matching_and_root_rejection(self):
         for token in ("ScaleupMech", "scaleupmech", "CultureBotAI/ScaleupMech",
-                      "https://github.com/CultureBotAI/ScaleupMech/"):
+                      "https://github.com/CultureBotAI/ScaleupMech/",
+                      "https://github.com/CultureBotAI/ScaleupMech/blob/main/README.md",
+                      "https://culturebotai.github.io/ScaleupMech/pages/index.html",
+                      "ScaleupMech/pages/index.html",
+                      "scaleupmech_export",
+                      "ScaleupMech--CHEBI",
+                      "ScaleupMech|CHEBI"):
             self.assertTrue(roots.is_withheld(token), token)
         for allowed in ("CultureMech", "CofactorMech", "AssayMech", "EdgeMech", None, ""):
             self.assertFalse(roots.is_withheld(allowed), allowed)
@@ -141,6 +147,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
                 [{"id": f"shared-{i}", "consumers": ["culturemech", "scaleupmech"]}
                  for i in range(snapshot["artifact_count"])]
                 + [{"id": "scaleup-only", "consumers": ["scaleupmech"]}]
+                + [{"id": "scaleupmech_schema", "source": "ScaleupMech/schema.yaml", "consumers": []}]
             ),
         }
         projected = project(manifest, registry, snapshot["source"]["revision"])
@@ -154,6 +161,16 @@ class WithheldMechExclusionTests(unittest.TestCase):
         bad["mechs"]["ScaleupMech"].update(key="scaleupmech", github="CultureBotAI/ScaleupMech")
         with self.assertRaisesRegex(ValueError, "withheld Mech"):
             validate(bad)
+
+        bad_reason = deepcopy(self.inputs[1])
+        first_mech = next(iter(bad_reason["mechs"].values()))
+        first_cap = next(iter(first_mech["capabilities"]))
+        first_mech["capabilities"][first_cap] = {
+            "status": "disabled",
+            "reason": "Deferred until ScaleupMech integration lands.",
+        }
+        with self.assertRaisesRegex(ValueError, "withheld Mech"):
+            validate(bad_reason)
 
     def test_stats_and_pr_activity_reject_withheld_mech(self):
         with self.assertRaisesRegex(SystemExit, "withheld Mech"):
@@ -203,9 +220,17 @@ class WithheldMechExclusionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "withheld Mech"):
             validate_recent_terms(bad_recent, list(roots.ORDER) + ["ScaleupMech"])
 
-        self.template += "\n<!-- ScaleupMech -->"
+        orig_template = self.template
+        self.template = orig_template + "\n<!-- scaleupmech_export -->"
         with self.assertRaisesRegex(ValueError, "Withheld Mech ScaleupMech"):
             self.render()
+        self.template = orig_template
+
+        with self.assertRaisesRegex(ValueError, "withheld Mech"):
+            check_cards.check(
+                orig_template,
+                audit={"pinned_at_utc": "2026-11-09T12:00:00Z", "repositories": [{"repo": "ScaleupMech"}]},
+            )
 
         pins = {"pinned_at_utc": "2026-11-09T12:00:00Z",
                 "mechs": {"ScaleupMech": {"repo": "ScaleupMech", "sha": "a" * 40, "commit_date": "2026-11-09T12:00:00Z"}},
@@ -216,9 +241,20 @@ class WithheldMechExclusionTests(unittest.TestCase):
                                    self.inputs[2], lambda _: b"", lambda *_: lambda _: None,
                                    "2026-11-09T12:00:00Z", datetime.datetime.now(datetime.timezone.utc))
 
+        pins_alias = {"pinned_at_utc": "2026-11-09T12:00:00Z",
+                      "mechs": {"CultureMech": {"repo": "ScaleupMech", "sha": "a" * 40, "commit_date": "2026-11-09T12:00:00Z"}},
+                      "claw": "b" * 40}
+        with self.assertRaisesRegex(SystemExit, "withheld Mech"):
+            build_site_audit.build(pins_alias, notes, (ROOT / "_fleet/mechs_template.md").read_text(),
+                                   self.inputs[2], lambda _: b"", lambda *_: lambda _: None,
+                                   "2026-11-09T12:00:00Z", datetime.datetime.now(datetime.timezone.utc))
+
     def test_no_public_page_or_fleet_data_file_mentions_scaleupmech(self):
         checked_paths = (
             list(ROOT.glob("*.md"))
+            + list(ROOT.glob("*.html"))
+            + list((ROOT / "_includes").glob("*.html"))
+            + list((ROOT / "_layouts").glob("*.html"))
             + list((ROOT / "_fleet").glob("*.md"))
             + list((ROOT / "_fleet").glob("*.html"))
             + list((ROOT / "_fleet").glob("*.json"))
@@ -227,8 +263,6 @@ class WithheldMechExclusionTests(unittest.TestCase):
         )
         self.assertGreater(len(checked_paths), 100)
         for path in checked_paths:
-            if path.name in ("README.md", "CLAUDE.md", "IMPLEMENTATION_SUMMARY.md"):
-                continue
             text = path.read_text(encoding="utf-8")
             self.assertIsNone(re.search(r"scaleupmech", text, re.I), f"{path.relative_to(ROOT)} mentions ScaleupMech")
 

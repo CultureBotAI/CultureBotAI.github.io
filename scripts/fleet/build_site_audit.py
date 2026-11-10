@@ -24,6 +24,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import urllib.request
@@ -31,7 +32,7 @@ from pathlib import Path
 
 import check_cards
 from card_markup import card_figures
-from roots import is_withheld
+from roots import WITHHELD_MECHS, is_withheld
 
 REPO = Path(__file__).resolve().parents[2]
 AUDIT = REPO / "_fleet/data/site_audit.json"
@@ -189,7 +190,8 @@ def build(pins: dict, notes: dict, template: str, stats: dict, fetch, shower, cl
     cards = card_figures(template)
     by_mech = {m["mech"]: m for m in stats["mechs"]}
     for name in (list(check_cards.SOURCES) + list(notes.get("notes", ())) + list(cards)
-                 + list(by_mech) + list((pins.get("mechs") or {}))):
+                 + list(by_mech) + list((pins.get("mechs") or {}))
+                 + [m.get("repo") for m in (pins.get("mechs") or {}).values() if isinstance(m, dict)]):
         if is_withheld(name):
             raise SystemExit(f"{name}: withheld Mech must not appear in site audit")
     missing = sorted((set(check_cards.SOURCES) | {CLAW}) - set(notes["notes"]))
@@ -221,7 +223,7 @@ def build(pins: dict, notes: dict, template: str, stats: dict, fetch, shower, cl
         "notes": notes["notes"][CLAW],
     })
     repositories.sort(key=lambda r: r["repo"].lower())
-    return {
+    result = {
         "checked_at_utc": now.astimezone(datetime.timezone.utc).isoformat(timespec="seconds"),
         # The local date of that same moment, not a typed one (#178).
         "local_date": now.astimezone().date().isoformat(),
@@ -229,6 +231,11 @@ def build(pins: dict, notes: dict, template: str, stats: dict, fetch, shower, cl
         "scope": notes["scope"],
         "repositories": repositories,
     }
+    serialized = json.dumps(result)
+    for withheld in WITHHELD_MECHS:
+        if re.search(re.escape(withheld), serialized, re.I):
+            raise SystemExit(f"{withheld}: withheld Mech must not appear in site audit")
+    return result
 
 
 def main() -> int:

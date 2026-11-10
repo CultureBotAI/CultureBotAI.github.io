@@ -662,7 +662,7 @@ def assemble(template, fragment, data, snapshot, stats, census, features, recent
     if "{{" in page or "{%" in page:
         raise ValueError("Liquid tags would be interpreted by Jekyll")
     for withheld in WITHHELD_MECHS:
-        if re.search(rf"\b{re.escape(withheld)}\b", page, re.I):
+        if re.search(re.escape(withheld), page, re.I):
             raise ValueError(f"Withheld Mech {withheld} must not appear in assembled page")
     return page
 

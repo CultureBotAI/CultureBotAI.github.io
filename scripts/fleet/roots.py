@@ -75,10 +75,13 @@ def is_withheld(value: str | None) -> bool:
     """True when a Mech name, key, repository or URL names a withheld Mech."""
     if not isinstance(value, str):
         return False
-    lowered = value.strip().lower().rstrip("/")
-    if lowered.startswith("https://github.com/"):
-        lowered = lowered.removeprefix("https://github.com/")
-    return lowered in WITHHELD_KEYS or lowered in WITHHELD_REPOS
+    lowered = value.strip().lower()
+    if not lowered:
+        return False
+    return any(
+        re.search(rf"(?<![a-z0-9]){re.escape(key)}(?![a-z0-9])", lowered)
+        for key in WITHHELD_KEYS
+    )
 
 
 if any(is_withheld(name) for name in RECORD_GLOBS):

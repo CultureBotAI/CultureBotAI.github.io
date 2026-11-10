@@ -7,7 +7,7 @@ import subprocess
 
 import yaml
 
-from roots import is_withheld
+from roots import WITHHELD_MECHS, is_withheld
 
 REPO = Path(__file__).resolve().parents[2]
 SNAPSHOT = REPO / "_fleet/data/manifest.json"
@@ -21,6 +21,8 @@ def public_artifacts(registry):
     """Artifacts applicable outside withheld Mechs."""
     kept = []
     for artifact in registry["artifacts"]:
+        if any(is_withheld(artifact.get(field)) for field in ("id", "source", "target")):
+            continue
         consumers = artifact.get("consumers")
         if isinstance(consumers, list) and consumers and all(is_withheld(c) for c in consumers):
             continue
@@ -58,6 +60,10 @@ def validate(snapshot):
                 raise ValueError(f"{name}.{key}: missing reason")
     if snapshot["artifact_count"] < 1:
         raise ValueError("Empty artifact registry")
+    serialized = json.dumps(snapshot)
+    for withheld in WITHHELD_MECHS:
+        if re.search(re.escape(withheld), serialized, re.I):
+            raise ValueError(f"{withheld}: withheld Mech must not appear in public manifest snapshot")
 
 
 def project(manifest, registry, revision):
