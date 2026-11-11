@@ -32,24 +32,24 @@
       "mech": "AntibioticMech"
     },
     {
-      "id": "PathBank:SMP0002057",
-      "label": "Tetrahydromonapterin Biosynthesis",
-      "url": "https://culturebotai.github.io/PathwayMech/pages/records/PathBank_SMP0002057.html",
-      "path": "data/pathways/tetrahydromonapterin-biosynthesis-escherichia-coli.yaml",
-      "commit": "9584009",
-      "added_at": "2026-11-05T20:14:04Z",
-      "added_date": "2026-11-05",
-      "mech": "PathwayMech"
+      "id": "AssayMech:ax17-extracted-feii-ferrozine",
+      "label": "Oxalate-extracted Fe(II) ferrozine assay in Ax17 ferrihydrite cultures",
+      "url": "https://github.com/CultureBotAI/AssayMech/blob/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays/ax17-extracted-feii-ferrozine.yaml",
+      "path": "data/assays/ax17-extracted-feii-ferrozine.yaml",
+      "commit": "f4a7ffb",
+      "added_at": "2026-11-08T18:39:24-08:00",
+      "added_date": "2026-11-09",
+      "mech": "AssayMech"
     },
     {
-      "id": "CHEBI:11449",
-      "label": "2,5-didehydro-D-gluconate",
-      "url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/8b6ad28ac58c3a26b952b086e207899d6cef1be7/data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
-      "path": "data/ingredients/mapped/25-didehydro-D-gluconate.yaml",
-      "commit": "467aa31",
-      "added_at": "2026-11-02T23:33:47Z",
-      "added_date": "2026-11-02",
-      "mech": "MediaIngredientMech"
+      "id": "CofactorMech:biotin",
+      "label": "biotin",
+      "url": "https://github.com/CultureBotAI/CofactorMech/blob/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors/biotin.yaml",
+      "path": "data/cofactors/biotin.yaml",
+      "commit": "2ee0149",
+      "added_at": "2026-11-08T17:43:42-08:00",
+      "added_date": "2026-11-09",
+      "mech": "CofactorMech"
     }
   ],
   "mechs": [
@@ -778,6 +778,110 @@
           "commit": "621a86e",
           "added_at": "2026-10-24T11:27:45Z",
           "added_date": "2026-10-24"
+        }
+      ]
+    },
+    {
+      "mech": "CofactorMech",
+      "repo": "CofactorMech",
+      "source_revision": "131fc3ea47615a29bde04a3185b29f03edf2ada1",
+      "records": [
+        {
+          "id": "CofactorMech:biotin",
+          "label": "biotin",
+          "url": "https://github.com/CultureBotAI/CofactorMech/blob/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors/biotin.yaml",
+          "path": "data/cofactors/biotin.yaml",
+          "commit": "2ee0149",
+          "added_at": "2026-11-08T17:43:42-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "CofactorMech:cobalamin",
+          "label": "cobalamin",
+          "url": "https://github.com/CultureBotAI/CofactorMech/blob/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors/cobalamin.yaml",
+          "path": "data/cofactors/cobalamin.yaml",
+          "commit": "2ee0149",
+          "added_at": "2026-11-08T17:43:42-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "CofactorMech:cobalt",
+          "label": "cobalt(2+)",
+          "url": "https://github.com/CultureBotAI/CofactorMech/blob/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors/cobalt.yaml",
+          "path": "data/cofactors/cobalt.yaml",
+          "commit": "2ee0149",
+          "added_at": "2026-11-08T17:43:42-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "CofactorMech:coenzyme-a",
+          "label": "coenzyme A",
+          "url": "https://github.com/CultureBotAI/CofactorMech/blob/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors/coenzyme-a.yaml",
+          "path": "data/cofactors/coenzyme-a.yaml",
+          "commit": "2ee0149",
+          "added_at": "2026-11-08T17:43:42-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "CofactorMech:coenzyme-m",
+          "label": "coenzyme M",
+          "url": "https://github.com/CultureBotAI/CofactorMech/blob/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors/coenzyme-m.yaml",
+          "path": "data/cofactors/coenzyme-m.yaml",
+          "commit": "2ee0149",
+          "added_at": "2026-11-08T17:43:42-08:00",
+          "added_date": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "mech": "AssayMech",
+      "repo": "AssayMech",
+      "source_revision": "95a01f4981cbdf70e2e135d55d4d8f2f464a6e12",
+      "records": [
+        {
+          "id": "AssayMech:ax17-extracted-feii-ferrozine",
+          "label": "Oxalate-extracted Fe(II) ferrozine assay in Ax17 ferrihydrite cultures",
+          "url": "https://github.com/CultureBotAI/AssayMech/blob/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays/ax17-extracted-feii-ferrozine.yaml",
+          "path": "data/assays/ax17-extracted-feii-ferrozine.yaml",
+          "commit": "f4a7ffb",
+          "added_at": "2026-11-08T18:39:24-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "AssayMech:catalase-test",
+          "label": "catalase test",
+          "url": "https://github.com/CultureBotAI/AssayMech/blob/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays/catalase-test.yaml",
+          "path": "data/assays/catalase-test.yaml",
+          "commit": "f4a7ffb",
+          "added_at": "2026-11-08T18:39:24-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "AssayMech:fusarium-intracellular-bi-tem-eds",
+          "label": "TEM-EDS localization assay for intracellular Bi in Fusarium sp. BI",
+          "url": "https://github.com/CultureBotAI/AssayMech/blob/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays/fusarium-intracellular-bi-tem-eds.yaml",
+          "path": "data/assays/fusarium-intracellular-bi-tem-eds.yaml",
+          "commit": "f4a7ffb",
+          "added_at": "2026-11-08T18:39:24-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "AssayMech:indole-test",
+          "label": "indole test",
+          "url": "https://github.com/CultureBotAI/AssayMech/blob/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays/indole-test.yaml",
+          "path": "data/assays/indole-test.yaml",
+          "commit": "f4a7ffb",
+          "added_at": "2026-11-08T18:39:24-08:00",
+          "added_date": "2026-11-09"
+        },
+        {
+          "id": "AssayMech:methyl-red-test",
+          "label": "methyl red test",
+          "url": "https://github.com/CultureBotAI/AssayMech/blob/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays/methyl-red-test.yaml",
+          "path": "data/assays/methyl-red-test.yaml",
+          "commit": "f4a7ffb",
+          "added_at": "2026-11-08T18:39:24-08:00",
+          "added_date": "2026-11-09"
         }
       ]
     }

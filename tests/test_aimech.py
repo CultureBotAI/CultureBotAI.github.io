@@ -86,7 +86,7 @@ class AIMechTests(unittest.TestCase):
             build_subsets.record_identity("bad.yaml", "name: Missing identity\n", "AIMech")
 
     def test_source_links_are_pinned_during_prepare(self):
-        with (mock.patch.object(build_subsets, "ORDER", ["CMMMech", "AIMech"]),
+        with (mock.patch.object(build_subsets, "ORDER", ["CMMMech", "AIMech", "CofactorMech", "AssayMech"]),
               mock.patch.object(build_subsets, "mech_root", side_effect=lambda name: "/fixture/" + name),
               mock.patch.object(build_subsets, "revision", return_value=PIN),
               mock.patch.object(build_subsets.glob, "glob", return_value=["/fixture/HabitatMech/pages/habitats/a.html"]),
@@ -98,6 +98,10 @@ class AIMechTests(unittest.TestCase):
                              "https://github.com/CultureBotAI/AIMech/blob/" + PIN + "/data/")
             self.assertEqual(build_subsets.MECHS["CMMMech"]["base"],
                              "https://github.com/CultureBotAI/CMMMech/blob/" + PIN + "/data/records/")
+            self.assertEqual(build_subsets.MECHS["CofactorMech"]["base"],
+                             "https://github.com/CultureBotAI/CofactorMech/blob/" + PIN + "/data/cofactors/")
+            self.assertEqual(build_subsets.MECHS["AssayMech"]["base"],
+                             "https://github.com/CultureBotAI/AssayMech/blob/" + PIN + "/data/assays/")
 
     def test_native_draft_and_import_statuses_do_not_claim_review_coverage(self):
         schema = self.root / "src/aimech/schema"

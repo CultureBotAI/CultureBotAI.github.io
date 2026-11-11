@@ -33,12 +33,12 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertGreater(figures["DUFMech"], 0)
         self.assertIn(f"<b>{sum(figures.values()):,}</b>", page)
         self.assertIn("records, seed families and concepts", page)
-        self.assertIn("all fourteen Mechs", page)
+        self.assertIn("all sixteen Mechs", page)
         members = set(self.inputs[1]["mechs"])
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
         self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
                          len(set(figures) - members))
-        self.assertIn(f"The manifest declares {number_word(len(members & set(figures)))} of the fourteen projects", page)
+        self.assertIn(f"The manifest declares {number_word(len(members & set(figures)))} of the sixteen projects", page)
 
     def test_undeclared_duf_fixture_retains_a_seed_card_and_unknown_capabilities(self):
         self.inputs[1]["mechs"].pop("DUFMech", None)
@@ -66,7 +66,7 @@ class SuiteIntegrationTests(unittest.TestCase):
         page = self.render()
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(snapshot["mechs"]))
         self.assertNotIn('<span class="badge">not yet in fleet manifest</span>', page)
-        self.assertIn("The manifest declares fourteen of the fourteen projects", page)
+        self.assertIn("The manifest declares sixteen of the sixteen projects", page)
         self.assertIn("All projects shown here have a manifest declaration.", page)
         self.assertNotIn("Separately listed projects without a declaration:", page)
         rows = capability_rows(snapshot, ["DUFMech"])
@@ -86,7 +86,7 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertNotIn('class="d"', rows)
 
     def test_a_missing_new_mech_stat_cannot_be_silently_omitted(self):
-        for name in ("PathwayMech", "DUFMech", "AIMech"):
+        for name in ("PathwayMech", "DUFMech", "AIMech", "CofactorMech", "AssayMech"):
             original = self.inputs[2]["mechs"]
             self.inputs[2]["mechs"] = [row for row in original if row["mech"] != name]
             with self.assertRaisesRegex(ValueError, "Mech stats"):

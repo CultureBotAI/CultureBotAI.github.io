@@ -30,7 +30,7 @@ Five most recently added community and isolate records in the pinned repository 
 4. **[Rhodopseudomonas palustris CGA676 Anaerobic Monoculture Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Rhodopseudomonas_Palustris_CGA676_Anaerobic_Monoculture_Baseline.yaml)** (`CommunityMech:000539`, added 2026-11-09)
 5. **[Stenotrophomonas sp. ZM-3 Prometryn-Degrading Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Stenotrophomonas_ZM3_Prometryn_Degrading_Isolate_Baseline.yaml)** (`CommunityMech:000538`, added 2026-11-09)
 
-See all fourteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
+See all sixteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
 
 ## Data Architecture
 
@@ -110,7 +110,7 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 
 ## Related Tools
 
-- **[X-Mech Suite overview](/mechs/)** - All fourteen Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[X-Mech Suite overview](/mechs/)** - All sixteen Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
 - **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
 - **[TraitMech](https://culturebotai.github.io/TraitMech/)** - Autonomous knowledge factory for microbial ecophysiological traits
@@ -118,9 +118,11 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[DUFMech](https://culturebotai.github.io/DUFMech/)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
+- **[CofactorMech](https://github.com/CultureBotAI/CofactorMech)** - Microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
 - **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
+- **[AssayMech](https://github.com/CultureBotAI/AssayMech)** - Microbiological diagnostic and operational analytical assays grounded in METPO
 - **[AIMech](https://culturebotai.github.io/AIMech/)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient curation
 - **[CultureMech](/culturemech/)** - Single-organism media requirements (6,325 canonical media)

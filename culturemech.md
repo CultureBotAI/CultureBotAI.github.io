@@ -30,7 +30,7 @@ Five most recently added merged canonical media in the pinned repository snapsho
 4. **[METHANOCORPUSCULUM AGGREGANS MEDIUM](https://github.com/CultureBotAI/CultureMech/blob/2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8/data/merge_yaml/merged/methanocorpusculum_aggregans_medium_jcm_1422.yaml)** (`CultureMech:015916`, added 2026-10-22)
 5. **[MODIFIED UREAPLASMA MEDIUM](https://github.com/CultureBotAI/CultureMech/blob/2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8/data/merge_yaml/merged/modified_ureaplasma_medium.yaml)** (`CultureMech:015917`, added 2026-10-22)
 
-See all fourteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
+See all sixteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
 
 ## Data Architecture
 
@@ -100,7 +100,7 @@ For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml
 
 ## Related Tools
 
-- **[X-Mech Suite overview](/mechs/)** - All fourteen Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
+- **[X-Mech Suite overview](/mechs/)** - All sixteen Mechs, their shared vocabulary and cross-references, and the culturebotai-claw orchestrator
 - **[HabitatMech](https://culturebotai.github.io/HabitatMech/)** - Habitats harmonized from GOLD, BacDive, PREGO and Madin et al. into ontology-grounded records
 - **[CommunityMech](/communitymech/)** - Microbial community interaction modeling
 - **[TaxonMech](https://culturebotai.github.io/TaxonMech/)** - Microbial taxa and strains grounded in NCBI Taxonomy, harmonized with GTDB, LPSN and BacDive
@@ -109,9 +109,11 @@ For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[DUFMech](https://culturebotai.github.io/DUFMech/)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
+- **[CofactorMech](https://github.com/CultureBotAI/CofactorMech)** - Microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
 - **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
+- **[AssayMech](https://github.com/CultureBotAI/AssayMech)** - Microbiological diagnostic and operational analytical assays grounded in METPO
 - **[AIMech](https://culturebotai.github.io/AIMech/)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization and ChEBI mapping

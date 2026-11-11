@@ -316,7 +316,8 @@ def script_json(value):
 # the stat tile wants a numeral, so the count is offered in both forms rather
 # than spelled out at every call site (CultureBotAI.github.io#93).
 WORDS = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
-         "nine", "ten", "eleven", "twelve", "thirteen", "fourteen")
+         "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+         "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty")
 
 
 def number_word(value: int) -> str:

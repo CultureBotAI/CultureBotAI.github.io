@@ -13,7 +13,9 @@
   "MediaIngredientMech": "8b6ad28ac58c3a26b952b086e207899d6cef1be7",
   "CultureMech": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
   "TaxonMech": "6a86624b7ba126a5982b758431b9804cf0ffb395",
-  "AIMech": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0"
+  "AIMech": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
+  "CofactorMech": "131fc3ea47615a29bde04a3185b29f03edf2ada1",
+  "AssayMech": "95a01f4981cbdf70e2e135d55d4d8f2f464a6e12"
  },
  "cells": {
   "HabitatMech|BFO": {
@@ -1745,6 +1747,56 @@
    "records": 528,
    "occurrences": 1189,
    "sha256": "c219bdb587b1058c99806ee28bd8db1de57818bcd506159229b5fc01746e49ee"
+  },
+  "CofactorMech|CHEBI": {
+   "records": 14,
+   "occurrences": 303,
+   "sha256": "015d04478eada67f846c26ee703c1c39043ef065f4967e122162d9dbde3d381d"
+  },
+  "CofactorMech|EC": {
+   "records": 3,
+   "occurrences": 6,
+   "sha256": "30e513fed50f9a4adbb23b1296bea9f21957141f19ecdbbdc75b95adaee5d395"
+  },
+  "CofactorMech|ECO": {
+   "records": 2,
+   "occurrences": 4,
+   "sha256": "ee4eceb187b4b237b713f6d08b2cba635543c9578f9f3ad0f68c20b06e7cd3e8"
+  },
+  "CofactorMech|MetaCyc": {
+   "records": 10,
+   "occurrences": 16,
+   "sha256": "f692ab2c8a29eed00fcbcb9f755572b62cbed857b0a632ad4d4f81ca4b738ab9"
+  },
+  "CofactorMech|RHEA": {
+   "records": 6,
+   "occurrences": 12,
+   "sha256": "8e2e6e211bda6c8ab093aa71b5b96aeb5f0f5daa345c3ecff850535440857e48"
+  },
+  "CofactorMech|SGD": {
+   "records": 1,
+   "occurrences": 2,
+   "sha256": "df8cc2cd2f0306018cd8a2a4e064381326f5941557fd77b52f7d61eb60b1fc36"
+  },
+  "CofactorMech|UniProt": {
+   "records": 6,
+   "occurrences": 9,
+   "sha256": "c1245cc320599ba30f96737c67cf655dac1fcd333eb1332516b02214d9cf4f84"
+  },
+  "CofactorMech|WikiPathways": {
+   "records": 1,
+   "occurrences": 3,
+   "sha256": "e5148039f41668c39c05d1844f37aaa5793f714542dbc1ee334608df18a85adf"
+  },
+  "CofactorMech|gomodel": {
+   "records": 1,
+   "occurrences": 1,
+   "sha256": "3739d621830907f149e80a1e360365669253e8e4a7ccc32a4137b9c1f41683aa"
+  },
+  "AssayMech|METPO": {
+   "records": 8,
+   "occurrences": 8,
+   "sha256": "685e131d90cd6dbe5f739737e7510b6f43231eb077cfa2893c2ad903a917085f"
   }
  }
 }

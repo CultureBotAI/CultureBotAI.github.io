@@ -1,6 +1,6 @@
 {
- "as_of": "2026-11-09",
- "merged_prs_total": 8224,
+ "as_of": "2026-11-10",
+ "merged_prs_total": 8278,
  "mechs": [
   {
    "mech": "HabitatMech",
@@ -8,7 +8,7 @@
    "records": 3209,
    "reviewed": 1298,
    "status_field": "mapping_status",
-   "merged_prs": 1126,
+   "merged_prs": 1129,
    "source_revision": "7c82566b001f676eb0d3c9cc6c905f85a99b8bde"
   },
   {
@@ -17,7 +17,7 @@
    "records": 535,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 775,
+   "merged_prs": 783,
    "source_revision": "e6c179330ed043975eaf7f353342766b59a4cd02"
   },
   {
@@ -44,7 +44,7 @@
    "records": 1022,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 1145,
+   "merged_prs": 1146,
    "source_revision": "6e0cbc219a1a600680373f141efb92f221c02493"
   },
   {
@@ -71,7 +71,7 @@
    "records": 3136,
    "reviewed": 20,
    "status_field": "curation_status",
-   "merged_prs": 602,
+   "merged_prs": 604,
    "source_revision": "6226602895d4d2e598dc70e281d43027f1c89471"
   },
   {
@@ -80,7 +80,7 @@
    "records": 3125,
    "reviewed": 174,
    "status_field": "curation_status",
-   "merged_prs": 738,
+   "merged_prs": 739,
    "source_revision": "54161f65ba199a8415a833336a6eb52dfba13986"
   },
   {
@@ -89,7 +89,7 @@
    "records": 708,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 210,
+   "merged_prs": 216,
    "source_revision": "3bc89f7aeaf6db9fc42676e61efb86ca906fbdc5"
   },
   {
@@ -98,7 +98,7 @@
    "records": 2956,
    "reviewed": null,
    "status_field": null,
-   "merged_prs": 533,
+   "merged_prs": 547,
    "source_revision": "8b6ad28ac58c3a26b952b086e207899d6cef1be7"
   },
   {
@@ -116,7 +116,7 @@
    "records": 626048,
    "reviewed": 0,
    "status_field": "mapping_status",
-   "merged_prs": 104,
+   "merged_prs": 110,
    "source_revision": "6a86624b7ba126a5982b758431b9804cf0ffb395"
   },
   {
@@ -127,16 +127,34 @@
    "status_field": null,
    "merged_prs": 321,
    "source_revision": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0"
+  },
+  {
+   "mech": "CofactorMech",
+   "repo": "CofactorMech",
+   "records": 14,
+   "reviewed": null,
+   "status_field": null,
+   "merged_prs": 2,
+   "source_revision": "131fc3ea47615a29bde04a3185b29f03edf2ada1"
+  },
+  {
+   "mech": "AssayMech",
+   "repo": "AssayMech",
+   "records": 9,
+   "reviewed": null,
+   "status_field": null,
+   "merged_prs": 2,
+   "source_revision": "95a01f4981cbdf70e2e135d55d4d8f2f464a6e12"
   }
  ],
  "additional_repositories": [
   {
    "repo": "culturebotai-claw",
-   "merged_prs": 279
+   "merged_prs": 287
   },
   {
    "repo": "CultureBotAI.github.io",
-   "merged_prs": 75
+   "merged_prs": 76
   }
  ]
 }
