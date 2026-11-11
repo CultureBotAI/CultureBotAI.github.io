@@ -23,7 +23,7 @@ REPO = Path(__file__).resolve().parents[2]
 OUT = REPO / "_fleet/data/recent_terms.json"
 COUNT = 5
 GH_REPO = {"ProteinTraitsMech": "proteintraitsmech"}
-BLOB_MECHS = {"MediaIngredientMech", "CultureMech", "CMMMech", "AIMech"}
+BLOB_MECHS = {"MediaIngredientMech", "CultureMech", "CMMMech", "AIMech", "CofactorMech", "AssayMech"}
 ORIGINAL_NAME = re.compile(r"^original_name\s*:\s*(.+)$", re.M)
 
 

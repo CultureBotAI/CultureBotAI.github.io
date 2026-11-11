@@ -27,7 +27,8 @@ GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
 # browser, and CultureMech's pages/media/ pages come and go with its Actions
 # deployment (#175, #223), so they are not a link base yet (#229). CMMMech and
 # AIMech publish a page per record since October 12, 2026, after the census
-# pins; prepare() points their links at the scanned commit's files (#479).
+# pins, and CofactorMech and AssayMech link their seed YAML records on GitHub;
+# prepare() points all four at the scanned commit's files (#479).
 SITE_BASE={
  # One committed page per record, pages/<class>/<slug>.html mirroring
  # data/natural_products/<class>/<slug>.yaml, served by the branch build (#149).
@@ -49,6 +50,8 @@ SITE_BASE={
  "DUFMech": SITE+"DUFMech/families/",
  "CMMMech": GH+"CMMMech/blob/main/data/records/",
  "AIMech": GH+"AIMech/blob/main/data/",
+ "CofactorMech": GH+"CofactorMech/blob/main/data/cofactors/",
+ "AssayMech": GH+"AssayMech/blob/main/data/assays/",
 }
 # Filled by prepare(). mech_root() touches the filesystem and exits on a
 # missing checkout, so resolving these at import made the module unimportable
@@ -77,7 +80,7 @@ rx=re.compile(rx.pattern.replace("CHEBI|", "pfam|Interpro|pdb|swiss|SWISS|UnioPr
 STRICT=re.compile(r"^\s*(?:-\s*)?(?:id|identifier|term|term_id|ontology_id|curie|taxon_id|taxon|organism)\s*:\s*['\"]?(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)['\"]?\s*$")
 strict=collections.defaultdict(collections.Counter)
 LAB=re.compile(r"^\s*(?:-\s*)?(?:label|name|term_label|preferred_label|preferred_term|taxon_label|organism_label|ontology_label)\s*:\s*(.+?)\s*$")
-AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["DUFMech","CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
+AUTH={"MIBiG":["NaturalProductMech"],"NPAtlas":["NaturalProductMech"],"CHEBI":["MediaIngredientMech","AntibioticMech","CultureMech","CofactorMech"],"NCBITaxon":["TaxonMech","HabitatMech","CommunityMech","TraitMech"],"GO":["CellStructureMech","CommunityMech","TraitMech"],"METPO":["TraitMech","AssayMech"],"ARO":["AntibioticMech"],"ENVO":["HabitatMech","CommunityMech","MediaIngredientMech"],"UBERON":["HabitatMech","MediaIngredientMech","CultureMech"],"FOODON":["HabitatMech","MediaIngredientMech","CultureMech"],"UniProt":["CellStructureMech","TraitMech"],"InterPro":["TraitMech"],"Pfam":["DUFMech","CellStructureMech"],"KEGG":["CultureMech"],"PATO":["TraitMech"],"CAS":["MediaIngredientMech"],"DOI":[]}
 # Fields whose values are prose. A note that rejects a term, a change log naming
 # the grounding it replaced, a definition citing a neighbouring concept or a
 # quoted source snippet mentions an identifier without the record citing it, so
@@ -119,8 +122,17 @@ def prose_spans(txt):
             pos=nxt
         spans.append((m.start(3),pos)); keep=pos
     return spans
+JSON_PROSE=set(PROSE)|{"claim","basis","reason","summary","limitations","interpretation","title"}
+def _strip_json_prose(obj):
+    if isinstance(obj,dict):
+        return {k:"" if is_prose(k) or k in JSON_PROSE else _strip_json_prose(v) for k,v in obj.items()}
+    if isinstance(obj,list): return [_strip_json_prose(x) for x in obj]
+    return obj
 def structured_text(txt):
     """The record text without the values of prose fields."""
+    if txt.lstrip().startswith("{"):
+        try: return json.dumps(_strip_json_prose(json.loads(txt)),ensure_ascii=False)
+        except ValueError: pass
     out=[]; keep=0
     for a,b in prose_spans(txt): out.append(txt[keep:a]); keep=b
     out.append(txt[keep:])
@@ -143,6 +155,27 @@ def terms_in(txt):
         p=NORM.get(raw,raw)
         if p in PREF: found.add(TERM_SPACE.get(raw,p)+":"+i)
     return found
+STRICT_PREFIX_RX=re.compile(r"^(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)$")
+JSON_ID_KEYS=("id","identifier","term","term_id","ontology_id","curie","taxon_id","taxon","organism","chemical_id")
+JSON_LAB_KEYS=("label","name","term_label","term_name","preferred_label","preferred_term","taxon_label","organism_label","ontology_label")
+def _json_strict_votes(obj, m=None, votes=None):
+    if isinstance(obj,dict):
+        lab=next((obj[k].strip() for k in JSON_LAB_KEYS if isinstance(obj.get(k),str) and obj[k].strip()),None)
+        if lab and not lab.startswith("http") and "#" not in lab:
+            for k in JSON_ID_KEYS:
+                val=obj.get(k)
+                if isinstance(val,str):
+                    ms=STRICT_PREFIX_RX.match(val.strip())
+                    if ms:
+                        raw,i=ms.group(1),ms.group(2)
+                        p=NORM.get(raw,raw)
+                        t=TERM_SPACE.get(raw,p)+":"+i
+                        strict[t][lab]+=1
+                        if votes is not None and m in AUTH.get(p,[]):
+                            votes[t][lab]+=1
+        for v in obj.values(): _json_strict_votes(v, m, votes)
+    elif isinstance(obj,list):
+        for x in obj: _json_strict_votes(x, m, votes)
 def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
@@ -162,7 +195,14 @@ def prepare():
     MECHS.update({name: dict(root=mech_root(name), base=SITE_BASE[name]) for name in ORDER})
     # Every record link names the scanned commit, so it matches the census pin
     # even where the Mech's website serves a later revision.
-    for name, directory in (("CMMMech", "data/records/"), ("AIMech", "data/")):
+    for name, directory in (
+        ("CMMMech", "data/records/"),
+        ("AIMech", "data/"),
+        ("CofactorMech", "data/cofactors/"),
+        ("AssayMech", "data/assays/"),
+    ):
+        if name not in MECHS:
+            continue
         pin = revision(name)
         if pin and re.fullmatch(r"[0-9a-f]{40}", pin):
             MECHS[name]["base"] = GH+name+"/blob/"+pin+"/"+directory
@@ -202,12 +242,24 @@ def slug_for(m, f, doc_id, doc_label=""):
     if m=="CultureMech": return urllib.parse.quote(rel[len("data/merge_yaml/merged/"):])
     if m=="CMMMech": return urllib.parse.quote(rel[len("data/records/"):])
     if m=="AIMech": return urllib.parse.quote(rel[len("data/"):])
+    if m=="CofactorMech": return urllib.parse.quote(rel[len("data/cofactors/"):])
+    if m=="AssayMech": return urllib.parse.quote(rel[len("data/assays/"):])
     if m=="TaxonMech": return urllib.parse.quote(doc_id, safe="") if doc_id else None
     if m=="PathwayMech": return urllib.parse.quote(doc_id.replace(":", "_").replace("/", "_")+".html") if doc_id else None
     if m=="DUFMech": return doc_id.removeprefix("Pfam:")+".html" if re.fullmatch(r"Pfam:PF\d{5}",doc_id) else None
     return None
 def record_identity(path, text, mech=None):
     """Read the stable record id and full folded display label used by links."""
+    if text.lstrip().startswith("{"):
+        try:
+            doc=json.loads(text)
+            if isinstance(doc,dict):
+                doc_id=str(doc.get("identifier") or doc.get("id") or "").strip()
+                raw_label=next((doc[k] for k in ("label","preferred_term","display_name","title","name") if isinstance(doc.get(k),str) and doc.get(k).strip()),None)
+                label=" ".join(raw_label.split()) if raw_label else os.path.basename(path)[:-5]
+                return doc_id, label, bool(raw_label)
+        except ValueError:
+            pass
     head=text if mech=="AIMech" else text[:4000]
     mid=re.search(r"^(?:identifier|id)\s*:\s*(\S+)",head,flags=re.M)
     doc_id=mid.group(1).strip("'\"") if mid else ""
@@ -243,33 +295,40 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
             c=cells[p]; c[0]+=1
             if len(c[1])<cap_cell: c[1].append((slug,doc_label))
         # label votes: strict structural form from every Mech, relaxed form from authoritative Mechs
-        lines=txt.split("\n")
-        for j,l in enumerate(lines):
-            ms=STRICT.match(l)
-            if ms:
-                raw,i=ms.group(1),ms.group(2); t=TERM_SPACE.get(raw,NORM.get(raw,raw))+":"+i
-                for k in (j+1,j+2):
-                    if k<len(lines):
-                        ml2=LAB.match(lines[k])
-                        if ml2:
-                            v=unq(ml2.group(1))
-                            if v and not v.startswith("http") and "#" not in v: strict[t][v]+=1
-                            break
-        if any(m in AUTH.get(p,[]) for p in PREF):
+        parsed_json=False
+        if txt.lstrip().startswith("{"):
+            try:
+                _json_strict_votes(json.loads(txt), m, votes)
+                parsed_json=True
+            except ValueError: pass
+        if not parsed_json:
+            lines=txt.split("\n")
             for j,l in enumerate(lines):
-                for raw,i in rx.findall(l):
-                    p=NORM.get(raw,raw)
-                    if m not in AUTH.get(p,[]): continue
-                    t=TERM_SPACE.get(raw,p)+":"+i
-                    mm=re.search(re.escape(t)+r"\s*\((.+?)\)",l)
-                    if mm: votes[t][mm.group(1).strip()]+=1; continue
-                    for k in (j,j+1):
+                ms=STRICT.match(l)
+                if ms:
+                    raw,i=ms.group(1),ms.group(2); t=TERM_SPACE.get(raw,NORM.get(raw,raw))+":"+i
+                    for k in (j+1,j+2):
                         if k<len(lines):
                             ml2=LAB.match(lines[k])
                             if ml2:
                                 v=unq(ml2.group(1))
-                                if v and not v.startswith("http") and "#" not in v: votes[t][v]+=1
+                                if v and not v.startswith("http") and "#" not in v: strict[t][v]+=1
                                 break
+            if any(m in AUTH.get(p,[]) for p in PREF):
+                for j,l in enumerate(lines):
+                    for raw,i in rx.findall(l):
+                        p=NORM.get(raw,raw)
+                        if m not in AUTH.get(p,[]): continue
+                        t=TERM_SPACE.get(raw,p)+":"+i
+                        mm=re.search(re.escape(t)+r"\s*\((.+?)\)",l)
+                        if mm: votes[t][mm.group(1).strip()]+=1; continue
+                        for k in (j,j+1):
+                            if k<len(lines):
+                                ml2=LAB.match(lines[k])
+                                if ml2:
+                                    v=unq(ml2.group(1))
+                                    if v and not v.startswith("http") and "#" not in v: votes[t][v]+=1
+                                    break
     print(m,"files",nfiles,"unlinked",nolink,"terms",len(terms),flush=True)
     return dict(terms=terms,cells=cells,votes=votes,own=own)
 def main():

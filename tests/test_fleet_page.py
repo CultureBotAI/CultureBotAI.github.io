@@ -106,10 +106,10 @@ class FleetPageTests(unittest.TestCase):
         self.stats["merged_prs_total"] = mech_total + 303
         page = self.render()
         self.assertIn(f'<b>{mech_total + 303:,}</b><span>Merged PRs</span>', page)
-        self.assertIn('Across 16 repositories: the fourteen Mechs, CLAW and this website', page)
+        self.assertIn('Across 18 repositories: the sixteen Mechs, CLAW and this website', page)
         self.assertIn('<b>1</b><span>orchestrator (claw)</span>', page)
         self.assertIn('<b>1</b><span>project website</span>', page)
-        self.assertEqual(len(card_names(page)), 14)
+        self.assertEqual(len(card_names(page)), 16)
         self.assertNotIn('data-mech="culturebotai-claw"', page)
         self.assertNotIn('data-mech="CultureBotAI.github.io"', page)
 
@@ -146,7 +146,7 @@ class FleetPageTests(unittest.TestCase):
         self.assertEqual(page, (ROOT / "mechs.md").read_text())
         members = set(self.snapshot["mechs"])
         self.assertEqual(page.count('<span class="badge">in fleet manifest</span>'), len(members))
-        self.assertIn('Relationship graph of the fourteen autonomous knowledge factories', page)
+        self.assertIn('Relationship graph of the sixteen autonomous knowledge factories', page)
         self.assertEqual(page.count('<span class="badge">not yet in fleet manifest</span>'),
                          len(set(card_figures(self.template)) - members))
         self.assertNotIn('one revision behind', page)
@@ -162,10 +162,10 @@ class FleetPageTests(unittest.TestCase):
         # The heading, intro and SVG title are sentences, and the rest of the
         # site writes "ten" in prose; only the stat tile wants a figure (#93).
         page = self.render()
-        self.assertIn('# X-Mech Suite: fourteen autonomous knowledge factories', page)
-        self.assertIn('## The fourteen Mechs', page)
-        self.assertIn('census covers all fourteen Mechs', page)
-        self.assertIn('<b>14</b><span>autonomous knowledge factories</span>', page)
+        self.assertIn('# X-Mech Suite: sixteen autonomous knowledge factories', page)
+        self.assertIn('## The sixteen Mechs', page)
+        self.assertIn('census covers all sixteen Mechs', page)
+        self.assertIn('<b>16</b><span>autonomous knowledge factories</span>', page)
         self.assertNotIn('The 10 Mechs', page)
 
     def test_the_meta_description_opens_like_a_sentence(self):
@@ -187,7 +187,7 @@ class FleetPageTests(unittest.TestCase):
         self.data["vocab_edges"] = [e for e in self.data["vocab_edges"] if "TaxonMech" not in (e["a"], e["b"])]
         self.data["cells"] = {k: v for k, v in self.data["cells"].items() if not k.startswith("TaxonMech--")}
         page = self.render()
-        self.assertIn("census covers thirteen of the fourteen Mechs", page)
+        self.assertIn("census covers fifteen of the sixteen Mechs", page)
         self.assertNotIn("all ten Mechs", page)
 
     def test_number_word_falls_back_to_a_numeral_past_the_short_words(self):
@@ -197,7 +197,10 @@ class FleetPageTests(unittest.TestCase):
         # A fleet that outgrows the table should read as digits, not break.
         self.assertEqual(number_word(13), 'thirteen')
         self.assertEqual(number_word(14), 'fourteen')
-        self.assertEqual(number_word(15), '15')
+        self.assertEqual(number_word(15), 'fifteen')
+        self.assertEqual(number_word(16), 'sixteen')
+        self.assertEqual(number_word(20), 'twenty')
+        self.assertEqual(number_word(21), '21')
         self.assertEqual(number_word(1000), '1,000')
 
     def test_new_admission_cannot_silently_omit_card_or_graph_node(self):
@@ -1570,6 +1573,51 @@ class ProseFieldTests(unittest.TestCase):
         text = "notes_url: CHEBI:1\ntextual_id: CHEBI:2\ndescription_id: CHEBI:3\n"
         self.assertEqual(build_subsets.terms_in(build_subsets.structured_text(text)),
                          {"CHEBI:1", "CHEBI:2", "CHEBI:3"})
+
+    def test_json_serialized_yaml_prose_and_identity_extraction(self):
+        import collections
+        import build_subsets
+        record = json.dumps({
+            "id": "CofactorMech:biotin",
+            "name": "biotin",
+            "chemical_id": "CHEBI:15956",
+            "description": "biotin is represented by CHEBI:15956 and mentions CHEBI:99999 in prose",
+            "evidence": [
+                {
+                    "reference": "DOI:10.1099/ijsem.0.001234",
+                    "claim": "Claims CHEBI:88888 in prose",
+                }
+            ],
+            "related_records": [
+                {
+                    "corpus": "pathwaymech",
+                    "identifier": "MetaCyc:BIOTIN-BIOSYNTHESIS-PWY",
+                    "basis": "Pathway chemical is CHEBI:57586 in pathway",
+                    "target_chemical_id": "CHEBI:57586",
+                }
+            ],
+            "research_gaps": [
+                {
+                    "corpus": "proteintraitsmech",
+                    "reason": "Missing exemplar for CHEBI:77777 in corpus",
+                }
+            ],
+            "curation_history": [
+                {
+                    "summary": "Replaced CHEBI:66666 earlier",
+                }
+            ],
+        }, indent=2)
+        found, cited = build_subsets.mentions_and_citations(record)
+        self.assertEqual(cited, {"CHEBI:15956", "CHEBI:57586", "DOI:10.1099/ijsem.0.001234"})
+        self.assertEqual(found, cited | {"CHEBI:99999", "CHEBI:88888", "CHEBI:77777", "CHEBI:66666"})
+        self.assertEqual(build_subsets.record_identity("data/cofactors/biotin.yaml", record, "CofactorMech"),
+                         ("CofactorMech:biotin", "biotin", True))
+        votes = collections.defaultdict(collections.Counter)
+        with unittest.mock.patch.dict(build_subsets.strict, {}, clear=True):
+            build_subsets._json_strict_votes(json.loads(record), "CofactorMech", votes)
+            self.assertEqual(build_subsets.strict["CHEBI:15956"]["biotin"], 1)
+            self.assertEqual(votes["CHEBI:15956"]["biotin"], 1)
 
 
 class SubsetDeterminismTests(unittest.TestCase):

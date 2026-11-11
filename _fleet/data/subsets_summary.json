@@ -13,7 +13,9 @@
   "MediaIngredientMech": "8b6ad28ac58c3a26b952b086e207899d6cef1be7",
   "CultureMech": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
   "TaxonMech": "6a86624b7ba126a5982b758431b9804cf0ffb395",
-  "AIMech": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0"
+  "AIMech": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
+  "CofactorMech": "131fc3ea47615a29bde04a3185b29f03edf2ada1",
+  "AssayMech": "95a01f4981cbdf70e2e135d55d4d8f2f464a6e12"
  },
  "edges": {
   "HabitatMech|CommunityMech": {
@@ -477,6 +479,26 @@
     }
    ]
   },
+  "CommunityMech|CofactorMech": {
+   "n": 11,
+   "by": {
+    "CHEBI": 11
+   },
+   "ex": [
+    {
+     "id": "CHEBI:17015",
+     "label": "riboflavin"
+    },
+    {
+     "id": "CHEBI:29036",
+     "label": "copper(2+)"
+    },
+    {
+     "id": "CHEBI:49786",
+     "label": "nickel(2+)"
+    }
+   ]
+  },
   "TraitMech|PathwayMech": {
    "n": 126,
    "by": {
@@ -689,6 +711,46 @@
     }
    ]
   },
+  "TraitMech|CofactorMech": {
+   "n": 5,
+   "by": {
+    "CHEBI": 5
+   },
+   "ex": [
+    {
+     "id": "CHEBI:29035",
+     "label": "manganese(2+)"
+    },
+    {
+     "id": "CHEBI:15846",
+     "label": "NAD(+)"
+    },
+    {
+     "id": "CHEBI:29105",
+     "label": "zinc(2+)"
+    }
+   ]
+  },
+  "TraitMech|AssayMech": {
+   "n": 8,
+   "by": {
+    "METPO": 8
+   },
+   "ex": [
+    {
+     "id": "METPO:1005010",
+     "label": "indole test"
+    },
+    {
+     "id": "METPO:1005013",
+     "label": "methyl red test"
+    },
+    {
+     "id": "METPO:1005016",
+     "label": "Voges-Proskauer test"
+    }
+   ]
+  },
   "PathwayMech|CellStructureMech": {
    "n": 131,
    "by": {
@@ -869,6 +931,26 @@
     }
    ]
   },
+  "PathwayMech|CofactorMech": {
+   "n": 15,
+   "by": {
+    "CHEBI": 15
+   },
+   "ex": [
+    {
+     "id": "CHEBI:29105",
+     "label": "zinc(2+)"
+    },
+    {
+     "id": "CHEBI:29035",
+     "label": "manganese(2+)"
+    },
+    {
+     "id": "CHEBI:57287",
+     "label": "coenzyme A(4-)"
+    }
+   ]
+  },
   "CellStructureMech|ProteinTraitsMech": {
    "n": 2984,
    "by": {
@@ -1038,6 +1120,22 @@
     }
    ]
   },
+  "CellStructureMech|CofactorMech": {
+   "n": 2,
+   "by": {
+    "CHEBI": 2
+   },
+   "ex": [
+    {
+     "id": "CHEBI:29105",
+     "label": "zinc(2+)"
+    },
+    {
+     "id": "CHEBI:57692",
+     "label": "FAD(3-)"
+    }
+   ]
+  },
   "ProteinTraitsMech|DUFMech": {
    "n": 16531,
    "by": {
@@ -1199,6 +1297,46 @@
     }
    ]
   },
+  "ProteinTraitsMech|CofactorMech": {
+   "n": 21,
+   "by": {
+    "CHEBI": 21
+   },
+   "ex": [
+    {
+     "id": "CHEBI:57287",
+     "label": "coenzyme A(4-)"
+    },
+    {
+     "id": "CHEBI:58210",
+     "label": "FMN(3-)"
+    },
+    {
+     "id": "CHEBI:57692",
+     "label": "FAD(3-)"
+    }
+   ]
+  },
+  "ProteinTraitsMech|AssayMech": {
+   "n": 6,
+   "by": {
+    "METPO": 6
+   },
+   "ex": [
+    {
+     "id": "METPO:1005010",
+     "label": "indole test"
+    },
+    {
+     "id": "METPO:1005013",
+     "label": "methyl red test"
+    },
+    {
+     "id": "METPO:1005016",
+     "label": "Voges-Proskauer test"
+    }
+   ]
+  },
   "DUFMech|CMMMech": {
    "n": 6,
    "by": {
@@ -1322,6 +1460,26 @@
     {
      "id": "NCBITaxon:294",
      "label": "Pseudomonas fluorescens"
+    }
+   ]
+  },
+  "NaturalProductMech|CofactorMech": {
+   "n": 9,
+   "by": {
+    "CHEBI": 9
+   },
+   "ex": [
+    {
+     "id": "CHEBI:57692",
+     "label": "FAD(3-)"
+    },
+    {
+     "id": "CHEBI:29036",
+     "label": "copper(2+)"
+    },
+    {
+     "id": "CHEBI:48828",
+     "label": "cobalt(2+)"
     }
    ]
   },
@@ -1492,6 +1650,26 @@
     }
    ]
   },
+  "MediaIngredientMech|CofactorMech": {
+   "n": 26,
+   "by": {
+    "CHEBI": 26
+   },
+   "ex": [
+    {
+     "id": "CHEBI:53503",
+     "label": "cobalt chloride hexahydrate"
+    },
+    {
+     "id": "CHEBI:17015",
+     "label": "riboflavin"
+    },
+    {
+     "id": "CHEBI:32312",
+     "label": "zinc sulfate heptahydrate"
+    }
+   ]
+  },
   "CultureMech|TaxonMech": {
    "n": 54,
    "by": {
@@ -1510,6 +1688,26 @@
     {
      "id": "NCBITaxon:851",
      "label": "Fusobacterium nucleatum"
+    }
+   ]
+  },
+  "CultureMech|CofactorMech": {
+   "n": 26,
+   "by": {
+    "CHEBI": 26
+   },
+   "ex": [
+    {
+     "id": "CHEBI:34887",
+     "label": "nickel dichloride"
+    },
+    {
+     "id": "CHEBI:15956",
+     "label": "biotin"
+    },
+    {
+     "id": "CHEBI:32312",
+     "label": "zinc sulfate heptahydrate"
     }
    ]
   }
@@ -1612,6 +1810,10 @@
   "TaxonMech|GTDB": 119248,
   "TaxonMech|METPO": 2,
   "TaxonMech|NCBITaxon": 626048,
-  "TaxonMech|UniProt": 15
+  "TaxonMech|UniProt": 15,
+  "CofactorMech|CHEBI": 14,
+  "CofactorMech|RHEA": 6,
+  "CofactorMech|UniProt": 6,
+  "AssayMech|METPO": 8
  }
 }

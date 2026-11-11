@@ -50,6 +50,8 @@ RECORD_GLOBS: dict[str, list[str]] = {
     # Source ontology exports, review/history sidecars and reference downloads
     # are not additional concept records.
     "AIMech": ["data/aio/*.yaml", "data/curated/*.yaml"],
+    "CofactorMech": ["data/cofactors/*.yaml"],
+    "AssayMech": ["data/assays/*.yaml"],
 }
 
 # Paths a record glob sweeps up that are not records. A `**` glob cannot say

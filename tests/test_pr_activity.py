@@ -47,10 +47,10 @@ class PRActivityTests(unittest.TestCase):
             "merged_prs_total": -1,
         }
 
-    def test_queries_all_sixteen_repositories_and_keeps_fourteen_record_rows(self):
+    def test_queries_all_eighteen_repositories_and_keeps_sixteen_record_rows(self):
         expected_repos = ["proteintraitsmech" if name == "ProteinTraitsMech" else name
                           for name in roots.ORDER] + ["culturebotai-claw", "CultureBotAI.github.io"]
-        values = dict(zip(expected_repos, range(10, 26)))
+        values = dict(zip(expected_repos, range(10, 28)))
 
         def answer(command, **kwargs):
             query = command[command.index("-f") + 1]
@@ -59,7 +59,7 @@ class PRActivityTests(unittest.TestCase):
 
         self.gh.side_effect = answer
         actual = self.run_stats()
-        self.assertEqual(len(expected_repos), 16)
+        self.assertEqual(len(expected_repos), 18)
         self.assertEqual(self.gh.call_args_list, [mock.call(
             ["gh", "api", "-X", "GET", "search/issues", "-f",
              f"q=repo:CultureBotAI/{repo} is:pr is:merged", "--jq", ".total_count"],
@@ -67,13 +67,13 @@ class PRActivityTests(unittest.TestCase):
         ) for repo in expected_repos])
         self.assertEqual([row["mech"] for row in actual["mechs"]], list(roots.ORDER))
         self.assertEqual(self.census.call_args_list, [mock.call(name) for name in roots.ORDER])
-        self.assertEqual([row["merged_prs"] for row in actual["mechs"]], list(range(10, 24)))
+        self.assertEqual([row["merged_prs"] for row in actual["mechs"]], list(range(10, 26)))
         self.assertEqual(actual["additional_repositories"], [
-            {"repo": "culturebotai-claw", "merged_prs": 24},
-            {"repo": "CultureBotAI.github.io", "merged_prs": 25},
+            {"repo": "culturebotai-claw", "merged_prs": 26},
+            {"repo": "CultureBotAI.github.io", "merged_prs": 27},
         ])
-        self.assertEqual(actual["merged_prs_total"], sum(range(10, 26)))
-        self.assertEqual(sum(row["records"] for row in actual["mechs"]), 14 * 7)
+        self.assertEqual(actual["merged_prs_total"], sum(range(10, 28)))
+        self.assertEqual(sum(row["records"] for row in actual["mechs"]), 16 * 7)
 
     def test_no_prs_preserves_every_cached_count_without_querying(self):
         cached = self.cached_snapshot()
@@ -83,7 +83,7 @@ class PRActivityTests(unittest.TestCase):
         self.assertEqual([row["merged_prs"] for row in actual["mechs"]],
                          [row["merged_prs"] for row in cached["mechs"]])
         self.assertEqual(actual["additional_repositories"], cached["additional_repositories"])
-        self.assertEqual(actual["merged_prs_total"], sum(range(14)) + 301 + 17)
+        self.assertEqual(actual["merged_prs_total"], sum(range(16)) + 301 + 17)
         self.assertTrue(all(row["records"] == 7 for row in actual["mechs"]))
 
     def test_no_prs_missing_cache_fails_before_queries_or_record_scan(self):
@@ -143,6 +143,25 @@ class PRActivityTests(unittest.TestCase):
                 self.assertEqual(self.output.read_text(), original)
         self.gh.assert_not_called()
         self.census.assert_not_called()
+
+
+class ReviewCensusTests(unittest.TestCase):
+    def test_review_census_counts_top_level_status_in_json_serialized_yaml(self):
+        docs = [
+            ("a.yaml", json.dumps({"id": "CofactorMech:a", "curation_status": "REVIEWED"})),
+            ("b.yaml", json.dumps({"id": "CofactorMech:b", "curation_status": "SEED", "nested": {"curation_status": "REVIEWED"}})),
+        ]
+        with (
+            mock.patch.object(mech_stats, "record_paths", return_value=["a.yaml", "b.yaml"]),
+            mock.patch.object(mech_stats, "revision", return_value="a" * 40),
+            mock.patch.object(mech_stats, "review_slot", return_value="curation_status"),
+            mock.patch.object(mech_stats, "record_documents", return_value=docs),
+            mock.patch.object(mech_stats, "unchanged"),
+        ):
+            self.assertEqual(
+                mech_stats.review_census("CofactorMech"),
+                (2, 1, "curation_status", "a" * 40),
+            )
 
 
 if __name__ == "__main__":

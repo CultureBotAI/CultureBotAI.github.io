@@ -14,7 +14,7 @@ CultureBotAI led by Dr. Marcin P. Joachimiak develops and maintains various comp
 **New to CultureBotAI?** Start with [Project Ecosystem & Workflows](#-project-ecosystem--workflows) to understand how tools work together.
 
 **Looking for specific tools?**
-- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of fourteen autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech, AIMech ([suite overview](/mechs/))
+- [AI Curation Tools](#-ai-curation-tools) - The X-Mech suite of sixteen autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, CofactorMech, NaturalProductMech, AntibioticMech, CMMMech, AssayMech, MediaIngredientMech, CultureMech, AIMech ([suite overview](/mechs/))
 - [Growth Media Prediction](#growth-media-prediction--design) - MicroGrowLink, MicroGrowAgents, KOGUT
 - [Chemical Data Processing](#micromediaparam) - CultureMech, MicroMediaParam
 - [Genome Analysis](#data-processing--analysis) - eggnog_runner, eggnogtable
@@ -131,7 +131,7 @@ The CultureBotAI toolkit consists of interconnected projects organized into a da
 
 ## 🤖 AI Curation Tools
 
-The **[X-Mech Suite](/mechs/)** brings together fourteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, NaturalProductMech, AntibioticMech, CMMMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all fourteen members. The figures below were refreshed on November 9, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
+The **[X-Mech Suite](/mechs/)** brings together sixteen ontology-grounded autonomous knowledge factories: HabitatMech, CommunityMech, TaxonMech, TraitMech, PathwayMech, CellStructureMech, ProteinTraitsMech, DUFMech, CofactorMech, NaturalProductMech, AntibioticMech, CMMMech, AssayMech, MediaIngredientMech, CultureMech and AIMech. Their curation workflows turn microbial-science and AI evidence into structured, machine-readable records. The [suite overview and relationship graph](/mechs/) show their shared vocabularies and documented connections. The [culturebotai-claw](https://github.com/CultureBotAI/culturebotai-claw) manifest declares all sixteen members. The figures below were refreshed on November 9–10, 2026; DUFMech seed families, AIMech imported concepts and maintained records retain their distinct meanings.
 
 ### Pipeline Overview
 
@@ -167,6 +167,11 @@ AIMech extends the suite's curation workflow to artificial intelligence concepts
 **[GitHub Repository](https://github.com/CultureBotAI/CMMMech)** | **[Web Interface](https://culturebotai.github.io/CMMMech/)** | CC BY 4.0 data · BSD-3-Clause code; upstream terms apply
 
 CMMMech curates evidence-backed microbial extraction, transformation and recovery mechanisms for critical materials. Its 708 material records cover 457 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. 500 records describe 609 mechanisms with cited evidence, assay context and limitations; 208 remain identity and characterization records without assigned microbial mechanisms. Its [website](https://culturebotai.github.io/CMMMech/pages/browse.html) browses its current records by material kind and by microbial process; the records, the LinkML schema and review artifacts are in the [repository](https://github.com/CultureBotAI/CMMMech).
+
+### AssayMech
+**[GitHub Repository](https://github.com/CultureBotAI/AssayMech)** | **[Records at Pin](https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays)** | CC BY 4.0 data · BSD-3-Clause code; upstream terms apply
+
+AssayMech curates microbiological diagnostic and operational analytical assays, connecting METPO assay concepts to operational protocols, readouts, controls and limitations. Its [pinned repository](https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays) contains **9 assay records across four categories: six METPO-grounded diagnostic assay concepts and three operational analytical assays** (ferrozine Fe(II), TEM-EDS intracellular bismuth and ICP-MS neodymium bioleaching) linked through four `MEASURES_PROCESS` cross-references to four [CMMMech](https://culturebotai.github.io/CMMMech/) material records. No public GitHub Pages browser is deployed yet.
 
 ### MediaIngredientMech - LLM-Assisted Ingredient Curation
 **[Dedicated Page](/mediaingredientmech/)** | **[GitHub Repository](https://github.com/CultureBotAI/MediaIngredientMech)** | **[Web Interface](https://culturebotai.github.io/MediaIngredientMech/)** | CC BY 4.0 data · BSD-3-Clause code
@@ -219,6 +224,13 @@ Autonomous knowledge factory for protein sequence, structure, and function trait
 **[GitHub Repository](https://github.com/CultureBotAI/DUFMech)** | **[Web Interface](https://culturebotai.github.io/DUFMech/)** | CC BY 4.0 data · BSD-3-Clause code
 
 Provides a seed worklist of 8,296 Pfam families: 6,127 unknown candidates, 373 historical DUFs and 1,796 EX_DUF families renamed away from former DUF/UPF names. Family identifiers are measured alongside the other Mechs in the vocabulary heatmap and shared-term graph. Explore the worklists in the [repository](https://github.com/CultureBotAI/DUFMech/blob/17755af9c3c73a8a9d1cb472743cdd6f329b7b92/README.md); the published browser now offers individual family pages, search, filters, evidence, curation history and cross-Mech leads. Native family records validate against a LinkML schema. Seed labels describe frozen metadata and naming history, not functional validation; all 8,296 families remain unscored.
+
+---
+
+### CofactorMech - Microbial Enzyme Cofactors
+**[GitHub Repository](https://github.com/CultureBotAI/CofactorMech)** | **[Records at Pin](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors)** | CC BY 4.0 data · BSD-3-Clause code; upstream terms apply
+
+Curates microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI. Its [pinned repository](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors) contains **14 cofactor records: six coenzymes, five metal ions and three prosthetic groups**, with 57 cross-corpus links connecting cofactors to 25 [MediaIngredientMech](/mediaingredientmech/) ingredients, 17 [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/) cofactor-requirement and enzyme records, and 10 [PathwayMech](https://culturebotai.github.io/PathwayMech/) pathways while preserving conjugate-form and precursor distinctions. No public GitHub Pages browser is deployed yet.
 
 ---
 

@@ -42,12 +42,12 @@ class InfrastructureMembershipTests(unittest.TestCase):
         self.assertIn("The manifest also declares one infrastructure member: EdgeMech.", page)
         self.assertIn("No published scientific corpus or Pages browser", page)
         self.assertIn("not independent scientific approvals", page)
-        self.assertEqual(len(card_names(page)), 14)
+        self.assertEqual(len(card_names(page)), 16)
         self.assertNotIn("EdgeMech", card_figures(page))
         self.assertNotIn("EdgeMech", self.inputs[0]["order"])
         self.assertNotIn("EdgeMech", self.inputs[4]["mechs"])
         self.assertEqual(self.inputs, before)
-        self.assertIn("Across 16 repositories: the fourteen Mechs, CLAW and this website", page)
+        self.assertIn("Across 18 repositories: the sixteen Mechs, CLAW and this website", page)
 
     def test_admission_is_not_inferred_from_infrastructure_description(self):
         self.inputs[1]["mechs"].pop("EdgeMech")
