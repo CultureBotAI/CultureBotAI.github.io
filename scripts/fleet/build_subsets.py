@@ -27,7 +27,8 @@ GH="https://github.com/CultureBotAI/"; SITE="https://culturebotai.github.io/"
 # browser, and CultureMech's pages/media/ pages come and go with its Actions
 # deployment (#175, #223), so they are not a link base yet (#229). CMMMech and
 # AIMech publish a page per record since October 12, 2026, after the census
-# pins; prepare() points their links at the scanned commit's files (#479).
+# pins, and CofactorMech and AssayMech link their seed YAML records on GitHub;
+# prepare() points all four at the scanned commit's files (#479).
 SITE_BASE={
  # One committed page per record, pages/<class>/<slug>.html mirroring
  # data/natural_products/<class>/<slug>.yaml, served by the branch build (#149).
@@ -152,27 +153,29 @@ def terms_in(txt):
     found=set()
     for raw,i in rx.findall(txt):
         p=NORM.get(raw,raw)
-        if p in PREF: found.add(TERM_SPACE.get(raw,p)+":"+i.rstrip("."))
+        if p in PREF: found.add(TERM_SPACE.get(raw,p)+":"+i)
     return found
 STRICT_PREFIX_RX=re.compile(r"^(CHEBI|ChEBI|KEGG_REACTION|kegg\.compound|kegg\.drug|RCSB_PDB|gtdb\.genome|pdb\.ligand|pdb\-ccd|RHEA\-COMP|CAS\-RN|uniprot\.location|uniprot\.ptm|UniProtKB\-KW|Swiss|SwissProt|swissprot|Swissprot|UNIPROT|TAXON|PDBe|pdbe|interpro|KEGG_PATHWAY|kegg\.module|kegg\.glycan|NCBITaxon|GO|ENVO|METPO|ARO|UniProtKB|UniProt|InterPro|IPR|Pfam|PFAM|PATO|UBERON|FOODON|KEGG|CAS|cas):([A-Za-z0-9_.\-]+)$")
 JSON_ID_KEYS=("id","identifier","term","term_id","ontology_id","curie","taxon_id","taxon","organism","chemical_id")
 JSON_LAB_KEYS=("label","name","term_label","term_name","preferred_label","preferred_term","taxon_label","organism_label","ontology_label")
-def _json_strict_votes(obj):
+def _json_strict_votes(obj, m=None, votes=None):
     if isinstance(obj,dict):
         lab=next((obj[k].strip() for k in JSON_LAB_KEYS if isinstance(obj.get(k),str) and obj[k].strip()),None)
         if lab and not lab.startswith("http") and "#" not in lab:
             for k in JSON_ID_KEYS:
                 val=obj.get(k)
                 if isinstance(val,str):
-                    m=STRICT_PREFIX_RX.match(val.strip())
-                    if m:
-                        raw,i=m.group(1),m.group(2)
-                        t=TERM_SPACE.get(raw,NORM.get(raw,raw))+":"+i
+                    ms=STRICT_PREFIX_RX.match(val.strip())
+                    if ms:
+                        raw,i=ms.group(1),ms.group(2)
+                        p=NORM.get(raw,raw)
+                        t=TERM_SPACE.get(raw,p)+":"+i
                         strict[t][lab]+=1
-                        break
-        for v in obj.values(): _json_strict_votes(v)
+                        if votes is not None and m in AUTH.get(p,[]):
+                            votes[t][lab]+=1
+        for v in obj.values(): _json_strict_votes(v, m, votes)
     elif isinstance(obj,list):
-        for x in obj: _json_strict_votes(x)
+        for x in obj: _json_strict_votes(x, m, votes)
 def unq(v):
     v=v.strip()
     while len(v)>=2 and v[0]==v[-1] and v[0] in "'\"": v=v[1:-1].strip()
@@ -292,36 +295,40 @@ def scan(m, keep=None, cap_cell=300, keep_prefixes=()):
             c=cells[p]; c[0]+=1
             if len(c[1])<cap_cell: c[1].append((slug,doc_label))
         # label votes: strict structural form from every Mech, relaxed form from authoritative Mechs
+        parsed_json=False
         if txt.lstrip().startswith("{"):
-            try: _json_strict_votes(json.loads(txt))
+            try:
+                _json_strict_votes(json.loads(txt), m, votes)
+                parsed_json=True
             except ValueError: pass
-        lines=txt.split("\n")
-        for j,l in enumerate(lines):
-            ms=STRICT.match(l)
-            if ms:
-                raw,i=ms.group(1),ms.group(2); t=TERM_SPACE.get(raw,NORM.get(raw,raw))+":"+i
-                for k in (j+1,j+2):
-                    if k<len(lines):
-                        ml2=LAB.match(lines[k])
-                        if ml2:
-                            v=unq(ml2.group(1))
-                            if v and not v.startswith("http") and "#" not in v: strict[t][v]+=1
-                            break
-        if any(m in AUTH.get(p,[]) for p in PREF):
+        if not parsed_json:
+            lines=txt.split("\n")
             for j,l in enumerate(lines):
-                for raw,i in rx.findall(l):
-                    p=NORM.get(raw,raw)
-                    if m not in AUTH.get(p,[]): continue
-                    t=TERM_SPACE.get(raw,p)+":"+i
-                    mm=re.search(re.escape(t)+r"\s*\((.+?)\)",l)
-                    if mm: votes[t][mm.group(1).strip()]+=1; continue
-                    for k in (j,j+1):
+                ms=STRICT.match(l)
+                if ms:
+                    raw,i=ms.group(1),ms.group(2); t=TERM_SPACE.get(raw,NORM.get(raw,raw))+":"+i
+                    for k in (j+1,j+2):
                         if k<len(lines):
                             ml2=LAB.match(lines[k])
                             if ml2:
                                 v=unq(ml2.group(1))
-                                if v and not v.startswith("http") and "#" not in v: votes[t][v]+=1
+                                if v and not v.startswith("http") and "#" not in v: strict[t][v]+=1
                                 break
+            if any(m in AUTH.get(p,[]) for p in PREF):
+                for j,l in enumerate(lines):
+                    for raw,i in rx.findall(l):
+                        p=NORM.get(raw,raw)
+                        if m not in AUTH.get(p,[]): continue
+                        t=TERM_SPACE.get(raw,p)+":"+i
+                        mm=re.search(re.escape(t)+r"\s*\((.+?)\)",l)
+                        if mm: votes[t][mm.group(1).strip()]+=1; continue
+                        for k in (j,j+1):
+                            if k<len(lines):
+                                ml2=LAB.match(lines[k])
+                                if ml2:
+                                    v=unq(ml2.group(1))
+                                    if v and not v.startswith("http") and "#" not in v: votes[t][v]+=1
+                                    break
     print(m,"files",nfiles,"unlinked",nolink,"terms",len(terms),flush=True)
     return dict(terms=terms,cells=cells,votes=votes,own=own)
 def main():

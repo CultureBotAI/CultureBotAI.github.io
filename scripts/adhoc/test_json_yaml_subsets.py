@@ -11,6 +11,7 @@ Date:    2026-11-10
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -20,10 +21,11 @@ sys.path.insert(0, str(REPO / "scripts/fleet"))
 import build_subsets
 import prefix_census
 
-SNAP = Path(
+DEFAULT_SNAP = Path(
     "/Users/marcin/.gemini/antigravity-cli/brain/"
     "fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261109-pm"
 )
+MECHS_DIR = Path(os.environ.get("MECHS_ROOT") or (DEFAULT_SNAP / "mechs"))
 
 
 def walk_strings(obj, path=""):
@@ -43,9 +45,12 @@ def main() -> None:
         ("AssayMech", "data/assays"),
     ):
         print(f"=== {mech} ===")
-        mdir = SNAP / "mechs" / mech / rel
+        mdir = MECHS_DIR / mech / rel
+        files = sorted(mdir.glob("*.yaml"))
+        if not files:
+            raise SystemExit(f"No records found in {mdir}; set MECHS_ROOT")
         by_path = {}
-        for f in sorted(mdir.glob("*.yaml")):
+        for f in files:
             txt = f.read_text()
             doc = json.loads(txt)
             for jpath, val in walk_strings(doc):

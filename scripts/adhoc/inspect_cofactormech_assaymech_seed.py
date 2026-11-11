@@ -19,10 +19,12 @@ import os
 import subprocess
 from pathlib import Path
 
-SNAP = Path(
+DEFAULT_SNAP = Path(
     "/Users/marcin/.gemini/antigravity-cli/brain/"
     "fce06610-c3eb-40c8-ab6b-48056807ad41/scratch/xmech-refresh-20261109-pm"
 )
+MECHS_DIR = Path(os.environ.get("MECHS_ROOT") or (DEFAULT_SNAP / "mechs"))
+CLAW_DIR = Path(os.environ.get("CLAW_ROOT") or (DEFAULT_SNAP / "claw"))
 
 
 def git_out(cwd: Path, *args: str) -> str:
@@ -33,8 +35,10 @@ def git_out(cwd: Path, *args: str) -> str:
 
 
 def main() -> None:
-    claw_dir = SNAP / "claw"
-    fleet_yaml = (claw_dir / "src/kg_microbe_fleet/fleet.yaml").read_text()
+    fleet_yaml_path = CLAW_DIR / "src/kg_microbe_fleet/fleet.yaml"
+    if not fleet_yaml_path.is_file():
+        raise SystemExit(f"Missing fleet.yaml at {fleet_yaml_path}; set CLAW_ROOT")
+    fleet_yaml = fleet_yaml_path.read_text()
     print("=== fleet.yaml CofactorMech / AssayMech / ScaleupMech ===")
     lines = fleet_yaml.splitlines()
     for i, line in enumerate(lines):
@@ -45,8 +49,10 @@ def main() -> None:
             print("---")
 
     # Inspect CofactorMech records
-    cf_dir = SNAP / "mechs" / "CofactorMech" / "data" / "cofactors"
+    cf_dir = MECHS_DIR / "CofactorMech" / "data" / "cofactors"
     cf_files = sorted(cf_dir.glob("*.yaml"))
+    if not cf_files:
+        raise SystemExit(f"No CofactorMech records found under {cf_dir}; set MECHS_ROOT")
     cf_cats = collections.Counter()
     cf_xref_corpora = collections.Counter()
     cf_xref_relations = collections.Counter()
@@ -85,8 +91,10 @@ def main() -> None:
         )
 
     # Inspect AssayMech records
-    as_dir = SNAP / "mechs" / "AssayMech" / "data" / "assays"
+    as_dir = MECHS_DIR / "AssayMech" / "data" / "assays"
     as_files = sorted(as_dir.glob("*.yaml"))
+    if not as_files:
+        raise SystemExit(f"No AssayMech records found under {as_dir}; set MECHS_ROOT")
     as_cats = collections.Counter()
     as_kinds = collections.Counter()
     as_xref_corpora = collections.Counter()

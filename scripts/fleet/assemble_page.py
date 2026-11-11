@@ -431,7 +431,7 @@ def validate_recent_terms(recent, names, stats=None):
 
 
 def recent_terms_markup(recent, suite_order, stats=None):
-    """Render the suite-wide latest 5 highlight and the 14 per-Mech recent-addition cards."""
+    """Render the suite-wide latest 5 highlight and the 16 per-Mech recent-addition cards."""
     by_name = validate_recent_terms(recent, suite_order, stats=stats)
     suite_items = []
     for rec in recent["latest_across_suite"]:

@@ -47,7 +47,7 @@ class PRActivityTests(unittest.TestCase):
             "merged_prs_total": -1,
         }
 
-    def test_queries_all_sixteen_repositories_and_keeps_fourteen_record_rows(self):
+    def test_queries_all_eighteen_repositories_and_keeps_sixteen_record_rows(self):
         expected_repos = ["proteintraitsmech" if name == "ProteinTraitsMech" else name
                           for name in roots.ORDER] + ["culturebotai-claw", "CultureBotAI.github.io"]
         values = dict(zip(expected_repos, range(10, 28)))
@@ -143,6 +143,25 @@ class PRActivityTests(unittest.TestCase):
                 self.assertEqual(self.output.read_text(), original)
         self.gh.assert_not_called()
         self.census.assert_not_called()
+
+
+class ReviewCensusTests(unittest.TestCase):
+    def test_review_census_counts_top_level_status_in_json_serialized_yaml(self):
+        docs = [
+            ("a.yaml", json.dumps({"id": "CofactorMech:a", "curation_status": "REVIEWED"})),
+            ("b.yaml", json.dumps({"id": "CofactorMech:b", "curation_status": "SEED", "nested": {"curation_status": "REVIEWED"}})),
+        ]
+        with (
+            mock.patch.object(mech_stats, "record_paths", return_value=["a.yaml", "b.yaml"]),
+            mock.patch.object(mech_stats, "revision", return_value="a" * 40),
+            mock.patch.object(mech_stats, "review_slot", return_value="curation_status"),
+            mock.patch.object(mech_stats, "record_documents", return_value=docs),
+            mock.patch.object(mech_stats, "unchanged"),
+        ):
+            self.assertEqual(
+                mech_stats.review_census("CofactorMech"),
+                (2, 1, "curation_status", "a" * 40),
+            )
 
 
 if __name__ == "__main__":

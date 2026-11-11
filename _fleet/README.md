@@ -49,8 +49,9 @@
   site cannot carry a website recheck. Adding these optional fields is a
   provenance assertion, not an automatic browser test or approval of a feature.
 - `audit_notes.json` — hand-checked explanations of each source and its counted
-  entities. PathwayMech records and DUFMech seed families use the same pinned
-  census, statistics and site-audit pipeline as the other twelve Mechs.
+  entities. PathwayMech records, DUFMech seed families, CofactorMech cofactors
+  and AssayMech assays use the same pinned census, statistics and site-audit
+  pipeline as the other twelve Mechs.
 - Other `data/` files — derived numbers: `prefix_census.json`, `subsets_summary.json`, `cells_summary.json`, `fleet_data.json`, `mech_stats.json`; `site_audit.json` is the provenance record, written by `scripts/fleet/build_site_audit.py` from the snapshot, the live sites and the audited notes in `_fleet/audit_notes.json`.
 
 ## Membership and capability updates

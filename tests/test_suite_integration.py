@@ -51,7 +51,7 @@ class SuiteIntegrationTests(unittest.TestCase):
         self.assertNotIn('class="d"', rows)
         self.assertNotIn('class="n"', rows)
 
-    def test_fourteen_member_fixture_declares_duf_without_upgrading_website_verdicts(self):
+    def test_sixteen_member_fixture_declares_duf_without_upgrading_website_verdicts(self):
         # Synthetic declarations exercise admission, not a claim about CLAW main.
         snapshot = self.inputs[1]
         snapshot["mechs"]["DUFMech"] = {

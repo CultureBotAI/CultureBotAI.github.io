@@ -1575,35 +1575,36 @@ class ProseFieldTests(unittest.TestCase):
                          {"CHEBI:1", "CHEBI:2", "CHEBI:3"})
 
     def test_json_serialized_yaml_prose_and_identity_extraction(self):
+        import collections
         import build_subsets
         record = json.dumps({
             "id": "CofactorMech:biotin",
             "name": "biotin",
             "chemical_id": "CHEBI:15956",
-            "description": "biotin is represented by CHEBI:15956. Mentioning CHEBI:99999 in prose.",
+            "description": "biotin is represented by CHEBI:15956 and mentions CHEBI:99999 in prose",
             "evidence": [
                 {
                     "reference": "DOI:10.1099/ijsem.0.001234",
-                    "claim": "Claims CHEBI:88888 in prose.",
+                    "claim": "Claims CHEBI:88888 in prose",
                 }
             ],
             "related_records": [
                 {
                     "corpus": "pathwaymech",
                     "identifier": "MetaCyc:BIOTIN-BIOSYNTHESIS-PWY",
-                    "basis": "Pathway chemical is CHEBI:57586.",
+                    "basis": "Pathway chemical is CHEBI:57586 in pathway",
                     "target_chemical_id": "CHEBI:57586",
                 }
             ],
             "research_gaps": [
                 {
                     "corpus": "proteintraitsmech",
-                    "reason": "Missing exemplar for CHEBI:77777.",
+                    "reason": "Missing exemplar for CHEBI:77777 in corpus",
                 }
             ],
             "curation_history": [
                 {
-                    "summary": "Replaced CHEBI:66666.",
+                    "summary": "Replaced CHEBI:66666 earlier",
                 }
             ],
         }, indent=2)
@@ -1612,9 +1613,11 @@ class ProseFieldTests(unittest.TestCase):
         self.assertEqual(found, cited | {"CHEBI:99999", "CHEBI:88888", "CHEBI:77777", "CHEBI:66666"})
         self.assertEqual(build_subsets.record_identity("data/cofactors/biotin.yaml", record, "CofactorMech"),
                          ("CofactorMech:biotin", "biotin", True))
+        votes = collections.defaultdict(collections.Counter)
         with unittest.mock.patch.dict(build_subsets.strict, {}, clear=True):
-            build_subsets._json_strict_votes(json.loads(record))
+            build_subsets._json_strict_votes(json.loads(record), "CofactorMech", votes)
             self.assertEqual(build_subsets.strict["CHEBI:15956"]["biotin"], 1)
+            self.assertEqual(votes["CHEBI:15956"]["biotin"], 1)
 
 
 class SubsetDeterminismTests(unittest.TestCase):

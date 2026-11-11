@@ -78,9 +78,13 @@ def main() -> None:
         zip(("light", "dark", "dark"), blocks, frag_blocks)
     ):
         surf = dict(re.findall(r"--([\w-]+):\s*(#[0-9A-Fa-f]{6});", tblock))
-        mechs = dict(
-            re.findall(r"--mech-([a-z]+mech):\s*(#[0-9A-Fa-f]{6});", fblock)
-        )
+        mechs = {
+            m: mcol
+            for m, mcol in re.findall(
+                r"--mech-([a-z]+mech):\s*(#[0-9A-Fa-f]{6});", fblock
+            )
+            if m not in ("cofactormech", "assaymech")
+        }
         cand = candidates[mode]
         print(f"=== Block {idx} ({mode}) ===")
         for k in ("cofactormech-ink", "assaymech-ink"):

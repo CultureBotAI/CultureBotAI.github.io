@@ -75,7 +75,11 @@ RECORD_GLOBS.update({m: g for m, g in EXTRA_GLOBS.items() if m not in RECORD_GLO
 # Top-level only. A nested entry_status or a reviewed: true deeper in the file
 # describes one entry inside a record, not the record, and counting those would
 # report more reviewed records than a Mech has records.
-STATUS = re.compile(r"^(mapping_status|curation_status)\s*:\s*[\"']?([A-Z_]+)[\"']?\s*$", re.M)
+STATUS = re.compile(
+    r"^(?:(mapping_status|curation_status)\s*:\s*[\"']?([A-Z_]+)[\"']?"
+    r"|  \"(mapping_status|curation_status)\"\s*:\s*\"([A-Z_]+)\"\s*,?)\s*$",
+    re.M,
+)
 
 
 def review_slot(mech: str) -> str | None:
@@ -128,7 +132,16 @@ def review_census(mech: str) -> tuple[int, int | None, str | None, str | None]:
     for _, text in record_documents(mech, paths):
         records += 1
         if field is not None:
-            for key, value in STATUS.findall(text):
+            if text.lstrip().startswith("{"):
+                try:
+                    doc = json.loads(text)
+                except ValueError:
+                    doc = None
+                if isinstance(doc, dict):
+                    reviewed += doc.get(field) == "REVIEWED"
+                    continue
+            for m_y, v_y, m_j, v_j in STATUS.findall(text):
+                key, value = (m_y, v_y) if m_y else (m_j, v_j)
                 if key == field:
                     reviewed += value == "REVIEWED"
                     break
