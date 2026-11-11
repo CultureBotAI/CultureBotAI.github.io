@@ -79,8 +79,8 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 The suite has sixteen corpus Mechs, all under https://github.com/CultureBotAI,
 plus the orchestrator `culturebotai-claw` and separately declared infrastructure.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
-and the November 9–10, 2026 refresh pins `culturebotai-claw` at
-`3daf94ebb70f548244f9e51740244dd2007f3ecc`. Its checked scope is in
+and the November 11, 2026 refresh pins `culturebotai-claw` at
+`7233987c85dcae9c248c7a2dbd445065e5a6c1b8`. Its checked scope is in
 `_fleet/infrastructure.json`: no scientific corpus or Pages browser enters this
 audit, and it does not contribute a corpus count, pin or historical PR total.
 Infrastructure gets a repository description and canonical capability
@@ -164,11 +164,10 @@ Sources, refreshed differently:
   date and other sites unchanged. Schema-documentation prose reflects the
   website verdict, never an inference about whether a repository has a schema.
 
-The November 9–10, 2026 refresh pins all sixteen Mechs (fourteen from the November 9
-refresh bound of 2026-11-10 05:20 UTC, plus CofactorMech and AssayMech added on
-November 10 at 2026-11-11 03:50 UTC). All participate in the census, overlap assets and
+The November 11, 2026 refresh pins all sixteen Mechs (common acquisition bound
+2026-11-11 19:59 UTC). All participate in the census, overlap assets and
 repository statistics, including PathwayMech's 282 records, DUFMech's 8,296
-seed families, CofactorMech's 14 cofactor records, CMMMech's 708 material records,
+seed families, CofactorMech's 14 cofactor records, CMMMech's 713 material records,
 AssayMech's 9 assay records and AIMech's 1,929 concepts.
 TraitMech has 1,130 records and CellStructureMech 1,022 at those pins. TaxonMech joined the census in
 #87. Shared identifiers draw vocabulary chords; direct-reference arrows require
@@ -195,7 +194,7 @@ maintained concepts without a source that states it.
 - **CofactorMech** (https://github.com/CultureBotAI/CofactorMech) - microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI, with cross-corpus links to MediaIngredientMech, ProteinTraitsMech and PathwayMech.
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
-- **CMMMech** (https://culturebotai.github.io/CMMMech/, repository https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 708 material records: 457 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
+- **CMMMech** (https://culturebotai.github.io/CMMMech/, repository https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 713 material records: 462 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
 - **AssayMech** (https://github.com/CultureBotAI/AssayMech) - microbiological diagnostic and operational analytical assays grounded in METPO, with operational assays linked to CMMMech material records.
 - **MediaIngredientMech** (`/mediaingredientmech/`) - LLM-assisted curation of media-ingredient mappings; its records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO. Where curation found no ontology term, about 175 mapped ingredients carry kg-microbe registry ids, mostly for preparations and mixtures, and about 85 carry CAS Registry Numbers; about 55 more carry kg-microbe placeholder ids pending curation. None map to PubChem or METPO (#150, #186, #215).
 - **CultureMech** (`/culturemech/`) - versioned, ontology-grounded culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.

@@ -9,9 +9,9 @@ permalink: /communitymech/
 
 ## Overview
 
-**CommunityMech** is an autonomous knowledge factory for microbial community composition, ecological interactions, cultivation conditions, environments, and supporting evidence, with human oversight. Canonical YAML records feed schema validation, static browsing, and graph exports. [Repository overview](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/README.md).
+**CommunityMech** is an autonomous knowledge factory for microbial community composition, ecological interactions, cultivation conditions, environments, and supporting evidence, with human oversight. Canonical YAML records feed schema validation, static browsing, and graph exports. [Repository overview](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/README.md).
 
-The repository contains **512 community records** and **twenty-three additional isolate records**. The published browser lists **512 communities across 16 categories**, matching the landing page checked on November 9, 2026. Its landing page also advertises **512-dimensional v3 embeddings**; the embedding views are separate derived artifacts and can cover a different set of records from the current browser. [Published site](https://culturebotai.github.io/CommunityMech/).
+The repository contains **512 community records** and **thirty-seven additional isolate records**. The published browser lists **512 communities across 16 categories**, matching the landing page checked on November 11, 2026. Its landing page also advertises **512-dimensional v3 embeddings**; the embedding views are separate derived artifacts and can cover a different set of records from the current browser. [Published site](https://culturebotai.github.io/CommunityMech/).
 
 ## Explore the Published Site
 
@@ -22,13 +22,13 @@ The repository contains **512 community records** and **twenty-three additional 
 
 ## Recent Additions
 
-Five most recently added community and isolate records in the pinned repository snapshot ([`e6c1793`](https://github.com/CultureBotAI/CommunityMech/tree/e6c179330ed043975eaf7f353342766b59a4cd02)):
+Five most recently added community and isolate records in the pinned repository snapshot ([`03eab4f`](https://github.com/CultureBotAI/CommunityMech/tree/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3)):
 
-1. **[Achromobacter sp. ZM-2 Prometryn-Degrading Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Achromobacter_ZM2_Prometryn_Degrading_Isolate_Baseline.yaml)** (`CommunityMech:000537`, added 2026-11-09)
-2. **[Escherichia coli PFM2 Anaerobic Monoculture Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Escherichia_Coli_PFM2_Anaerobic_Monoculture_Baseline.yaml)** (`CommunityMech:000540`, added 2026-11-09)
-3. **[Pseudomonas sp. ZM-1 Prometryn-Degrading Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Pseudomonas_ZM1_Prometryn_Degrading_Isolate_Baseline.yaml)** (`CommunityMech:000536`, added 2026-11-09)
-4. **[Rhodopseudomonas palustris CGA676 Anaerobic Monoculture Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Rhodopseudomonas_Palustris_CGA676_Anaerobic_Monoculture_Baseline.yaml)** (`CommunityMech:000539`, added 2026-11-09)
-5. **[Stenotrophomonas sp. ZM-3 Prometryn-Degrading Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/data/isolates/Stenotrophomonas_ZM3_Prometryn_Degrading_Isolate_Baseline.yaml)** (`CommunityMech:000538`, added 2026-11-09)
+1. **[Bacillus licheniformis A3 PAH Biofilm Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/data/isolates/Bacillus_Licheniformis_A3_PAH_Biofilm_Isolate_Baseline.yaml)** (`CommunityMech:000551`, added 2026-11-11)
+2. **[Bacillus paramycoides B8-1 PAH Biodegradation Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/data/isolates/Bacillus_Paramycoides_B81_PAH_Biodegradation_Isolate_Baseline.yaml)** (`CommunityMech:000549`, added 2026-11-11)
+3. **[Bacillus paranthracis A1 PAH Biofilm Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/data/isolates/Bacillus_Paranthracis_A1_PAH_Biofilm_Isolate_Baseline.yaml)** (`CommunityMech:000550`, added 2026-11-11)
+4. **[Cupriavidus necator JMP134 2,4-Dibromophenol Hydroxylase Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/data/isolates/Cupriavidus_Necator_JMP134_24DBP_Hydroxylase_Isolate_Baseline.yaml)** (`CommunityMech:000555`, added 2026-11-11)
+5. **[Pelagerythrobacter sp. N7 Halophilic Pyrene Oxidation Isolate Baseline](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/data/isolates/Pelagerythrobacter_N7_Halophilic_Pyrene_Oxidation_Isolate_Baseline.yaml)** (`CommunityMech:000552`, added 2026-11-11)
 
 See all sixteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#recent-additions).
 
@@ -43,13 +43,13 @@ See all sixteen Mechs' recent additions on the [X-Mech Suite overview](/mechs/#r
 | `history/` | Append-only curation provenance |
 | `docs/` | Published HTML and maintainer documentation |
 
-A community record can describe taxonomic membership, functional roles, environmental context, cultivation conditions, and directed ecological interactions. Ontology identifiers are paired with labels, and evidence is attached to the assertions it supports. Schema validation checks structure; literature validation separately checks evidence against source text. [Validation and evidence workflow](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/README.md#validate-records).
+A community record can describe taxonomic membership, functional roles, environmental context, cultivation conditions, and directed ecological interactions. Ontology identifiers are paired with labels, and evidence is attached to the assertions it supports. Schema validation checks structure; literature validation separately checks evidence against source text. [Validation and evidence workflow](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/README.md#validate-records).
 
 ## Example: A Curated Community
 
-The [Yogurt Two-Species Starter Culture record](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml), `CommunityMech:000164`, documents *Streptococcus thermophilus* and *Lactobacillus delbrueckii* subsp. *bulgaricus*. It records cross-feeding interactions with taxon and metabolite identifiers and supporting literature.
+The [Yogurt Two-Species Starter Culture record](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml), `CommunityMech:000164`, documents *Streptococcus thermophilus* and *Lactobacillus delbrueckii* subsp. *bulgaricus*. It records cross-feeding interactions with taxon and metabolite identifiers and supporting literature.
 
-The [README's schema-validated example](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/README.md#schema-valid-example) shows how that record represents membership, formate exchange, and evidence. Use the linked YAML for the complete current record.
+The [README's schema-validated example](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/README.md#schema-valid-example) shows how that record represents membership, formate exchange, and evidence. Use the linked YAML for the complete current record.
 
 ## Getting Started
 
@@ -79,7 +79,7 @@ Evidence checking is a separate step and may use network access:
 just validate-references-explained "$community_record"
 ```
 
-The repository documents a corpus-wide evidence-repair backlog. A structurally valid record does not by itself establish that all of its scientific assertions have been verified. [Current validation status](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/README.md#validate-records).
+The repository documents a corpus-wide evidence-repair backlog. A structurally valid record does not by itself establish that all of its scientific assertions have been verified. [Current validation status](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/README.md#validate-records).
 
 ## Generate Pages and Graph Exports
 
@@ -91,9 +91,9 @@ just kgx-export
 just kgx-validate
 ```
 
-GitHub Pages serves the committed `docs/` tree. Update community YAML or rendering templates before regenerating derived HTML. Embedding-map generation additionally needs the local embedding artifact described in the [visualization guide](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/docs/UMAP_VISUALIZATION.md).
+GitHub Pages serves the committed `docs/` tree. Update community YAML or rendering templates before regenerating derived HTML. Embedding-map generation additionally needs the local embedding artifact described in the [visualization guide](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/docs/UMAP_VISUALIZATION.md).
 
-The KGX exporter writes `nodes.tsv`, `edges.tsv`, and `manifest.json` under `output/kgx/`; its release workflow compresses the two TSV files, although no release has been published yet. Edges carry deterministic identifiers, relation predicates, source attribution, and available publication/supporting-text evidence. These exports support downstream graph integration and community analysis. [KGX contract](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/README.md#kgx-downstream-contract).
+The KGX exporter writes `nodes.tsv`, `edges.tsv`, and `manifest.json` under `output/kgx/`; its release workflow compresses the two TSV files, although no release has been published yet. Edges carry deterministic identifiers, relation predicates, source attribution, and available publication/supporting-text evidence. These exports support downstream graph integration and community analysis. [KGX contract](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/README.md#kgx-downstream-contract).
 
 ## Integration with the X-Mech Suite
 
@@ -102,8 +102,8 @@ Community records can refer to [CultureMech](/culturemech/) media by `culturemec
 ## Repository & Documentation
 
 - **[Repository](https://github.com/CultureBotAI/CommunityMech)** and **[published site](https://culturebotai.github.io/CommunityMech/)**
-- **[Schema](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/src/communitymech/schema/communitymech.yaml)**
-- **[Curation workflow](https://github.com/CultureBotAI/CommunityMech/blob/e6c179330ed043975eaf7f353342766b59a4cd02/README.md#curation-workflow)**
+- **[Schema](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/src/communitymech/schema/communitymech.yaml)**
+- **[Curation workflow](https://github.com/CultureBotAI/CommunityMech/blob/03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3/README.md#curation-workflow)**
 - **Licensing policy:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for data; [BSD-3-Clause](https://opensource.org/license/bsd-3-clause) for code. Redistributed source material retains its applicable terms.
 
 ---
