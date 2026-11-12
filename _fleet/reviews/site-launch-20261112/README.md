@@ -71,4 +71,59 @@ bounded correction and cleared the canary audit. The other 23 verdicts stood.
 
 The resulting row records 14 present features, five partial, four missing and
 one not applicable. These are website capabilities, not scientific-quality
-ratings. AssayMech's audit remains dependent on its own successful publication.
+ratings.
+
+### AssayMech
+
+After the CofactorMech canary and its independent review passed, the same helper
+and browser environment collected `assay-audit.json` from 06:37:12 to 06:37:30
+UTC. Deployment `7730250313` remained successful at
+`f7d2d79aa00b6e47816f2f7dea8b418ec084b91e` throughout the pass. The receipt's
+SHA-256 is
+`57bd93a313514dbb21b999f75655b9b5e2d68afc91afa9cade89d03854292c4c`.
+All 27 publicly packaged assets matched the manifest; its hash and the two
+excluded internal build markers are recorded separately.
+
+The catalogue and all nine record pages rendered at 1280 and 390 pixels without
+document overflow, page errors or fetch/XHR data requests. Identifier/name
+searches each found the selected Ax17 assay. Bioaccumulation selected one
+record, Operational assay selected three, and keyboard reset restored all nine
+and focused the query input. All nine remained visible without JavaScript.
+The receipt and narrow-screen screenshot were read back. These observations
+describe the served site; they do not claim that missing features are present
+or that a scoped operational assay is a complete executable laboratory method.
+
+An independent read-only skeptic reviewed all 24 AssayMech verdicts and found
+no actionable findings. The reviewer also verified the two sampled pinned CMM
+record links returned HTTP 200, both referenced history and relationship
+anchors existed, the licence notices matched, and the same deployment remained
+successful. The accepted row records 14 present features, five partial, four
+missing and one not applicable. The retained promotion helper's dry run and
+application then changed AssayMech's maintained links and feature row, preserving
+all corpus measurements and scientific record links.
+
+## Directory integration checks
+
+An independent read-only review of draft PR 570 at
+`a7831ddb36893b3cb619ccda65748a5613987539` found no further actionable findings.
+The reviewer checked the actual PR diff, preserved corpus and governance pins,
+bounded audit-note changes, generated-page consistency, attribution scope and
+the public evidence for unintended private material. The hosted `validate` job
+passed for that commit; the eventual AssayMech addition requires a further
+review and checks at its final commit.
+
+The read-only fleet update check completed at 06:35:49 UTC. The published
+directory served main `dc9daa500c8ddeb38fc08ee6ddbe1fc54c91b595`, and the
+canonical snapshot matched both its exact CLAW pin and current CLAW main.
+All 54 distinct evidence links resolved. Fifteen card figures matched exactly;
+CMMMech had grown from 708 to 713 records within the permitted grace interval.
+Nine unrelated websites had redeployed since their earlier feature reviews:
+AntibioticMech, CMMMech, CellStructureMech, CommunityMech, DUFMech, HabitatMech,
+NaturalProductMech, PathwayMech and TaxonMech. Those rows and all census pins
+remain unchanged in this focused two-site follow-up. AssayMech was still
+deploying at that check, so it was not accepted as served evidence.
+
+After both site promotions, all 261 directory tests and the generated-page and
+whitespace checks passed. The repeated live card check still passed with the
+same CMMMech growth warning. Final PR review and hosted results are recorded in
+the pull request against its exact commit.

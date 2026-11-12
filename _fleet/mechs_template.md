@@ -122,7 +122,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>9</b><span>assay records · 6 METPO concepts, 3 operational assays</span></div>
     <p class="prov"><!--FLEET_STATS:AssayMech--></p>
     <div class="vocab"><span>METPO</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays">Records at pin</a><a href="https://github.com/CultureBotAI/AssayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AssayMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AssayMech/">Browse</a><a href="https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays">Records at pin</a><a href="https://github.com/CultureBotAI/AssayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AssayMech--></div>
   </article>
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>

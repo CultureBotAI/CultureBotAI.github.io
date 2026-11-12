@@ -85,8 +85,8 @@ and the November 9–10, 2026 refresh pins `culturebotai-claw` at
 audit, and it does not contribute a corpus count, pin or historical PR total.
 Infrastructure gets a repository description and canonical capability
 row, without a numeric card, graph node or website-feature verdict. Three corpus
-Mechs have pages here; twelve link to their own GitHub Pages sites.
-AssayMech links to its pinned repository until its browser is deployed. CMMMech and AIMech began publishing theirs on October 12, 2026; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
+Mechs have pages here; thirteen link to their own GitHub Pages sites.
+CofactorMech and AssayMech's website verdicts have their own November 12, 2026 review; their corpus pins and record links remain unchanged. CMMMech and AIMech began publishing theirs on October 12, 2026; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
 snapshot, the source of its count. Its native FamilyRecord corpus now has a
 LinkML schema, history and individual pages; the census still measures the
 frozen seed worklist. CLAW membership is read from `_fleet/data/manifest.json`, independently of
@@ -195,7 +195,7 @@ maintained concepts without a source that states it.
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
 - **CMMMech** (https://culturebotai.github.io/CMMMech/, repository https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 708 material records: 457 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.
-- **AssayMech** (https://github.com/CultureBotAI/AssayMech) - microbiological diagnostic and operational analytical assays grounded in METPO, with operational assays linked to CMMMech material records.
+- **AssayMech** (https://culturebotai.github.io/AssayMech/) - microbiological diagnostic and operational analytical assays grounded in METPO, with operational assays linked to CMMMech material records.
 - **MediaIngredientMech** (`/mediaingredientmech/`) - LLM-assisted curation of media-ingredient mappings; its records map mostly to ChEBI, then MeSH, NCIT, MicrO, FOODON and ENVO. Where curation found no ontology term, about 175 mapped ingredients carry kg-microbe registry ids, mostly for preparations and mixtures, and about 85 carry CAS Registry Numbers; about 55 more carry kg-microbe placeholder ids pending curation. None map to PubChem or METPO (#150, #186, #215).
 - **CultureMech** (`/culturemech/`) - versioned, ontology-grounded culture-media recipes from MediaDive, TogoMedium, KOMODO and the major collections.
 - **AIMech** (https://culturebotai.github.io/AIMech/, repository https://github.com/CultureBotAI/AIMech) - AI concepts, with 442 imported AIO records and 1,487 maintained concepts. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.

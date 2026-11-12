@@ -113,7 +113,7 @@ For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
 - **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
-- **[AssayMech](https://github.com/CultureBotAI/AssayMech)** - Microbiological diagnostic and operational analytical assays grounded in METPO
+- **[AssayMech](https://culturebotai.github.io/AssayMech/)** - Microbiological diagnostic and operational analytical assays grounded in METPO
 - **[AIMech](https://culturebotai.github.io/AIMech/)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization and ChEBI mapping
