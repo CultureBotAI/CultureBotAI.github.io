@@ -178,7 +178,7 @@ bases preserved; these are evidence leads, not functional validation.
 Membership and website audits can advance independently of these census pins;
 neither refresh is permission to redate or recount the other inputs.
 
-The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code.
+The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. CofactorMech and AssayMech dedicate their original code and schemas under CC0 1.0; their curated data is CC BY 4.0.
 Redistributed source material retains its applicable terms. AIMech's data
 notice explicitly covers its AIO imports; do not extend that grant to its
 maintained concepts without a source that states it.

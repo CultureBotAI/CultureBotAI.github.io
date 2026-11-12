@@ -169,7 +169,7 @@ AIMech extends the suite's curation workflow to artificial intelligence concepts
 CMMMech curates evidence-backed microbial extraction, transformation and recovery mechanisms for critical materials. Its 708 material records cover 457 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. 500 records describe 609 mechanisms with cited evidence, assay context and limitations; 208 remain identity and characterization records without assigned microbial mechanisms. Its [website](https://culturebotai.github.io/CMMMech/pages/browse.html) browses its current records by material kind and by microbial process; the records, the LinkML schema and review artifacts are in the [repository](https://github.com/CultureBotAI/CMMMech).
 
 ### AssayMech
-**[GitHub Repository](https://github.com/CultureBotAI/AssayMech)** | **[Records at Pin](https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays)** | CC BY 4.0 data · BSD-3-Clause code; upstream terms apply
+**[GitHub Repository](https://github.com/CultureBotAI/AssayMech)** | **[Records at Pin](https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays)** | CC BY 4.0 data · CC0 1.0 code and schemas; upstream terms apply
 
 AssayMech curates microbiological diagnostic and operational analytical assays, connecting METPO assay concepts to operational protocols, readouts, controls and limitations. Its [pinned repository](https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays) contains **9 assay records across four categories: six METPO-grounded diagnostic assay concepts and three operational analytical assays** (ferrozine Fe(II), TEM-EDS intracellular bismuth and ICP-MS neodymium bioleaching) linked through four `MEASURES_PROCESS` cross-references to four [CMMMech](https://culturebotai.github.io/CMMMech/) material records. No public GitHub Pages browser is deployed yet.
 
@@ -228,7 +228,7 @@ Provides a seed worklist of 8,296 Pfam families: 6,127 unknown candidates, 373 h
 ---
 
 ### CofactorMech - Microbial Enzyme Cofactors
-**[GitHub Repository](https://github.com/CultureBotAI/CofactorMech)** | **[Records at Pin](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors)** | CC BY 4.0 data · BSD-3-Clause code; upstream terms apply
+**[GitHub Repository](https://github.com/CultureBotAI/CofactorMech)** | **[Records at Pin](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors)** | CC BY 4.0 data · CC0 1.0 code and schemas; upstream terms apply
 
 Curates microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI. Its [pinned repository](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors) contains **14 cofactor records: six coenzymes, five metal ions and three prosthetic groups**, with 57 cross-corpus links connecting cofactors to 25 [MediaIngredientMech](/mediaingredientmech/) ingredients, 17 [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/) cofactor-requirement and enzyme records, and 10 [PathwayMech](https://culturebotai.github.io/PathwayMech/) pathways while preserving conjugate-form and precursor distinctions. No public GitHub Pages browser is deployed yet.
 
