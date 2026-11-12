@@ -66,7 +66,7 @@ def main() -> None:
                 break
         lm = head_last_modified(site)
         print(
-            f"{mech:20s}: old={old_sha[:7]} -> latest_success={verified_sha[:7]} "
+            f"{mech:20s}: old={old_sha} -> latest_success={verified_sha} "
             f"(top_state={dep_state}, created={dep_created}, Last-Modified={lm})"
         )
         # Check for numeric counts in feature notes for CMMMech, HabitatMech, CommunityMech
