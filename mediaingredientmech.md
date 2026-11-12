@@ -101,7 +101,7 @@ Deep-research tools help select providers and prepare ingredient research. Their
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[DUFMech](https://culturebotai.github.io/DUFMech/)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
-- **[CofactorMech](https://github.com/CultureBotAI/CofactorMech)** - Microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI
+- **[CofactorMech](https://culturebotai.github.io/CofactorMech/)** - Microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
 - **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials

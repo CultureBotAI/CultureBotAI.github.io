@@ -1,0 +1,129 @@
+{
+  "site": "https://culturebotai.github.io/CofactorMech/",
+  "repository": "https://github.com/CultureBotAI/CofactorMech",
+  "deployed_revision": "89a8ca3b37b4cd3607fdbb0b74b7b73c5c539fee",
+  "checked_on": "2026-11-12",
+  "scope": "Site-only review on November 12, 2026 UTC, separate from the existing corpus census pins. Browser evidence covers the catalogue and all 14 record pages at 1280 and 390 pixels, identifier/name searches, category filtering, keyboard reset, reload and explicit query URLs, no-JavaScript access and blocked data requests. All 36 publicly packaged manifest assets matched their hashes; the pinned Pages uploader excludes two recorded internal build markers. Deployment 7729964604 remained successful at the same revision before and after the browser pass, with served Last-Modified later than deployment creation. Feature verdicts are reviewed against the existing 24-feature catalogue; missing features are recorded without inferring scientific deficiencies.",
+  "features": {
+    "search": {
+      "status": "present",
+      "note": "The labelled catalogue search finds both CofactorMech:biotin and biotin, each showing one of 14 records with a working record link. Unmatched and literal-markup queries show zero matches.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "facets": {
+      "status": "present",
+      "note": "The Category selector filters the complete listing; Coenzyme shows six records. Keyboard activation of Reset filters restores all 14 and returns focus to the search field.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "result_counts": {
+      "status": "present",
+      "note": "Showing N of 14 records responds to search, category filtering and reset; the empty state retains the total and explains how to recover.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "sorting": {
+      "status": "missing",
+      "note": "The listing uses a fixed name order and exposes no sort selector or sortable column headings.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "shareable_state": {
+      "status": "partial",
+      "note": "An explicitly supplied ?q=biotin URL restores the search, but changing the search or category in the interface does not update the URL; reloading the ordinary search loses its state.",
+      "url": "https://culturebotai.github.io/CofactorMech/?q=biotin"
+    },
+    "full_catalogue": {
+      "status": "present",
+      "note": "All 14 records counted by the manifest have catalogue links and served record pages. The complete 14-record table remains visible with JavaScript disabled.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "record_pages": {
+      "status": "present",
+      "note": "Every catalogue record has a stable records/<slug>/index.html page; all 14 pages rendered populated identity, relationship, gap and provenance sections.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html"
+    },
+    "term_links": {
+      "status": "partial",
+      "note": "Chemical evidence links its ChEBI source, but the primary chemical CURIE and related target CURIEs are plain text. Biotin's related CHEBI:57586 has neither a resolver link nor a readable chemical label in its target field.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html"
+    },
+    "evidence": {
+      "status": "present",
+      "note": "All record pages render their recorded evidence URLs as Source reference links beside the claim and source locator. Biotin links its chemical identity and each scoped relationship's supporting source.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html"
+    },
+    "review_status": {
+      "status": "missing",
+      "note": "PROVISIONAL and VERIFIED badges describe individual relationships. Record pages do not state a whole-record curation or review status.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html"
+    },
+    "curation_history": {
+      "status": "present",
+      "note": "Each record's Curation provenance table shows its recorded timestamp, action, curator and change summary, with a link to the history source.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html#history"
+    },
+    "source_link": {
+      "status": "present",
+      "note": "Each record links its own YAML on GitHub at the displayed repository revision and offers the same source YAML as a site download; the public source-file hashes match the manifest.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html"
+    },
+    "domain_view": {
+      "status": "missing",
+      "note": "The published catalogue and record pages provide text and tables; no chemical structure, embedding map or relationship diagram is offered.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "cross_mech_links": {
+      "status": "present",
+      "note": "Scoped relationships link specific source records in sibling repositories at recorded revisions. Biotin links MediaIngredientMech, ProteinTraitsMech and PathwayMech records while retaining provisional and conjugate-form distinctions.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html#relationships"
+    },
+    "corpus_stats": {
+      "status": "present",
+      "note": "The generated landing page shows 14 records and category counts of six coenzymes, five metal ions and three prosthetic groups, matching its corpus manifest.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "category_browse": {
+      "status": "partial",
+      "note": "Category counts appear as static tiles and the catalogue has a working category filter, but no linked category pages or category index routes are published.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "suite_nav": {
+      "status": "present",
+      "note": "The visible All Mech projects navigation link leads to the maintained X-Mech Suite directory from the catalogue and every record page.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "downloads": {
+      "status": "partial",
+      "note": "Every record offers its YAML and the footer links a corpus manifest, but the site does not link a bulk export containing all record content.",
+      "url": "https://culturebotai.github.io/CofactorMech/records/biotin/index.html"
+    },
+    "schema_docs": {
+      "status": "partial",
+      "note": "The footer links the raw LinkML YAML schema. No rendered schema documentation or class/slot browsing page is published in this site artifact.",
+      "url": "https://culturebotai.github.io/CofactorMech/schema/cofactormech.yaml"
+    },
+    "license": {
+      "status": "present",
+      "note": "Catalogue and record footers state CC-BY-4.0 for curated records and CC0 for original code and schemas, link the licence notice, and retain upstream attribution. These agree with the repository LICENSE.",
+      "url": "https://culturebotai.github.io/CofactorMech/LICENSE.txt"
+    },
+    "build_provenance": {
+      "status": "present",
+      "note": "Every page states the repository revision and corpus/schema SHA-256 stamps; the linked corpus manifest records the same deployed revision and per-file hashes.",
+      "url": "https://culturebotai.github.io/CofactorMech/site-manifest.json"
+    },
+    "theme_toggle": {
+      "status": "missing",
+      "note": "No theme toggle is offered. Emulating a dark operating-system preference leaves the same light page background.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "responsive": {
+      "status": "present",
+      "note": "The catalogue and all 14 record pages have no document overflow at 390 pixels. Wide catalogue and history tables stay inside labelled, keyboard-focusable horizontal scroll regions.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    },
+    "load_failure": {
+      "status": "not_applicable",
+      "note": "The catalogue and record content are server-rendered HTML. No fetch or XHR data requests occurred across the 15 pages; blocking those request types left search functional, and all records remain accessible without JavaScript.",
+      "url": "https://culturebotai.github.io/CofactorMech/"
+    }
+  }
+}

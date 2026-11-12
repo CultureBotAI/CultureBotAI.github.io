@@ -85,9 +85,8 @@ and the November 9–10, 2026 refresh pins `culturebotai-claw` at
 audit, and it does not contribute a corpus count, pin or historical PR total.
 Infrastructure gets a repository description and canonical capability
 row, without a numeric card, graph node or website-feature verdict. Three corpus
-Mechs have pages here; eleven link to their
-own GitHub Pages sites, while CofactorMech and AssayMech link to their pinned
-GitHub repositories until their browsers are deployed. CMMMech and AIMech began publishing theirs on October 12, 2026; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
+Mechs have pages here; twelve link to their own GitHub Pages sites.
+AssayMech links to its pinned repository until its browser is deployed. CMMMech and AIMech began publishing theirs on October 12, 2026; their heatmap record links name pinned repository files. DUFMech's card links its family browser and seed
 snapshot, the source of its count. Its native FamilyRecord corpus now has a
 LinkML schema, history and individual pages; the census still measures the
 frozen seed worklist. CLAW membership is read from `_fleet/data/manifest.json`, independently of
@@ -192,7 +191,7 @@ maintained concepts without a source that states it.
 - **CellStructureMech** (https://culturebotai.github.io/CellStructureMech/) - microbial cell structures, between the trait and protein layers.
 - **ProteinTraitsMech** (https://culturebotai.github.io/proteintraitsmech/) - protein sequence, structure and function trait classes.
 - **DUFMech** (https://culturebotai.github.io/DUFMech/, repository https://github.com/CultureBotAI/DUFMech) - unknown and formerly unknown domains and protein families, with evidence gathering and triage worklists.
-- **CofactorMech** (https://github.com/CultureBotAI/CofactorMech) - microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI, with cross-corpus links to MediaIngredientMech, ProteinTraitsMech and PathwayMech.
+- **CofactorMech** (https://culturebotai.github.io/CofactorMech/) - microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI, with cross-corpus links to MediaIngredientMech, ProteinTraitsMech and PathwayMech.
 - **NaturalProductMech** (https://culturebotai.github.io/NaturalProductMech/) - one record per natural product structure with producer, gene cluster and bioactivity; grounded in ChEBI, MIBiG and NCBI Taxonomy. NPAtlas is a cross-reference target only: its CC BY-NC licence (from release 2024_09) bars ingestion into a CC BY 4.0 corpus.
 - **AntibioticMech** (https://culturebotai.github.io/AntibioticMech/) - one record per antimicrobial structure, harmonizing ChEBI and CARD/ARO; record content is CC BY 4.0.
 - **CMMMech** (https://culturebotai.github.io/CMMMech/, repository https://github.com/CultureBotAI/CMMMech) - critical-material microbial extraction, transformation and recovery, with 708 material records: 457 mineral species, 111 secondary resources, 66 elements, 36 commodities, 31 primary resources and seven mineral groups. Its website first deployed on October 12, 2026; heatmap record links point to pinned repository files.

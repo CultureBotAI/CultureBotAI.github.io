@@ -228,9 +228,9 @@ Provides a seed worklist of 8,296 Pfam families: 6,127 unknown candidates, 373 h
 ---
 
 ### CofactorMech - Microbial Enzyme Cofactors
-**[GitHub Repository](https://github.com/CultureBotAI/CofactorMech)** | **[Records at Pin](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors)** | CC BY 4.0 data · CC0 1.0 code and schemas; upstream terms apply
+**[Browse](https://culturebotai.github.io/CofactorMech/)** | **[GitHub Repository](https://github.com/CultureBotAI/CofactorMech)** | **[Records at Pin](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors)** | CC BY 4.0 data · CC0 1.0 code and schemas; upstream terms apply
 
-Curates microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI. Its [pinned repository](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors) contains **14 cofactor records: six coenzymes, five metal ions and three prosthetic groups**, with 57 cross-corpus links connecting cofactors to 25 [MediaIngredientMech](/mediaingredientmech/) ingredients, 17 [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/) cofactor-requirement and enzyme records, and 10 [PathwayMech](https://culturebotai.github.io/PathwayMech/) pathways while preserving conjugate-form and precursor distinctions. No public GitHub Pages browser is deployed yet.
+Curates microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI. Its [pinned repository](https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors) contains **14 cofactor records: six coenzymes, five metal ions and three prosthetic groups**, with 57 cross-corpus links connecting cofactors to 25 [MediaIngredientMech](/mediaingredientmech/) ingredients, 17 [ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/) cofactor-requirement and enzyme records, and 10 [PathwayMech](https://culturebotai.github.io/PathwayMech/) pathways while preserving conjugate-form and precursor distinctions. Its public browser presents these records with source provenance and scoped relationships; the suite's website feature audit records the deployed revision separately from these corpus pins.
 
 ---
 

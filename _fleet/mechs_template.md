@@ -90,7 +90,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>14</b><span>cofactor records · 6 coenzymes, 5 metal ions, 3 prosthetic groups</span></div>
     <p class="prov"><!--FLEET_STATS:CofactorMech--></p>
     <div class="vocab"><span>ChEBI</span><span>MetaCyc</span><span>EC</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors">Records at pin</a><a href="https://github.com/CultureBotAI/CofactorMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CofactorMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CofactorMech/">Browse</a><a href="https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors">Records at pin</a><a href="https://github.com/CultureBotAI/CofactorMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CofactorMech--></div>
   </article>
   <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)">
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
