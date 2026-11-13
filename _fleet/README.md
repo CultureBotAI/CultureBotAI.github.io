@@ -404,6 +404,15 @@ terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
 ## Published-site refresh (November 11, 2026)
 
+The November 12 integration rechecked all sixteen live card sources and all
+54 cross-reference evidence links, and incorporated the separately reviewed
+CofactorMech and AssayMech browser launches. Repository comparisons found no
+subsequent changes to the measured corpora, so the November 11 corpus pins
+remain intact. Website-feature observations retain their documented November 9
+baseline and separate November 12 new-site audits; deployment metadata alone
+does not redate a browser review (#571). See `reviews/refresh-20261112/` and
+`reviews/site-launch-20261112/` for the retained checks and limitations.
+
 All sixteen Mechs and `culturebotai-claw` were pinned at their published `main` revisions on November 11, 2026 (common acquisition bound 2026-11-11 19:59 UTC). The census, shared-term subsets, heatmap record lists,
 repository statistics and `data/site_audit.json` record the same revisions across all sixteen Mechs; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed

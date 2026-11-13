@@ -76,6 +76,13 @@ Content pages use Jekyll front matter with `layout`, `title`, `description` and
 `resources.md` to follow the data flow from recipes to ingredients to communities.
 
 ### The X-Mech Suite page
+
+The November 12, 2026 integration combines the November 11 corpus refresh with
+the verified CofactorMech and AssayMech browser launches. All sixteen live card
+sources and 54 cross-reference links were rechecked; subsequent repository
+changes did not alter the measured corpora. Website-feature observations keep
+their evidenced November 9 baseline and separate November 12 new-site audits
+(#571), rather than being redated from deployment metadata alone.
 The suite has sixteen corpus Mechs, all under https://github.com/CultureBotAI,
 plus the orchestrator `culturebotai-claw` and separately declared infrastructure.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,

@@ -1,0 +1,198 @@
+{
+  "mech": "CommunityMech",
+  "scope": "Landing-page content spot-check; not a full feature audit",
+  "observed_at": "2026-11-13T04:41:04.853270+00:00",
+  "before": {
+    "id": 7715674825,
+    "sha": "03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3",
+    "created_at": "2026-11-11T16:34:31Z",
+    "state": "success"
+  },
+  "url": "https://culturebotai.github.io/CommunityMech/",
+  "status": 200,
+  "headers": {
+    "last-modified": "Wed, 11 Nov 2026 16:34:48 GMT",
+    "x-github-request-id": "54C2:4FCC7:AB851:C1D8B:6AF694E2",
+    "content-type": "text/html; charset=utf-8"
+  },
+  "text": "CommunityMech\nHome\nBrowse\nText Map\nTaxonomic UMAP\nSequence Map\nNetwork\nSchema\nDownloads\nGitHub\nAll Mech projects\nCommunityMech\n\nMicrobial community knowledge base \u2014 curated, evidence-backed interaction networks.\n\nSearch communities\nSearch\n512\nCOMMUNITIES\n16\nCATEGORIES\n384-D\nTEXT EMBEDDINGS\n512-D\nV3 EMBEDDINGS\n1280-D\nESM-2 SEQUENCES\nBrowse records \u2192\nRecord browser\n\nFaceted browser of microbial communities \u2014 filter by category, ecological state, metals, and rare-earth elements.\n\nText embedding map \u2192\nTaxonomic UMAP \u2192\nGraph layout \u2192\nEmbedding browser\n\nInteractive 2D PaCMAP & PCA projections of text embeddings (BAAI/bge-small-en-v1.5) and KG-Microbe taxonomic DeepWalk embeddings.\n\nESM-2 sequence map \u2192\nProtein sequence map (pLM)\n\nInteractive 1,280-D ESM-2 protein language model embedding space for CommunityMech functional genes and guild markers.\n\nSchema reference \u2192\nLinkML Schema\n\nBrowse classes, slots, ontology prefixes (NCBITaxon, ENVO, ChEBI, GO, METPO), and permissible enums in the CommunityMech schema.\n\nDownload JSON \u2193\nDownload TSV \u2193\nBrowser index (JS) \u2193\nDownloads & bulk data\n\nDownload the full 512-community dataset as structured JSON or tabular TSV, or inspect individual YAML records in kb/communities/.\n\nView on GitHub \u2192\nGitHub\n\nSource code, data, schema, and the curation workflow.\n\nAll Mech projects \u00b7 LinkML Schema \u00b7 JSON Export \u00b7 TSV Export\n\nKG-Microbe Mechs: CultureMech\u00b7MediaIngredientMech\u00b7CommunityMech\u00b7TraitMech\u00b7ProteinTraitsMech\u00b7TaxonMech\u00b7HabitatMech\u00b7PathwayMech\u00b7CMMMech\nkg-microbe\u00b7METPO\n\nProvenance: Schema https://w3id.org/communitymech \u00b7 Source corpus: kb/communities/ (512 records) \u00b7 License: BSD-3-Clause\n\n\u263e",
+  "text_sha256": "682bb0e04a594f24c2135037d8f0fd56ad14fba9820b9bd23e2aaea3849f7e35",
+  "headings": [
+    "CommunityMech",
+    "Record browser",
+    "Embedding browser",
+    "Protein sequence map (pLM)",
+    "LinkML Schema",
+    "Downloads & bulk data",
+    "GitHub"
+  ],
+  "links": [
+    {
+      "text": "CommunityMech",
+      "href": "https://culturebotai.github.io/CommunityMech/index.html"
+    },
+    {
+      "text": "Home",
+      "href": "https://culturebotai.github.io/CommunityMech/index.html"
+    },
+    {
+      "text": "Browse",
+      "href": "https://culturebotai.github.io/CommunityMech/browser.html"
+    },
+    {
+      "text": "Text Map",
+      "href": "https://culturebotai.github.io/CommunityMech/text_map.html"
+    },
+    {
+      "text": "Taxonomic UMAP",
+      "href": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+    },
+    {
+      "text": "Sequence Map",
+      "href": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+    },
+    {
+      "text": "Network",
+      "href": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+    },
+    {
+      "text": "Schema",
+      "href": "https://culturebotai.github.io/CommunityMech/schema.html"
+    },
+    {
+      "text": "Downloads",
+      "href": "https://culturebotai.github.io/CommunityMech/#downloads"
+    },
+    {
+      "text": "GitHub",
+      "href": "https://github.com/CultureBotAI/CommunityMech"
+    },
+    {
+      "text": "All Mech projects",
+      "href": "https://culturebotai.github.io/mechs/"
+    },
+    {
+      "text": "512communities",
+      "href": "https://culturebotai.github.io/CommunityMech/browser.html"
+    },
+    {
+      "text": "16categories",
+      "href": "https://culturebotai.github.io/CommunityMech/browser.html#category-facet"
+    },
+    {
+      "text": "384-Dtext embeddings",
+      "href": "https://culturebotai.github.io/CommunityMech/text_map.html"
+    },
+    {
+      "text": "512-Dv3 embeddings",
+      "href": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+    },
+    {
+      "text": "1280-DESM-2 sequences",
+      "href": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+    },
+    {
+      "text": "Browse records \u2192",
+      "href": "https://culturebotai.github.io/CommunityMech/browser.html"
+    },
+    {
+      "text": "Text embedding map \u2192",
+      "href": "https://culturebotai.github.io/CommunityMech/text_map.html"
+    },
+    {
+      "text": "Taxonomic UMAP \u2192",
+      "href": "https://culturebotai.github.io/CommunityMech/community_umap.html"
+    },
+    {
+      "text": "Graph layout \u2192",
+      "href": "https://culturebotai.github.io/CommunityMech/community_graph.html"
+    },
+    {
+      "text": "ESM-2 sequence map \u2192",
+      "href": "https://culturebotai.github.io/CommunityMech/sequence_map.html"
+    },
+    {
+      "text": "Schema reference \u2192",
+      "href": "https://culturebotai.github.io/CommunityMech/schema.html"
+    },
+    {
+      "text": "Download JSON \u2193",
+      "href": "https://culturebotai.github.io/CommunityMech/communities.json"
+    },
+    {
+      "text": "Download TSV \u2193",
+      "href": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+    },
+    {
+      "text": "Browser index (JS) \u2193",
+      "href": "https://culturebotai.github.io/CommunityMech/data.js"
+    },
+    {
+      "text": "View on GitHub \u2192",
+      "href": "https://github.com/CultureBotAI/CommunityMech"
+    },
+    {
+      "text": "All Mech projects",
+      "href": "https://culturebotai.github.io/mechs/"
+    },
+    {
+      "text": "LinkML Schema",
+      "href": "https://culturebotai.github.io/CommunityMech/schema.html"
+    },
+    {
+      "text": "JSON Export",
+      "href": "https://culturebotai.github.io/CommunityMech/communities.json"
+    },
+    {
+      "text": "TSV Export",
+      "href": "https://culturebotai.github.io/CommunityMech/communities.tsv"
+    },
+    {
+      "text": "CultureMech",
+      "href": "https://culturebotai.github.io/CultureMech/"
+    },
+    {
+      "text": "MediaIngredientMech",
+      "href": "https://culturebotai.github.io/MediaIngredientMech/"
+    },
+    {
+      "text": "TraitMech",
+      "href": "https://culturebotai.github.io/TraitMech/"
+    },
+    {
+      "text": "ProteinTraitsMech",
+      "href": "https://culturebotai.github.io/proteintraitsmech/"
+    },
+    {
+      "text": "TaxonMech",
+      "href": "https://culturebotai.github.io/TaxonMech/"
+    },
+    {
+      "text": "HabitatMech",
+      "href": "https://culturebotai.github.io/HabitatMech/"
+    },
+    {
+      "text": "PathwayMech",
+      "href": "https://culturebotai.github.io/PathwayMech/"
+    },
+    {
+      "text": "CMMMech",
+      "href": "https://culturebotai.github.io/CMMMech/"
+    },
+    {
+      "text": "kg-microbe",
+      "href": "https://github.com/Knowledge-Graph-Hub/kg-microbe"
+    },
+    {
+      "text": "METPO",
+      "href": "https://bioportal.bioontology.org/ontologies/METPO"
+    }
+  ],
+  "page_errors": [],
+  "after": {
+    "id": 7715674825,
+    "sha": "03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3",
+    "created_at": "2026-11-11T16:34:31Z",
+    "state": "success"
+  }
+}
