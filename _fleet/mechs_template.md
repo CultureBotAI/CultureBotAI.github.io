@@ -90,7 +90,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>14</b><span>cofactor records · 6 coenzymes, 5 metal ions, 3 prosthetic groups</span></div>
     <p class="prov"><!--FLEET_STATS:CofactorMech--></p>
     <div class="vocab"><span>ChEBI</span><span>MetaCyc</span><span>EC</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors">Records at pin</a><a href="https://github.com/CultureBotAI/CofactorMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CofactorMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/CofactorMech/">Browse</a><a href="https://github.com/CultureBotAI/CofactorMech/tree/131fc3ea47615a29bde04a3185b29f03edf2ada1/data/cofactors">Records at pin</a><a href="https://github.com/CultureBotAI/CofactorMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:CofactorMech--></div>
   </article>
   <article class="mech-card" data-mech="NaturalProductMech" style="--c: var(--mech-naturalproductmech); --ci: var(--mech-naturalproductmech-ink)">
     <header><h3>NaturalProductMech</h3><span class="scale">Natural products</span></header>
@@ -122,7 +122,7 @@ Each card carries its Mech's identity color. Hover a card to trace its ties in t
     <div class="num"><b>9</b><span>assay records · 6 METPO concepts, 3 operational assays</span></div>
     <p class="prov"><!--FLEET_STATS:AssayMech--></p>
     <div class="vocab"><span>METPO</span></div>
-    <div class="row"><a class="primary" href="https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays">Records at pin</a><a href="https://github.com/CultureBotAI/AssayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AssayMech--></div>
+    <div class="row"><a class="primary" href="https://culturebotai.github.io/AssayMech/">Browse</a><a href="https://github.com/CultureBotAI/AssayMech/tree/95a01f4981cbdf70e2e135d55d4d8f2f464a6e12/data/assays">Records at pin</a><a href="https://github.com/CultureBotAI/AssayMech">GitHub</a><a href="#fleet-graph" data-show>Show in graph</a><!--FLEET_BADGE:AssayMech--></div>
   </article>
   <article class="mech-card" data-mech="MediaIngredientMech" style="--c: var(--mech-mediaingredientmech); --ci: var(--mech-mediaingredientmech-ink)">
     <header><h3>MediaIngredientMech</h3><span class="scale">Ingredients</span></header>
@@ -311,7 +311,7 @@ The Mechs share curation conventions, with adoption recorded per capability in t
   <li><b>Evidence and provenance</b>Evidence cites its source, such as a publication (PMID or DOI), a database record or a web page, as each Mech's schema allows. Mechs that adopt the source-catalogue or source-queue contract record each source's licence before ingesting it.</li>
   <li><b>Causal mechanism graphs</b>Traits, pathways, protein traits, structures, natural products, antibiotics, habitats, critical materials and taxa can carry directed, evidence-backed graphs of mechanism, and community records chain their ecological interactions into causal interaction graphs. Each of these Mechs defines its own node types; most share a core set, such as chemical, pathway and biological process. DUFMech's native family records also carry causal graphs, while its seed worklist supplies candidate families for evidence gathering.</li>
   <li><b>Append-only curation history</b>Mechs adopting the history contract record changes as append-only events, preserving provenance across agent and human curation.</li>
-  <li><b>A static browser and an open licence</b>Published-site features are recorded in the table above. The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. AIMech's <a href="https://github.com/CultureBotAI/AIMech/blob/78dcdfa7ff0b44ceb19c929e657ee630aea423e0/LICENSE-DATA">data-license notice</a> explicitly covers its AIO imports; it does not specify a grant for maintained concepts. Redistributed source material retains its applicable terms.</li>
+  <li><b>A static browser and an open licence</b>Published-site features are recorded in the table above. The suite licensing policy is CC BY 4.0 for data and BSD-3-Clause for code. CofactorMech and AssayMech dedicate their original code and schemas under CC0 1.0; their curated data is CC BY 4.0. AIMech's <a href="https://github.com/CultureBotAI/AIMech/blob/78dcdfa7ff0b44ceb19c929e657ee630aea423e0/LICENSE-DATA">data-license notice</a> explicitly covers its AIO imports; it does not specify a grant for maintained concepts. Redistributed source material retains its applicable terms.</li>
 </ul>
 
 ## Related resources
