@@ -18,7 +18,7 @@ permalink: /culturemech/
 - **[Direct media map](https://culturebotai.github.io/CultureMech/app/umap.html#umap-direct)** — explore the medium nodes' own KG-Microbe embeddings.
 - **[Graph layout](https://culturebotai.github.io/CultureMech/app/umap_graph.html)** — another view of media similarity.
 
-Counts were checked on November 9, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,915 normalized records from 6,325 merged records.
+Counts were checked on November 11, 2026 against the repository's generated corpus inventory. The landing page now distinguishes 15,915 normalized records from 6,325 merged records.
 
 ## Recent Additions
 
@@ -109,11 +109,11 @@ For one recipe, use `just gen-page data/normalized_yaml/bacterial/lb_medium.yaml
 - **[CellStructureMech](https://culturebotai.github.io/CellStructureMech/)** - Microbial cell structures, between the trait and protein layers
 - **[ProteinTraitsMech](https://culturebotai.github.io/proteintraitsmech/)** - Protein sequence, structure, and function traits
 - **[DUFMech](https://culturebotai.github.io/DUFMech/)** - Domains and protein families of unknown function, with evidence gathering and triage worklists
-- **[CofactorMech](https://github.com/CultureBotAI/CofactorMech)** - Microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI
+- **[CofactorMech](https://culturebotai.github.io/CofactorMech/)** - Microbial enzyme cofactors, coenzymes, prosthetic groups and catalytic metal ions grounded in ChEBI
 - **[NaturalProductMech](https://culturebotai.github.io/NaturalProductMech/)** - Natural product structures with their producer organisms and gene clusters
 - **[AntibioticMech](https://culturebotai.github.io/AntibioticMech/)** - Antimicrobial structures harmonizing ChEBI and CARD/ARO
 - **[CMMMech](https://culturebotai.github.io/CMMMech/)** - Evidence-backed microbial extraction, transformation and recovery of critical materials
-- **[AssayMech](https://github.com/CultureBotAI/AssayMech)** - Microbiological diagnostic and operational analytical assays grounded in METPO
+- **[AssayMech](https://culturebotai.github.io/AssayMech/)** - Microbiological diagnostic and operational analytical assays grounded in METPO
 - **[AIMech](https://culturebotai.github.io/AIMech/)** - AIO-grounded AI concepts with maintained evidence and explicit ontology mappings
 - **[MediaIngredientMech](/mediaingredientmech/)** - LLM-assisted ingredient ontology mapping
 - **[MicroMediaParam](/resources/#micromediaparam)** - Chemical compound standardization and ChEBI mapping

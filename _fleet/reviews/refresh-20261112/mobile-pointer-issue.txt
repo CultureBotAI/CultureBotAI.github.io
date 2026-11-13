@@ -1,0 +1,11 @@
+In the November 12 combined-refresh preview, Playwright at a 390 x 900 viewport could not pointer-click the CofactorMech/CHEBI heatmap cell. After scrolling, the sticky row heading and site header intercepted pointer events; the click timed out after 30 seconds. Desktop pointer activation succeeded. Mobile keyboard focus plus Enter loaded all 14 matching records (303 identifier occurrences).
+
+Evidence: `_fleet/reviews/refresh-20261112/hub-preview-remaining-1/browser.json` retains the exact timeout and interception trace; `hub-preview-keyboard-1/browser.json` records the keyboard result. The helper is `scripts/adhoc/check_hub_preview_20261112.py` (`remaining` and `keyboard` modes).
+
+This is a Kramdown-rendered current hub body inside the published shell, with local custom CSS and fleet assets. It is not a complete Jekyll build. Neither a rendered pre-change baseline nor a manual touch reproduction on the deployed site was checked, so this does not establish a regression or a general failure for touch users.
+
+Reproduction: run the helper's `remaining` mode in a Playwright environment with installed Chrome, or at 390 px focus the CofactorMech and AssayMech graph nodes, then attempt to select the CofactorMech/CHEBI heatmap cell by pointer after horizontal scrolling. The exact locator is `#fleet-heat button[data-mech="CofactorMech"][data-voc="CHEBI"]`.
+
+Investigate whether sticky headings, smooth scrolling or the scroll container require a control adjustment or a more representative browser action. Acceptance: reproduce against a real Jekyll build/deployment, ensure the cell remains pointer-accessible after horizontal scrolling and preserve keyboard activation. Issue #533 separately tracks the observed 506 px document width at 390 px; it does not cover this pointer-interception observation.
+
+Deferred from the content refresh because the refreshed links, counts and desktop interaction checks pass, and this needs a focused responsive-interaction investigation.

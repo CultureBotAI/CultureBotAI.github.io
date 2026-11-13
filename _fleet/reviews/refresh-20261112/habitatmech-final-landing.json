@@ -1,0 +1,236 @@
+{
+  "mech": "HabitatMech",
+  "scope": "Landing-page content spot-check; not a full feature audit",
+  "observed_at": "2026-11-13T04:41:45.381640+00:00",
+  "before": {
+    "id": 7722826796,
+    "sha": "61edb3d0ae912e8f041378e669928051fbbd509e",
+    "created_at": "2026-11-11T22:32:18Z",
+    "state": "success"
+  },
+  "url": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+  "status": 200,
+  "headers": {
+    "last-modified": "Wed, 11 Nov 2026 22:33:43 GMT",
+    "x-github-request-id": "DE06:1A61FA:AE281:C48E8:6AF6950B",
+    "content-type": "text/html; charset=utf-8"
+  },
+  "text": "Skip to main content\nHabitatMech\nSemantic text map Overview Browse ENVO term requests Downloads & Schema Source All Mech projects \u25d0 Auto\nMicrobial habitats, harmonized\n\nThe same habitat has three different names depending on who is describing it. HabitatMech resolves them onto one ontology-grounded record and keeps every source's own account of it.\n\nSearch\n3209\nHABITAT RECORDS\n2143\nONTOLOGY-GROUNDED\n175\nCORROBORATED BY 2+ SOURCES\n1301\nREVIEWED STATUS\nTHE SAME HABITAT, NAMED THREE WAYS\nSOURCE\tHOW IT NAMES MARINE SEDIMENT\nJGI GOLD\tEnvironmental > Aquatic > Marine > Sediment\nBacDive\tMarine-sediment\nPREGO\tENVO:00002113\nWhat HabitatMech adds\n\nHabitatMech is not a re-labelling of ENVO. Most of what it holds, ENVO has no term for \u2014 and a concept that merely hangs under an ENVO term counts as new, because the identifier is minted precisely when the matched term is broader than the concept.\n\n2678\nCONCEPTS ENVO HAS NO TERM FOR\n2061\nNAMED BY NO VENDORED ONTOLOGY\nCOVERAGE AGAINST THE ONTOLOGIES HABITATMECH GROUNDS TO\nRECORDS\tASSERTIONS\tSTATUS\n531\t373548\tENVO names this concept directly\n617\t69250\tanother vendored OBO ontology names it; ENVO does not\n957\t134688\tno term, but narrower than an ENVO term it hangs under\n734\t40706\tno term, but narrower than a non-ENVO term\n370\t35609\tno ontology term names it or anything above it\nBrowse by category\nRECORDS PER CATEGORY\nCATEGORY\tRECORDS\t\nSHARE\n\nHOST_ASSOCIATED\t1655\t\n\nENGINEERED\t488\t\n\nAQUATIC\t468\t\n\nTERRESTRIAL\t353\t\n\nOTHER\t175\t\n\nFOOD\t59\t\n\nAIR\t7\t\n\nCLINICAL\t4\t\nWhat the grounding status means\n\nEvery record says how well its identifier fits the source concept, separately from the recorded curation workflow status. A record can be reviewed and still honestly ungrounded \u2014 that combination is a well-formed request for a new ontology term, and there are 701 of them.\n\nGROUNDING STATUS\nSTATUS\tRECORDS\tMEANING\nEXACT\t1049\tThe identifier is an exact match for the source concept.\nNARROW\t989\tThe identifier is narrower than the source concept.\nUNGROUNDED\t959\tNo defensible ontology term; a minted identifier and a term-request candidate.\nNOT_APPLICABLE\t107\tNot a habitat at all \u2014 a disease, quality, process or procedure.\nCLOSE\t93\tClose, but not exact and not cleanly broader or narrower.\nBROAD\t12\tThe identifier is broader \u2014 the best available term, losing specificity.\n\nThis corpus is machine-generated. 1908 of 3209 records have the SEEDED workflow status. The harmonization rules are documented and tested, but a lexical match between a source label and an ontology label is a plausible grounding, not a verified one.\n\nREVIEWED records carry a recorded workflow decision, including agent-assisted curation. These counts do not establish human review. Consult the attributed curation events on each record for its provenance.\n\nData downloads & LinkML schema\n\nAll HabitatMech records, category search indexes, semantic embedding coordinates, and schema definitions are openly available:\n\nLinkML Schema: src/habitatmech/schema/habitatmech.yaml (core habitat & causal graph schema), src/habitatmech/schema/mech_shared.yaml, and src/habitatmech/schema/history.yaml\nCategory JSON Indexes: host-associated.json (1655), engineered.json (488), aquatic.json (468), terrestrial.json (353), other.json (175), food.json (59), air.json (7), clinical.json (4)\nSemantic Embedding Map Data: text-map-source/points.json and text-map-source/manifest.json\nYAML Corpus & Term Requests: data/habitats/ (3209 YAML records) and data/term_requests.tsv\nConnected X-Mech Knowledge Bases: TaxonMech (reported microbial taxa), CommunityMech (ecological communities), CultureMech (growth media), TraitMech (environmental stress & physiological traits), and X-Mech Suite\n\nGenerated from kg-microbe on 2026-08-16. Project data: CC BY 4.0; code: BSD-3-Clause \u00b7 LinkML Schema \u00b7 Downloads. Third-party terms apply.\n\nWorkflow status does not establish human review. Grounding is by lexical match against ontology labels except where a curation decision says otherwise; treat any record marked SEEDED as a starting point, not a citable claim. Current workflow counts.",
+  "text_sha256": "bc6bfaee22dadc695ecdc7c9edda128f3f0bd71ba560692d39eeb2bcc747083f",
+  "headings": [
+    "Microbial habitats, harmonized",
+    "What HabitatMech adds",
+    "Browse by category",
+    "What the grounding status means",
+    "Data downloads & LinkML schema"
+  ],
+  "links": [
+    {
+      "text": "Skip to main content",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#main-content"
+    },
+    {
+      "text": "HabitatMech",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    {
+      "text": "Semantic text map",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/text-map/"
+    },
+    {
+      "text": "Overview",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    },
+    {
+      "text": "Browse",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    {
+      "text": "ENVO term requests",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+    },
+    {
+      "text": "Downloads & Schema",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+    },
+    {
+      "text": "Source",
+      "href": "https://github.com/CultureBotAI/HabitatMech"
+    },
+    {
+      "text": "All Mech projects",
+      "href": "https://culturebotai.github.io/mechs/"
+    },
+    {
+      "text": "3209habitat records",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/browse.html"
+    },
+    {
+      "text": "2143ontology-grounded",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#grounding-status"
+    },
+    {
+      "text": "175corroborated by 2+ sources",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#source-corroboration"
+    },
+    {
+      "text": "1301REVIEWED status",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#review-status"
+    },
+    {
+      "text": "2678concepts ENVO has no term for",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#novelty"
+    },
+    {
+      "text": "2061named by no vendored ontology",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#novelty"
+    },
+    {
+      "text": "HOST_ASSOCIATED",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html"
+    },
+    {
+      "text": "ENGINEERED",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.html"
+    },
+    {
+      "text": "AQUATIC",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html"
+    },
+    {
+      "text": "TERRESTRIAL",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.html"
+    },
+    {
+      "text": "OTHER",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/other.html"
+    },
+    {
+      "text": "FOOD",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/food.html"
+    },
+    {
+      "text": "AIR",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/air.html"
+    },
+    {
+      "text": "CLINICAL",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.html"
+    },
+    {
+      "text": "701 of them",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/term-requests.html"
+    },
+    {
+      "text": "src/habitatmech/schema/habitatmech.yaml",
+      "href": "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/habitatmech.yaml"
+    },
+    {
+      "text": "src/habitatmech/schema/mech_shared.yaml",
+      "href": "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/mech_shared.yaml"
+    },
+    {
+      "text": "src/habitatmech/schema/history.yaml",
+      "href": "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/history.yaml"
+    },
+    {
+      "text": "host-associated.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.json"
+    },
+    {
+      "text": "engineered.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/engineered.json"
+    },
+    {
+      "text": "aquatic.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.json"
+    },
+    {
+      "text": "terrestrial.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.json"
+    },
+    {
+      "text": "other.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/other.json"
+    },
+    {
+      "text": "food.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/food.json"
+    },
+    {
+      "text": "air.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/air.json"
+    },
+    {
+      "text": "clinical.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/category/clinical.json"
+    },
+    {
+      "text": "text-map-source/points.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/points.json"
+    },
+    {
+      "text": "text-map-source/manifest.json",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/text-map-source/manifest.json"
+    },
+    {
+      "text": "data/habitats/",
+      "href": "https://github.com/CultureBotAI/HabitatMech/tree/main/data/habitats"
+    },
+    {
+      "text": "data/term_requests.tsv",
+      "href": "https://github.com/CultureBotAI/HabitatMech/blob/main/data/term_requests.tsv"
+    },
+    {
+      "text": "TaxonMech",
+      "href": "https://culturebotai.github.io/TaxonMech/"
+    },
+    {
+      "text": "CommunityMech",
+      "href": "https://culturebotai.github.io/CommunityMech/"
+    },
+    {
+      "text": "CultureMech",
+      "href": "https://culturebotai.github.io/CultureMech/"
+    },
+    {
+      "text": "TraitMech",
+      "href": "https://culturebotai.github.io/TraitMech/"
+    },
+    {
+      "text": "X-Mech Suite",
+      "href": "https://culturebotai.github.io/mechs/"
+    },
+    {
+      "text": "kg-microbe",
+      "href": "https://github.com/Knowledge-Graph-Hub/kg-microbe"
+    },
+    {
+      "text": "CC BY 4.0",
+      "href": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "text": "BSD-3-Clause",
+      "href": "https://github.com/CultureBotAI/HabitatMech/blob/main/LICENSE-CODE"
+    },
+    {
+      "text": "LinkML Schema",
+      "href": "https://github.com/CultureBotAI/HabitatMech/blob/main/src/habitatmech/schema/habitatmech.yaml"
+    },
+    {
+      "text": "Downloads",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html#downloads"
+    },
+    {
+      "text": "Current workflow counts",
+      "href": "https://culturebotai.github.io/HabitatMech/pages/index.html"
+    }
+  ],
+  "page_errors": [],
+  "after": {
+    "id": 7722826796,
+    "sha": "61edb3d0ae912e8f041378e669928051fbbd509e",
+    "created_at": "2026-11-11T22:32:18Z",
+    "state": "success"
+  }
+}

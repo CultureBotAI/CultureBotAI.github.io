@@ -1,18 +1,18 @@
 {
  "_revisions": {
-  "HabitatMech": "7c82566b001f676eb0d3c9cc6c905f85a99b8bde",
-  "CommunityMech": "e6c179330ed043975eaf7f353342766b59a4cd02",
+  "HabitatMech": "83aa5f212521389cb9c3507ded58d0bcd0a22ee0",
+  "CommunityMech": "03eab4fc6cf9ee91545e610cb8e008eaeeb20cd3",
   "TraitMech": "69d6c885a535d38c29cd8365cd8b5cb91ba491fb",
-  "PathwayMech": "3a407d22ff5d578869af286a42b13be7d9dcf67a",
-  "CellStructureMech": "6e0cbc219a1a600680373f141efb92f221c02493",
+  "PathwayMech": "a815a1c482e4ff9c11ae4f3c619a10ebbc1fb0a5",
+  "CellStructureMech": "75c2cb82a69cc2e80ff9e833524cbfc239826a4c",
   "ProteinTraitsMech": "4ae6338bc8147eefd5e07221ee2ad79b117a86c0",
   "DUFMech": "17755af9c3c73a8a9d1cb472743cdd6f329b7b92",
-  "NaturalProductMech": "6226602895d4d2e598dc70e281d43027f1c89471",
-  "AntibioticMech": "54161f65ba199a8415a833336a6eb52dfba13986",
-  "CMMMech": "3bc89f7aeaf6db9fc42676e61efb86ca906fbdc5",
-  "MediaIngredientMech": "8b6ad28ac58c3a26b952b086e207899d6cef1be7",
+  "NaturalProductMech": "c1ef7d712d64b0d45d013a8369710a1b76ecb561",
+  "AntibioticMech": "f6fc3b838630c5ff1c70a8c893996cba6b0c0740",
+  "CMMMech": "000fd9c1bad8e0de32a55b4bc1554d4a86696dae",
+  "MediaIngredientMech": "67a9df2c465a8fbff9d701bc9934c58e6cda583b",
   "CultureMech": "2c9ac2a14cc1fb0808529225b378b5ce8b24f2b8",
-  "TaxonMech": "6a86624b7ba126a5982b758431b9804cf0ffb395",
+  "TaxonMech": "e287c7784ed6fe8b6ce85ad6ce26f24f4ebf502c",
   "AIMech": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
   "CofactorMech": "131fc3ea47615a29bde04a3185b29f03edf2ada1",
   "AssayMech": "95a01f4981cbdf70e2e135d55d4d8f2f464a6e12"
@@ -42,10 +42,10 @@
    ]
   },
   "HabitatMech|TraitMech": {
-   "n": 144,
+   "n": 146,
    "by": {
-    "NCBITaxon": 137,
-    "UniProt": 4,
+    "NCBITaxon": 138,
+    "UniProt": 5,
     "ENVO": 2,
     "CHEBI": 1
    },
@@ -65,9 +65,9 @@
    ]
   },
   "HabitatMech|PathwayMech": {
-   "n": 51,
+   "n": 52,
    "by": {
-    "NCBITaxon": 50,
+    "NCBITaxon": 51,
     "CHEBI": 1
    },
    "ex": [
@@ -86,9 +86,9 @@
    ]
   },
   "HabitatMech|CellStructureMech": {
-   "n": 62,
+   "n": 64,
    "by": {
-    "NCBITaxon": 61,
+    "NCBITaxon": 63,
     "GO": 1
    },
    "ex": [
@@ -107,10 +107,10 @@
    ]
   },
   "HabitatMech|ProteinTraitsMech": {
-   "n": 1299,
+   "n": 1313,
    "by": {
-    "NCBITaxon": 1249,
-    "UniProt": 34,
+    "NCBITaxon": 1255,
+    "UniProt": 42,
     "UBERON": 12,
     "CHEBI": 2,
     "GO": 2
@@ -131,9 +131,9 @@
    ]
   },
   "HabitatMech|NaturalProductMech": {
-   "n": 317,
+   "n": 318,
    "by": {
-    "NCBITaxon": 317
+    "NCBITaxon": 318
    },
    "ex": [
     {
@@ -145,15 +145,15 @@
      "label": "Sorangium cellulosum"
     },
     {
-     "id": "NCBITaxon:1931",
-     "label": "Streptomyces sp."
+     "id": "NCBITaxon:294",
+     "label": "Pseudomonas fluorescens"
     }
    ]
   },
   "HabitatMech|AntibioticMech": {
-   "n": 56,
+   "n": 57,
    "by": {
-    "NCBITaxon": 54,
+    "NCBITaxon": 55,
     "UniProt": 2
    },
    "ex": [
@@ -172,10 +172,10 @@
    ]
   },
   "HabitatMech|CMMMech": {
-   "n": 63,
+   "n": 69,
    "by": {
-    "NCBITaxon": 61,
-    "UniProt": 2
+    "NCBITaxon": 66,
+    "UniProt": 3
    },
    "ex": [
     {
@@ -237,9 +237,9 @@
    ]
   },
   "HabitatMech|TaxonMech": {
-   "n": 6465,
+   "n": 6478,
    "by": {
-    "NCBITaxon": 6463,
+    "NCBITaxon": 6476,
     "CHEBI": 1,
     "UniProt": 1
    },
@@ -392,10 +392,10 @@
    ]
   },
   "CommunityMech|CMMMech": {
-   "n": 72,
+   "n": 81,
    "by": {
-    "NCBITaxon": 53,
-    "GO": 11,
+    "NCBITaxon": 54,
+    "GO": 19,
     "CHEBI": 8
    },
    "ex": [
@@ -404,12 +404,12 @@
      "label": "Acidithiobacillus ferrooxidans"
     },
     {
-     "id": "NCBITaxon:930",
-     "label": "Acidithiobacillus thiooxidans"
+     "id": "GO:0005975",
+     "label": "carbohydrate metabolic process"
     },
     {
-     "id": "NCBITaxon:303",
-     "label": "Pseudomonas putida"
+     "id": "NCBITaxon:930",
+     "label": "Acidithiobacillus thiooxidans"
     }
    ]
   },
@@ -625,14 +625,18 @@
    ]
   },
   "TraitMech|CMMMech": {
-   "n": 59,
+   "n": 67,
    "by": {
-    "NCBITaxon": 31,
-    "GO": 19,
+    "NCBITaxon": 32,
+    "GO": 25,
     "UniProt": 7,
-    "InterPro": 2
+    "InterPro": 3
    },
    "ex": [
+    {
+     "id": "GO:0009061",
+     "label": "anaerobic respiration"
+    },
     {
      "id": "NCBITaxon:920",
      "label": "Acidithiobacillus ferrooxidans"
@@ -640,10 +644,6 @@
     {
      "id": "NCBITaxon:211586",
      "label": "Shewanella oneidensis MR-1"
-    },
-    {
-     "id": "GO:0009061",
-     "label": "anaerobic respiration"
     }
    ]
   },
@@ -847,10 +847,10 @@
    ]
   },
   "PathwayMech|CMMMech": {
-   "n": 23,
+   "n": 27,
    "by": {
-    "GO": 11,
-    "NCBITaxon": 10,
+    "NCBITaxon": 13,
+    "GO": 12,
     "UniProt": 2
    },
    "ex": [
@@ -863,8 +863,8 @@
      "label": "cytoplasm"
     },
     {
-     "id": "GO:0042597",
-     "label": "periplasmic space"
+     "id": "GO:0005829",
+     "label": "cytosol"
     }
    ]
   },
@@ -1034,26 +1034,26 @@
    ]
   },
   "CellStructureMech|CMMMech": {
-   "n": 40,
+   "n": 56,
    "by": {
-    "GO": 20,
+    "GO": 34,
     "NCBITaxon": 12,
-    "InterPro": 6,
+    "InterPro": 8,
     "CHEBI": 1,
     "UniProt": 1
    },
    "ex": [
     {
-     "id": "GO:0005886",
-     "label": "plasma membrane"
-    },
-    {
      "id": "GO:0005737",
      "label": "cytoplasm"
     },
     {
-     "id": "GO:0005829",
-     "label": "cytosol"
+     "id": "GO:0005886",
+     "label": "plasma membrane"
+    },
+    {
+     "id": "GO:0016020",
+     "label": "membrane"
     }
    ]
   },
@@ -1207,23 +1207,23 @@
    ]
   },
   "ProteinTraitsMech|CMMMech": {
-   "n": 663,
+   "n": 875,
    "by": {
-    "InterPro": 298,
-    "Pfam": 107,
-    "GO": 105,
-    "NCBITaxon": 70,
+    "InterPro": 391,
+    "GO": 184,
+    "Pfam": 140,
+    "NCBITaxon": 75,
     "CHEBI": 58,
-    "UniProt": 25
+    "UniProt": 27
    },
    "ex": [
     {
-     "id": "InterPro:IPR011047",
-     "label": "Quinoprotein alcohol dehydrogenase-like superfamily"
-    },
-    {
      "id": "InterPro:IPR036188",
      "label": "FAD/NAD(P)-binding domain superfamily"
+    },
+    {
+     "id": "InterPro:IPR011047",
+     "label": "Quinoprotein alcohol dehydrogenase-like superfamily"
     },
     {
      "id": "InterPro:IPR023753",
@@ -1275,11 +1275,11 @@
    ]
   },
   "ProteinTraitsMech|TaxonMech": {
-   "n": 7479,
+   "n": 7481,
    "by": {
     "NCBITaxon": 7456,
-    "UniProt": 15,
-    "GO": 6,
+    "UniProt": 16,
+    "GO": 7,
     "CHEBI": 2
    },
    "ex": [
@@ -1338,10 +1338,10 @@
    ]
   },
   "DUFMech|CMMMech": {
-   "n": 6,
+   "n": 10,
    "by": {
-    "InterPro": 3,
-    "Pfam": 3
+    "InterPro": 5,
+    "Pfam": 5
    },
    "ex": [
     {
@@ -1381,9 +1381,10 @@
    ]
   },
   "NaturalProductMech|CMMMech": {
-   "n": 42,
+   "n": 44,
    "by": {
-    "NCBITaxon": 42
+    "NCBITaxon": 43,
+    "GO": 1
    },
    "ex": [
     {
@@ -1442,10 +1443,10 @@
    ]
   },
   "NaturalProductMech|TaxonMech": {
-   "n": 1711,
+   "n": 1712,
    "by": {
     "NCBITaxon": 1707,
-    "UniProt": 3,
+    "UniProt": 4,
     "CHEBI": 1
    },
    "ex": [
@@ -1484,10 +1485,10 @@
    ]
   },
   "AntibioticMech|CMMMech": {
-   "n": 15,
+   "n": 16,
    "by": {
     "NCBITaxon": 14,
-    "GO": 1
+    "GO": 2
    },
    "ex": [
     {
@@ -1588,9 +1589,10 @@
    ]
   },
   "CMMMech|TaxonMech": {
-   "n": 160,
+   "n": 165,
    "by": {
-    "NCBITaxon": 160
+    "NCBITaxon": 164,
+    "GO": 1
    },
    "ex": [
     {
@@ -1713,15 +1715,15 @@
   }
  },
  "cells": {
-  "HabitatMech|BTO": 625,
+  "HabitatMech|BTO": 632,
   "HabitatMech|CHEBI": 15,
-  "HabitatMech|ENVO": 1594,
+  "HabitatMech|ENVO": 1601,
   "HabitatMech|FOODON": 90,
   "HabitatMech|GO": 2,
-  "HabitatMech|NCBITaxon": 931,
+  "HabitatMech|NCBITaxon": 938,
   "HabitatMech|PATO": 4,
   "HabitatMech|UBERON": 778,
-  "HabitatMech|UniProt": 49,
+  "HabitatMech|UniProt": 59,
   "CommunityMech|CHEBI": 422,
   "CommunityMech|ENVO": 502,
   "CommunityMech|GO": 424,
@@ -1785,11 +1787,11 @@
   "AntibioticMech|PDB": 352,
   "AntibioticMech|UniProt": 181,
   "CMMMech|CHEBI": 67,
-  "CMMMech|GO": 48,
-  "CMMMech|InterPro": 188,
+  "CMMMech|GO": 68,
+  "CMMMech|InterPro": 208,
   "CMMMech|NCBITaxon": 284,
-  "CMMMech|Pfam": 188,
-  "CMMMech|UniProt": 188,
+  "CMMMech|Pfam": 208,
+  "CMMMech|UniProt": 208,
   "MediaIngredientMech|BTO": 1,
   "MediaIngredientMech|CAS": 742,
   "MediaIngredientMech|CHEBI": 2237,

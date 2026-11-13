@@ -1,0 +1,272 @@
+{
+  "mech": "CMMMech",
+  "scope": "Landing-page content spot-check; not a full feature audit",
+  "observed_at": "2026-11-13T04:41:04.900585+00:00",
+  "before": {
+    "id": 7722755690,
+    "sha": "9bf445aea708681be2283b5df346e769de3da623",
+    "created_at": "2026-11-11T22:28:30Z",
+    "state": "success"
+  },
+  "url": "https://culturebotai.github.io/CMMMech/pages/index.html",
+  "status": 200,
+  "headers": {
+    "last-modified": "Wed, 11 Nov 2026 22:32:59 GMT",
+    "x-github-request-id": "BDA6:11A85B:AC4BD:C29B6:6AF694E2",
+    "content-type": "text/html; charset=utf-8"
+  },
+  "text": "CMMMech\nHome\nBrowse\nText map\nMechanism graph\nJSON\nSchema\nGitHub\nAll Mech projects\nCritical Materials, Minerals & Microbial Mechanisms\n\nAn evidence-backed knowledge base for critical minerals and materials, connecting strategic commodities and mineral hosts to microbial extraction, biomineralization, and recovery mechanisms.\n\nSearch\n713\nMaterials & Commodities\n609\nCurated Mechanisms\n500\nMaterials with Mechanisms\n90\nDesignated Critical Materials\nMaterial Kinds\n\nRecords distinguish chemical elements, mineral species and groups, commodities, and primary and secondary resources.\n\nElements\n66 records\n\nChemical elements distinct from ores, alloys, and waste streams.\n\nMinerals\n462 records\n\nNaturally occurring crystalline inorganic substances with defined IMA mineral status.\n\nSecondary Resources\n111 records\n\nPost-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.\n\nCommodities\n36 records\n\nAggregated commercial products, traded raw materials, and manufactured chemical compounds.\n\nPrimary Resources\n31 records\n\nRaw unrefined geological deposits, mined ores, and run-of-mine materials.\n\nMineral Groups\n7 records\n\nMineral supergroups and solid-solution series sharing related crystal structures.\n\nCurated Processes\n\nMechanism records describe biological and abiotic processes, with experimental materials, conditions, evidence and limitations. Microbial involvement is stated explicitly.\n\nBioleaching\n185 mechanisms\n\nMicrobial solubilization and mobilization of target metals from ores, concentrates, and wastes.\n\nBiomineralization\n107 mechanisms\n\nBiological precipitation, crystallization, and synthesis of mineral phases or nanoparticles.\n\nRedox Transformation\n61 mechanisms\n\nOxidation-reduction reactions that alter metal valence states; microbial involvement is specified in each record.\n\nBiosorption\n17 mechanisms\n\nPassive binding and retention of metal ions by microbial cell walls and biomass.\n\nSeparation\n31 mechanisms\n\nSelective partitioning by biological or abiotic processes. See each record for microbial involvement, experimental conditions and recovery limits.\n\nRecovery\n19 mechanisms\n\nIntegrated microbial processing schemes yielding concentrated or isolated materials.\n\nOther Transformations\n186 mechanisms\n\nComplex community transformations, multi-stage processes, or unclassified interactions.\n\nHighlighted Strategic Materials\n\nRepresentative materials spanning battery elements, rare earths, platinum group metals, and secondary resources:\n\nMaterial\tKind\tCriticality\tKey Mechanisms\tCurated Evidence Boundary\nCobalt\tElement\tCritical\tBioleaching\tTwo-step flask assay: 10% (v/v) inoculum, 50 mL FeS medium (50 mM ferrous sulfate; 1% w/v elemental sulfur; initial pH 2\u2026\nNeodymium\tElement\tCritical\tBioleaching Biosorption\tLaboratory batch assays used SAG 211-12, dried at 90 degrees C for 24 h. Magnets were roasted at 950 degrees C for 7 h t\u2026\nLithium\tElement\tCritical\tBioleaching\tLive in-lab ore-derived culture was reported as At. ferrooxidans, without a strain accession. The species identifier nor\u2026\nCopper\tElement\tCritical\tBioleaching\tAitik-mine flotation concentrate, reported as 29.5% Cu, sieved to 50-100 micrometres; EDTA/NaOH and acetone washes, over\u2026\nNickel\tElement\tCritical\tBioleaching\tDSM 14887T, DSM 504, DSM 622, DSM 103717, DSM 9463 and BGR isolate RAM8 were mixed in equal culture volumes; the taxon I\u2026\nPalladium\tElement\tCritical\tRedox Transformation\tLaboratory anaerobic batch assay using washed, nongrowing ATCC 29577 cells (0.5 g/L; 2.5 mL in sealed 12 mL serum bottle\u2026\nTellurium\tElement\tCritical\tRedox Transformation\tLaboratory aerobic exposure of LB-grown, twice PBS-washed cells in 50 mL PBS, pH 7.4, at 30 degrees C and 150 rpm for 0.\u2026\nGallium\tElement\tCritical\tBioleaching\tThe type strain DSM 14887 was adapted to 5% w/v sludge with aluminum; NCBITaxon:930 identifies the species, not the stra\u2026\nGermanium\tElement\tCritical\tOther\tNCBITaxon:303 identifies the species, not ATCC 33015. The kinetic study used acetate-grown inocula, aerated mineral medi\u2026\nSpent fluorescent-lamp phosphor powder\tSecondary Resource\t\u2014\tBioleaching\tLaboratory assays used 20 mg retorted phosphor powder per 500 microlitres biolixiviant (4% w/v) in 1.7 mL tubes, shaken \u2026\nGaAs wafer-production hydroxide sludge\tSecondary Resource\t\u2014\tBioleaching\tThe study used type strain DSM 14887, adapted to 5% w/v sludge with aluminum; NCBITaxon:930 anchors the species, not a s\u2026\nChalcopyrite\tMineral\t\u2014\tBioleaching\tAitik-mine flotation concentrate contained 29.5% Cu. The authors report greater than 98% purity from aqua-regia digestio\u2026\n\nBrowse all 713 materials \u2192\n2D Embedding Map\nMechanism Network Graph\nDownload JSON (713)\nLinkML Schema\n\nEvidence & Curation Contract\n\nCMMMech records enforce rigorous scientific limits:\n\nChemical identity separation: An element (e.g. Lithium) is strictly distinct from its mineral hosts (e.g. Spodumene, Jadarite) and its commercial form.\nMechanism evidence boundaries: Laboratory solubilization or binding is explicitly distinguished from full industrial recovery, elemental yield, or isolated pure metal.\nNegative & control evidence: Abiotic controls, matched acid baselines, and null results are recorded alongside positive extraction claims to prevent inflated efficacy.\nStructured provenance: Records cite their evidence sources and include material or organism identifiers where verified.\n\nCMMMech \u00b7 Critical Materials and Minerals Mechanism Ontology \u00b7 data: CC BY 4.0 \u00b7 code: BSD-3-Clause \u00b7 Download index.json \u00b7 Download corpus_map.json \u00b7 LinkML schema \u00b7 generated by scripts/render_pages.py (713 materials \u00b7 609 mechanisms \u00b7 latest curation 2026-11-11 \u00b7 corpus digest ca4e8e5f93ec)\n\nCultureMech \u00b7 MediaIngredientMech \u00b7 CommunityMech \u00b7 TraitMech \u00b7 ProteinTraitsMech \u00b7 AntibioticMech \u00b7 CellStructureMech \u00b7 NaturalProductMech \u00b7 DUFMech \u00b7 PathwayMech \u00b7 TaxonMech \u00b7 HabitatMech \u00b7 AIMech \u00b7 CMMMech\n\nkg-microbe \u00b7 All Mech projects\n\n\u263e",
+  "text_sha256": "63a60c0c6c302f87b6915ef9528b92ab7cc99afb93ce61f30e91cd8c1ba5db33",
+  "headings": [
+    "Critical Materials, Minerals & Microbial Mechanisms",
+    "Material Kinds",
+    "Curated Processes",
+    "Highlighted Strategic Materials",
+    "Evidence & Curation Contract"
+  ],
+  "links": [
+    {
+      "text": "CMMMech",
+      "href": "https://culturebotai.github.io/CMMMech/pages/index.html"
+    },
+    {
+      "text": "Home",
+      "href": "https://culturebotai.github.io/CMMMech/pages/index.html"
+    },
+    {
+      "text": "Browse",
+      "href": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+    },
+    {
+      "text": "Text map",
+      "href": "https://culturebotai.github.io/CMMMech/pages/map.html"
+    },
+    {
+      "text": "Mechanism graph",
+      "href": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+    },
+    {
+      "text": "JSON",
+      "href": "https://culturebotai.github.io/CMMMech/pages/index.json"
+    },
+    {
+      "text": "Schema",
+      "href": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+    },
+    {
+      "text": "GitHub",
+      "href": "https://github.com/CultureBotAI/CMMMech"
+    },
+    {
+      "text": "All Mech projects",
+      "href": "https://culturebotai.github.io/mechs/"
+    },
+    {
+      "text": "Elements\n        66 records\n      \n      Chemical elements distinct from ores, alloys, and waste streams.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/kinds/element.html"
+    },
+    {
+      "text": "Minerals\n        462 records\n      \n      Naturally occurring crystalline inorganic substances with defined IMA mineral status.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral.html"
+    },
+    {
+      "text": "Secondary Resources\n        111 records\n      \n      Post-consumer and industrial byproducts including spent batteries, slags, red mud, and scrap.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/kinds/secondary_resource.html"
+    },
+    {
+      "text": "Commodities\n        36 records\n      \n      Aggregated commercial products, traded raw materials, and manufactured chemical compounds.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/kinds/commodity.html"
+    },
+    {
+      "text": "Primary Resources\n        31 records\n      \n      Raw unrefined geological deposits, mined ores, and run-of-mine materials.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/kinds/primary_resource.html"
+    },
+    {
+      "text": "Mineral Groups\n        7 records\n      \n      Mineral supergroups and solid-solution series sharing related crystal structures.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/kinds/mineral_group.html"
+    },
+    {
+      "text": "Bioleaching\n        185 mechanisms\n      \n      Microbial solubilization and mobilization of target metals from ores, concentrates, and wastes.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/bioleaching.html"
+    },
+    {
+      "text": "Biomineralization\n        107 mechanisms\n      \n      Biological precipitation, crystallization, and synthesis of mineral phases or nanoparticles.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/biomineralization.html"
+    },
+    {
+      "text": "Redox Transformation\n        61 mechanisms\n      \n      Oxidation-reduction reactions that alter metal valence states; microbial involvement is specified in each record.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/redox_transformation.html"
+    },
+    {
+      "text": "Biosorption\n        17 mechanisms\n      \n      Passive binding and retention of metal ions by microbial cell walls and biomass.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/biosorption.html"
+    },
+    {
+      "text": "Separation\n        31 mechanisms\n      \n      Selective partitioning by biological or abiotic processes. See each record for microbial involvement, experimental conditions and recovery limits.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/separation.html"
+    },
+    {
+      "text": "Recovery\n        19 mechanisms\n      \n      Integrated microbial processing schemes yielding concentrated or isolated materials.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/recovery.html"
+    },
+    {
+      "text": "Other Transformations\n        186 mechanisms\n      \n      Complex community transformations, multi-stage processes, or unclassified interactions.",
+      "href": "https://culturebotai.github.io/CMMMech/pages/processes/other.html"
+    },
+    {
+      "text": "Cobalt",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/cobalt.html"
+    },
+    {
+      "text": "Neodymium",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/neodymium.html"
+    },
+    {
+      "text": "Lithium",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/lithium.html"
+    },
+    {
+      "text": "Copper",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/copper.html"
+    },
+    {
+      "text": "Nickel",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/nickel.html"
+    },
+    {
+      "text": "Palladium",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/palladium.html"
+    },
+    {
+      "text": "Tellurium",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/tellurium.html"
+    },
+    {
+      "text": "Gallium",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/gallium.html"
+    },
+    {
+      "text": "Germanium",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/germanium.html"
+    },
+    {
+      "text": "Spent fluorescent-lamp phosphor powder",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/fluorescent-lamp-phosphor.html"
+    },
+    {
+      "text": "GaAs wafer-production hydroxide sludge",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/gaas-production-hydroxide-sludge.html"
+    },
+    {
+      "text": "Chalcopyrite",
+      "href": "https://culturebotai.github.io/CMMMech/pages/materials/chalcopyrite.html"
+    },
+    {
+      "text": "Browse all 713 materials \u2192",
+      "href": "https://culturebotai.github.io/CMMMech/pages/browse.html"
+    },
+    {
+      "text": "2D Embedding Map",
+      "href": "https://culturebotai.github.io/CMMMech/pages/map.html"
+    },
+    {
+      "text": "Mechanism Network Graph",
+      "href": "https://culturebotai.github.io/CMMMech/pages/graph.html"
+    },
+    {
+      "text": "Download JSON (713)",
+      "href": "https://culturebotai.github.io/CMMMech/pages/index.json"
+    },
+    {
+      "text": "LinkML Schema",
+      "href": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+    },
+    {
+      "text": "CC BY 4.0",
+      "href": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "text": "BSD-3-Clause",
+      "href": "https://github.com/CultureBotAI/CMMMech/blob/main/LICENSE-CODE"
+    },
+    {
+      "text": "Download index.json",
+      "href": "https://culturebotai.github.io/CMMMech/pages/index.json"
+    },
+    {
+      "text": "Download corpus_map.json",
+      "href": "https://culturebotai.github.io/CMMMech/pages/corpus_map.json"
+    },
+    {
+      "text": "LinkML schema",
+      "href": "https://github.com/CultureBotAI/CMMMech/blob/main/src/cmmmech/schema/cmmmech.yaml"
+    },
+    {
+      "text": "CultureMech",
+      "href": "https://culturebotai.github.io/CultureMech/"
+    },
+    {
+      "text": "MediaIngredientMech",
+      "href": "https://culturebotai.github.io/MediaIngredientMech/"
+    },
+    {
+      "text": "CommunityMech",
+      "href": "https://culturebotai.github.io/CommunityMech/"
+    },
+    {
+      "text": "TraitMech",
+      "href": "https://culturebotai.github.io/TraitMech/"
+    },
+    {
+      "text": "ProteinTraitsMech",
+      "href": "https://culturebotai.github.io/proteintraitsmech/"
+    },
+    {
+      "text": "AntibioticMech",
+      "href": "https://culturebotai.github.io/AntibioticMech/"
+    },
+    {
+      "text": "CellStructureMech",
+      "href": "https://culturebotai.github.io/CellStructureMech/"
+    },
+    {
+      "text": "NaturalProductMech",
+      "href": "https://culturebotai.github.io/NaturalProductMech/"
+    },
+    {
+      "text": "DUFMech",
+      "href": "https://culturebotai.github.io/DUFMech/"
+    },
+    {
+      "text": "PathwayMech",
+      "href": "https://culturebotai.github.io/PathwayMech/"
+    },
+    {
+      "text": "TaxonMech",
+      "href": "https://culturebotai.github.io/TaxonMech/"
+    },
+    {
+      "text": "HabitatMech",
+      "href": "https://culturebotai.github.io/HabitatMech/"
+    },
+    {
+      "text": "AIMech",
+      "href": "https://culturebotai.github.io/AIMech/"
+    },
+    {
+      "text": "kg-microbe",
+      "href": "https://github.com/Knowledge-Graph-Hub/kg-microbe"
+    },
+    {
+      "text": "All Mech projects",
+      "href": "https://culturebotai.github.io/mechs/"
+    }
+  ],
+  "page_errors": [],
+  "after": {
+    "id": 7722755690,
+    "sha": "9bf445aea708681be2283b5df346e769de3da623",
+    "created_at": "2026-11-11T22:28:30Z",
+    "state": "success"
+  }
+}

@@ -58,8 +58,8 @@
 
 The site lists sixteen corpus Mechs and separate infrastructure members.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
-and the November 9–10, 2026 refresh pins CLAW at
-`3daf94ebb70f548244f9e51740244dd2007f3ecc`: the canonical snapshot declares
+and the November 11, 2026 refresh pins CLAW at
+`7233987c85dcae9c248c7a2dbd445065e5a6c1b8`: the canonical snapshot declares
 17 public members (all sixteen corpus Mechs plus EdgeMech infrastructure), 26 governed
 artifacts and 29 capabilities, including record-review declarations and the
 `evidence_reference_validation` contract (enabled for MediaIngredientMech,
@@ -69,7 +69,7 @@ Membership counts, badges and prose about
 undeclared projects come from `data/manifest.json`; suite coverage does not
 imply CLAW admission. A project's capability row remains undeclared until the
 snapshot contains its declaration. Tests exercise undeclared and declared
-membership independently of the current snapshot. The November 9–10 refresh
+membership independently of the current snapshot. The November 11 refresh
 includes AIMech, CofactorMech and AssayMech in the census, shared-term assets and statistics, and updates
 all sixteen source pins.
 DUFMech's contribution to that census is a measured seed worklist, labeled as
@@ -212,7 +212,7 @@ credited to it in the file that implements it. Rules that have come up:
 
 The October 29 sweep over records, schemas, scripts, config, vendored data,
 curation decisions, docs and site generators records 59 directed references.
-The November 9–10 refresh rechecked those 59 references and added 4 cross-corpus
+The November 11 refresh rechecked those 59 references and the 4 cross-corpus
 references for CofactorMech and AssayMech (63 in total).
 TaxonMech supplies history machinery used by 106 PathwayMech records carrying
 129 events. PathwayMech's typed links and candidate reports, and
@@ -228,7 +228,7 @@ These evidence leads do not establish functional validation or kg-microbe ingest
 
 ## Vocabulary census updates
 
-The November 9–10, 2026 census measures all sixteen Mechs. PathwayMech contributes
+The November 11, 2026 census measures all sixteen Mechs. PathwayMech contributes
 282 pathway records. CofactorMech contributes 14 cofactor records and AssayMech
 contributes 9 assay records. DUFMech contributes 8,296 seed-family rows from its frozen
 JSON worklist, with Pfam and InterPro identifiers read from their typed fields.
@@ -309,7 +309,7 @@ NaturalProductMech's pages are committed under `pages/<class>/<slug>.html`, one 
 record, and served by its branch build (#149). CultureMech's `pages/media/` pages
 come and go with its Actions deployment (#175), so its links stay on GitHub until
 that deployment is stable (#223).
-CommunityMech's twenty-three `data/isolates` records have no published page. They remain
+CommunityMech's thirty-seven `data/isolates` records have no published page. They remain
 outside the shared-term overlaps, but the census and heatmap record lists count
 them; their cell-list links open the source file at the recorded Git revision.
 The same pinned-source fallback keeps any record without a published route in
@@ -380,8 +380,8 @@ and vocabulary name. Rows sort from most to fewest vocabularies used, with ties
 retaining the biological scale order.
 The table includes measured numeric rows for every suite member, including
 PathwayMech and DUFMech.
-Every cell opens the summary below the table. All 356 populated cells across 163 vocabularies at the
-November 9–10 pins have record-list assets, including DOI,
+Every cell opens the summary below the table. All 357 populated cells across 163 vocabularies at the
+November 11 pins have record-list assets, including DOI,
 PMID and other citation namespaces. Each list reports the full distinct-record
 total and shows up to 300 record links; repeated occurrences in one record still
 count separately in the heatmap. Zero cells show an empty summary without
@@ -402,9 +402,18 @@ defines the namespace and the same model/reaction identifiers carried by
 PathwayMech. The identifier namespace is counted separately from ontology
 terms in GO. Metamodel prefixes such as skos and semapv remain excluded.
 
-## Published-site refresh (November 9–10, 2026)
+## Published-site refresh (November 11, 2026)
 
-Fourteen existing Mechs were pinned at their published `main` revisions on November 9, 2026 (common acquisition bound 2026-11-10 05:20 UTC), and the two newly seeded Mechs, CofactorMech and AssayMech, together with `culturebotai-claw`, were pinned on November 10, 2026 (addition bound 2026-11-11 03:50 UTC). The census, shared-term subsets, heatmap record lists,
+The November 12 integration rechecked all sixteen live card sources and all
+54 cross-reference evidence links, and incorporated the separately reviewed
+CofactorMech and AssayMech browser launches. Repository comparisons found no
+subsequent changes to the measured corpora, so the November 11 corpus pins
+remain intact. Website-feature observations retain their documented November 9
+baseline and separate November 12 new-site audits; deployment metadata alone
+does not redate a browser review (#571). See `reviews/refresh-20261112/` and
+`reviews/site-launch-20261112/` for the retained checks and limitations.
+
+All sixteen Mechs and `culturebotai-claw` were pinned at their published `main` revisions on November 11, 2026 (common acquisition bound 2026-11-11 19:59 UTC). The census, shared-term subsets, heatmap record lists,
 repository statistics and `data/site_audit.json` record the same revisions across all sixteen Mechs; provenance checks reject a
 mixture of snapshots. The corpora are read from isolated snapshots of committed
 Git blobs, never from shared checkouts' uncommitted files.
@@ -425,7 +434,7 @@ The dedicated Mech pages link to the same pinned repository revisions.
 Card figures follow the published browsers, except CultureMech's generated
 README inventory, DUFMech's frozen JSON worklist and the CMMMech/AIMech/CofactorMech/AssayMech Git-tree
 inventories. CommunityMech's browser lists 512 communities; its repository
-additionally includes twenty-three isolates, so the census and statistics count 535.
+additionally includes thirty-seven isolates, so the census and statistics count 549.
 DUFMech's 8,296 rows describe 6,127 unknown candidates, 373 historical DUFs and
 1,796 EX_DUF families renamed away from former DUF/UPF names. These labels
 describe metadata and naming history, not functional validation. All families
@@ -467,7 +476,7 @@ REVIEWED-bearing status still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All sixteen repositories
 participate in statistics collection.
 
-The CLAW governance snapshot at 3daf94e declares 17 public members (sixteen corpus
+The CLAW governance snapshot at 7233987 declares 17 public members (sixteen corpus
 Mechs plus EdgeMech curation infrastructure), 26 governed artifacts and 29 capabilities,
 including record-review declarations. The added evidence-reference validation contract is
 enabled for MediaIngredientMech, CellStructureMech and HabitatMech; the other fourteen
@@ -499,8 +508,8 @@ reading the old snapshot indefinitely.
 CMMMech joins every Mech surface: ladder, card, graph node, vocabulary census,
 shared-term edges, statistics and both support tables. The canonical corpus is
 `data/records/**/*.yaml` and `*.yml`, matching its native CLI and CLAW manifest;
-fixtures, reviews and history sidecars are not additional records. Its 708
-records at `3bc89f7aeaf6db9fc42676e61efb86ca906fbdc5` have no REVIEWED-bearing
+fixtures, reviews and history sidecars are not additional records. Its 713
+records at `000fd9c1bad8e0de32a55b4bc1554d4a86696dae` have no REVIEWED-bearing
 status slot. A null statistic makes no claim about scientific review artifacts.
 Its record links use the pinned GitHub records, which match the census pin;
 its website first deployed on October 12, 2026, and has its own
@@ -520,7 +529,7 @@ the complete-tree count checker and pinned repository record links; neither depl
 GitHub Pages browser yet.
 
 All sixteen corpora were rescanned at their refresh pins. CELEX, AIO,
-arXiv and the registry aliases apply consistently to every row. The November 9–10
+arXiv and the registry aliases apply consistently to every row. The November 11
 refresh reused the existing kg-microbe comparison after verifying its source
 and namespace-registry hashes; it did not rescan the archive. Its counts remain
 1,379,336 nodes and 64 tracked vocabularies.
