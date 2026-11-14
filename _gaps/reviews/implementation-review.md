@@ -1,0 +1,12 @@
+# Adversarial implementation review
+
+Separate read-only passes reviewed the shared export contract, website acquisition/build pipeline and frontend. Findings were filed before fixes. This record is supplemented by the PR review and machine-readable canary/browser receipts.
+
+| Finding | Issue | Resolution |
+|---|---|---|
+| Historical scanner origin was conflated with current attribution, losing origin after a curator corrected a native discussion. | [CLAW #1216](https://github.com/CultureBotAI/culturebotai-claw/issues/1216) | Shared contract now separates origin, its documented basis and current attribution. A corrected Trait discussion remains recorded with unspecified review; current scanner proposals remain candidates. Re-reviewed at `014bbb6324d4c017b2868a4f88bf6acaa00e68d6`; 59 focused tests and mutation checks pass. |
+| Root publication holds were ignored independently of source permission. | [Website #578](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/578) | Acquisition and validation require both permissions. Held roots remain unavailable with unknown counts, even if an adapter is supported. Tests include an otherwise unparsable held document and forged complete coverage. Independent fix review found the hold is enforced on both paths. |
+| Retained snapshots could claim inconsistent document hashes or more item-bearing documents than inspected records. | [Website #579](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/579) | Validate one digest per repository/revision/path and distinct documents per root against the inspected denominator. Multiple discussions in one document and identical semantic IDs in different documents remain valid. Independent fix review verified both checks. |
+| One Enter search produced duplicate browser-history entries. | [Website #580](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/580) | The real-browser regression retains the failing baseline. Normalized duplicate state transitions are ignored; final browser receipts record one Enter and one Back behavior. |
+
+All four findings belong in this implementation. The site gap test suite has 31 passing tests after #578/#579; browser checks are recorded separately. Live Pages publication is a subsequent gate and is not implied by local preview results.

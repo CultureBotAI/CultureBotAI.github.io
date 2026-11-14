@@ -1,0 +1,716 @@
+{
+  "schema_version": 1,
+  "acquired_at": "2026-11-14T21:09:29.357452+00:00",
+  "source_scope": "The website's sixteen public corpus Mechs; infrastructure excluded.",
+  "evidence_snippets": false,
+  "sources": [
+    {
+      "name": "HabitatMech",
+      "repository": "CultureBotAI/HabitatMech",
+      "default_branch": "main",
+      "revision": "61edb3d0ae912e8f041378e669928051fbbd509e",
+      "acquired_at": "2026-11-14T21:08:59.968783+00:00",
+      "site_url": "https://culturebotai.github.io/HabitatMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/HabitatMech/blob/61edb3d0ae912e8f041378e669928051fbbd509e/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "HabitatMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/habitats/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/habitatmech/schema/habitatmech.yaml",
+          "schema_class": "HabitatRecord",
+          "schema_sha256": "2ff26d07ea5a311fbe3b517c63b33e09443cb8d19947ff9e3b7627d453de1a60",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "CommunityMech",
+      "repository": "CultureBotAI/CommunityMech",
+      "default_branch": "main",
+      "revision": "76aa644cd6803ea2c9545d4c704276ede219d354",
+      "acquired_at": "2026-11-14T21:09:01.943274+00:00",
+      "site_url": "https://culturebotai.github.io/CommunityMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/CommunityMech/blob/76aa644cd6803ea2c9545d4c704276ede219d354/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "CommunityMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "communities",
+          "globs": [
+            "kb/communities/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [],
+          "alias_value_fields": [],
+          "schema_path": "src/communitymech/schema/communitymech.yaml",
+          "schema_class": "MicrobialCommunity",
+          "schema_sha256": "7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a",
+          "unsupported_reason": null,
+          "page_url_template": null
+        },
+        {
+          "name": "isolates",
+          "globs": [
+            "data/isolates/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [],
+          "alias_value_fields": [],
+          "schema_path": "src/communitymech/schema/communitymech.yaml",
+          "schema_class": "MicrobialCommunity",
+          "schema_sha256": "7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "TraitMech",
+      "repository": "CultureBotAI/TraitMech",
+      "default_branch": "main",
+      "revision": "2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18",
+      "acquired_at": "2026-11-14T21:08:46.874807+00:00",
+      "site_url": "https://culturebotai.github.io/TraitMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "TraitMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/traits/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/traitmech/schema/traitmech.yaml",
+          "schema_class": "TraitRecord",
+          "schema_sha256": "46c47fc627b80ccbba1e8ab3fb6f2aee93bc2aef7aaf72fe9aadc3257f2c02dd",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "PathwayMech",
+      "repository": "CultureBotAI/PathwayMech",
+      "default_branch": "main",
+      "revision": "3f03608dd27abb9b92f49706b04c51ce44d205e8",
+      "acquired_at": "2026-11-14T21:09:06.539850+00:00",
+      "site_url": "https://culturebotai.github.io/PathwayMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/PathwayMech/blob/3f03608dd27abb9b92f49706b04c51ce44d205e8/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "PathwayMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/pathways/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": false,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [],
+          "alias_value_fields": [],
+          "schema_path": "src/pathwaymech/schema/pathwaymech.yaml",
+          "schema_class": "PathwayRecord",
+          "schema_sha256": "46b16aba7e33cce89083077f64403769e6d2a890d58d269dca3dd79eb4829f9d",
+          "unsupported_reason": "The native record schema has no structured discussions or research_gaps field; missing fields are not inferred scientific gaps.",
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "CellStructureMech",
+      "repository": "CultureBotAI/CellStructureMech",
+      "default_branch": "main",
+      "revision": "7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b",
+      "acquired_at": "2026-11-14T21:09:08.167763+00:00",
+      "site_url": "https://culturebotai.github.io/CellStructureMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/CellStructureMech/blob/7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "CellStructureMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/structures/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/cellstructuremech/schema/cellstructuremech.yaml",
+          "schema_class": "CellStructureRecord",
+          "schema_sha256": "adbf5dfc7dc2eb87cfbc8c827b0a5a9f4346e9b7724fea93f7b294569e759944",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "ProteinTraitsMech",
+      "repository": "CultureBotAI/proteintraitsmech",
+      "default_branch": "main",
+      "revision": "a9de5cfb9e36b68fd20e4c93be26a52c24e72064",
+      "acquired_at": "2026-11-14T21:09:09.640852+00:00",
+      "site_url": "https://culturebotai.github.io/proteintraitsmech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/proteintraitsmech/blob/a9de5cfb9e36b68fd20e4c93be26a52c24e72064/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "ProteinTraitsMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/traits/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/proteintraitsmech/schema/proteintraitsmech.yaml",
+          "schema_class": "ProteinTraitRecord",
+          "schema_sha256": "7d29139f696497dffa018b8d68b3f72d4e1adbadd4f67f7904ddbb4b12275418",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "DUFMech",
+      "repository": "CultureBotAI/DUFMech",
+      "default_branch": "main",
+      "revision": "a030cca0dae2771e961ae12474c24c47a32b1363",
+      "acquired_at": "2026-11-14T21:09:11.301686+00:00",
+      "site_url": "https://culturebotai.github.io/DUFMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "DUFMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/families/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [
+            "short_name"
+          ],
+          "alias_value_fields": [],
+          "schema_path": "src/dufmech/schema/dufmech.yaml",
+          "schema_class": "FamilyRecord",
+          "schema_sha256": "e4567e2f9427f7da6a0dd4da6c1f265b17253ab1c913639aed7057be5db6784e",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "NaturalProductMech",
+      "repository": "CultureBotAI/NaturalProductMech",
+      "default_branch": "main",
+      "revision": "cc7cfd5c4ae657b2eb7d95ac25c347ef26c1d86c",
+      "acquired_at": "2026-11-14T21:09:13.689591+00:00",
+      "site_url": "https://culturebotai.github.io/NaturalProductMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/NaturalProductMech/blob/cc7cfd5c4ae657b2eb7d95ac25c347ef26c1d86c/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "NaturalProductMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/natural_products/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "value"
+          ],
+          "schema_path": "src/naturalproductmech/schema/naturalproductmech.yaml",
+          "schema_class": "NaturalProductRecord",
+          "schema_sha256": "9410055c2ff37a012666b2f5e06260b02abe1183ee1caace6791461a4894841d",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "AntibioticMech",
+      "repository": "CultureBotAI/AntibioticMech",
+      "default_branch": "main",
+      "revision": "6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7",
+      "acquired_at": "2026-11-14T21:09:15.559504+00:00",
+      "site_url": "https://culturebotai.github.io/AntibioticMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/AntibioticMech/blob/6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "AntibioticMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/antibiotics/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/antibioticmech/schema/antibioticmech.yaml",
+          "schema_class": "AntibioticRecord",
+          "schema_sha256": "de62be2dd2dd55f141a0c14ff666eaa00efc6f3b431d651d0196ebcfddfbb301",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "CMMMech",
+      "repository": "CultureBotAI/CMMMech",
+      "default_branch": "main",
+      "revision": "9bf445aea708681be2283b5df346e769de3da623",
+      "acquired_at": "2026-11-14T21:09:17.267700+00:00",
+      "site_url": "https://culturebotai.github.io/CMMMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/CMMMech/blob/9bf445aea708681be2283b5df346e769de3da623/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "CMMMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/records/**/*.yaml",
+            "data/records/**/*.yml"
+          ],
+          "exclude_globs": [],
+          "supported": false,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [],
+          "alias_value_fields": [],
+          "schema_path": "src/cmmmech/schema/cmmmech.yaml",
+          "schema_class": "CriticalMineralRecord",
+          "schema_sha256": "8141cecb3e1abf908515fd86c21da808c6b2d611a83eaaea20da80e2018ed781",
+          "unsupported_reason": "The native record schema has no structured discussions or research_gaps field; missing fields are not inferred scientific gaps.",
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "MediaIngredientMech",
+      "repository": "CultureBotAI/MediaIngredientMech",
+      "default_branch": "main",
+      "revision": "24d76baa823d7fd07e8ea2596f0cca50e66392e2",
+      "acquired_at": "2026-11-14T21:09:19.160145+00:00",
+      "site_url": "https://culturebotai.github.io/MediaIngredientMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/MediaIngredientMech/blob/24d76baa823d7fd07e8ea2596f0cca50e66392e2/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "MediaIngredientMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/ingredients/**/*.yaml"
+          ],
+          "exclude_globs": [
+            "data/ingredients/mapped/backups/**"
+          ],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "preferred_term"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/mediaingredientmech/schema/mediaingredientmech.yaml",
+          "schema_class": "IngredientRecord",
+          "schema_sha256": "bb43dee29b21fdee72a48022456e733e49e95824c4c09674f9b3165c290fe012",
+          "unsupported_reason": null,
+          "page_url_template": null,
+          "identity_note": "The semantic identifier can repeat across documents; retain full source path in document and discussion identity."
+        }
+      ]
+    },
+    {
+      "name": "CultureMech",
+      "repository": "CultureBotAI/CultureMech",
+      "default_branch": "main",
+      "revision": "dda27db28f1e5f4f05da6d92fbd2cc1bd6e8add3",
+      "acquired_at": "2026-11-14T21:09:20.969680+00:00",
+      "site_url": "https://culturebotai.github.io/CultureMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/CultureMech/blob/dda27db28f1e5f4f05da6d92fbd2cc1bd6e8add3/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "CultureMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/merge_yaml/merged/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "name"
+          ],
+          "schema_path": "src/culturemech/schema/culturemech.yaml",
+          "schema_class": "MediaRecipe",
+          "schema_sha256": "43725a6b518253da59235a20fa684f0332f2fd83ef852b2463c9e4d0cf1be9d5",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "TaxonMech",
+      "repository": "CultureBotAI/TaxonMech",
+      "default_branch": "main",
+      "revision": "e287c7784ed6fe8b6ce85ad6ce26f24f4ebf502c",
+      "acquired_at": "2026-11-14T21:09:04.914843+00:00",
+      "site_url": "https://culturebotai.github.io/TaxonMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/TaxonMech/blob/e287c7784ed6fe8b6ce85ad6ce26f24f4ebf502c/LICENSE-DATA",
+      "license_sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "TaxonMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/taxa/**/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "identifier",
+          "name_fields": [
+            "label"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "schema_path": "src/taxonmech/schema/taxonmech.yaml",
+          "schema_class": "TaxonRecord",
+          "schema_sha256": "60747327658d0e2560ac9e58fb6e9a19cf711266300f1eff8b5c64e2917020ad",
+          "unsupported_reason": null,
+          "page_url_template": null
+        }
+      ]
+    },
+    {
+      "name": "AIMech",
+      "repository": "CultureBotAI/AIMech",
+      "default_branch": "main",
+      "revision": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
+      "acquired_at": "2026-11-14T21:09:22.753333+00:00",
+      "site_url": "https://culturebotai.github.io/AIMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/AIMech/blob/78dcdfa7ff0b44ceb19c929e657ee630aea423e0/LICENSE-DATA",
+      "license_sha256": "149258e315fb330e170d3a39e9a9e4ddf3031ebee6228e8e2921cac14eb4d01e",
+      "license_scope": "AIO source data and derived data/aio records only. Maintained data/curated publication is not authorized by this inspected data license.",
+      "attribution": "Artificial Intelligence Ontology authors and AIMech contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "imported-aio",
+          "globs": [
+            "data/aio/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "value"
+          ],
+          "schema_path": "src/aimech/schema/aimech.yaml",
+          "schema_class": "AIConcept",
+          "schema_sha256": "5a54dafe2fc17bc027e14bc3a2829b265cbb34427ad58eef63fe99616e17b852",
+          "unsupported_reason": null,
+          "page_url_template": null
+        },
+        {
+          "name": "maintained-concepts",
+          "globs": [
+            "data/curated/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": false,
+          "adapter": "discussions",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [
+            "aliases"
+          ],
+          "alias_value_fields": [],
+          "schema_path": "src/aimech/schema/curated_concept.yaml",
+          "schema_class": "CuratedAIConcept",
+          "schema_sha256": "3826f6a7643d6a0140cf60bb52a1d3ac2fbab4811b4fd8d1d178a13c3341fa3f",
+          "unsupported_reason": "Maintained concepts expose limitations and claims, not structured discussions. The inspected LICENSE-DATA grant covers data/aio only; maintained data publication terms require separate verification.",
+          "page_url_template": null,
+          "publication_allowed": false
+        }
+      ],
+      "additional_attribution_urls": [
+        "https://github.com/CultureBotAI/AIMech/blob/78dcdfa7ff0b44ceb19c929e657ee630aea423e0/sources/aio/CITATION.cff",
+        "https://github.com/CultureBotAI/AIMech/blob/78dcdfa7ff0b44ceb19c929e657ee630aea423e0/sources/aio/LICENSE"
+      ]
+    },
+    {
+      "name": "CofactorMech",
+      "repository": "CultureBotAI/CofactorMech",
+      "default_branch": "main",
+      "revision": "1af737829b74a619610a7ee81972357d7fe178fd",
+      "acquired_at": "2026-11-14T21:09:26.136539+00:00",
+      "site_url": "https://culturebotai.github.io/CofactorMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/CofactorMech/blob/1af737829b74a619610a7ee81972357d7fe178fd/LICENSE-DATA",
+      "license_sha256": "ddc87a4a47dc03bca86a413ede2b6c7ee6822b49df6972aff8957584eb96ec4c",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "CofactorMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/cofactors/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "research_gaps",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [],
+          "alias_value_fields": [],
+          "schema_path": "src/cofactormech/schema/cofactormech.yaml",
+          "schema_class": "CofactorRecord",
+          "schema_sha256": "0714d6d23acda08f70e4292799be5ec65946c92fc1ca786dc4d89053e17f9ceb",
+          "unsupported_reason": null,
+          "page_url_template": null,
+          "gap_key": "corpus",
+          "gap_key_values": [
+            "mediaingredientmech",
+            "pathwaymech",
+            "proteintraitsmech"
+          ],
+          "gap_kind": "CURATION_TODO",
+          "gap_status": "UNSPECIFIED",
+          "gap_id_prefix": "research-gap:",
+          "gap_mapping_note": "Project-defined coverage/protocol curation gaps. Use the unique per-record target corpus or scope as the projected local ID; reject duplicate keys. Preserve reason as prompt; do not infer status, review state or evidence from the parent record."
+        }
+      ]
+    },
+    {
+      "name": "AssayMech",
+      "repository": "CultureBotAI/AssayMech",
+      "default_branch": "main",
+      "revision": "2c39f17bfcd940c15c6f10dfdc26b4ce2d6e734e",
+      "acquired_at": "2026-11-14T21:09:29.357452+00:00",
+      "site_url": "https://culturebotai.github.io/AssayMech/",
+      "publication_allowed": true,
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/AssayMech/blob/2c39f17bfcd940c15c6f10dfdc26b4ce2d6e734e/LICENSE-DATA",
+      "license_sha256": "d03c1cd2f880424abc966230e6d96aa9acaf946cfcaedc933d4c2fef64cbf0a0",
+      "license_scope": "Project-authored data; third-party material retains its source terms. Evidence snippets are excluded from this public projection.",
+      "attribution": "AssayMech contributors and cited source contributors",
+      "projection_changes": "Selected structured gap fields, normalized browser metadata, source references and coverage; dedicated evidence snippets omitted. Retained prompts and explanations remain subject to source terms.",
+      "roots": [
+        {
+          "name": "canonical-records",
+          "globs": [
+            "data/assays/*.yaml"
+          ],
+          "exclude_globs": [],
+          "supported": true,
+          "adapter": "research_gaps",
+          "id_field": "id",
+          "name_fields": [
+            "name"
+          ],
+          "alias_fields": [],
+          "alias_value_fields": [],
+          "schema_path": "src/assaymech/schema/assaymech.yaml",
+          "schema_class": "AssayRecord",
+          "schema_sha256": "6c460886731a10e803c2143a04930d9c3791b722f083d243395a918dbf8f3d85",
+          "unsupported_reason": null,
+          "page_url_template": null,
+          "gap_key": "scope",
+          "gap_key_values": [
+            "metpo",
+            "cmmmech",
+            "method",
+            "measurement",
+            "controls",
+            "protocol_parameters"
+          ],
+          "gap_kind": "CURATION_TODO",
+          "gap_status": "UNSPECIFIED",
+          "gap_id_prefix": "research-gap:",
+          "gap_mapping_note": "Project-defined coverage/protocol curation gaps. Use the unique per-record target corpus or scope as the projected local ID; reject duplicate keys. Preserve reason as prompt; do not infer status, review state or evidence from the parent record."
+        }
+      ]
+    }
+  ]
+}
