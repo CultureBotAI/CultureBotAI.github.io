@@ -28,7 +28,7 @@ Started 2026-11-14. Implements the [reviewed research plan](../_fleet/reviews/ga
 - [x] Current source and exporter pins recorded; public boundary validated.
 - [x] Shared schema/normalizer and meaningful negative tests pass.
 - [x] TraitMech pilot completes through the same extractor and builder used for the fleet; artifacts read back and reconciled.
-- [ ] Every public Mech/root has an explicit coverage state; partial/errors cannot become empty success.
+- [x] Every public Mech/root has an explicit coverage state; partial/errors cannot become empty success.
 - [ ] Search covers the full indexed corpus, including unloaded detail shards; filters/sort/page restore from URLs.
 - [ ] Native candidates and corrected native discussions remain distinct; no automatic scientific validation claims.
 - [ ] Complete filtered JSON/CSV export, source attribution, static coverage fallback and failure recovery work.
@@ -50,3 +50,5 @@ Retain machine-readable acquisition/pilot/browser results under `_gaps/reviews/`
 - Website tests now include real committed-Git fixtures and deterministic bundle checks, including missing/excluded roots, false complete coverage, source/config/hash mismatches, failed acquisition retaining the previous snapshot and JSON-in-YAML native gap records.
 - Review fixes [#578](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/578), [#579](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/579) and [#580](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/580) enforce root publication holds, document hash/denominator consistency and one history transition per Enter search. The browser helper retains the failing history baseline and passing regression.
 - CellStructureMech integration exposed the detail size limit ([#581](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/581)). Deterministic partitioning preserves all 1,543 items in two hashed shards below the 500 KiB compressed limit. Fresh Trait and Cell builder checks pass; the acquisition path is unchanged.
+- Full acquisition parsed 1,085,682 supported, publishable native records. The retained snapshot contains 3,830 discussions in 2,550 source documents, including eight current scanner candidates and ten corrected discussions with documented scanner origin. All sixteen Mechs and eighteen roots are accounted for: fifteen roots complete, PathwayMech and CMMMech unsupported, and AIMech's maintained-concept root unavailable under its publication hold.
+- Full build `33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864` passes strict validation and byte-for-byte reproduction. The search index is 1,167,795 compressed bytes; all eleven detail shards meet the 500 KiB compressed budget. `reviews/full-snapshot.json` retains source/root counts, classification cohorts and asset verification.
