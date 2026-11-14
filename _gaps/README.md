@@ -46,7 +46,7 @@ Acquisition validates every supported, publishable record. A parse, schema, prov
 
 ## Review and publication
 
-Retain receipts under `reviews/`; browser screenshots and downloads stay under `.temp/`. The browser QA helper supports a one-case canary and then expanded desktop/mobile, URL/history, complete exports, literal markup, no-JavaScript, network failure/retry and timing checks. Its live-shell preview is supplemental; the CI Jekyll build validates the real layouts and includes.
+Retain receipts under `reviews/`; browser screenshots and downloads stay under `.temp/`. The browser QA helper supports a one-case canary and then expanded desktop/mobile, URL/history, complete exports, literal markup, no-JavaScript, network failure/retry and timing checks. Its live-shell preview is supplemental. PR CI builds Jekyll in production mode and retains the `gap-browser-preview` artifact for three days. Download it beneath `.temp/` and pass its root through the helper's `--site` option, with `--assets` pointing to that build's `assets/gaps`, to test the actual layouts, includes and navigation.
 
 Review each PR independently and read-only; file findings as issues, fix in scope, then re-review. Merge the shared contract first, then the website, only after explicit authorization for those PRs. Pinning the contract protects reproducibility before and after its merge. Verify the deployed Pages revision, manifest and populated browser before calling publication complete. Delete only the merged task branches and owned clean worktrees; preserve unrelated local work.
 

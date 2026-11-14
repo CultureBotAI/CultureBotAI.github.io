@@ -44,6 +44,20 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
       - run: bundle exec jekyll build --destination .temp/ci-site
+        env:
+          JEKYLL_ENV: production
+      - if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: gap-browser-preview
+          retention-days: 3
+          if-no-files-found: error
+          include-hidden-files: true
+          path: |
+            .temp/ci-site/knowledge-gaps/
+            .temp/ci-site/assets/gaps/
+            .temp/ci-site/assets/main.css
+            .temp/ci-site/assets/custom.css
       # The two steps below read state that moves on its own schedule, so they
       # run nightly and on manual dispatch, deliberately not on pull_request or
       # push: a blocking check would make an unrelated docs fix unmergeable
