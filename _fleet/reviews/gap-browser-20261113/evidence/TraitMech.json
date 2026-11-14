@@ -1,0 +1,144 @@
+{
+  "name": "TraitMech",
+  "repository": "CultureBotAI/TraitMech",
+  "default_branch": "main",
+  "revision": "2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18",
+  "acquired_at": "2026-11-14T02:54:56.765189+00:00",
+  "knowledge_gap_scan": {
+    "status": "enabled",
+    "settings": {
+      "window": 300
+    }
+  },
+  "record_globs": [
+    "data/traits/**/*.yaml"
+  ],
+  "configs": {
+    "conf/discussions_config.yaml": {
+      "repo_name": "TraitMech",
+      "record_glob": "../data/traits/**/*.yaml",
+      "name_fields": [
+        "label",
+        "preferred_term",
+        "name"
+      ],
+      "id_field": "identifier",
+      "discussions_field": "discussions",
+      "page_url_template": "../../pages/traits/{category}/{stem}.html#{discussion_id}"
+    },
+    "conf/kgscan_config.yaml": {
+      "repo_name": "TraitMech",
+      "record_glob": "../data/traits/**/*.yaml",
+      "name_fields": [
+        "label",
+        "preferred_term",
+        "name"
+      ],
+      "synonym_field": "synonyms",
+      "id_field": "identifier",
+      "discussions_field": "discussions",
+      "topic_context_terms": [
+        "microbial",
+        "bacteria",
+        "microbiome",
+        "microorganism",
+        "prokaryote",
+        "archaea"
+      ],
+      "min_score": 8
+    }
+  },
+  "schema_evidence": {
+    "src/traitmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/traitmech/schema/traitmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "46c47fc627b80ccbba1e8ab3fb6f2aee93bc2aef7aaf72fe9aadc3257f2c02dd"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [
+    "app/discussions/data.js",
+    "app/discussions/index.html",
+    "app/discussions/style.css",
+    "app/discussions/theme-toggle.js"
+  ],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/traits/ecology/animal_pathogen.yaml",
+      "discussions": [
+        {
+          "discussion_id": "kgscan-30bcdf4a32b0",
+          "prompt": "This record routes two independent paths to immune evasion -- complement-regulator binding by surface proteins, and effector delivery through the T3SS. In a given host, is either route sufficient on its own, or does established infection require both?",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "rationale": "The graph draws both arrows into the same node without saying whether they are alternatives or partners. If either is sufficient, single-target antivirulence strategies are viable; if evasion needs both, only combination approaches will work, and the two edges should carry that dependency rather than reading as parallel routes.",
+          "attaches_to": [
+            "causal_graphs#immune_evasion"
+          ],
+          "posed_by": "claude",
+          "notes": "Scan provenance (#409). The kg-microbe-kgscan pass raised this discussion with the prompt 'Knowledge gap for animal pathogen: Prokaryotes in such plastispheres are unknown to date.', whose sentence came from PMID:40891913. That sentence is about prokaryotes of marine plastispheres, not about this trait: the scan matched the hedging vocabulary of a gap statement without checking that the gap was about the trait it was filed under. The prompt above was authored instead from this record's own causal graph, and none of these references are carried as its evidence, because they support the scraped sentence rather than the question. The scan attached 3 further references whose snippets concern neither that sentence nor this trait; all 4 are reproduced here so nothing it produced is lost: PMID:40891913 'Prokaryotes in such plastispheres are unknown to date.'; PMID:42279816 'However, in South America, their use is still limited because of complicated regulations and inconsistent evidence requirements.'; PMID:41639266 'However, the interacting effects of climate factors and seasonal variations in nutritional components on PMCs remain poorly understood.'; PMID:42197358 'While plant growth-promoting bacteria (PGPB) are known to alleviate heavy metal toxicity, their role under MP-HM co-contamination and the differential responses of rhizosphere microbial communities remain unclear.'.",
+          "proposed_experiments": [
+            {
+              "experiment_id": "x-animal-pathogen-evasion-epistasis",
+              "name": "Isogenic single- and double-mutant serum and phagocyte survival",
+              "approach": "isogenic mutant panel with ex vivo killing assays",
+              "model_systems": [
+                "isolate of a T3SS-bearing animal pathogen",
+                "naive host serum",
+                "primary phagocytes from the same host species"
+              ],
+              "perturbations": [
+                "deletion of the complement-regulator binding protein",
+                "deletion of the T3SS structural apparatus",
+                "the double deletion"
+              ],
+              "readouts": [
+                "survival in non-heat-inactivated serum",
+                "intracellular survival after phagocyte challenge",
+                "surface-bound complement regulator by flow cytometry"
+              ],
+              "decision_criterion": "whether either single mutant is attenuated to the same degree as the double mutant",
+              "would_support": "single mutants retain near-wild-type survival and only the double is attenuated -- the routes are independently sufficient",
+              "would_refute": "either single mutant is attenuated as severely as the double -- the routes are not redundant and evasion requires both"
+            }
+          ],
+          "posed_date": "2026-08-17"
+        }
+      ]
+    },
+    {
+      "path": "data/traits/ecology/bacterial_cannibalism.yaml",
+      "discussions": [
+        {
+          "discussion_id": "bacterial-cannibalism-operational-scope",
+          "prompt": "Distinguish nutritional cannibalism from broader developmental usage.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "rationale": "This class retains the classical killing-and-feeding sense. Friebel et al. 2026 also calls the wider toxin-dependent biofilm differentiation program cannibalism; that usage need not satisfy this narrower nutritional definition. The predatory bacterium parent traitmech:000054 fits this operational scope, not every phenotype assigned that name in the literature. Bacteriocin production traitmech:000183 requires neither conspecific killing nor feeding. Saprotrophy traitmech:000055 does not require killing the food source; natural competence traitmech:000087 concerns DNA uptake. Fratricide, programmed cell death, biofilm formation and sporulation delay are not exact synonyms. Resolve broader terminology and external mappings before adding xrefs; do not assume species-level disjointness.",
+          "posed_by": "codex",
+          "posed_date": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "path": "data/traits/ecology/bacterial_mycophagy.yaml",
+      "discussions": [
+        {
+          "discussion_id": "bacterial-mycophagy-scope-and-mappings",
+          "prompt": "Resolve exact mappings without conflating trophic endpoints.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "rationale": "Follow Leveau and Preston's active nutritional definition and explicit oomycete scope, without classifying oomycetes as true fungi or asserting experimentally demonstrated feeding on every target group. Merely consuming passive leaks or tissue dead through unrelated causes is excluded. Fungal inhibition, lysis, chitinase activity or a sequence annotation alone is insufficient. Killing and obligate fungal dependence are not required. Predatory bacterium traitmech:000054 requires bacterial prey; saprotrophy traitmech:000055 concerns dead material; parasitism traitmech:000043 requires host harm; phagotrophy traitmech:000628 requires particle ingestion. None is an established broader parent here. No organism-level disjointness is asserted. Unqualified mycophagy, fungivory and mycetophagy also cover nonbacterial organisms and are not exact synonyms. No exact xref or synonym assigned pending authority/scope reconciliation.",
+          "posed_by": "codex",
+          "posed_date": "2026-10-11"
+        }
+      ]
+    }
+  ]
+}

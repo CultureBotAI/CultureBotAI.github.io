@@ -1,0 +1,104 @@
+{
+  "name": "CellStructureMech",
+  "repository": "CultureBotAI/CellStructureMech",
+  "default_branch": "main",
+  "revision": "7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b",
+  "acquired_at": "2026-11-14T02:54:59.635233+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "Records carry the shared Discussion section, so the scan applies. The condition this declaration set, enabling once the first tranche of records lands (CellStructureMech#12), is met; the scan matrix follows this declaration, so the switch awaits review (CellStructureMech#1642, CellStructureMech#404)."
+  },
+  "record_globs": [
+    "data/structures/**/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/cellstructuremech/schema/cellstructuremech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "adbf5dfc7dc2eb87cfbc8c827b0a5a9f4346e9b7724fea93f7b294569e759944"
+    },
+    "src/cellstructuremech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/structures/appendage/archaeal_cannula.yaml",
+      "discussions": [
+        {
+          "discussion_id": "resolve_cana_family_grounding",
+          "prompt": "Resolve exact source-neutral protein-family groundings for CanA and CanX and the component boundaries of CanB and CanC.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "attaches_to": [
+            "components#cana_cannula_glycoprotein",
+            "components#canx_cannula_glycoprotein"
+          ],
+          "rationale": "The first archaeal cannula record keeps only CanA as a reviewed label-only component because this pass did not verify an exact Pfam, InterPro or NCBIfam family for CanA or resolve whether the homologous CanB and CanC glycoproteins should be separate curated components. Follow-up inspection of Sleutel et al. 2025 distinguishes the native AV2 major subunit CanX from recombinant TAG11 CanA. Both are now represented separately without implying that they coexist in one native filament; exact family mappings and CanB/CanC component boundaries remain unresolved.",
+          "evidence": [
+            {
+              "reference": "DOI:10.1038/s41598-025-13242-6",
+              "notes": "Munte et al. 2025 reviewed CanA, CanB and CanC as homologous Pyrodictium abyssi glycoproteins present in cannulae."
+            },
+            {
+              "reference": "DOI:10.1038/s41467-025-64120-8",
+              "notes": "Sleutel et al. 2025 distinguish native CanX and recombinant CanA and discuss the unresolved possibility of low-occupancy minor subunits."
+            }
+          ],
+          "posed_by": "codex",
+          "posed_date": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "path": "data/structures/appendage/archaeal_type_flagellum.yaml",
+      "discussions": [
+        {
+          "discussion_id": "ground_archaellum_protein_families",
+          "prompt": "Resolve exact family or complex CURIEs for archaellins, the ArlI/ArlJ motor core, ArlH, ArlF/ArlG and lineage-specific cytosolic scaffold proteins.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "attaches_to": [
+            "components#archaellins",
+            "components#arli_arlj_motor",
+            "components#arlh_regulator",
+            "components#arlfg_anchor",
+            "components#cytosolic_scaffold"
+          ],
+          "rationale": "The first archaellum record follows Arl/Fla nomenclature and leaves family grounding unset where adopting a broad type-IV-pilus or ATPase family would overmerge non-archaellum proteins.",
+          "posed_by": "claude",
+          "posed_date": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "path": "data/structures/appendage/archaeal_type_flagellum_filament.yaml",
+      "discussions": [
+        {
+          "discussion_id": "resolve_archaellin_family_grounding",
+          "prompt": "Resolve exact source-neutral grounding for filament-forming archaellins.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "attaches_to": [
+            "components#archaellins"
+          ],
+          "rationale": "This first filament record follows reviewed Arl/Fla nomenclature but leaves the full archaellin subunit class label-only rather than asserting a broad type-IV pilin family or a lineage-specific archaellin accession as an exact source-neutral grounding.",
+          "evidence": [
+            {
+              "reference": "DOI:10.1038/s41467-022-28337-1",
+              "notes": "Gambelli et al. 2022 resolved one filament with alternating ArlB1 and ArlB2 archaellins."
+            }
+          ],
+          "posed_by": "codex",
+          "posed_date": "2026-09-23"
+        }
+      ]
+    }
+  ]
+}

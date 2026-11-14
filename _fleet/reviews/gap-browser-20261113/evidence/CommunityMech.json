@@ -1,0 +1,140 @@
+{
+  "name": "CommunityMech",
+  "repository": "CultureBotAI/CommunityMech",
+  "default_branch": "main",
+  "revision": "76aa644cd6803ea2c9545d4c704276ede219d354",
+  "acquired_at": "2026-11-14T02:54:55.308922+00:00",
+  "knowledge_gap_scan": {
+    "status": "enabled",
+    "settings": {
+      "window": 305
+    }
+  },
+  "record_globs": [
+    "kb/communities/*.yaml",
+    "data/isolates/*.yaml"
+  ],
+  "configs": {
+    "conf/discussions_config.yaml": {
+      "repo_name": "CommunityMech",
+      "record_glob": "../kb/communities/*.yaml",
+      "name_fields": [
+        "name"
+      ],
+      "id_field": "id",
+      "discussions_field": "discussions",
+      "page_url_template": "../../docs/communities/{stem}.html#discussions"
+    },
+    "conf/kgscan_config.yaml": {
+      "repo_name": "CommunityMech",
+      "record_glob": "../kb/communities/*.yaml",
+      "name_fields": [
+        "name"
+      ],
+      "synonym_field": "synonyms",
+      "id_field": "id",
+      "discussions_field": "discussions",
+      "topic_context_terms": [
+        "microbial community",
+        "microbiome",
+        "consortium",
+        "syntrophy",
+        "co-culture"
+      ],
+      "topic_token_min_matches": 2,
+      "min_score": 8
+    }
+  },
+  "schema_evidence": {
+    "src/communitymech/schema/communitymech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "7355e14f0f17c5d3b875abd33af6474ddc1aad08cc3305313686fede337e259a"
+    },
+    "src/communitymech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [
+    "app/discussions/data.js",
+    "app/discussions/index.html",
+    "app/discussions/theme-toggle.js"
+  ],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/isolates/Achromobacter_SL8_Cadmium_Immobilization_Isolate_Baseline.yaml",
+      "discussions": [
+        {
+          "discussion_id": "sl8_high_cd_removal_drop_mechanism",
+          "prompt": "Why did Achromobacter sp. SL8 monoculture Cd removal efficiency drop by 15.8% (from 82.6% at 50 mg/L to 69.55% at 100 mg/L Cd2+) despite SL8 having a higher Cd(II) MIC (600 mg/L) than Enterobacter sp. SL12 (400 mg/L)?",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "attaches_to": [
+            "ecological_interactions#Cadmium Immobilization, Alkalinization, and N-H Surface Coordination by Achromobacter sp. SL8 Monoculture"
+          ],
+          "rationale": "TEM imaging (Fig. 4B) showed cell-membrane thinning and blurring in SL8 at 100 mg/L Cd2+, whereas SL12 retained intact cell wall morphology (Fig. 4D) and increased its removal efficiency from 63.4% to 70.8%, suggesting that N-H binding site saturation or membrane perturbation limits SL8 monoculture performance at 100 mg/L Cd2+.",
+          "evidence": [
+            {
+              "reference": "PMID:42307251",
+              "supports": "SUPPORT",
+              "evidence_source": "IN_VITRO",
+              "snippet": "Specifically, SL8 exhibited a decrease in RE-Cd under higher Cd stress, consistent with previous reports that elevated Cd levels enhance cellular toxicity and reduce biosorption capacity",
+              "explanation": "Documents the decrease in SL8 monoculture Cd removal at 100 mg/L Cd2+."
+            }
+          ],
+          "posed_by": "antigravity",
+          "posed_date": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "path": "data/isolates/Achromobacter_ZM2_Prometryn_Degrading_Isolate_Baseline.yaml",
+      "discussions": [
+        {
+          "discussion_id": "zm2_fast_biomass_vs_lower_prometryn_degradation_efficiency",
+          "prompt": "Why does Achromobacter sp. ZM-2 achieve the earliest stationary phase and highest peak cell density (OD600 = 0.91 at 28 h) among the three isolates on prometryn while exhibiting the lowest 48-h parent-compound removal (85.1% vs 97.3% for ZM-1 and 92.8% for ZM-3)?",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "attaches_to": [
+            "ecological_interactions#Axenic Liquid and Soil Microcosm Prometryn Catabolism by Achromobacter sp. ZM-2"
+          ],
+          "rationale": "PMID:42795638 notes that pure-culture growth curves show ZM-2 entering logarithmic phase earliest and reaching stationary phase at 28 h to initiate early-stage prometryn transformation, while targeted detection of intermediate metabolites in pure vs mixed culture was deferred to follow-up work.",
+          "evidence": [
+            {
+              "reference": "PMID:42795638",
+              "supports": "SUPPORT",
+              "evidence_source": "IN_VITRO",
+              "snippet": "The staggered growth patterns of the three strains form temporal niche complementarity that sustains continuous and efficient degradation throughout the entire culture cycle: pure-culture growth curves showed that strain ZM-2 enters the logarithmic phase earliest and reaches stationary phase at 28 h, allowing it to rapidly initiate prometryn transformation in the early stage",
+              "explanation": "Documents the early-stage growth role of ZM-2 in pure culture and temporal niche complementarity."
+            }
+          ],
+          "posed_by": "antigravity",
+          "posed_date": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "path": "data/isolates/Aspergillus_Indium_LED_Recovery.yaml",
+      "discussions": [
+        {
+          "discussion_id": "indium_broth_mechanism_scope",
+          "prompt": "Which condition-specific controls isolate proton donation and biomass inhibition?",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "attaches_to": [
+            "ecological_interactions#Fermentation Component Optimization",
+            "ecological_interactions#Carboxy-Group Proton Release for Indium Leaching",
+            "ecological_interactions#Indium Oxide Dissolution and Mobilization",
+            "ecological_interactions#Biomass Inhibition of Indium Recovery",
+            "ecological_interactions#Fermentation-Broth Indium Recovery"
+          ],
+          "rationale": "PMID:34111782 supports the retained directions at abstract level. Full methods and the separate contributions of acid, protein, adsorption, and operating conditions have not been reviewed. Extracellular dissolution is not evidence of cellular metal-ion transport."
+        }
+      ]
+    }
+  ]
+}

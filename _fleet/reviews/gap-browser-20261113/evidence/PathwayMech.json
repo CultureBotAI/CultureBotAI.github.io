@@ -1,0 +1,39 @@
+{
+  "name": "PathwayMech",
+  "repository": "CultureBotAI/PathwayMech",
+  "default_branch": "main",
+  "revision": "3f03608dd27abb9b92f49706b04c51ce44d205e8",
+  "acquired_at": "2026-11-14T02:54:58.220487+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "Records have no Discussion slot: the closed schema in src/pathwaymech/schema/pathwaymech.yaml declares none, so there are no Discussions to index, and the block the scan appends under --apply would fail strict validation. There is also no conf/kgscan_config.yaml or scan recipe. The records are curated mechanisms with edge-level evidence, so the scan applies; enable once the schema declares Discussions and a window has been chosen.",
+    "reason_claims": {
+      "present": [
+        "src/pathwaymech/schema/pathwaymech.yaml"
+      ],
+      "absent": [
+        "conf/kgscan_config.yaml"
+      ]
+    }
+  },
+  "record_globs": [
+    "data/pathways/**/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/pathwaymech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/pathwaymech/schema/pathwaymech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": false,
+      "sha256": "46b16aba7e33cce89083077f64403769e6d2a890d58d269dca3dd79eb4829f9d"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": []
+}
