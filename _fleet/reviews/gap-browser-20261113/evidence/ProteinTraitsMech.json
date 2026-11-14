@@ -1,0 +1,80 @@
+{
+  "name": "ProteinTraitsMech",
+  "repository": "CultureBotAI/proteintraitsmech",
+  "default_branch": "main",
+  "revision": "a9de5cfb9e36b68fd20e4c93be26a52c24e72064",
+  "acquired_at": "2026-11-14T02:55:07.739461+00:00",
+  "knowledge_gap_scan": {
+    "status": "not_applicable",
+    "reason": "Record-level knowledge-gap scanning targets curated per-record discussion text. This corpus is ontology-derived, so there is no per-record gap surface to scan; the repository is correspondingly absent from the knowledge-gap-scan workflow matrix."
+  },
+  "record_globs": [
+    "data/traits/**/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/proteintraitsmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/proteintraitsmech/schema/proteintraitsmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "7d29139f696497dffa018b8d68b3f72d4e1adbadd4f67f7904ddbb4b12275418"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/traits/structure/active_site/catalytic-residue.yaml",
+      "discussions": [
+        {
+          "discussion_id": "STRUCTURE_20261028_CATALYTIC_RESIDUE_DETECTION",
+          "prompt": "Structural proximity or substrate binding alone does not establish a catalytic role. Evaluate mechanistic literature and residue perturbation with folding/binding controls; transfer from characterized homologs requires conserved catalytic residues and compatible mechanism. No complete local transfer recipe was verified.",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "attaches_to": [
+            "detection_methods"
+          ],
+          "posed_by": "Codex",
+          "posed_date": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "path": "data/traits/structure/allosteric_site/allosteric-activator-site.yaml",
+      "discussions": [
+        {
+          "discussion_id": "STRUCTURE_20261028_ALLOSTERIC_ACTIVATOR_SITE_DETECTION",
+          "prompt": "A pocket score cannot assign positive modulation. Measure the direction of the relevant activity or affinity change under stated ligand/assay conditions; an R-state model is not a universal requirement.",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "attaches_to": [
+            "detection_methods"
+          ],
+          "posed_by": "Codex",
+          "posed_date": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "path": "data/traits/structure/allosteric_site/allosteric-inhibitor-site.yaml",
+      "discussions": [
+        {
+          "discussion_id": "STRUCTURE_20261028_ALLOSTERIC_INHIBITOR_SITE_DETECTION",
+          "prompt": "A pocket score cannot assign negative modulation or a noncompetitive kinetic mechanism. Establish site-distinct inhibition and its assay-dependent effect experimentally.",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "attaches_to": [
+            "detection_methods"
+          ],
+          "posed_by": "Codex",
+          "posed_date": "2026-10-28"
+        }
+      ]
+    }
+  ]
+}

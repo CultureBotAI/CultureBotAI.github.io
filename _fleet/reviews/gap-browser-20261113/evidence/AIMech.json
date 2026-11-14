@@ -1,0 +1,36 @@
+{
+  "name": "AIMech",
+  "repository": "CultureBotAI/AIMech",
+  "default_branch": "main",
+  "revision": "78dcdfa7ff0b44ceb19c929e657ee630aea423e0",
+  "acquired_at": "2026-11-14T02:54:43.521213+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "No conf/kgscan_config.yaml adopts the shared discussion scanner.",
+    "reason_claims": {
+      "absent": [
+        "conf/kgscan_config.yaml"
+      ]
+    }
+  },
+  "record_globs": [
+    "data/aio/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/aimech/schema/aimech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "5a54dafe2fc17bc027e14bc3a2829b265cbb34427ad58eef63fe99616e17b852"
+    },
+    "src/aimech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": []
+}

@@ -1,0 +1,99 @@
+{
+  "name": "NaturalProductMech",
+  "repository": "CultureBotAI/NaturalProductMech",
+  "default_branch": "main",
+  "revision": "cc7cfd5c4ae657b2eb7d95ac25c347ef26c1d86c",
+  "acquired_at": "2026-11-14T02:55:10.891631+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "Records do not carry the shared Discussion section the scan reads, and this repository is not in the knowledge-gap-scan workflow matrix. Enable once records carry it."
+  },
+  "record_globs": [
+    "data/natural_products/**/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/naturalproductmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/naturalproductmech/schema/naturalproductmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "9410055c2ff37a012666b2f5e06260b02abe1183ee1caace6791461a4894841d"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/natural_products/alkaloids/2-3-4-5-tetrabromopyrrole.yaml",
+      "discussions": [
+        {
+          "discussion_id": "shared-structure",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "prompt": "This structure is reported by more than one MIBiG entry: BGC0001463, BGC0001464. Confirm they describe the same compound rather than an upstream cross-reference error."
+        }
+      ]
+    },
+    {
+      "path": "data/natural_products/alkaloids/2-heptyl-3-hydroxy-4-quinolone.yaml",
+      "discussions": [
+        {
+          "discussion_id": "curator-phnab-and-mvfr-evidence-boundaries",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "prompt": "Which PhnAB primary functions and PA14 MvfR experimental sequences can be independently verified?",
+          "rationale": "PhnAB subunit chemistry and assembly include by-similarity annotations. The 1990 primary article returned a browser challenge; the 2013 anthranilate-synthase full text was previously inaccessible. No alternate retrieval was attempted.",
+          "notes": "The PA14 reporter study does not establish an exact plasmid sequence or a direct-binding constant. PAO1 MvfR is not substituted for PA14. Native references are not historical assay alleles. Preserve the existing PqsH graph, source-owned chemistry and producer/BGC grades; do not infer PA14 production from this reporter experiment. The existing HHQ source-reconciliation issue822 remains outside these additions.",
+          "evidence": [
+            {
+              "reference": "https://www.uniprot.org/uniprotkb/P09785/entry",
+              "evidence_source": "UniProtKB, retrieved 2026-10-11",
+              "notes": "Native-reference and annotation evidence; not primary experimental construct proof."
+            },
+            {
+              "reference": "https://www.uniprot.org/uniprotkb/P09786/entry",
+              "evidence_source": "UniProtKB, retrieved 2026-10-11",
+              "notes": "Native-reference and annotation evidence; not primary experimental construct proof."
+            },
+            {
+              "reference": "https://www.uniprot.org/uniprotkb/A0A0H2Z7A6/entry",
+              "evidence_source": "UniProtKB, retrieved 2026-10-11",
+              "notes": "Native-reference and annotation evidence; not primary experimental construct proof."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "data/natural_products/alkaloids/2-heptylquinolin-4-1h-one.yaml",
+      "discussions": [
+        {
+          "discussion_id": "curator-pqsbc-construct-and-reaction-boundaries",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "prompt": "What remains unresolved beyond the PqsBC net HHQ formation assay?",
+          "rationale": "Accession nodes are native PAO1 references, not full expression-plasmid sequences. The crystal contains C129A and an altered PqsC N-terminus. The paper interprets a heterodimer, whereas current deposition assemblies are tetrameric; physiological stoichiometry is not settled here. The elementary ring-closing step remains unassigned. No PqsA/PqsD/PqsE/PqsH, mutant kinetic, downstream signalling or antimicrobial target claim is imported from background citations.",
+          "notes": "Main text, methods, tables and captions were inspected; figure pixels and the supplementary movie were not. Source-owned producer grades, origin and ontology grounding are unchanged. Owner SMILES/InChI/key agree under RDKit 2026.03.5. The pinned CHEBI:62219 SMILES fails parsing and was excluded from identity proof. The valid CHEBI:75306 hydroxy tautomer shares the owner StandardInChIKey, which does not adjudicate the existing ChEBI ambiguity.",
+          "evidence": [
+            {
+              "reference": "DOI:10.1074/jbc.M115.708453",
+              "evidence_source": "Primary article, main text read on 2026-10-11",
+              "notes": "Discussion leaves the final cyclization mechanism unresolved.",
+              "snippet": "ring closure could also occur non-enzymatically"
+            },
+            {
+              "reference": "https://doi.org/10.2210/pdb5DWZ/pdb",
+              "evidence_source": "PDB database, retrieved 2026-10-11",
+              "notes": "Construct, chain coverage and assembly metadata inspected independently."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "name": "AntibioticMech",
+  "repository": "CultureBotAI/AntibioticMech",
+  "default_branch": "main",
+  "revision": "6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7",
+  "acquired_at": "2026-11-14T02:55:12.231843+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "Records do not carry the shared Discussion section the scan reads, and this repository is not in the knowledge-gap-scan workflow matrix. Enable once records carry it."
+  },
+  "record_globs": [
+    "data/antibiotics/**/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/antibioticmech/schema/antibioticmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "de62be2dd2dd55f141a0c14ff666eaa00efc6f3b431d651d0196ebcfddfbb301"
+    },
+    "src/antibioticmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/antibiotics/antibacterial/gramicidin-c.yaml",
+      "discussions": [
+        {
+          "discussion_id": "structure-collision-IUAYMJGZBVDSGL-XNNAEKOYSA-N",
+          "prompt": "gramicidin C shares InChIKey IUAYMJGZBVDSGL-XNNAEKOYSA-N with gramicidin S, but the sources name them as different compounds. Which record does this structure belong to?",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "attaches_to": [
+            "chemical_structure"
+          ],
+          "rationale": "Both structures come from PubChem CIDs cross-referenced by CARD. Identical structures under different names mean at least one cross-reference is wrong upstream; the seeder cannot tell which, so it flags rather than merges.",
+          "posed_by": "seed_from_sources",
+          "notes": "twin record(s): antibioticmech:aro-0734abf918"
+        }
+      ]
+    },
+    {
+      "path": "data/antibiotics/antibacterial/gramicidin-s.yaml",
+      "discussions": [
+        {
+          "discussion_id": "structure-collision-IUAYMJGZBVDSGL-XNNAEKOYSA-N",
+          "prompt": "gramicidin S shares InChIKey IUAYMJGZBVDSGL-XNNAEKOYSA-N with gramicidin C, but the sources name them as different compounds. Which record does this structure belong to?",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "attaches_to": [
+            "chemical_structure"
+          ],
+          "rationale": "Both structures come from PubChem CIDs cross-referenced by CARD. Identical structures under different names mean at least one cross-reference is wrong upstream; the seeder cannot tell which, so it flags rather than merges.",
+          "posed_by": "seed_from_sources",
+          "notes": "twin record(s): antibioticmech:aro-bf39ac682c"
+        }
+      ]
+    },
+    {
+      "path": "data/antibiotics/antibacterial/patricin-a.yaml",
+      "discussions": [
+        {
+          "discussion_id": "structure-collision-HASLPZZCXDUQET-OTXZUHDPSA-N",
+          "prompt": "patricin A shares InChIKey HASLPZZCXDUQET-OTXZUHDPSA-N with patricin B, but the sources name them as different compounds. Which record does this structure belong to?",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "attaches_to": [
+            "chemical_structure"
+          ],
+          "rationale": "Both structures come from PubChem CIDs cross-referenced by CARD. Identical structures under different names mean at least one cross-reference is wrong upstream; the seeder cannot tell which, so it flags rather than merges.",
+          "posed_by": "seed_from_sources",
+          "notes": "twin record(s): antibioticmech:aro-0aefa62f74"
+        }
+      ]
+    }
+  ]
+}

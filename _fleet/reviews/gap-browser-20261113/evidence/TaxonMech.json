@@ -1,0 +1,31 @@
+{
+  "name": "TaxonMech",
+  "repository": "CultureBotAI/TaxonMech",
+  "default_branch": "main",
+  "revision": "e287c7784ed6fe8b6ce85ad6ce26f24f4ebf502c",
+  "acquired_at": "2026-11-14T02:56:17.960466+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "The schema supports Discussion but no shared scan window or workflow is configured. Enable after adding a durable curated overlay that the generated-corpus pipeline preserves and wiring the scanner to it."
+  },
+  "record_globs": [
+    "data/taxa/**/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/taxonmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/taxonmech/schema/taxonmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "60747327658d0e2560ac9e58fb6e9a19cf711266300f1eff8b5c64e2917020ad"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": []
+}

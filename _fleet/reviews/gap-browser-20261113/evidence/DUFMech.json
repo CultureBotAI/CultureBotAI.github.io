@@ -1,0 +1,148 @@
+{
+  "name": "DUFMech",
+  "repository": "CultureBotAI/DUFMech",
+  "default_branch": "main",
+  "revision": "a030cca0dae2771e961ae12474c24c47a32b1363",
+  "acquired_at": "2026-11-14T02:55:09.388919+00:00",
+  "knowledge_gap_scan": {
+    "status": "enabled",
+    "reason": "conf/kgscan_config.yaml and src/dufmech/knowledge_gaps.py use shared sentence scoring over retained abstracts and emit timestamped review packets. Explicit digest-bound review is required before native overlay acceptance. This offline adapter is not a live scheduled scan.",
+    "reason_claims": {
+      "present": [
+        "conf/kgscan_config.yaml",
+        "src/dufmech/knowledge_gaps.py"
+      ]
+    },
+    "settings": {
+      "window": 25,
+      "scheduled": false
+    }
+  },
+  "record_globs": [
+    "data/families/*.yaml"
+  ],
+  "configs": {
+    "conf/kgscan_config.yaml": {
+      "repo_name": "DUFMech",
+      "record_glob": "../data/families/*.yaml",
+      "id_field": "id",
+      "name_fields": [
+        "short_name",
+        "name"
+      ],
+      "discussions_field": "discussions",
+      "require_topic_in_sentence": true,
+      "topic_token_min_matches": 0,
+      "min_score": 5
+    }
+  },
+  "schema_evidence": {
+    "pages/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/dufmech/schema/dufmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "e4567e2f9427f7da6a0dd4da6c1f265b17253ab1c913639aed7057be5db6784e"
+    },
+    "src/dufmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/families/PF00563.yaml",
+      "discussions": [
+        {
+          "discussion_id": "rocr-atomic-regulation-and-family-limits",
+          "prompt": "Resolve construct details, competing catalytic models and additional EAL member contexts before expanding this graph.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "rationale": "Two direct assay-level edges do not determine atomistic catalysis, phosphorylation-dependent activation or a downstream cellular phenotype. Family membership is not evidence of catalytic competence for every EAL protein.",
+          "evidence": [
+            {
+              "reference": "PMID:18344366",
+              "supports": "PARTIAL",
+              "evidence_source": "full_text",
+              "explanation": "Table 1 and Figures 3-4 were inspected. Mutant kinetics support a turnover defect; pH dependence and docking motivate but do not directly observe a proton-transfer mechanism."
+            },
+            {
+              "reference": "PMID:22753070",
+              "supports": "PARTIAL",
+              "evidence_source": "full_text",
+              "explanation": "The later primary study explicitly leaves the one- versus two-metal distinction unresolved in its R286W structure and presents phosphorylation-dependent modulation as putative."
+            }
+          ],
+          "posed_by": "Codex",
+          "posed_date": "2026-10-11",
+          "notes": "The 2012 interpretation is retained in evidence/PF00563/chen-2012-rocr-limits.txt. Other mutations, experimental contexts and later literature have not received a complete family review. Status remains IN_PROGRESS."
+        }
+      ]
+    },
+    {
+      "path": "data/families/PF00668.yaml",
+      "discussions": [
+        {
+          "discussion_id": "tycb1-constructs-units-and-catalytic-mechanism",
+          "prompt": "Resolve TycB1 construct and assay ambiguities before assigning an elementary condensation mechanism.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "rationale": "Coupled reaction output and domain-localized mutations support a scoped biochemical graph, but not a universal histidine proton-transfer step. Exact fusion sequences, GrsA accession, phenylalanine units and inconsistent D151 labels remain unresolved.",
+          "evidence": [
+            {
+              "reference": "doi:10.1046/j.0014-2956.2001.02691.x",
+              "supports": "PARTIAL",
+              "evidence_source": "full_text",
+              "explanation": "Publisher text and captions support the reaction and three unambiguous mutant effects. D151N/D151A and Y166F/Y151F inconsistencies and the Figure 1 tycA label are retained. Neither insoluble mutants nor inhibitor sensitivity identifies a specific catalytic residue mechanism."
+            },
+            {
+              "reference": "PMID:17637339",
+              "supports": "PARTIAL",
+              "evidence_source": "abstract",
+              "explanation": "The separate TycC PCP-C study favors an electrostatic interpretation over general acid/base catalysis. Its abstract is a qualification and follow-up lead, not a complete review of the TycC assays or evidence transferred to TycB1."
+            }
+          ],
+          "posed_by": "Codex",
+          "posed_date": "2026-10-11",
+          "notes": "Obtain accessible original figures, full clone descriptions and raw product/normalization evidence; expand other family contexts separately. The 1998 JBC PDF and direct publisher figure downloads were unavailable. Other substrates, epimerization/cyclization subfamilies and later studies remain incompletely covered. Imported identity and classification are unchanged."
+        }
+      ]
+    },
+    {
+      "path": "data/families/PF00672.yaml",
+      "discussions": [
+        {
+          "discussion_id": "tsr-hamp-molecular-output-and-context-coverage",
+          "prompt": "Resolve HAMP molecular output states and extend beyond the three scoped Tsr mutant phenotypes.",
+          "kind": "CURATION_TODO",
+          "status": "OPEN",
+          "rationale": "Motor rotation and soft-agar chemotaxis are different cellular readouts. Neither establishes a specific HAMP packing geometry, direct phosphorylation step or universal need for HAMP in kinase activation. Host adaptation state materially changes WT output.",
+          "evidence": [
+            {
+              "reference": "PMID:18621896",
+              "supports": "PARTIAL",
+              "evidence_source": "full_text",
+              "explanation": "Methods, Table 1, Figures 2/4 and relevant Results support the three scoped effects. Coding-sequence checks and abundance controls do not eliminate local structural or complex-assembly alternatives; tethering conditions and broader mutant coverage remain incomplete."
+            },
+            {
+              "reference": "PMID:24205875",
+              "supports": "PARTIAL",
+              "evidence_source": "selected_full_text",
+              "explanation": "The later Tsr deletion study distinguishes physiological and nonphysiological output states and discusses competing structural interpretations. Its deletion results are not transferred to G235 substitutions, and no packing-model arrow is promoted to an observed mechanism."
+            }
+          ],
+          "posed_by": "Codex",
+          "posed_date": "2026-10-11",
+          "notes": "Retrieve exact tethering conditions and independent rescue or direct kinase/assembly measurements for these variants. Curate other Tsr mutants, HAMP-containing proteins and deletion contexts separately with primary evidence. The 2002 cited behavioral weighting method was inspected; unrelated crosslinking conditions were not borrowed. Raw movies and later-study figures/supplements were not reanalyzed. Family status remains IN_PROGRESS."
+        }
+      ]
+    }
+  ]
+}
