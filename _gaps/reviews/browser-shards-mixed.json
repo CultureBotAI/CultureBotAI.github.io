@@ -1,0 +1,216 @@
+{
+  "checked_at": "2026-11-14T21:40:43.370100+00:00",
+  "provenance": {
+    "method": "Kramdown-rendered current body in retained live site shell, local CSS/JS/data; not a full Jekyll build or deployment",
+    "page_sha256": "f2f8cfc126b9d93eeb38656b2c86fb33daf44d1e0c303b62a23bca9439d2794b",
+    "shell_sha256": "6715128719c306845d504ce1cac297e3c1de8da7e1c58ce9061fcc320e810993",
+    "ui_sha256": {
+      "browser.js": "31eeea3ca62c5aed851c5859874ec7722f18d6ece0cdb92ea6ca92716322e0b7",
+      "search-core.js": "d509bda2e5e06962caf583576293c574d74b8cb5dfc3e3b32ed106bc23d66bcb",
+      "search-worker.js": "2929ca4d6d765aacb116cf09705f7f60ec31382f0443aa8d768d4c6824480b14",
+      "browser.css": "05dcae58474601aba19071e62c7393051b94e332be7922eb06bfeda17a1b8238"
+    },
+    "preview_sha256": "4f5bfa9fde809c15c8067e7b0486941a7240c1a8b955ea7cea5413ae35940d2a"
+  },
+  "build_id": "182500177540ee9b74130699ed7eacf71715222713c9434cd04708dda95d9c3f",
+  "manifest_sha256": "8069d2f3be02f131f98885ad5691296611876c83754c443e6b41d3cc1079ccd9",
+  "reference_platform": "macOS-26.7.3-arm64-arm-64bit-Mach-O",
+  "screenshots": ".temp/knowledge-gaps-20261114/browser-artifacts/browser-shards-mixed",
+  "complete": true,
+  "views": [
+    {
+      "width": 1280,
+      "initial_status": "571 matching discussions in 560 records. Showing 1\u201350.",
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "light_text_contrast": {
+        "scope": "Sampled control/note/card/link/badge text on nearest opaque backgrounds; not a full accessibility audit",
+        "pairs": [
+          {
+            "selector": "#gap-controls .gap-note",
+            "ratio": 5.517659999178898,
+            "foreground": [
+              90,
+              99,
+              94
+            ],
+            "background": [
+              237,
+              243,
+              238
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-record",
+            "ratio": 6.210999446270039,
+            "foreground": [
+              90,
+              99,
+              94
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-results a",
+            "ratio": 15.938339559896328,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-query",
+            "ratio": 15.938339559896328,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-badge",
+            "ratio": 14.15912839853553,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              237,
+              243,
+              238
+            ]
+          }
+        ]
+      },
+      "enter_creates_one_history_entry": true,
+      "detail_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "cold_query_and_gap_url": true,
+      "split_detail_shard": {
+        "key": "CellStructureMech-0002",
+        "item": "gap-80be272c1de7256cd21d62044c8478fd1fa7017dff71d9cd6d8c6b02b0f90b59",
+        "loaded": true
+      },
+      "literal_query_and_empty_state": true,
+      "candidate_count": 0,
+      "page_url_restored": "view=all&status=&page=2",
+      "export_json": {
+        "items": 2468,
+        "bytes": 6022434
+      },
+      "export_csv": {
+        "items": 2468,
+        "bytes": 4279447
+      },
+      "back_restores_filters": true,
+      "theme_persists": true,
+      "dark_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "dark_text_contrast": {
+        "scope": "Sampled control/note/card/link/badge text on nearest opaque backgrounds; not a full accessibility audit",
+        "pairs": [
+          {
+            "selector": "#gap-controls .gap-note",
+            "ratio": 7.683442508843157,
+            "foreground": [
+              160,
+              178,
+              168
+            ],
+            "background": [
+              23,
+              29,
+              26
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-record",
+            "ratio": 7.433995769147085,
+            "foreground": [
+              160,
+              178,
+              168
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-results a",
+            "ratio": 14.192125937125033,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-query",
+            "ratio": 14.192125937125033,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-badge",
+            "ratio": 14.66834083612518,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              23,
+              29,
+              26
+            ]
+          }
+        ]
+      },
+      "page_errors": []
+    }
+  ],
+  "browser_version": "157.0.8103.51"
+}
