@@ -120,6 +120,12 @@ Specific traps verified during the survey:
   documents corrections to scanner
   false positives; old `reports/knowledge_gap_scan.json` content must not
   supersede those canonical corrections.
+- Native records can themselves contain unreviewed scanner proposals. The
+  retained [MediaIngredientMech examples](evidence/MediaIngredientMech.json)
+  include `OPEN`/`KNOWLEDGE_GAP` discussions attributed to the scanner whose
+  rationale explicitly requires curator review. Their storage in canonical
+  YAML does not promote them into assessed scientific questions. This case
+  belongs in the native-data MVP, independently of later packet ingestion.
 - Importing or vendoring `mech_shared.yaml` alone does not establish a native
   record slot. Schema support, populated data, generated output and live
   deployment must be reported independently.
@@ -129,7 +135,8 @@ Specific traps verified during the survey:
 The first screen answers “what is unknown, where, and what could resolve it?”
 Use a labelled search field, Mech/kind/status/source filters, a compact coverage
 summary, and paginated result cards or a responsive table. Default to active
-explicit gaps; offer open questions, controversies, curation work, resolved and
+explicit gaps, excluding identified scanner proposals still requiring review;
+offer a visible candidate view as well as open questions, controversies, curation work, resolved and
 archived items through visible controls. Show omitted categories and their
 counts so the default is clear.
 
@@ -143,8 +150,18 @@ state, back/forward navigation, clear-all and a link to a specific gap.
 Each detail view shows the question, owning Mech/record, kind, lifecycle, source
 mode, documented review state, rationale, references and their support relation,
 proposed experiments, dates, resolution, pinned source and live record link.
-Review state defaults to **unspecified**, not “reviewed” merely because an item
-was committed. Evidence counts are citation counts, not confidence scores.
+Track storage mode, origin and review state separately: a native record can
+contain a scanner-origin proposal. Review state defaults to **unspecified**,
+not “reviewed” merely because an item was committed. Explicitly unreviewed
+scanner entries receive a candidate badge and candidate routing in the MVP.
+Unknown origin/review state remains visible as unknown; it is not an implicit
+endorsement. Evidence counts are citation counts, not confidence scores.
+
+Classify using current attribution, explicit review-required statements and
+documented corrections/review history. A scanner ID prefix alone neither proves
+the item is still an unreviewed proposal nor establishes acceptance. Preserve
+TraitMech's corrected content and scanner origin, assigning only the review
+state supported by current evidence. Never replace it with the older proposal.
 
 Coverage is visible per Mech **and source root/mode**: supported, unsupported,
 complete, partial, unavailable, stale or explicitly not applicable. A successful
@@ -182,6 +199,7 @@ paths are a proposal, not files created by this planning change.
 |---|---|
 | Identity | Repository identity + stable native record ID + local discussion ID; namespace all three. Reject collisions; define a migration map for source ID changes. Never use row position or mutable prose as the primary ID. |
 | Native content | Preserve kind/status, prompt, rationale, attachments, experiments, dates and resolution. Preserve native missing values; do not invent dates or closure. |
+| Origin and review | Keep `storage_mode` (native record or packet), origin (scanner, other documented origin, unspecified) and review state independent. Explicit review-required native proposals remain candidates. Store the source locator supporting classification; scanner IDs alone are insufficient. This is required for the native MVP. |
 | Evidence | Reference, support relation and available explanation; snippets only under the source's redistribution terms. `NO_EVIDENCE` means context without direct support, not absence of literature. |
 | Provenance | Source repository, immutable commit, full relative file path and locator, content hash, adapter/schema version, acquisition/build time and source mode. Keep observation dates distinct from fetch dates. |
 | Candidate lineage | Scanner run/config/version, source record revision, evidence hash and explicit links to accepted/rejected/superseded proposals where known. A match by text alone must not overwrite a curated item. |
@@ -192,8 +210,9 @@ Do not copy scanner scores into scientific priority or confidence. The current
 scanner scores lexical signals in abstracts. Its packet lacks a complete
 source/run envelope and per-record failure accounting, and scanning errors can
 be skipped. Extend that producer contract before publishing candidates as
-coverage-bearing data. Keep this extension off the native-discussion MVP's
-critical path.
+coverage-bearing data. Keep new packet ingestion and its producer-envelope
+extension off the native-discussion MVP's critical path. Origin/review handling
+for proposals already inside native records is part of that MVP, not deferred.
 
 Build one compact global search projection with facetable metadata and lazy
 detail shards. “Search all” must cover all indexed items, not only loaded
@@ -229,7 +248,7 @@ domain-schema adoption are subsequent work.
 | Wave / owner | Repositories and write set | Deliverable / exit condition | Estimate |
 |---|---|---|---|
 | 1 — contract owner | CLAW export module, public JSON schema, fixtures/tests; site `_gaps/` config | Freeze identity, coverage, kinds, provenance, safe public projection and compatibility rules. Reconcile manifest versus corpus roots and existing public-membership PRs. | 1–2 days |
-| 2 — adapter owner | CLAW export adapter; site acquisition/build scripts and one TraitMech fixture snapshot | One real TraitMech extraction → validated files → populated local result → pinned source/evidence link. Confirm persistence, counts and corrected discussion behavior. No broad rollout before this passes. | 1–2 days |
+| 2 — adapter owner | CLAW export adapter; site acquisition/build scripts and one TraitMech fixture snapshot, plus the retained MIM candidate regression fixture | One real TraitMech extraction → validated files → populated local result → pinned source/evidence link. Confirm persistence, counts, corrected discussion behavior and origin/review routing for native proposals. No broad rollout before this passes. | 1–2 days |
 | 3A — data owners | Independent adapter fixtures/configs for public Mechs; one integrator owns aggregate manifests | Extend shared adapter to supported Mechs; explicitly account for all sixteen. Include Community isolates, DUF family records, MIM exclusions, Culture merge lineage, AIMech separate roots. Unsupported native schemas remain labelled. | 2–3 days |
 | 3B — UI owner | Site shell, JS/CSS, browser tests | Build search/facets/detail/export against frozen fixtures; URL state, source links, no-JS summary, accessible failure handling and measured budgets. Can run parallel to 3A after wave 2. | 2–3 days |
 | 4 — integration/review owner | Site workflow, navigation source template, end-to-end tests and final assets | Deterministic full build, reconciled coverage, narrow/desktop verification, independent adversarial PR review and filed findings. Human merge decision; then verify actual deployed SHA and populated live results. | 2–3 days |
@@ -263,6 +282,10 @@ needs rebuilding.
    until the item definition and coverage denominator are explicit.
 3. **Corrections:** canonical TraitMech corrections win over historical scanner
    proposals; unreviewed candidates never become validated scientific claims.
+   Test the retained MIM native proposal: it stays in the candidate view with
+   its explicit review-required state. Contrast TraitMech's corrected
+   scanner-origin discussion: preserve its correction and classify only from
+   documented current evidence, never from its ID prefix or storage alone.
    Similar questions can be linked but must not be destructively deduplicated.
 4. **Search:** known exact ID, DOI, alias and prose queries; items in noninitial
    detail shards; combined filters; cold shared URL; sort before paging;
@@ -311,3 +334,15 @@ broader collection. The later CultureMech truncated-tree case was fixed and
 rerun alone; the resulting file explicitly records incomplete whole-tree
 coverage. These canaries validate evidence acquisition and persistence, not
 the proposed production exporter, corpus completeness or search performance.
+
+## Adversarial review follow-up — November 14, 2026
+
+Fresh review of PR #573 identified three P2 findings, filed before fixes:
+[record-glob semantics #574](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/574),
+[YAML date serialization #575](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/575),
+and [native scanner-proposal classification #576](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/576).
+All belong in this PR: the first two affect reuse of the research helper on
+valid inputs; the third clarifies the proposed MVP's scientific interpretation.
+No retained sample was shown to be incorrect, and the historical evidence
+snapshots and acquisition dates are preserved. The production browser and its
+classifier remain future work; this PR supplies their required acceptance cases.

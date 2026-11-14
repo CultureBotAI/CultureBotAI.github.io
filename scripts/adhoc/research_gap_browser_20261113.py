@@ -6,13 +6,12 @@ Reads committed files only; never executes Mech code or runs literature scans.
 """
 import argparse
 import base64
-import fnmatch
 import hashlib
 import json
 from pathlib import Path
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 import yaml
 
@@ -27,6 +26,13 @@ def run(*args):
 
 def api(endpoint):
     return json.loads(run("gh", "api", endpoint))
+
+
+def json_default(value):
+    """Preserve YAML date values without stringifying unsupported types (#575)."""
+    if isinstance(value, (date, datetime)):
+        return value.isoformat()
+    raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
 
 
 def collect(name, mech, local_root):
@@ -88,15 +94,18 @@ def collect(name, mech, local_root):
     samples = []
     # A bounded presence probe, not a census. Git grep includes every tracked
     # file at the pin regardless of ignore settings; record scope comes from CLAW.
-    if has_local:
+    record_globs = mech.get("record_globs", [])
+    if has_local and record_globs:
+        # Git's glob pathspecs preserve recursive **/ and segment-bounded *
+        # semantics, and include every declared extension (#574). An empty
+        # pathspec would search the entire repository, so do not probe then.
         probe = subprocess.run(["git", "-C", str(local), "grep", "-l", "-E",
-                                "^[[:space:]]*discussions:", sha, "--", "*.yaml"],
+                                "^[[:space:]]*discussions:", sha, "--",
+                                *(f":(glob){pattern}" for pattern in record_globs)],
                                capture_output=True, text=True)
         assert probe.returncode in (0, 1), probe.stderr
         for line in probe.stdout.splitlines():
             path = line.split(":", 1)[1]
-            if not any(fnmatch.fnmatch(path, g) for g in mech.get("record_globs", [])):
-                continue
             doc = yaml.safe_load(read(path))
             discussions = doc.get("discussions") if isinstance(doc, dict) else None
             if discussions:
@@ -109,7 +118,7 @@ def collect(name, mech, local_root):
             "record_globs": mech.get("record_globs", []), "configs": configs,
             "schema_evidence": schemas, "committed_tree_complete": tree_complete,
             "discussion_assets": [p for p in paths if p.startswith("app/discussions/")],
-            "sample_probe": "pinned tracked YAML" if has_local else "not performed",
+            "sample_probe": "pinned tracked YAML" if has_local and record_globs else "not performed",
             "discussion_samples": samples}
 
 
@@ -128,7 +137,8 @@ def main():
         result = collect(name, by_name[name], args.local_root)
         # Keep evidence excerpts as public committed data only; no raw manifest.
         target = args.output / f"{name}.json"
-        target.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
+        target.write_text(json.dumps(result, indent=2, ensure_ascii=False,
+                                     default=json_default) + "\n")
         assert target.stat().st_size > 0
         print(f"{name}: {result['revision'][:12]}, {len(result['discussion_samples'])} sample records", flush=True)
 
