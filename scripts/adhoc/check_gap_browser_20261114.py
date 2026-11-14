@@ -41,7 +41,11 @@ def fetch(url):
 
 def prepare(args):
     if args.site:
-        return args.site, {'method': 'Actual supplied Jekyll build, served locally', 'site': str(args.site.relative_to(ROOT))}
+        return args.site, {'method': 'Actual supplied Jekyll build, served locally', 'site': str(args.site.relative_to(ROOT)),
+                           'page_sha256': sha(args.site / 'knowledge-gaps/index.html'),
+                           'ui_sha256': {name: sha(args.site / 'assets/gaps' / name) for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css')},
+                           'main_css_sha256': sha(args.site / 'assets/main.css'),
+                           'custom_css_sha256': sha(args.site / 'assets/custom.css')}
     preview = TEMP / ('preview-' + args.report.stem)
     (preview / 'knowledge-gaps').mkdir(parents=True, exist_ok=True)
     (preview / 'assets/gaps').mkdir(parents=True, exist_ok=True)
@@ -288,6 +292,41 @@ def warm_queries(browser, url, manifest):
     return result
 
 
+def navigation_check(browser, url, index, width, output):
+    context = browser.new_context(viewport={'width': width, 'height': 900})
+    page = context.new_page()
+    page.goto(url, wait_until='networkidle'); settled(page)
+    destination = page.locator('.site-nav .page-link[href="/knowledge-gaps/"]')
+    assert destination.count() == 1
+    mobile_opened = False
+    if not destination.is_visible():
+        page.locator('label[for="nav-trigger"]').click()
+        assert destination.is_visible()
+        mobile_opened = True
+    destination.focus()
+    page.screenshot(path=str(output / f'{width}-header-navigation.png'))
+    destination.press('Enter')
+    page.wait_for_load_state('networkidle'); settled(page)
+    assert urllib.parse.urlsplit(page.url).path == '/knowledge-gaps/'
+    assert destination.get_attribute('aria-current') == 'page'
+    result = {'width': width, 'current_page_header_link': True, 'mobile_menu_opened': mobile_opened,
+              'keyboard_activation_loaded_browser': True, 'layout': layout(page),
+              'scope': 'Current browser header route and mobile menu. Hub destination is outside the trimmed CI artifact.'}
+    target = next(i for i in index['items'] if i['record_label'].lower() == 'animal pathogen')
+    submit(page, target['record_id'])
+    page.locator('#gap-results button').filter(has_text=target['prompt']).click()
+    page.wait_for_function("prompt => document.querySelector('#gap-detail-title').textContent === prompt", arg=target['prompt'])
+    page.locator('#gap-detail-title').scroll_into_view_if_needed()
+    page.wait_for_function("""() => {const r=document.querySelector('#gap-detail-title').getBoundingClientRect();
+      const header=document.querySelector('.site-header').getBoundingClientRect();
+      return r.top>=Math.max(0,header.bottom) && r.bottom<=innerHeight;}""")
+    page.screenshot(path=str(output / f'{width}-detail-visible.png'))
+    result['scrolled_populated_detail_heading_visible'] = True
+    result['detail_layout'] = layout(page)
+    context.close()
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--assets', type=Path, required=True)
@@ -295,6 +334,7 @@ def main():
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--site', type=Path)
     parser.add_argument('--canary', action='store_true')
+    parser.add_argument('--navigation-only', action='store_true')
     parser.add_argument('--browser-executable', type=Path)
     args = parser.parse_args()
     args.assets, args.summary, args.report = args.assets.resolve(), args.summary.resolve(), args.report.resolve()
@@ -317,9 +357,10 @@ def main():
             browser = p.chromium.launch(executable_path=str(args.browser_executable) if args.browser_executable else None)
             report['browser_version'] = browser.version
             for width in ([1280] if args.canary else [1280, 390]):
-                report['views'].append(view_checks(browser, url, manifest, index, width, output))
-                print(f'Validated {width}px view and complete exports', flush=True)
-            if not args.canary:
+                report['views'].append(navigation_check(browser, url, index, width, output) if args.navigation_only else
+                                       view_checks(browser, url, manifest, index, width, output))
+                print(f'Validated {width}px ' + ('header navigation' if args.navigation_only else 'view and complete exports'), flush=True)
+            if not args.canary and not args.navigation_only:
                 report['failures'] = failure_checks(browser, url, manifest, index)
                 report['warm_query'] = warm_queries(browser, url, manifest)
                 context = browser.new_context(java_script_enabled=False)
