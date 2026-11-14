@@ -1,5 +1,6 @@
 """Reproducible bundles, coverage integrity and read-only checks for gap Pages."""
 import copy
+import gzip
 import hashlib
 import importlib.util
 import io
@@ -90,6 +91,36 @@ class GapBuildTests(unittest.TestCase):
         self.assertEqual(set(detail_items), {item["id"] for item in index["items"]})
         self.assertEqual(detail_items, {item["id"]: item for item in self.snapshot["items"]})
         self.assertIn("2 recorded discussion items", summary)
+
+    def test_large_details_split_without_losing_or_duplicating_items(self):
+        candidate = copy.deepcopy(self.snapshot)
+        candidate["items"] = []
+        for index in range(20):
+            item = self.item(str(index), "recorded")
+            item["prompt"] = " ".join(hashlib.sha256(f"{index}-{part}".encode()).hexdigest()
+                                      for part in range(12))
+            candidate["items"].append(item)
+        with mock.patch.object(build, "MAX_DETAIL_GZIP", 2000):
+            first = build.artifacts(candidate)
+            self.assertEqual(first, build.artifacts(copy.deepcopy(candidate)))
+        files, _, manifest = first
+        self.assertGreater(len(manifest["details"]), 1)
+        indexed = json.loads(files[manifest["index"]["url"]])["items"]
+        seen = []
+        for key, descriptor in manifest["details"].items():
+            payload = files[descriptor["url"]]
+            self.assertLessEqual(len(gzip.compress(payload, mtime=0)), 2000)
+            self.assertEqual(hashlib.sha256(payload).hexdigest(), descriptor["sha256"])
+            details = json.loads(payload)["items"]
+            expected = {item["id"] for item in indexed if item["detail_shard"] == key}
+            self.assertEqual(set(details), expected)
+            self.assertTrue(all("detail_shard" not in item for item in details.values()))
+            seen.extend(details)
+        self.assertEqual(sorted(seen), sorted(item["id"] for item in candidate["items"]))
+        self.assertEqual(len(seen), len(set(seen)))
+        with mock.patch.object(build, "MAX_DETAIL_GZIP", 1):
+            with self.assertRaisesRegex(ValueError, "One discussion exceeds"):
+                build.artifacts(candidate)
 
     def test_explicit_unsupported_root_remains_unknown_and_valid(self):
         config, snapshot = copy.deepcopy(self.config), copy.deepcopy(self.snapshot)

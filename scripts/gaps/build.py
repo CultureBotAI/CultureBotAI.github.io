@@ -19,6 +19,7 @@ from snapshot import (ROOT, ORDER, digest, is_withheld, json_bytes, load_exporte
 INDEX_FIELDS = ("id", "mech", "record_id", "record_label", "aliases", "discussion_id",
                 "prompt", "rationale", "kind", "status", "origin", "review_state", "lane",
                 "evidence_refs", "attaches_to")
+MAX_DETAIL_GZIP = 500 * 1024
 
 
 def validate(snapshot, config, exporter, provenance, *, pilot=False):
@@ -137,28 +138,43 @@ def summary_html(sources, counts):
     return "\n".join(lines) + "\n"
 
 
+def detail_parts(items, build_id):
+    """Split deterministically until every lazy download meets the budget (#581)."""
+    content = json_bytes({"schema_version": 1, "build_id": build_id,
+                          "items": {item["id"]: item for item in items}})
+    compressed = len(gzip.compress(content, mtime=0))
+    if compressed <= MAX_DETAIL_GZIP:
+        return [(items, content, compressed)]
+    if len(items) <= 1:
+        raise ValueError("One discussion exceeds the compressed detail budget")
+    midpoint = len(items) // 2
+    return detail_parts(items[:midpoint], build_id) + detail_parts(items[midpoint:], build_id)
+
+
 def artifacts(snapshot):
     build_id = digest(json_bytes(snapshot))
     sources, items = snapshot["sources"], snapshot["items"]
     counts = {"items": len(items), "candidates": sum(i["lane"] == "candidate" for i in items),
               "records_with_discussions": len({(i["mech"], i["source"]["path"]) for i in items})}
-    files, details = {}, {}
+    files, details, item_shards = {}, {}, {}
     sizes = {}
     for source in sources:
         name = source["name"]
-        selected = {item["id"]: item for item in items if item["mech"] == name}
+        selected = sorted((item for item in items if item["mech"] == name), key=lambda item: item["id"])
         if not selected:
             continue
-        content = json_bytes({"schema_version": 1, "build_id": build_id, "items": selected})
-        compressed = len(gzip.compress(content, mtime=0))
-        if compressed > 500 * 1024:
-            raise ValueError(f"{name} detail shard exceeds 500 KiB compressed budget")
-        sha = digest(content)
-        path = f"data/{name}.{sha[:16]}.json"
-        files[path] = content
-        details[name] = {"url": path, "sha256": sha}
-        sizes[name] = {"bytes": len(content), "gzip_bytes": compressed}
-    index_items = [{**{key: item[key] for key in INDEX_FIELDS}, "source_url": item["source"]["url"]}
+        parts = detail_parts(selected, build_id)
+        for position, (part, content, compressed) in enumerate(parts, 1):
+            key = name if len(parts) == 1 else f"{name}-{position:04d}"
+            sha = digest(content)
+            path = f"data/{key}.{sha[:16]}.json"
+            files[path] = content
+            details[key] = {"url": path, "sha256": sha}
+            sizes[key] = {"bytes": len(content), "gzip_bytes": compressed}
+            if len(parts) > 1:
+                item_shards.update({item["id"]: {"detail_shard": key} for item in part})
+    index_items = [{**{key: item[key] for key in INDEX_FIELDS}, **item_shards.get(item["id"], {}),
+                    "source_url": item["source"]["url"]}
                    for item in items]
     index = json_bytes({"schema_version": 1, "build_id": build_id, "items": index_items})
     if len(gzip.compress(index, mtime=0)) > 2 * 1024 * 1024:

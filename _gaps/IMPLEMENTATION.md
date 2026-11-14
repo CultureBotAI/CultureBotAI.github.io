@@ -25,9 +25,9 @@ Started 2026-11-14. Implements the [reviewed research plan](../_fleet/reviews/ga
 
 ## Acceptance checklist
 
-- [ ] Current source and exporter pins recorded; public boundary validated.
-- [ ] Shared schema/normalizer and meaningful negative tests pass.
-- [ ] TraitMech pilot completes through the same extractor and builder used for the fleet; artifacts read back and reconciled.
+- [x] Current source and exporter pins recorded; public boundary validated.
+- [x] Shared schema/normalizer and meaningful negative tests pass.
+- [x] TraitMech pilot completes through the same extractor and builder used for the fleet; artifacts read back and reconciled.
 - [ ] Every public Mech/root has an explicit coverage state; partial/errors cannot become empty success.
 - [ ] Search covers the full indexed corpus, including unloaded detail shards; filters/sort/page restore from URLs.
 - [ ] Native candidates and corrected native discussions remain distinct; no automatic scientific validation claims.
@@ -46,5 +46,7 @@ Retain machine-readable acquisition/pilot/browser results under `_gaps/reviews/`
 - Tracking: [website #577](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/577), [CLAW #1212](https://github.com/CultureBotAI/culturebotai-claw/issues/1212) and [exporter PR #1215](https://github.com/CultureBotAI/culturebotai-claw/pull/1215).
 - CofactorMech and AssayMech have added native `research_gaps` since the research baseline. Their target `corpus`/`scope` plus source document is a stable key for the projection; duplicate keys fail. They describe curation/protocol coverage, so the adapter uses `CURATION_TODO`, unspecified lifecycle/review, and no inherited record evidence. No scientific record is changed.
 - MIM semantic identifiers can repeat across distinct documents. Public identity therefore includes the repository, source path, native record ID and native discussion ID. Renames require an explicit identity migration in a later refresh; no row index or mutable prose is used.
-- The initial full TraitMech extraction read 1,130 records and produced 925 discussions in 640 source documents. The same builder wrote hashed search/detail assets and passed its read-only reproduction check. A subsequent origin-lineage review finding is tracked as [CLAW #1216](https://github.com/CultureBotAI/culturebotai-claw/issues/1216); the final contract must pass this pilot again before fleet extraction.
+- The renewed TraitMech canary at CLAW `014bbb6324d4c017b2868a4f88bf6acaa00e68d6` read 1,130 records and produced 925 discussions in 640 source documents. Written assets passed exact reproduction checks; `reviews/canary.json` retains the measured receipt. Origin-lineage finding [CLAW #1216](https://github.com/CultureBotAI/culturebotai-claw/issues/1216) is fixed and independently re-reviewed. All eight exporter PR checks pass.
 - Website tests now include real committed-Git fixtures and deterministic bundle checks, including missing/excluded roots, false complete coverage, source/config/hash mismatches, failed acquisition retaining the previous snapshot and JSON-in-YAML native gap records.
+- Review fixes [#578](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/578), [#579](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/579) and [#580](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/580) enforce root publication holds, document hash/denominator consistency and one history transition per Enter search. The browser helper retains the failing history baseline and passing regression.
+- CellStructureMech integration exposed the detail size limit ([#581](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/581)). Deterministic partitioning preserves all 1,543 items in two hashed shards below the 500 KiB compressed limit. Fresh Trait and Cell builder checks pass; the acquisition path is unchanged.

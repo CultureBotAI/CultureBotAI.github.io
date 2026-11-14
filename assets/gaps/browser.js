@@ -94,15 +94,16 @@
     if (data.schema_version !== 1 || data.build_id !== manifest.build_id) throw new Error('Snapshot versions do not match.');
     return data;
   }
-  function detailShard(mech) {
-    if (!shards.has(mech)) {
-      var promise = verifiedJSON(manifest.details[mech]).then(function (data) {
+  function shardKey(item) { return item.detail_shard || item.mech; }
+  function detailShard(key) {
+    if (!shards.has(key)) {
+      var promise = verifiedJSON(manifest.details[key]).then(function (data) {
         if (!data.items || Array.isArray(data.items) || typeof data.items !== 'object') throw new Error('Invalid discussion details.');
         return data.items;
-      }).catch(function (error) { shards.delete(mech); throw error; });
-      shards.set(mech, promise);
+      }).catch(function (error) { shards.delete(key); throw error; });
+      shards.set(key, promise);
     }
-    return shards.get(mech);
+    return shards.get(key);
   }
   function getDetail(items, id) {
     if (!Object.prototype.hasOwnProperty.call(items, id) || items[id].id !== id) throw new Error('This discussion is missing from its detail snapshot.');
@@ -211,7 +212,7 @@
       var reply = await request('item', {id: id});
       if (version !== detailVersion) return;
       if (!reply.item) throw new Error('This discussion ID is not present in the selected snapshot.');
-      var items = await detailShard(reply.item.mech);
+      var items = await detailShard(shardKey(reply.item));
       if (version !== detailVersion) return;
       renderDetail(getDetail(items, id));
       if (focus) $('detail-title').focus();
@@ -246,10 +247,10 @@
     $('export-status').textContent = 'Preparing all filtered results with full details…';
     try {
       var reply = await request('export', {state: captured});
-      var mechs = Array.from(new Set(reply.result.all.map(function (item) { return item.mech; })));
-      var details = new Map(await Promise.all(mechs.map(async function (mech) { return [mech, await detailShard(mech)]; })));
+      var keys = Array.from(new Set(reply.result.all.map(shardKey)));
+      var details = new Map(await Promise.all(keys.map(async function (key) { return [key, await detailShard(key)]; })));
       if (snapshot !== manifest) throw new Error('The snapshot changed during export. Please retry.');
-      var items = reply.result.all.map(function (row) { return getDetail(details.get(row.mech), row.id); });
+      var items = reply.result.all.map(function (row) { return getDetail(details.get(shardKey(row)), row.id); });
       var content = format === 'csv' ? core.csv(items) : JSON.stringify({schema_version: 1, build_id: snapshot.build_id, filters: captured, sources: snapshot.sources, items: items}, null, 2);
       var blob = new Blob([content], {type: format === 'csv' ? 'text/csv;charset=utf-8' : 'application/json'});
       var url = URL.createObjectURL(blob), a = node('a'); a.href = url; a.download = 'mech-discussions.' + format; document.body.append(a); a.click(); a.remove();

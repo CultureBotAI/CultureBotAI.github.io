@@ -9,7 +9,7 @@ The browser reads a retained native-data snapshot. It makes no visitor-time GitH
 - `sources.json` declares the sixteen public corpus repositories, immutable revisions, source roots, adapters, schema/license digests and publication holds. Support and permission are separate. Unsupported or held roots have unknown counts, never zero.
 - `snapshot.json` retains normalized public items and measured coverage. Record identity includes its source path: distinct documents can share a semantic identifier. Discussion identity also includes the native discussion ID. Source renames need an explicit migration decision.
 - `toolchain.json` pins the CLAW normalizer commit and module/schema bytes. CI checks out that commit, validates the snapshot and reproduces the public assets byte for byte.
-- `../assets/gaps/manifest.json` points to hashed search and detail assets. The search worker covers the complete index; details load on demand. JSON and CSV exports include every match, not just the current page.
+- `../assets/gaps/manifest.json` points to hashed search and detail assets. Large Mechs are partitioned by stable item-ID order into numbered shards below 500 KiB compressed; index rows identify their detail shard. The search worker covers the complete index; details load on demand. JSON and CSV exports include every match, not just the current page.
 
 Native `research_gaps` in CofactorMech and AssayMech map to `CURATION_TODO`, with unspecified lifecycle/review and no inherited record evidence. Their native target corpus/scope provides the discussion key. Scanner origin, current attribution, review state and native storage are separate contract fields. A scanner-like ID alone establishes none of them.
 

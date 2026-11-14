@@ -171,6 +171,18 @@ def view_checks(browser, url, manifest, index, width, output):
     assert cold.locator('#gap-detail-title').inner_text() == target['prompt']
     cold.close()
     report['cold_query_and_gap_url'] = True
+    split_items = [i for i in index['items'] if i.get('detail_shard') and i['detail_shard'] != i['mech']]
+    if split_items:
+        last_key = sorted({i['detail_shard'] for i in split_items})[-1]
+        split_item = next(i for i in split_items if i['detail_shard'] == last_key)
+        split_page = context.new_page()
+        split_page.goto(url + '?' + urllib.parse.urlencode({'view': 'all', 'status': '', 'gap': split_item['id']}), wait_until='networkidle')
+        settled(split_page)
+        split_page.wait_for_function("() => !document.querySelector('#gap-detail').hidden && document.querySelector('#gap-detail-title').textContent !== 'Loading discussion…'")
+        assert split_page.locator('#gap-detail-title').inner_text() == split_item['prompt']
+        assert split_page.locator('#gap-detail-body').get_by_text('Pinned source record', exact=True).count() == 1
+        report['split_detail_shard'] = {'key': last_key, 'item': split_item['id'], 'loaded': True}
+        split_page.close()
     page.locator('#gap-close-detail').click()
     assert page.evaluate("document.activeElement.classList.contains('gap-open')")
     submit(page, '<img src=x onerror="window.GAP_INJECTED=true">')
@@ -240,7 +252,7 @@ def failure_checks(browser, url, manifest, index):
     assert page.locator('#gap-results > li').count() == 0
     page.locator('#gap-retry').click(); settled(page)
     target = next(i for i in index['items'] if i['record_label'].lower() == 'animal pathogen')
-    Handler.faults['/assets/gaps/' + manifest['details'][target['mech']]['url']] = 1
+    Handler.faults['/assets/gaps/' + manifest['details'][target.get('detail_shard') or target['mech']]['url']] = 1
     submit(page, target['record_id'])
     page.locator('#gap-results button').filter(has_text=target['prompt']).click()
     page.get_by_role('button', name='Retry this discussion').wait_for()
