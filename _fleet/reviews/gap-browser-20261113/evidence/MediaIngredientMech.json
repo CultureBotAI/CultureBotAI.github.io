@@ -1,0 +1,201 @@
+{
+  "name": "MediaIngredientMech",
+  "repository": "CultureBotAI/MediaIngredientMech",
+  "default_branch": "main",
+  "revision": "24d76baa823d7fd07e8ea2596f0cca50e66392e2",
+  "acquired_at": "2026-11-14T02:55:15.389817+00:00",
+  "knowledge_gap_scan": {
+    "status": "enabled",
+    "settings": {
+      "window": 300
+    }
+  },
+  "record_globs": [
+    "data/ingredients/**/*.yaml"
+  ],
+  "configs": {
+    "conf/discussions_config.yaml": {
+      "repo_name": "MediaIngredientMech",
+      "record_glob": "../data/ingredients/**/*.yaml",
+      "name_fields": [
+        "preferred_term",
+        "name"
+      ],
+      "id_field": "identifier",
+      "discussions_field": "discussions",
+      "page_url_template": "../../pages/ingredient/{category}/{stem}.html#discussions"
+    },
+    "conf/kgscan_config.yaml": {
+      "repo_name": "MediaIngredientMech",
+      "record_glob": "../data/ingredients/mapped/*.yaml",
+      "name_fields": [
+        "preferred_term",
+        "name"
+      ],
+      "synonym_field": "synonyms",
+      "id_field": "identifier",
+      "discussions_field": "discussions",
+      "topic_context_terms": [
+        "microbial",
+        "bacteria",
+        "metabolism",
+        "growth medium",
+        "biosynthesis"
+      ],
+      "min_score": 8
+    }
+  },
+  "schema_evidence": {
+    "src/mediaingredientmech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    },
+    "src/mediaingredientmech/schema/mediaingredientmech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": true,
+      "sha256": "bb43dee29b21fdee72a48022456e733e49e95824c4c09674f9b3165c290fe012"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [
+    "app/discussions/data.js",
+    "app/discussions/index.html",
+    "app/discussions/theme-toggle.js"
+  ],
+  "sample_probe": "pinned tracked YAML",
+  "discussion_samples": [
+    {
+      "path": "data/ingredients/mapped/1-Kestose.yaml",
+      "discussions": [
+        {
+          "discussion_id": "kgscan-f77a72b7ddb7",
+          "prompt": "Knowledge gap for 1-Kestose: Background Lignocellulose represents a primary input of organic carbon (C) into soils, yet the identity of specific microorganisms and genes which drive lignocellulose turnover in soils remains poorly understood.",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "rationale": "Surfaced by the Europe PMC literature gap-signal scan (categories: explicit_gap, future_work, limitations_barriers, unclear_unknown). Curator review required: set attaches_to, refine the prompt, and weigh the cited evidence.",
+          "attaches_to": [],
+          "evidence": [
+            {
+              "reference": "PMID:41373036",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Background Lignocellulose represents a primary input of organic carbon (C) into soils, yet the identity of specific microorganisms and genes which drive lignocellulose turnover in soils remains poorly understood.",
+              "explanation": "Gap-signal sentence (unclear_unknown) from the cited abstract."
+            },
+            {
+              "reference": "DOI:10.21203/rs.3.rs-6822283/v1",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Abstract Background: Lignocellulose represents a primary input of organic carbon (C) into soils, yet the identity of specific microorganisms and genes which drive lignocellulose turnover in soils remain poorly understood.",
+              "explanation": "Gap-signal sentence (unclear_unknown) from the cited abstract."
+            },
+            {
+              "reference": "PMID:41367416",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Key research gaps include limited long-term safety data, heterogeneous human cohorts and the need for large multicenter trials and machine-learning-guided responder prediction.",
+              "explanation": "Gap-signal sentence (explicit_gap) from the cited abstract."
+            },
+            {
+              "reference": "PMID:40284226",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "It has been reported that 1-Kestose, a fructooligosaccharide, can reduce blood cholesterol and triglyceride levels in rats; however, the underlying mechanisms remain unclear.",
+              "explanation": "Gap-signal sentence (unclear_unknown) from the cited abstract."
+            }
+          ],
+          "posed_by": "kg-microbe-kgscan"
+        }
+      ]
+    },
+    {
+      "path": "data/ingredients/mapped/1-Pentanol.yaml",
+      "discussions": [
+        {
+          "discussion_id": "kgscan-fedfdc7a75ff",
+          "prompt": "Knowledge gap for 1-Pentanol: Current studies on the biodistribution, intracellular behavior, biodegradation, and clearance of diatom-based nanocarriers are inadequate and often lack systematic evaluation, leaving critical knowledge gaps.",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "rationale": "Surfaced by the Europe PMC literature gap-signal scan (categories: explicit_gap, future_work, limitations_barriers, unclear_unknown). Curator review required: set attaches_to, refine the prompt, and weigh the cited evidence.",
+          "attaches_to": [],
+          "evidence": [
+            {
+              "reference": "PMID:42278216",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Current studies on the biodistribution, intracellular behavior, biodegradation, and clearance of diatom-based nanocarriers are inadequate and often lack systematic evaluation, leaving critical knowledge gaps.",
+              "explanation": "Gap-signal sentence (explicit_gap) from the cited abstract."
+            },
+            {
+              "reference": "PMID:42073201",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "However, the mechanisms of flavor formation remain unclear, which limits the process optimization of this technology.",
+              "explanation": "Gap-signal sentence (unclear_unknown) from the cited abstract."
+            },
+            {
+              "reference": "PMID:42193735",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Volatile organic compounds (VOCs) emitted by mushrooms may influence interactions with animal consumers, yet the roles of individual compounds and their mixtures remain poorly understood.",
+              "explanation": "Gap-signal sentence (unclear_unknown) from the cited abstract."
+            },
+            {
+              "reference": "PMID:40946651",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "However, the changes and underlying mechanisms governing flavor compound deposition during this period remains unclear.",
+              "explanation": "Gap-signal sentence (unclear_unknown) from the cited abstract."
+            }
+          ],
+          "posed_by": "kg-microbe-kgscan"
+        }
+      ]
+    },
+    {
+      "path": "data/ingredients/mapped/1-aminocyclopropane-1-carboxylate.yaml",
+      "discussions": [
+        {
+          "discussion_id": "kgscan-afcc7416ff5f",
+          "prompt": "Knowledge gap for 1-aminocyclopropane-1-carboxylate: This systematic review synthesised experimental evidence published between 2005 and 2026 to evaluate microbial co-inoculation strategies against conifer root rot and damping-off, characterise host transcriptomic defence responses, and identify knowledge gaps limiting translational application.",
+          "kind": "KNOWLEDGE_GAP",
+          "status": "OPEN",
+          "rationale": "Surfaced by the Europe PMC literature gap-signal scan (categories: explicit_gap, future_work, limitations_barriers, unclear_unknown). Curator review required: set attaches_to, refine the prompt, and weigh the cited evidence.",
+          "attaches_to": [],
+          "evidence": [
+            {
+              "reference": "DOI:10.21203/rs.3.rs-9815412/v1",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "This systematic review synthesised experimental evidence published between 2005 and 2026 to evaluate microbial co-inoculation strategies against conifer root rot and damping-off, characterise host transcriptomic defence responses, and identify knowledge gaps limiting translational application.",
+              "explanation": "Gap-signal sentence (explicit_gap) from the cited abstract."
+            },
+            {
+              "reference": "PMID:40776541",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "This review emphasizes the functional roles of the ginseng rhizosphere microbiome and highlights knowledge gaps in leveraging microbial interactions for sustainable cultivation.",
+              "explanation": "Gap-signal sentence (explicit_gap) from the cited abstract."
+            },
+            {
+              "reference": "PMID:42028995",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Importance The accumulation of coal gangue poses significant environmental challenges, necessitating the development of eco-friendly utilization strategies.",
+              "explanation": "Gap-signal sentence (limitations_barriers) from the cited abstract."
+            },
+            {
+              "reference": "PMID:42197634",
+              "supports": "NO_EVIDENCE",
+              "evidence_source": "abstract",
+              "snippet": "Global population growth poses major challenges to agricultural systems, demanding more efficient strategies to secure food production.",
+              "explanation": "Gap-signal sentence (limitations_barriers) from the cited abstract."
+            }
+          ],
+          "posed_by": "kg-microbe-kgscan"
+        }
+      ]
+    }
+  ]
+}

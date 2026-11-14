@@ -1,0 +1,31 @@
+{
+  "name": "AssayMech",
+  "repository": "CultureBotAI/AssayMech",
+  "default_branch": "main",
+  "revision": "f7d2d79aa00b6e47816f2f7dea8b418ec084b91e",
+  "acquired_at": "2026-11-14T02:56:22.664754+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "No shared knowledge-gap scanner adapter has been adopted."
+  },
+  "record_globs": [
+    "data/assays/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/assaymech/schema/assaymech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": false,
+      "sha256": "6c460886731a10e803c2143a04930d9c3791b722f083d243395a918dbf8f3d85"
+    },
+    "src/assaymech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "not performed",
+  "discussion_samples": []
+}

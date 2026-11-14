@@ -1,0 +1,31 @@
+{
+  "name": "CofactorMech",
+  "repository": "CultureBotAI/CofactorMech",
+  "default_branch": "main",
+  "revision": "89a8ca3b37b4cd3607fdbb0b74b7b73c5c539fee",
+  "acquired_at": "2026-11-14T02:56:20.380592+00:00",
+  "knowledge_gap_scan": {
+    "status": "disabled",
+    "reason": "No shared knowledge-gap scanner adapter has been adopted."
+  },
+  "record_globs": [
+    "data/cofactors/*.yaml"
+  ],
+  "configs": {},
+  "schema_evidence": {
+    "src/cofactormech/schema/cofactormech.yaml": {
+      "discussion_type": false,
+      "discussion_slot": false,
+      "sha256": "0714d6d23acda08f70e4292799be5ec65946c92fc1ca786dc4d89053e17f9ceb"
+    },
+    "src/cofactormech/schema/mech_shared.yaml": {
+      "discussion_type": true,
+      "discussion_slot": false,
+      "sha256": "c2e7054fd32635e380c698282bd886a9105861009b9f0474f02bb1b80865e895"
+    }
+  },
+  "committed_tree_complete": true,
+  "discussion_assets": [],
+  "sample_probe": "not performed",
+  "discussion_samples": []
+}
