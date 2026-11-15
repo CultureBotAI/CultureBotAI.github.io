@@ -56,6 +56,7 @@ def summarize(term_document, selected_ids):
             "recognized_terms": len(rows), "accepted_occurrences": sum(row["occurrences"] for row in rows),
             "top_30_terms": rows[:30],
             "top_50_terms": rows[:50],
+            "top_100_terms": rows[:100],
             "pair_universe": "Twenty most frequent terms in this selected discussion scope",
             "pair_universe_term_ids": list(rank),
             "top_20_pairs": [{"term_ids": list(pair), "labels": [labels[key] for key in pair],

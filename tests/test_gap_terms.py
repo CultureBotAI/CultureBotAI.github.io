@@ -219,6 +219,54 @@ class GapTermTests(unittest.TestCase):
         doc = build([item("d", "A model of conserved protein activity uses a substrate; hexamine removal.")], entries)
         self.assertEqual(doc["summary"]["accepted_occurrences"], 4)
 
+    def test_followup_protein_and_source_homonyms_keep_valid_descriptions_and_ids(self):
+        # #597: the final seeded/default-cloud audit uses these exact contexts.
+        entries = [native_entity("EC:3.5.1.88", "peptide deformylase", ["PDF"]),
+                   native_entity("UniProtKB-KW:KW-0732", "Signal", ["Signal peptide"]),
+                   native_entity("PROSITE:PDOC00955", "Link"),
+                   native_entity("habitatmech:GOLD.5df162af13", "Modeled", mech="HabitatMech"),
+                   native_entity("ENVO:00000020", "lake", ["mere"], "HabitatMech")]
+        doc = build([item("d", "author-PDF Methods; Nile Red signal; part_of link; modeled as a graph node; "
+                               "Mere possession. peptide deformylase; Signal peptide; PROSITE:PDOC00955; "
+                               "habitatmech:GOLD.5df162af13; lake")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 5)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 5)
+
+    def test_top_hundred_generic_habitat_aliases_and_placeholders_are_scoped(self):
+        # #597 top100 extension; full names and explicit identifiers survive.
+        entries = [native_entity("ENVO:00000040", "waterfall", ["cascade", "force"], "HabitatMech"),
+                   native_entity("ENVO:00002144", "cave wall", ["Wall"], "HabitatMech"),
+                   native_entity("UBERON:0002183", "lobar bronchus", ["Secondary"], "HabitatMech"),
+                   native_entity("ENVO:00000064", "road", ["drive", "drove"], "HabitatMech"),
+                   native_entity("IDPO:0000006", "order"),
+                   native_entity("NCBITaxon:32644", "unidentified", ["collection"], "TaxonMech")]
+        prose = ("cascade stages; mechanical force; cell wall; secondary plastids; MAGs drive flux; "
+                 "analysis order; collection provenance; unidentified protein. ")
+        doc = build([item("d", prose + "waterfall; cave wall; lobar bronchus; road; IDPO:0000006; NCBITaxon:32644")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 6)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 8)
+
+    def test_top_hundred_protein_symbols_do_not_resolve_incompatible_source_senses(self):
+        # #597: source-checked chemical, defense-system and unresolved-profile
+        # contexts do not establish these particular protein families/activities.
+        entries = [native_entity("SCOP:46726", "Paired protein"),
+                   native_entity("Pfam:PF12361", "Duffy-antigen binding protein", ["DBP"]),
+                   native_entity("NCBIfam:NF045600", "sterol transporter cytoplasmic membrane protein BstA", ["BstA"]),
+                   native_entity("EC:1.14.13.8", "flavin-containing monooxygenase", ["FMO"])]
+        prose = "taxon-paired protein accessions; 2,4-DBP removal; BstA phage defense; unresolved Lamassu FMO. "
+        doc = build([item("d", prose + "SCOP:46726; Duffy-antigen binding protein; "
+                               "sterol transporter cytoplasmic membrane protein BstA; flavin-containing monooxygenase")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 4)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 4)
+
+    def test_organism_associations_do_not_identify_physical_molecular_complexes(self):
+        # #597: conservative loss of valid bare pulldown mentions is explicit.
+        doc = build([item("d", "persistent parasitism association; pulldown association; MI:0914")],
+                    [native_entity("MI:0914", "association")])
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 1)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 2)
+        self.assertEqual(doc["terms"][0]["postings"][0]["mentions"][0]["text"], "MI:0914")
+
     def test_chemical_punctuation_is_not_erased(self):
         doc = build([item("d", "iron(II) iron(III) iron-II")],
                     [entity("two", "iron(II)"), entity("three", "iron(III)")])
