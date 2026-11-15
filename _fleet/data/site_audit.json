@@ -2,7 +2,7 @@
  "checked_at_utc": "2026-11-11T20:32:29+00:00",
  "local_date": "2026-11-11",
  "pinned_at_utc": "2026-11-11T19:59:40+00:00",
- "scope": "Retained public corpus figures, source pins, overlap assets and historical repository statistics keep their original corpus observation at 2026-11-11T20:32:29+00:00 and pin-time bound 2026-11-11T19:59:40+00:00. Public fleet membership was checked separately at 2026-11-15T23:14:07+00:00 against CLAW aed62751030672300f3ee4394c37357c435b0d00. This membership-only refresh does not recount corpora, recheck live sites or refresh historical PR totals. Website feature verdicts retain their separately recorded dates and browser-review scope. The pinned kg-microbe comparison remains outside Mech statistics.",
+ "scope": "Retained public corpus figures, source pins, overlap assets and historical repository statistics keep their original corpus observation at 2026-11-11T20:32:29+00:00 and pin-time bound 2026-11-11T19:59:40+00:00. Public fleet membership was checked separately at 2026-11-15T23:21:32+00:00 against CLAW 55bdb723259ff65b12f252a00739d238ca82c7a1. This membership-only refresh does not recount corpora, recheck live sites or refresh historical PR totals. Website feature verdicts retain their separately recorded dates and browser-review scope. The pinned kg-microbe comparison remains outside Mech statistics.",
  "repositories": [
   {
    "repo": "AIMech",
@@ -101,10 +101,10 @@
   },
   {
    "repo": "culturebotai-claw",
-   "sha": "aed62751030672300f3ee4394c37357c435b0d00",
-   "commit_date": "2026-11-15T15:12:50-08:00",
-   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/aed62751030672300f3ee4394c37357c435b0d00/README.md",
-   "notes": "Membership-only refresh at aed62751030672300f3ee4394c37357c435b0d00. The canonical public projection declares 17 members and 26 applicable governed artifacts. Corpus pins, numeric cards, historical repository statistics and dated website-feature reviews are retained unchanged, including the admitted CofactorMech and AssayMech corpora and browser reviews. Capability declarations report CLAW's contract state; they do not rejudge the published websites."
+   "sha": "55bdb723259ff65b12f252a00739d238ca82c7a1",
+   "commit_date": "2026-11-15T15:19:47-08:00",
+   "readme_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/55bdb723259ff65b12f252a00739d238ca82c7a1/README.md",
+   "notes": "Membership-only refresh at 55bdb723259ff65b12f252a00739d238ca82c7a1. The canonical public projection declares 17 members and 26 applicable governed artifacts. Corpus pins, numeric cards, historical repository statistics and dated website-feature reviews are retained unchanged, including the admitted CofactorMech and AssayMech corpora and browser reviews. Capability declarations report CLAW's contract state; they do not rejudge the published websites."
   },
   {
    "repo": "CultureMech",
@@ -227,5 +227,5 @@
    "notes": "1,130 data/traits records at the pin: 427 REVIEWED, 615 PROPOSED, 50 DEPRECATED and 38 SEEDED. The README and corpus contain 769 records with causal graphs. The pinned page shows 10 populated categories and 100.0% embedded (1,130 of 1,130). The live index.html is byte-identical to pages/index.html at the pin."
   }
  ],
- "membership_checked_at_utc": "2026-11-15T23:14:07+00:00"
+ "membership_checked_at_utc": "2026-11-15T23:21:32+00:00"
 }

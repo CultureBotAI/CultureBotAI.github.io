@@ -31,6 +31,10 @@ CASES = (
      "tests/test_membership_audit.py::MembershipAuditTests::test_public_projection_precedes_retained_audit_and_note_serialization"),
     ("audit_time", "scripts/fleet/membership_audit.py", '    if observed < timestamp(rows[0]["commit_date"]):', "    if False:",
      "tests/test_membership_audit.py::MembershipAuditTests::test_observation_before_new_claw_commit_is_refused"),
+    ("infrastructure_scope_evidence", "scripts/adhoc/refresh_public_membership_1254.py",
+     '    infrastructure = read("_fleet/infrastructure.json")',
+     '    infrastructure = read("_fleet/infrastructure.json")\n    for member in infrastructure["members"].values():\n        member["evidence_url"] = snapshot["source"]["url"]',
+     "tests/test_membership_refresh.py::MembershipRefreshTests::test_new_membership_pin_retains_historical_infrastructure_evidence"),
 )
 
 

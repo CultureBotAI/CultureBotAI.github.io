@@ -59,7 +59,7 @@
 The site lists sixteen corpus Mechs and separate infrastructure members.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
 and the November 15, 2026 membership-only update pins CLAW at
-`aed62751030672300f3ee4394c37357c435b0d00`: the canonical snapshot declares
+`55bdb723259ff65b12f252a00739d238ca82c7a1`: the canonical snapshot declares
 17 public members (all sixteen corpus Mechs plus EdgeMech infrastructure), 26 governed
 artifacts and 29 capabilities, including record-review declarations and the
 `evidence_reference_validation` contract (enabled for MediaIngredientMech,
@@ -95,8 +95,10 @@ continues to detect later upstream drift independently.
 
 Membership-only updates record `membership_checked_at_utc` and project retained
 audit rows and notes through the new public membership. Corpus observation dates
-and scientific statistics remain unchanged. The retained helper
-`scripts/adhoc/refresh_public_membership_1254.py` stages and validates the five
+and scientific statistics remain unchanged. Infrastructure scope checks retain
+their historical evidence links and dates; the membership pin does not recheck
+those claims (#604). The retained helper
+`scripts/adhoc/refresh_public_membership_1254.py` stages and validates the four
 generated artifacts, then promotes them under a repository lease only with
 `--apply`; its default is a dry run.
 
