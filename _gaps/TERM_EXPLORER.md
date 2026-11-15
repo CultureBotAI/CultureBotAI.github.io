@@ -1,6 +1,6 @@
 # Mech terms in knowledge-gap discussions
 
-Implementation started 2026-11-15. Extends the published knowledge-gap browser with entity-linked occurrence frequencies and within-discussion co-occurrence. Native scientific records and the acquired discussion snapshot remain authoritative and unchanged.
+Implemented for PR #589 on 2026-11-15. Extends the published knowledge-gap browser with entity-linked occurrence frequencies and within-discussion co-occurrence. Native scientific records and the acquired discussion snapshot remain authoritative and unchanged. Publication awaits this PR's merge approval.
 
 ## Implementation plan
 
@@ -21,6 +21,10 @@ Implementation started 2026-11-15. Extends the published knowledge-gap browser w
 
 ## Ownership and review evidence
 
-Vocabulary acquisition, recognition and frontend implementation are delegated separately. The integration owner maintains the builder, CI, generated assets and release notes. Tests, source counts, vocabulary/matching policy and browser evidence will be recorded here as implementation completes.
+Vocabulary acquisition, recognition and frontend implementation had separate owners. The integration owner maintained the builder, CI, generated assets and release notes. The review ledger and retained receipts record source counts, matching policy, independent reviews and validation.
 
 The full-data review extends the pilot with source-definition checks for the most visible terms. Recognition policy version 2 rejects unqualified numeric forms, preserves the case of compact gene-like symbols, and records source-specific exclusions for demonstrated misleading aliases or underspecified labels. Rejected surfaces block fallback to competing concepts. These choices trade some recall for fewer false links; they do not establish a measured overall precision rate or complete contextual disambiguation. The [review ledger](reviews/terms-implementation-review.md) links every finding and the retained baseline.
+
+The completed vocabulary contains 42,125 retained source entries from 1,086,677 inspected native records. Canonical-owner closure restores fifty otherwise missing owners, with all permitted roots complete and the existing AIMech hold preserved. The final recognition asset records 14,851 accepted occurrences of 2,625 entities in 3,217 of 3,830 discussions. The initial active-gap view contains 4,584 occurrences of 888 entities in 1,086 of 1,187 discussions. Its gzip size is 1,664,783 bytes, below the 2 MiB budget. The initial cloud's fifty entities fall within the bounded top-100 precision review; complete hashes, span checks and exact counts are retained in [the final diagnostic](reviews/terms-full.json).
+
+Validation passed 340 Python tests, 26 JavaScript tests, exact asset reproduction and the production Jekyll build. Actual rendered checks at 1280 and 390 pixels passed both term and original-browser canaries before expanded runs, including exact exports, term/pair membership, independent selectors, history, keyboard/mobile navigation, no-JavaScript fallback and injected load failures. No page errors or horizontal overflow were observed. Publication and merged-branch cleanup remain contingent on approval for PR #589.

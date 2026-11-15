@@ -42,3 +42,13 @@ The next read-only pass inspected asset `terms.edac2fd67bc20f85.json`, its defau
 The last sense check restricted bare `association` for MI:0914: organism-level parasitism and comparative associations do not establish that term's physical molecular complexes. Explicit IDs remain usable; this also omits some compatible bare pulldown-association mentions, an acknowledged recall cost.
 
 The follow-up candidate counts above precede the final #597 rebuild. They are evidence of the reviewed state, not final release totals. The audit helper now retains the top one hundred terms for repeatable inspection. No native scientific record or acquired vocabulary changed during these precision fixes.
+
+## Final audit receipt
+
+The final bounded check reviewed committed bundle `8b9f0df7b49290f90b55902b47ab066f89b940ae`, asset `assets/gaps/data/terms.b7561188bbceae4d.json`, SHA-256 `b7561188bbceae4df9cd9d47f7da93bbd3df1898d5a58655b8a15077105ef38d`. The manifest names that exact hash. Its recognition build ID is `a3405d78ed4c53350bb563d8234aedd9181867315e665fcc127b35e74582b6be`.
+
+Final totals are **2,625 entities / 14,851 occurrences in 3,217 discussions**. The initial active-gap view contains **888 entities / 4,584 occurrences in 1,086 of 1,187 eligible discussions**. The diagnostic confirms all asset hashes, snapshot bindings, posting counts and original-text codepoint spans. It reports 7,644 ambiguous occurrences, 3,149 case rejections and 3,876 scoped-policy rejections, with zero Unicode-boundary rejects in this corpus.
+
+The actual final asset contains no accepted occurrences of the sixteen source concepts restricted by #597 and no numeric-only accepted forms. None of those sixteen has a surviving explicit-ID or descriptive-name occurrence in this particular snapshot; the 34 passing focused tests separately verify that such valid positive inputs remain recognized. This distinction avoids mistaking absence in this corpus for removal of their vocabulary records.
+
+All fifty entities in the final default cloud are within the previously reviewed top-one-hundred set; none entered from outside that bounded review. NAD and pyridoxal phosphate each retain both CofactorMech and MediaIngredientMech ownership. No unresolved finding remained in this targeted verification. The dictionary-method limitations above still apply; this receipt does not claim exhaustive scientific sense validation beyond the reviewed scope. Only this note was appended after the read-only check; matcher, vocabulary and generated assets were unchanged.

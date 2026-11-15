@@ -1,0 +1,72 @@
+{
+  "complete": true,
+  "started_at": "2026-11-15T09:23:23.004228+00:00",
+  "canary": true,
+  "provenance": {
+    "method": "Actual supplied Jekyll build, served locally",
+    "site": ".temp/gap-terms-20261115/ci-preview-43698871510",
+    "page_sha256": "cef0e42c52ad04ce39f29aaf51a3ad0159187b632741ea3cea3f5b63b0dde2a2",
+    "ui_sha256": {
+      "browser.js": "667f70dbbfb3a52d83390064628fc4c585943febb35f70a86f2ae189acf4fb9f",
+      "search-core.js": "531d05e884cc7f0631c05deb3f98c62b8bb45d6f82eae3d8be552884e2016bc3",
+      "search-worker.js": "59823f8365f5ab2698049035928fef7a583cc5f2a8ad306cc1515018b9cc5951",
+      "browser.css": "a1fde5ee8e9bfb68b294f1bd96eb6548c700fab593fb0aaffda3561341b3c89d"
+    },
+    "main_css_sha256": "f861c07e386d770d235e0a7d5674e3b851103960f1b675d5ac614b01f881e02e",
+    "custom_css_sha256": "5efa39711927e49297d1a5bda4c6d4ec8b9c48b0daa89a29b7fa6ee6e75df616"
+  },
+  "build_id": "33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864",
+  "term_sha256": "b7561188bbceae4df9cd9d47f7da93bbd3df1898d5a58655b8a15077105ef38d",
+  "artifacts": ".temp/gap-terms-20261115/terms-browser-jekyll-canary-artifacts",
+  "browser_version": "157.0.8103.51",
+  "views": [
+    {
+      "width": 1280,
+      "initial_discussions": 1187,
+      "recognized_terms": 888,
+      "occurrences": 4584,
+      "nonzero_top20_pairs": 111,
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "term_json": {
+        "items": 156,
+        "bytes": 427030,
+        "sha256": "2e4c528945ba67bef5b5a67c3456c31dc1d0a3d14c397582776f584c99430ed6"
+      },
+      "pair_json": {
+        "items": 52,
+        "bytes": 129136,
+        "sha256": "41e9221aa08daea4dd192799bd2ee4a6afadb66ac5afe2b1ba01d7b7efba60d3"
+      },
+      "pair_csv": {
+        "items": 52,
+        "bytes": 67077,
+        "sha256": "fc435da049fc54897ce54c1e19a790b842ef542a56b10729d7cbb99b1f7e65c2"
+      },
+      "keyboard_history_cold_pair": true,
+      "individual_mech_discussions": 549,
+      "vocabulary_json": {
+        "items": 1,
+        "bytes": 30907,
+        "sha256": "1963b84ec06a481d5507e1c51b9f8cbd44b6dc2fbd9661e3702ba56f49c15cb1"
+      },
+      "independent_source_and_vocabulary": true,
+      "unsupported_source_empty_scope": true,
+      "all_discussions_scope": 3830,
+      "candidate_scope": 8,
+      "literal_empty_query": true,
+      "dark_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "page_errors": []
+    }
+  ],
+  "finished_at": "2026-11-15T09:23:31.981951+00:00"
+}
