@@ -10,7 +10,7 @@
   var pending = new Map(), shards = new Map(), lastTotal = 0, exporting = false, lastDetailButton = null;
   var termsReady = false, termsLoading = false, termsVersion = 0, termInfo = new Map(), termRecognition = null;
   var sectionIDs = ['gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-results-title', 'gap-static-title', 'bibliography'];
-  var pendingSection = location.hash;
+  var pendingSection = location.hash, pendingSectionTarget = null;
   function node(tag, content, className) {
     var el = document.createElement(tag);
     if (content != null) el.textContent = String(content);
@@ -56,17 +56,19 @@
     if (!sectionIDs.includes(id)) { pendingSection = ''; return; }
     var target = document.getElementById(id);
     if (!target || target.closest('[hidden]')) return;
-    // These sections move down when the asynchronously loaded cloud appears.
-    if (termsLoading && ['gap-pairs-title', 'gap-results-title'].includes(id)) return;
+    // Do not restore an async anchor after the reader has moved focus elsewhere.
+    if (pendingSectionTarget && document.activeElement !== pendingSectionTarget) { pendingSection = ''; pendingSectionTarget = null; return; }
     if (id === 'gap-static-title') target.parentElement.open = true;
     sectionOffset();
     target.focus({preventScroll: true}); target.scrollIntoView({block: 'start'});
-    pendingSection = '';
+    // Show the loading heading now, then keep it in view when the cloud arrives.
+    if (termsLoading && ['gap-pairs-title', 'gap-results-title'].includes(id)) pendingSectionTarget = target;
+    else { pendingSection = ''; pendingSectionTarget = null; }
   }
   function jumpToSection(id) {
     var url = new URL(location.href); url.hash = id;
     if (url.href !== location.href) history.pushState(null, '', url);
-    pendingSection = url.hash; navigatePendingSection();
+    pendingSection = url.hash; pendingSectionTarget = null; navigatePendingSection();
   }
   function resetStats(message) {
     $('stats-grid').hidden = true; $('stats-grid').replaceChildren();
@@ -96,7 +98,7 @@
         closeDetail(false, false);
         state = core.normalize({mech: name, status: ''}); syncControls();
         var url = stateURL(state); url.hash = 'gap-results-title';
-        history.pushState(null, '', url); pendingSection = url.hash; query(false);
+        history.pushState(null, '', url); pendingSection = url.hash; pendingSectionTarget = null; query(false);
       });
       fragment.append(button);
     }
@@ -550,7 +552,7 @@
     var next = readState();
     // A section-only history entry does not need to rebuild the search view.
     if (Object.keys(core.defaults).every(function (key) { return next[key] === state[key]; })) return;
-    state = next; pendingSection = location.hash; syncControls(); query(false);
+    state = next; pendingSection = location.hash; pendingSectionTarget = null; syncControls(); query(false);
     if (state.gap) openDetail(state.gap, false, false); else closeDetail(false, false);
   });
   app.querySelectorAll('.gap-section-nav a').forEach(function (anchor) {
@@ -559,7 +561,13 @@
       event.preventDefault(); jumpToSection(anchor.hash.slice(1));
     });
   });
-  window.addEventListener('hashchange', function () { pendingSection = location.hash; navigatePendingSection(); });
+  window.addEventListener('hashchange', function () { pendingSection = location.hash; pendingSectionTarget = null; navigatePendingSection(); });
+  function cancelSectionRestore() { pendingSection = ''; pendingSectionTarget = null; }
+  window.addEventListener('wheel', cancelSectionRestore, {passive: true});
+  window.addEventListener('touchmove', cancelSectionRestore, {passive: true});
+  window.addEventListener('keydown', function (event) {
+    if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) cancelSectionRestore();
+  });
   window.addEventListener('resize', sectionOffset);
   var siteHeader = document.querySelector('.site-header');
   if (siteHeader && window.ResizeObserver) new ResizeObserver(sectionOffset).observe(siteHeader);
