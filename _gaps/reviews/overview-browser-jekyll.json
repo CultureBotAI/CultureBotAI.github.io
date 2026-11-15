@@ -1,0 +1,422 @@
+{
+  "checked_at": "2026-11-15T23:03:13.810589+00:00",
+  "provenance": {
+    "method": "Actual supplied Jekyll build, served locally",
+    "site": ".temp/gap-overview-20261115/ci-preview-43772444593",
+    "page_sha256": "adedcba311da0257fc400ab0706b73609644b109f55b11556f07a634e20356b0",
+    "ui_sha256": {
+      "browser.js": "89f6adafd5408e51059397677dd2229ece6864809a2ae87c6685f42c70a49c91",
+      "search-core.js": "44a0351a5c9179a1da266274f338154da2aa5076767cdc352cdb4f59b50f1832",
+      "search-worker.js": "5fab03ecef456e1a579382b1d1540bda91f1deefd4f79ee540a32e69e1e84deb",
+      "browser.css": "6ee3620cd984141acf361d0ee0559cf5b32c5008f2298eea2a9d2d441f17aadb"
+    },
+    "main_css_sha256": "f861c07e386d770d235e0a7d5674e3b851103960f1b675d5ac614b01f881e02e",
+    "custom_css_sha256": "5efa39711927e49297d1a5bda4c6d4ec8b9c48b0daa89a29b7fa6ee6e75df616"
+  },
+  "build_id": "33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864",
+  "manifest_sha256": "80fe4f4b78a6ba4fc4ff4a40a3f3ee738cbd280a5caaf289575de3fd7f393747",
+  "reference_platform": "macOS-26.7.3-arm64-arm-64bit-Mach-O",
+  "screenshots": ".temp/knowledge-gaps-20261114/browser-artifacts/overview-browser-jekyll",
+  "complete": true,
+  "views": [
+    {
+      "width": 1280,
+      "initial_status": "1,187 matching discussions in 1,094 records. Showing 1\u201350.",
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "light_text_contrast": {
+        "scope": "Sampled control/note/card/link/badge text on nearest opaque backgrounds; not a full accessibility audit",
+        "pairs": [
+          {
+            "selector": "#gap-controls .gap-note",
+            "ratio": 5.517659999178898,
+            "foreground": [
+              90,
+              99,
+              94
+            ],
+            "background": [
+              237,
+              243,
+              238
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-record",
+            "ratio": 6.210999446270039,
+            "foreground": [
+              90,
+              99,
+              94
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-results a",
+            "ratio": 15.938339559896328,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-query",
+            "ratio": 15.938339559896328,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-badge",
+            "ratio": 14.15912839853553,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              237,
+              243,
+              238
+            ]
+          }
+        ]
+      },
+      "enter_creates_one_history_entry": true,
+      "detail_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "cold_query_and_gap_url": true,
+      "split_detail_shard": {
+        "key": "CellStructureMech-0002",
+        "item": "gap-80be272c1de7256cd21d62044c8478fd1fa7017dff71d9cd6d8c6b02b0f90b59",
+        "loaded": true
+      },
+      "literal_query_and_empty_state": true,
+      "candidate_count": 8,
+      "page_url_restored": "view=all&status=&page=2",
+      "export_json": {
+        "items": 3830,
+        "bytes": 9119862
+      },
+      "export_csv": {
+        "items": 3830,
+        "bytes": 6472148
+      },
+      "back_restores_filters": true,
+      "theme_persists": true,
+      "dark_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "dark_text_contrast": {
+        "scope": "Sampled control/note/card/link/badge text on nearest opaque backgrounds; not a full accessibility audit",
+        "pairs": [
+          {
+            "selector": "#gap-controls .gap-note",
+            "ratio": 7.683442508843157,
+            "foreground": [
+              160,
+              178,
+              168
+            ],
+            "background": [
+              23,
+              29,
+              26
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-record",
+            "ratio": 7.433995769147085,
+            "foreground": [
+              160,
+              178,
+              168
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-results a",
+            "ratio": 14.192125937125033,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-query",
+            "ratio": 14.192125937125033,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-badge",
+            "ratio": 14.66834083612518,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              23,
+              29,
+              26
+            ]
+          }
+        ]
+      },
+      "page_errors": []
+    },
+    {
+      "width": 390,
+      "initial_status": "1,187 matching discussions in 1,094 records. Showing 1\u201350.",
+      "layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "main": 1
+      },
+      "light_text_contrast": {
+        "scope": "Sampled control/note/card/link/badge text on nearest opaque backgrounds; not a full accessibility audit",
+        "pairs": [
+          {
+            "selector": "#gap-controls .gap-note",
+            "ratio": 5.517659999178898,
+            "foreground": [
+              90,
+              99,
+              94
+            ],
+            "background": [
+              237,
+              243,
+              238
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-record",
+            "ratio": 6.210999446270039,
+            "foreground": [
+              90,
+              99,
+              94
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-results a",
+            "ratio": 15.938339559896328,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-query",
+            "ratio": 15.938339559896328,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-badge",
+            "ratio": 14.15912839853553,
+            "foreground": [
+              30,
+              35,
+              33
+            ],
+            "background": [
+              237,
+              243,
+              238
+            ]
+          }
+        ]
+      },
+      "enter_creates_one_history_entry": true,
+      "detail_layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "main": 1
+      },
+      "cold_query_and_gap_url": true,
+      "split_detail_shard": {
+        "key": "CellStructureMech-0002",
+        "item": "gap-80be272c1de7256cd21d62044c8478fd1fa7017dff71d9cd6d8c6b02b0f90b59",
+        "loaded": true
+      },
+      "literal_query_and_empty_state": true,
+      "candidate_count": 8,
+      "page_url_restored": "view=all&status=&page=2",
+      "export_json": {
+        "items": 3830,
+        "bytes": 9119862
+      },
+      "export_csv": {
+        "items": 3830,
+        "bytes": 6472148
+      },
+      "back_restores_filters": true,
+      "theme_persists": true,
+      "dark_layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "main": 1
+      },
+      "dark_text_contrast": {
+        "scope": "Sampled control/note/card/link/badge text on nearest opaque backgrounds; not a full accessibility audit",
+        "pairs": [
+          {
+            "selector": "#gap-controls .gap-note",
+            "ratio": 7.683442508843157,
+            "foreground": [
+              160,
+              178,
+              168
+            ],
+            "background": [
+              23,
+              29,
+              26
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-record",
+            "ratio": 7.433995769147085,
+            "foreground": [
+              160,
+              178,
+              168
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-results a",
+            "ratio": 14.192125937125033,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-query",
+            "ratio": 14.192125937125033,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              26,
+              32,
+              29
+            ]
+          },
+          {
+            "selector": "#gap-results .gap-badge",
+            "ratio": 14.66834083612518,
+            "foreground": [
+              233,
+              239,
+              234
+            ],
+            "background": [
+              23,
+              29,
+              26
+            ]
+          }
+        ]
+      },
+      "page_errors": []
+    }
+  ],
+  "browser_version": "157.0.8103.51",
+  "failures": {
+    "index_failure_then_retry": true,
+    "detail_failure_clears_content_then_retry": true
+  },
+  "warm_query": {
+    "samples": 30,
+    "p95_ms": 7,
+    "max_ms": 7.0999999940395355,
+    "measurement": "worker query round-trip after 5 warmups; all indexed items",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+  },
+  "no_js_sources_and_summary": true
+}
