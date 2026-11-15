@@ -21,6 +21,7 @@ import urllib.parse
 import urllib.request
 
 import check_gap_browser_20261114 as qa
+import check_gap_terms_20261115 as term_qa
 
 ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY = 'CultureBotAI/CultureBotAI.github.io'
@@ -153,6 +154,8 @@ def main():
             raise ValueError('Unsupported manifest schema')
         report['build_id'], report['counts'] = manifest['build_id'], manifest['counts']
         descriptors = [('index', manifest['index'])] + [('detail:' + key, value) for key, value in sorted(manifest['details'].items())]
+        if 'terms' in manifest:
+            descriptors.append(('terms', manifest['terms']))
         paths = {}
         for label, descriptor in descriptors:
             path = descriptor_path(descriptor)
@@ -160,7 +163,7 @@ def main():
                 raise ValueError('Duplicate generated asset path')
             paths[path] = (label, descriptor['sha256'])
         paths.update({path: ('ui', None) for path in UI_PATHS})
-        index = None
+        index, term_document = None, None
         for path, (label, declared_hash) in paths.items():
             committed = committed_bytes(expected, path, local_commit)
             if declared_hash and digest(committed) != declared_hash:
@@ -174,6 +177,8 @@ def main():
                     raise ValueError('Asset build ID mismatch: ' + path)
                 if label == 'index':
                     index = document
+                elif label == 'terms':
+                    term_document = document
             persist(output / path, live)
             report['responses'][path] = response
             report['assets'][path] = {'kind': label, 'sha256': digest(live), 'matches_commit': True, 'bytes': len(live)}
@@ -188,6 +193,11 @@ def main():
                 report['browser_version'] = browser.version
                 for width in ([1280] if args.canary else [1280, 390]):
                     report['views'].append(qa.view_checks(browser, PAGE, manifest, index, width, output))
+                    if term_document is not None:
+                        recognition = {'asset': manifest['terms'], **{key: term_document[key] for key in
+                                       ('term_build_id', 'vocabulary_sha256', 'policy')}}
+                        report.setdefault('term_views', []).append(term_qa.view_checks(
+                            browser, PAGE, term_document['terms'], index['items'], width, output, recognition))
                     navigation = qa.navigation_check(browser, PAGE, index, width, output)
                     navigation['scope'] = 'Live production header route, mobile menu and populated detail; the live hub backlink was separately checked by HTTP.'
                     report['navigation'].append(navigation)

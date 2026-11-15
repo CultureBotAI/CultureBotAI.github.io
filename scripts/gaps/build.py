@@ -15,11 +15,21 @@ import tempfile
 
 from snapshot import (ROOT, ORDER, digest, is_withheld, json_bytes, load_exporter,
                       matches, publication_allowed, write_atomic)
+from terms import build_term_document
 
 INDEX_FIELDS = ("id", "mech", "record_id", "record_label", "aliases", "discussion_id",
                 "prompt", "rationale", "kind", "status", "origin", "review_state", "lane",
                 "evidence_refs", "attaches_to")
 MAX_DETAIL_GZIP = 500 * 1024
+MAX_TERMS_GZIP = 2 * 1024 * 1024
+
+
+def load_vocabulary(path, snapshot, config, *, pilot=False):
+    """Require the acquired vocabulary to obey this snapshot's source boundary."""
+    from vocabulary import validate_vocabulary
+    vocabulary = json.loads(path.read_text())
+    validate_vocabulary(vocabulary, snapshot, config, pilot=pilot)
+    return vocabulary
 
 
 def validate(snapshot, config, exporter, provenance, *, pilot=False):
@@ -151,7 +161,7 @@ def detail_parts(items, build_id):
     return detail_parts(items[:midpoint], build_id) + detail_parts(items[midpoint:], build_id)
 
 
-def artifacts(snapshot):
+def artifacts(snapshot, vocabulary=None):
     build_id = digest(json_bytes(snapshot))
     sources, items = snapshot["sources"], snapshot["items"]
     counts = {"items": len(items), "candidates": sum(i["lane"] == "candidate" for i in items),
@@ -187,6 +197,19 @@ def artifacts(snapshot):
                 "exporter": snapshot["exporter"], "source_config_sha256": snapshot["source_config_sha256"],
                 "sizes": {"index_bytes": len(index), "index_gzip_bytes": len(gzip.compress(index, mtime=0)),
                           "details": sizes}}
+    if vocabulary is not None:
+        term_document = build_term_document(snapshot, vocabulary)
+        if term_document.get("schema_version") != 1 or term_document.get("build_id") != build_id:
+            raise ValueError("Term recognition must identify the same gap snapshot")
+        term_bytes = json_bytes(term_document)
+        compressed = len(gzip.compress(term_bytes, mtime=0))
+        if compressed > MAX_TERMS_GZIP:
+            raise ValueError("Term projection exceeds 2 MiB compressed budget")
+        term_sha = digest(term_bytes)
+        term_path = f"data/terms.{term_sha[:16]}.json"
+        files[term_path] = term_bytes
+        manifest["terms"] = {"url": term_path, "sha256": term_sha}
+        manifest["sizes"].update(terms_bytes=len(term_bytes), terms_gzip_bytes=compressed)
     files["manifest.json"] = json_bytes(manifest)
     return files, summary_html(sources, counts), manifest
 
@@ -238,11 +261,13 @@ def main():
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--pilot", action="store_true")
     parser.add_argument("--toolchain", type=Path, default=ROOT / "_gaps/toolchain.json")
+    parser.add_argument("--vocabulary", type=Path, default=ROOT / "_gaps/term-vocabulary.json")
     args = parser.parse_args()
     snapshot, config = json.loads(args.snapshot.read_text()), json.loads(args.config.read_text())
     exporter, provenance = load_exporter(args.claw_root)
     validate(snapshot, config, exporter, provenance, pilot=args.pilot)
-    files, summary, manifest = artifacts(snapshot)
+    vocabulary = load_vocabulary(args.vocabulary, snapshot, config, pilot=args.pilot)
+    files, summary, manifest = artifacts(snapshot, vocabulary)
     if args.check:
         for path, content in files.items():
             if not (args.output / path).is_file() or (args.output / path).read_bytes() != content:

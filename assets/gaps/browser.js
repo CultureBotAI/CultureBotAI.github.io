@@ -8,6 +8,7 @@
   var manifestURL = new URL(app.dataset.manifest, location.href);
   var worker, manifest, state, ready = false, requestID = 0, loadVersion = 0, queryVersion = 0, detailVersion = 0;
   var pending = new Map(), shards = new Map(), lastTotal = 0, exporting = false, lastDetailButton = null;
+  var termsReady = false, termsLoading = false, termsVersion = 0, termInfo = new Map(), termRecognition = null;
   function node(tag, content, className) {
     var el = document.createElement(tag);
     if (content != null) el.textContent = String(content);
@@ -47,7 +48,7 @@
   function historyState(replace) { history[replace ? 'replaceState' : 'pushState'](null, '', stateURL(state)); }
   function syncControls() {
     $('query').value = state.q;
-    ['view', 'mech', 'kind', 'status', 'review', 'sort'].forEach(function (key) {
+    ['view', 'mech', 'kind', 'status', 'review', 'sort', 'vocab'].forEach(function (key) {
       var select = $(key);
       // An obsolete filter is never silently replaced with a broader search.
       Array.from(select.options).filter(function (o) { return o.dataset.unavailable; }).forEach(function (o) { o.remove(); });
@@ -80,6 +81,134 @@
     $('load-status').textContent = 'Search could not load: ' + message + ' The static source summary remains available below.';
     $('load-status').className = 'gap-error'; $('load-status').hidden = false; $('retry').hidden = false;
     exportButtons();
+  }
+  function termIdentity(term) {
+    if (term.canonical_id) return term.canonical_id;
+    return Array.from(new Set((term.entity_refs || []).map(function (ref) {
+      return ref.mech + ' / ' + ref.record_id;
+    }))).join(' · ');
+  }
+  function termLabel(term) { return term.label + (term.duplicateLabel && termIdentity(term) ? ' (' + termIdentity(term) + ')' : ''); }
+  function showTermSelection(selected) {
+    (selected || []).forEach(function (term) { termInfo.set(term.id, Object.assign({}, termInfo.get(term.id), term)); });
+    var ids = [state.term, state.term2].filter(Boolean);
+    $('term-selection').hidden = !ids.length;
+    $('term-selection-label').textContent = ids.length ? 'Showing discussions containing ' + ids.map(function (id) {
+      var term = termInfo.get(id);
+      if (!term) return 'selected entity (details require the entity index)';
+      if (term.unavailable) return id + ' (not in this entity index)';
+      return term.label + (term.canonical_id ? ' (' + term.canonical_id + ')' : '') +
+        (term.in_vocabulary === false ? ' (outside the selected vocabulary)' : '');
+    }).join(' AND ') + '. Other search filters still apply.' : '';
+    var sources = document.createDocumentFragment();
+    ids.forEach(function (id) {
+      var term = termInfo.get(id);
+      if (!term || !term.entity_refs || !term.entity_refs.length) return;
+      var p = node('p'); p.append(document.createTextNode(term.label + ' — entity vocabulary: '));
+      term.entity_refs.forEach(function (ref, i) {
+        if (i) p.append(document.createTextNode(' · '));
+        p.append(link(ref.mech + ' / ' + ref.record_id, ref.url));
+      }); sources.append(p);
+    });
+    $('term-sources').replaceChildren(sources);
+  }
+  function selectTerms(first, second) {
+    var next = core.normalize(Object.assign({}, state, {term: first || '', term2: second || '', page: 1, gap: ''}));
+    if (next.term === state.term && next.term2 === state.term2) { $('result-status').focus(); return; }
+    closeDetail(false, false); state = next; historyState(false); showTermSelection(); query(true);
+  }
+  function termButton(term, cloud) {
+    var button = node('button', termLabel(term), cloud ? 'gap-term-word' : '');
+    button.type = 'button'; button.dataset.term = term.id;
+    button.setAttribute('aria-pressed', String(state.term === term.id || state.term2 === term.id));
+    button.title = term.label + (termIdentity(term) ? ' (' + termIdentity(term) + ')' : '') + ': ' + number(term.occurrences) + ' occurrences in ' + number(term.discussions) + ' discussions';
+    button.setAttribute('aria-label', button.title + '. Show matching discussions');
+    if (cloud) button.append(node('span', number(term.occurrences), 'gap-term-count'));
+    button.addEventListener('click', function () { selectTerms(term.id, ''); });
+    return button;
+  }
+  function renderTerms(summary, selected) {
+    showTermSelection(selected);
+    if (!termsReady || !summary) return;
+    var labels = new Map();
+    summary.terms.forEach(function (term) { labels.set(term.label, (labels.get(term.label) || 0) + 1); });
+    summary.terms.forEach(function (term) { term.duplicateLabel = labels.get(term.label) > 1; termInfo.set(term.id, term); });
+    $('terms-status').className = '';
+    $('terms-status').textContent = summary.terms.length ? 'Entity occurrences loaded.' : 'No indexed entity mentions occur in this scope. This does not mean the discussions contain no entities.';
+    $('terms-count').textContent = number(summary.occurrences) + ' occurrences of ' + number(summary.terms.length) + ' entities from ' + (state.vocab || 'all Mech vocabularies') + ' in ' + number(summary.covered_discussions) + ' of ' + number(summary.scope_discussions) + ' discussions before entity selection.';
+    $('terms-content').hidden = !summary.terms.length;
+    var cloud = document.createDocumentFragment(), table = document.createDocumentFragment();
+    var max = summary.terms.length ? summary.terms[0].occurrences : 1;
+    summary.terms.forEach(function (term, index) {
+      if (index < 50) {
+        var word = termButton(term, true);
+        word.style.fontSize = Math.max(1, 2.8 * Math.sqrt(term.occurrences / max)).toFixed(3) + 'rem';
+        cloud.append(word);
+      }
+      var row = node('tr'), name = node('td'); name.append(termButton(term, false));
+      row.append(name, node('td', number(term.occurrences)), node('td', number(term.discussions))); table.append(row);
+    });
+    $('term-cloud').replaceChildren(cloud); $('term-ranking').replaceChildren(table);
+    var pairs = document.createDocumentFragment();
+    summary.pairs.forEach(function (pair) {
+      var row = node('tr'), names = node('td');
+      var button = node('button', termLabel(termInfo.get(pair.a)) + ' + ' + termLabel(termInfo.get(pair.b)));
+      button.type = 'button'; button.dataset.term = pair.a; button.dataset.term2 = pair.b;
+      button.setAttribute('aria-pressed', String([state.term, state.term2].includes(pair.a) && [state.term, state.term2].includes(pair.b)));
+      button.setAttribute('aria-label', termLabel(termInfo.get(pair.a)) + ' and ' + termLabel(termInfo.get(pair.b)) + ': ' + number(pair.discussions) + ' discussions containing both');
+      button.addEventListener('click', function () { selectTerms(pair.a, pair.b); });
+      names.append(button); row.append(names, node('td', number(pair.discussions))); pairs.append(row);
+    });
+    $('term-pairs').replaceChildren(pairs);
+    $('pairs-table').hidden = !summary.pairs.length; $('pairs-empty').hidden = Boolean(summary.pairs.length);
+  }
+  function termCoverage(reply) {
+    var sources = Array.isArray(reply.vocabulary_sources) ? reply.vocabulary_sources : [];
+    var fragment = document.createDocumentFragment();
+    fragment.append(node('p', number(sources.length) + ' entity vocabulary sources. Vocabulary coverage describes names available for matching; discussion extraction has its own coverage below.'));
+    var list = node('ul');
+    sources.forEach(function (source) {
+      var li = node('li'); li.append(node('strong', source.name + ' — ' + human(source.coverage_status)));
+      if (source.repository && source.revision) li.append(document.createTextNode(' · '), link('Pinned vocabulary source', 'https://github.com/' + source.repository + '/tree/' + source.revision));
+      var roots = node('ul');
+      (source.roots || []).forEach(function (root) {
+        var text = root.name + ': ' + human(root.status) + '; ' + number(root.inspected_records) + ' of ' + number(root.eligible_records) + ' eligible records inspected';
+        if (root.publication_allowed === false) text += '; publication held';
+        if (root.reason) text += '. ' + root.reason;
+        roots.append(node('li', text));
+      });
+      li.append(roots); list.append(li);
+    });
+    fragment.append(list);
+    if (reply.term_build_id) fragment.append(node('p', 'Entity index ' + reply.term_build_id, 'gap-note'));
+    $('term-coverage').replaceChildren(fragment);
+  }
+  async function loadTerms() {
+    if (!ready || termsLoading) return;
+    var version = ++termsVersion, snapshotVersion = loadVersion;
+    termsLoading = true; termsReady = false; termRecognition = null;
+    $('terms-content').hidden = true; $('terms-retry').hidden = true;
+    $('terms-status').className = ''; $('terms-status').textContent = 'Loading entity occurrences…';
+    $('term-coverage').textContent = 'Loading vocabulary coverage…';
+    if (state.term || state.term2) query(false);
+    try {
+      if (!manifest.terms || typeof manifest.terms.url !== 'string' || !/^[a-f0-9]{64}$/.test(manifest.terms.sha256)) throw new Error('This snapshot does not provide a valid entity occurrence index.');
+      var reply = await request('terms-init', {url: new URL(manifest.terms.url, manifestURL).href, sha256: manifest.terms.sha256, build_id: manifest.build_id});
+      if (version !== termsVersion || snapshotVersion !== loadVersion) return;
+      termsReady = true; termsLoading = false;
+      termRecognition = {asset: {url: manifest.terms.url, sha256: manifest.terms.sha256},
+        term_build_id: reply.term_build_id, vocabulary_sha256: reply.vocabulary_sha256, policy: reply.policy};
+      termCoverage(reply);
+      query(false);
+    } catch (error) {
+      if (version !== termsVersion || snapshotVersion !== loadVersion) return;
+      termsLoading = false;
+      $('terms-status').className = 'gap-error';
+      $('terms-status').textContent = 'Entity occurrences could not load: ' + error.message + ' Ordinary search remains available. Selected entity filters require this index.';
+      $('term-coverage').textContent = 'Vocabulary coverage is unavailable until the entity index loads successfully.';
+      $('terms-retry').hidden = false;
+      if (state.term || state.term2) query(false);
+    }
   }
   async function verifiedJSON(descriptor) {
     if (!descriptor || typeof descriptor.url !== 'string' || !/^[a-f0-9]{64}$/.test(descriptor.sha256)) throw new Error('Invalid snapshot asset descriptor.');
@@ -140,11 +269,17 @@
     var version = ++queryVersion; lastTotal = 0; exportButtons();
     $('results').replaceChildren(); $('pagination').hidden = true; $('result-status').textContent = 'Searching all indexed discussions…';
     $('view-note').textContent = state.view === 'gaps' ? 'Knowledge gaps shows KNOWLEDGE_GAP and HUMAN_MODEL_MISMATCH entries, excluding identified proposals awaiting review. Lifecycle and other filters also apply.' : state.view === 'candidates' ? 'Candidates are identified proposals requiring review, including those stored in native records. Their citations do not establish the proposed claim.' : 'All discussion kinds and both recorded and candidate entries are available. Lifecycle and other filters still apply.';
+    showTermSelection();
+    if ((state.term || state.term2) && !termsReady) {
+      $('result-status').textContent = termsLoading ? 'Loading entity occurrences before applying the selected entity filters…' : 'Selected entity filters could not be applied. Retry entity occurrences or clear the entity selection. No broader results are shown.';
+      if (focus) $('result-status').focus();
+      return;
+    }
     try {
       var reply = await request('query', {state: state});
       if (version !== queryVersion) return;
       var result = reply.result; state.page = result.page; historyState(true);
-      lastTotal = result.total; renderRows(result); exportButtons();
+      lastTotal = result.total; renderRows(result); renderTerms(result.term_summary, result.selected_terms); exportButtons();
       if (focus) $('result-status').focus();
     } catch (error) { if (version === queryVersion) fail(error.message); }
   }
@@ -244,14 +379,18 @@
   async function exportMatches(format) {
     if (!ready || exporting) return;
     exporting = true; exportButtons(); var snapshot = manifest, captured = Object.assign({}, state);
+    var recognition = termRecognition, recognitionVersion = termsVersion;
     $('export-status').textContent = 'Preparing all filtered results with full details…';
     try {
       var reply = await request('export', {state: captured});
       var keys = Array.from(new Set(reply.result.all.map(shardKey)));
       var details = new Map(await Promise.all(keys.map(async function (key) { return [key, await detailShard(key)]; })));
       if (snapshot !== manifest) throw new Error('The snapshot changed during export. Please retry.');
+      if (recognition !== termRecognition || recognitionVersion !== termsVersion) throw new Error('The entity index changed during export. Please retry.');
       var items = reply.result.all.map(function (row) { return getDetail(details.get(shardKey(row)), row.id); });
-      var content = format === 'csv' ? core.csv(items) : JSON.stringify({schema_version: 1, build_id: snapshot.build_id, filters: captured, sources: snapshot.sources, items: items}, null, 2);
+      var content = format === 'csv' ? core.csv(items) : JSON.stringify({schema_version: 1, build_id: snapshot.build_id,
+        filters: captured, sources: snapshot.sources, term_recognition: recognition,
+        selected_entities: reply.result.selected_terms, items: items}, null, 2);
       var blob = new Blob([content], {type: format === 'csv' ? 'text/csv;charset=utf-8' : 'application/json'});
       var url = URL.createObjectURL(blob), a = node('a'); a.href = url; a.download = 'mech-discussions.' + format; document.body.append(a); a.click(); a.remove();
       setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
@@ -261,6 +400,8 @@
   }
   async function load() {
     var version = ++loadVersion; ready = false; queryVersion++; detailVersion++; stopWorker(); shards.clear();
+    termsVersion++; termsReady = false; termsLoading = false; termRecognition = null; termInfo.clear();
+    $('terms-content').hidden = true; $('terms-retry').hidden = true;
     $('app').hidden = true; $('retry').hidden = true; $('load-status').hidden = false;
     $('load-status').className = ''; $('load-status').textContent = 'Loading the search index…';
     $('detail').hidden = true; $('detail-body').replaceChildren();
@@ -283,18 +424,18 @@
       if (version !== loadVersion) return;
       if (reply.total !== manifest.counts.items) throw new Error('The index count does not match the snapshot manifest.');
       var names = manifest.sources.map(function (source) { return source.name; }).sort();
-      [['mech', names, 1], ['kind', reply.facets.kind, 1], ['status', reply.facets.status, 2], ['review', reply.facets.review_state, 1]].forEach(function (entry) {
+      [['mech', names, 1], ['vocab', names, 1], ['kind', reply.facets.kind, 1], ['status', reply.facets.status, 2], ['review', reply.facets.review_state, 1]].forEach(function (entry) {
         var select = $(entry[0]); while (select.options.length > entry[2]) select.remove(entry[2]);
         entry[1].forEach(function (value) {
           var key = entry[0] === 'review' ? 'review_state' : entry[0];
-          var label = entry[0] === 'mech' ? value : human(value) + ' (' + number(reply.facet_counts[key][value]) + ')';
+          var label = ['mech', 'vocab'].includes(entry[0]) ? value : human(value) + ' (' + number(reply.facet_counts[key][value]) + ')';
           var option = node('option', label); option.value = value; select.append(option);
         });
       });
       state = readState(); syncControls(); coverage();
       $('snapshot').textContent = number(reply.total) + ' indexed discussions · ' + number(reply.candidates) + ' candidates awaiting review · ' + number(manifest.sources.length) + ' Mechs accounted for. Snapshot ' + manifest.build_id.slice(0, 12) + '. Inspect coverage for source dates and limitations.';
       ready = true; $('controls').disabled = false; $('app').hidden = false; $('load-status').hidden = true;
-      query(false); if (state.gap) openDetail(state.gap, false, false);
+      query(false); loadTerms(); if (state.gap) openDetail(state.gap, false, false);
     } catch (error) { if (version === loadVersion) fail(error.message); }
   }
   function changeFilters() {
@@ -316,11 +457,19 @@
     });
   });
   $('query').addEventListener('search', changeFilters);
+  $('vocab').addEventListener('change', function () {
+    if (!ready) return;
+    var next = core.normalize(Object.assign({}, state, {vocab: $('vocab').value, term: '', term2: '', page: 1, gap: ''}));
+    if (Object.keys(core.defaults).every(function (key) { return next[key] === state[key]; })) return;
+    closeDetail(false, false); state = next; historyState(false); query(false);
+  });
   $('reset').addEventListener('click', function () { closeDetail(false, false); state = core.normalize({}); syncControls(); historyState(false); query(false); $('query').focus(); });
   $('prev').addEventListener('click', function () { state.page--; historyState(false); query(true); });
   $('next').addEventListener('click', function () { state.page++; historyState(false); query(true); });
   $('close-detail').addEventListener('click', function () { closeDetail(true, true); });
   $('retry').addEventListener('click', load);
+  $('terms-retry').addEventListener('click', loadTerms);
+  $('terms-clear').addEventListener('click', function () { selectTerms('', ''); });
   $('export-json').addEventListener('click', function () { exportMatches('json'); });
   $('export-csv').addEventListener('click', function () { exportMatches('csv'); });
   window.addEventListener('popstate', function () {

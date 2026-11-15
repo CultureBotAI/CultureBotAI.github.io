@@ -1,0 +1,3891 @@
+{
+  "schema_version": 1,
+  "build_id": "33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864",
+  "term_build_id": "cc9a932883e39449f12147f9fcc964e1afb16c74068fb020894e928695394cf8",
+  "verified": {
+    "asset_hashes": true,
+    "snapshot_binding": true,
+    "all_posting_counts": true,
+    "all_unicode_codepoint_spans": true,
+    "metadata_excluded": true
+  },
+  "all_scope": {
+    "eligible_discussions": 3830,
+    "discussions_with_terms": 1058,
+    "recognized_terms": 534,
+    "accepted_occurrences": 3708,
+    "top_30_terms": [
+      {
+        "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+        "label": "phenotype",
+        "occurrences": 596,
+        "discussions": 351,
+        "canonical_id": "METPO:1000059",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "label": "enzyme",
+        "occurrences": 257,
+        "discussions": 194,
+        "canonical_id": "METPO:1000527",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+        "label": "Lamassu system",
+        "occurrences": 109,
+        "discussions": 16,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+        "label": "phage defense system",
+        "occurrences": 73,
+        "discussions": 73,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+        "label": "Fermentation",
+        "occurrences": 60,
+        "discussions": 40,
+        "canonical_id": "METPO:1002005",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+        "label": "motility",
+        "occurrences": 45,
+        "discussions": 32,
+        "canonical_id": "METPO:1000701",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+        "label": "mutualism",
+        "occurrences": 37,
+        "discussions": 34,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+        "label": "metabolism",
+        "occurrences": 35,
+        "discussions": 30,
+        "canonical_id": "METPO:1000060",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e",
+        "label": "autophagy",
+        "occurrences": 32,
+        "discussions": 15,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6",
+        "label": "motile",
+        "occurrences": 30,
+        "discussions": 22,
+        "canonical_id": "METPO:1000702",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+        "label": "observation",
+        "occurrences": 28,
+        "discussions": 27,
+        "canonical_id": "METPO:1001000",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+        "label": "quality",
+        "occurrences": 28,
+        "discussions": 18,
+        "canonical_id": "METPO:1000188",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+        "label": "mycelial growth",
+        "occurrences": 27,
+        "discussions": 15,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+        "label": "capsule",
+        "occurrences": 26,
+        "discussions": 13,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+        "label": "chemotaxis",
+        "occurrences": 26,
+        "discussions": 18,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+        "label": "phagotrophy",
+        "occurrences": 26,
+        "discussions": 13,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+        "label": "Syntrophy",
+        "occurrences": 25,
+        "discussions": 23,
+        "canonical_id": "METPO:1002006",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c",
+        "label": "phagocytosis",
+        "occurrences": 24,
+        "discussions": 12,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2",
+        "label": "homothallism",
+        "occurrences": 23,
+        "discussions": 10,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024",
+        "label": "hyphal anastomosis",
+        "occurrences": 22,
+        "discussions": 13,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-01c86e7cb0b9d1514e0e2690d0441aaef37eeede3d10bd4a5d2f60fc424032b3",
+        "label": "predatory bacterium",
+        "occurrences": 22,
+        "discussions": 11,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+        "label": "sporulation",
+        "occurrences": 22,
+        "discussions": 16,
+        "canonical_id": "METPO:1000870",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-fb0196a1105bfe8c857d375c55ab01dfdeac3521c7a0c19f3a660873c76e9f38",
+        "label": "exocytosis",
+        "occurrences": 20,
+        "discussions": 9,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444",
+        "label": "cell shape",
+        "occurrences": 19,
+        "discussions": 15,
+        "canonical_id": "METPO:1000666",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-ad085ce86ff747739e5750ce4c5915aa9dea66a74fbcb23fbb8af2564d06dff6",
+        "label": "parasitism",
+        "occurrences": 18,
+        "discussions": 10,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-41c006c017fc9019e77fd3b2dd3e0483e46082d59932a9b4ff919ea851e5502f",
+        "label": "DRT system",
+        "occurrences": 17,
+        "discussions": 10,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-8013f648e5385dcc3b7f758a2d929ff6d9c5e9bee571de1fdd1c1b9a588541c4",
+        "label": "biological process",
+        "occurrences": 16,
+        "discussions": 16,
+        "canonical_id": "METPO:1000630",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-6a97e581e853a4e5cc6f84ed10f4ddd412295050bb0f6486d7bdd823aa936583",
+        "label": "magnetosome",
+        "occurrences": 16,
+        "discussions": 9,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945",
+        "label": "Methanogenesis",
+        "occurrences": 16,
+        "discussions": 11,
+        "canonical_id": "METPO:1000844",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-14fd44335fa777a893ea97f660c4bad55475e730154a4a9e772eeaaece34bd64",
+        "label": "anaerobic",
+        "occurrences": 15,
+        "discussions": 14,
+        "canonical_id": "METPO:1000603",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      }
+    ],
+    "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+    "pair_universe_term_ids": [
+      "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+      "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+      "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+      "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+      "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+      "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+      "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e",
+      "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6",
+      "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+      "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+      "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+      "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+      "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+      "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+      "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+      "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c",
+      "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2",
+      "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024"
+    ],
+    "top_20_pairs": [
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874"
+        ],
+        "labels": [
+          "phenotype",
+          "enzyme"
+        ],
+        "discussions": 21
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+        ],
+        "labels": [
+          "phenotype",
+          "motility"
+        ],
+        "discussions": 18
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6"
+        ],
+        "labels": [
+          "phenotype",
+          "motile"
+        ],
+        "discussions": 15
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94"
+        ],
+        "labels": [
+          "phenotype",
+          "mycelial growth"
+        ],
+        "discussions": 15
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024"
+        ],
+        "labels": [
+          "phenotype",
+          "hyphal anastomosis"
+        ],
+        "discussions": 13
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e"
+        ],
+        "labels": [
+          "phenotype",
+          "autophagy"
+        ],
+        "discussions": 12
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b"
+        ],
+        "labels": [
+          "phenotype",
+          "phagotrophy"
+        ],
+        "discussions": 12
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202"
+        ],
+        "labels": [
+          "phenotype",
+          "quality"
+        ],
+        "discussions": 11
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c"
+        ],
+        "labels": [
+          "phenotype",
+          "phagocytosis"
+        ],
+        "discussions": 11
+      },
+      {
+        "term_ids": [
+          "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+          "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024"
+        ],
+        "labels": [
+          "mycelial growth",
+          "hyphal anastomosis"
+        ],
+        "discussions": 11
+      },
+      {
+        "term_ids": [
+          "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+          "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c"
+        ],
+        "labels": [
+          "phagotrophy",
+          "phagocytosis"
+        ],
+        "discussions": 11
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6"
+        ],
+        "labels": [
+          "enzyme",
+          "Lamassu system"
+        ],
+        "discussions": 9
+      },
+      {
+        "term_ids": [
+          "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+          "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6"
+        ],
+        "labels": [
+          "motility",
+          "motile"
+        ],
+        "discussions": 9
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086"
+        ],
+        "labels": [
+          "phenotype",
+          "chemotaxis"
+        ],
+        "discussions": 8
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9"
+        ],
+        "labels": [
+          "enzyme",
+          "Fermentation"
+        ],
+        "discussions": 8
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2"
+        ],
+        "labels": [
+          "phenotype",
+          "homothallism"
+        ],
+        "discussions": 7
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5"
+        ],
+        "labels": [
+          "phenotype",
+          "observation"
+        ],
+        "discussions": 6
+      },
+      {
+        "term_ids": [
+          "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+          "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7"
+        ],
+        "labels": [
+          "Fermentation",
+          "metabolism"
+        ],
+        "discussions": 6
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9"
+        ],
+        "labels": [
+          "phenotype",
+          "Fermentation"
+        ],
+        "discussions": 5
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a"
+        ],
+        "labels": [
+          "phenotype",
+          "mutualism"
+        ],
+        "discussions": 5
+      }
+    ]
+  },
+  "default_scope": {
+    "eligible_discussions": 1187,
+    "discussions_with_terms": 583,
+    "recognized_terms": 310,
+    "accepted_occurrences": 1684,
+    "top_30_terms": [
+      {
+        "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "label": "enzyme",
+        "occurrences": 150,
+        "discussions": 104,
+        "canonical_id": "METPO:1000527",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+        "label": "Lamassu system",
+        "occurrences": 109,
+        "discussions": 16,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+        "label": "phenotype",
+        "occurrences": 102,
+        "discussions": 97,
+        "canonical_id": "METPO:1000059",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+        "label": "phage defense system",
+        "occurrences": 72,
+        "discussions": 72,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+        "label": "Fermentation",
+        "occurrences": 41,
+        "discussions": 29,
+        "canonical_id": "METPO:1002005",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+        "label": "mutualism",
+        "occurrences": 32,
+        "discussions": 31,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+        "label": "Syntrophy",
+        "occurrences": 24,
+        "discussions": 22,
+        "canonical_id": "METPO:1002006",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+        "label": "metabolism",
+        "occurrences": 20,
+        "discussions": 16,
+        "canonical_id": "METPO:1000060",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+        "label": "observation",
+        "occurrences": 19,
+        "discussions": 19,
+        "canonical_id": "METPO:1001000",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-41c006c017fc9019e77fd3b2dd3e0483e46082d59932a9b4ff919ea851e5502f",
+        "label": "DRT system",
+        "occurrences": 17,
+        "discussions": 10,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+        "label": "motility",
+        "occurrences": 16,
+        "discussions": 13,
+        "canonical_id": "METPO:1000701",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-b0fbb13c970e196e94a164edb6a53ace3e75762f59b2a314ff5ed4f684322687",
+        "label": "DS-27 system",
+        "occurrences": 11,
+        "discussions": 3,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-c89268ffa17408c28ec0075ef93818ed9650beb2001b0849e4a61453767b90df",
+        "label": "prophage",
+        "occurrences": 11,
+        "discussions": 8,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-cab20ac55b8be119f3b079694ae6a89e0da8a833a4d1620a938a29b80870440c",
+        "label": "Hma system",
+        "occurrences": 10,
+        "discussions": 8,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-37c2cfbc5ca66ec71cb3971be998ca3ba2f19874f2e26796559c9e8028f3541c",
+        "label": "commensalism",
+        "occurrences": 9,
+        "discussions": 8,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-87b4252cf556ab8ed25442a49bf638dce400983ce901c773b960c544ec66220b",
+        "label": "DS-8 system",
+        "occurrences": 9,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945",
+        "label": "Methanogenesis",
+        "occurrences": 9,
+        "discussions": 9,
+        "canonical_id": "METPO:1000844",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-ee2566d072fb7ed234b44b05b113c4ad5859cc60db7a331086caf3bdeb2a87a3",
+        "label": "aerobic",
+        "occurrences": 8,
+        "discussions": 6,
+        "canonical_id": "METPO:1000602",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-d69287c25054e36da22bf749a9c4ba783eed9120d812fde9d9c6f98ce72c49f2",
+        "label": "CoCoNuT system",
+        "occurrences": 8,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-4439a2ee48d8e00d28d5a7d908e3a9836685899b5dbb893a83642c587908a11a",
+        "label": "denitrification",
+        "occurrences": 8,
+        "discussions": 7,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-09f3443af7a60458c4e9e4d85f5654ac0589b312db4755914f770105cb2355ac",
+        "label": "DS-14 system",
+        "occurrences": 8,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-f73205a442616fc13bb6cebde5b0f563151f80e1d14491a748d0e5917ec1fdad",
+        "label": "DS-30 system",
+        "occurrences": 8,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-809733629ec9f6f37a6225a6e84181d5697ecad71388a2c0688267866256eb2a",
+        "label": "DS-5 system",
+        "occurrences": 8,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-5a9bd81b3064e13d63323a945426cdabdccb5c2a164e77bc4758a8cf2d015024",
+        "label": "Lamassu type II system",
+        "occurrences": 8,
+        "discussions": 4,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-93005bfb42e22e601f50a119ee9391a0202015afe5171a1202e6f20f0e3565b6",
+        "label": "McrBC system",
+        "occurrences": 8,
+        "discussions": 2,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-2ddd64f417aa60331bbe9441598b973e8bf8a793e0bca7a28ab52e9f4744391c",
+        "label": "Tha system",
+        "occurrences": 8,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-f9a7d74335856d9f25b3fd8e46e1c325f002e38e3fbb0422533916ca6be65bfd",
+        "label": "CmdTAC system",
+        "occurrences": 7,
+        "discussions": 2,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-59df3567bc3971e006209a98cdd2c36c6b0422b7c3f13dba33d05ee404d62abb",
+        "label": "DS-10 system",
+        "occurrences": 7,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-177648d2944a72e64dc00f59eb6c2232d6a2512f1aa21b4f9bf2a7ad9fafbcbd",
+        "label": "DS-17 system",
+        "occurrences": 7,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      },
+      {
+        "id": "term-97012321d53b820a0b17aaf5552616e338a85ff7594f16975999393fe522dcce",
+        "label": "DS-18 system",
+        "occurrences": 7,
+        "discussions": 1,
+        "canonical_id": "",
+        "provenance_mechs": [
+          "TraitMech"
+        ]
+      }
+    ],
+    "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+    "pair_universe_term_ids": [
+      "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+      "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+      "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+      "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+      "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+      "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+      "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+      "term-41c006c017fc9019e77fd3b2dd3e0483e46082d59932a9b4ff919ea851e5502f",
+      "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+      "term-b0fbb13c970e196e94a164edb6a53ace3e75762f59b2a314ff5ed4f684322687",
+      "term-c89268ffa17408c28ec0075ef93818ed9650beb2001b0849e4a61453767b90df",
+      "term-cab20ac55b8be119f3b079694ae6a89e0da8a833a4d1620a938a29b80870440c",
+      "term-37c2cfbc5ca66ec71cb3971be998ca3ba2f19874f2e26796559c9e8028f3541c",
+      "term-87b4252cf556ab8ed25442a49bf638dce400983ce901c773b960c544ec66220b",
+      "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945",
+      "term-ee2566d072fb7ed234b44b05b113c4ad5859cc60db7a331086caf3bdeb2a87a3",
+      "term-d69287c25054e36da22bf749a9c4ba783eed9120d812fde9d9c6f98ce72c49f2",
+      "term-4439a2ee48d8e00d28d5a7d908e3a9836685899b5dbb893a83642c587908a11a"
+    ],
+    "top_20_pairs": [
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6"
+        ],
+        "labels": [
+          "enzyme",
+          "Lamassu system"
+        ],
+        "discussions": 9
+      },
+      {
+        "term_ids": [
+          "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+          "term-cab20ac55b8be119f3b079694ae6a89e0da8a833a4d1620a938a29b80870440c"
+        ],
+        "labels": [
+          "phage defense system",
+          "Hma system"
+        ],
+        "discussions": 7
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+        ],
+        "labels": [
+          "phenotype",
+          "motility"
+        ],
+        "discussions": 5
+      },
+      {
+        "term_ids": [
+          "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+          "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7"
+        ],
+        "labels": [
+          "Syntrophy",
+          "metabolism"
+        ],
+        "discussions": 5
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc"
+        ],
+        "labels": [
+          "enzyme",
+          "phenotype"
+        ],
+        "discussions": 4
+      },
+      {
+        "term_ids": [
+          "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+          "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a"
+        ],
+        "labels": [
+          "Fermentation",
+          "mutualism"
+        ],
+        "discussions": 4
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9"
+        ],
+        "labels": [
+          "enzyme",
+          "Fermentation"
+        ],
+        "discussions": 3
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945"
+        ],
+        "labels": [
+          "enzyme",
+          "Methanogenesis"
+        ],
+        "discussions": 3
+      },
+      {
+        "term_ids": [
+          "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+          "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5"
+        ],
+        "labels": [
+          "mutualism",
+          "observation"
+        ],
+        "discussions": 3
+      },
+      {
+        "term_ids": [
+          "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc"
+        ],
+        "labels": [
+          "Lamassu system",
+          "phenotype"
+        ],
+        "discussions": 2
+      },
+      {
+        "term_ids": [
+          "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+          "term-b0fbb13c970e196e94a164edb6a53ace3e75762f59b2a314ff5ed4f684322687"
+        ],
+        "labels": [
+          "Lamassu system",
+          "DS-27 system"
+        ],
+        "discussions": 2
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a"
+        ],
+        "labels": [
+          "phenotype",
+          "mutualism"
+        ],
+        "discussions": 2
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5"
+        ],
+        "labels": [
+          "phenotype",
+          "observation"
+        ],
+        "discussions": 2
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a"
+        ],
+        "labels": [
+          "enzyme",
+          "mutualism"
+        ],
+        "discussions": 1
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5"
+        ],
+        "labels": [
+          "enzyme",
+          "observation"
+        ],
+        "discussions": 1
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+        ],
+        "labels": [
+          "enzyme",
+          "motility"
+        ],
+        "discussions": 1
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-37c2cfbc5ca66ec71cb3971be998ca3ba2f19874f2e26796559c9e8028f3541c"
+        ],
+        "labels": [
+          "enzyme",
+          "commensalism"
+        ],
+        "discussions": 1
+      },
+      {
+        "term_ids": [
+          "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "term-4439a2ee48d8e00d28d5a7d908e3a9836685899b5dbb893a83642c587908a11a"
+        ],
+        "labels": [
+          "enzyme",
+          "denitrification"
+        ],
+        "discussions": 1
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9"
+        ],
+        "labels": [
+          "phenotype",
+          "Fermentation"
+        ],
+        "discussions": 1
+      },
+      {
+        "term_ids": [
+          "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613"
+        ],
+        "labels": [
+          "phenotype",
+          "Syntrophy"
+        ],
+        "discussions": 1
+      }
+    ]
+  },
+  "per_gap_mech": {
+    "AIMech": {
+      "eligible_discussions": 0,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "AntibioticMech": {
+      "eligible_discussions": 9,
+      "discussions_with_terms": 1,
+      "recognized_terms": 1,
+      "accepted_occurrences": 3,
+      "top_30_terms": [
+        {
+          "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "label": "phenotype",
+          "occurrences": 3,
+          "discussions": 1,
+          "canonical_id": "METPO:1000059",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc"
+      ],
+      "top_20_pairs": []
+    },
+    "AssayMech": {
+      "eligible_discussions": 28,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "CMMMech": {
+      "eligible_discussions": 0,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "CellStructureMech": {
+      "eligible_discussions": 1543,
+      "discussions_with_terms": 81,
+      "recognized_terms": 29,
+      "accepted_occurrences": 118,
+      "top_30_terms": [
+        {
+          "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "label": "enzyme",
+          "occurrences": 19,
+          "discussions": 16,
+          "canonical_id": "METPO:1000527",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+          "label": "capsule",
+          "occurrences": 14,
+          "discussions": 6,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "label": "phenotype",
+          "occurrences": 14,
+          "discussions": 13,
+          "canonical_id": "METPO:1000059",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-6a97e581e853a4e5cc6f84ed10f4ddd412295050bb0f6486d7bdd823aa936583",
+          "label": "magnetosome",
+          "occurrences": 11,
+          "discussions": 5,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-d514b90809452f221114307d83df883d42aded35088bfff6f6d8401a90042b79",
+          "label": "ring shaped",
+          "occurrences": 10,
+          "discussions": 9,
+          "canonical_id": "METPO:1000680",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-ddde2e47647eb2344d467b80de95eb2db55e2356051d4c859e7444b4defdc31f",
+          "label": "carboxysome",
+          "occurrences": 7,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-8723db1fbc34b657fea31f0869535530ff312d75015cccf99ff3710fcb1a090c",
+          "label": "holdfast",
+          "occurrences": 5,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+          "label": "sporulation",
+          "occurrences": 5,
+          "discussions": 4,
+          "canonical_id": "METPO:1000870",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-823e4f5d24baa44e299d00130e9bbe5733864f09bdab699e8cbb3f387dea7fc7",
+          "label": "ferrosome",
+          "occurrences": 3,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-d8044b957fb0a71b82900a9f9c56e506f875e62d5e21725a7dbc7ad029a8b1a4",
+          "label": "S-layer",
+          "occurrences": 3,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-1008353cba701f24838ddacc7d1a5e16675c04700af4fa61c0df2a25cce92d8b",
+          "label": "star shaped",
+          "occurrences": 3,
+          "discussions": 3,
+          "canonical_id": "METPO:1000685",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-ddcbacb92d1e8711ab9a8f3123b1c7696f0ba52e6043bec1e99e6c8da6c5c0c4",
+          "label": "exports",
+          "occurrences": 2,
+          "discussions": 1,
+          "canonical_id": "METPO:2000209",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-19cd0994991b9014fd4657953bce7f5f646285e37c4ae209977cb6284e5349a8",
+          "label": "gas vesicle",
+          "occurrences": 2,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+          "label": "metabolism",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "METPO:1000060",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+          "label": "motility",
+          "occurrences": 2,
+          "discussions": 1,
+          "canonical_id": "METPO:1000701",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-de3e54046cdd15134493901e236c28455e7de91bc7f5fb9c442caabed64dc01f",
+          "label": "photosynthesis",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-12e7ceca22dacc343b9eb93b315fd4a2a61da47569773b13f12bc2c03dca5451",
+          "label": "polyhydroxyalkanoate granule",
+          "occurrences": 2,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-5e455f5c460af8cfa96e43943243a049f92a04fb050c59a8b258aef13fb5c33b",
+          "label": "anaerobic ammonium oxidation",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-8013f648e5385dcc3b7f758a2d929ff6d9c5e9bee571de1fdd1c1b9a588541c4",
+          "label": "biological process",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000630",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444",
+          "label": "cell shape",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000666",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-78d85da933dfe01469922baf78f4193d783c71656868a8c6d6f9753e8c4d7200",
+          "label": "dormancy",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-872b8f4b664cfaea8cfb297664b802cc16f71603b84b5d8302f39aaaa5a59cd1",
+          "label": "gliding",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000706",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+          "label": "observation",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1001000",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c",
+          "label": "phagocytosis",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-16cdf754ce4f1f6de1a991a703048416f7be0c2ae4ead35997b9becb52d1cde5",
+          "label": "proteolysis",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+          "label": "quality",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000188",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-8810108f9a7b3b14953be868a270004566a861fea68f6c6773b7a6d085448ba0",
+          "label": "stress response",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-795d2fd338be9c9e17036f084aa366a4070a550655f23c03f59ada2db598dd34",
+          "label": "sulfur globule",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-c82c23eae4d355aa2e6fcfe5652e8baf2e18e19d88211be3f830445ce7bc0103",
+          "label": "transports",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:2000207",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+        "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+        "term-6a97e581e853a4e5cc6f84ed10f4ddd412295050bb0f6486d7bdd823aa936583",
+        "term-d514b90809452f221114307d83df883d42aded35088bfff6f6d8401a90042b79",
+        "term-ddde2e47647eb2344d467b80de95eb2db55e2356051d4c859e7444b4defdc31f",
+        "term-8723db1fbc34b657fea31f0869535530ff312d75015cccf99ff3710fcb1a090c",
+        "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+        "term-823e4f5d24baa44e299d00130e9bbe5733864f09bdab699e8cbb3f387dea7fc7",
+        "term-d8044b957fb0a71b82900a9f9c56e506f875e62d5e21725a7dbc7ad029a8b1a4",
+        "term-1008353cba701f24838ddacc7d1a5e16675c04700af4fa61c0df2a25cce92d8b",
+        "term-ddcbacb92d1e8711ab9a8f3123b1c7696f0ba52e6043bec1e99e6c8da6c5c0c4",
+        "term-19cd0994991b9014fd4657953bce7f5f646285e37c4ae209977cb6284e5349a8",
+        "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+        "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+        "term-de3e54046cdd15134493901e236c28455e7de91bc7f5fb9c442caabed64dc01f",
+        "term-12e7ceca22dacc343b9eb93b315fd4a2a61da47569773b13f12bc2c03dca5451",
+        "term-5e455f5c460af8cfa96e43943243a049f92a04fb050c59a8b258aef13fb5c33b",
+        "term-8013f648e5385dcc3b7f758a2d929ff6d9c5e9bee571de1fdd1c1b9a588541c4",
+        "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444"
+      ],
+      "top_20_pairs": [
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7"
+          ],
+          "labels": [
+            "enzyme",
+            "metabolism"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-5e455f5c460af8cfa96e43943243a049f92a04fb050c59a8b258aef13fb5c33b"
+          ],
+          "labels": [
+            "enzyme",
+            "anaerobic ammonium oxidation"
+          ],
+          "discussions": 1
+        }
+      ]
+    },
+    "CofactorMech": {
+      "eligible_discussions": 13,
+      "discussions_with_terms": 11,
+      "recognized_terms": 1,
+      "accepted_occurrences": 11,
+      "top_30_terms": [
+        {
+          "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "label": "enzyme",
+          "occurrences": 11,
+          "discussions": 11,
+          "canonical_id": "METPO:1000527",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874"
+      ],
+      "top_20_pairs": []
+    },
+    "CommunityMech": {
+      "eligible_discussions": 620,
+      "discussions_with_terms": 229,
+      "recognized_terms": 52,
+      "accepted_occurrences": 352,
+      "top_30_terms": [
+        {
+          "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "label": "enzyme",
+          "occurrences": 71,
+          "discussions": 45,
+          "canonical_id": "METPO:1000527",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+          "label": "Fermentation",
+          "occurrences": 41,
+          "discussions": 29,
+          "canonical_id": "METPO:1002005",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+          "label": "mutualism",
+          "occurrences": 30,
+          "discussions": 29,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "label": "phenotype",
+          "occurrences": 27,
+          "discussions": 27,
+          "canonical_id": "METPO:1000059",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+          "label": "Syntrophy",
+          "occurrences": 25,
+          "discussions": 23,
+          "canonical_id": "METPO:1002006",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+          "label": "metabolism",
+          "occurrences": 20,
+          "discussions": 16,
+          "canonical_id": "METPO:1000060",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+          "label": "observation",
+          "occurrences": 12,
+          "discussions": 12,
+          "canonical_id": "METPO:1001000",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-ee2566d072fb7ed234b44b05b113c4ad5859cc60db7a331086caf3bdeb2a87a3",
+          "label": "aerobic",
+          "occurrences": 8,
+          "discussions": 6,
+          "canonical_id": "METPO:1000602",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945",
+          "label": "Methanogenesis",
+          "occurrences": 8,
+          "discussions": 8,
+          "canonical_id": "METPO:1000844",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-14fd44335fa777a893ea97f660c4bad55475e730154a4a9e772eeaaece34bd64",
+          "label": "anaerobic",
+          "occurrences": 7,
+          "discussions": 6,
+          "canonical_id": "METPO:1000603",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-37c2cfbc5ca66ec71cb3971be998ca3ba2f19874f2e26796559c9e8028f3541c",
+          "label": "commensalism",
+          "occurrences": 7,
+          "discussions": 7,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-4439a2ee48d8e00d28d5a7d908e3a9836685899b5dbb893a83642c587908a11a",
+          "label": "denitrification",
+          "occurrences": 7,
+          "discussions": 6,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+          "label": "quality",
+          "occurrences": 7,
+          "discussions": 6,
+          "canonical_id": "METPO:1000188",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-774bc641b3babb4a9fcd71d84e2f2b7e2f4146cd78cf6460f91116c3642d74c0",
+          "label": "Electron transfer",
+          "occurrences": 6,
+          "discussions": 5,
+          "canonical_id": "METPO:1000805",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-5fe488dacc54d8cf61dd0ea4b420bfdf3c7e1f149fc3892530fdcbbd48dae1e4",
+          "label": "nitrogen fixation",
+          "occurrences": 6,
+          "discussions": 6,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+          "label": "motility",
+          "occurrences": 5,
+          "discussions": 4,
+          "canonical_id": "METPO:1000701",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+          "label": "chemotaxis",
+          "occurrences": 4,
+          "discussions": 3,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-ae9bacbc8d42e0a1de8a5803facedd0c0e3973c6799771e720c12361403e3476",
+          "label": "heterotrophic",
+          "occurrences": 4,
+          "discussions": 4,
+          "canonical_id": "METPO:1000644",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b2bf96e70fb11bc7e864f21948f331c76920bc4f1de1ee3574f53c3a33ecee29",
+          "label": "nitrification",
+          "occurrences": 4,
+          "discussions": 3,
+          "canonical_id": "METPO:1005001",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-c89268ffa17408c28ec0075ef93818ed9650beb2001b0849e4a61453767b90df",
+          "label": "prophage",
+          "occurrences": 4,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-0a041f1e7d2622e1fb8d48bf19714ed056e4d4312afbba9d088a15924c46d2c7",
+          "label": "respiration",
+          "occurrences": 4,
+          "discussions": 3,
+          "canonical_id": "METPO:1000800",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-5e455f5c460af8cfa96e43943243a049f92a04fb050c59a8b258aef13fb5c33b",
+          "label": "anaerobic ammonium oxidation",
+          "occurrences": 3,
+          "discussions": 3,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-965c3697978fc4d2b0e456e485c785d5e7896f77e27fc305c8ce55a253ed5260",
+          "label": "autotrophic",
+          "occurrences": 3,
+          "discussions": 2,
+          "canonical_id": "METPO:1000632",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-c82af27775ef600a1148906a109ea6c98b237ed412ce6bf67cea665b451d50b9",
+          "label": "dissimilatory nitrate reduction to ammonium",
+          "occurrences": 3,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-edefb4eceb119ba46b447538ebfc1212efc66eb91a1b187621cd7d569cd497c8",
+          "label": "iron oxidation",
+          "occurrences": 3,
+          "discussions": 3,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-2859027bc7e74a8d50e3901457dcca241e2391c62967f2cba27579bf91a40c7a",
+          "label": "acetoclastic methanogenesis",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-695b71765cf5837baa15c26bd91c68108f84f21a5fc36453fb17c93503047f22",
+          "label": "biofilm formation",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-d5fffb0b9cf998dd788c65d606f6376e7e2bef8ab65b780629569d2b77aff946",
+          "label": "carbon fixation",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-94819555fb60666c75c8f683b12aa879cac0ebc36c3539fc14f9ed79f76b33fd",
+          "label": "endophytic",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-7d3e2a307c94bb9e47b0819ec4a842c9368abee60d07d3ee2b56bd6d9e0ccbf7",
+          "label": "magnetotaxis",
+          "occurrences": 2,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+        "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+        "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+        "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+        "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+        "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+        "term-ee2566d072fb7ed234b44b05b113c4ad5859cc60db7a331086caf3bdeb2a87a3",
+        "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945",
+        "term-14fd44335fa777a893ea97f660c4bad55475e730154a4a9e772eeaaece34bd64",
+        "term-37c2cfbc5ca66ec71cb3971be998ca3ba2f19874f2e26796559c9e8028f3541c",
+        "term-4439a2ee48d8e00d28d5a7d908e3a9836685899b5dbb893a83642c587908a11a",
+        "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+        "term-774bc641b3babb4a9fcd71d84e2f2b7e2f4146cd78cf6460f91116c3642d74c0",
+        "term-5fe488dacc54d8cf61dd0ea4b420bfdf3c7e1f149fc3892530fdcbbd48dae1e4",
+        "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+        "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+        "term-ae9bacbc8d42e0a1de8a5803facedd0c0e3973c6799771e720c12361403e3476",
+        "term-b2bf96e70fb11bc7e864f21948f331c76920bc4f1de1ee3574f53c3a33ecee29",
+        "term-c89268ffa17408c28ec0075ef93818ed9650beb2001b0849e4a61453767b90df"
+      ],
+      "top_20_pairs": [
+        {
+          "term_ids": [
+            "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+            "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7"
+          ],
+          "labels": [
+            "Syntrophy",
+            "metabolism"
+          ],
+          "discussions": 5
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a"
+          ],
+          "labels": [
+            "Fermentation",
+            "mutualism"
+          ],
+          "discussions": 4
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9"
+          ],
+          "labels": [
+            "enzyme",
+            "Fermentation"
+          ],
+          "discussions": 3
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc"
+          ],
+          "labels": [
+            "enzyme",
+            "phenotype"
+          ],
+          "discussions": 3
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945"
+          ],
+          "labels": [
+            "enzyme",
+            "Methanogenesis"
+          ],
+          "discussions": 3
+        },
+        {
+          "term_ids": [
+            "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+            "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5"
+          ],
+          "labels": [
+            "mutualism",
+            "observation"
+          ],
+          "discussions": 2
+        },
+        {
+          "term_ids": [
+            "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+            "term-14fd44335fa777a893ea97f660c4bad55475e730154a4a9e772eeaaece34bd64"
+          ],
+          "labels": [
+            "Syntrophy",
+            "anaerobic"
+          ],
+          "discussions": 2
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a"
+          ],
+          "labels": [
+            "enzyme",
+            "mutualism"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-37c2cfbc5ca66ec71cb3971be998ca3ba2f19874f2e26796559c9e8028f3541c"
+          ],
+          "labels": [
+            "enzyme",
+            "commensalism"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-774bc641b3babb4a9fcd71d84e2f2b7e2f4146cd78cf6460f91116c3642d74c0"
+          ],
+          "labels": [
+            "enzyme",
+            "Electron transfer"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+          ],
+          "labels": [
+            "enzyme",
+            "motility"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086"
+          ],
+          "labels": [
+            "enzyme",
+            "chemotaxis"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-ae9bacbc8d42e0a1de8a5803facedd0c0e3973c6799771e720c12361403e3476"
+          ],
+          "labels": [
+            "enzyme",
+            "heterotrophic"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613"
+          ],
+          "labels": [
+            "Fermentation",
+            "Syntrophy"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7"
+          ],
+          "labels": [
+            "Fermentation",
+            "metabolism"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5"
+          ],
+          "labels": [
+            "Fermentation",
+            "observation"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-14fd44335fa777a893ea97f660c4bad55475e730154a4a9e772eeaaece34bd64"
+          ],
+          "labels": [
+            "Fermentation",
+            "anaerobic"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202"
+          ],
+          "labels": [
+            "Fermentation",
+            "quality"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+            "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+          ],
+          "labels": [
+            "Fermentation",
+            "motility"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc"
+          ],
+          "labels": [
+            "mutualism",
+            "phenotype"
+          ],
+          "discussions": 1
+        }
+      ]
+    },
+    "CultureMech": {
+      "eligible_discussions": 0,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "DUFMech": {
+      "eligible_discussions": 223,
+      "discussions_with_terms": 47,
+      "recognized_terms": 12,
+      "accepted_occurrences": 58,
+      "top_30_terms": [
+        {
+          "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "label": "phenotype",
+          "occurrences": 27,
+          "discussions": 23,
+          "canonical_id": "METPO:1000059",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "label": "enzyme",
+          "occurrences": 18,
+          "discussions": 17,
+          "canonical_id": "METPO:1000527",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-16cdf754ce4f1f6de1a991a703048416f7be0c2ae4ead35997b9becb52d1cde5",
+          "label": "proteolysis",
+          "occurrences": 3,
+          "discussions": 3,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+          "label": "motility",
+          "occurrences": 2,
+          "discussions": 2,
+          "canonical_id": "METPO:1000701",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+          "label": "chemotaxis",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-872b8f4b664cfaea8cfb297664b802cc16f71603b84b5d8302f39aaaa5a59cd1",
+          "label": "gliding",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000706",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-02a8dbcdf5c2ef1c0b1cac142835db427cd1f16f4b0a2084b0991350587b6101",
+          "label": "hemolysis",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1005025",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+          "label": "metabolism",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000060",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-c96b7dced5f5779a30c008827f4fb077f2f382e233e037b49aebf7b06e283b12",
+          "label": "pH optimum",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000331",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+          "label": "quality",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000188",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+          "label": "sporulation",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "METPO:1000870",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-42c4e3b93f62e8489d5d11266c6c09119c0af7ff0108612a4dd68c87ce87839b",
+          "label": "symbiosis",
+          "occurrences": 1,
+          "discussions": 1,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+        "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "term-16cdf754ce4f1f6de1a991a703048416f7be0c2ae4ead35997b9becb52d1cde5",
+        "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+        "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+        "term-872b8f4b664cfaea8cfb297664b802cc16f71603b84b5d8302f39aaaa5a59cd1",
+        "term-02a8dbcdf5c2ef1c0b1cac142835db427cd1f16f4b0a2084b0991350587b6101",
+        "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+        "term-c96b7dced5f5779a30c008827f4fb077f2f382e233e037b49aebf7b06e283b12",
+        "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+        "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+        "term-42c4e3b93f62e8489d5d11266c6c09119c0af7ff0108612a4dd68c87ce87839b"
+      ],
+      "top_20_pairs": [
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874"
+          ],
+          "labels": [
+            "phenotype",
+            "enzyme"
+          ],
+          "discussions": 2
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+          ],
+          "labels": [
+            "phenotype",
+            "motility"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-872b8f4b664cfaea8cfb297664b802cc16f71603b84b5d8302f39aaaa5a59cd1"
+          ],
+          "labels": [
+            "phenotype",
+            "gliding"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-02a8dbcdf5c2ef1c0b1cac142835db427cd1f16f4b0a2084b0991350587b6101"
+          ],
+          "labels": [
+            "phenotype",
+            "hemolysis"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202"
+          ],
+          "labels": [
+            "phenotype",
+            "quality"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202"
+          ],
+          "labels": [
+            "enzyme",
+            "quality"
+          ],
+          "discussions": 1
+        },
+        {
+          "term_ids": [
+            "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+            "term-872b8f4b664cfaea8cfb297664b802cc16f71603b84b5d8302f39aaaa5a59cd1"
+          ],
+          "labels": [
+            "motility",
+            "gliding"
+          ],
+          "discussions": 1
+        }
+      ]
+    },
+    "HabitatMech": {
+      "eligible_discussions": 0,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "MediaIngredientMech": {
+      "eligible_discussions": 8,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "NaturalProductMech": {
+      "eligible_discussions": 445,
+      "discussions_with_terms": 9,
+      "recognized_terms": 3,
+      "accepted_occurrences": 16,
+      "top_30_terms": [
+        {
+          "id": "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+          "label": "capsule",
+          "occurrences": 8,
+          "discussions": 3,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "label": "enzyme",
+          "occurrences": 4,
+          "discussions": 3,
+          "canonical_id": "METPO:1000527",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "label": "phenotype",
+          "occurrences": 4,
+          "discussions": 4,
+          "canonical_id": "METPO:1000059",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+        "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc"
+      ],
+      "top_20_pairs": [
+        {
+          "term_ids": [
+            "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874"
+          ],
+          "labels": [
+            "capsule",
+            "enzyme"
+          ],
+          "discussions": 1
+        }
+      ]
+    },
+    "PathwayMech": {
+      "eligible_discussions": 0,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "ProteinTraitsMech": {
+      "eligible_discussions": 16,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "TaxonMech": {
+      "eligible_discussions": 0,
+      "discussions_with_terms": 0,
+      "recognized_terms": 0,
+      "accepted_occurrences": 0,
+      "top_30_terms": [],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [],
+      "top_20_pairs": []
+    },
+    "TraitMech": {
+      "eligible_discussions": 925,
+      "discussions_with_terms": 680,
+      "recognized_terms": 518,
+      "accepted_occurrences": 3150,
+      "top_30_terms": [
+        {
+          "id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+          "label": "phenotype",
+          "occurrences": 521,
+          "discussions": 283,
+          "canonical_id": "METPO:1000059",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+          "label": "enzyme",
+          "occurrences": 134,
+          "discussions": 102,
+          "canonical_id": "METPO:1000527",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+          "label": "Lamassu system",
+          "occurrences": 109,
+          "discussions": 16,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+          "label": "phage defense system",
+          "occurrences": 73,
+          "discussions": 73,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+          "label": "motility",
+          "occurrences": 36,
+          "discussions": 25,
+          "canonical_id": "METPO:1000701",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e",
+          "label": "autophagy",
+          "occurrences": 32,
+          "discussions": 15,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6",
+          "label": "motile",
+          "occurrences": 30,
+          "discussions": 22,
+          "canonical_id": "METPO:1000702",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+          "label": "mycelial growth",
+          "occurrences": 27,
+          "discussions": 15,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+          "label": "phagotrophy",
+          "occurrences": 26,
+          "discussions": 13,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2",
+          "label": "homothallism",
+          "occurrences": 23,
+          "discussions": 10,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c",
+          "label": "phagocytosis",
+          "occurrences": 23,
+          "discussions": 11,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024",
+          "label": "hyphal anastomosis",
+          "occurrences": 22,
+          "discussions": 13,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-01c86e7cb0b9d1514e0e2690d0441aaef37eeede3d10bd4a5d2f60fc424032b3",
+          "label": "predatory bacterium",
+          "occurrences": 22,
+          "discussions": 11,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+          "label": "chemotaxis",
+          "occurrences": 21,
+          "discussions": 14,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-fb0196a1105bfe8c857d375c55ab01dfdeac3521c7a0c19f3a660873c76e9f38",
+          "label": "exocytosis",
+          "occurrences": 20,
+          "discussions": 9,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+          "label": "Fermentation",
+          "occurrences": 19,
+          "discussions": 11,
+          "canonical_id": "METPO:1002005",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+          "label": "quality",
+          "occurrences": 19,
+          "discussions": 10,
+          "canonical_id": "METPO:1000188",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444",
+          "label": "cell shape",
+          "occurrences": 18,
+          "discussions": 14,
+          "canonical_id": "METPO:1000666",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-ad085ce86ff747739e5750ce4c5915aa9dea66a74fbcb23fbb8af2564d06dff6",
+          "label": "parasitism",
+          "occurrences": 18,
+          "discussions": 10,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-41c006c017fc9019e77fd3b2dd3e0483e46082d59932a9b4ff919ea851e5502f",
+          "label": "DRT system",
+          "occurrences": 17,
+          "discussions": 10,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+          "label": "sporulation",
+          "occurrences": 16,
+          "discussions": 11,
+          "canonical_id": "METPO:1000870",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-8013f648e5385dcc3b7f758a2d929ff6d9c5e9bee571de1fdd1c1b9a588541c4",
+          "label": "biological process",
+          "occurrences": 15,
+          "discussions": 15,
+          "canonical_id": "METPO:1000630",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-8d15370300cf636898ad5619a82dd226d39a5db661161ad495decd3c25bf2b0c",
+          "label": "biomineralization",
+          "occurrences": 15,
+          "discussions": 6,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-d97923e87ff964829af9ce664d044bb2508ecf20467db7e687bd48846732a9e0",
+          "label": "fungal nematode-trap formation",
+          "occurrences": 15,
+          "discussions": 9,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+          "label": "observation",
+          "occurrences": 15,
+          "discussions": 14,
+          "canonical_id": "METPO:1001000",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-cdee265f65b47304ca88df49017275a47dec4636425c8d0703dd9da391ee10a4",
+          "label": "myzocytosis",
+          "occurrences": 14,
+          "discussions": 7,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-425a558f5bef49c6a458cdbe2c5ea3d16aee17872be4c61f3228aa4dc9bf8877",
+          "label": "autogamy",
+          "occurrences": 13,
+          "discussions": 5,
+          "canonical_id": "",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-ce7787ee4eb12d3286b97a8a71198b9e779232e30f252e8ca43619fe77a10064",
+          "label": "filament shaped",
+          "occurrences": 12,
+          "discussions": 7,
+          "canonical_id": "METPO:1000674",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+          "label": "metabolism",
+          "occurrences": 12,
+          "discussions": 11,
+          "canonical_id": "METPO:1000060",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        },
+        {
+          "id": "term-756fa6acbe49a4aecaeac9e8fb2c1ed8baba751099c5d24910aac818966e780f",
+          "label": "microbe",
+          "occurrences": 12,
+          "discussions": 11,
+          "canonical_id": "METPO:1000525",
+          "provenance_mechs": [
+            "TraitMech"
+          ]
+        }
+      ],
+      "pair_universe": "Twenty most frequent terms in this selected discussion scope",
+      "pair_universe_term_ids": [
+        "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+        "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+        "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+        "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+        "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+        "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e",
+        "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6",
+        "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+        "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+        "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2",
+        "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c",
+        "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024",
+        "term-01c86e7cb0b9d1514e0e2690d0441aaef37eeede3d10bd4a5d2f60fc424032b3",
+        "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+        "term-fb0196a1105bfe8c857d375c55ab01dfdeac3521c7a0c19f3a660873c76e9f38",
+        "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+        "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+        "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444",
+        "term-ad085ce86ff747739e5750ce4c5915aa9dea66a74fbcb23fbb8af2564d06dff6",
+        "term-41c006c017fc9019e77fd3b2dd3e0483e46082d59932a9b4ff919ea851e5502f"
+      ],
+      "top_20_pairs": [
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a"
+          ],
+          "labels": [
+            "phenotype",
+            "motility"
+          ],
+          "discussions": 17
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874"
+          ],
+          "labels": [
+            "phenotype",
+            "enzyme"
+          ],
+          "discussions": 16
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6"
+          ],
+          "labels": [
+            "phenotype",
+            "motile"
+          ],
+          "discussions": 15
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94"
+          ],
+          "labels": [
+            "phenotype",
+            "mycelial growth"
+          ],
+          "discussions": 15
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024"
+          ],
+          "labels": [
+            "phenotype",
+            "hyphal anastomosis"
+          ],
+          "discussions": 13
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444"
+          ],
+          "labels": [
+            "phenotype",
+            "cell shape"
+          ],
+          "discussions": 13
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e"
+          ],
+          "labels": [
+            "phenotype",
+            "autophagy"
+          ],
+          "discussions": 12
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b"
+          ],
+          "labels": [
+            "phenotype",
+            "phagotrophy"
+          ],
+          "discussions": 12
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c"
+          ],
+          "labels": [
+            "phenotype",
+            "phagocytosis"
+          ],
+          "discussions": 11
+        },
+        {
+          "term_ids": [
+            "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+            "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024"
+          ],
+          "labels": [
+            "mycelial growth",
+            "hyphal anastomosis"
+          ],
+          "discussions": 11
+        },
+        {
+          "term_ids": [
+            "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+            "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c"
+          ],
+          "labels": [
+            "phagotrophy",
+            "phagocytosis"
+          ],
+          "discussions": 11
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202"
+          ],
+          "labels": [
+            "phenotype",
+            "quality"
+          ],
+          "discussions": 10
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-01c86e7cb0b9d1514e0e2690d0441aaef37eeede3d10bd4a5d2f60fc424032b3"
+          ],
+          "labels": [
+            "phenotype",
+            "predatory bacterium"
+          ],
+          "discussions": 9
+        },
+        {
+          "term_ids": [
+            "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+            "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6"
+          ],
+          "labels": [
+            "enzyme",
+            "Lamassu system"
+          ],
+          "discussions": 9
+        },
+        {
+          "term_ids": [
+            "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+            "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6"
+          ],
+          "labels": [
+            "motility",
+            "motile"
+          ],
+          "discussions": 9
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086"
+          ],
+          "labels": [
+            "phenotype",
+            "chemotaxis"
+          ],
+          "discussions": 8
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2"
+          ],
+          "labels": [
+            "phenotype",
+            "homothallism"
+          ],
+          "discussions": 7
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-fb0196a1105bfe8c857d375c55ab01dfdeac3521c7a0c19f3a660873c76e9f38"
+          ],
+          "labels": [
+            "phenotype",
+            "exocytosis"
+          ],
+          "discussions": 7
+        },
+        {
+          "term_ids": [
+            "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+            "term-ad085ce86ff747739e5750ce4c5915aa9dea66a74fbcb23fbb8af2564d06dff6"
+          ],
+          "labels": [
+            "phenotype",
+            "parasitism"
+          ],
+          "discussions": 7
+        },
+        {
+          "term_ids": [
+            "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+            "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444"
+          ],
+          "labels": [
+            "mycelial growth",
+            "cell shape"
+          ],
+          "discussions": 7
+        }
+      ]
+    }
+  },
+  "ambiguity_summary": {
+    "ambiguous_occurrences": 1,
+    "case_rejected_occurrences": 19,
+    "unicode_boundary_rejected_occurrences": 0,
+    "excluded_forms": [
+      "accumulates",
+      "imports",
+      "produces",
+      "reduces"
+    ]
+  },
+  "largest_ambiguities": [
+    {
+      "candidate_ids": [
+        "term-264dd5d1702ed100b345009ce34baab4af890de7c5abc16ec9f21ddabd9dae36",
+        "term-333d368e3816747b0ea6555e86d559af3012a2874e8309a4a010e9db15c15d07",
+        "term-415386eefb8d5135d65d5469d43d228cc54bd773266ebafd0a14e039a9a45df2",
+        "term-450a86d99f0159aae5de673044dbe9099b3d5095740f7818d36ac643100cc529",
+        "term-4bd87660d32efa01000f833c350b9c398784fa5435606dd8cf33cf95598a3b16",
+        "term-7c8e827fba5699b27a085c24a37bcb9852c5bc964c810b34b1bf07121023f116",
+        "term-f35e9e46ba7675bc8592257c49a308c2448d5419b18ee275e7570ee8bba0b225"
+      ],
+      "occurrences": 1,
+      "surface": "halotolerant"
+    }
+  ],
+  "top_term_precision_samples": [
+    {
+      "term_id": "term-01c86e7cb0b9d1514e0e2690d0441aaef37eeede3d10bd4a5d2f60fc424032b3",
+      "label": "predatory bacterium",
+      "discussion_id": "gap-82b6c1c6880f9c3ae3ef5709937f01f10d7592e8f69affcb468f6094b888ac04",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "traitmech:000054",
+      "start": 549,
+      "end": 565,
+      "context": "trophic METPO:1000644 require nutritional source use, while predatory bacterium traitmech:000054 is bacteria-specific. Endocytosis traitmech:000636 is the direct broader trait ",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/phagocytosis.yaml"
+    },
+    {
+      "term_id": "term-01df6056889d1f533ea13f076323f86409970df4811f2fb749460b4c13abeacd",
+      "label": "capsule",
+      "discussion_id": "gap-c6422ec0ea407cc26f911fbb45625ce81e5cc1429a939da89affe66a3d9a73c7",
+      "mech": "CellStructureMech",
+      "field": "prompt",
+      "text": "capsule",
+      "start": 54,
+      "end": 61,
+      "context": "Keep diffuse slime layers separate from the organized capsule record.",
+      "source_url": "https://github.com/CultureBotAI/CellStructureMech/blob/7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b/data/structures/envelope/slime_layer.yaml"
+    },
+    {
+      "term_id": "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+      "label": "Fermentation",
+      "discussion_id": "gap-b711dae7fe4907b68fbd2dc60a549a974f53c36e53e2140e1143e3ede812d830",
+      "mech": "CommunityMech",
+      "field": "prompt",
+      "text": "fermentation",
+      "start": 127,
+      "end": 139,
+      "context": "accumulates alongside lactate and acetate during B. bifidum JCM1254 monoculture fermentation of 2′-FL across 0–100% 2′-FL ratios?",
+      "source_url": "https://github.com/CultureBotAI/CommunityMech/blob/76aa644cd6803ea2c9545d4c704276ede219d354/data/isolates/Bifidobacterium_Bifidum_JCM1254_2FL_FOS_Monoculture_Baseline.yaml"
+    },
+    {
+      "term_id": "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+      "label": "Lamassu system",
+      "discussion_id": "gap-7d54114d3c2360e06722964e7f4a9b4650582988db524e02d1c6e68bba322f1c",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "Lamassu",
+      "start": 3265,
+      "end": 3272,
+      "context": "on explicitly requires short-form LmuB. SMEK remains directly under the broader Lamassu parent because of its unresolved long-profile exception. The short family permi",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/lamassu_system.yaml"
+    },
+    {
+      "term_id": "term-13475257e3f802c7b0770b48ecc090b9ed35dd1b8a0cdd4d9c41de4c441df613",
+      "label": "Syntrophy",
+      "discussion_id": "gap-39cccc7ec1d9cc71c1c02d84b445cbb5906d96c069f644bd57ba2ca1b8c18597",
+      "mech": "CommunityMech",
+      "field": "rationale",
+      "text": "SYNTROPHY",
+      "start": 211,
+      "end": 220,
+      "context": "ccurs in YL-JM2C alone, while the partner prevents2,4-DBP accumulation. Current SYNTROPHY does not assert obligacy; the unresolved criterion is product-removal feedback ",
+      "source_url": "https://github.com/CultureBotAI/CommunityMech/blob/76aa644cd6803ea2c9545d4c704276ede219d354/kb/communities/Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml"
+    },
+    {
+      "term_id": "term-14fd44335fa777a893ea97f660c4bad55475e730154a4a9e772eeaaece34bd64",
+      "label": "anaerobic",
+      "discussion_id": "gap-ca4e7e678424dfcb08e0923591350e921540e462d2284956ba63b38d1f873849",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "anaerobic",
+      "start": 58,
+      "end": 67,
+      "context": "No exact GO or external metabolism class was resolved for anaerobic citrate fermentation; generic citrate metabolic process terms, citrate lyase or",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/metabolism/citrate_fermentation.yaml"
+    },
+    {
+      "term_id": "term-16c8251c39536719db52116caa88513e0a8c93acb525e2ad4b9db8d5c9668945",
+      "label": "Methanogenesis",
+      "discussion_id": "gap-7c76cf1b5b939fbc229786b088eb5b666f6e9eaff17d02517a12719086a8e50e",
+      "mech": "TraitMech",
+      "field": "prompt",
+      "text": "methanogenesis",
+      "start": 62,
+      "end": 76,
+      "context": "Resolve an exact external ontology xref for acetate-splitting methanogenesis before adding a TraitRecord xref.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/metabolism/acetoclastic_methanogenesis.yaml"
+    },
+    {
+      "term_id": "term-37c439914bd9ad65f22e207799a88de3c627d3347458c196d4b6b8788d3cb202",
+      "label": "quality",
+      "discussion_id": "gap-dd0e1a744d32161059e4044c0628481c191fa506266b996bb12a7f60732d1a26",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "quality",
+      "start": 34,
+      "end": 41,
+      "context": "Use phenotype METPO:1000059 below quality METPO:1000188. The definition concerns adjacent cell rows in a trichome, includ",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/cyanobacterial_multiseriate_trichome_formation.yaml"
+    },
+    {
+      "term_id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "label": "phenotype",
+      "discussion_id": "gap-d65cb85676e5545bd7ddf6eaef93ac4e1463d817c6f56eb26fd82101fcb98476",
+      "mech": "TraitMech",
+      "field": "resolution_note",
+      "text": "phenotype",
+      "start": 110,
+      "end": 119,
+      "context": "dy or cytoplasmic projection shortening) traitmech:000729 as the direct broader phenotype. This is a definition-based subclass inference, not a new child experiment or e",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/rapid_axopodial_contraction.yaml"
+    },
+    {
+      "term_id": "term-41c006c017fc9019e77fd3b2dd3e0483e46082d59932a9b4ff919ea851e5502f",
+      "label": "DRT system",
+      "discussion_id": "gap-b8ace18a104f404712a373e242026286aa07f5bd7ac791873b84471cfdf1d750",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "DRT",
+      "start": 166,
+      "end": 169,
+      "context": "and DefenseFinder models DRT subtypes such as DRT_1. This first record stays at DRT-family level because the direct products of DRT RT activity, the exact phage tr",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/drt_system.yaml"
+    },
+    {
+      "term_id": "term-5d0165ae779a811240e8459c027f89675a4b02e78faa383b8aaab4fa70385f94",
+      "label": "mycelial growth",
+      "discussion_id": "gap-fbe4df310c69e399b32c684f1681e2604ae2bd6200ff2d372f7f762cb4ef9940",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "Mycelial growth",
+      "start": 32,
+      "end": 47,
+      "context": "Retain phenotype METPO:1000059. Mycelial growth traitmech:000074 is explicitly bacterial. Filament shaped METPO:1000674 has a b",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/pseudohyphal_growth.yaml"
+    },
+    {
+      "term_id": "term-646db6ab7976d44883d4cd22874545e0f572d89e45632d3ed8a88f7e5ca99024",
+      "label": "hyphal anastomosis",
+      "discussion_id": "gap-d6cce4406124ec95be0e381b8f9d42581d96aabf1b6a5d3bea19e5b9ae860827",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "Hyphal anastomosis",
+      "start": 202,
+      "end": 220,
+      "context": "ospores; mycelial growth traitmech:000074 explicitly concerns bacterial hyphae. Hyphal anastomosis traitmech:000605 requires cytoplasmic continuity, not mere bundling. Pseudohyph",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/synnema_formation.yaml"
+    },
+    {
+      "term_id": "term-6a97e581e853a4e5cc6f84ed10f4ddd412295050bb0f6486d7bdd823aa936583",
+      "label": "magnetosome",
+      "discussion_id": "gap-c8cbc5fac6ecfa8ae898bf09d92dfb1bc1e364e3ae1972324e97b6ff052457a8",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "magnetosome",
+      "start": 413,
+      "end": 424,
+      "context": "ease-associated calcium carbonate precipitation, siliceous scale production, or magnetosome/ferrosome possession. The physiological trait is distinct from a material cocco",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/coccolith_production.yaml"
+    },
+    {
+      "term_id": "term-6e5414fd3f23574475463cab55655133d05e6f87849eb1a95e2457b9e6228086",
+      "label": "chemotaxis",
+      "discussion_id": "gap-8b1984bd90fd0bd5d0d9265d72299651f5ad763f3a1058587c256067e74bd82b",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "chemotaxis",
+      "start": 273,
+      "end": 283,
+      "context": "ster extension nor asymmetric branching alone establishes directed growth. Keep chemotaxis, contact guidance and electric-field growth distinct. The Yamamoto summary abst",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/chemotropism.yaml"
+    },
+    {
+      "term_id": "term-7a5287edc8e8c378f34c2cb7544cbd89ad56658c95288e8dfda2dab4b8b4c444",
+      "label": "cell shape",
+      "discussion_id": "gap-c3847819e884d20f2e9fea803f2efc0bb7b137f1ce655eea761a6a140f620d51",
+      "mech": "CellStructureMech",
+      "field": "rationale",
+      "text": "cell shape",
+      "start": 110,
+      "end": 120,
+      "context": "genetically and functionally interacts with the crescentin filament to regulate cell shape, but the discovery paper identifies CtpS as the protein constituent of the inne",
+      "source_url": "https://github.com/CultureBotAI/CellStructureMech/blob/7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b/data/structures/cytoskeleton/cytoophidium.yaml"
+    },
+    {
+      "term_id": "term-8013f648e5385dcc3b7f758a2d929ff6d9c5e9bee571de1fdd1c1b9a588541c4",
+      "label": "biological process",
+      "discussion_id": "gap-33109fc5b86350bc240db720a5659f191469ddc37d4d5b06e0be2d1f948b5511",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "biological process",
+      "start": 982,
+      "end": 1000,
+      "context": "gy/go/terms/GO%3A0006914 and includes self and non-self material, but denotes a biological process rather than an equivalent organismal phenotype. Keep METPO:1000059 as parent an",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/autophagy.yaml"
+    },
+    {
+      "term_id": "term-83d7f73c1da5015e497133c285240ef75cb7d3f23c0ad95382933a859ffeff2b",
+      "label": "phagotrophy",
+      "discussion_id": "gap-778c8e36f5d89ef3eba6ad91b51d9974904753ccb70407a5ed629166c2afd56a",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "phagotrophy",
+      "start": 208,
+      "end": 219,
+      "context": "uivalent to extracted plastids. Phagocytosis traitmech:000627 describes uptake; phagotrophy traitmech:000628 requires nutrient assimilation. Neither is exact. Phototrophic",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/kleptoplasty.yaml"
+    },
+    {
+      "term_id": "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+      "label": "mutualism",
+      "discussion_id": "gap-36a3427e54406ee7b3f75fdb9a21865a15037c25e6a5f75b0049fdada88464a8",
+      "mech": "CommunityMech",
+      "field": "rationale",
+      "text": "mutualism",
+      "start": 287,
+      "end": 296,
+      "context": "ges remain unread. Preserve zero arrows, putative degrader attribution, removed mutualism and separate hydrogel/M9 contexts; CMC is chemically distinct from its cellulos",
+      "source_url": "https://github.com/CultureBotAI/CommunityMech/blob/76aa644cd6803ea2c9545d4c704276ede219d354/kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml"
+    },
+    {
+      "term_id": "term-973ffe02e693e2cff32fd0c95f7ad75446fec678a032d7b5a17095b120de646c",
+      "label": "phagocytosis",
+      "discussion_id": "gap-95266d4c7946ea74b6acaf2b7a00818526eb5d137744a289bc8712063a89d059",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "traitmech:000627",
+      "start": 241,
+      "end": 257,
+      "context": "are insufficient. Kleptoplasty traitmech:000629 concerns plastids; phagocytosis traitmech:000627 concerns uptake; phagotrophy traitmech:000628 concerns nutrient assimilation. E",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/karyoklepty.yaml"
+    },
+    {
+      "term_id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "label": "enzyme",
+      "discussion_id": "gap-5810030117553b0fd5d9b33c5c10639ae1236e4686f43aa64933706b9d1d86cf",
+      "mech": "DUFMech",
+      "field": "evidence[0].explanation",
+      "text": "enzyme",
+      "start": 208,
+      "end": 214,
+      "context": "cat caption says multiplication, whereas reported scale agrees with division by enzyme concentration. Arg-variant edges remain excluded.",
+      "source_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/data/families/PF01951.yaml"
+    },
+    {
+      "term_id": "term-a29981a37358a53270d339edb071927cde8dc598037e2871b482e7a67d7f56f2",
+      "label": "homothallism",
+      "discussion_id": "gap-2692dd0a6e31339645b4be16c5056f45a92647a66197c3bf1fa92d2d1fd0a582",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "homothallism",
+      "start": 663,
+      "end": 675,
+      "context": " outcrossing. Same-clone mating after different meioses is insufficient. Fungal homothallism, heterothallism and intratetrad mating are not exact synonyms of this broad cla",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/automixis.yaml"
+    },
+    {
+      "term_id": "term-acc08f007fd01c3d283d89a1976954b8f8ee2dd8283abf89aa6b9024e4afcf2d",
+      "label": "phage defense system",
+      "discussion_id": "gap-26b4fbc17fbf6ce7aa991c85c9a49fea2951f11ab6861d95c29e60dfa2133b8e",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "phage defense system",
+      "start": 50,
+      "end": 70,
+      "context": "Mahata et al. support GAPS4 as a GMT-encoded anti-phage defense system that protects E. coli against T7, T4, P1-vir, and lambda-vir when expressed fro",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/gaps4_system.yaml"
+    },
+    {
+      "term_id": "term-ad085ce86ff747739e5750ce4c5915aa9dea66a74fbcb23fbb8af2564d06dff6",
+      "label": "parasitism",
+      "discussion_id": "gap-fa5c9de1744cf0527d43d5d87b1746da502b2504c2f29d1f3327b2ad63855351",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "parasitism",
+      "start": 84,
+      "end": 94,
+      "context": "ral_host_fitness is the node that makes this trait different from mutualism and parasitism, and it is the one node stated as a definition rather than an observation. If n",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/ecology/commensalism.yaml"
+    },
+    {
+      "term_id": "term-b1915e361767d8cb51db5e576b93cff28788e0eb8a21d1023f687796bc887ec7",
+      "label": "metabolism",
+      "discussion_id": "gap-f66c8c754e42b68afccfee143700965bba46e85068fcf356d35dc174c9108121",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "metabolism",
+      "start": 24,
+      "end": 34,
+      "context": "No exact GO or external metabolism class was resolved for the organism-level 2,3-butanediol fermentation phenotype",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/metabolism/butanediol_fermentation.yaml"
+    },
+    {
+      "term_id": "term-b20c9a44eb9864005ab6e1c3a61e4508ac518ca2d541365e030ef82d2d8bc1a5",
+      "label": "observation",
+      "discussion_id": "gap-5f0935f2098f92d407a8005d629ac1016f98ce45f597039716bf5d118ad20551",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "observation",
+      "start": 412,
+      "end": 423,
+      "context": " support one deletion-resolved native E. coli ATCC 8739 Druantia III protection observation. This first-pass record leaves exact late phage triggers, DruH sensory intermed",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/druantia_iii_system.yaml"
+    },
+    {
+      "term_id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+      "label": "motility",
+      "discussion_id": "gap-c825ad50d3c8fb8a5c59ea702e39b944d1c8443aba8adf9eb41cb80243f2b964",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "motility",
+      "start": 308,
+      "end": 316,
+      "context": "a-factor examples, and distinguish induction, morphological differentiation and motility readouts. Transcript changes or homologous sig genes alone do not establish the",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/hormogonium_formation.yaml"
+    },
+    {
+      "term_id": "term-cc00a9ee372a8d5604355d1c90f60799dc95184dfc14235691e6247a85dc224c",
+      "label": "sporulation",
+      "discussion_id": "gap-4d7c3d459ddcc9e6b6b45a32b742a55f57e6c7e36b88c21c9333a8b0434f30ee",
+      "mech": "CellStructureMech",
+      "field": "resolution_note",
+      "text": "sporulation",
+      "start": 102,
+      "end": 113,
+      "context": "the general SPB outer plaque, linked it by parthood to GO:0005816, and left the sporulation-specific meiotic outer-plaque boundary for a focused component-level curation p",
+      "source_url": "https://github.com/CultureBotAI/CellStructureMech/blob/7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b/data/structures/cytoskeleton/outer_plaque_of_spindle_pole_body.yaml"
+    },
+    {
+      "term_id": "term-da8ff011ee57484687f84e933d9dea2e6dfec8dceea75a50c40343b20c6f9d0e",
+      "label": "autophagy",
+      "discussion_id": "gap-005d4d0fdff4daa8c6b3621be1104dabece5aac5f690ca75f11271c108894570",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "autophagy",
+      "start": 943,
+      "end": 952,
+      "context": "erpretation for human review; omit exact synonyms including broad mitochondrial autophagy and route-specific macromitophagy. Protein/gene presence, puncta, organelle fra",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/mitophagy.yaml"
+    },
+    {
+      "term_id": "term-e8ff67677e16571364d4001c34c6a90d4ff9447859c5a2f220783d1ff82357d6",
+      "label": "motile",
+      "discussion_id": "gap-d65cb85676e5545bd7ddf6eaef93ac4e1463d817c6f56eb26fd82101fcb98476",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "METPO:1000702",
+      "start": 59,
+      "end": 72,
+      "context": "Phenotype METPO:1000059 is a broad parent. Existing motile METPO:1000702 is curated around organismal locomotion; rapid shortening of a cellular project",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/rapid_axopodial_contraction.yaml"
+    },
+    {
+      "term_id": "term-fb0196a1105bfe8c857d375c55ab01dfdeac3521c7a0c19f3a660873c76e9f38",
+      "label": "exocytosis",
+      "discussion_id": "gap-b2490c6b9e2e0379402e758fa6e26b4809e69b7fd667765f8f2e719c5321f092",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "traitmech:000637",
+      "start": 11,
+      "end": 27,
+      "context": "Exocytosis traitmech:000637 is the broader parent; the proposal depends on its v513 placeholder METPO:10590",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/trichocyst_discharge.yaml"
+    }
+  ],
+  "deterministic_precision_samples": [
+    {
+      "term_id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "label": "phenotype",
+      "discussion_id": "gap-d65cb85676e5545bd7ddf6eaef93ac4e1463d817c6f56eb26fd82101fcb98476",
+      "mech": "TraitMech",
+      "field": "resolution_note",
+      "text": "phenotype",
+      "start": 110,
+      "end": 119,
+      "context": "dy or cytoplasmic projection shortening) traitmech:000729 as the direct broader phenotype. This is a definition-based subclass inference, not a new child experiment or e",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/rapid_axopodial_contraction.yaml"
+    },
+    {
+      "term_id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "label": "enzyme",
+      "discussion_id": "gap-5810030117553b0fd5d9b33c5c10639ae1236e4686f43aa64933706b9d1d86cf",
+      "mech": "DUFMech",
+      "field": "evidence[0].explanation",
+      "text": "enzyme",
+      "start": 208,
+      "end": 214,
+      "context": "cat caption says multiplication, whereas reported scale agrees with division by enzyme concentration. Arg-variant edges remain excluded.",
+      "source_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/data/families/PF01951.yaml"
+    },
+    {
+      "term_id": "term-acdaaf18131ce57a8598f1de863ef4ceb7a3fe937806a171b834c0a2deb4f51e",
+      "label": "photoferrotrophy",
+      "discussion_id": "gap-35568f5276a3586a49a706abb73c01b44d4c8c6c67bab2aa0251c1b42e185541",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "anoxygenic phototrophic Fe(II) oxidation",
+      "start": 60,
+      "end": 100,
+      "context": "The pinned METPO snapshot has no active photoferrotrophy or anoxygenic phototrophic Fe(II) oxidation class. Candidate GO classes for photosynthesis, photosynthetic electron transpo",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/metabolism/photoferrotrophy.yaml"
+    },
+    {
+      "term_id": "term-14e344462a43f8c196a258890ecd661e4e2275251425fca44b1bde9e7bee2f54",
+      "label": "ribophagy",
+      "discussion_id": "gap-8eec8a73312d588a86cc040967e89a2a04df664117c9a3a78d8c15dc5ab6683c",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "ribophagy",
+      "start": 405,
+      "end": 414,
+      "context": "lishes this phenotype. The 2025 Rsa1 paper distinguishes its pathway from known ribophagy and notes differing mammalian usage. Retain that source-attributed distinction ",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/ribophagy.yaml"
+    },
+    {
+      "term_id": "term-8ee97a68a3cc1923047c599a51fe8f597cd8c0eb6bb1605165d46ba576257d50",
+      "label": "Metis system",
+      "discussion_id": "gap-9fab51edc9f29c48666b9724bd7dead1871b2bd917a0f96e01ced07d90e596f4",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "Metis",
+      "start": 24,
+      "end": 29,
+      "context": "Osterman et al. support Metis as a bacterial defense system that senses m6dAMP from phage-mediated host-genom",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/metis_system.yaml"
+    },
+    {
+      "term_id": "term-0fe0c9dde6e0a108cf691dab607360d8d376bf8c7116dd5902b8063178b81ab6",
+      "label": "Lamassu system",
+      "discussion_id": "gap-7d54114d3c2360e06722964e7f4a9b4650582988db524e02d1c6e68bba322f1c",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "Lamassu",
+      "start": 3265,
+      "end": 3272,
+      "context": "on explicitly requires short-form LmuB. SMEK remains directly under the broader Lamassu parent because of its unresolved long-profile exception. The short family permi",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/lamassu_system.yaml"
+    },
+    {
+      "term_id": "term-21a5f8f78b2f6ff26635814ad669f4f2a9cf05aceb061a251c39d40afcbcc211",
+      "label": "HEC-08 system",
+      "discussion_id": "gap-d941e6a3ab508969efbb57482fced531342522b396c9078929aa28fc96e96f2e",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "HEC-08",
+      "start": 173,
+      "end": 179,
+      "context": "g a HEPN-domain protein, and the pinned DefenseFinder HMM inventory records one HEC-08 profile row. The pinned rules table has no HEC-08 row, and the first-pass recor",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/hec_08_system.yaml"
+    },
+    {
+      "term_id": "term-9b1e1a24018e073b1b45027ce17c3bb0fdf38ff392a197de50df11559d864fbb",
+      "label": "unisexual reproduction",
+      "discussion_id": "gap-30342f64ece1bd0e9e13880a13d828e78f5097c2af2e181c21d2e8b75af0dcd9",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "unisexual reproduction",
+      "start": 603,
+      "end": 625,
+      "context": "getative-versus-gamete size, or mating compatibility. Isogamy traitmech:000619, unisexual reproduction traitmech:000613 and fungal mating systems traitmech:000615 through traitmech:0",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/anisogamy.yaml"
+    },
+    {
+      "term_id": "term-83e7e082b822e21d53e4a7388b6d268c382e44c3e5d73846b68b70d79b802551",
+      "label": "Lamassu-HNH system",
+      "discussion_id": "gap-7d54114d3c2360e06722964e7f4a9b4650582988db524e02d1c6e68bba322f1c",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "traitmech:000568",
+      "start": 1899,
+      "end": 1915,
+      "context": "'s profile labels as current executable model requirements. Lamassu-HNH system (traitmech:000568) now captures the literature-supported short-LmuB architecture with HNH-domain ",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/lamassu_system.yaml"
+    },
+    {
+      "term_id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "label": "enzyme",
+      "discussion_id": "gap-f0712d729eac5c64c2dfa7d68ec455271c016ae6f6fd8a01e883215336bc849b",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "enzyme",
+      "start": 224,
+      "end": 230,
+      "context": "nopeptidase phenotype, so it is appropriate as a causal-node grounding for that enzyme activity and not as an equivalent TraitRecord xref.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/alanine_arylamidase_activity.yaml"
+    },
+    {
+      "term_id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "label": "phenotype",
+      "discussion_id": "gap-64cdb0726e9234fd35dd3a7fa94e052f300423dc75dca18cb15b1742ac889014",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "phenotype",
+      "start": 843,
+      "end": 852,
+      "context": "ivalence is asserted pending authority review; molecular-function terms are not phenotype xrefs.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/quorum_quenching.yaml"
+    },
+    {
+      "term_id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "label": "enzyme",
+      "discussion_id": "gap-01e51295cb527a2af3e177a2dda1c9264fc99c36726cb6f946304307acd92351",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "enzyme",
+      "start": 44,
+      "end": 50,
+      "context": "Bari et al. support Nhi as a compact single-enzyme nuclease-helicase immunity system that prevents phage DNA accumulation and is i",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/nhi_system.yaml"
+    },
+    {
+      "term_id": "term-ad085ce86ff747739e5750ce4c5915aa9dea66a74fbcb23fbb8af2564d06dff6",
+      "label": "parasitism",
+      "discussion_id": "gap-fa5c9de1744cf0527d43d5d87b1746da502b2504c2f29d1f3327b2ad63855351",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "parasitism",
+      "start": 84,
+      "end": 94,
+      "context": "ral_host_fitness is the node that makes this trait different from mutualism and parasitism, and it is the one node stated as a definition rather than an observation. If n",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/ecology/commensalism.yaml"
+    },
+    {
+      "term_id": "term-8414f01bfd6ca4c8e181f060b7cd2fd8441aa9eb0d2460c99bb0faaed17cfa60",
+      "label": "DS-45 system",
+      "discussion_id": "gap-a8c88b15753e3f14dd7d09190fe6bd0ef31a32a1e26ad47dc9d49880f1386819",
+      "mech": "TraitMech",
+      "field": "prompt",
+      "text": "DS-45",
+      "start": 192,
+      "end": 197,
+      "context": "molecular output, and rule-level DefenseFinder criteria before minting narrower DS-45 mechanism children.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/ds_45_system.yaml"
+    },
+    {
+      "term_id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "label": "phenotype",
+      "discussion_id": "gap-7efdf3bfe1c546e41f62fdffe739a174eff9be6950aacbb6dd7e7e8c84b4bb57",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "METPO:1000059",
+      "start": 560,
+      "end": 573,
+      "context": "e different axes; isogamy does not mean one mating type. Use released phenotype METPO:1000059 in record and proposal pending a narrower reproductive-phenotype hierarchy. PHY",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/isogamy.yaml"
+    },
+    {
+      "term_id": "term-01f5788b1291dbe5f9b853349feb1e85a5099d481e9c14dc0d18b207a05c40e9",
+      "label": "Fermentation",
+      "discussion_id": "gap-b711dae7fe4907b68fbd2dc60a549a974f53c36e53e2140e1143e3ede812d830",
+      "mech": "CommunityMech",
+      "field": "prompt",
+      "text": "fermentation",
+      "start": 127,
+      "end": 139,
+      "context": "accumulates alongside lactate and acetate during B. bifidum JCM1254 monoculture fermentation of 2′-FL across 0–100% 2′-FL ratios?",
+      "source_url": "https://github.com/CultureBotAI/CommunityMech/blob/76aa644cd6803ea2c9545d4c704276ede219d354/data/isolates/Bifidobacterium_Bifidum_JCM1254_2FL_FOS_Monoculture_Baseline.yaml"
+    },
+    {
+      "term_id": "term-02a8dbcdf5c2ef1c0b1cac142835db427cd1f16f4b0a2084b0991350587b6101",
+      "label": "hemolysis",
+      "discussion_id": "gap-3877a82823b19cce39c41676ed3dd879f258ccba5518f870eb40ffae056f6203",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "hemolysis",
+      "start": 229,
+      "end": 238,
+      "context": "porarily parented directly to METPO:1000059 phenotype until METPO has a neutral hemolysis axis or another broader parent for hemolysis-test outcomes.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/other/non_hemolytic.yaml"
+    },
+    {
+      "term_id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "label": "phenotype",
+      "discussion_id": "gap-506258902174f954242a0d1df279947f8b1479691901e82cd20a31f9a5e44b6e",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "phenotype",
+      "start": 38,
+      "end": 47,
+      "context": "Different taxa and assays support the phenotype, not independent replication of each experiment. Laboratory culture provenance ",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/behavioral_habituation.yaml"
+    },
+    {
+      "term_id": "term-9b4a3f7eb18809230b3f422fb166ee085b855deb6d76f7e17053b4fce1bfb874",
+      "label": "enzyme",
+      "discussion_id": "gap-aa87107831a339965046068c37c13d443c733fee62fa53efdff772e17ca528fb",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "enzyme",
+      "start": 307,
+      "end": 313,
+      "context": "res verified strain-matched UniProtKB protein_examples on PncA to represent the enzyme-resolved mechanism.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/pyrazinamidase_activity.yaml"
+    },
+    {
+      "term_id": "term-78d85da933dfe01469922baf78f4193d783c71656868a8c6d6f9753e8c4d7200",
+      "label": "dormancy",
+      "discussion_id": "gap-a21a54af01d591891977d5f63ce81665bd6ab365e7d39c4f739b5281d5d29b56",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "dormancy",
+      "start": 61,
+      "end": 69,
+      "context": "Wall thickening alone does not establish long-term survival, dormancy, infectivity or a dispersal function. Preserve species-, strain-, age- and medi",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/fungal_chlamydospore_formation.yaml"
+    },
+    {
+      "term_id": "term-f9a7d74335856d9f25b3fd8e46e1c325f002e38e3fbb0422533916ca6be65bfd",
+      "label": "CmdTAC system",
+      "discussion_id": "gap-23669f8bb3e1e717fa959ecfae20fe2d742516e8ad66f3aee693f50754433344",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "CmdTAC",
+      "start": 137,
+      "end": 143,
+      "context": "k2, AbiH, AbiG, AbiI, AbiR, AbiD, AbiB, AbiC, AbiU, AbiAlpha, Pif, RexAB, SpbK, CmdTAC, Abi2, AbiJ, AbiL, AbiN, AbiO, AbiP2, AbiA, and PD-T4-10 are split out as trait",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/abortive_infection_system.yaml"
+    },
+    {
+      "term_id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+      "label": "motility",
+      "discussion_id": "gap-c825ad50d3c8fb8a5c59ea702e39b944d1c8443aba8adf9eb41cb80243f2b964",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "motility",
+      "start": 308,
+      "end": 316,
+      "context": "a-factor examples, and distinguish induction, morphological differentiation and motility readouts. Transcript changes or homologous sig genes alone do not establish the",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/hormogonium_formation.yaml"
+    },
+    {
+      "term_id": "term-403f8ce0ce69dfef63de7c2937541bb28aa1a50810033a8dcd63b7f368c36bdc",
+      "label": "phenotype",
+      "discussion_id": "gap-7d1fc8a963d4dc2983255274405006880b9afc583c9f1124f36a014a1f5402a8",
+      "mech": "DUFMech",
+      "field": "evidence[0].explanation",
+      "text": "phenotype",
+      "start": 208,
+      "end": 217,
+      "context": "hese are not experiments measuring DUF6647 substrate cleavage or a perturbation phenotype.",
+      "source_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/data/families/PF20352.yaml"
+    },
+    {
+      "term_id": "term-b0fbb13c970e196e94a164edb6a53ace3e75762f59b2a314ff5ed4f684322687",
+      "label": "DS-27 system",
+      "discussion_id": "gap-e29c3555e5dd12348f42911dd880b5b59828a9eed81e32ec6a9e76429e9daa01",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "DS-27",
+      "start": 700,
+      "end": 705,
+      "context": "tion denotes a single-gene transcriptional unit with the working label SMEK. No DS-27 assay phenotype or exact synonym is transferred. SMEK-specific Lamassu antivira",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/lamassu_smek_system.yaml"
+    },
+    {
+      "term_id": "term-ce42688cde82e8b3f3f43e575141e2428065374d05b6795fd99d1e05aa530f61",
+      "label": "DS-9 system",
+      "discussion_id": "gap-f31ab230df5b5a61615d51986c1473f4175a21c8cd7ce0c854ee38a7603ed5c9",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "DS-9",
+      "start": 753,
+      "end": 757,
+      "context": "phoesterase substrate, HAD phosphatase target, phage target breadth, endogenous DS-9 activity, or DefenseFinder rule-level detection criteria.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/ds_9_system.yaml"
+    },
+    {
+      "term_id": "term-b9ef463dc4ee679fc724d18d9388bc10acde81f5e775acf058eb9209c7973f2a",
+      "label": "motility",
+      "discussion_id": "gap-18204a60f44bc13021b4d7da4c52419f1019dbe27601f0f04b26b909141cc5e8",
+      "mech": "CellStructureMech",
+      "field": "rationale",
+      "text": "motility",
+      "start": 35,
+      "end": 43,
+      "context": "Davidge et al. 2006 showed that FC motility is separable from new-axoneme extension, and Varga et al. 2017 assigned kinesin",
+      "source_url": "https://github.com/CultureBotAI/CellStructureMech/blob/7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b/data/structures/appendage/flagella_connector.yaml"
+    },
+    {
+      "term_id": "term-914382985ad1f658af4f7f172c4f55235e0b5f5f1b80c4442fc2b2ef79b31775",
+      "label": "Ogmios system",
+      "discussion_id": "gap-c7c1398624d1342ef989328c9c4ac49ba29d1f173c2e391d0d31769c9b73c46e",
+      "mech": "TraitMech",
+      "field": "prompt",
+      "text": "Ogmios",
+      "start": 75,
+      "end": 81,
+      "context": "Resolve Ogmios phage triggers and effector outputs before minting narrower Ogmios mechanism children.",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/ogmios_system.yaml"
+    },
+    {
+      "term_id": "term-ac95390c7b35f736983217b54e4fc49425941c0ac22ec1ebd36fa26a627a4e8e",
+      "label": "fungal arbuscule formation",
+      "discussion_id": "gap-33441ad1ef40f3b61145228830636a7c433f54e9d442c6c0d4cb6ee4f2525bbe",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "traitmech:000664",
+      "start": 332,
+      "end": 348,
+      "context": "e. Internal mycorrhizal vesicle formation traitmech:000670, arbuscule formation traitmech:000664 and branched absorbing structure formation traitmech:000665 denote different ar",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/morphology/fungal_auxiliary_cell_formation.yaml"
+    },
+    {
+      "term_id": "term-5f5c7d2ae96b9a2dc1dae8ee6c6c7817e124f681330e847e8707a2e657b077d6",
+      "label": "enhanced transcriptional reactivation memory",
+      "discussion_id": "gap-a90eeef7e865bce90d9a2c3f7c85c15e3769198a2e804cecbfb10a22e259f9da",
+      "mech": "TraitMech",
+      "field": "rationale",
+      "text": "traitmech:000713",
+      "start": 367,
+      "end": 383,
+      "context": "stance memory (traitmech:000712), enhanced transcriptional reactivation memory (traitmech:000713) and behavioral habituation (traitmech:000714) have different endpoints. Negati",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/physiology/extracellular_trail_based_spatial_memory.yaml"
+    },
+    {
+      "term_id": "term-88373b2d6c7aa5dd421a8ddede56a9c8221739d3693d1e2ca5c473d1f4f1e09a",
+      "label": "mutualism",
+      "discussion_id": "gap-36a3427e54406ee7b3f75fdb9a21865a15037c25e6a5f75b0049fdada88464a8",
+      "mech": "CommunityMech",
+      "field": "rationale",
+      "text": "mutualism",
+      "start": 287,
+      "end": 296,
+      "context": "ges remain unread. Preserve zero arrows, putative degrader attribution, removed mutualism and separate hydrogel/M9 contexts; CMC is chemically distinct from its cellulos",
+      "source_url": "https://github.com/CultureBotAI/CommunityMech/blob/76aa644cd6803ea2c9545d4c704276ede219d354/kb/communities/Carbon_Substrate_PMSX_Biofilm_SynCom.yaml"
+    }
+  ],
+  "vocabulary_coverage": [
+    {
+      "acquired_at": "2026-11-14T21:08:46.874807+00:00",
+      "coverage_status": "complete",
+      "data_license": "CC-BY-4.0",
+      "license_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/LICENSE-DATA",
+      "name": "TraitMech",
+      "repository": "CultureBotAI/TraitMech",
+      "revision": "2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18",
+      "roots": [
+        {
+          "alias_fields": [
+            "synonyms"
+          ],
+          "alias_value_fields": [
+            "synonym_text"
+          ],
+          "candidate_records": 553,
+          "canonical_id_field": "identifier",
+          "eligible_records": 1130,
+          "exclude_globs": [],
+          "globs": [
+            "data/traits/**/*.yaml"
+          ],
+          "id_field": "identifier",
+          "inspected_records": 1130,
+          "label_fields": [
+            "label"
+          ],
+          "name": "canonical-records",
+          "publication_allowed": true,
+          "reason": null,
+          "status": "complete"
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "acronyms": "Single-token uppercase acronyms of up to 6 letters require exact case",
+    "ambiguity": "A surface with multiple eligible canonical concepts remains unlinked",
+    "canonical_namespaces": {
+      "aio": "AIO",
+      "aro": "ARO",
+      "bto": "BTO",
+      "chebi": "CHEBI",
+      "envo": "ENVO",
+      "foodon": "FOODON",
+      "go": "GO",
+      "interpro": "InterPro",
+      "metpo": "METPO",
+      "ncbitaxon": "NCBITaxon",
+      "pfam": "PFAM",
+      "po": "PO",
+      "pr": "PR",
+      "uberon": "UBERON"
+    },
+    "counting": "Each accepted occurrence in each actual text field; copied fields count independently",
+    "display_label": "Lexicographically first informative native label, or explicit identifier if all labels are placeholders; all source labels retained",
+    "excluded_metadata": [
+      "record_label",
+      "aliases",
+      "record_id",
+      "discussion_id",
+      "attaches_to",
+      "evidence_refs",
+      "source",
+      "experiment_id"
+    ],
+    "identity": "Exact declared canonical CURIE with normalized recognized prefix; otherwise source-unique ID",
+    "interpretation": "Includes negated and contextual mentions; lexical counts do not assert scientific claims or interactions",
+    "method": "dictionary-linked entity recognition; no contextual inference",
+    "normalization": "Unicode NFKC, casefold, collapse whitespace; punctuation retained",
+    "overlap": "Leftmost longest whole-word surface; letters, numbers and combining marks belong to words; ambiguous longest spans block nested fallback",
+    "pair_unit": "One unordered distinct-term pair per discussion, after reader filters",
+    "short_forms": "Fewer than 3 alphanumeric characters excluded except explicit CURIEs; 3 characters require exact case",
+    "span_encoding": "Unicode codepoint offsets into original field text",
+    "stop_forms": [
+      "a",
+      "accumulates",
+      "an",
+      "and",
+      "any",
+      "are",
+      "as",
+      "at",
+      "be",
+      "but",
+      "by",
+      "can",
+      "for",
+      "from",
+      "had",
+      "has",
+      "have",
+      "he",
+      "if",
+      "imports",
+      "in",
+      "into",
+      "is",
+      "it",
+      "its",
+      "lead",
+      "may",
+      "more",
+      "most",
+      "no",
+      "none",
+      "not",
+      "now",
+      "of",
+      "on",
+      "one",
+      "or",
+      "other",
+      "our",
+      "out",
+      "per",
+      "produces",
+      "reduces",
+      "than",
+      "that",
+      "the",
+      "this",
+      "to",
+      "unclassified",
+      "unknown",
+      "unspecified",
+      "use",
+      "used",
+      "via",
+      "was",
+      "were",
+      "will",
+      "with",
+      "without"
+    ],
+    "text_fields": [
+      "prompt",
+      "rationale",
+      "resolution_note",
+      "evidence[].explanation",
+      "proposed_experiments[].name",
+      "proposed_experiments[].description",
+      "proposed_experiments[].approach",
+      "proposed_experiments[].decision_criterion",
+      "proposed_experiments[].would_support",
+      "proposed_experiments[].would_refute",
+      "proposed_experiments[].model_systems[]",
+      "proposed_experiments[].perturbations[]",
+      "proposed_experiments[].readouts[]"
+    ],
+    "version": 1
+  },
+  "interpretation": "Occurrence counts are lexical matches, not evidence of biological interaction or research priority."
+}
