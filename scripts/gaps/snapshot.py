@@ -24,7 +24,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from roots import ORDER, is_withheld
+from roots import ORDER, contains_unlisted_mech, is_withheld
 
 
 def git(repo, *args):
@@ -248,7 +248,7 @@ def acquire(config, repos_root, cache_root, exporter, provenance, selected=None)
                           "items": len(source_items), "source_url": f"https://github.com/{source['repository']}/tree/{source['revision']}"})
     snapshot = {"schema_version": 1, "source_config_sha256": digest(json_bytes(config)),
                 "exporter": provenance, "sources": sources, "items": sorted(items, key=lambda i: i["id"])}
-    if is_withheld(json_bytes(snapshot).decode()):
+    if contains_unlisted_mech(json_bytes(snapshot).decode()):
         raise ValueError("Withheld identity in public snapshot metadata or items")
     return snapshot
 

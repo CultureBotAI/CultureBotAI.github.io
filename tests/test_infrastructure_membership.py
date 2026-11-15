@@ -128,6 +128,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
             roots.mech_root("ScaleupMech")
 
     def test_manifest_projection_strips_scaleupmech_and_preserves_public_snapshot(self):
+        from fixtures.pinned_fleet_api import Fleet
         snapshot = self.inputs[1]
         manifest = {
             "capability_catalogue": deepcopy(snapshot["capability_catalogue"]),
@@ -141,6 +142,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
             },
         }
         manifest["mechs"]["scaleupmech"] = {
+            "tags": ["exclude-from-public"],
             "display_name": "ScaleupMech",
             "github": "CultureBotAI/ScaleupMech",
             "capabilities": {
@@ -157,7 +159,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
                 + [{"id": "scaleupmech_schema", "source": "ScaleupMech/schema.yaml", "consumers": []}]
             ),
         }
-        projected = project(manifest, registry, snapshot["source"]["revision"])
+        projected = project(Fleet(manifest), registry, snapshot["source"]["revision"])
         self.assertNotIn("ScaleupMech", projected["mechs"])
         self.assertEqual(projected["artifact_count"], snapshot["artifact_count"])
         self.assertEqual(semantic(projected), semantic(snapshot))
@@ -229,7 +231,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
 
         orig_template = self.template
         self.template = orig_template + "\n<!-- scaleupmech_export -->"
-        with self.assertRaisesRegex(ValueError, "Withheld Mech ScaleupMech"):
+        with self.assertRaisesRegex(ValueError, "withheld Mech"):
             self.render()
         self.template = orig_template
 

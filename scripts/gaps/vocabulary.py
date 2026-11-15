@@ -18,7 +18,7 @@ from urllib.parse import quote
 
 import yaml
 
-from snapshot import (ROOT, ORDER, blobs, digest, git, is_withheld, json_bytes,
+from snapshot import (ROOT, ORDER, blobs, contains_unlisted_mech, digest, git, is_withheld, json_bytes,
                       matches, publication_allowed, records, verify_repo, write_atomic)
 from terms import SEMANTIC_NAMESPACES, make_surface_prefilter
 
@@ -480,7 +480,7 @@ def validate_vocabulary(vocabulary, snapshot, config, *, pilot=False, allow_lega
                 raise ValueError("Vocabulary canonical owner count mismatch")
     if not owner_keys <= lexical_keys:
         raise ValueError("Owner-only record has no corpus-present canonical sibling")
-    if is_withheld(json_bytes(vocabulary).decode()):
+    if contains_unlisted_mech(json_bytes(vocabulary).decode()):
         raise ValueError("Withheld identity in public vocabulary")
 
 

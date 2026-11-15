@@ -178,7 +178,7 @@ class CMMMechTests(unittest.TestCase):
             {'repo': 'BMech', 'figure_at_pin': 100},
         ]}
         now = datetime.datetime(2026, 9, 30, tzinfo=datetime.timezone.utc)
-        with mock.patch.dict(check_cards.SOURCES, sources, clear=True):
+        with mock.patch.dict(check_cards.SOURCES, sources, clear=True), mock.patch.object(roots, 'public_names', return_value=frozenset({'amech', 'bmech'})):
             rows = check_cards.check(template, lambda _: '<b>101</b><span>records</span>', audit, now)
             self.assertEqual({m: status for status, m, _ in rows}, {'AMech': 'grew', 'BMech': 'STALE'})
             audit['repositories'][0]['pinned_at_utc'] = '2026-10-02T00:00:00Z'

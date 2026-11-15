@@ -58,8 +58,8 @@
 
 The site lists sixteen corpus Mechs and separate infrastructure members.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
-and the November 11, 2026 refresh pins CLAW at
-`7233987c85dcae9c248c7a2dbd445065e5a6c1b8`: the canonical snapshot declares
+and the November 15, 2026 membership-only update pins CLAW at
+`aed62751030672300f3ee4394c37357c435b0d00`: the canonical snapshot declares
 17 public members (all sixteen corpus Mechs plus EdgeMech infrastructure), 26 governed
 artifacts and 29 capabilities, including record-review declarations and the
 `evidence_reference_validation` contract (enabled for MediaIngredientMech,
@@ -75,6 +75,30 @@ all sixteen source pins.
 DUFMech's contribution to that census is a measured seed worklist, labeled as
 families rather than curated mechanism records. Its schema-documentation prose
 uses the website feature verdict, not membership or an inferred schema absence.
+
+This pin is the published public-projection candidate in
+[CLAW #1280](https://github.com/CultureBotAI/culturebotai-claw/pull/1280), which
+must merge before this site change. It replaces the integration dependency in
+site #551 without restoring that PR's obsolete pending-admission descriptions.
+CofactorMech and AssayMech retain their admitted corpora, numeric cards and
+separately reviewed browsers. Knowledge-gap snapshot, vocabulary and built assets
+keep their existing contract pin and bytes.
+
+`refresh_manifest.py` loads the committed canonical package and calls
+`FleetManifest.public()` before serializing identities or counting applicable
+governance artifacts. `roots.py` treats the resulting snapshot as the public
+allowlist; unlisted identities are refused before aggregation or repository
+requests. Prose scans and exact structured-identity checks are separate so a
+serialized knowledge-gap document is not mistaken for a single repository ID.
+Each PR reproduces the snapshot from its exact CLAW pin; the nightly main check
+continues to detect later upstream drift independently.
+
+Membership-only updates record `membership_checked_at_utc` and project retained
+audit rows and notes through the new public membership. Corpus observation dates
+and scientific statistics remain unchanged. The retained helper
+`scripts/adhoc/refresh_public_membership_1254.py` stages and validates the five
+generated artifacts, then promotes them under a repository lease only with
+`--apply`; its default is a dry run.
 
 Use a CLAW checkout at the desired published `main` revision. The refresh reads
 committed Git blobs at that checkout's HEAD; uncommitted changes are excluded.
@@ -476,7 +500,7 @@ REVIEWED-bearing status still receives its merged-PR count and pinned
 provenance, rather than an invented zero reviewed count. All sixteen repositories
 participate in statistics collection.
 
-The CLAW governance snapshot at 7233987 declares 17 public members (sixteen corpus
+The CLAW governance snapshot at aed6275 declares 17 public members (sixteen corpus
 Mechs plus EdgeMech curation infrastructure), 26 governed artifacts and 29 capabilities,
 including record-review declarations. The added evidence-reference validation contract is
 enabled for MediaIngredientMech, CellStructureMech and HabitatMech; the other fourteen

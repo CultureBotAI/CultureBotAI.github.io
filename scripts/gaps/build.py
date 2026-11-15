@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 import tempfile
 
-from snapshot import (ROOT, ORDER, digest, is_withheld, json_bytes, load_exporter,
+from snapshot import (ROOT, ORDER, contains_unlisted_mech, digest, json_bytes, load_exporter,
                       matches, publication_allowed, write_atomic)
 from terms import build_term_document
 
@@ -120,7 +120,7 @@ def validate(snapshot, config, exporter, provenance, *, pilot=False):
                 raise ValueError("Root item count does not match its actual items")
             if len(root_documents[(source["name"], row["name"])]) > row["inspected_records"]:
                 raise ValueError("Item documents exceed inspected records for source root")
-    if is_withheld(json_bytes(snapshot).decode()):
+    if contains_unlisted_mech(json_bytes(snapshot).decode()):
         raise ValueError("Withheld identity in public snapshot")
 
 

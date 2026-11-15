@@ -2,8 +2,8 @@
   "version": 1,
   "source": {
     "repository": "CultureBotAI/culturebotai-claw",
-    "revision": "7233987c85dcae9c248c7a2dbd445065e5a6c1b8",
-    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/7233987c85dcae9c248c7a2dbd445065e5a6c1b8/src/kg_microbe_fleet/fleet.yaml"
+    "revision": "aed62751030672300f3ee4394c37357c435b0d00",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/aed62751030672300f3ee4394c37357c435b0d00/src/kg_microbe_fleet/fleet.yaml"
   },
   "capability_catalogue": {
     "id_label_validation": {},
@@ -35,7 +35,7 @@
         "window": {
           "type": "integer",
           "required_when_enabled": true,
-          "minimum": 1
+          "minimum": 1.0
         }
       }
     },
@@ -396,11 +396,11 @@
           "status": "disabled",
           "reason": "Carries .claude/commands/ground-or-propose-metpo.md, so the grounding half is present, but has no proposals/ directory and has never minted a METPO id. Adopting applies once a CultureMech term needs one.",
           "reason_claims": {
-            "absent": [
-              "proposals"
-            ],
             "present": [
               ".claude/commands/ground-or-propose-metpo.md"
+            ],
+            "absent": [
+              "proposals"
             ]
           }
         },
@@ -2424,15 +2424,15 @@
         "knowledge_gap_scan": {
           "status": "enabled",
           "reason": "conf/kgscan_config.yaml and src/dufmech/knowledge_gaps.py use shared sentence scoring over retained abstracts and emit timestamped review packets. Explicit digest-bound review is required before native overlay acceptance. This offline adapter is not a live scheduled scan.",
+          "settings": {
+            "window": 25,
+            "scheduled": false
+          },
           "reason_claims": {
             "present": [
               "conf/kgscan_config.yaml",
               "src/dufmech/knowledge_gaps.py"
             ]
-          },
-          "settings": {
-            "window": 25,
-            "scheduled": false
           }
         },
         "vendored_sync": {
