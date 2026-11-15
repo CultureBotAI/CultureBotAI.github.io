@@ -9,6 +9,8 @@
   var worker, manifest, state, ready = false, requestID = 0, loadVersion = 0, queryVersion = 0, detailVersion = 0;
   var pending = new Map(), shards = new Map(), lastTotal = 0, exporting = false, lastDetailButton = null;
   var termsReady = false, termsLoading = false, termsVersion = 0, termInfo = new Map(), termRecognition = null;
+  var sectionIDs = ['gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-results-title', 'gap-static-title', 'bibliography'];
+  var pendingSection = location.hash;
   function node(tag, content, className) {
     var el = document.createElement(tag);
     if (content != null) el.textContent = String(content);
@@ -42,10 +44,67 @@
       if (String(current[key]) === String(core.defaults[key])) url.searchParams.delete(key);
       else url.searchParams.set(key, current[key]);
     });
-    url.hash = '';
     return url;
   }
   function historyState(replace) { history[replace ? 'replaceState' : 'pushState'](null, '', stateURL(state)); }
+  function sectionOffset() {
+    var header = document.querySelector('.site-header');
+    document.documentElement.style.setProperty('--gap-section-offset', ((header ? header.getBoundingClientRect().height : 0) + 24) + 'px');
+  }
+  function navigatePendingSection() {
+    var id = pendingSection.slice(1);
+    if (!sectionIDs.includes(id)) { pendingSection = ''; return; }
+    var target = document.getElementById(id);
+    if (!target || target.closest('[hidden]')) return;
+    // These sections move down when the asynchronously loaded cloud appears.
+    if (termsLoading && sectionIDs.indexOf(id) >= 2) return;
+    if (id === 'gap-static-title') target.parentElement.open = true;
+    sectionOffset();
+    target.focus({preventScroll: true}); target.scrollIntoView({block: 'start'});
+    pendingSection = '';
+  }
+  function jumpToSection(id) {
+    var url = new URL(location.href); url.hash = id;
+    if (url.href !== location.href) history.pushState(null, '', url);
+    pendingSection = url.hash; navigatePendingSection();
+  }
+  function resetStats(message) {
+    $('stats-grid').hidden = true; $('stats-grid').replaceChildren();
+    $('stats-status').hidden = false; $('stats-status').textContent = message;
+  }
+  function renderStats(counts) {
+    if (!counts || !Number.isSafeInteger(counts.total) || !counts.by_mech) throw new Error('Snapshot gap counts are unavailable.');
+    var fragment = document.createDocumentFragment();
+    function tile(name, count, coverage) {
+      var complete = coverage === 'complete', filterable = complete || count > 0;
+      var button = node('button', null, 'gap-stat' + (name ? '' : ' gap-stat-total'));
+      button.type = 'button'; button.dataset.mech = name; button.dataset.count = count;
+      button.dataset.coverage = coverage; button.dataset.action = filterable ? 'filter' : 'coverage';
+      var label = node('span', name ? null : 'Total indexed gaps', 'gap-stat-name');
+      if (name) name.split(/(?=[A-Z][a-z])/).forEach(function (part, index) {
+        if (index) label.append(node('wbr'));
+        label.append(document.createTextNode(part));
+      });
+      button.append(label,
+        node('span', complete ? number(count) : count ? number(count) + '+' : '—', 'gap-stat-count'),
+        node('span', !name ? 'All lifecycle states' : complete ? 'Recorded gaps' : count ? 'Partial coverage' : human(coverage) + ' coverage', 'gap-stat-coverage'));
+      button.setAttribute('aria-label', !filterable ? name + ': ' + human(coverage) + ' coverage; inspect sources' :
+        (name || 'All Mechs') + ': browse ' + number(count) + ' indexed gaps across all lifecycle states' + (!complete ? '; partial coverage' : ''));
+      button.addEventListener('click', function () {
+        if (!ready) return;
+        if (!filterable) { jumpToSection('gap-static-title'); return; }
+        closeDetail(false, false);
+        state = core.normalize({mech: name, status: ''}); syncControls();
+        var url = stateURL(state); url.hash = 'gap-results-title';
+        history.pushState(null, '', url); pendingSection = url.hash; query(false);
+      });
+      fragment.append(button);
+    }
+    tile('', counts.total, 'complete');
+    manifest.sources.forEach(function (source) { tile(source.name, counts.by_mech[source.name] || 0, source.coverage_status); });
+    $('stats-grid').replaceChildren(fragment); $('stats-grid').hidden = false;
+    $('stats-status').hidden = true;
+  }
   function syncControls() {
     $('query').value = state.q;
     ['view', 'mech', 'kind', 'status', 'review', 'sort', 'vocab'].forEach(function (key) {
@@ -77,6 +136,7 @@
   }
   function fail(message) {
     ready = false; lastTotal = 0; $('controls').disabled = true;
+    resetStats('Gap counts are unavailable until the search index loads. Retry loading below, or inspect the static coverage summary.');
     $('results').replaceChildren(); $('pagination').hidden = true;
     $('load-status').textContent = 'Search could not load: ' + message + ' The static source summary remains available below.';
     $('load-status').className = 'gap-error'; $('load-status').hidden = false; $('retry').hidden = false;
@@ -160,6 +220,7 @@
       names.append(button); row.append(names, node('td', number(pair.discussions))); pairs.append(row);
     });
     $('term-pairs').replaceChildren(pairs);
+    $('pairs-status').hidden = true;
     $('pairs-table').hidden = !summary.pairs.length; $('pairs-empty').hidden = Boolean(summary.pairs.length);
   }
   function termCoverage(reply) {
@@ -188,6 +249,8 @@
     var version = ++termsVersion, snapshotVersion = loadVersion;
     termsLoading = true; termsReady = false; termRecognition = null;
     $('terms-content').hidden = true; $('terms-retry').hidden = true;
+    $('pairs-table').hidden = true; $('pairs-empty').hidden = true; $('pairs-status').hidden = false;
+    $('pairs-status').textContent = 'Co-occurrence will appear when entity occurrences load.';
     $('terms-status').className = ''; $('terms-status').textContent = 'Loading entity occurrences…';
     $('term-coverage').textContent = 'Loading vocabulary coverage…';
     if (state.term || state.term2) query(false);
@@ -207,7 +270,9 @@
       $('terms-status').textContent = 'Entity occurrences could not load: ' + error.message + ' Ordinary search remains available. Selected entity filters require this index.';
       $('term-coverage').textContent = 'Vocabulary coverage is unavailable until the entity index loads successfully.';
       $('terms-retry').hidden = false;
+      $('pairs-status').textContent = 'Co-occurrence is unavailable. Retry entity occurrences above.';
       if (state.term || state.term2) query(false);
+      navigatePendingSection();
     }
   }
   async function verifiedJSON(descriptor) {
@@ -273,6 +338,7 @@
     if ((state.term || state.term2) && !termsReady) {
       $('result-status').textContent = termsLoading ? 'Loading entity occurrences before applying the selected entity filters…' : 'Selected entity filters could not be applied. Retry entity occurrences or clear the entity selection. No broader results are shown.';
       if (focus) $('result-status').focus();
+      navigatePendingSection();
       return;
     }
     try {
@@ -281,6 +347,7 @@
       var result = reply.result; state.page = result.page; historyState(true);
       lastTotal = result.total; renderRows(result); renderTerms(result.term_summary, result.selected_terms); exportButtons();
       if (focus) $('result-status').focus();
+      navigatePendingSection();
     } catch (error) { if (version === queryVersion) fail(error.message); }
   }
   function closeDetail(restore, update) {
@@ -400,6 +467,8 @@
   }
   async function load() {
     var version = ++loadVersion; ready = false; queryVersion++; detailVersion++; stopWorker(); shards.clear();
+    resetStats('Gap counts will appear when the search index loads.');
+    app.querySelectorAll('[data-gap-interactive]').forEach(function (a) { a.hidden = true; });
     termsVersion++; termsReady = false; termsLoading = false; termRecognition = null; termInfo.clear();
     $('terms-content').hidden = true; $('terms-retry').hidden = true;
     $('app').hidden = true; $('retry').hidden = true; $('load-status').hidden = false;
@@ -423,6 +492,7 @@
       var reply = await request('init', {url: new URL(manifest.index.url, manifestURL).href, sha256: manifest.index.sha256, build_id: manifest.build_id});
       if (version !== loadVersion) return;
       if (reply.total !== manifest.counts.items) throw new Error('The index count does not match the snapshot manifest.');
+      renderStats(reply.gap_counts);
       var names = manifest.sources.map(function (source) { return source.name; }).sort();
       [['mech', names, 1], ['vocab', names, 1], ['kind', reply.facets.kind, 1], ['status', reply.facets.status, 2], ['review', reply.facets.review_state, 1]].forEach(function (entry) {
         var select = $(entry[0]); while (select.options.length > entry[2]) select.remove(entry[2]);
@@ -435,6 +505,7 @@
       state = readState(); syncControls(); coverage();
       $('snapshot').textContent = number(reply.total) + ' indexed discussions · ' + number(reply.candidates) + ' candidates awaiting review · ' + number(manifest.sources.length) + ' Mechs accounted for. Snapshot ' + manifest.build_id.slice(0, 12) + '. Inspect coverage for source dates and limitations.';
       ready = true; $('controls').disabled = false; $('app').hidden = false; $('load-status').hidden = true;
+      app.querySelectorAll('[data-gap-interactive]').forEach(function (a) { a.hidden = false; });
       query(false); loadTerms(); if (state.gap) openDetail(state.gap, false, false);
     } catch (error) { if (version === loadVersion) fail(error.message); }
   }
@@ -474,8 +545,22 @@
   $('export-csv').addEventListener('click', function () { exportMatches('csv'); });
   window.addEventListener('popstate', function () {
     if (!ready) return;
-    state = readState(); syncControls(); query(false);
+    var next = readState();
+    // A section-only history entry does not need to rebuild the search view.
+    if (Object.keys(core.defaults).every(function (key) { return next[key] === state[key]; })) return;
+    state = next; pendingSection = location.hash; syncControls(); query(false);
     if (state.gap) openDetail(state.gap, false, false); else closeDetail(false, false);
   });
+  app.querySelectorAll('.gap-section-nav a').forEach(function (anchor) {
+    anchor.addEventListener('click', function (event) {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault(); jumpToSection(anchor.hash.slice(1));
+    });
+  });
+  window.addEventListener('hashchange', function () { pendingSection = location.hash; navigatePendingSection(); });
+  window.addEventListener('resize', sectionOffset);
+  var siteHeader = document.querySelector('.site-header');
+  if (siteHeader && window.ResizeObserver) new ResizeObserver(sectionOffset).observe(siteHeader);
+  sectionOffset();
   load();
 }());

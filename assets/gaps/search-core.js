@@ -91,13 +91,28 @@
       return {item: item, ids: ids, label: label, body: body};
     });
   }
+  function isKnowledgeGap(item) {
+    return item.lane !== 'candidate' && ['KNOWLEDGE_GAP', 'HUMAN_MODEL_MISMATCH'].includes(item.kind);
+  }
+  function gapCounts(items) {
+    var total = 0, byMech = new Map();
+    items.forEach(function (item) {
+      if (!byMech.has(item.mech)) byMech.set(item.mech, 0);
+      if (isKnowledgeGap(item)) {
+        total++; byMech.set(item.mech, byMech.get(item.mech) + 1);
+      }
+    });
+    return {total: total, by_mech: Object.fromEntries(Array.from(byMech.entries()).sort(function (a, b) {
+      return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
+    }))};
+  }
   function search(prepared, input, termData) {
     var state = normalize(input), q = fold(state.q), terms = q.split(/\s+/).filter(Boolean);
     if ((state.term || state.term2) && !termData) throw new Error('Entity occurrences must load before applying the selected term filter. Retry the term explorer or clear its selection.');
     var matches = [], scope = [];
     prepared.forEach(function (entry) {
       var item = entry.item;
-      if (state.view === 'gaps' && (item.lane === 'candidate' || !['KNOWLEDGE_GAP', 'HUMAN_MODEL_MISMATCH'].includes(item.kind))) return;
+      if (state.view === 'gaps' && !isKnowledgeGap(item)) return;
       if (state.view === 'candidates' && item.lane !== 'candidate') return;
       if (state.mech && item.mech !== state.mech) return;
       if (state.kind && item.kind !== state.kind) return;
@@ -162,6 +177,6 @@
     return safeURL(ref);
   }
   return {PAGE_SIZE: PAGE_SIZE, defaults: defaults, normalize: normalize, prepare: prepare, search: search,
-    prepareTerms: prepareTerms, summarizeTerms: summarizeTerms,
+    prepareTerms: prepareTerms, summarizeTerms: summarizeTerms, gapCounts: gapCounts,
     csv: csv, csvCell: csvCell, safeURL: safeURL, referenceURL: referenceURL};
 }));

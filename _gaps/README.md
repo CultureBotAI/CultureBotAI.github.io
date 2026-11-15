@@ -4,6 +4,8 @@ The [original implementation plan](IMPLEMENTATION.md) covers the published nativ
 
 The browser reads a retained native-data snapshot. It makes no visitor-time GitHub API calls and runs no literature scans. It does not change scientific records or infer gaps from absent fields. Default results are active knowledge gaps and human/model mismatches; all discussions and review-required candidates are separate views. Recorded does not mean scientifically validated.
 
+The magenta section links below the title preserve search filters and support direct fragment URLs. The summary tiles count indexed `KNOWLEDGE_GAP` and `HUMAN_MODEL_MISMATCH` entries across all lifecycle states, excluding candidate entries. These snapshot-wide counts do not change with search filters. Selecting a count clears other filters and opens the corresponding gaps; unsupported or partially covered sources retain an explicit coverage label rather than claiming a measured zero.
+
 ## Inputs and provenance
 
 - `sources.json` declares the sixteen public corpus repositories, immutable revisions, source roots, adapters, schema/license digests and publication holds. Support and permission are separate. Unsupported or held roots have unknown counts, never zero.

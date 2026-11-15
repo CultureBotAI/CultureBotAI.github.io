@@ -134,6 +134,31 @@ test('worker verifies snapshot, searches later records and returns complete expo
   assert.equal(worker.messages.at(-1).result.all.length, 60);
 });
 
+test('worker gap totals count all lifecycle states independently of filters and pagination', async () => {
+  const rows = Array.from({length: 61}, (_, n) => item({id: 'open-' + n})).concat([
+    item({id: 'resolved', status: 'RESOLVED', origin: 'scanner', lane: 'recorded'}),
+    item({id: 'mismatch', mech: 'CommunityMech', kind: 'HUMAN_MODEL_MISMATCH', status: 'UNDER_DISCUSSION'}),
+    item({id: 'closed-mismatch', mech: 'CommunityMech', kind: 'HUMAN_MODEL_MISMATCH', status: 'RESOLVED'}),
+    item({id: 'candidate', lane: 'candidate'}),
+    item({id: 'candidate-mismatch', mech: 'CommunityMech', kind: 'HUMAN_MODEL_MISMATCH', lane: 'candidate'}),
+    item({id: 'todo', mech: 'AssayMech', kind: 'CURATION_TODO'}),
+    item({id: 'unspecified', mech: 'CellStructureMech', kind: 'UNSPECIFIED'})
+  ]);
+  const worker = await workerFixture({schema_version: 1, build_id: 'snapshot-a', items: rows});
+  await worker.send(worker.init);
+  const counts = worker.messages.at(-1).gap_counts;
+  assert.deepEqual(counts, {total: 64, by_mech: {AssayMech: 0, CellStructureMech: 0, CommunityMech: 2, TraitMech: 62}});
+  assert.equal(Object.values(counts.by_mech).reduce((sum, count) => sum + count, 0), counts.total);
+  assert.equal(counts.total, search(rows, {view: 'gaps', status: ''}).total);
+  assert.equal(Object.hasOwn(counts.by_mech, 'UnindexedMech'), false);
+  await worker.send({type: 'query', request: 2, state: {mech: 'TraitMech', status: '', page: 2}});
+  assert.equal(worker.messages.at(-1).result.total, 62);
+  assert.equal(worker.messages.at(-1).result.rows.length, 12);
+  await worker.send({type: 'query', request: 3, state: {q: 'no matching phrase'}});
+  assert.equal(worker.messages.at(-1).result.total, 0);
+  assert.deepEqual(worker.messages[0].gap_counts, counts);
+});
+
 function entity(id, label, postings) {
   return {id, label, entity_refs: [{mech: 'TraitMech', record_id: id,
     url: 'https://github.com/CultureBotAI/TraitMech/blob/pin/record.yaml'}],
