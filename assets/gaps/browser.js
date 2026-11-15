@@ -57,7 +57,7 @@
     var target = document.getElementById(id);
     if (!target || target.closest('[hidden]')) return;
     // These sections move down when the asynchronously loaded cloud appears.
-    if (termsLoading && sectionIDs.indexOf(id) >= 2) return;
+    if (termsLoading && ['gap-pairs-title', 'gap-results-title'].includes(id)) return;
     if (id === 'gap-static-title') target.parentElement.open = true;
     sectionOffset();
     target.focus({preventScroll: true}); target.scrollIntoView({block: 'start'});
@@ -399,7 +399,9 @@
     body.append(node('h3', 'Source and provenance'));
     var sourceLinks = node('p'); sourceLinks.append(link('Pinned source record', source.url || item.source_url));
     if (source.record_url) sourceLinks.append(document.createTextNode(' · '), link('Current record page', source.record_url));
-    var permalink = node('a', 'Link to this discussion'); permalink.href = stateURL(Object.assign({}, state, {gap: item.id}));
+    var permalinkURL = stateURL(Object.assign({}, state, {gap: item.id}));
+    permalinkURL.hash = '';
+    var permalink = node('a', 'Link to this discussion'); permalink.href = permalinkURL;
     sourceLinks.append(document.createTextNode(' · '), permalink); body.append(sourceLinks);
     var provenance = node('dl'); field(provenance, 'Repository', source.repository); field(provenance, 'Revision', source.revision);
     field(provenance, 'Source file', source.path); field(provenance, 'Source SHA-256', source.sha256); field(provenance, 'Licence', values(source.license));
