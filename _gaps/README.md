@@ -4,6 +4,8 @@ The [original implementation plan](IMPLEMENTATION.md) covers the published nativ
 
 The browser reads a retained native-data snapshot. It makes no visitor-time GitHub API calls and runs no literature scans. It does not change scientific records or infer gaps from absent fields. Default results are active knowledge gaps and human/model mismatches; all discussions and review-required candidates are separate views. Recorded does not mean scientifically validated.
 
+The magenta section links below the title preserve search filters and support direct fragment URLs. The summary tiles count indexed `KNOWLEDGE_GAP` and `HUMAN_MODEL_MISMATCH` entries across all lifecycle states, excluding candidate entries. These snapshot-wide counts do not change with search filters. Selecting a count clears other filters and opens the corresponding gaps; unsupported or partially covered sources retain an explicit coverage label rather than claiming a measured zero.
+
 ## Inputs and provenance
 
 - `sources.json` declares the sixteen public corpus repositories, immutable revisions, source roots, adapters, schema/license digests and publication holds. Support and permission are separate. Unsupported or held roots have unknown counts, never zero.
@@ -65,6 +67,8 @@ The repair checks original pins and native record totals, parses candidate owner
 ## Review and publication
 
 Retain receipts under `reviews/`; browser screenshots and downloads stay under `.temp/`. The browser QA helper supports a one-case canary and then expanded desktop/mobile, URL/history, complete exports, literal markup, no-JavaScript, network failure/retry and timing checks. Its live-shell preview is supplemental. PR CI builds Jekyll in production mode and retains the `gap-browser-preview` artifact for three days. Download it beneath `.temp/` and pass its root through the helper's `--site` option, with `--assets` pointing to that build's `assets/gaps`, to test the actual layouts, includes and navigation.
+
+`scripts/adhoc/check_gap_overview_20261115.py` checks the section links and statistics against independently counted index rows. Run its `--canary` and inspect the saved receipt before the full pass. Supply `--site`, `--assets`, `--summary`, `--report` and optionally `--browser-executable` as with the browser helper. The full pass exercises every Mech tile, fragment/query history, discussion permalinks, light/dark contrast, loading/error headings and no-JavaScript anchors on both sides of the mobile-header breakpoint. `--static-only` isolates the native anchor checks. Screenshots and failure diagnostics remain under `.temp/gap-overview-20261115`.
 
 The term-specific helper, `scripts/adhoc/check_gap_terms_20261115.py`, independently counts the published postings and verifies the cloud, top-twenty pairs, source/view filters, exact term/pair downloads, keyboard/history/cold URLs and missing-index retry. Run `--canary` and inspect its receipt before the full desktop/mobile pass. Supply `--site` for actual Jekyll output. Its screenshots and downloads stay under `.temp/gap-terms-20261115/`. The live release verifier also exercises the term view when the deployed manifest declares it.
 

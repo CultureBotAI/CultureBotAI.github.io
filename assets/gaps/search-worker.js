@@ -39,7 +39,7 @@ self.onmessage = async function (event) {
         }));
       });
       self.postMessage({type: 'ready', request: message.request, total: doc.items.length, facets: facets,
-        facet_counts: facetCounts,
+        facet_counts: facetCounts, gap_counts: GapSearch.gapCounts(doc.items),
         candidates: doc.items.filter(function (item) { return item.lane === 'candidate'; }).length});
     } else {
       if (!prepared) throw new Error('The search index has not loaded.');
