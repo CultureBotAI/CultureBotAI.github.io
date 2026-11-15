@@ -78,7 +78,9 @@ def visible_target(page, target):
             if stable_top is None or abs(stable_top - bounds['top']) > .5:
                 stable_top, stable_since = bounds['top'], now
             lower, height = bounds['header_bottom'], bounds['viewport_height']
-            fits = bounds['height'] <= height - lower
+            # The search form is a tall section container, not a heading.
+            # Its beginning must be visible; the remaining controls can scroll.
+            fits = target != 'gap-form' and bounds['height'] <= height - lower
             if (bounds['top'] >= lower - 1 and bounds['top'] < height - 20
                     and (not fits or bounds['bottom'] <= height + 1)
                     and now - stable_since >= .12):

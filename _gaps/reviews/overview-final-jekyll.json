@@ -1,0 +1,7062 @@
+{
+  "complete": true,
+  "started_at": "2026-11-15T23:15:37.806930+00:00",
+  "canary": false,
+  "static_only": false,
+  "artifacts": ".temp/gap-overview-20261115/overview-final-jekyll-artifacts",
+  "views": [
+    {
+      "width": 1280,
+      "snapshot_counts": [
+        {
+          "mech": "",
+          "count": "1220",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "Total indexed gaps\n1,220\nAll lifecycle states",
+          "number": "1,220"
+        },
+        {
+          "mech": "HabitatMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "HabitatMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CommunityMech",
+          "count": "596",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CommunityMech\n596\nRecorded gaps",
+          "number": "596"
+        },
+        {
+          "mech": "TraitMech",
+          "count": "580",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "TraitMech\n580\nRecorded gaps",
+          "number": "580"
+        },
+        {
+          "mech": "PathwayMech",
+          "count": "0",
+          "coverage": "unsupported",
+          "action": "coverage",
+          "text": "PathwayMech\n\u2014\nunsupported coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "CellStructureMech",
+          "count": "22",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CellStructureMech\n22\nRecorded gaps",
+          "number": "22"
+        },
+        {
+          "mech": "ProteinTraitsMech",
+          "count": "16",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "ProteinTraitsMech\n16\nRecorded gaps",
+          "number": "16"
+        },
+        {
+          "mech": "DUFMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "DUFMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "NaturalProductMech",
+          "count": "6",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "NaturalProductMech\n6\nRecorded gaps",
+          "number": "6"
+        },
+        {
+          "mech": "AntibioticMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "AntibioticMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CMMMech",
+          "count": "0",
+          "coverage": "unsupported",
+          "action": "coverage",
+          "text": "CMMMech\n\u2014\nunsupported coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "MediaIngredientMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "MediaIngredientMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CultureMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CultureMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "TaxonMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "TaxonMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "AIMech",
+          "count": "0",
+          "coverage": "partial",
+          "action": "coverage",
+          "text": "AIMech\n\u2014\npartial coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "CofactorMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CofactorMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "AssayMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "AssayMech\n0\nRecorded gaps",
+          "number": "0"
+        }
+      ],
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "light_style": {
+        "checks": [
+          {
+            "selector": "A",
+            "text": "Search",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Word cloud",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Co-occurrence",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Gap results",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Coverage",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "References",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "Total indexed gaps",
+            "ratio": 13.805249197062379,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "1,220",
+            "ratio": 6.007388155796229,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "All lifecycle states",
+            "ratio": 5.379757081742841,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "HabitatMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CommunityMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "596",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TraitMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "580",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "PathwayMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CellStructureMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "22",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "ProteinTraitsMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "16",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "DUFMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "NaturalProductMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "6",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AntibioticMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CMMMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "MediaIngredientMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CultureMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TaxonMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AIMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "partial coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CofactorMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AssayMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          }
+        ],
+        "nav_icons_magenta": true,
+        "stat_numbers_magenta": true,
+        "ordinary_control_uses_other_palette": true
+      },
+      "overview_spacing": {
+        "dom_order": true,
+        "title_to_nav_px": 16,
+        "nav_to_counts_px": 16,
+        "hidden_heading_position": "absolute",
+        "hidden_heading_margins": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "discussion_links_after_static_navigation": [
+        {
+          "after_section": "gap-static-title",
+          "gap_id": "gap-95e4483024069b88d0b9f7dd8549751ef23fb34a1016bb955e92440b62255abf",
+          "fragment": "",
+          "cold_detail_populated_and_visible": true
+        },
+        {
+          "after_section": "bibliography",
+          "gap_id": "gap-95e4483024069b88d0b9f7dd8549751ef23fb34a1016bb955e92440b62255abf",
+          "fragment": "",
+          "cold_detail_populated_and_visible": true
+        }
+      ],
+      "destinations": {
+        "gap-form": {
+          "top": 154.03125,
+          "bottom": 524.84375,
+          "height": 370.8125,
+          "header_bottom": 130.0625,
+          "viewport_height": 900
+        },
+        "gap-terms-title": {
+          "top": 153.609375,
+          "bottom": 194.96875,
+          "height": 41.359375,
+          "header_bottom": 130.0625,
+          "viewport_height": 900
+        },
+        "gap-pairs-title": {
+          "top": 154.421875,
+          "bottom": 182.921875,
+          "height": 28.5,
+          "header_bottom": 130.0625,
+          "viewport_height": 900
+        },
+        "gap-results-title": {
+          "top": 154.25,
+          "bottom": 202.09375,
+          "height": 47.84375,
+          "header_bottom": 130.0625,
+          "viewport_height": 900
+        },
+        "gap-static-title": {
+          "top": 153.859375,
+          "bottom": 185.859375,
+          "height": 32,
+          "header_bottom": 130.0625,
+          "viewport_height": 900
+        },
+        "bibliography": {
+          "top": 367.1875,
+          "bottom": 415.03125,
+          "height": 47.84375,
+          "header_bottom": 130.0625,
+          "viewport_height": 900
+        }
+      },
+      "query_hash_history_preserved": true,
+      "cold_section_urls": true,
+      "statistics_stable_under_search": true,
+      "clicked_tiles": [
+        "",
+        "HabitatMech",
+        "CommunityMech",
+        "TraitMech",
+        "PathwayMech",
+        "CellStructureMech",
+        "ProteinTraitsMech",
+        "DUFMech",
+        "NaturalProductMech",
+        "AntibioticMech",
+        "CMMMech",
+        "MediaIngredientMech",
+        "CultureMech",
+        "TaxonMech",
+        "AIMech",
+        "CofactorMech",
+        "AssayMech"
+      ],
+      "dark_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "dark_style": {
+        "checks": [
+          {
+            "selector": "A",
+            "text": "Search",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Word cloud",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Co-occurrence",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Gap results",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Coverage",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "References",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 13.6,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "Total indexed gaps",
+            "ratio": 12.76585648405597,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "1,220",
+            "ratio": 7.103448169417167,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "All lifecycle states",
+            "ratio": 6.686899729642308,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "HabitatMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CommunityMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "596",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TraitMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "580",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "PathwayMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CellStructureMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "22",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "ProteinTraitsMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "16",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "DUFMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "NaturalProductMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "6",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AntibioticMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CMMMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "MediaIngredientMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CultureMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TaxonMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AIMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "partial coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CofactorMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AssayMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          }
+        ],
+        "nav_icons_magenta": true,
+        "stat_numbers_magenta": true,
+        "ordinary_control_uses_other_palette": true
+      },
+      "page_errors": []
+    },
+    {
+      "width": 620,
+      "snapshot_counts": [
+        {
+          "mech": "",
+          "count": "1220",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "Total indexed gaps\n1,220\nAll lifecycle states",
+          "number": "1,220"
+        },
+        {
+          "mech": "HabitatMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "HabitatMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CommunityMech",
+          "count": "596",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CommunityMech\n596\nRecorded gaps",
+          "number": "596"
+        },
+        {
+          "mech": "TraitMech",
+          "count": "580",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "TraitMech\n580\nRecorded gaps",
+          "number": "580"
+        },
+        {
+          "mech": "PathwayMech",
+          "count": "0",
+          "coverage": "unsupported",
+          "action": "coverage",
+          "text": "PathwayMech\n\u2014\nunsupported coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "CellStructureMech",
+          "count": "22",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CellStructureMech\n22\nRecorded gaps",
+          "number": "22"
+        },
+        {
+          "mech": "ProteinTraitsMech",
+          "count": "16",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "ProteinTraitsMech\n16\nRecorded gaps",
+          "number": "16"
+        },
+        {
+          "mech": "DUFMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "DUFMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "NaturalProductMech",
+          "count": "6",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "NaturalProductMech\n6\nRecorded gaps",
+          "number": "6"
+        },
+        {
+          "mech": "AntibioticMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "AntibioticMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CMMMech",
+          "count": "0",
+          "coverage": "unsupported",
+          "action": "coverage",
+          "text": "CMMMech\n\u2014\nunsupported coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "MediaIngredientMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "MediaIngredientMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CultureMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CultureMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "TaxonMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "TaxonMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "AIMech",
+          "count": "0",
+          "coverage": "partial",
+          "action": "coverage",
+          "text": "AIMech\n\u2014\npartial coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "CofactorMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CofactorMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "AssayMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "AssayMech\n0\nRecorded gaps",
+          "number": "0"
+        }
+      ],
+      "layout": {
+        "width": 620,
+        "scrollWidth": 620,
+        "h1": 1,
+        "main": 1
+      },
+      "light_style": {
+        "checks": [
+          {
+            "selector": "A",
+            "text": "Search",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Word cloud",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Co-occurrence",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Gap results",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Coverage",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "References",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "Total indexed gaps",
+            "ratio": 13.805249197062379,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "1,220",
+            "ratio": 6.007388155796229,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "All lifecycle states",
+            "ratio": 5.379757081742841,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "HabitatMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CommunityMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "596",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TraitMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "580",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "PathwayMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CellStructureMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "22",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "ProteinTraitsMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "16",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "DUFMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "NaturalProductMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "6",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AntibioticMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CMMMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "MediaIngredientMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CultureMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TaxonMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AIMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "partial coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CofactorMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AssayMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          }
+        ],
+        "nav_icons_magenta": true,
+        "stat_numbers_magenta": true,
+        "ordinary_control_uses_other_palette": true
+      },
+      "overview_spacing": {
+        "dom_order": true,
+        "title_to_nav_px": 16,
+        "nav_to_counts_px": 16,
+        "hidden_heading_position": "absolute",
+        "hidden_heading_margins": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "discussion_links_after_static_navigation": [
+        {
+          "after_section": "gap-static-title",
+          "gap_id": "gap-95e4483024069b88d0b9f7dd8549751ef23fb34a1016bb955e92440b62255abf",
+          "fragment": "",
+          "cold_detail_populated_and_visible": true
+        },
+        {
+          "after_section": "bibliography",
+          "gap_id": "gap-95e4483024069b88d0b9f7dd8549751ef23fb34a1016bb955e92440b62255abf",
+          "fragment": "",
+          "cold_detail_populated_and_visible": true
+        }
+      ],
+      "destinations": {
+        "gap-form": {
+          "top": 228.046875,
+          "bottom": 953.328125,
+          "height": 725.28125,
+          "header_bottom": 204.40625,
+          "viewport_height": 900
+        },
+        "gap-terms-title": {
+          "top": 228.265625,
+          "bottom": 269.625,
+          "height": 41.359375,
+          "header_bottom": 204.40625,
+          "viewport_height": 900
+        },
+        "gap-pairs-title": {
+          "top": 227.953125,
+          "bottom": 256.453125,
+          "height": 28.5,
+          "header_bottom": 204.40625,
+          "viewport_height": 900
+        },
+        "gap-results-title": {
+          "top": 227.953125,
+          "bottom": 275.796875,
+          "height": 47.84375,
+          "header_bottom": 204.40625,
+          "viewport_height": 900
+        },
+        "gap-static-title": {
+          "top": 228.375,
+          "bottom": 260.375,
+          "height": 32,
+          "header_bottom": 204.40625,
+          "viewport_height": 900
+        },
+        "bibliography": {
+          "top": 228.296875,
+          "bottom": 276.140625,
+          "height": 47.84375,
+          "header_bottom": 204.40625,
+          "viewport_height": 900
+        }
+      },
+      "query_hash_history_preserved": true,
+      "cold_section_urls": true,
+      "statistics_stable_under_search": true,
+      "clicked_tiles": [
+        "",
+        "CommunityMech",
+        "HabitatMech",
+        "PathwayMech"
+      ],
+      "dark_layout": {
+        "width": 620,
+        "scrollWidth": 620,
+        "h1": 1,
+        "main": 1
+      },
+      "dark_style": {
+        "checks": [
+          {
+            "selector": "A",
+            "text": "Search",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Word cloud",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Co-occurrence",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Gap results",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Coverage",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "References",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "Total indexed gaps",
+            "ratio": 12.76585648405597,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "1,220",
+            "ratio": 7.103448169417167,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "All lifecycle states",
+            "ratio": 6.686899729642308,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "HabitatMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CommunityMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "596",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TraitMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "580",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "PathwayMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CellStructureMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "22",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "ProteinTraitsMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "16",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "DUFMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "NaturalProductMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "6",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AntibioticMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CMMMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "MediaIngredientMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CultureMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TaxonMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AIMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "partial coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CofactorMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AssayMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          }
+        ],
+        "nav_icons_magenta": true,
+        "stat_numbers_magenta": true,
+        "ordinary_control_uses_other_palette": true
+      },
+      "page_errors": []
+    },
+    {
+      "width": 390,
+      "snapshot_counts": [
+        {
+          "mech": "",
+          "count": "1220",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "Total indexed gaps\n1,220\nAll lifecycle states",
+          "number": "1,220"
+        },
+        {
+          "mech": "HabitatMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "HabitatMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CommunityMech",
+          "count": "596",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CommunityMech\n596\nRecorded gaps",
+          "number": "596"
+        },
+        {
+          "mech": "TraitMech",
+          "count": "580",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "TraitMech\n580\nRecorded gaps",
+          "number": "580"
+        },
+        {
+          "mech": "PathwayMech",
+          "count": "0",
+          "coverage": "unsupported",
+          "action": "coverage",
+          "text": "PathwayMech\n\u2014\nunsupported coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "CellStructureMech",
+          "count": "22",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CellStructureMech\n22\nRecorded gaps",
+          "number": "22"
+        },
+        {
+          "mech": "ProteinTraitsMech",
+          "count": "16",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "ProteinTraitsMech\n16\nRecorded gaps",
+          "number": "16"
+        },
+        {
+          "mech": "DUFMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "DUFMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "NaturalProductMech",
+          "count": "6",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "NaturalProductMech\n6\nRecorded gaps",
+          "number": "6"
+        },
+        {
+          "mech": "AntibioticMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "AntibioticMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CMMMech",
+          "count": "0",
+          "coverage": "unsupported",
+          "action": "coverage",
+          "text": "CMMMech\n\u2014\nunsupported coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "MediaIngredientMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "MediaIngredientMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "CultureMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CultureMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "TaxonMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "TaxonMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "AIMech",
+          "count": "0",
+          "coverage": "partial",
+          "action": "coverage",
+          "text": "AIMech\n\u2014\npartial coverage",
+          "number": "\u2014"
+        },
+        {
+          "mech": "CofactorMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "CofactorMech\n0\nRecorded gaps",
+          "number": "0"
+        },
+        {
+          "mech": "AssayMech",
+          "count": "0",
+          "coverage": "complete",
+          "action": "filter",
+          "text": "AssayMech\n0\nRecorded gaps",
+          "number": "0"
+        }
+      ],
+      "layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "main": 1
+      },
+      "light_style": {
+        "checks": [
+          {
+            "selector": "A",
+            "text": "Search",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Word cloud",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Co-occurrence",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Gap results",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Coverage",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "References",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "Total indexed gaps",
+            "ratio": 13.805249197062379,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "1,220",
+            "ratio": 6.007388155796229,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "All lifecycle states",
+            "ratio": 5.379757081742841,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              251,
+              234,
+              245
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "HabitatMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CommunityMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "596",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TraitMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "580",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "PathwayMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CellStructureMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "22",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "ProteinTraitsMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "16",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "DUFMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "NaturalProductMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "6",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AntibioticMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CMMMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "MediaIngredientMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CultureMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TaxonMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AIMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "partial coverage",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CofactorMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AssayMech",
+            "ratio": 15.938339559896328,
+            "foreground_rgb": [
+              30,
+              35,
+              33
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 6.935607675633546,
+            "foreground_rgb": [
+              165,
+              27,
+              120
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 6.210999446270039,
+            "foreground_rgb": [
+              90,
+              99,
+              94
+            ],
+            "background_rgb": [
+              255,
+              255,
+              255
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          }
+        ],
+        "nav_icons_magenta": true,
+        "stat_numbers_magenta": true,
+        "ordinary_control_uses_other_palette": true
+      },
+      "overview_spacing": {
+        "dom_order": true,
+        "title_to_nav_px": 16,
+        "nav_to_counts_px": 16,
+        "hidden_heading_position": "absolute",
+        "hidden_heading_margins": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "discussion_links_after_static_navigation": [
+        {
+          "after_section": "gap-static-title",
+          "gap_id": "gap-95e4483024069b88d0b9f7dd8549751ef23fb34a1016bb955e92440b62255abf",
+          "fragment": "",
+          "cold_detail_populated_and_visible": true
+        },
+        {
+          "after_section": "bibliography",
+          "gap_id": "gap-95e4483024069b88d0b9f7dd8549751ef23fb34a1016bb955e92440b62255abf",
+          "fragment": "",
+          "cold_detail_populated_and_visible": true
+        }
+      ],
+      "destinations": {
+        "gap-form": {
+          "top": 79.109375,
+          "bottom": 901.984375,
+          "height": 822.875,
+          "header_bottom": 55,
+          "viewport_height": 900
+        },
+        "gap-terms-title": {
+          "top": 79.296875,
+          "bottom": 155.625,
+          "height": 76.328125,
+          "header_bottom": 55,
+          "viewport_height": 900
+        },
+        "gap-pairs-title": {
+          "top": 79.015625,
+          "bottom": 136.015625,
+          "height": 57,
+          "header_bottom": 55,
+          "viewport_height": 900
+        },
+        "gap-results-title": {
+          "top": 79.265625,
+          "bottom": 120.375,
+          "height": 41.109375,
+          "header_bottom": 55,
+          "viewport_height": 900
+        },
+        "gap-static-title": {
+          "top": 78.890625,
+          "bottom": 130.703125,
+          "height": 51.8125,
+          "header_bottom": 55,
+          "viewport_height": 900
+        },
+        "bibliography": {
+          "top": 78.625,
+          "bottom": 119.734375,
+          "height": 41.109375,
+          "header_bottom": 55,
+          "viewport_height": 900
+        }
+      },
+      "query_hash_history_preserved": true,
+      "cold_section_urls": true,
+      "statistics_stable_under_search": true,
+      "clicked_tiles": [
+        "",
+        "CommunityMech",
+        "HabitatMech",
+        "PathwayMech"
+      ],
+      "dark_layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "main": 1
+      },
+      "dark_style": {
+        "checks": [
+          {
+            "selector": "A",
+            "text": "Search",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Word cloud",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Co-occurrence",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Gap results",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "Coverage",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "A",
+            "text": "References",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.48,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "Total indexed gaps",
+            "ratio": 12.76585648405597,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "1,220",
+            "ratio": 7.103448169417167,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "All lifecycle states",
+            "ratio": 6.686899729642308,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              53,
+              33,
+              47
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "HabitatMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CommunityMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "596",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TraitMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "580",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "PathwayMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CellStructureMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "22",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "ProteinTraitsMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "16",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "DUFMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "NaturalProductMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "6",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AntibioticMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CMMMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "unsupported coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "MediaIngredientMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CultureMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "TaxonMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AIMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "\u2014",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "partial coverage",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "CofactorMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-name",
+            "text": "AssayMech",
+            "ratio": 14.192125937125033,
+            "foreground_rgb": [
+              233,
+              239,
+              234
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 12.8,
+            "font_weight": 650,
+            "required": 4.5
+          },
+          {
+            "selector": "gap-stat-count",
+            "text": "0",
+            "ratio": 7.8970832183582855,
+            "foreground_rgb": [
+              255,
+              140,
+              218
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 25.6,
+            "font_weight": 750,
+            "required": 3
+          },
+          {
+            "selector": "gap-stat-coverage",
+            "text": "Recorded gaps",
+            "ratio": 7.433995769147085,
+            "foreground_rgb": [
+              160,
+              178,
+              168
+            ],
+            "background_rgb": [
+              26,
+              32,
+              29
+            ],
+            "font_size_px": 11.52,
+            "font_weight": 400,
+            "required": 4.5
+          }
+        ],
+        "nav_icons_magenta": true,
+        "stat_numbers_magenta": true,
+        "ordinary_control_uses_other_palette": true
+      },
+      "page_errors": []
+    }
+  ],
+  "provenance": {
+    "method": "Actual supplied Jekyll build, served locally",
+    "site": ".temp/gap-overview-20261115/ci-preview-43773266112",
+    "page_sha256": "adedcba311da0257fc400ab0706b73609644b109f55b11556f07a634e20356b0",
+    "ui_sha256": {
+      "browser.js": "05689f620dcd21da65d67e48011e1653adb891b7c455dd9d1498385d7bba1ab0",
+      "search-core.js": "44a0351a5c9179a1da266274f338154da2aa5076767cdc352cdb4f59b50f1832",
+      "search-worker.js": "5fab03ecef456e1a579382b1d1540bda91f1deefd4f79ee540a32e69e1e84deb",
+      "browser.css": "bd3c0e2d6b6a0432f0eda199c829093f13a67e0920aba0811db6f61522d877c5"
+    },
+    "main_css_sha256": "f861c07e386d770d235e0a7d5674e3b851103960f1b675d5ac614b01f881e02e",
+    "custom_css_sha256": "5efa39711927e49297d1a5bda4c6d4ec8b9c48b0daa89a29b7fa6ee6e75df616"
+  },
+  "build_id": "33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864",
+  "manifest_sha256": "80fe4f4b78a6ba4fc4ff4a40a3f3ee738cbd280a5caaf289575de3fd7f393747",
+  "expected_gap_counts": {
+    "HabitatMech": 0,
+    "CommunityMech": 596,
+    "TraitMech": 580,
+    "PathwayMech": 0,
+    "CellStructureMech": 22,
+    "ProteinTraitsMech": 16,
+    "DUFMech": 0,
+    "NaturalProductMech": 6,
+    "AntibioticMech": 0,
+    "CMMMech": 0,
+    "MediaIngredientMech": 0,
+    "CultureMech": 0,
+    "TaxonMech": 0,
+    "AIMech": 0,
+    "CofactorMech": 0,
+    "AssayMech": 0
+  },
+  "browser_version": "157.0.8103.51",
+  "no_js": [
+    {
+      "width": 1280,
+      "static_links_and_summary_work": true,
+      "interactive_links_hidden": true,
+      "coverage_bounds": {
+        "top": 256.4375,
+        "bottom": 288.4375,
+        "height": 32,
+        "header_bottom": 130.0625,
+        "viewport_height": 900
+      },
+      "reference_bounds": {
+        "top": 367.296875,
+        "bottom": 415.140625,
+        "height": 47.84375,
+        "header_bottom": 130.0625,
+        "viewport_height": 900
+      },
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      }
+    },
+    {
+      "width": 620,
+      "static_links_and_summary_work": true,
+      "interactive_links_hidden": true,
+      "coverage_bounds": {
+        "top": 255.796875,
+        "bottom": 287.796875,
+        "height": 32,
+        "header_bottom": 204.40625,
+        "viewport_height": 900
+      },
+      "reference_bounds": {
+        "top": 255.78125,
+        "bottom": 303.625,
+        "height": 47.84375,
+        "header_bottom": 204.40625,
+        "viewport_height": 900
+      },
+      "layout": {
+        "width": 620,
+        "scrollWidth": 620,
+        "h1": 1,
+        "main": 1
+      }
+    },
+    {
+      "width": 601,
+      "static_links_and_summary_work": true,
+      "interactive_links_hidden": true,
+      "coverage_bounds": {
+        "top": 255.96875,
+        "bottom": 287.96875,
+        "height": 32,
+        "header_bottom": 241.578125,
+        "viewport_height": 900
+      },
+      "reference_bounds": {
+        "top": 255.546875,
+        "bottom": 303.390625,
+        "height": 47.84375,
+        "header_bottom": 241.578125,
+        "viewport_height": 900
+      },
+      "layout": {
+        "width": 601,
+        "scrollWidth": 601,
+        "h1": 1,
+        "main": 1
+      }
+    },
+    {
+      "width": 390,
+      "static_links_and_summary_work": true,
+      "interactive_links_hidden": true,
+      "coverage_bounds": {
+        "top": 80.421875,
+        "bottom": 132.234375,
+        "height": 51.8125,
+        "header_bottom": 55,
+        "viewport_height": 900
+      },
+      "reference_bounds": {
+        "top": 79.875,
+        "bottom": 120.984375,
+        "height": 41.109375,
+        "header_bottom": 55,
+        "viewport_height": 900
+      },
+      "layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "main": 1
+      }
+    }
+  ],
+  "loading_and_failures": {
+    "index-held": "Preserved cold section URL and visible target; loading gates respected",
+    "static_links_during_term_load": "Coverage opens, focuses and scrolls; References focuses and scrolls before term release",
+    "terms-held": "Preserved cold section URL and visible target; loading gates respected",
+    "terms-failed": "Preserved cold section URL and visible target; loading gates respected"
+  },
+  "finished_at": "2026-11-15T23:17:48.548502+00:00"
+}
