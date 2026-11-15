@@ -39,9 +39,31 @@
 .gap-coverage h3 { font-size: 1.05rem; margin: .5rem 0; }
 .gap-error { border-left: 4px solid var(--muted); padding-left: .8rem; }
 .gap-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.gap-term-explorer { margin: 1.4rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.gap-term-explorer h2 { font-size: 1.35rem; margin: 0 0 .6rem; }
+.gap-term-explorer h3 { font-size: 1.1rem; margin: 1.3rem 0 .4rem; }
+.gap-vocab-control { display: block; font-weight: 650; margin: .8rem 0 .4rem; }
+.gap-vocab-control select { display: block; width: min(100%, 25rem); margin-top: .25rem; font-weight: 400; }
+.gap-term-cloud { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem .7rem; padding: .6rem 0 1rem; }
+#gap-browser .gap-term-cloud button { line-height: 1.25; border-color: var(--line); padding: .3rem .5rem; overflow-wrap: anywhere; }
+.gap-term-cloud .gap-term-count { font-size: .8rem; font-variant-numeric: tabular-nums; margin-left: .35rem; }
+#gap-browser .gap-term-explorer button[aria-pressed="true"] { background: var(--ink); color: var(--card); border-color: var(--ink); }
+.gap-term-ranking { padding-top: .7rem; border-top: 1px solid var(--line); }
+.gap-term-table { overflow: auto; max-height: 24rem; margin: .6rem 0; border: 1px solid var(--line); border-radius: 6px; }
+.gap-term-table table { border-collapse: collapse; width: 100%; margin: 0; color: var(--ink); font-size: .9rem; }
+.gap-term-table caption { text-align: left; padding: .6rem; color: var(--muted); }
+.gap-term-table th, .gap-term-table td { text-align: left; padding: .5rem .6rem; border: 1px solid var(--line); background: var(--card); overflow-wrap: anywhere; }
+.gap-term-table th { background: var(--wash-b); }
+.gap-term-table td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+#gap-browser .gap-term-table button { text-align: left; }
+.gap-term-selection { margin: .8rem 0; padding: .8rem 1rem; border: 2px solid var(--muted); border-radius: 8px; background: var(--wash-b); }
+.gap-term-selection p { margin: .25rem 0 .6rem; }
+#gap-term-sources { font-size: .85rem; }
+#gap-result-status { scroll-margin-top: 10rem; }
 @media (max-width: 640px) {
   .gap-filters { grid-template-columns: minmax(0, 1fr); }
   .gap-detail dl, .gap-coverage dl { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
   .gap-detail dd, .gap-coverage dd { margin-bottom: .55rem; }
-  .gap-detail, #gap-controls { padding: .8rem; }
+  .gap-detail, #gap-controls, .gap-term-explorer { padding: .8rem; }
+  .gap-term-table th, .gap-term-table td { padding: .4rem; }
 }

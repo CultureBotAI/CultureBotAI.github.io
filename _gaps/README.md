@@ -1,6 +1,6 @@
 # Maintaining the knowledge-gap browser
 
-The [implementation plan](IMPLEMENTATION.md) follows the reviewed research plan: shared CLAW export contract, TraitMech pilot, public-fleet acquisition and browser, then validation and publication. The current work is tracked in website #577 and CLAW #1212 / PR #1215.
+The [original implementation plan](IMPLEMENTATION.md) covers the published native-discussion browser and shared export contract (website #582 and CLAW #1215). The [term explorer plan](TERM_EXPLORER.md) extends it with entity frequencies and co-occurrence, tracked in website #583.
 
 The browser reads a retained native-data snapshot. It makes no visitor-time GitHub API calls and runs no literature scans. It does not change scientific records or infer gaps from absent fields. Default results are active knowledge gaps and human/model mismatches; all discussions and review-required candidates are separate views. Recorded does not mean scientifically validated.
 
@@ -9,7 +9,10 @@ The browser reads a retained native-data snapshot. It makes no visitor-time GitH
 - `sources.json` declares the sixteen public corpus repositories, immutable revisions, source roots, adapters, schema/license digests and publication holds. Support and permission are separate. Unsupported or held roots have unknown counts, never zero.
 - `snapshot.json` retains normalized public items and measured coverage. Record identity includes its source path: distinct documents can share a semantic identifier. Discussion identity also includes the native discussion ID. Source renames need an explicit migration decision.
 - `toolchain.json` pins the CLAW normalizer commit and module/schema bytes. CI checks out that commit, validates the snapshot and reproduces the public assets byte for byte.
-- `../assets/gaps/manifest.json` points to hashed search and detail assets. Large Mechs are partitioned by stable item-ID order into numbered shards below 500 KiB compressed; index rows identify their detail shard. The search worker covers the complete index; details load on demand. JSON and CSV exports include every match, not just the current page.
+- `term-vocabulary.json` retains candidate names, identifiers, unqualified native aliases and exact typed synonyms from every publishable pinned record root, with complete acquisition counts and source provenance. Only forms potentially occurring in the discussion prose are retained, including colliding identities; source roots without native gap fields can still supply vocabulary. The AIMech maintained-concept publication hold also applies here.
+- `../assets/gaps/manifest.json` points to hashed search, term and detail assets. Large Mechs are partitioned by stable item-ID order into numbered shards below 500 KiB compressed; index rows identify their detail shard. The search worker covers the complete index; details load on demand. JSON and CSV exports include every match, not just the current page, including exact term/pair filters.
+
+`scripts/gaps/terms.py` performs dictionary-based entity recognition over prompt, rationale, evidence explanations, proposed experiment prose and resolution text. It excludes the owning record's metadata, handles Unicode with original-text spans, keeps canonical identifiers separate from document addresses, and leaves ambiguous names unlinked. The generated term sidecar records the policy, vocabulary digest, source coverage and every accepted occurrence. This is conservative lexical recognition, not contextual semantic disambiguation or an assertion of biological relationships. Cloud size uses raw occurrences; the adjacent counts distinguish discussions, and co-occurrence counts a pair once per discussion. Chart counts follow all ordinary search filters before applying the selected entity or pair. Source Mech restricts the questions; Term vocabulary independently restricts entity ownership. Shared entities can belong to multiple vocabularies without double-counting within a view.
 
 Native `research_gaps` in CofactorMech and AssayMech map to `CURATION_TODO`, with unspecified lifecycle/review and no inherited record evidence. Their native target corpus/scope provides the discussion key. Scanner origin, current attribution, review state and native storage are separate contract fields. A scanner-like ID alone establishes none of them.
 
@@ -26,14 +29,17 @@ Run the read-only plan first, then exactly one complete TraitMech canary through
 ```sh
 python scripts/gaps/snapshot.py --claw-root "$CLAW_CHECKOUT" --repos-root "$MECH_CHECKOUTS" --source TraitMech --output .temp/gaps-pilot.json --plan
 python scripts/gaps/snapshot.py --claw-root "$CLAW_CHECKOUT" --repos-root "$MECH_CHECKOUTS" --source TraitMech --output .temp/gaps-pilot.json
-python scripts/gaps/build.py --claw-root "$CLAW_CHECKOUT" --snapshot .temp/gaps-pilot.json --output .temp/gaps-pilot-assets --summary .temp/gaps-pilot-summary.html --pilot
-python scripts/gaps/build.py --claw-root "$CLAW_CHECKOUT" --snapshot .temp/gaps-pilot.json --output .temp/gaps-pilot-assets --summary .temp/gaps-pilot-summary.html --pilot --check
+python scripts/gaps/vocabulary.py --repos-root "$MECH_CHECKOUTS" --snapshot .temp/gaps-pilot.json --source TraitMech --output .temp/gaps-pilot-vocabulary.json --plan
+python scripts/gaps/vocabulary.py --repos-root "$MECH_CHECKOUTS" --snapshot .temp/gaps-pilot.json --source TraitMech --output .temp/gaps-pilot-vocabulary.json
+python scripts/gaps/build.py --claw-root "$CLAW_CHECKOUT" --snapshot .temp/gaps-pilot.json --vocabulary .temp/gaps-pilot-vocabulary.json --output .temp/gaps-pilot-assets --summary .temp/gaps-pilot-summary.html --pilot
+python scripts/gaps/build.py --claw-root "$CLAW_CHECKOUT" --snapshot .temp/gaps-pilot.json --vocabulary .temp/gaps-pilot-vocabulary.json --output .temp/gaps-pilot-assets --summary .temp/gaps-pilot-summary.html --pilot --check
 ```
 
 Verify persisted counts, hashes and source links; inspect a corrected scanner-origin discussion and run the browser canary. If fixes change the acquisition/contract, repeat the canary before expanding. Only then acquire and build the full fleet:
 
 ```sh
 python scripts/gaps/snapshot.py --claw-root "$CLAW_CHECKOUT" --repos-root "$MECH_CHECKOUTS" --output _gaps/snapshot.json
+python scripts/gaps/vocabulary.py --repos-root "$MECH_CHECKOUTS" --output _gaps/term-vocabulary.json
 python scripts/gaps/build.py --claw-root "$CLAW_CHECKOUT"
 python scripts/gaps/build.py --claw-root "$CLAW_CHECKOUT" --check
 python -m unittest discover -s tests -v
@@ -42,11 +48,13 @@ python scripts/fleet/assemble_page.py --check
 bundle exec jekyll build --destination .temp/ci-site
 ```
 
-Acquisition validates every supported, publishable record. A parse, schema, provenance or boundary failure prevents replacing the previous snapshot. Asset installation stages all outputs and rolls back on failure. Search and detail payload size budgets fail the build rather than publishing an oversized bundle. Inspect the specific failure; do not quietly drop a source or relax its count.
+Acquisition validates every supported, publishable record. A parse, schema, provenance or boundary failure prevents replacing the previous snapshot. Vocabulary acquisition separately scans all publishable roots and preserves explicit coverage. Vocabulary and discussion snapshot hashes must agree. Asset installation stages all outputs and rolls back on failure. Search and term payloads each have a 2 MiB compressed budget; detail shards have a 500 KiB budget. Inspect a failure rather than quietly dropping a source or relaxing its count.
 
 ## Review and publication
 
 Retain receipts under `reviews/`; browser screenshots and downloads stay under `.temp/`. The browser QA helper supports a one-case canary and then expanded desktop/mobile, URL/history, complete exports, literal markup, no-JavaScript, network failure/retry and timing checks. Its live-shell preview is supplemental. PR CI builds Jekyll in production mode and retains the `gap-browser-preview` artifact for three days. Download it beneath `.temp/` and pass its root through the helper's `--site` option, with `--assets` pointing to that build's `assets/gaps`, to test the actual layouts, includes and navigation.
+
+The term-specific helper, `scripts/adhoc/check_gap_terms_20261115.py`, independently counts the published postings and verifies the cloud, top-twenty pairs, source/view filters, exact term/pair downloads, keyboard/history/cold URLs and missing-index retry. Run `--canary` and inspect its receipt before the full desktop/mobile pass. Supply `--site` for actual Jekyll output. Its screenshots and downloads stay under `.temp/gap-terms-20261115/`. The live release verifier also exercises the term view when the deployed manifest declares it.
 
 Review each PR independently and read-only; file findings as issues, fix in scope, then re-review. Merge the shared contract first, then the website, only after explicit authorization for those PRs. Pinning the contract protects reproducibility before and after its merge. Verify the deployed Pages revision, manifest and populated browser before calling publication complete. Delete only the merged task branches and owned clean worktrees; preserve unrelated local work.
 

@@ -35,7 +35,7 @@ Started 2026-11-14. Implements the [reviewed research plan](../_fleet/reviews/ga
 - [x] Deterministic bundle rebuild, hash/ID/count validation, current repository checks and browser QA pass.
 - [x] Independent adversarial PR review performed; findings filed and triaged.
 - [x] PRs published with passing checks and exact dependency order.
-- [ ] After merge authorization: deployment verified and task cleanup completed.
+- [x] After merge authorization: deployment verified and task cleanup completed.
 
 ## Validation records
 
@@ -53,4 +53,4 @@ Retain machine-readable acquisition/pilot/browser results under `_gaps/reviews/`
 - Full acquisition parsed 1,085,682 supported, publishable native records. The retained snapshot contains 3,830 discussions in 2,550 source documents, including eight current scanner candidates and ten corrected discussions with documented scanner origin. All sixteen Mechs and eighteen roots are accounted for: fifteen roots complete, PathwayMech and CMMMech unsupported, and AIMech's maintained-concept root unavailable under its publication hold.
 - Full build `33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864` passes strict validation and byte-for-byte reproduction. The search index is 1,167,795 compressed bytes; all eleven detail shards meet the 500 KiB compressed budget. `reviews/full-snapshot.json` retains source/root counts, classification cohorts and asset verification.
 - Production Jekyll preview [CI run 43645133078](https://github.com/CultureBotAI/CultureBotAI.github.io/actions/runs/43645133078) passes 293 Python tests, twelve JavaScript tests, exact reproduction and the real site build. `reviews/browser-jekyll.json` verifies 1280/390 px layouts, eight candidate results, numbered-shard loading, all 3,830 exported rows, query/history restoration, injected load failures/retry and no-JavaScript coverage. Thirty warm worker queries measured p95 6.7 ms on the recorded macOS/Chrome reference platform; this is not a network-load measurement. Page/UI/CSS hashes preserve the tested rendering provenance.
-- Remaining release gate: explicit approval to merge CLAW #1215 then website #582, followed by live Pages revision/content verification and cleanup of only the merged task branches and owned checkout. No live publication is claimed from the CI preview.
+- Published after explicit authorization: CLAW #1215 merged as `23899092a4a2aedf53ff4435c0bdc03ebd79e6be`, then website #582 as `e6ce1d445b63ffec2a0f36e322e41916fb841bf0`. Exact live Pages assets, desktop/mobile behavior and exports passed; task branches and the owned checkout were removed. The [release record](https://github.com/CultureBotAI/CultureBotAI.github.io/pull/582#issuecomment-6888461694) links the published surface and records retained evidence. The subsequent term explorer is a separate change described in `TERM_EXPLORER.md`.

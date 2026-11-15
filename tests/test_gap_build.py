@@ -122,6 +122,28 @@ class GapBuildTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "One discussion exceeds"):
                 build.artifacts(candidate)
 
+    def test_term_sidecar_is_hashed_snapshot_bound_and_budgeted(self):
+        document = {"schema_version": 1, "build_id": build.digest(build.json_bytes(self.snapshot)),
+                    "terms": [{"id": "term-example", "label": "Example",
+                               "postings": [{"discussion_id": "fixture:one", "count": 2}]}]}
+        vocabulary = {"schema_version": 1}
+        with mock.patch.object(build, "build_term_document", return_value=document) as recognize:
+            files, _, manifest = build.artifacts(self.snapshot, vocabulary)
+            recognize.assert_called_once_with(self.snapshot, vocabulary)
+            descriptor = manifest["terms"]
+            content = files[descriptor["url"]]
+            self.assertEqual(build.digest(content), descriptor["sha256"])
+            self.assertEqual(json.loads(content), document)
+            self.assertEqual(manifest["sizes"]["terms_bytes"], len(content))
+            self.assertEqual(manifest["sizes"]["terms_gzip_bytes"], len(gzip.compress(content, mtime=0)))
+            with mock.patch.object(build, "MAX_TERMS_GZIP", 1):
+                with self.assertRaisesRegex(ValueError, "Term projection exceeds"):
+                    build.artifacts(self.snapshot, vocabulary)
+        document["build_id"] = "f" * 64
+        with mock.patch.object(build, "build_term_document", return_value=document):
+            with self.assertRaisesRegex(ValueError, "same gap snapshot"):
+                build.artifacts(self.snapshot, vocabulary)
+
     def test_explicit_unsupported_root_remains_unknown_and_valid(self):
         config, snapshot = copy.deepcopy(self.config), copy.deepcopy(self.snapshot)
         config["sources"][0]["roots"][0]["supported"] = False
@@ -255,6 +277,7 @@ class GapBuildTests(unittest.TestCase):
                         "--summary", str(summary_path), "--check"]
                 with (mock.patch.object(build, "ORDER", ["TraitMech"]),
                       mock.patch.object(build, "load_exporter", return_value=(self.exporter, self.provenance)),
+                      mock.patch.object(build, "load_vocabulary", return_value=None),
                       mock.patch.object(build, "write_atomic", side_effect=AssertionError("check tried to write")),
                       mock.patch("sys.argv", argv), redirect_stdout(io.StringIO())):
                     with self.assertRaisesRegex(ValueError, "Generated gap"):
