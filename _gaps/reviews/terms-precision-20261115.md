@@ -1,0 +1,34 @@
+# Term recognition precision review — 2026-11-15
+
+This bounded review inspected the full baseline's thirty most frequent entities, the fifty entities in the initial active-gap cloud, thirty deterministic occurrence samples, numeric-only matches, and high-frequency ambiguity groups. It checked native definitions where the matched sense was uncertain. This is not an estimate of corpus-wide precision or recall.
+
+The retained baseline is commit `81ecb10aead9480441c6183f71063cea6ac7727d`, asset `assets/gaps/data/terms.085a7ebfdc3aff76.json`, SHA-256 `085a7ebfdc3aff763f0856fc312f2534a7d9a8ec18983743d27db1b238d7449b`. Its diagnostic report is `_gaps/reviews/terms-full.json` at that commit. All asset hashes, posting counts and source-text codepoint spans passed validation; those checks alone did not establish correct entity senses.
+
+The baseline had 2,794 entities and 19,392 accepted occurrences in 3,648 discussions. The default active-gap scope had 964 entities and 5,897 occurrences in 1,142 discussions. These are **before-fix counts**, retained to explain the findings, not the final release totals.
+
+## Confirmed findings and bounded decisions
+
+| Issue | Observed error | Conservative correction |
+|---|---|---|
+| [#590](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/590) | 41 numeric-only matches, including `100 mbar` assigned to sodium deoxycholate and issue `#815` assigned to a culture medium | Reject unqualified forms without letters; retain qualified identifiers |
+| [#591](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/591) | `parT`, `coaT`, and `modE` matched ordinary `part`, `coat`, and `mode`: 187 occurrences | Require exact case for compact symbols with internal capitals |
+| [#592](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/592) | All 300 mountain-pass matches were `pass`; all 223 lake matches were `broad`; `biological` produced 119 soil-biocrust matches; `outer`/`inner` produced 111/101 canthus matches | Deny demonstrated generic forms for those source identities, plus audited watercourse, human-environment and predicted-interaction forms |
+| [#593](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/593) | Generic `protein` assigned 1,185 occurrences to a particular OrthoDB group; `Release`/`Budding` assigned 113/97 occurrences to particular viral pathways | Recognize those underspecified source entities only through explicit identifiers |
+| [#594](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/594) | `structure` included graph outcome structure, while PATO:0000141 denotes organism morphology | Require explicit PATO identification; this knowingly also loses some valid ordinary mentions |
+| [#596](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/596) | The default cloud included literature `Cache` (27), figure `Fig` (23), disease `suppression` (25), and dissolved `metal` (26), assigned respectively to a Pfam clan, fruit, genetic-perturbation relation and metallic material | Identifier-only recognition for Cache/Fig; scoped denial of bare suppression/metal |
+
+The rules preserve native scientific records and vocabulary provenance. Denied candidates remain recognition blockers, so removing one sense cannot silently reassign the same ambiguous span to another entity. Full valid descriptive phrases and qualified identifiers remain usable. The policy and regression fixtures are retained in `scripts/gaps/terms.py` and `tests/test_gap_terms.py`.
+
+Definitions substantiate the restrictions: the [OrthoDB record](https://github.com/CultureBotAI/proteintraitsmech/blob/a9de5cfb9e36b68fd20e4c93be26a52c24e72064/data/traits/function/ortholog_group/orthodb/protein-110285at2759.yaml) identifies one eukaryotic ortholog group; [PATO structure](https://github.com/CultureBotAI/proteintraitsmech/blob/a9de5cfb9e36b68fd20e4c93be26a52c24e72064/data/traits/structure/stability/pato/structure-pato0000141.yaml) concerns morphology; [MI:0796](https://github.com/CultureBotAI/proteintraitsmech/blob/a9de5cfb9e36b68fd20e4c93be26a52c24e72064/data/traits/function/interaction_type/psi_mi/genetic-suppression-sensu-unexpected-mi0796.yaml) requires combined genetic perturbations; [metallic material](https://github.com/CultureBotAI/HabitatMech/blob/61edb3d0ae912e8f041378e669928051fbbd509e/data/habitats/engineered/metallic_material.yaml) is primarily pure metals. [NCI Fig](https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C71971?include=full) has Food semantic type and Fruit parent.
+
+## Top-cloud terms retained after sense checks
+
+No denial was added merely because a word was frequent or broad. [AIO Model](https://github.com/CultureBotAI/AIMech/blob/78dcdfa7ff0b44ceb19c929e657ee630aea423e0/data/aio/Model.yaml) explicitly covers abstract logical, mathematical and conceptual representations. [NCI Substrate](https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C120264?include=full) covers chemicals modified or consumed in chemical or biological processes, including enzyme substrates. [Conserved protein](https://github.com/CultureBotAI/proteintraitsmech/blob/a9de5cfb9e36b68fd20e4c93be26a52c24e72064/data/traits/evolution/conservation/conserved-protein.yaml) is a broad evolutionary class, not one ortholog family. The [hexamethylenetetramine record](https://github.com/CultureBotAI/AntibioticMech/blob/6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7/data/antibiotics/antibacterial/hexamethylenetetramine.yaml) explicitly lists hexamine; inspected community discussions concern that chemical's removal and hydrolysis. Sampled stability contexts also fit the broad native definition. These forms remain recognized.
+
+## Ambiguity and remaining limits
+
+The baseline left 8,311 ambiguous occurrences unlinked. Its largest groups included `neutral` (838), `host` (649), `paper` (219), `septin` (182), and `DNA` (159). Useful biological language is also omitted: `biofilm` (49 occurrences across 19 candidate concepts), `fermentation` (58 across 4), `iron` (46 across 3), and `water` (18 across 3).
+
+These are declared identity differences, not grounds for a guessed merge. Iron spans a UniProt keyword, CMM material and ChEBI identity. Fermentation spans a habitat-source record, SEED category, GO process and METPO trait; the same METPO identity's TraitMech/ProteinTraitsMech ownership is already grouped. Biofilm spans BTO, ENVO and distinct GOLD source records. Label equality alone does not establish equivalence.
+
+Counts include negative and contextual mentions and separate occurrences of a name and identifier. They do not establish a scientific claim, interaction, priority or complete entity coverage. Dictionary polysemy remains possible beyond the bounded review, and conservative exclusions reduce recall. Final generated counts, rejection totals and exact reproduction belong to the post-fix build report; they must not be substituted into this baseline evidence.

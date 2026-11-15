@@ -27,8 +27,47 @@ that the this to unknown unclassified unspecified none use used via was were wil
 with without lead reduces imports produces accumulates""".split())
 PLACEHOLDER_LABELS = frozenset(("unknown", "unclassified", "unspecified", "none",
                               "n/a", "unnamed", "not available", "not applicable"))
+# Source-scoped precision decisions from the retained full-corpus audit (#592).
+# These do not modify native names or claim that a synonym is never valid.
+SURFACE_DENIALS = [
+    {"mech": "HabitatMech", "record_id": "ENVO:00000084", "surfaces": ["pass"],
+     "reason": "Ordinary curation passes do not identify a mountain pass"},
+    {"mech": "HabitatMech", "record_id": "ENVO:00000020", "surfaces": ["broad"],
+     "reason": "Broad ontology mappings do not identify a lake"},
+    {"mech": "HabitatMech", "record_id": "ENVO:01000910", "surfaces": ["biological"],
+     "reason": "The generic adjective does not identify soil biocrust"},
+    {"mech": "HabitatMech", "record_id": "UBERON:0006726", "surfaces": ["outer"],
+     "reason": "Generic spatial language does not identify an outer canthus"},
+    {"mech": "HabitatMech", "record_id": "UBERON:0005611", "surfaces": ["inner"],
+     "reason": "Generic spatial language does not identify an inner canthus"},
+    {"mech": "HabitatMech", "record_id": "ENVO:00000029",
+     "surfaces": ["course", "kill", "narrows", "passage", "reach", "run"],
+     "reason": "These ordinary words do not establish a watercourse"},
+    {"mech": "HabitatMech", "record_id": "habitatmech:GOLD.cd0b0940e5", "surfaces": ["human"],
+     "reason": "Human cell and gene descriptions do not identify an associated environment"},
+    {"mech": "ProteinTraitsMech", "record_id": "MI:1110", "surfaces": ["predicted"],
+     "reason": "Predicted peptides and annotations do not establish a predicted interaction"},
+    {"mech": "ProteinTraitsMech", "record_id": "MI:0796", "surfaces": ["suppression"],
+     "reason": "Disease suppression does not identify combined genetic perturbation effects (#596)"},
+    {"mech": "HabitatMech", "record_id": "ENVO:01001069", "surfaces": ["metal"],
+     "reason": "Dissolved metal ions do not identify material primarily composed of pure metals (#596)"},
+]
+ID_ONLY_ENTITIES = [
+    {"mech": "ProteinTraitsMech", "record_id": "OrthoDB:110285at2759",
+     "reason": "Generic protein text does not identify this specific eukaryotic ortholog group (#593)"},
+    {"mech": "ProteinTraitsMech", "record_id": "Reactome:R-HSA-168298",
+     "reason": "Generic release does not identify this viral release pathway (#593)"},
+    {"mech": "ProteinTraitsMech", "record_id": "Reactome:R-HSA-168302",
+     "reason": "Budding yeast does not identify this viral budding pathway (#593)"},
+    {"mech": "ProteinTraitsMech", "record_id": "PATO:0000141",
+     "reason": "Graph-model structure does not identify organism morphology (#594)"},
+    {"mech": "ProteinTraitsMech", "record_id": "Pfam:CL0165",
+     "reason": "Literature and software caches do not identify this protein-family clan (#596)"},
+    {"mech": "MediaIngredientMech", "record_id": "NCIT:C71971",
+     "reason": "Fig figure references do not identify the fig fruit concept (#596)"},
+]
 POLICY = {
-    "version": 1, "method": "dictionary-linked entity recognition; no contextual inference",
+    "version": 2, "method": "dictionary-linked entity recognition; no contextual inference",
     "normalization": "Unicode NFKC, casefold, collapse whitespace; punctuation retained",
     "text_fields": list(TEXT_FIELDS) + ["evidence[].explanation"] +
         ["proposed_experiments[]." + field for field in EXPERIMENT_TEXT_FIELDS] +
@@ -39,8 +78,11 @@ POLICY = {
     "interpretation": "Includes negated and contextual mentions; lexical counts do not assert scientific claims or interactions",
     "overlap": "Leftmost longest whole-word surface; letters, numbers and combining marks belong to words; ambiguous longest spans block nested fallback",
     "ambiguity": "A surface with multiple eligible canonical concepts remains unlinked",
-    "short_forms": "Fewer than 3 alphanumeric characters excluded except explicit CURIEs; 3 characters require exact case",
-    "acronyms": "Single-token uppercase acronyms of up to 6 letters require exact case",
+    "short_forms": "Forms without letters, or with fewer than 3 alphanumeric characters, are excluded except explicit CURIEs; 3 characters require exact case",
+    "acronyms": "Compact uppercase acronyms and mixed-case symbols with internal capitals of up to 6 letters require exact case",
+    "source_surface_denials": SURFACE_DENIALS,
+    "identifier_only_entities": ID_ONLY_ENTITIES,
+    "denial_behavior": "A denied eligible surface blocks reassignment to competing concepts; full descriptive forms and identifiers remain available",
     "stop_forms": sorted(STOP_FORMS),
     "canonical_namespaces": SEMANTIC_NAMESPACES,
     "identity": "Exact declared canonical CURIE with normalized recognized prefix; otherwise source-unique ID",
@@ -188,11 +230,28 @@ def _surface_rule(form):
         return None
     letters = [char for char in _case_form(form) if char.isalpha()]
     alphanumeric = sum(char.isalnum() for char in normalized)
-    if not explicit_id and alphanumeric < 3:
+    if not explicit_id and (alphanumeric < 3 or not any(char.isalpha() for char in normalized)):
         return None
     acronym = (0 < len(letters) <= 6 and not re.search(r"\s", form)
                and all(char.isupper() for char in letters))
-    return normalized, not explicit_id and (alphanumeric <= 3 or acronym)
+    mixed_symbol = (0 < len(letters) <= 6 and not re.search(r"\s", form)
+                    and any(char.islower() for char in letters)
+                    and any(char.isupper() for char in letters[1:]))
+    return normalized, not explicit_id and (alphanumeric <= 3 or acronym or mixed_symbol)
+
+
+def _surface_denial(term, form):
+    # A source's explicit native/canonical identifier always remains available.
+    if form in {term["record_id"], term.get("canonical_id", term["record_id"])}:
+        return ""
+    identity = (term["mech"], term["record_id"])
+    for row in ID_ONLY_ENTITIES:
+        if identity == (row["mech"], row["record_id"]):
+            return row["reason"]
+    for row in SURFACE_DENIALS:
+        if identity == (row["mech"], row["record_id"]) and normalize_surface(form) in row["surfaces"]:
+            return row["reason"]
+    return ""
 
 
 def build_term_document(snapshot, vocabulary):
@@ -216,7 +275,7 @@ def build_term_document(snapshot, vocabulary):
         raise ValueError("Discussion IDs must be unique nonempty strings")
     groups, surfaces = {}, defaultdict(dict)
     possible_surface = make_surface_prefilter(snapshot)
-    seen_ids, excluded = set(), set()
+    seen_ids, excluded, denied = set(), set(), set()
     for term in vocabulary["terms"]:
         if not isinstance(term, dict):
             raise ValueError("Vocabulary entries must be objects")
@@ -251,7 +310,10 @@ def build_term_document(snapshot, vocabulary):
             if not possible_surface(form):
                 continue
             normalized, sensitive = rule
-            surfaces[normalized].setdefault(entity_id, set()).add((_case_form(form), sensitive))
+            reason = _surface_denial(term, form)
+            if reason:
+                denied.add((term["mech"], term["record_id"], form, reason))
+            surfaces[normalized].setdefault(entity_id, set()).add((_case_form(form), sensitive, reason))
     # Alternation order establishes longest matching at each leftmost position.
     pattern = (re.compile(r"(?<!\w)(?:" + "|".join(re.escape(surface) for surface in
                sorted(surfaces, key=lambda value: (-len(value), value))) + r")(?!\w)") if surfaces else None)
@@ -259,6 +321,7 @@ def build_term_document(snapshot, vocabulary):
     ambiguous = Counter()
     rejected_case = 0
     rejected_boundary = 0
+    rejected_policy = 0
     for item in sorted(snapshot["items"], key=lambda row: row["id"]):
         for field, text in iter_item_texts(item):
             if not text or pattern is None:
@@ -277,10 +340,15 @@ def build_term_document(snapshot, vocabulary):
                 if normalize_surface(original) != match.group():
                     rejected_boundary += 1
                     continue
-                eligible = {key for key, forms in surfaces[match.group()].items()
-                            if any(not sensitive or _case_form(original) == form for form, sensitive in forms)}
+                eligible_forms = {key: [reason for form, sensitive, reason in forms
+                                        if not sensitive or _case_form(original) == form]
+                                  for key, forms in surfaces[match.group()].items()}
+                eligible = {key for key, reasons in eligible_forms.items() if reasons}
                 if not eligible:
                     rejected_case += 1
+                    continue
+                if any(reason for reasons in eligible_forms.values() for reason in reasons):
+                    rejected_policy += 1
                     continue
                 if len(eligible) != 1:
                     ambiguous[(match.group(), tuple(sorted(eligible)))] += 1
@@ -311,4 +379,7 @@ def build_term_document(snapshot, vocabulary):
                         "ambiguous_occurrences": sum(ambiguous.values()),
                         "case_rejected_occurrences": rejected_case,
                         "unicode_boundary_rejected_occurrences": rejected_boundary,
+                        "policy_rejected_occurrences": rejected_policy,
+                        "denied_surfaces": [{"mech": mech, "record_id": record_id, "surface": form,
+                                             "reason": reason} for mech, record_id, form, reason in sorted(denied)],
                         "excluded_forms": sorted(excluded)}}

@@ -55,6 +55,7 @@ def summarize(term_document, selected_ids):
     return {"eligible_discussions": len(selected_ids), "discussions_with_terms": len(by_discussion),
             "recognized_terms": len(rows), "accepted_occurrences": sum(row["occurrences"] for row in rows),
             "top_30_terms": rows[:30],
+            "top_50_terms": rows[:50],
             "pair_universe": "Twenty most frequent terms in this selected discussion scope",
             "pair_universe_term_ids": list(rank),
             "top_20_pairs": [{"term_ids": list(pair), "labels": [labels[key] for key in pair],
@@ -132,7 +133,8 @@ def audit(snapshot, vocabulary, manifest, asset_root):
                              for name in sources},
             "ambiguity_summary": {key: document["summary"].get(key, 0) for key in
                                   ("ambiguous_occurrences", "case_rejected_occurrences",
-                                   "unicode_boundary_rejected_occurrences", "excluded_forms")},
+                                   "unicode_boundary_rejected_occurrences", "policy_rejected_occurrences",
+                                   "excluded_forms", "denied_surfaces")},
             "largest_ambiguities": sorted(document["ambiguities"], key=lambda row: (-row["occurrences"], row["surface"]))[:20],
             "top_term_precision_samples": [top_samples[key] for key in sorted(top_samples)],
             "deterministic_precision_samples": [sample for _seed, sample in ordered_samples[:30]],

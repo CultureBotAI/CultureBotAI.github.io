@@ -31,6 +31,12 @@ def item(key, prompt, **fields):
             "evidence": [], "proposed_experiments": [], "mech": "TraitMech", **fields}
 
 
+def native_entity(record_id, label, aliases=(), mech="ProteinTraitsMech"):
+    row = entity(record_id, label, aliases, canonical_id=record_id, mech=mech)
+    row["record_id"] = record_id
+    return row
+
+
 def inputs(items, entities):
     snapshot = {"schema_version": 1, "source_config_sha256": "c" * 64, "items": items}
     vocabulary = {"schema_version": 1, "snapshot_sha256": terms._digest(snapshot),
@@ -136,6 +142,82 @@ class GapTermTests(unittest.TestCase):
                      entity("accumulate", "accumulates", canonical_id="METPO:2000210")])
         self.assertEqual(doc["summary"]["accepted_occurrences"], 1)
         self.assertEqual(doc["terms"][0]["postings"][0]["mentions"][0]["text"], "METPO:2000208")
+
+    def test_numeric_only_native_forms_do_not_link_measurements_or_issue_numbers(self):
+        # #590: source-derived forms from the retained MIM and Culture vocabularies.
+        doc = build([item("d", "100 mbar CO; issue #815; 1728. CHEBI:9177 CultureMech:002824")],
+                    [native_entity("CHEBI:9177", "sodium Deoxycholate", ["100"], "MediaIngredientMech"),
+                     native_entity("CultureMech:002824", "TRYPTICASE SOY BROTH AGAR", ["815"], "CultureMech"),
+                     native_entity("CHEBI:16199", "Urea", ["1728"], "MediaIngredientMech")])
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 2)
+        self.assertTrue({"100", "815", "1728"}.issubset(doc["summary"]["excluded_forms"]))
+        self.assertEqual({m["text"] for t in doc["terms"] for p in t["postings"] for m in p["mentions"]},
+                         {"CHEBI:9177", "CultureMech:002824"})
+
+    def test_internal_capital_gene_symbols_preserve_case_without_losing_full_names(self):
+        # #591: native NCBIfam symbols are not the ordinary English words.
+        doc = build([item("d", "part Part coat mode parT coaT modE choice-of-anchor T family protein")],
+                    [native_entity("NCBIfam:NF049844", "type II RES/Xre toxin-antitoxin system toxin", ["parT"]),
+                     native_entity("NCBIfam:NF041740", "choice-of-anchor T family protein", ["coaT"]),
+                     native_entity("NCBIfam:NF007957", "molybdenum-dependent transcriptional regulator", ["modE"])])
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 4)
+        self.assertEqual(doc["summary"]["case_rejected_occurrences"], 4)
+
+    def test_source_scoped_denials_keep_full_names_ids_and_collision_blocking(self):
+        # #592: native synonyms are retained as blocked candidates, so denying
+        # one sense must not silently assign that span to a competing concept.
+        entries = [native_entity("ENVO:00000084", "mountain pass", ["pass"], "HabitatMech"),
+                   native_entity("ENVO:00000020", "lake", ["broad"], "HabitatMech"),
+                   native_entity("ENVO:01000910", "soil biocrust", ["Biological"], "HabitatMech"),
+                   native_entity("UBERON:0006726", "outer canthus", ["Outer"], "HabitatMech"),
+                   native_entity("MI:1110", "predicted interaction", ["predicted"]),
+                   entity("competing", "pass"), entity("valid", "broad host range")]
+        doc = build([item("d", "first pass; too broad; biological assignment; outer ring; predicted peptide. "
+                               "mountain pass; lake; soil biocrust; outer canthus; predicted interaction; "
+                               "ENVO:00000084; broad host range")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 7)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 5)
+        self.assertNotIn("pass", [term["label"] for term in doc["terms"]])
+        self.assertIn("broad host range", [term["label"] for term in doc["terms"]])
+        self.assertEqual(len(doc["summary"]["denied_surfaces"]), 5)
+
+    def test_specific_groups_and_pathways_require_ids_for_underspecified_labels(self):
+        # #593/#594: pinned source definitions distinguish an ortholog group,
+        # viral pathways and morphology from the retained ordinary contexts.
+        entries = [native_entity("OrthoDB:110285at2759", "protein"),
+                   native_entity("Reactome:R-HSA-168298", "Release"),
+                   native_entity("Reactome:R-HSA-168302", "Budding"),
+                   native_entity("PATO:0000141", "structure"),
+                   entity("family", "protein family")]
+        prose = "bacterial protein; nitrogen release; budding yeast; graph outcome structure; protein family. "
+        doc = build([item("d", prose + " ".join(row["record_id"] for row in entries[:4]))], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 5)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 4)
+        self.assertIn("protein family", [term["label"] for term in doc["terms"]])
+        for term in doc["terms"]:
+            if term["label"] != "protein family":
+                self.assertEqual(term["postings"][0]["mentions"][0]["text"], term["entity_refs"][0]["record_id"])
+
+    def test_default_cloud_homonyms_retain_specific_names_and_identifiers(self):
+        # #596: retained figure/cache, disease-suppression and ion contexts.
+        entries = [native_entity("Pfam:CL0165", "Cache"),
+                   native_entity("NCIT:C71971", "Fig", mech="MediaIngredientMech"),
+                   native_entity("MI:0796", "genetic suppression (sensu unexpected)", ["suppression"]),
+                   native_entity("ENVO:01001069", "metallic material", ["metal"], "HabitatMech")]
+        doc = build([item("d", "Reviewed cache; Fig. 7b; Fusarium suppression; dissolved metal ions. "
+                               "Pfam:CL0165 NCIT:C71971 genetic suppression (sensu unexpected) metallic material")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 4)
+        self.assertEqual(doc["summary"]["policy_rejected_occurrences"], 4)
+
+    def test_broad_source_classes_and_valid_chemical_aliases_remain_recognizable(self):
+        # Top-cloud sense checks found these broad native definitions applicable;
+        # precision protections must not become a general stoplist for biology.
+        entries = [native_entity("AIO:Model", "Model", mech="AIMech"),
+                   native_entity("NCIT:C120264", "Substrate", mech="MediaIngredientMech"),
+                   native_entity("proteintraitsmech:EVO_CONSERVED", "conserved protein", ["conserved"]),
+                   native_entity("CHEBI:6824", "hexamethylenetetramine", ["hexamine"], "AntibioticMech")]
+        doc = build([item("d", "A model of conserved protein activity uses a substrate; hexamine removal.")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 4)
 
     def test_chemical_punctuation_is_not_erased(self):
         doc = build([item("d", "iron(II) iron(III) iron-II")],

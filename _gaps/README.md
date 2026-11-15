@@ -9,10 +9,12 @@ The browser reads a retained native-data snapshot. It makes no visitor-time GitH
 - `sources.json` declares the sixteen public corpus repositories, immutable revisions, source roots, adapters, schema/license digests and publication holds. Support and permission are separate. Unsupported or held roots have unknown counts, never zero.
 - `snapshot.json` retains normalized public items and measured coverage. Record identity includes its source path: distinct documents can share a semantic identifier. Discussion identity also includes the native discussion ID. Source renames need an explicit migration decision.
 - `toolchain.json` pins the CLAW normalizer commit and module/schema bytes. CI checks out that commit, validates the snapshot and reproduces the public assets byte for byte.
-- `term-vocabulary.json` retains candidate names, identifiers, unqualified native aliases and exact typed synonyms from every publishable pinned record root, with complete acquisition counts and source provenance. Only forms potentially occurring in the discussion prose are retained, including colliding identities; source roots without native gap fields can still supply vocabulary. The AIMech maintained-concept publication hold also applies here.
+- `term-vocabulary.json` retains candidate names, identifiers, unqualified native aliases and exact typed synonyms from every publishable pinned record root, with complete acquisition counts and source provenance. Lexical candidates include colliding identities; shared canonical entities also retain their other native owners even when an owner's local name is absent from the discussion prose. Source roots without native gap fields can still supply vocabulary. The AIMech maintained-concept publication hold also applies here.
 - `../assets/gaps/manifest.json` points to hashed search, term and detail assets. Large Mechs are partitioned by stable item-ID order into numbered shards below 500 KiB compressed; index rows identify their detail shard. The search worker covers the complete index; details load on demand. JSON and CSV exports include every match, not just the current page, including exact term/pair filters.
 
 `scripts/gaps/terms.py` performs dictionary-based entity recognition over prompt, rationale, evidence explanations, proposed experiment prose and resolution text. It excludes the owning record's metadata, handles Unicode with original-text spans, keeps canonical identifiers separate from document addresses, and leaves ambiguous names unlinked. The generated term sidecar records the policy, vocabulary digest, source coverage and every accepted occurrence. This is conservative lexical recognition, not contextual semantic disambiguation or an assertion of biological relationships. Cloud size uses raw occurrences; the adjacent counts distinguish discussions, and co-occurrence counts a pair once per discussion. Chart counts follow all ordinary search filters before applying the selected entity or pair. Source Mech restricts the questions; Term vocabulary independently restricts entity ownership. Shared entities can belong to multiple vocabularies without double-counting within a view.
+
+Recognition policy version 2 rejects unqualified numeric forms, requires native case for compact gene-like symbols, and records source-scoped restrictions for demonstrated misleading aliases and underspecified labels. See the [precision review](reviews/terms-precision-20261115.md) for source definitions, baseline evidence and known recall limits. Scientific identities are never merged from a shared label alone.
 
 Native `research_gaps` in CofactorMech and AssayMech map to `CURATION_TODO`, with unspecified lifecycle/review and no inherited record evidence. Their native target corpus/scope provides the discussion key. Scanner origin, current attribution, review state and native storage are separate contract fields. A scanner-like ID alone establishes none of them.
 
@@ -49,6 +51,16 @@ bundle exec jekyll build --destination .temp/ci-site
 ```
 
 Acquisition validates every supported, publishable record. A parse, schema, provenance or boundary failure prevents replacing the previous snapshot. Vocabulary acquisition separately scans all publishable roots and preserves explicit coverage. Vocabulary and discussion snapshot hashes must agree. Asset installation stages all outputs and rolls back on failure. Search and term payloads each have a 2 MiB compressed budget; detail shards have a 500 KiB budget. Inspect a failure rather than quietly dropping a source or relaxing its count.
+
+Normal vocabulary acquisition closes shared canonical ownership after lexical selection. To repair a retained version-1 vocabulary without repeating its full YAML extraction, use the pinned identity-field closure path. Run the CofactorMech canary first, inspect its saved ownership/provenance, then run the full repair:
+
+```sh
+python scripts/gaps/vocabulary.py --repos-root "$MECH_CHECKOUTS" --close-owners _gaps/term-vocabulary.json --source CofactorMech --output .temp/cofactor-owner-canary.json --plan
+python scripts/gaps/vocabulary.py --repos-root "$MECH_CHECKOUTS" --close-owners _gaps/term-vocabulary.json --source CofactorMech --output .temp/cofactor-owner-canary.json --receipt .temp/cofactor-owner-canary-receipt.json
+python scripts/gaps/vocabulary.py --repos-root "$MECH_CHECKOUTS" --close-owners _gaps/term-vocabulary.json --output _gaps/term-vocabulary.json --receipt _gaps/reviews/vocabulary-owner-closure.json
+```
+
+The repair checks original pins and native record totals, parses candidate owners or uncertain identity serializations, and records owner coverage separately. A canary with pending roots cannot pass the public build gate. Rebuild and verify all generated assets after a completed repair.
 
 ## Review and publication
 

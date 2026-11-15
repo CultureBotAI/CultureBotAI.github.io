@@ -71,12 +71,28 @@ class GapVocabularyTests(unittest.TestCase):
         self.snapshot["source_config_sha256"] = vocabulary.digest(vocabulary.json_bytes(self.config))
 
     def acquire(self):
-        with mock.patch.object(vocabulary, "ORDER", ["TraitMech"]), redirect_stdout(io.StringIO()):
+        with mock.patch.object(vocabulary, "ORDER", [s["name"] for s in self.config["sources"]]), redirect_stdout(io.StringIO()):
             return vocabulary.acquire(self.config, self.snapshot, self.directory, self.directory / "cache")
 
     def validate(self, candidate):
-        with mock.patch.object(vocabulary, "ORDER", ["TraitMech"]):
+        with mock.patch.object(vocabulary, "ORDER", [s["name"] for s in self.config["sources"]]):
             vocabulary.validate_vocabulary(candidate, self.snapshot, self.config)
+
+    def legacy(self, result):
+        result = copy.deepcopy(result)
+        result["policy"] = copy.deepcopy(vocabulary.LEGACY_POLICY)
+        result.pop("canonical_owners_complete")
+        result["terms"] = [term for term in result["terms"] if term.pop("retention") == "lexical_match"]
+        for source in result["sources"]:
+            for row in source["roots"]:
+                row["candidate_records"] -= row.pop("owner_records")
+                row.pop("owner_closure")
+        return result
+
+    def repair(self, candidate, selected=None):
+        with mock.patch.object(vocabulary, "ORDER", [s["name"] for s in self.config["sources"]]), redirect_stdout(io.StringIO()):
+            return vocabulary.close_owners(candidate, self.config, self.snapshot, self.directory,
+                                           self.directory / "cache", selected)
 
     def test_pinned_records_ignore_dirty_prose_and_nonexact_aliases(self):
         self.write("data/records/iron.yaml", {"identifier": "changed", "label": "metal"})
@@ -181,6 +197,89 @@ class GapVocabularyTests(unittest.TestCase):
               redirect_stdout(io.StringIO()), self.assertRaisesRegex(ValueError, "not a mapping")):
             vocabulary.main()
         self.assertEqual(output.read_bytes(), b"previous-vocabulary\n")
+
+    def test_canonical_closure_repair_matches_acquisition_across_yaml_serializations(self):
+        self.write("data/records/json.yaml", {"identifier": "CHEBI:18248", "label": "Unmentioned chemical"})
+        self.write("data/records/quoted.yaml", "identifier: 'chebi:18248'\nlabel: Distinct chemical label\n")
+        self.write("data/records/folded.yaml", "identifier: >-\n  CHEBI:18248\nlabel: Folded chemical\n")
+        self.write("data/records/literal.yaml", "identifier: |-\n  CHEBI:18248\nlabel: Literal chemical\n")
+        self.write("data/records/indented.yaml", "  identifier: CHEBI:18248\n  label: Indented chemical\n")
+        self.write("data/records/different.yaml", "identifier: CHEBI:9999\nlabel: Another chemical\nrelated: CHEBI:18248\n")
+        self.refresh()
+        expected = self.acquire()
+        self.assertEqual(len(expected["terms"]), 6)
+        self.assertEqual(expected["sources"][0]["roots"][0]["owner_records"], 5)
+        legacy = self.legacy(expected)
+        self.assertEqual(len(legacy["terms"]), 1)
+        # Dirty content is not consulted by the fast repair either.
+        self.write("data/records/json.yaml", {"identifier": "CHEBI:9999", "label": "Changed"})
+        self.assertEqual(self.repair(legacy), expected)
+        self.assertEqual(self.repair(expected), expected)
+
+    def test_cross_mech_owner_closure_preserves_holds_exclusions_and_pilot_gate(self):
+        cofactor = self.directory / "CofactorMech"
+        cofactor.mkdir()
+        for args in [("init", "-b", "fixture"), ("config", "user.name", "Vocabulary fixture"),
+                     ("config", "user.email", "fixture@example.invalid"),
+                     ("remote", "add", "origin", "https://github.com/CultureBotAI/CofactorMech.git")]:
+            subprocess.check_output(["git", "-C", str(cofactor), *args], stderr=subprocess.PIPE)
+        (cofactor / "schema.yaml").write_bytes(self.schema)
+        (cofactor / "data").mkdir()
+        document = {"id": "CofactorMech:metal", "name": "Unmentioned chemical", "chemical_id": "CHEBI:18248"}
+        (cofactor / "data/owner.yaml").write_text(json.dumps(document))
+        (cofactor / "data/excluded.yaml").write_text(json.dumps(document | {"id": "CofactorMech:excluded"}))
+        (cofactor / "held").mkdir()
+        (cofactor / "held/owner.yaml").write_text(json.dumps(document | {"id": "CofactorMech:held"}))
+        subprocess.check_output(["git", "-C", str(cofactor), "add", "--all"])
+        subprocess.check_output(["git", "-C", str(cofactor), "commit", "-qm", "Owner fixture"])
+        pin = subprocess.check_output(["git", "-C", str(cofactor), "rev-parse", "HEAD"], text=True).strip()
+        source = copy.deepcopy(self.config["sources"][0])
+        source.update(name="CofactorMech", repository="CultureBotAI/CofactorMech", revision=pin,
+                      license_url="https://github.com/CultureBotAI/CofactorMech/blob/" + pin + "/LICENSE-DATA")
+        source["roots"][0].update(globs=["data/*.yaml"], exclude_globs=["data/excluded.yaml"],
+                                  id_field="id", name_fields=["name"], alias_fields=[])
+        source["roots"].append(source["roots"][0] | {"name": "held", "globs": ["held/*.yaml"],
+                                "exclude_globs": [], "publication_allowed": False})
+        self.config["sources"].append(source)
+        self.config_hash()
+        expected = self.acquire()
+        self.assertEqual({term["mech"] for term in expected["terms"]}, {"TraitMech", "CofactorMech"})
+        self.assertEqual(len(expected["terms"]), 2)
+        legacy = self.legacy(expected)
+        pilot = self.repair(legacy, "CofactorMech")
+        self.assertFalse(pilot["canonical_owners_complete"])
+        with self.assertRaisesRegex(ValueError, "closure is incomplete"):
+            self.validate(pilot)
+        self.assertEqual(self.repair(legacy), expected)
+        self.assertEqual(self.repair(pilot), expected)
+        held = expected["sources"][1]["roots"][1]
+        self.assertEqual(held["owner_closure"], "unavailable")
+        self.assertEqual(held["owner_records"], 0)
+        self.assertIsNone(held["eligible_records"])
+
+    def test_owner_repair_rejects_drift_and_orphan_owner_records(self):
+        self.write("data/records/owner.yaml", {"identifier": "CHEBI:18248", "label": "Unmentioned chemical"})
+        self.refresh()
+        result = self.acquire()
+        candidate = self.legacy(result)
+        candidate["sources"][0]["roots"][0]["eligible_records"] += 1
+        candidate["sources"][0]["roots"][0]["inspected_records"] += 1
+        with self.assertRaisesRegex(ValueError, "native count differs"):
+            self.repair(candidate)
+        candidate = copy.deepcopy(result)
+        candidate["terms"] = [term for term in candidate["terms"] if term["retention"] == "canonical_owner"]
+        candidate["sources"][0]["roots"][0]["candidate_records"] = 1
+        with self.assertRaisesRegex(ValueError, "no corpus-present canonical sibling"):
+            self.validate(candidate)
+
+    def test_unsupported_namespace_ids_never_merge_owners(self):
+        self.write("data/records/local-one.yaml", {"identifier": "LOCAL:shared", "label": "iron"})
+        self.write("data/records/local-two.yaml", {"identifier": "LOCAL:shared", "label": "Unmentioned chemical"})
+        self.refresh()
+        result = self.acquire()
+        self.assertEqual(len(result["terms"]), 2)
+        self.assertEqual(result["sources"][0]["roots"][0]["owner_records"], 0)
+        self.assertEqual(self.repair(self.legacy(result)), result)
 
 
 if __name__ == "__main__":

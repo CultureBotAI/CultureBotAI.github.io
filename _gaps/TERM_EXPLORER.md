@@ -22,3 +22,5 @@ Implementation started 2026-11-15. Extends the published knowledge-gap browser w
 ## Ownership and review evidence
 
 Vocabulary acquisition, recognition and frontend implementation are delegated separately. The integration owner maintains the builder, CI, generated assets and release notes. Tests, source counts, vocabulary/matching policy and browser evidence will be recorded here as implementation completes.
+
+The full-data review extends the pilot with source-definition checks for the most visible terms. Recognition policy version 2 rejects unqualified numeric forms, preserves the case of compact gene-like symbols, and records source-specific exclusions for demonstrated misleading aliases or underspecified labels. Rejected surfaces block fallback to competing concepts. These choices trade some recall for fewer false links; they do not establish a measured overall precision rate or complete contextual disambiguation. The [review ledger](reviews/terms-implementation-review.md) links every finding and the retained baseline.
