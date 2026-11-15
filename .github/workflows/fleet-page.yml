@@ -29,6 +29,35 @@ jobs:
       - run: python -m pip install -r scripts/fleet/requirements.txt
       - run: python -m unittest discover -s tests -v
       - run: python scripts/fleet/assemble_page.py --check
+      - id: gap-contract
+        run: python scripts/gaps/pin.py --github-output "$GITHUB_OUTPUT"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: CultureBotAI/culturebotai-claw
+          ref: ${{ steps.gap-contract.outputs.ref }}
+          path: .gap-contract
+          persist-credentials: false
+      - run: python scripts/gaps/build.py --claw-root .gap-contract --check
+      - run: node --test tests/gap-search.test.js
+      - uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: bundle exec jekyll build --destination .temp/ci-site
+        env:
+          JEKYLL_ENV: production
+      - if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: gap-browser-preview
+          retention-days: 3
+          if-no-files-found: error
+          include-hidden-files: true
+          path: |
+            .temp/ci-site/knowledge-gaps/
+            .temp/ci-site/assets/gaps/
+            .temp/ci-site/assets/main.css
+            .temp/ci-site/assets/custom.css
       # The two steps below read state that moves on its own schedule, so they
       # run nightly and on manual dispatch, deliberately not on pull_request or
       # push: a blocking check would make an unrelated docs fix unmergeable

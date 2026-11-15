@@ -12,6 +12,8 @@ The X-Mech suite brings together <!--FLEET_COUNT_WORD--> autonomous knowledge fa
 
 Each X-Mech is an **autonomous knowledge factory** that curates, validates, and connects scientific evidence to enable discovery, with human oversight. Its knowledge base is the collection of structured records it produces and maintains.
 
+[Browse knowledge gaps and open questions across the Mechs](/knowledge-gaps/), with source evidence, candidate discussions and explicit coverage for each corpus.
+
 <!--FLEET_FRAGMENT-->
 
 ## The <!--FLEET_COUNT_WORD--> Mechs
