@@ -71,6 +71,15 @@ test('empty filters export no points or unrelated native records', () => {
   assert.deepEqual(exported.points, []); assert.deepEqual(exported.contexts, []); assert.deepEqual(exported.records, []);
 });
 
+test('map CSV preserves negative numeric coordinates while neutralizing formula-like text (#612)', () => {
+  const {items, manifest, doc} = fixture(1);
+  items[0].record_id = '-12.5'; items[0].record_label = '-1+2'; items[0].prompt = '=1+1';
+  doc.points[0].x = -12.5; doc.points[0].y = -.03125;
+  const exported = map.exportDocument(map.prepare(doc, manifest, items), ['gap-0'], {});
+  const row = map.csv(exported, core.csvCell).split('\r\n')[1];
+  assert.match(row, /^"gap-0","DUFMech","'-12\.5","'-1\+2","'=1\+1",-12\.5,-0\.03125,/);
+});
+
 test('worker supplies compact map metadata and the entire filtered ID set', async () => {
   const {items} = fixture(), doc = {schema_version: 1, build_id: 'snapshot', items};
   const bytes = new TextEncoder().encode(JSON.stringify(doc)), messages = [];

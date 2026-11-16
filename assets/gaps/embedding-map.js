@@ -84,12 +84,14 @@
       records: data.document.records.filter(function (record) { return recordIds.has(record.id); })};
   }
   function csv(document, csvCell) {
+    // Validated numeric coordinates remain numeric; untrusted text keeps formula protection (#612).
+    function cell(value) { return Number.isFinite(value) ? String(value) : csvCell(value); }
     var fields = ['id', 'mech', 'record_id', 'record_label', 'prompt', 'x', 'y', 'input_sha256', 'token_count', 'chunk_count'];
     var contexts = new Map(document.contexts.map(function (context) { return [context.id, context]; }));
     var header = fields.concat(['matched_record_ids', 'build_id', 'terms_sha256', 'inputs_sha256', 'filters', 'model', 'projection']);
     return [header.map(csvCell).join(',')].concat(document.points.map(function (point) {
       return fields.map(function (field) { return point[field]; }).concat([contexts.get(point.id).record_ids,
-        document.build_id, document.terms_sha256, document.inputs_sha256, document.filters, document.model, document.projection]).map(csvCell).join(',');
+        document.build_id, document.terms_sha256, document.inputs_sha256, document.filters, document.model, document.projection]).map(cell).join(',');
     })).join('\r\n') + '\r\n';
   }
   function create(options) {
