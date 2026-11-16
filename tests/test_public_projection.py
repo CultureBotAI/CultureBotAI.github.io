@@ -64,6 +64,16 @@ class PublicProjectionTests(unittest.TestCase):
             self.assertTrue(roots.is_withheld('https://github.com/DifferentOwner/OpenMech'))
             self.assertTrue(roots.is_withheld('CultureBotAI/private_lab'))
 
+    def test_repository_alias_cannot_be_used_as_an_unlisted_owner(self):
+        self.assertFalse(roots.is_withheld('CultureBotAI/CultureMech'))
+        self.assertTrue(roots.is_withheld('CultureMech/private_lab'))
+        self.assertTrue(roots.is_withheld('CultureMech/pages/index.html'))
+        self.assertFalse(roots.is_withheld_source_path('CultureMech/pages/index.html'))
+        self.assertFalse(roots.is_withheld_source_path(
+            'https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/README.md'))
+        self.assertTrue(roots.is_withheld_source_path('private_lab/pages/index.html'))
+        self.assertTrue(roots.is_withheld_source_path('CultureMech/../private_lab/index.html'))
+
     def test_unprojected_nonzero_census_is_refused_before_aggregation(self):
         # Distinct nonzero contributions: an accidental inclusion changes both
         # vocabulary membership and totals. Refusal precedes all other parsing.

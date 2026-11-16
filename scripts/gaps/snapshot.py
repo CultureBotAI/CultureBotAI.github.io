@@ -24,7 +24,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/fleet"))
-from roots import ORDER, contains_unlisted_mech, is_withheld
+from roots import ORDER, contains_unlisted_mech, is_withheld, validate_public_sources
 
 
 def git(repo, *args):
@@ -182,6 +182,7 @@ def adapt(doc, config):
 
 
 def acquire(config, repos_root, cache_root, exporter, provenance, selected=None):
+    validate_public_sources(config["sources"])
     sources, items, identities = [], [], set()
     names = [s["name"] for s in config["sources"]]
     if set(names) != set(ORDER) or len(names) != len(ORDER):

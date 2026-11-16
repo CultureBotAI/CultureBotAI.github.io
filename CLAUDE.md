@@ -87,7 +87,7 @@ The suite has sixteen corpus Mechs, all under https://github.com/CultureBotAI,
 plus the orchestrator `culturebotai-claw` and separately declared infrastructure.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
 and the November 15, 2026 membership-only update pins `culturebotai-claw` at
-`55bdb723259ff65b12f252a00739d238ca82c7a1` (CLAW PR #1280, a merge dependency).
+`b00b8661076a5e3ad494389a4805e8344fd11e98` (CLAW PR #1280, a merge dependency).
 Its checked infrastructure scope is in
 `_fleet/infrastructure.json`: no scientific corpus or Pages browser enters this
 audit, and it does not contribute a corpus count, pin or historical PR total.

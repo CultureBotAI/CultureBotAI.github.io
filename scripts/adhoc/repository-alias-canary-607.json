@@ -1,0 +1,11 @@
+[
+  {
+    "mutation": "repository_alias_607",
+    "test": "tests/test_public_projection.py::PublicProjectionTests::test_repository_alias_cannot_be_used_as_an_unlisted_owner",
+    "source_sha256": "769afe043bf5c5ef821cb1b3ffe353e8cb382fa0f88e1b1dba7259924407a979",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  }
+]

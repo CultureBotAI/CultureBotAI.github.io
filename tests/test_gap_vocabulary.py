@@ -104,6 +104,38 @@ class GapVocabularyTests(unittest.TestCase):
         self.assertEqual(result["terms"][0]["source"]["revision"], self.pin)
         self.assertEqual(self.git("branch", "--show-current"), "fixture")
 
+    def test_acquisition_binds_repository_before_reading_records(self):
+        self.assertEqual(len(self.acquire()["terms"]), 1)
+        for repository in ("TraitMech/private_lab", "CultureBotAI/private_lab",
+                           "CultureBotAI/CultureMech"):
+            with self.subTest(repository=repository):
+                self.config["sources"][0]["repository"] = repository
+                self.config["sources"][0]["license_url"] = (
+                    "https://github.com/" + repository + "/blob/" + self.pin + "/LICENSE-DATA")
+                self.config_hash()
+                self.git("remote", "set-url", "origin", "https://github.com/" + repository)
+                with mock.patch.object(vocabulary, "blobs", side_effect=AssertionError("read unlisted source")):
+                    with self.assertRaises(ValueError):
+                        self.acquire()
+
+    def test_retained_vocabulary_binds_name_to_canonical_public_repository(self):
+        original = self.acquire()
+        self.validate(original)
+        self.assertEqual(len(original["terms"]), 1)
+        config = copy.deepcopy(self.config)
+        for repository in ("TraitMech/private_lab", "CultureBotAI/private_lab",
+                           "CultureBotAI/CultureMech"):
+            with self.subTest(repository=repository):
+                self.config = json.loads(json.dumps(config).replace("CultureBotAI/TraitMech", repository))
+                self.config_hash()
+                candidate = json.loads(json.dumps(original).replace("CultureBotAI/TraitMech", repository))
+                candidate["source_config_sha256"] = self.snapshot["source_config_sha256"]
+                candidate["snapshot_sha256"] = vocabulary.digest(vocabulary.json_bytes(self.snapshot))
+                for term in candidate["terms"]:
+                    term["id"] = vocabulary.entity_id(repository, term["source"]["path"], term["record_id"])
+                with self.assertRaisesRegex(ValueError, "canonical public repository"):
+                    self.validate(candidate)
+
     def test_all_colliding_records_survive_prefilter_and_nonmatching_records_count(self):
         self.write("data/records/second.yaml", {"identifier": "OTHER:iron", "label": "iron"})
         self.write("data/records/third.yaml", {"identifier": "CHEBI:18248", "label": "iron"})

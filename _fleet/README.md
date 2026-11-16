@@ -59,7 +59,7 @@
 The site lists sixteen corpus Mechs and separate infrastructure members.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
 and the November 15, 2026 membership-only update pins CLAW at
-`55bdb723259ff65b12f252a00739d238ca82c7a1`: the canonical snapshot declares
+`b00b8661076a5e3ad494389a4805e8344fd11e98`: the canonical snapshot declares
 17 public members (all sixteen corpus Mechs plus EdgeMech infrastructure), 26 governed
 artifacts and 29 capabilities, including record-review declarations and the
 `evidence_reference_validation` contract (enabled for MediaIngredientMech,

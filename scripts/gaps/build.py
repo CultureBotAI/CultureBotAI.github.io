@@ -14,7 +14,7 @@ from pathlib import Path
 import tempfile
 
 from snapshot import (ROOT, ORDER, contains_unlisted_mech, digest, json_bytes, load_exporter,
-                      matches, publication_allowed, write_atomic)
+                      matches, publication_allowed, validate_public_sources, write_atomic)
 from terms import build_term_document
 
 INDEX_FIELDS = ("id", "mech", "record_id", "record_label", "aliases", "discussion_id",
@@ -33,6 +33,8 @@ def load_vocabulary(path, snapshot, config, *, pilot=False):
 
 
 def validate(snapshot, config, exporter, provenance, *, pilot=False):
+    validate_public_sources(config["sources"])
+    validate_public_sources(snapshot["sources"])
     if snapshot["schema_version"] != 1:
         raise ValueError("Unsupported snapshot version")
     if snapshot["source_config_sha256"] != digest(json_bytes(config)):

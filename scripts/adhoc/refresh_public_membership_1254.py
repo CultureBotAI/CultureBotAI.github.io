@@ -48,11 +48,8 @@ def prepare_refresh(snapshot: dict, commit_date: str, observed_at: str) -> dict[
     audit, notes = refresh_membership_audit(
         read("_fleet/data/site_audit.json"), notes, snapshot, commit_date, observed_at,
     )
-    prior = roots.public_names
-    roots.public_names = lambda: frozenset(
-        token.lower() for name, row in snapshot["mechs"].items()
-        for token in (name, row["key"], row["github"], row["github"].rsplit("/", 1)[-1])
-    )
+    prior = roots.public_members
+    roots.public_members = lambda: snapshot["mechs"]
     try:
         validate(snapshot)
         page = assemble(
@@ -64,7 +61,7 @@ def prepare_refresh(snapshot: dict, commit_date: str, observed_at: str) -> dict[
             infrastructure=infrastructure,
         )
     finally:
-        roots.public_names = prior
+        roots.public_members = prior
     return {
         "_fleet/data/manifest.json": encoded(snapshot),
         "_fleet/audit_notes.json": encoded(notes),

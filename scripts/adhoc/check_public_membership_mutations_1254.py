@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -35,6 +36,25 @@ CASES = (
      '    infrastructure = read("_fleet/infrastructure.json")',
      '    infrastructure = read("_fleet/infrastructure.json")\n    for member in infrastructure["members"].values():\n        member["evidence_url"] = snapshot["source"]["url"]',
      "tests/test_membership_refresh.py::MembershipRefreshTests::test_new_membership_pin_retains_historical_infrastructure_evidence"),
+    ("repository_alias_607", "scripts/fleet/roots.py",
+     '        return "/".join(parts[:2]) not in allowed\n    return True',
+     '        return parts[0] not in allowed and "/".join(parts[:2]) not in allowed\n    return True',
+     "tests/test_public_projection.py::PublicProjectionTests::test_repository_alias_cannot_be_used_as_an_unlisted_owner"),
+    ("gap_acquisition_binding_607", "scripts/gaps/snapshot.py",
+     '    validate_public_sources(config["sources"])', '    pass  # mutation: no canonical source binding',
+     "tests/test_gap_snapshot.py::GapSnapshotTests::test_source_repository_must_belong_to_its_public_name_before_acquisition"),
+    ("gap_retained_binding_607", "scripts/gaps/build.py",
+     '    validate_public_sources(config["sources"])\n    validate_public_sources(snapshot["sources"])',
+     '    pass  # mutation: no retained source binding',
+     "tests/test_gap_build.py::GapBuildTests::test_retained_sources_bind_name_to_canonical_public_repository"),
+    ("vocabulary_acquisition_binding_607", "scripts/gaps/vocabulary.py",
+     'def acquire(config, snapshot, repos_root, cache_root, selected=None):\n    validate_public_sources(config["sources"])',
+     'def acquire(config, snapshot, repos_root, cache_root, selected=None):\n    pass  # mutation: no canonical source binding',
+     "tests/test_gap_vocabulary.py::GapVocabularyTests::test_acquisition_binds_repository_before_reading_records"),
+    ("vocabulary_retained_binding_607", "scripts/gaps/vocabulary.py",
+     '    validate_public_sources(config["sources"])\n    validate_public_sources(vocabulary["sources"])',
+     '    pass  # mutation: no retained source binding',
+     "tests/test_gap_vocabulary.py::GapVocabularyTests::test_retained_vocabulary_binds_name_to_canonical_public_repository"),
 )
 
 
@@ -42,7 +62,7 @@ def run(test: str) -> subprocess.CompletedProcess[str]:
     with tempfile.TemporaryDirectory(prefix="site-public-bytecode-") as cache:
         environment = dict(os.environ, PYTHONPATH=str(ROOT / "tests"), PYTHONPYCACHEPREFIX=cache)
         return subprocess.run(
-            [sys.executable, "-m", "pytest", "-c", "/dev/null", test, "-q"],
+            [sys.executable, "-m", "pytest", "-c", "/dev/null", "-p", "no:cacheprovider", test, "-q"],
             cwd=ROOT, env=environment, capture_output=True, text=True, timeout=120,
         )
 
@@ -69,7 +89,7 @@ def main() -> None:
         try:
             path.write_text(text.replace(old, new))
             red = run(test)
-            if red.returncode != 1 or "1 failed" not in red.stdout or "ERROR collecting" in red.stdout:
+            if red.returncode != 1 or not re.search(r"\b[1-9][0-9]* failed\b", red.stdout) or "ERROR collecting" in red.stdout:
                 raise RuntimeError(f"Mutation not distinguished: {label}\n{red.stdout}\n{red.stderr}")
         finally:
             path.write_bytes(before)

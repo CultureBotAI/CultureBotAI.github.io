@@ -72,10 +72,13 @@ EXCLUDE_DIRS: dict[str, list[str]] = {
 PUBLIC_SNAPSHOT = Path(__file__).resolve().parents[2] / "_fleet/data/manifest.json"
 
 
+def public_members():
+    return json.loads(PUBLIC_SNAPSHOT.read_text())["mechs"]
+
+
 def public_names():
-    snapshot = json.loads(PUBLIC_SNAPSHOT.read_text())
     return frozenset(
-        token.lower() for name, mech in snapshot["mechs"].items()
+        token.lower() for name, mech in public_members().items()
         for token in (name, mech["key"], mech["github"], mech["github"].rsplit("/", 1)[-1])
     )
 
@@ -113,10 +116,33 @@ def is_withheld(value: str | None) -> bool:
         return True
     parts = lowered.split("/")
     if len(parts) > 1:
-        # Source paths are rooted at the exact public display name; repository
-        # locators additionally require their exact owner/repository identity.
-        return parts[0] not in allowed and "/".join(parts[:2]) not in allowed
+        return "/".join(parts[:2]) not in allowed
     return True
+
+
+def is_withheld_source_path(value: str) -> bool:
+    """Check a Pages-relative source path separately from repository identity."""
+    if not isinstance(value, str) or not value:
+        return True
+    if "://" in value:
+        return is_withheld(value)
+    parts = value.strip().lower().split("/")
+    return parts[0] not in public_names() or any(part in {".", ".."} for part in parts)
+
+
+def validate_public_sources(sources):
+    """Bind each scientific source name to its exact canonical public repository.
+
+    Retained configuration and snapshot digests prove consistency, not public
+    membership. Apply this before acquisition and again at offline publication.
+    """
+    members = public_members()
+    for source in sources:
+        name, repository = source.get("name"), source.get("repository")
+        member = members.get(name) if isinstance(name, str) else None
+        if (member is None or not isinstance(repository, str)
+                or repository.lower() != member["github"].lower()):
+            raise ValueError("Non-public source must match its canonical public repository")
 
 
 if any(is_withheld(name) for name in RECORD_GLOBS):
