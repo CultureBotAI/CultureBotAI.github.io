@@ -40,6 +40,10 @@ self.onmessage = async function (event) {
       });
       self.postMessage({type: 'ready', request: message.request, total: doc.items.length, facets: facets,
         facet_counts: facetCounts, gap_counts: GapSearch.gapCounts(doc.items),
+        map_items: doc.items.map(function (item) {
+          return {id: item.id, prompt: item.prompt, record_label: item.record_label, record_id: item.record_id,
+            mech: item.mech, kind: item.kind, status: item.status, review_state: item.review_state};
+        }),
         candidates: doc.items.filter(function (item) { return item.lane === 'candidate'; }).length});
     } else {
       if (!prepared) throw new Error('The search index has not loaded.');
@@ -58,7 +62,10 @@ self.onmessage = async function (event) {
         self.postMessage({type: 'item', request: message.request, item: byId.get(message.id) || null});
       } else if (message.type === 'query' || message.type === 'export') {
         var result = GapSearch.search(prepared, message.state, termData);
-        if (message.type === 'query') delete result.all;
+        if (message.type === 'query') {
+          result.match_ids = result.all.map(function (item) { return item.id; });
+          delete result.all;
+        }
         else delete result.term_summary;
         self.postMessage({type: message.type, request: message.request, result: result});
       }

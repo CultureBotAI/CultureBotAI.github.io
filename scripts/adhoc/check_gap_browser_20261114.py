@@ -43,7 +43,7 @@ def prepare(args):
     if args.site:
         return args.site, {'method': 'Actual supplied Jekyll build, served locally', 'site': str(args.site.relative_to(ROOT)),
                            'page_sha256': sha(args.site / 'knowledge-gaps/index.html'),
-                           'ui_sha256': {name: sha(args.site / 'assets/gaps' / name) for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css')},
+                           'ui_sha256': {name: sha(args.site / 'assets/gaps' / name) for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css', 'embedding-map.js')},
                            'main_css_sha256': sha(args.site / 'assets/main.css'),
                            'custom_css_sha256': sha(args.site / 'assets/custom.css')}
     preview = TEMP / ('preview-' + args.report.stem)
@@ -73,11 +73,11 @@ def prepare(args):
     shutil.copy2(cache / 'main.css', preview / 'assets/main.css')
     shutil.copy2(ROOT / 'assets/custom.css', preview / 'assets/custom.css')
     shutil.copytree(args.assets, preview / 'assets/gaps', dirs_exist_ok=True)
-    for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css'):
+    for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css', 'embedding-map.js'):
         shutil.copy2(ROOT / 'assets/gaps' / name, preview / 'assets/gaps' / name)
     return preview, {'method': 'Kramdown-rendered current body in retained live site shell, local CSS/JS/data; not a full Jekyll build or deployment',
                      'page_sha256': sha(ROOT / 'knowledge-gaps.md'), 'shell_sha256': sha(cache / 'shell.html'),
-                     'ui_sha256': {name: sha(preview / 'assets/gaps' / name) for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css')},
+                     'ui_sha256': {name: sha(preview / 'assets/gaps' / name) for name in ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css', 'embedding-map.js')},
                      'preview_sha256': sha(preview / 'knowledge-gaps/index.html')}
 
 

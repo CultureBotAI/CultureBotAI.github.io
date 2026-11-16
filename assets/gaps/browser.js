@@ -9,7 +9,15 @@
   var worker, manifest, state, ready = false, requestID = 0, loadVersion = 0, queryVersion = 0, detailVersion = 0;
   var pending = new Map(), shards = new Map(), lastTotal = 0, exporting = false, lastDetailButton = null;
   var termsReady = false, termsLoading = false, termsVersion = 0, termInfo = new Map(), termRecognition = null;
-  var sectionIDs = ['gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-results-title', 'gap-static-title', 'bibliography'];
+  var embedding = window.GapEmbedding && window.GapEmbedding.create({root: $('embedding'),
+    loadDocument: function () { return verifiedJSON(manifest.embedding); }, safeURL: core.safeURL, csvCell: core.csvCell, referenceURL: core.referenceURL,
+    openDiscussion: function (id, origin) { lastDetailButton = origin; openDetail(id, true, true); },
+    onLayout: function () {
+      var context = $('detail-body').querySelector('.gap-map-detail-context');
+      if (context) embedding.appendContext(context.dataset.gapId, context);
+      navigatePendingSection();
+    }});
+  var sectionIDs = ['gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-map-title', 'gap-results-title', 'gap-static-title', 'bibliography'];
   var pendingSection = location.hash, pendingSectionTarget = null;
   function node(tag, content, className) {
     var el = document.createElement(tag);
@@ -59,10 +67,12 @@
     // Do not restore an async anchor after the reader has moved focus elsewhere.
     if (pendingSectionTarget && document.activeElement !== pendingSectionTarget) { pendingSection = ''; pendingSectionTarget = null; return; }
     if (id === 'gap-static-title') target.parentElement.open = true;
+    if (id === 'gap-map-title' && embedding) embedding.ensureLoaded();
     sectionOffset();
     target.focus({preventScroll: true}); target.scrollIntoView({block: 'start'});
     // Show the loading heading now, then keep it in view when the cloud arrives.
-    if (termsLoading && ['gap-pairs-title', 'gap-results-title'].includes(id)) pendingSectionTarget = target;
+    if ((termsLoading && ['gap-pairs-title', 'gap-map-title', 'gap-results-title'].includes(id)) ||
+        (embedding && embedding.isLoading() && ['gap-results-title', 'gap-static-title', 'bibliography'].includes(id))) pendingSectionTarget = target;
     else { pendingSection = ''; pendingSectionTarget = null; }
   }
   function jumpToSection(id) {
@@ -142,6 +152,7 @@
     $('results').replaceChildren(); $('pagination').hidden = true;
     $('load-status').textContent = 'Search could not load: ' + message + ' The static source summary remains available below.';
     $('load-status').className = 'gap-error'; $('load-status').hidden = false; $('retry').hidden = false;
+    if (embedding) embedding.invalidateScope('The search index is unavailable. Retry loading before exploring the map.');
     exportButtons();
   }
   function termIdentity(term) {
@@ -334,10 +345,12 @@
   async function query(focus) {
     if (!ready) return;
     var version = ++queryVersion; lastTotal = 0; exportButtons();
+    if (embedding) embedding.invalidateScope('Updating the map to match the current filters…');
     $('results').replaceChildren(); $('pagination').hidden = true; $('result-status').textContent = 'Searching all indexed discussions…';
     $('view-note').textContent = state.view === 'gaps' ? 'Knowledge gaps shows KNOWLEDGE_GAP and HUMAN_MODEL_MISMATCH entries, excluding identified proposals awaiting review. Lifecycle and other filters also apply.' : state.view === 'candidates' ? 'Candidates are identified proposals requiring review, including those stored in native records. Their citations do not establish the proposed claim.' : 'All discussion kinds and both recorded and candidate entries are available. Lifecycle and other filters still apply.';
     showTermSelection();
     if ((state.term || state.term2) && !termsReady) {
+      if (embedding) embedding.invalidateScope('Selected entity filters require the entity index. Retry entity occurrences or clear the selection; no broader map points are shown.');
       $('result-status').textContent = termsLoading ? 'Loading entity occurrences before applying the selected entity filters…' : 'Selected entity filters could not be applied. Retry entity occurrences or clear the entity selection. No broader results are shown.';
       if (focus) $('result-status').focus();
       navigatePendingSection();
@@ -348,6 +361,10 @@
       if (version !== queryVersion) return;
       var result = reply.result; state.page = result.page; historyState(true);
       lastTotal = result.total; renderRows(result); renderTerms(result.term_summary, result.selected_terms); exportButtons();
+      if (embedding) {
+        if (Array.isArray(result.match_ids)) embedding.setScope(result.match_ids, state);
+        else embedding.invalidateScope('The map filter scope is unavailable. Reload to update the search worker.');
+      }
       if (focus) $('result-status').focus();
       navigatePendingSection();
     } catch (error) { if (version === queryVersion) fail(error.message); }
@@ -355,12 +372,17 @@
   function closeDetail(restore, update) {
     detailVersion++; $('detail').hidden = true; $('detail-body').replaceChildren();
     state.gap = ''; if (update) historyState(false);
+    if (embedding) embedding.setSelection('');
     if (restore) { if (lastDetailButton && lastDetailButton.isConnected) lastDetailButton.focus(); else $('result-status').focus(); }
   }
   function renderDetail(item) {
     $('detail-title').textContent = item.prompt || 'Discussion';
     var body = $('detail-body'); body.replaceChildren(badges(item));
     body.append(node('p', (item.record_label || item.record_id) + ' · ' + item.record_id));
+    if (embedding) {
+      var context = node('div', null, 'gap-map-detail-context'); context.dataset.gapId = item.id;
+      embedding.appendContext(item.id, context); body.append(context);
+    }
     if (item.rationale) { body.append(node('h3', 'Why this matters'), node('p', item.rationale)); }
     var dl = node('dl');
     field(dl, 'Storage mode', human(item.storage_mode));
@@ -412,6 +434,7 @@
   async function openDetail(id, update, focus) {
     var version = ++detailVersion;
     state.gap = id; if (update) historyState(false);
+    if (embedding) embedding.setSelection(id);
     $('detail').hidden = false; $('detail-title').textContent = 'Loading discussion…'; $('detail-body').replaceChildren();
     if (focus) $('detail-title').focus();
     try {
@@ -471,6 +494,7 @@
   }
   async function load() {
     var version = ++loadVersion; ready = false; queryVersion++; detailVersion++; stopWorker(); shards.clear();
+    if (embedding) embedding.reset(null, []);
     resetStats('Gap counts will appear when the search index loads.');
     app.querySelectorAll('[data-gap-interactive]').forEach(function (a) { a.hidden = true; });
     termsVersion++; termsReady = false; termsLoading = false; termRecognition = null; termInfo.clear();
@@ -496,6 +520,7 @@
       var reply = await request('init', {url: new URL(manifest.index.url, manifestURL).href, sha256: manifest.index.sha256, build_id: manifest.build_id});
       if (version !== loadVersion) return;
       if (reply.total !== manifest.counts.items) throw new Error('The index count does not match the snapshot manifest.');
+      if (embedding) embedding.reset(manifest, reply.map_items);
       renderStats(reply.gap_counts);
       var names = manifest.sources.map(function (source) { return source.name; }).sort();
       [['mech', names, 1], ['vocab', names, 1], ['kind', reply.facets.kind, 1], ['status', reply.facets.status, 2], ['review', reply.facets.review_state, 1]].forEach(function (entry) {

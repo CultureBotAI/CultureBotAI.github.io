@@ -47,7 +47,7 @@ jobs:
           path: .gap-contract
           persist-credentials: false
       - run: python scripts/gaps/build.py --claw-root .gap-contract --check
-      - run: node --test tests/gap-search.test.js
+      - run: node --test tests/gap-search.test.js tests/gap-embedding.test.js
       - uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1
         with:
           ruby-version: '3.3'

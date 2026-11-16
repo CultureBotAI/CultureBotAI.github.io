@@ -22,6 +22,9 @@ INDEX_FIELDS = ("id", "mech", "record_id", "record_label", "aliases", "discussio
                 "evidence_refs", "attaches_to")
 MAX_DETAIL_GZIP = 500 * 1024
 MAX_TERMS_GZIP = 2 * 1024 * 1024
+# The explicitly loaded map retains native definitions and 15 original-vector
+# neighbors per discussion. Measured initial payload: 4.14 MiB gzip (#609).
+MAX_EMBEDDING_GZIP = 5 * 1024 * 1024
 
 
 def load_vocabulary(path, snapshot, config, *, pilot=False):
@@ -163,7 +166,7 @@ def detail_parts(items, build_id):
     return detail_parts(items[:midpoint], build_id) + detail_parts(items[midpoint:], build_id)
 
 
-def artifacts(snapshot, vocabulary=None):
+def artifacts(snapshot, vocabulary=None, embedding=None):
     build_id = digest(json_bytes(snapshot))
     sources, items = snapshot["sources"], snapshot["items"]
     counts = {"items": len(items), "candidates": sum(i["lane"] == "candidate" for i in items),
@@ -212,6 +215,21 @@ def artifacts(snapshot, vocabulary=None):
         files[term_path] = term_bytes
         manifest["terms"] = {"url": term_path, "sha256": term_sha}
         manifest["sizes"].update(terms_bytes=len(term_bytes), terms_gzip_bytes=compressed)
+        if embedding is not None:
+            from embedding_bundle import build_document
+            document = build_document(snapshot, term_document, embedding["inputs"], embedding["layout"],
+                                      embedding["vectors"], embedding["config"], vocabulary)
+            content = json_bytes(document)
+            compressed = len(gzip.compress(content, mtime=0))
+            if compressed > MAX_EMBEDDING_GZIP:
+                raise ValueError("Embedding projection exceeds 5 MiB compressed budget")
+            sha = digest(content)
+            path = f"data/embedding.{sha[:16]}.json"
+            files[path] = content
+            manifest["embedding"] = {"url": path, "sha256": sha}
+            manifest["sizes"].update(embedding_bytes=len(content), embedding_gzip_bytes=compressed)
+    elif embedding is not None:
+        raise ValueError("Embedding publication requires the matched-term vocabulary")
     files["manifest.json"] = json_bytes(manifest)
     return files, summary_html(sources, counts), manifest
 
@@ -264,12 +282,22 @@ def main():
     parser.add_argument("--pilot", action="store_true")
     parser.add_argument("--toolchain", type=Path, default=ROOT / "_gaps/toolchain.json")
     parser.add_argument("--vocabulary", type=Path, default=ROOT / "_gaps/term-vocabulary.json")
+    parser.add_argument("--embedding-inputs", type=Path, default=ROOT / "_gaps/embedding-inputs.json")
+    parser.add_argument("--embedding-layout", type=Path, default=ROOT / "_gaps/embedding-layout.json")
+    parser.add_argument("--embedding-vectors", type=Path, default=ROOT / "_gaps/embedding-vectors.npy")
+    parser.add_argument("--without-embeddings", action="store_true",
+                        help="Build an intermediate term bundle for an embedding refresh; publication CI requires the map")
     args = parser.parse_args()
     snapshot, config = json.loads(args.snapshot.read_text()), json.loads(args.config.read_text())
     exporter, provenance = load_exporter(args.claw_root)
     validate(snapshot, config, exporter, provenance, pilot=args.pilot)
     vocabulary = load_vocabulary(args.vocabulary, snapshot, config, pilot=args.pilot)
-    files, summary, manifest = artifacts(snapshot, vocabulary)
+    embedding = None
+    if not args.pilot and not args.without_embeddings:
+        embedding = {"inputs": json.loads(args.embedding_inputs.read_text()),
+                     "layout": json.loads(args.embedding_layout.read_text()),
+                     "vectors": args.embedding_vectors, "config": config}
+    files, summary, manifest = artifacts(snapshot, vocabulary, embedding)
     if args.check:
         for path, content in files.items():
             if not (args.output / path).is_file() or (args.output / path).read_bytes() != content:

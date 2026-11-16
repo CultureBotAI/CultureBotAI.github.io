@@ -1,0 +1,13 @@
+# Optional offline embedding/projection toolchain for issue #609; 2026-11-15.
+# CI validates retained artifacts and does not install or run this toolchain.
+numpy==2.2.6
+scipy==1.15.3
+torch==2.13.0
+transformers==5.16.1
+tokenizers==0.23.1
+huggingface-hub==1.29.0
+safetensors==0.8.0
+scikit-learn==1.7.2
+pacmap==0.9.1
+numba==0.67.0
+faiss-cpu==1.15.0

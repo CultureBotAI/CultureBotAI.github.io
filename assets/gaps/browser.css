@@ -13,7 +13,7 @@
 #gap-browser button:hover:not(:disabled) { background: var(--wash-b); }
 #gap-browser button:disabled { cursor: default; opacity: .55; }
 #gap-browser :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-.gap-section-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .6rem; margin: 1rem 0; }
+.gap-section-nav { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .6rem; margin: 1rem 0; }
 #gap-browser .gap-section-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .45rem; min-width: 0; min-height: 44px; padding: .85rem .4rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); text-decoration: none; font-size: .85rem; font-weight: 650; text-align: center; line-height: 1.3; }
 .gap-section-nav svg { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--gap-magenta); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 #gap-browser .gap-section-nav a:hover, #gap-browser .gap-section-nav a:focus-visible { border-color: var(--gap-magenta); background: var(--gap-magenta-wash); }
@@ -77,10 +77,35 @@
 .gap-term-selection p { margin: .25rem 0 .6rem; }
 #gap-term-sources { font-size: .85rem; }
 #gap-result-status { scroll-margin-top: 10rem; }
+.gap-embedding { margin: 1.4rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.gap-embedding h2 { font-size: 1.35rem; margin: 0 0 .6rem; }
+.gap-map-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: .8rem; }
+.gap-map-controls label { min-width: 0; font-weight: 650; }
+.gap-map-controls select { display: block; width: 100%; margin-top: .25rem; font-weight: 400; }
+#gap-map-controls { min-width: 0; padding: .8rem; border: 1px solid var(--line); border-radius: 8px; }
+.gap-map-legend { list-style: none; margin: .7rem 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .85rem; }
+.gap-map-legend li { display: flex; align-items: center; gap: .35rem; }
+.gap-map-swatch { width: .8rem; height: .8rem; border: 1px solid var(--ink); border-radius: 50%; flex: none; }
+.gap-map-plot { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--wash-b); }
+.gap-map-plot svg { display: block; width: 100%; aspect-ratio: 900 / 520; min-height: 280px; touch-action: none; cursor: grab; }
+.gap-map-point { cursor: pointer; stroke: var(--card); stroke-width: 1; vector-effect: non-scaling-stroke; opacity: .85; }
+.gap-map-point:hover, .gap-map-point:focus, .gap-map-point.is-selected { stroke: var(--ink); stroke-width: 2.5; opacity: 1; }
+.gap-map-method { margin-top: .8rem; }
+.gap-map-method pre { max-height: 20rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; }
+.gap-map-selection { margin-top: 1rem; padding: .8rem; border: 2px solid var(--gap-magenta); border-radius: 8px; }
+.gap-map-selection h3 { font-size: 1.15rem; margin: 0 0 .5rem; }
+.gap-map-selection h4, .gap-map-detail-context h4 { margin: 1rem 0 .4rem; }
+.gap-map-selection details, .gap-map-detail-context details { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+.gap-map-detail-context { margin: .8rem 0; padding: .5rem .8rem; background: var(--gap-magenta-wash); border-left: 3px solid var(--gap-magenta); }
+.gap-map-description { white-space: pre-wrap; }
+.gap-map-selection li, .gap-map-detail-context li { margin-bottom: .5rem; }
+#gap-browser .gap-map-selection li button, #gap-browser .gap-map-detail-context li button { text-align: left; }
 @media (max-width: 640px) {
   .gap-section-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   #gap-browser .gap-section-nav a { padding: .7rem .25rem; font-size: .78rem; }
   .gap-filters { grid-template-columns: minmax(0, 1fr); }
+  .gap-map-controls { grid-template-columns: minmax(0, 1fr); }
+  .gap-embedding { padding: .8rem; }
   .gap-detail dl, .gap-coverage dl { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
   .gap-detail dd, .gap-coverage dd { margin-bottom: .55rem; }
   .gap-detail, #gap-controls, .gap-term-explorer { padding: .8rem; }
