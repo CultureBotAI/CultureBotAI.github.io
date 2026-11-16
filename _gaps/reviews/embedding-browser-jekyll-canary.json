@@ -1,0 +1,66 @@
+{
+  "complete": true,
+  "canary": true,
+  "views": [
+    {
+      "width": 1280,
+      "initial_mapped": 1187,
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "marker_diameter_css_px": 8,
+      "pointer_point_opens_discussion": true,
+      "marker_size_stable_after_zoom_and_resize": true,
+      "pagination_does_not_change_map": true,
+      "off_page_point_populated_context_and_history": true,
+      "keyboard_point_opens_discussion": true,
+      "fixed_coordinates_and_colors_under_filtering": true,
+      "pair_export": {
+        "points": 52,
+        "bytes": 286845,
+        "sha256": "fd84b1f444b2742e5ff51f255a8cc337e3b1e0d5a33e2913911e908e962a19e7"
+      },
+      "pair_csv": {
+        "points": 52,
+        "bytes": 236454,
+        "sha256": "9993ff6ef56f2c24d75b8471939b01f3b6d2c8429bcb75608c24506c79982248"
+      },
+      "all_export": {
+        "points": 3830,
+        "bytes": 19756212,
+        "sha256": "38c81eac5ea0936489a084a38ea1dbef6109610b15eb0a9b775f44c1c524fb00"
+      },
+      "dark_layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "main": 1
+      },
+      "point_scope_filters_and_empty_states": true,
+      "page_errors": []
+    }
+  ],
+  "started_at": "2026-11-16T03:18:06.660091+00:00",
+  "artifacts": ".temp/gap-embedding-20261115/embedding-jekyll-canary-artifacts",
+  "provenance": {
+    "method": "Actual supplied Jekyll build, served locally",
+    "site": ".temp/gap-embedding-20261115/ci-c91f903",
+    "page_sha256": "9aa67357a054a9afd219c41cc02e125a50ce8e0cf91dace278db54d60f0f5647",
+    "ui_sha256": {
+      "browser.js": "5a24c35ca3aba47218a8d415f9325486b61c96e1af47127e9645db50e7cfb8b2",
+      "search-core.js": "44a0351a5c9179a1da266274f338154da2aa5076767cdc352cdb4f59b50f1832",
+      "search-worker.js": "88356aee113e6d6cae79da7d5e220097c20f1a6ce1702309d26f665b8f0099ae",
+      "browser.css": "aeac93415fa90fd87c32ceb9a6a5c7477e79a9e95545f0f30ae5f637d2507d19",
+      "embedding-map.js": "f7d43d2bb3cd13203623082e4fa1ea260724a3efd73efd8d8515d89d485aca7e"
+    },
+    "main_css_sha256": "f861c07e386d770d235e0a7d5674e3b851103960f1b675d5ac614b01f881e02e",
+    "custom_css_sha256": "5efa39711927e49297d1a5bda4c6d4ec8b9c48b0daa89a29b7fa6ee6e75df616"
+  },
+  "build_id": "33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864",
+  "embedding_sha256": "2e3975f95d55b6f62f511503ace87368f6f4f75bd03c05994b81c99253190598",
+  "browser_version": "157.0.8103.51",
+  "finished_at": "2026-11-16T03:18:22.551524+00:00"
+}

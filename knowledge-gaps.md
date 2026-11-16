@@ -15,6 +15,7 @@ permalink: /knowledge-gaps/
       <a href="#gap-form" data-gap-interactive hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7"></circle><path d="m15 15 6 6"></path></svg><span>Search</span></a>
       <a href="#gap-terms-title" data-gap-interactive hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18a5 5 0 0 1-1-10 7 7 0 0 1 13-1 5.5 5.5 0 0 1 0 11zM8 11h8M7 14h4m3 0h3"></path></svg><span>Word cloud</span></a>
       <a href="#gap-pairs-title" data-gap-interactive hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="6" r="3"></circle><circle cx="19" cy="8" r="3"></circle><circle cx="11" cy="19" r="3"></circle><path d="m8 6 8 2M6 9l4 7m7-6-4 6"></path></svg><span>Co-occurrence</span></a>
+      <a href="#gap-map-title" data-gap-interactive hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3v18h18"></path><circle cx="7" cy="15" r="1.5"></circle><circle cx="10" cy="9" r="1.5"></circle><circle cx="16" cy="13" r="1.5"></circle><circle cx="19" cy="5" r="1.5"></circle></svg><span>Embedding map</span></a>
       <a href="#gap-results-title" data-gap-interactive hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 7h9M8 12h9M8 17h9M6 7h.01M6 12h.01M6 17h.01"></path></svg><span>Gap results</span></a>
       <a href="#gap-static-title"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path></svg><span>Coverage</span></a>
       <a href="#bibliography"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1zm0 0v15M5 8h4m6 0h4M5 12h4m6 0h4"></path></svg><span>References</span></a>
@@ -68,6 +69,32 @@ permalink: /knowledge-gaps/
         <div id="gap-pairs-table" class="gap-term-table" tabindex="0" role="region" aria-label="Entity co-occurrence pairs; scroll to browse" hidden><table><caption>Nonzero pairs among the top 20 entities, ranked by shared discussions</caption><thead><tr><th scope="col">Entity pair</th><th scope="col">Discussions containing both</th></tr></thead><tbody id="gap-term-pairs"></tbody></table></div>
     </section>
     <div id="gap-term-selection" class="gap-term-selection" hidden><p id="gap-term-selection-label"></p><div id="gap-term-sources"></div><button id="gap-terms-clear" type="button">Clear entity selection</button></div>
+    <section id="gap-embedding" class="gap-embedding" aria-labelledby="gap-map-title">
+      <h2 id="gap-map-title" class="gap-section-target" tabindex="-1">Discussion embedding map</h2>
+      <p>Explore discussions by the combined text of each question, its context, and the matched Mech entries with their native definitions or descriptions. Each point is one discussion; the map uses the same discussion filters as the results below.</p>
+      <p class="gap-note">The 2D projection is approximate. Nearby points do not establish a biological relationship or the importance of a knowledge gap. Inspect the original discussion and matched source records.</p>
+      <p id="gap-map-status" role="status" aria-live="polite">The embedding map will become available after the search index loads.</p>
+      <button id="gap-map-load" type="button" disabled>Load embedding map</button><button id="gap-map-retry" type="button" hidden>Retry embedding map</button>
+      <div id="gap-map-content" hidden>
+        <fieldset id="gap-map-controls" disabled>
+          <legend class="gap-sr-only">Embedding map controls</legend>
+          <div class="gap-map-controls">
+            <label for="gap-map-color">Color points by<select id="gap-map-color"><option value="mech">Source Mech</option><option value="kind">Discussion kind</option><option value="status">Lifecycle</option></select></label>
+            <label for="gap-map-point">Choose a matching discussion<select id="gap-map-point"><option value="">Choose a matching discussion</option></select></label>
+          </div>
+          <div class="gap-actions"><button id="gap-map-zoom-in" type="button">Zoom in</button><button id="gap-map-zoom-out" type="button">Zoom out</button><button id="gap-map-reset" type="button">Reset view</button><button id="gap-map-left" type="button" aria-label="Pan map left">←</button><button id="gap-map-right" type="button" aria-label="Pan map right">→</button><button id="gap-map-up" type="button" aria-label="Pan map up">↑</button><button id="gap-map-down" type="button" aria-label="Pan map down">↓</button></div>
+        </fieldset>
+        <p id="gap-map-count" class="gap-note" role="status"></p>
+        <p id="gap-map-help" class="gap-note">Select a point or choose a discussion above to inspect it. Drag empty map space to pan. With the map focused, use arrow keys to pan, +/− to zoom, and 0 to reset. Focus a point and use arrows to browse points, then Enter to open it. <a href="#gap-results-title">Browse the matching discussion list</a>.</p>
+        <ul id="gap-map-legend" class="gap-map-legend" aria-label="Map color legend"></ul>
+        <p id="gap-map-empty" hidden>No embedded discussions match these filters.</p>
+        <div id="gap-map-plot" class="gap-map-plot"></div>
+        <div class="gap-actions"><button id="gap-map-export-json" type="button" disabled>Export all filtered map points: JSON</button><button id="gap-map-export-csv" type="button" disabled>CSV</button></div>
+        <p id="gap-map-export-status" role="status" aria-live="polite"></p>
+        <details class="gap-map-method"><summary>Embedding method, coverage and projection</summary><p id="gap-map-method"></p><pre id="gap-map-provenance"></pre></details>
+      </div>
+      <section id="gap-map-selection" class="gap-map-selection" aria-label="Selected discussion embedding context" hidden></section>
+    </section>
     <h2 id="gap-results-title" class="gap-section-target" tabindex="-1">Matching discussions</h2>
     <p id="gap-result-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">Loading discussions…</p>
     <p id="gap-export-status" role="status" aria-live="polite"></p>
@@ -82,6 +109,7 @@ permalink: /knowledge-gaps/
   <noscript><p>Interactive search needs JavaScript. Open the static coverage summary above to browse sources and inspect coverage.</p></noscript>
 </div>
 <script src="{{ '/assets/gaps/search-core.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/gaps/embedding-map.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/gaps/browser.js' | relative_url }}" defer></script>
 
 ## Bibliography

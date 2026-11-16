@@ -286,7 +286,7 @@ class GapBuildTests(unittest.TestCase):
                 before = {p.relative_to(output): p.read_bytes() for p in output.rglob("*") if p.is_file()}
                 argv = ["build.py", "--snapshot", str(snapshot_path), "--config", str(config_path),
                         "--claw-root", str(self.directory), "--output", str(output),
-                        "--summary", str(summary_path), "--check"]
+                        "--summary", str(summary_path), "--without-embeddings", "--check"]
                 with (mock.patch.object(build, "ORDER", ["TraitMech"]),
                       mock.patch.object(build, "load_exporter", return_value=(self.exporter, self.provenance)),
                       mock.patch.object(build, "load_vocabulary", return_value=None),

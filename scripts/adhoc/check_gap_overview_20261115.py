@@ -21,7 +21,7 @@ import check_gap_browser_20261114 as qa
 
 ROOT = Path(__file__).resolve().parents[2]
 TEMP = ROOT / '.temp/gap-overview-20261115'
-TARGETS = ('gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-results-title',
+TARGETS = ('gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-map-title', 'gap-results-title',
            'gap-static-title', 'bibliography')
 
 
@@ -233,7 +233,7 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
         page.goto(url, wait_until='networkidle'); qa.settled(page); terms_settled(page)
         links = page.locator('.gap-section-nav a')
         assert links.evaluate_all('nodes => nodes.map(e=>e.getAttribute("href"))') == ['#' + key for key in TARGETS]
-        assert all(links.nth(i).is_visible() for i in range(6))
+        assert all(links.nth(i).is_visible() for i in range(len(TARGETS)))
         tiles = assert_tiles(page, manifest, counts)
         report = {'width': width, 'snapshot_counts': tiles, 'layout': qa.layout(page), 'light_style': visual_style(page)}
         report['overview_spacing'] = overview_spacing(page)
@@ -308,7 +308,7 @@ def static_checks(browser, url, width, output):
     page = None
     try:
         page = context.new_page(); page.goto(url + '?q=iron', wait_until='networkidle')
-        for target in TARGETS[:4]:
+        for target in TARGETS[:-2]:
             assert not page.locator('.gap-section-nav a[href="#' + target + '"]').is_visible()
         coverage_bounds = activate_anchor(page, 'gap-static-title', keyboard=True)
         assert params(page) == {'q': ['iron']}
@@ -358,7 +358,7 @@ def load_checks(browser, url, manifest, output):
             page = context.new_page(); page.goto(url + '?q=iron#gap-pairs-title', wait_until='domcontentloaded')
             if mode == 'index-held':
                 assert requested.wait(10), 'Index hold was not exercised'
-                assert all(not page.locator('.gap-section-nav a[href="#' + key + '"]').is_visible() for key in TARGETS[:4])
+                assert all(not page.locator('.gap-section-nav a[href="#' + key + '"]').is_visible() for key in TARGETS[:-2])
                 assert not page.locator('#gap-stats-grid').is_visible()
                 release.set(); qa.settled(page); terms_settled(page)
             elif mode == 'terms-held':

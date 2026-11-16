@@ -22,6 +22,7 @@ import urllib.request
 
 import check_gap_browser_20261114 as qa
 import check_gap_terms_20261115 as term_qa
+import check_gap_embedding_20261115 as embedding_qa
 
 ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY = 'CultureBotAI/CultureBotAI.github.io'
@@ -29,7 +30,7 @@ ORIGIN = 'https://culturebotai.github.io'
 PAGE = ORIGIN + '/knowledge-gaps/'
 MANIFEST_PATH = 'assets/gaps/manifest.json'
 UI_PATHS = ['assets/gaps/' + name for name in
-            ('browser.js', 'search-core.js', 'search-worker.js', 'browser.css')]
+            ('browser.js', 'search-core.js', 'search-worker.js', 'embedding-map.js', 'browser.css')]
 UI_PATHS.append('assets/custom.css')
 
 
@@ -156,6 +157,8 @@ def main():
         descriptors = [('index', manifest['index'])] + [('detail:' + key, value) for key, value in sorted(manifest['details'].items())]
         if 'terms' in manifest:
             descriptors.append(('terms', manifest['terms']))
+        if 'embedding' in manifest:
+            descriptors.append(('embedding', manifest['embedding']))
         paths = {}
         for label, descriptor in descriptors:
             path = descriptor_path(descriptor)
@@ -163,7 +166,7 @@ def main():
                 raise ValueError('Duplicate generated asset path')
             paths[path] = (label, descriptor['sha256'])
         paths.update({path: ('ui', None) for path in UI_PATHS})
-        index, term_document = None, None
+        index, term_document, embedding_document = None, None, None
         for path, (label, declared_hash) in paths.items():
             committed = committed_bytes(expected, path, local_commit)
             if declared_hash and digest(committed) != declared_hash:
@@ -179,11 +182,16 @@ def main():
                     index = document
                 elif label == 'terms':
                     term_document = document
+                elif label == 'embedding':
+                    embedding_document = document
             persist(output / path, live)
             report['responses'][path] = response
             report['assets'][path] = {'kind': label, 'sha256': digest(live), 'matches_commit': True, 'bytes': len(live)}
         if index is None or len(index['items']) != manifest['counts']['items']:
             raise ValueError('Index count does not match live manifest')
+        if embedding_document is not None and (
+                term_document is None or embedding_document['terms_sha256'] != manifest['terms']['sha256']):
+            raise ValueError('Embedding map is not bound to the live term matches')
         report['detail_shards_verified'] = len(manifest['details'])
         persist(output / 'http-responses.json', json_bytes(report['responses']))
         print(f'Live manifest, index, {len(manifest["details"])} detail shards and UI match {expected}', flush=True)
@@ -198,6 +206,9 @@ def main():
                                        ('term_build_id', 'vocabulary_sha256', 'policy')}}
                         report.setdefault('term_views', []).append(term_qa.view_checks(
                             browser, PAGE, term_document['terms'], index['items'], width, output, recognition))
+                    if embedding_document is not None:
+                        report.setdefault('embedding_views', []).append(embedding_qa.view_checks(
+                            browser, PAGE, manifest, index, embedding_document, term_document, width, output))
                     navigation = qa.navigation_check(browser, PAGE, index, width, output)
                     navigation['scope'] = 'Live production header route, mobile menu and populated detail; the live hub backlink was separately checked by HTTP.'
                     report['navigation'].append(navigation)
