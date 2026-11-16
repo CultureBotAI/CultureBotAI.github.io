@@ -12,6 +12,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import math
 import os
 from pathlib import Path
 import platform
@@ -316,6 +317,94 @@ def encode_canary(candidate, model_path, model, cache):
     return run
 
 
+def identity_filtered_neighbors(indices, squared_distances, query, point_count, needed):
+    """Keep zero-distance peers but remove the query by identity, never rank (#615)."""
+    if (len(indices) != len(squared_distances) or type(point_count) is not int or point_count < 2
+            or type(query) is not int or not 0 <= query < point_count
+            or type(needed) is not int or not 1 <= needed < point_count):
+        raise ValueError("Invalid projection neighbor query")
+    candidates, seen = [], set()
+    for neighbor, distance in zip(indices, squared_distances, strict=True):
+        if (type(neighbor) is not int or not 0 <= neighbor < point_count or neighbor in seen
+                or type(distance) not in (int, float) or not math.isfinite(distance) or distance < 0):
+            raise ValueError("Invalid or duplicate projection neighbor candidate")
+        seen.add(neighbor)
+        if neighbor != query:
+            candidates.append((distance, neighbor))
+    if len(candidates) < needed:
+        raise ValueError("Not enough non-self projection neighbor candidates")
+    chosen = sorted(candidates)[:needed]
+    return [neighbor for _, neighbor in chosen], [math.sqrt(distance) for distance, _ in chosen]
+
+
+def validate_projection_pairs(pairs, point_count, per_point):
+    """Check the row-block convention required by PaCMAP and all pair identities."""
+    if (type(point_count) is not int or point_count < 2 or type(per_point) is not int
+            or not 1 <= per_point < point_count or len(pairs) != point_count * per_point):
+        raise ValueError("Projection pair count differs from its declared per-point count")
+    seen = set()
+    for index, pair in enumerate(pairs):
+        if (len(pair) != 2 or any(type(value) is not int or not 0 <= value < point_count for value in pair)
+                or pair[0] != index // per_point or pair[0] == pair[1] or tuple(pair) in seen):
+            raise ValueError("Invalid, duplicated, out-of-order or self-referencing projection pair")
+        seen.add(tuple(pair))
+    return {"count": len(pairs), "per_point": per_point, "self_pairs": 0, "duplicate_pairs": 0}
+
+
+def prepare_projection_pairs(vectors, projector):
+    """Use pinned PaCMAP preprocessing/scaling with identity-safe FAISS candidates."""
+    import faiss
+    import numpy as np
+    import pacmap.pacmap as pacmap_impl
+    point_count, dimensions = vectors.shape
+    projector.decide_num_pairs(point_count)
+    # Match fit() preprocessing exactly on a copy. In particular, retain the
+    # package's local-distance scaling and deterministic mid-near/far sampling.
+    processed, *_ = pacmap_impl.preprocess_X(
+        vectors.copy(), projector.distance, projector.apply_pca, False,
+        projector.random_state, dimensions, projector.n_components)
+    candidate_count = min(projector.n_neighbors + 50, point_count - 1)
+    index = faiss.IndexHNSWFlat(dimensions, 32, faiss.METRIC_L2)
+    index.add(processed)
+    squared_distances, raw_indices = index.search(processed, candidate_count + 1)
+    filtered = [identity_filtered_neighbors(raw_indices[i].tolist(), squared_distances[i].tolist(),
+                                            i, point_count, candidate_count) for i in range(point_count)]
+    neighbors = np.asarray([row[0] for row in filtered], dtype=np.int32)
+    distances = np.asarray([row[1] for row in filtered], dtype=np.float32)
+    sigma = np.maximum(np.mean(distances[:, 3:6], axis=1), np.float32(1e-10))
+    scaled = pacmap_impl.scale_dist(distances, sigma, neighbors)
+    if not np.isfinite(scaled).all():
+        raise ValueError("Projection local-distance scaling returned nonfinite values")
+    # Stable discussion-ID order resolves ties both before and after scaling.
+    pair_neighbors = []
+    for i in range(point_count):
+        chosen = sorted(range(candidate_count), key=lambda j: (float(scaled[i, j]), int(neighbors[i, j])))
+        pair_neighbors.extend([i, int(neighbors[i, j])] for j in chosen[:projector.n_neighbors])
+    validate_projection_pairs(pair_neighbors, point_count, projector.n_neighbors)
+    projector.pair_neighbors = np.asarray(pair_neighbors, dtype=np.int32)
+    # Generate the remaining pairs before fit so every pair family can be
+    # validated. fit() then uses these supplied pairs without sampling again.
+    projector.sample_pairs(processed, save_tree=False)
+    pair_metadata = {}
+    for name, count in (("neighbors", projector.n_neighbors), ("MN", projector.n_MN), ("FP", projector.n_FP)):
+        pairs = getattr(projector, "pair_" + name)
+        pair_metadata[name] = {**validate_projection_pairs(pairs.tolist(), point_count, count),
+                               "int32_row_pairs_sha256": hashlib.sha256(pairs.astype("<i4").tobytes()).hexdigest()}
+    return {
+        "policy_version": 1, "backend": "faiss.IndexHNSWFlat", "index_m": 32,
+        "candidate_neighbors": candidate_count,
+        "self_exclusion": "Remove the query row ID at every candidate rank; retain zero-distance peers",
+        "tie_break": "Distance, then sorted discussion ID; local-scaled distance, then discussion ID",
+        "scaling": "PaCMAP 0.9.1 distance squared divided by both local sigmas; sigma uses neighbors 4-6",
+        "self_at_nonzero_candidate_rank_rows": int(np.sum(
+            (raw_indices[:, 0] != np.arange(point_count))
+            & np.any(raw_indices == np.arange(point_count)[:, None], axis=1))),
+        "self_missing_candidate_rows": int(np.sum(~np.any(raw_indices == np.arange(point_count)[:, None], axis=1))),
+        "self_candidates_removed": int(np.sum(raw_indices == np.arange(point_count)[:, None])),
+        "validated_before_fit": True, "pairs": pair_metadata,
+    }
+
+
 def projection(vectors, ids):
     import numpy as np
     import pacmap
@@ -329,7 +418,14 @@ def projection(vectors, ids):
               "MN_ratio": 0.5, "FP_ratio": 2.0, "num_iters": (100, 100, 250), "lr": 1.0}
     print(f"Projecting {len(ids)} retained vectors with PaCMAP", flush=True)
     authoritative = vectors.copy()
-    coordinates = pacmap.PaCMAP(**params).fit_transform(vectors.copy(), init="pca")
+    projector = pacmap.PaCMAP(**params)
+    pair_construction = prepare_projection_pairs(vectors, projector)
+    print("Validated projection pairs: " + json.dumps(pair_construction["pairs"], sort_keys=True), flush=True)
+    coordinates = projector.fit_transform(vectors.copy(), init="pca")
+    for name, metadata in pair_construction["pairs"].items():
+        pairs = getattr(projector, "pair_" + name)
+        if hashlib.sha256(pairs.astype("<i4").tobytes()).hexdigest() != metadata["int32_row_pairs_sha256"]:
+            raise ValueError("PaCMAP changed the explicitly validated projection pairs")
     if (not np.array_equal(vectors, authoritative)
             or not np.allclose(np.linalg.norm(vectors.astype(float), axis=1), 1, atol=2e-6)):
         raise ValueError("Projection modified the authoritative normalized embedding vectors")
@@ -365,7 +461,8 @@ def projection(vectors, ids):
     }
     return coordinates, neighbors, {"method": "PaCMAP", "version": importlib.metadata.version("pacmap"),
                                       **params, "num_iters": list(params["num_iters"]), "init": "pca",
-                                      "input": "L2-normalized float32 retained embeddings", "threads": 1}, diagnostics
+                                      "input": "L2-normalized float32 retained embeddings", "threads": 1,
+                                      "pair_construction": pair_construction}, diagnostics
 
 
 def main():
@@ -381,6 +478,8 @@ def main():
     mode.add_argument("--probe", action="store_true", help="Import dependencies and report local backend; no inference")
     mode.add_argument("--plan", action="store_true", help="Validate and tokenize inputs; no inference/output publication")
     mode.add_argument("--canary", action="store_true", help="Encode and reload exactly one real multichunk document")
+    mode.add_argument("--projection-only", action="store_true",
+                      help="Require verified cached vectors identical to the retained matrix; never run inference")
     args = parser.parse_args()
     if args.batch_size < 1:
         parser.error("--batch-size must be positive")
@@ -432,18 +531,42 @@ def main():
         raise ValueError("Successful canary does not match this input/runtime/cache/output configuration")
     if cached_vector(args.cache, candidate, model) is None:
         raise ValueError("The verified canary vector is no longer available")
-    run = encode_missing(documents, args.model_path, model, args.cache)
+    if args.projection_only:
+        if cached != len(items):
+            raise ValueError("Projection-only requires every input vector already verified in the cache")
+        previous_layout = json.loads(args.output.read_bytes())
+        previous_vector_sha256 = file_sha(args.vectors)
+        if (previous_layout.get("inputs_sha256") != digest(inputs)
+                or digest(previous_layout.get("model")) != digest(model)
+                or previous_layout.get("vectors", {}).get("sha256") != previous_vector_sha256
+                or [point["id"] for point in previous_layout["points"]] != [item["discussion_id"] for item in items]):
+            raise ValueError("Projection-only requires matching retained input/model/vector bindings and ID ordering")
+        run = {"cache_hits": cached, "encoded_unique_inputs": 0, "encoded_chunks": 0,
+               "inference_seconds": 0.0, "projection_only": True,
+               "previous_layout_sha256": file_sha(args.output),
+               "previous_vector_sha256": previous_vector_sha256}
+    else:
+        run = encode_missing(documents, args.model_path, model, args.cache)
     import numpy as np
     vectors = np.stack([cached_vector(args.cache, row, model) for row in documents]).astype("<f4")
+    if args.projection_only and not np.array_equal(vectors, np.load(args.vectors, allow_pickle=False)):
+        raise ValueError("Verified cache vectors differ from the authoritative retained matrix")
     ids = [row["discussion_id"] for row in items]
     coordinates, neighbors, method, diagnostics = projection(vectors, ids)
-    args.vectors.parent.mkdir(parents=True, exist_ok=True)
-    staged = args.vectors.with_suffix(".npy.tmp")
-    with staged.open("wb") as handle:
-        np.save(handle, vectors, allow_pickle=False)
-    if not np.array_equal(np.load(staged, allow_pickle=False), vectors):
-        raise ValueError("Retained vector matrix failed its reload check")
-    staged.replace(args.vectors)
+    run["projection_pairs"] = {name: info["count"] for name, info in method["pair_construction"]["pairs"].items()}
+    run["projection_pairs_validated_before_fit"] = method["pair_construction"]["validated_before_fit"]
+    if args.projection_only:
+        if (file_sha(args.vectors) != previous_vector_sha256
+                or neighbors != [point["neighbors"] for point in previous_layout["points"]]):
+            raise ValueError("Projection-only changed retained vectors or original-space cosine neighbors")
+    else:
+        args.vectors.parent.mkdir(parents=True, exist_ok=True)
+        staged = args.vectors.with_suffix(".npy.tmp")
+        with staged.open("wb") as handle:
+            np.save(handle, vectors, allow_pickle=False)
+        if not np.array_equal(np.load(staged, allow_pickle=False), vectors):
+            raise ValueError("Retained vector matrix failed its reload check")
+        staged.replace(args.vectors)
     layout = {
         "schema_version": 1, "build_id": inputs["build_id"], "terms_sha256": inputs["terms_sha256"],
         "inputs_sha256": digest(inputs), "input_policy": inputs["policy"], "model": model,

@@ -14,6 +14,37 @@ SPEC.loader.exec_module(compute)
 
 
 class EmbeddingComputeTests(unittest.TestCase):
+    def test_duplicate_vector_neighbors_exclude_identity_at_every_rank_not_zero_distance(self):
+        # Three identical vectors have equal-distance FAISS results. Only the
+        # first query is guaranteed to be rank zero in this shared ordering.
+        ranks = [0, 1, 2, 3]
+        squared_distances = [[0.0, 0.0, 0.0, 4.0]] * 3 + [[4.0, 4.0, 4.0, 0.0]]
+        self.assertIn(1, ranks[1:3])  # Reproduces the dependency's rank-drop defect.
+        pairs = []
+        for query, distances in enumerate(squared_distances):
+            neighbors, actual_distances = compute.identity_filtered_neighbors(ranks, distances, query, 4, 2)
+            self.assertNotIn(query, neighbors)
+            self.assertEqual(len(set(neighbors)), 2)
+            if query < 3:
+                self.assertEqual(neighbors, [index for index in range(3) if index != query])
+                self.assertEqual(actual_distances, [0.0, 0.0])
+            pairs.extend([query, neighbor] for neighbor in neighbors)
+        self.assertEqual(compute.validate_projection_pairs(pairs, 4, 2),
+                         {"count": 8, "per_point": 2, "self_pairs": 0, "duplicate_pairs": 0})
+
+    def test_projection_pair_validation_rejects_missing_duplicate_self_and_reordered_pairs(self):
+        pairs = [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]]
+        for changed in (pairs[:-1], [[0, 0], *pairs[1:]], [[0, 3], *pairs[1:]],
+                        [[0, 1], [0, 1], *pairs[2:]], [pairs[2], *pairs[1:2], pairs[0], *pairs[3:]]):
+            with self.assertRaises(ValueError):
+                compute.validate_projection_pairs(changed, 3, 2)
+        for indices, distances in (([0, 0, 1], [0.0, 0.0, 1.0]),
+                                   ([0, 1, -1], [0.0, 1.0, 2.0]),
+                                   ([0, 1, 2], [0.0, float("nan"), 1.0]),
+                                   ([0, 1], [0.0, 1.0])):
+            with self.assertRaises(ValueError):
+                compute.identity_filtered_neighbors(indices, distances, 0, 3, 2)
+
     def test_model_revision_rejects_auxiliary_changes_with_identical_weights(self):
         with tempfile.TemporaryDirectory() as directory:
             model_path = Path(directory)

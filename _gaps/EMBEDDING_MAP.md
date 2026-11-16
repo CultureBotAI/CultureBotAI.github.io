@@ -22,7 +22,7 @@ Gap prose comes from `terms.iter_item_texts`: prompt, rationale, evidence explan
 
 The normal asset builder validates these retained artifacts, then includes one hashed `embedding` asset in its existing atomic publication transaction. This public asset contains the layout metadata/points plus the retained `records` and compact per-discussion context references. It binds the discussion snapshot and exact term asset separately: a recognition correction can change term postings without changing the discussion build ID.
 
-The map has a separate **5 MiB gzip budget** and loads only on request or navigation to its section. The initial complete asset measures 13,901,274 raw bytes and 4,344,456 gzip bytes (4.14 MiB). Original-vector neighbor identities account for most of the transfer. The larger lazy-download budget preserves all 15 neighbors, native definitions and source provenance; the existing 2 MiB initial-search budget is unchanged. The button reports the estimated compressed size. Reproduce the measurement with `scripts/adhoc/measure_gap_embedding_assets_20261115.py`; gzip estimates are not measured negotiated HTTP transfer sizes.
+The map has a separate **5 MiB gzip budget** and loads only on request or navigation to its section. The complete asset measures 13,902,258 raw bytes and 4,344,892 gzip bytes (4.14 MiB). Original-vector neighbor identities account for most of the transfer. The larger lazy-download budget preserves all 15 neighbors, native definitions and source provenance; the existing 2 MiB initial-search budget is unchanged. The button reports the estimated compressed size. Reproduce the measurement with `scripts/adhoc/measure_gap_embedding_assets_20261115.py`; gzip estimates are not measured negotiated HTTP transfer sizes.
 
 ## Native description fields and input coverage
 
@@ -58,7 +58,9 @@ The fixed [PaCMAP](https://github.com/YingfanWang/PaCMAP) configuration uses ver
 
 Original-vector cosine neighbors have stable discussion-ID tie breaking. Diagnostics retain cosine trustworthiness at 15 neighbors, overlap between original and projected neighbors, duplicate-vector counts, and a PCA baseline's explained variance and trustworthiness. The retained vectors and coordinates are authoritative; identical floating-point results across hardware or dependency versions are not promised. A fixed seed and diagnostics do not establish parameter robustness or biological validity. Two-dimensional distances lose information, and shared wording or shared record descriptions can dominate similarity. Filters only change visible points, never coordinates.
 
-The initial retained run covers 1,102,273 content tokens in 4,430 discussion chunks, with zero truncated tokens, missing discussions or zero vectors. There are 3,731 distinct input texts and 99 duplicate vector rows. PaCMAP cosine trustworthiness at 15 neighbors is 0.9207, compared with 0.7502 for the two-component PCA baseline. Mean original-neighbor overlap is 31.7% (median 26.7%): many true vector neighbors are displaced in two dimensions. Use the displayed original-vector neighbor list when assessing textual similarity.
+The retained run covers 1,102,273 content tokens in 4,430 discussion chunks, with zero truncated tokens, missing discussions or zero vectors. There are 3,731 distinct input texts and 99 duplicate vector rows. PaCMAP cosine trustworthiness at 15 neighbors is 0.9186, compared with 0.7502 for the two-component PCA baseline. Mean original-neighbor overlap is 31.7% (median 26.7%): many true vector neighbors are displaced in two dimensions. Use the displayed original-vector neighbor list when assessing textual similarity.
+
+Projection neighbors explicitly exclude each query by row identity, retaining distinct discussions with identical vectors. This repairs PaCMAP 0.9.1's positional self-removal behavior for duplicate vectors ([#615](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/615)). Candidate lookup and local-distance scaling use the pinned dependency's preprocessing and FAISS configuration. All 57,450 nearest, 30,640 mid-near and 114,900 far pairs are validated before fitting, and their hashes must remain unchanged afterward. The graph policy, pair counts and hashes are retained in projection metadata.
 
 ## Refresh commands
 
@@ -110,6 +112,8 @@ Inspect `.temp/gap-embedding-20261115/canary.json` and the nonempty cached `.npy
 ```
 
 The complete run writes and reloads the matrix, writes the layout and retains `.temp/gap-embedding-20261115/run.json`. Inspect that receipt and the actual artifacts, including point coverage, zero truncated tokens, chunk totals and projection diagnostics. Interrupted encoding can reuse verified cache entries with the same identity. A completed encoding can also reuse its cache when rerunning projection, but retain the successful canary receipt. Caches and receipts remain in `.temp/`; commit the input JSON, layout JSON, vector matrix, source code and regenerated public assets together.
+
+For a projection-only correction, add `--projection-only` to that same full command. This mode requires every cached vector to be valid and exactly equal to the retained matrix, checks the previous layout's input/model bindings, and never invokes encoding. It preserves the matrix file and original-vector neighbor lists. Inspect the receipt for zero encoded inputs/chunks and the unchanged vector SHA before rebuilding the public asset. It is not a substitute for acquiring or encoding changed inputs.
 
 Finish publication preparation using the ordinary environment:
 

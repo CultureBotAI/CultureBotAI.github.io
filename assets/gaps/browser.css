@@ -88,8 +88,8 @@
 .gap-map-swatch { width: .8rem; height: .8rem; border: 1px solid var(--ink); border-radius: 50%; flex: none; }
 .gap-map-plot { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--wash-b); }
 .gap-map-plot svg { display: block; width: 100%; aspect-ratio: 900 / 520; min-height: 280px; touch-action: none; cursor: grab; }
-.gap-map-point { cursor: pointer; stroke: var(--card); stroke-width: 1; vector-effect: non-scaling-stroke; opacity: .85; }
-.gap-map-point:hover, .gap-map-point:focus, .gap-map-point.is-selected { stroke: var(--ink); stroke-width: 2.5; opacity: 1; }
+.gap-map-point { cursor: pointer; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; fill-opacity: .9; stroke-opacity: .85; }
+.gap-map-point:hover, .gap-map-point:focus, .gap-map-point.is-selected { stroke-width: 2.5; fill-opacity: 1; stroke-opacity: 1; }
 .gap-map-method { margin-top: .8rem; }
 .gap-map-method pre { max-height: 20rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; }
 .gap-map-selection { margin-top: 1rem; padding: .8rem; border: 2px solid var(--gap-magenta); border-radius: 8px; }

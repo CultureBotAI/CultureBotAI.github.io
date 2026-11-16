@@ -34,7 +34,11 @@ class EmbeddingBundleTests(unittest.TestCase):
                        "projection": {"method": "PaCMAP", "random_state": 42},
                        "vectors": {"file": "embedding-vectors.npy", "sha256": bundle.digest(self.raw),
                                    "dtype": "float32", "shape": [3, 1024]},
-                       "diagnostics": {"neighbor_overlap": 1.0}, "coverage": {
+                       "diagnostics": {"trustworthiness_k15_cosine": .9,
+                           "neighbor_overlap_k15": {"mean": .5, "median": .4, "minimum": 0, "maximum": 1},
+                           "pca_baseline": {"trustworthiness_k15_cosine": .7, "explained_variance_ratio": [.4, .2]},
+                           "duplicate_vector_rows": 0, "authoritative_vectors_unchanged_by_projection": True,
+                           "interpretation": "Exploratory text projection"}, "coverage": {
                            "input_discussions": 3, "embedded_discussions": 3, "missing_discussions": 0,
                            "content_tokens": 1506, "encoded_content_tokens": 1506, "chunks": 6,
                            "zero_vectors": 0, "truncated_tokens": 0, "unique_input_texts": 3},
@@ -114,6 +118,29 @@ class EmbeddingBundleTests(unittest.TestCase):
             changed = copy.deepcopy(self.layout)
             changed["coverage"][field] += 1
             with self.subTest(field=field), self.assertRaisesRegex(ValueError, "coverage"):
+                bundle.validate_layout(self.inputs, changed, self.raw)
+
+    def test_malformed_projection_diagnostics_cannot_publish(self):
+        for diagnostics in ({}, {"neighbor_overlap_k15": {"mean": math.nan}},
+                            {**self.layout["diagnostics"], "trustworthiness_k15_cosine": 1.1},
+                            {**self.layout["diagnostics"], "duplicate_vector_rows": 3},
+                            {**self.layout["diagnostics"], "pca_baseline": {"trustworthiness_k15_cosine": .7,
+                                                                         "explained_variance_ratio": [.9, .9]}},
+                            {**self.layout["diagnostics"], "neighbor_overlap_k15": {
+                                "mean": .4, "median": .5, "minimum": .6, "maximum": 1}}):
+            changed = copy.deepcopy(self.layout)
+            changed["diagnostics"] = diagnostics
+            with self.subTest(diagnostics=diagnostics), self.assertRaises(ValueError):
+                bundle.validate_layout(self.inputs, changed, self.raw)
+
+    def test_browser_json_rejects_nonfinite_values_even_outside_diagnostics(self):
+        self.assertEqual(bundle.public_bytes(self.layout), bundle.json_bytes(self.layout))
+        for value in (math.nan, math.inf, -math.inf):
+            changed = copy.deepcopy(self.layout)
+            changed["model"]["unexpected_metric"] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                bundle.public_bytes(changed)
+            with self.assertRaises(ValueError):
                 bundle.validate_layout(self.inputs, changed, self.raw)
 
 

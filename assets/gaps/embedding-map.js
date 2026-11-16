@@ -168,7 +168,11 @@
     function updateView() {
       if (!svg) return;
       svg.setAttribute('viewBox', [view.x, view.y, view.width, view.height].join(' '));
-      circles.forEach(function (circle, id) { circle.setAttribute('r', (id === selected ? 7 : 4) * view.width / 900); });
+      // The SVG may be narrower than its viewBox or letterboxed on mobile (#616).
+      // Its screen transform includes both responsive layout and the current zoom.
+      var transform = svg.getScreenCTM(), scale = transform && Math.hypot(transform.a, transform.b);
+      if (!Number.isFinite(scale) || scale <= 0) return;
+      circles.forEach(function (circle, id) { circle.setAttribute('r', (id === selected ? 7 : 4) / scale); });
     }
     function pan(dx, dy) { view.x += dx * view.width; view.y += dy * view.height; updateView(); }
     function zoom(factor) {
@@ -302,6 +306,9 @@
     $('reset').addEventListener('click', resetView);
     [['left', -.1, 0], ['right', .1, 0], ['up', 0, -.1], ['down', 0, .1]].forEach(function (entry) { $(entry[0]).addEventListener('click', function () { pan(entry[1], entry[2]); }); });
     $('export-json').addEventListener('click', function () { download('json'); }); $('export-csv').addEventListener('click', function () { download('csv'); });
+    if (window.ResizeObserver) {
+      var resizeObserver = new window.ResizeObserver(updateView); resizeObserver.observe($('plot'));
+    } else window.addEventListener('resize', updateView);
     return {reset: reset, load: load, setScope: setScope, invalidateScope: invalidateScope, setSelection: setSelection, appendContext: appendContext,
       ensureLoaded: function () { if (!attempted) load(); }, isLoading: function () { return loading; }};
   }

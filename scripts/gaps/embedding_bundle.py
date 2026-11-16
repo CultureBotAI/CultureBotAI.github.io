@@ -9,6 +9,7 @@ from __future__ import annotations
 import array
 import ast
 from copy import deepcopy
+import json
 import math
 from pathlib import Path
 import sys
@@ -23,6 +24,12 @@ MODEL_REVISION = "d4aa6901d3a41ba39fb536a557fa166f842b0e09"
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def public_bytes(document):
+    """Canonical browser JSON must reject NaN/Infinity anywhere (#614)."""
+    return (json.dumps(document, ensure_ascii=False, sort_keys=True, separators=(",", ":"),
+                       allow_nan=False) + "\n").encode("utf-8")
 
 
 def read_vectors(raw, expected_shape):
@@ -57,6 +64,7 @@ def read_vectors(raw, expected_shape):
 
 
 def validate_layout(inputs, layout, raw_vectors):
+    public_bytes(layout)
     require(layout.get("schema_version") == 1, "Unsupported embedding layout version")
     for key in ("build_id", "terms_sha256"):
         require(layout.get(key) == inputs.get(key), "Embedding layout has stale " + key)
@@ -111,8 +119,27 @@ def validate_layout(inputs, layout, raw_vectors):
             actual = sum(left * right for left, right in zip(row, vectors[offset:offset + 1024]))
             require(abs(actual - neighbor["cosine_similarity"]) < 0.00002,
                     "A listed neighbor score differs from the original vectors")
-    require(isinstance(layout.get("diagnostics"), dict) and layout["diagnostics"],
-            "Projection diagnostics must be retained")
+    diagnostics = layout.get("diagnostics", {})
+    require(isinstance(diagnostics, dict), "Projection diagnostics must be retained")
+    def unit(value):
+        return type(value) in (int, float) and math.isfinite(value) and 0 <= value <= 1
+    overlap = diagnostics.get("neighbor_overlap_k15", {})
+    baseline = diagnostics.get("pca_baseline", {})
+    require(unit(diagnostics.get("trustworthiness_k15_cosine"))
+            and isinstance(overlap, dict) and all(unit(overlap.get(key)) for key in
+                                                 ("mean", "median", "minimum", "maximum"))
+            and overlap["minimum"] <= overlap["mean"] <= overlap["maximum"]
+            and overlap["minimum"] <= overlap["median"] <= overlap["maximum"],
+            "Projection diagnostics contain missing or invalid neighbor metrics")
+    variance = baseline.get("explained_variance_ratio") if isinstance(baseline, dict) else None
+    require(isinstance(baseline, dict) and unit(baseline.get("trustworthiness_k15_cosine"))
+            and isinstance(variance, list) and len(variance) == 2 and all(unit(value) for value in variance)
+            and sum(variance) <= 1.000000001, "Projection diagnostics contain an invalid PCA baseline")
+    duplicates = diagnostics.get("duplicate_vector_rows")
+    require(type(duplicates) is int and 0 <= duplicates < len(ids)
+            and diagnostics.get("authoritative_vectors_unchanged_by_projection") is True
+            and isinstance(diagnostics.get("interpretation"), str) and diagnostics["interpretation"].strip(),
+            "Projection diagnostics must account for vector integrity and interpretation")
     coverage = layout.get("coverage", {})
     expected = {
         "input_discussions": len(ids), "embedded_discussions": len(ids), "missing_discussions": 0,

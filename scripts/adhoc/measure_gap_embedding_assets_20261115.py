@@ -18,7 +18,7 @@ import zlib
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/gaps"))
-from embedding_bundle import build_document
+from embedding_bundle import build_document, public_bytes
 from snapshot import digest, json_bytes, write_atomic
 
 
@@ -27,7 +27,7 @@ def read_json(path):
 
 
 def size_of(value):
-    raw = json_bytes(value)
+    raw = public_bytes(value)
     compressed = gzip.compress(raw, compresslevel=9, mtime=0)
     return {"json_bytes": len(raw), "gzip_level9_bytes": len(compressed),
             "gzip_level9_mib": round(len(compressed) / 1024**2, 6)}
@@ -53,7 +53,7 @@ def main():
         read_json(ROOT / "_gaps/snapshot.json"), terms, inputs, layout,
         ROOT / "_gaps/embedding-vectors.npy", read_json(ROOT / "_gaps/sources.json"),
         read_json(ROOT / "_gaps/term-vocabulary.json"))
-    raw = json_bytes(document)
+    raw = public_bytes(document)
     full = size_of(document)
     # Independent compression sizes are descriptive, not additive contributions:
     # removing a field also changes gzip's dictionary and cross-field compression.
@@ -93,7 +93,7 @@ def main():
                           full["gzip_level9_bytes"] - measured["gzip_level9_bytes"]}
     receipt = {
         "schema_version": 1,
-        "method": "Exact embedding_bundle.build_document result; canonical UTF-8 JSON; gzip mtime=0",
+        "method": "Exact embedding_bundle.build_document result and strict public_bytes serializer; canonical UTF-8 JSON; gzip mtime=0",
         "compression": {"python": sys.version.split()[0], "zlib": zlib.ZLIB_RUNTIME_VERSION,
                         "default_compresslevel": 9,
                         "http_transfer_note": "These are reproducible gzip estimates, not measured negotiated HTTP transfer sizes."},
@@ -113,7 +113,7 @@ def main():
             "budget_bytes": mib * 1024**2,
             "headroom_bytes": mib * 1024**2 - full["gzip_level9_bytes"],
             "utilization_percent": round(100 * full["gzip_level9_bytes"] / (mib * 1024**2), 3),
-        } for mib in (2, 3, 4)},
+        } for mib in (2, 3, 4, 5)},
     }
     write_atomic(args.output, json_bytes(receipt))
     if read_json(args.output) != receipt:

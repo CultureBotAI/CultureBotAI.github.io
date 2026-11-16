@@ -216,10 +216,10 @@ def artifacts(snapshot, vocabulary=None, embedding=None):
         manifest["terms"] = {"url": term_path, "sha256": term_sha}
         manifest["sizes"].update(terms_bytes=len(term_bytes), terms_gzip_bytes=compressed)
         if embedding is not None:
-            from embedding_bundle import build_document
+            from embedding_bundle import build_document, public_bytes
             document = build_document(snapshot, term_document, embedding["inputs"], embedding["layout"],
                                       embedding["vectors"], embedding["config"], vocabulary)
-            content = json_bytes(document)
+            content = public_bytes(document)
             compressed = len(gzip.compress(content, mtime=0))
             if compressed > MAX_EMBEDDING_GZIP:
                 raise ValueError("Embedding projection exceeds 5 MiB compressed budget")

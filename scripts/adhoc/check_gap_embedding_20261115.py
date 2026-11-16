@@ -40,6 +40,15 @@ def assert_scope(page, expected_ids):
     return {row['id']: row for row in actual}
 
 
+def marker_size(page):
+    """Check rendered CSS pixels, including narrow viewports and zoom (#616)."""
+    page.wait_for_function("""() => {
+      const p = document.querySelector('#gap-map-plot circle');
+      return p && p.getBoundingClientRect().width >= 7.8 && p.getBoundingClientRect().width <= 8.2;
+    }""")
+    return page.locator('#gap-map-plot circle').first.evaluate('p => p.getBoundingClientRect().width')
+
+
 def export_check(page, expected_ids, document, output, name, format_):
     with page.expect_download() as download:
         page.locator('#gap-map-export-' + format_).click()
@@ -86,10 +95,12 @@ def view_checks(browser, url, manifest, index, document, term_document, width, o
         initial = assert_scope(page, [item['id'] for item in active])
         assert len(initial) > 50, 'Canary must exercise matching discussions beyond the first result page'
         report = {'width': width, 'initial_mapped': len(initial), 'layout': qa.layout(page)}
+        report['marker_diameter_css_px'] = marker_size(page)
         page.locator('#gap-map-plot').screenshot(path=str(output / f'{width}-map-light.png'))
         first_box = page.locator('#gap-map-plot svg').get_attribute('viewBox')
         page.locator('#gap-map-zoom-in').click()
         assert page.locator('#gap-map-plot svg').get_attribute('viewBox') != first_box
+        assert abs(marker_size(page) - report['marker_diameter_css_px']) < .2
         page.locator('#gap-map-reset').click()
         assert page.locator('#gap-map-plot svg').get_attribute('viewBox') == first_box
         page.locator('#gap-map-plot svg').focus(); page.keyboard.press('ArrowRight')
@@ -99,6 +110,23 @@ def view_checks(browser, url, manifest, index, document, term_document, width, o
         page.locator('#gap-map-color').select_option('kind')
         assert set(assert_scope(page, initial)) == set(initial)
         page.locator('#gap-map-color').select_option('mech')
+        # Pick an isolated real marker so pointer hit testing is unambiguous.
+        pointer_id = page.locator('#gap-map-plot circle').evaluate_all("""nodes => {
+          const rows = nodes.map(n => {const b=n.getBoundingClientRect();
+            return {id:n.dataset.gapId, x:b.x+b.width/2, y:b.y+b.height/2};});
+          const p=rows.find(a => rows.every(b => a.id===b.id || Math.hypot(a.x-b.x,a.y-b.y)>16));
+          return p ? p.id : null;
+        }""")
+        assert pointer_id, 'Real corpus must supply an isolated pointer target for the canary'
+        page.locator('#gap-map-plot circle[data-gap-id="' + pointer_id + '"]').click()
+        page.wait_for_function('prompt => document.querySelector("#gap-detail-title").textContent === prompt', arg=by_id[pointer_id]['prompt'])
+        page.locator('#gap-close-detail').click()
+        report['pointer_point_opens_discussion'] = True
+        page.set_viewport_size({'width': width + 40, 'height': 900})
+        assert abs(marker_size(page) - report['marker_diameter_css_px']) < .2
+        page.set_viewport_size({'width': width, 'height': 900})
+        assert abs(marker_size(page) - report['marker_diameter_css_px']) < .2
+        report['marker_size_stable_after_zoom_and_resize'] = True
         page.locator('#gap-next').click(); settled(page)
         assert assert_scope(page, initial) == initial
         report['pagination_does_not_change_map'] = True
