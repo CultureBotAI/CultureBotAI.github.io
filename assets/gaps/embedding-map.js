@@ -7,6 +7,9 @@
   'use strict';
   var HASH = /^[a-f0-9]{64}$/;
   var PALETTE = ['#4477aa', '#cc6677', '#228833', '#aa3377', '#66ccee', '#ee7733', '#999933', '#332288', '#44aa99', '#882255', '#661100', '#6699cc', '#aa4499', '#117733', '#ddaa33', '#777777'];
+  var STANCE_ORDER = ['REFUTE', 'SUPPORT', 'PARTIAL', 'NO_EVIDENCE', 'UNSPECIFIED'];
+  var TOP_LAYERS = ['components', 'ecological_interactions', 'causal_graphs', 'record', 'identifier', 'taxonomy'];
+
   function prepare(doc, manifest, items) {
     if (!doc || doc.schema_version !== 1 || doc.build_id !== manifest.build_id ||
         !manifest.terms || doc.terms_sha256 !== manifest.terms.sha256 || !HASH.test(doc.inputs_sha256 || '')) {
@@ -14,7 +17,7 @@
     }
     if (!Array.isArray(doc.points) || !Array.isArray(doc.records) || !Array.isArray(doc.contexts) ||
         !doc.model || !doc.projection || !doc.coverage) throw new Error('Invalid embedding map metadata.');
-    var index = new Map(), points = new Map(), records = new Map(), contexts = new Map();
+    var index = new Map(), points = new Map(), records = new Map(), contexts = new Map(), hashCounts = new Map();
     items.forEach(function (item) {
       if (!item || !item.id || index.has(item.id)) throw new Error('Invalid map discussion index.');
       index.set(item.id, item);
@@ -25,6 +28,7 @@
           !Number.isSafeInteger(point.chunk_count) || point.chunk_count < 1 || point.chunk_count > point.token_count ||
           !Array.isArray(point.neighbors) || point.neighbors.length > 15) throw new Error('Invalid, duplicate or unknown embedding point.');
       points.set(point.id, point);
+      hashCounts.set(point.input_sha256, (hashCounts.get(point.input_sha256) || 0) + 1);
     });
     if (points.size !== index.size) throw new Error('The embedding map does not cover the complete discussion index.');
     doc.points.forEach(function (point) {
@@ -60,11 +64,91 @@
       contexts.set(context.id, context);
     });
     if (contexts.size !== points.size) throw new Error('Embedding contexts are incomplete.');
+    var duplicateHashes = new Set();
+    hashCounts.forEach(function (cnt, sha) { if (cnt > 1) duplicateHashes.add(sha); });
     var xs = doc.points.map(function (p) { return p.x; }), ys = doc.points.map(function (p) { return p.y; });
     var minX = xs.length ? Math.min.apply(null, xs) : -1, maxX = xs.length ? Math.max.apply(null, xs) : 1;
     var minY = ys.length ? Math.min.apply(null, ys) : -1, maxY = ys.length ? Math.max.apply(null, ys) : 1;
     return {document: doc, index: index, points: points, records: records, contexts: contexts,
+      duplicateHashes: duplicateHashes,
       bounds: {minX: minX, maxX: maxX, minY: minY, maxY: maxY}};
+  }
+  function pointCategory(data, point, colorField) {
+    var item = data.index.get(point.id) || {};
+    if (colorField === 'stance') {
+      var stances = Array.isArray(item.evidence_stances) ? item.evidence_stances : [];
+      if (!stances.length) return 'No cited evidence';
+      for (var i = 0; i < STANCE_ORDER.length; i++) {
+        if (stances.includes(STANCE_ORDER[i])) return STANCE_ORDER[i];
+      }
+      return stances[0];
+    }
+    if (colorField === 'layer') {
+      var layers = Array.isArray(item.attach_layers) ? item.attach_layers : [];
+      if (!layers.length) return 'Unattached';
+      for (var j = 0; j < TOP_LAYERS.length; j++) {
+        if (layers.includes(TOP_LAYERS[j])) return TOP_LAYERS[j];
+      }
+      return 'Other attached slot';
+    }
+    if (colorField === 'experiments') {
+      return item.has_experiments ? 'Has proposed experiments' : 'No proposed experiments';
+    }
+    if (colorField === 'bridge') {
+      if (data.duplicateHashes && data.duplicateHashes.has(point.input_sha256)) return 'Duplicate input text';
+      var neighbors = point.neighbors || [];
+      if (neighbors.length) {
+        var first = data.index.get(neighbors[0].id);
+        if (first && first.mech !== item.mech && neighbors[0].cosine_similarity >= 0.75) {
+          return 'Top-1 neighbor in another Mech (≥0.75)';
+        }
+        var top5Cross = neighbors.slice(0, 5).some(function (n) {
+          var target = data.index.get(n.id);
+          return target && target.mech !== item.mech && n.cosine_similarity >= 0.70;
+        });
+        if (top5Cross) return 'Top-5 neighbor in another Mech (≥0.70)';
+      }
+      return 'Same-Mech neighborhood';
+    }
+    return item[colorField] || '';
+  }
+  function crossMechArcs(data, ids, minCosine) {
+    var threshold = Number.isFinite(minCosine) ? minCosine : 0.78;
+    var active = new Set(ids), seen = new Map();
+    ids.forEach(function (id) {
+      var point = data.points.get(id), item = data.index.get(id);
+      if (!point || !item) return;
+      (point.neighbors || []).slice(0, 5).forEach(function (neighbor) {
+        if (!active.has(neighbor.id) || neighbor.cosine_similarity < threshold) return;
+        var other = data.index.get(neighbor.id);
+        if (!other || other.mech === item.mech) return;
+        var a = id < neighbor.id ? id : neighbor.id, b = id < neighbor.id ? neighbor.id : id;
+        var key = a + '\u0000' + b;
+        if (!seen.has(key) || neighbor.cosine_similarity > seen.get(key).cosine_similarity) {
+          seen.set(key, {a: a, b: b, mech_a: data.index.get(a).mech, mech_b: data.index.get(b).mech,
+            cosine_similarity: neighbor.cosine_similarity});
+        }
+      });
+    });
+    return Array.from(seen.values()).sort(function (x, y) {
+      return y.cosine_similarity - x.cosine_similarity || (x.a < y.a ? -1 : x.a > y.a ? 1 : 0);
+    }).slice(0, 120);
+  }
+  function missingSourcesNote(manifest, presentMechs) {
+    if (!manifest || !Array.isArray(manifest.sources)) return '';
+    var parts = [];
+    manifest.sources.forEach(function (source) {
+      if (presentMechs.has(source.name)) return;
+      var status = source.coverage_status === 'complete' ? (source.items ? '0 matching filters' : '0 items in corpus') :
+        source.coverage_status;
+      parts.push(source.name + ' (' + status + ')');
+    });
+    if (Array.isArray(manifest.infrastructure)) {
+      manifest.infrastructure.forEach(function (member) {
+        parts.push(member.name + ' (infrastructure, no corpus)');
+      });
+    }
+    return parts.length ? 'Public fleet members without plotted points in this view: ' + parts.join(' · ') + '.' : '';
   }
   function matchingPoints(data, ids) {
     var seen = new Set();
@@ -104,7 +188,11 @@
     function svgNode(tag) { return document.createElementNS('http://www.w3.org/2000/svg', tag); }
     function label(item) { return (item.prompt || 'Untitled discussion') + ' — ' + item.mech + ' / ' + item.record_id; }
     function count(value) { return Number(value).toLocaleString('en'); }
-    function readable(value) { return value ? String(value).replace(/_/g, ' ').toLowerCase() : 'Unspecified'; }
+    function readable(value, field) {
+      if (field === 'mech' || field === 'experiments' || field === 'bridge') return value || 'Unspecified';
+      if (value === 'No cited evidence' || value === 'Unattached' || value === 'Other attached slot') return value;
+      return value ? String(value).replace(/_/g, ' ').toLowerCase() : 'Unspecified';
+    }
     function sourceLink(text, url) { var href = options.safeURL(url), a = node(href ? 'a' : 'span', text); if (href) { a.href = href; a.rel = 'noopener noreferrer'; } return a; }
     function controls() {
       var usable = Boolean(data && scopeReady);
@@ -137,14 +225,16 @@
       });
     }
     function appendNeighbors(container, id) {
-      var point = data.points.get(id);
+      var point = data.points.get(id), owner = data.index.get(id);
       container.append(node('h4', 'Nearest discussions by original-vector cosine similarity'),
         node('p', 'These neighbors use the complete embedding vectors across all discussions. They may be outside the current filters; proximity on the 2D map can differ.', 'gap-note'));
       var neighbors = node('ol');
       point.neighbors.forEach(function (neighbor) {
         var target = data.index.get(neighbor.id), row = node('li'), button = node('button', label(target)); button.type = 'button';
         button.addEventListener('click', function () { options.openDiscussion(neighbor.id, $('point')); });
-        row.append(button, document.createTextNode(' · ' + neighbor.cosine_similarity.toFixed(3) + (ids.includes(neighbor.id) ? '' : ' · outside filters'))); neighbors.append(row);
+        var cross = owner && target && owner.mech !== target.mech ? ' · cross-Mech (' + target.mech + ')' : '';
+        row.append(button, document.createTextNode(' · ' + neighbor.cosine_similarity.toFixed(3) + cross + (ids.includes(neighbor.id) ? '' : ' · outside filters')));
+        neighbors.append(row);
       });
       container.append(neighbors);
     }
@@ -183,34 +273,63 @@
     function resetView() { view = {x: 0, y: 0, width: 900, height: 520}; updateView(); }
     function draw() {
       controls(); $('plot').replaceChildren(); $('legend').replaceChildren(); circles.clear(); svg = null;
+      var unshown = $('unshown');
+      if (unshown) { unshown.hidden = true; unshown.textContent = ''; }
       if (!data || !scopeReady) { $('content').hidden = true; return; }
       var points = matchingPoints(data, ids), colorField = $('color').value;
+      var showBridges = Boolean($('bridges') && $('bridges').checked);
       $('content').hidden = false;
-      $('count').textContent = count(points.length) + ' of ' + count(data.points.size) + ' embedded discussions match the current filters. Coordinates stay fixed when filters change.';
+      var arcs = showBridges ? crossMechArcs(data, ids, 0.78) : [];
+      $('count').textContent = count(points.length) + ' of ' + count(data.points.size) + ' embedded discussions match the current filters' +
+        (showBridges ? ' (' + count(arcs.length) + ' cross-Mech cosine arcs ≥ 0.78 shown)' : '') +
+        '. Coordinates stay fixed when filters change.';
       $('empty').hidden = Boolean(points.length);
       var choices = [node('option', 'Choose a matching discussion')]; choices[0].value = '';
       ids.forEach(function (id) { var option = node('option', label(data.index.get(id))); option.value = id; choices.push(option); });
       $('point').replaceChildren.apply($('point'), choices); $('point').value = ids.includes(selected) ? selected : '';
-      var categories = Array.from(new Set(items.map(function (item) { return item[colorField] || ''; }))).sort(), counts = new Map();
-      points.forEach(function (point) { var key = data.index.get(point.id)[colorField] || ''; counts.set(key, (counts.get(key) || 0) + 1); });
+      var allCats = new Set(), counts = new Map();
+      data.points.forEach(function (pt) { allCats.add(pointCategory(data, pt, colorField)); });
+      var categories = Array.from(allCats).sort();
+      points.forEach(function (point) {
+        var key = pointCategory(data, point, colorField);
+        counts.set(key, (counts.get(key) || 0) + 1);
+      });
       categories.forEach(function (category, index) {
         if (!counts.has(category)) return;
         var row = node('li'), swatch = node('span', null, 'gap-map-swatch'); swatch.style.backgroundColor = PALETTE[index % PALETTE.length]; swatch.setAttribute('aria-hidden', 'true');
-        row.append(swatch, document.createTextNode((colorField === 'mech' ? category : readable(category)) + ' (' + count(counts.get(category)) + ')')); $('legend').append(row);
+        row.append(swatch, document.createTextNode(readable(category, colorField) + ' (' + count(counts.get(category)) + ')')); $('legend').append(row);
       });
+      if (unshown && colorField === 'mech') {
+        var presentMechs = new Set(Array.from(counts.keys()));
+        var missingText = missingSourcesNote(manifest, presentMechs);
+        if (missingText) { unshown.textContent = missingText; unshown.hidden = false; }
+      }
       svg = svgNode('svg'); svg.setAttribute('aria-label', 'Embedding map of matching discussions'); svg.setAttribute('role', 'group');
       svg.setAttribute('tabindex', '0'); svg.setAttribute('aria-describedby', 'gap-map-help');
       var bounds = data.bounds, width = bounds.maxX - bounds.minX, height = bounds.maxY - bounds.minY;
       var scale = Math.min(820 / (width || 1), 440 / (height || 1));
+      function px(x) { return 450 + (x - (bounds.minX + bounds.maxX) / 2) * scale; }
+      function py(y) { return 260 - (y - (bounds.minY + bounds.maxY) / 2) * scale; }
+      if (arcs.length) {
+        var arcGroup = svgNode('g'); arcGroup.setAttribute('class', 'gap-map-arcs'); arcGroup.setAttribute('aria-hidden', 'true');
+        arcs.forEach(function (arc) {
+          var pa = data.points.get(arc.a), pb = data.points.get(arc.b), line = svgNode('line');
+          line.setAttribute('x1', px(pa.x)); line.setAttribute('y1', py(pa.y));
+          line.setAttribute('x2', px(pb.x)); line.setAttribute('y2', py(pb.y));
+          line.setAttribute('class', 'gap-map-arc');
+          arcGroup.append(line);
+        });
+        svg.append(arcGroup);
+      }
       points.forEach(function (point, index) {
-        var item = data.index.get(point.id), circle = svgNode('circle');
-        circle.dataset.gapId = point.id; circle.setAttribute('cx', 450 + (point.x - (bounds.minX + bounds.maxX) / 2) * scale);
-        circle.setAttribute('cy', 260 - (point.y - (bounds.minY + bounds.maxY) / 2) * scale);
-        circle.setAttribute('fill', PALETTE[categories.indexOf(item[colorField] || '') % PALETTE.length]);
+        var item = data.index.get(point.id), circle = svgNode('circle'), cat = pointCategory(data, point, colorField);
+        circle.dataset.gapId = point.id; circle.setAttribute('cx', px(point.x));
+        circle.setAttribute('cy', py(point.y));
+        circle.setAttribute('fill', PALETTE[categories.indexOf(cat) % PALETTE.length]);
         circle.setAttribute('class', 'gap-map-point' + (point.id === selected ? ' is-selected' : ''));
         circle.setAttribute('role', 'button'); circle.setAttribute('aria-label', label(item));
         circle.setAttribute('tabindex', point.id === selected || (!ids.includes(selected) && index === 0) ? '0' : '-1');
-        var title = svgNode('title'); title.textContent = label(item); circle.append(title);
+        var title = svgNode('title'); title.textContent = label(item) + ' [' + readable(cat, colorField) + ']'; circle.append(title);
         circle.addEventListener('click', function () { options.openDiscussion(point.id, $('point')); });
         circle.addEventListener('keydown', function (event) {
           if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); options.openDiscussion(point.id, $('point')); }
@@ -247,6 +366,9 @@
     function reset(nextManifest, nextItems) {
       generation++; manifest = nextManifest; items = nextItems || []; data = null; loading = false; attempted = false; ids = []; scopeReady = false; selected = ''; drag = null; svg = null; circles.clear();
       $('content').hidden = true; $('selection').hidden = true; $('plot').replaceChildren(); $('retry').hidden = true;
+      $('color').value = 'mech';
+      if ($('bridges')) $('bridges').checked = false;
+      if ($('unshown')) { $('unshown').hidden = true; $('unshown').textContent = ''; }
       $('load').hidden = false; $('load').disabled = !manifest || !manifest.embedding;
       var compressedBytes = manifest && manifest.sizes && manifest.sizes.embedding_gzip_bytes;
       $('load').textContent = 'Load embedding map' + (Number.isSafeInteger(compressedBytes) && compressedBytes > 0 ?
@@ -301,6 +423,7 @@
     }
     $('load').addEventListener('click', load); $('retry').addEventListener('click', load);
     $('color').addEventListener('change', safeDraw);
+    if ($('bridges')) $('bridges').addEventListener('change', safeDraw);
     $('point').addEventListener('change', function () { if ($('point').value) options.openDiscussion($('point').value, $('point')); });
     $('zoom-in').addEventListener('click', function () { zoom(.8); }); $('zoom-out').addEventListener('click', function () { zoom(1.25); });
     $('reset').addEventListener('click', resetView);
@@ -312,5 +435,6 @@
     return {reset: reset, load: load, setScope: setScope, invalidateScope: invalidateScope, setSelection: setSelection, appendContext: appendContext,
       ensureLoaded: function () { if (!attempted) load(); }, isLoading: function () { return loading; }};
   }
-  return {prepare: prepare, matchingPoints: matchingPoints, exportDocument: exportDocument, csv: csv, create: create};
+  return {prepare: prepare, pointCategory: pointCategory, crossMechArcs: crossMechArcs, missingSourcesNote: missingSourcesNote,
+    matchingPoints: matchingPoints, exportDocument: exportDocument, csv: csv, create: create};
 }));

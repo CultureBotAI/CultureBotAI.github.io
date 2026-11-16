@@ -97,3 +97,46 @@ test('worker supplies compact map metadata and the entire filtered ID set', asyn
   await self.onmessage({data: {type: 'query', request: 3, state: {mech: 'DUFMech'}}});
   assert.deepEqual(Array.from(messages.at(-1).result.match_ids).sort(), items.filter(item => item.mech === 'DUFMech').map(item => item.id).sort());
 });
+
+test('pointCategory, crossMechArcs and missingSourcesNote expose semantic bridges and full fleet coverage', () => {
+  const {items, manifest, doc} = fixture(4);
+  items[0].mech = 'TraitMech'; items[0].evidence_stances = ['PARTIAL', 'REFUTE']; items[0].attach_layers = ['causal_graphs']; items[0].has_experiments = true;
+  items[1].mech = 'CellStructureMech'; items[1].evidence_stances = []; items[1].attach_layers = []; items[1].has_experiments = false;
+  items[2].mech = 'CommunityMech'; items[2].evidence_stances = ['SUPPORT']; items[2].attach_layers = ['custom_slot'];
+  items[3].mech = 'CommunityMech';
+  doc.points[0].input_sha256 = '0'.repeat(64);
+  doc.points[1].input_sha256 = '1'.repeat(64);
+  doc.points[0].neighbors = [{id: 'gap-1', cosine_similarity: 0.86}];
+  doc.points[1].neighbors = [{id: 'gap-0', cosine_similarity: 0.86}];
+  doc.points[2].input_sha256 = 'e'.repeat(64);
+  doc.points[3].input_sha256 = 'e'.repeat(64);
+  const fullManifest = {
+    ...manifest,
+    sources: [
+      {name: 'TraitMech', coverage_status: 'complete', items: 10},
+      {name: 'CellStructureMech', coverage_status: 'complete', items: 5},
+      {name: 'CommunityMech', coverage_status: 'complete', items: 5},
+      {name: 'CultureMech', coverage_status: 'complete', items: 0},
+      {name: 'PathwayMech', coverage_status: 'unsupported', items: 0}
+    ],
+    infrastructure: [{name: 'EdgeMech'}]
+  };
+  const data = map.prepare(doc, fullManifest, items);
+  assert.equal(map.pointCategory(data, doc.points[0], 'stance'), 'REFUTE');
+  assert.equal(map.pointCategory(data, doc.points[1], 'stance'), 'No cited evidence');
+  assert.equal(map.pointCategory(data, doc.points[0], 'layer'), 'causal_graphs');
+  assert.equal(map.pointCategory(data, doc.points[1], 'layer'), 'Unattached');
+  assert.equal(map.pointCategory(data, doc.points[2], 'layer'), 'Other attached slot');
+  assert.equal(map.pointCategory(data, doc.points[0], 'experiments'), 'Has proposed experiments');
+  assert.equal(map.pointCategory(data, doc.points[0], 'bridge'), 'Top-1 neighbor in another Mech (≥0.75)');
+  assert.equal(map.pointCategory(data, doc.points[2], 'bridge'), 'Duplicate input text');
+
+  const arcs = map.crossMechArcs(data, ['gap-0', 'gap-1', 'gap-2'], 0.78);
+  assert.equal(arcs.length, 1);
+  assert.deepEqual({a: arcs[0].a, b: arcs[0].b, cos: arcs[0].cosine_similarity}, {a: 'gap-0', b: 'gap-1', cos: 0.86});
+
+  const note = map.missingSourcesNote(fullManifest, new Set(['TraitMech', 'CellStructureMech', 'CommunityMech']));
+  assert.match(note, /CultureMech \(0 items in corpus\)/);
+  assert.match(note, /PathwayMech \(unsupported\)/);
+  assert.match(note, /EdgeMech \(infrastructure, no corpus\)/);
+});

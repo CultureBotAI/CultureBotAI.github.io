@@ -21,8 +21,8 @@ import check_gap_browser_20261114 as qa
 
 ROOT = Path(__file__).resolve().parents[2]
 TEMP = ROOT / '.temp/gap-overview-20261115'
-TARGETS = ('gap-form', 'gap-terms-title', 'gap-pairs-title', 'gap-map-title', 'gap-results-title',
-           'gap-static-title', 'bibliography')
+TARGETS = ('gap-form', 'gap-analyses-title', 'gap-terms-title', 'gap-pairs-title', 'gap-map-title',
+           'gap-results-title', 'gap-static-title', 'bibliography')
 
 
 class Handler(qa.Handler):
@@ -271,7 +271,9 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
         by_mech = {tile['mech']: tile for tile in tiles}
         exercised = []
         for name in choices:
-            dirty = '?view=all&status=RESOLVED&q=overview-no-match&kind=CURATION_TODO&review=unknown&sort=mech&vocab=TraitMech&term=missing'
+            dirty = ('?view=all&status=RESOLVED&q=overview-no-match&kind=CURATION_TODO&review=unknown'
+                     '&layer=components&stance=SUPPORT&experiments=yes&ref=PMID%3A1&month=2026-01'
+                     '&sort=mech&vocab=TraitMech&term=missing')
             page.goto(url + dirty, wait_until='networkidle'); qa.settled(page); terms_settled(page)
             page.locator('#gap-stats-grid button[data-mech="' + name + '"]').click()
             if by_mech[name]['action'] == 'coverage':
@@ -282,7 +284,7 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
                 state = params(page)
                 assert state.get('view', ['gaps']) == ['gaps'] and state.get('status') == ['']
                 assert state.get('mech', ['']) == [name]
-                for key in ('q', 'kind', 'review', 'term', 'term2', 'vocab', 'gap'):
+                for key in ('q', 'kind', 'review', 'layer', 'stance', 'experiments', 'ref', 'month', 'term', 'term2', 'vocab', 'gap'):
                     assert state.get(key, ['']) == [''], (name, key, state)
                 expected = counts[name] if name else sum(counts.values())
                 text = page.locator('#gap-result-status').inner_text()

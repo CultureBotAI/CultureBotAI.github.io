@@ -328,6 +328,82 @@ class GapBuildTests(unittest.TestCase):
         self.assertFalse((output / "data/new.json").exists())
         self.assertEqual(summary.read_text(), "old-summary")
 
+    def test_infrastructure_validation_and_static_summary_representation(self):
+        infra = json.loads((ROOT / "_fleet/infrastructure.json").read_text())
+        projected = build.validate_infrastructure(infra, self.snapshot["sources"])
+        self.assertEqual([entry["name"] for entry in projected], ["EdgeMech"])
+        self.assertEqual(projected[0]["repository"], "CultureBotAI/EdgeMech")
+        files, summary, manifest = build.artifacts(self.snapshot, infrastructure=infra)
+        self.assertEqual(manifest["infrastructure"], projected)
+        self.assertIn("EdgeMech", summary)
+        self.assertIn("Shared curation infrastructure (no scientific corpus)", summary)
+
+        overlap = copy.deepcopy(infra)
+        overlap["members"]["TraitMech"] = copy.deepcopy(overlap["members"]["EdgeMech"])
+        overlap["members"]["TraitMech"]["repository"] = "CultureBotAI/TraitMech"
+        with self.assertRaisesRegex(ValueError, "separate from corpus"):
+            build.validate_infrastructure(overlap, self.snapshot["sources"])
+
+        invented = copy.deepcopy(infra)
+        invented["members"]["EdgeMech"]["corpus"] = 0
+        with self.assertRaisesRegex(ValueError, "separate reviewed admission"):
+            build.validate_infrastructure(invented, self.snapshot["sources"])
+
+        unlisted = copy.deepcopy(infra)
+        unlisted["members"]["UnlistedExampleMech"] = copy.deepcopy(unlisted["members"]["EdgeMech"])
+        unlisted["members"]["UnlistedExampleMech"]["repository"] = "CultureBotAI/UnlistedExampleMech"
+        with self.assertRaisesRegex(ValueError, "Withheld|not in public"):
+            build.validate_infrastructure(unlisted, self.snapshot["sources"])
+
+    def test_index_projection_and_analytics_sidecar_budget(self):
+        item = self.snapshot["items"][0]
+        item.update(
+            posed_date="2026-05-01",
+            resolved_date="2026-06-02",
+            attaches_to=["components#0", "GO:0043625"],
+            evidence=[{"reference": "PMID:1234", "supports": "REFUTE"}],
+            proposed_experiments=[{"name": "Knockout assay"}],
+        )
+        build_id = build.digest(build.json_bytes(self.snapshot))
+        term_doc = {"schema_version": 1, "build_id": build_id, "terms": []}
+        with mock.patch.object(build, "build_term_document", return_value=term_doc):
+            files, _, manifest = build.artifacts(self.snapshot, {"schema_version": 1})
+        self.assertIn("analytics", manifest)
+        analytics_bytes = files[manifest["analytics"]["url"]]
+        self.assertEqual(build.digest(analytics_bytes), manifest["analytics"]["sha256"])
+        analytics_payload = json.loads(analytics_bytes)
+        self.assertEqual(analytics_payload["build_id"], manifest["build_id"])
+        indexed = json.loads(files[manifest["index"]["url"]])["items"][0]
+        self.assertEqual(indexed["posed_date"], "2026-05-01")
+        self.assertEqual(indexed["resolved_date"], "2026-06-02")
+        self.assertTrue(indexed["has_experiments"])
+        self.assertEqual(indexed["evidence_stances"], ["REFUTE"])
+        self.assertEqual(indexed["attach_layers"], ["components", "entity_curie"])
+        with (mock.patch.object(build, "build_term_document", return_value=term_doc),
+              mock.patch.object(build, "MAX_ANALYTICS_GZIP", 1)):
+            with self.assertRaisesRegex(ValueError, "Analytics projection exceeds"):
+                build.artifacts(self.snapshot, {"schema_version": 1})
+
+    def test_main_fails_closed_when_infrastructure_file_is_missing(self):
+        config_path, snapshot_path = self.directory / "sources.json", self.directory / "snapshot.json"
+        config_path.write_text(json.dumps(self.config))
+        snapshot_path.write_text(json.dumps(self.snapshot))
+        missing_infra = self.directory / "missing-infrastructure.json"
+        output = self.directory / "out"
+        summary_path = self.directory / "summary.html"
+        argv = [
+            "build.py", "--snapshot", str(snapshot_path), "--config", str(config_path),
+            "--claw-root", str(self.directory), "--output", str(output),
+            "--summary", str(summary_path), "--infrastructure", str(missing_infra),
+            "--without-embeddings",
+        ]
+        with (mock.patch.object(build, "ORDER", ["TraitMech"]),
+              mock.patch.object(build, "load_exporter", return_value=(self.exporter, self.provenance)),
+              mock.patch.object(build, "load_vocabulary", return_value=None),
+              mock.patch("sys.argv", argv), redirect_stdout(io.StringIO())):
+            with self.assertRaises(FileNotFoundError):
+                build.main()
+
 
 if __name__ == "__main__":
     unittest.main()

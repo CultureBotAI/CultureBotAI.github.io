@@ -38,11 +38,30 @@ self.onmessage = async function (event) {
           return [value, doc.items.filter(function (item) { return item[key] === value; }).length];
         }));
       });
+      var layerCounts = {}, stanceCounts = {}, expCounts = {yes: 0, no: 0};
+      prepared.forEach(function (entry) {
+        if (!entry.layers.length) layerCounts.unattached = (layerCounts.unattached || 0) + 1;
+        else entry.layers.forEach(function (ly) { layerCounts[ly] = (layerCounts[ly] || 0) + 1; });
+        if (!entry.stances.length) stanceCounts.none = (stanceCounts.none || 0) + 1;
+        else entry.stances.forEach(function (st) { stanceCounts[st] = (stanceCounts[st] || 0) + 1; });
+        if (entry.hasExperiments) expCounts.yes++; else expCounts.no++;
+      });
+      facets.layer = Object.keys(layerCounts).filter(function (k) { return k !== 'unattached'; }).sort(function (a, b) {
+        return layerCounts[b] - layerCounts[a] || (a < b ? -1 : a > b ? 1 : 0);
+      });
+      if (layerCounts.unattached) facets.layer.push('unattached');
+      facetCounts.layer = layerCounts;
+      facets.stance = Object.keys(stanceCounts).filter(function (k) { return k !== 'none'; }).sort();
+      if (stanceCounts.none) facets.stance.push('none');
+      facetCounts.stance = stanceCounts;
+      facetCounts.experiments = expCounts;
       self.postMessage({type: 'ready', request: message.request, total: doc.items.length, facets: facets,
         facet_counts: facetCounts, gap_counts: GapSearch.gapCounts(doc.items),
-        map_items: doc.items.map(function (item) {
+        map_items: prepared.map(function (entry) {
+          var item = entry.item;
           return {id: item.id, prompt: item.prompt, record_label: item.record_label, record_id: item.record_id,
-            mech: item.mech, kind: item.kind, status: item.status, review_state: item.review_state};
+            mech: item.mech, kind: item.kind, status: item.status, review_state: item.review_state,
+            evidence_stances: entry.stances, attach_layers: entry.layers, has_experiments: entry.hasExperiments};
         }),
         candidates: doc.items.filter(function (item) { return item.lane === 'candidate'; }).length});
     } else {
@@ -65,8 +84,10 @@ self.onmessage = async function (event) {
         if (message.type === 'query') {
           result.match_ids = result.all.map(function (item) { return item.id; });
           delete result.all;
+        } else {
+          delete result.term_summary;
+          delete result.analysis;
         }
-        else delete result.term_summary;
         self.postMessage({type: message.type, request: message.request, result: result});
       }
     }

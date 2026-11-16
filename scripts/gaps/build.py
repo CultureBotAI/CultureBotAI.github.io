@@ -11,10 +11,14 @@ import gzip
 import html
 import json
 from pathlib import Path
+import re
 import tempfile
 
-from snapshot import (ROOT, ORDER, contains_unlisted_mech, digest, json_bytes, load_exporter,
-                      matches, publication_allowed, validate_public_sources, write_atomic)
+from analytics import build_analytics_document, normalize_attach_layer
+from roots import public_members
+from snapshot import (ROOT, ORDER, contains_unlisted_mech, digest, is_withheld, json_bytes,
+                      load_exporter, matches, publication_allowed, validate_public_sources,
+                      write_atomic)
 from terms import build_term_document
 
 INDEX_FIELDS = ("id", "mech", "record_id", "record_label", "aliases", "discussion_id",
@@ -22,6 +26,7 @@ INDEX_FIELDS = ("id", "mech", "record_id", "record_label", "aliases", "discussio
                 "evidence_refs", "attaches_to")
 MAX_DETAIL_GZIP = 500 * 1024
 MAX_TERMS_GZIP = 2 * 1024 * 1024
+MAX_ANALYTICS_GZIP = 512 * 1024
 # The explicitly loaded map retains native definitions and 15 original-vector
 # neighbors per discussion. Measured initial payload: 4.14 MiB gzip (#609).
 MAX_EMBEDDING_GZIP = 5 * 1024 * 1024
@@ -129,10 +134,56 @@ def validate(snapshot, config, exporter, provenance, *, pilot=False):
         raise ValueError("Withheld identity in public snapshot")
 
 
-def summary_html(sources, counts):
+def validate_infrastructure(infrastructure, sources):
+    """Validate public non-corpus fleet members against the canonical allowlist."""
+    if not isinstance(infrastructure, dict) or infrastructure.get("version") != 1 or not isinstance(infrastructure.get("members"), dict):
+        raise ValueError("Invalid infrastructure declaration")
+    members = infrastructure["members"]
+    corpus_names = {source["name"] for source in sources}
+    if set(members) & corpus_names:
+        raise ValueError("Infrastructure members must remain separate from corpus sources")
+    declared_public = public_members()
+    validated = []
+    for name in sorted(members):
+        member = members[name]
+        if not isinstance(member, dict):
+            raise ValueError("Invalid infrastructure member entry")
+        if (is_withheld(name) or is_withheld(member.get("repository"))
+                or contains_unlisted_mech(json_bytes(member).decode())):
+            raise ValueError("Withheld Mech in infrastructure declaration")
+        if name not in declared_public or member.get("repository") != declared_public[name]["github"]:
+            raise ValueError("Infrastructure member must match canonical public manifest")
+        if member.get("corpus") is not None or member.get("site") is not None:
+            raise ValueError("Invented corpus or site requires separate reviewed admission")
+        for key in ("description", "scope_note", "evidence_url"):
+            if not isinstance(member.get(key), str) or not member[key].strip():
+                raise ValueError(f"Infrastructure member missing {key}: {name}")
+        if not member["evidence_url"].strip().startswith("https://github.com/CultureBotAI/"):
+            raise ValueError(f"Infrastructure evidence URL must be on CultureBotAI GitHub: {name}")
+        checked_on = member.get("checked_on")
+        if not isinstance(checked_on, str) or not re.match(r"^\d{4}-\d{2}-\d{2}$", checked_on):
+            raise ValueError(f"Invalid infrastructure checked_on date: {name}")
+        validated.append({
+            "name": name,
+            "repository": member["repository"],
+            "repository_url": f"https://github.com/{member['repository']}",
+            "description": member["description"].strip(),
+            "scope_note": member["scope_note"].strip(),
+            "checked_on": checked_on,
+            "evidence_url": member["evidence_url"].strip(),
+        })
+    return validated
+
+
+def summary_html(sources, counts, infrastructure=None):
     esc = html.escape
+    infra_clause = ""
+    if infrastructure:
+        noun = "member" if len(infrastructure) == 1 else "members"
+        names = ", ".join(esc(m["name"]) for m in infrastructure)
+        infra_clause = f" (plus {len(infrastructure)} public infrastructure {noun} without a scientific corpus: {names})"
     lines = [f'<p>{counts["items"]:,} recorded discussion items across '
-             f'{len(sources)} public Mechs; {counts["candidates"]:,} are candidates. '
+             f'{len(sources)} public Mechs{infra_clause}; {counts["candidates"]:,} are candidates. '
              'Counts describe indexed records, not the extent of scientific knowledge. '
              'Unsupported roots are not empty results.</p>',
              '<ul class="gap-static-coverage">']
@@ -147,7 +198,18 @@ def summary_html(sources, counts):
                       if row["status"] == "complete" else row["reason"])
             lines.append(f'<li>{esc(row["name"])}: {esc(row["status"])} — {esc(detail)}</li>')
         lines.append('</ul></li>')
-    lines.append('</ul><p>Selected structured fields are normalized for browsing; third-party '
+    lines.append('</ul>')
+    if infrastructure:
+        lines.append('<div class="gap-static-infrastructure"><h3>Shared curation infrastructure (no scientific corpus)</h3><ul>')
+        for member in infrastructure:
+            lines.append(
+                f'<li><a href="{esc(member["repository_url"], quote=True)}">{esc(member["name"])}</a>: '
+                f'{esc(member["description"])} {esc(member["scope_note"])} '
+                f'Checked {esc(member["checked_on"])} '
+                f'(<a href="{esc(member["evidence_url"], quote=True)}">scope evidence</a>).</li>'
+            )
+        lines.append('</ul></div>')
+    lines.append('<p>Selected structured fields are normalized for browsing; third-party '
                  'quotation snippets are omitted. Credit each linked Mech and its contributors. '
                  'Original records and cited sources remain authoritative.</p>')
     return "\n".join(lines) + "\n"
@@ -166,9 +228,32 @@ def detail_parts(items, build_id):
     return detail_parts(items[:midpoint], build_id) + detail_parts(items[midpoint:], build_id)
 
 
-def artifacts(snapshot, vocabulary=None, embedding=None):
+def index_projection(item, shard_info):
+    stances = sorted({
+        str(entry.get("supports")).strip()
+        for entry in (item.get("evidence") or [])
+        if isinstance(entry, dict) and entry.get("supports")
+    })
+    layers = sorted({
+        layer for target in (item.get("attaches_to") or [])
+        for layer in [normalize_attach_layer(target)] if layer
+    })
+    return {
+        **{key: item[key] for key in INDEX_FIELDS},
+        **shard_info,
+        "source_url": item["source"]["url"],
+        "posed_date": item.get("posed_date"),
+        "resolved_date": item.get("resolved_date"),
+        "has_experiments": bool(item.get("proposed_experiments")),
+        "evidence_stances": stances,
+        "attach_layers": layers,
+    }
+
+
+def artifacts(snapshot, vocabulary=None, embedding=None, infrastructure=None):
     build_id = digest(json_bytes(snapshot))
     sources, items = snapshot["sources"], snapshot["items"]
+    validated_infra = validate_infrastructure(infrastructure, sources) if infrastructure is not None else None
     counts = {"items": len(items), "candidates": sum(i["lane"] == "candidate" for i in items),
               "records_with_discussions": len({(i["mech"], i["source"]["path"]) for i in items})}
     files, details, item_shards = {}, {}, {}
@@ -188,9 +273,7 @@ def artifacts(snapshot, vocabulary=None, embedding=None):
             sizes[key] = {"bytes": len(content), "gzip_bytes": compressed}
             if len(parts) > 1:
                 item_shards.update({item["id"]: {"detail_shard": key} for item in part})
-    index_items = [{**{key: item[key] for key in INDEX_FIELDS}, **item_shards.get(item["id"], {}),
-                    "source_url": item["source"]["url"]}
-                   for item in items]
+    index_items = [index_projection(item, item_shards.get(item["id"], {})) for item in items]
     index = json_bytes({"schema_version": 1, "build_id": build_id, "items": index_items})
     if len(gzip.compress(index, mtime=0)) > 2 * 1024 * 1024:
         raise ValueError("Search projection exceeds 2 MiB compressed budget")
@@ -202,7 +285,10 @@ def artifacts(snapshot, vocabulary=None, embedding=None):
                 "exporter": snapshot["exporter"], "source_config_sha256": snapshot["source_config_sha256"],
                 "sizes": {"index_bytes": len(index), "index_gzip_bytes": len(gzip.compress(index, mtime=0)),
                           "details": sizes}}
+    if validated_infra is not None:
+        manifest["infrastructure"] = validated_infra
     if vocabulary is not None:
+        from embedding_bundle import public_bytes
         term_document = build_term_document(snapshot, vocabulary)
         if term_document.get("schema_version") != 1 or term_document.get("build_id") != build_id:
             raise ValueError("Term recognition must identify the same gap snapshot")
@@ -215,11 +301,12 @@ def artifacts(snapshot, vocabulary=None, embedding=None):
         files[term_path] = term_bytes
         manifest["terms"] = {"url": term_path, "sha256": term_sha}
         manifest["sizes"].update(terms_bytes=len(term_bytes), terms_gzip_bytes=compressed)
+        embedding_document = None
         if embedding is not None:
-            from embedding_bundle import build_document, public_bytes
-            document = build_document(snapshot, term_document, embedding["inputs"], embedding["layout"],
-                                      embedding["vectors"], embedding["config"], vocabulary)
-            content = public_bytes(document)
+            from embedding_bundle import build_document
+            embedding_document = build_document(snapshot, term_document, embedding["inputs"], embedding["layout"],
+                                                embedding["vectors"], embedding["config"], vocabulary)
+            content = public_bytes(embedding_document)
             compressed = len(gzip.compress(content, mtime=0))
             if compressed > MAX_EMBEDDING_GZIP:
                 raise ValueError("Embedding projection exceeds 5 MiB compressed budget")
@@ -228,10 +315,20 @@ def artifacts(snapshot, vocabulary=None, embedding=None):
             files[path] = content
             manifest["embedding"] = {"url": path, "sha256": sha}
             manifest["sizes"].update(embedding_bytes=len(content), embedding_gzip_bytes=compressed)
+        analytics_document = build_analytics_document(snapshot, term_document, embedding_document)
+        analytics_bytes = public_bytes(analytics_document)
+        analytics_compressed = len(gzip.compress(analytics_bytes, mtime=0))
+        if analytics_compressed > MAX_ANALYTICS_GZIP:
+            raise ValueError("Analytics projection exceeds 512 KiB compressed budget")
+        analytics_sha = digest(analytics_bytes)
+        analytics_path = f"data/analytics.{analytics_sha[:16]}.json"
+        files[analytics_path] = analytics_bytes
+        manifest["analytics"] = {"url": analytics_path, "sha256": analytics_sha}
+        manifest["sizes"].update(analytics_bytes=len(analytics_bytes), analytics_gzip_bytes=analytics_compressed)
     elif embedding is not None:
         raise ValueError("Embedding publication requires the matched-term vocabulary")
     files["manifest.json"] = json_bytes(manifest)
-    return files, summary_html(sources, counts), manifest
+    return files, summary_html(sources, counts, validated_infra), manifest
 
 
 def publish(staging, output, summary_path, toolchain_path=None):
@@ -287,6 +384,8 @@ def main():
     parser.add_argument("--embedding-vectors", type=Path, default=ROOT / "_gaps/embedding-vectors.npy")
     parser.add_argument("--without-embeddings", action="store_true",
                         help="Build an intermediate term bundle for an embedding refresh; publication CI requires the map")
+    parser.add_argument("--infrastructure", type=Path, default=ROOT / "_fleet/infrastructure.json")
+    parser.add_argument("--without-infrastructure", action="store_true")
     args = parser.parse_args()
     snapshot, config = json.loads(args.snapshot.read_text()), json.loads(args.config.read_text())
     exporter, provenance = load_exporter(args.claw_root)
@@ -297,7 +396,10 @@ def main():
         embedding = {"inputs": json.loads(args.embedding_inputs.read_text()),
                      "layout": json.loads(args.embedding_layout.read_text()),
                      "vectors": args.embedding_vectors, "config": config}
-    files, summary, manifest = artifacts(snapshot, vocabulary, embedding)
+    infrastructure = None
+    if not args.pilot and not args.without_infrastructure:
+        infrastructure = json.loads(args.infrastructure.read_text())
+    files, summary, manifest = artifacts(snapshot, vocabulary, embedding, infrastructure)
     if args.check:
         for path, content in files.items():
             if not (args.output / path).is_file() or (args.output / path).read_bytes() != content:

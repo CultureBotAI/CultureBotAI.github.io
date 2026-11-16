@@ -159,6 +159,8 @@ def main():
             descriptors.append(('terms', manifest['terms']))
         if 'embedding' in manifest:
             descriptors.append(('embedding', manifest['embedding']))
+        if 'analytics' in manifest:
+            descriptors.append(('analytics', manifest['analytics']))
         paths = {}
         for label, descriptor in descriptors:
             path = descriptor_path(descriptor)
@@ -166,7 +168,7 @@ def main():
                 raise ValueError('Duplicate generated asset path')
             paths[path] = (label, descriptor['sha256'])
         paths.update({path: ('ui', None) for path in UI_PATHS})
-        index, term_document, embedding_document = None, None, None
+        index, term_document, embedding_document, analytics_document = None, None, None, None
         for path, (label, declared_hash) in paths.items():
             committed = committed_bytes(expected, path, local_commit)
             if declared_hash and digest(committed) != declared_hash:
@@ -184,6 +186,8 @@ def main():
                     term_document = document
                 elif label == 'embedding':
                     embedding_document = document
+                elif label == 'analytics':
+                    analytics_document = document
             persist(output / path, live)
             report['responses'][path] = response
             report['assets'][path] = {'kind': label, 'sha256': digest(live), 'matches_commit': True, 'bytes': len(live)}
@@ -192,6 +196,11 @@ def main():
         if embedding_document is not None and (
                 term_document is None or embedding_document['terms_sha256'] != manifest['terms']['sha256']):
             raise ValueError('Embedding map is not bound to the live term matches')
+        if analytics_document is not None:
+            if term_document is not None and analytics_document.get('terms_sha256') != manifest['terms']['sha256']:
+                raise ValueError('Analytics sidecar is not bound to the live term matches')
+            if embedding_document is not None and analytics_document.get('embedding_inputs_sha256') != embedding_document.get('inputs_sha256'):
+                raise ValueError('Analytics sidecar is not bound to the live embedding inputs')
         report['detail_shards_verified'] = len(manifest['details'])
         persist(output / 'http-responses.json', json_bytes(report['responses']))
         print(f'Live manifest, index, {len(manifest["details"])} detail shards and UI match {expected}', flush=True)
@@ -220,7 +229,9 @@ def main():
                         page = context.new_page(); page.goto(PAGE, wait_until='networkidle')
                         page.locator('.gap-static summary').click()
                         summary = page.locator('.gap-static').inner_text()
-                        if not page.locator('noscript').is_visible() or not all(source['name'] in summary for source in manifest['sources']):
+                        if (not page.locator('noscript').is_visible()
+                                or not all(source['name'] in summary for source in manifest['sources'])
+                                or not all(member['name'] in summary for member in manifest.get('infrastructure', []))):
                             raise ValueError('Live no-JavaScript summary lacks a source or explanation')
                         report['no_js_all_sources'] = True
                     finally:
