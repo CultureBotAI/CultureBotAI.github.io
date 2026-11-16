@@ -96,8 +96,14 @@ ID_ONLY_ENTITIES = [
     {"mech": "ProteinTraitsMech", "record_id": "MI:0914",
      "reason": "Organism-level associations do not identify physical molecular complexes (#597)"},
 ]
+# Apply to the canonical identity so shared vocabulary owners cannot bypass it.
+# The symbol keeps native case; the descriptive suffix keeps normal case folding.
+CANONICAL_CASE_RULES = [
+    {"canonical_id": "PFAM:PF02597", "surface": "this family", "pattern": "ThiS (?i:family)",
+     "reason": "Ordinary this family prose does not identify the ThiS protein family (#605)"},
+]
 POLICY = {
-    "version": 2, "method": "dictionary-linked entity recognition; no contextual inference",
+    "version": 3, "method": "dictionary-linked entity recognition; no contextual inference",
     "normalization": "Unicode NFKC, casefold, collapse whitespace; punctuation retained",
     "text_fields": list(TEXT_FIELDS) + ["evidence[].explanation"] +
         ["proposed_experiments[]." + field for field in EXPERIMENT_TEXT_FIELDS] +
@@ -110,6 +116,7 @@ POLICY = {
     "ambiguity": "A surface with multiple eligible canonical concepts remains unlinked",
     "short_forms": "Forms without letters, or with fewer than 3 alphanumeric characters, are excluded except explicit CURIEs; 3 characters require exact case",
     "acronyms": "Compact uppercase acronyms and mixed-case symbols with internal capitals of up to 6 letters require exact case",
+    "canonical_case_rules": CANONICAL_CASE_RULES,
     "source_surface_denials": SURFACE_DENIALS,
     "identifier_only_entities": ID_ONLY_ENTITIES,
     "denial_behavior": "A denied eligible surface blocks reassignment to competing concepts; full descriptive forms and identifiers remain available",
@@ -340,10 +347,12 @@ def build_term_document(snapshot, vocabulary):
             if not possible_surface(form):
                 continue
             normalized, sensitive = rule
+            case_pattern = next((re.compile(row["pattern"]) for row in CANONICAL_CASE_RULES
+                                 if canonical == row["canonical_id"] and normalized == row["surface"]), None)
             reason = _surface_denial(term, form)
             if reason:
                 denied.add((term["mech"], term["record_id"], form, reason))
-            surfaces[normalized].setdefault(entity_id, set()).add((_case_form(form), sensitive, reason))
+            surfaces[normalized].setdefault(entity_id, set()).add((_case_form(form), sensitive, case_pattern, reason))
     # Alternation order establishes longest matching at each leftmost position.
     pattern = (re.compile(r"(?<!\w)(?:" + "|".join(re.escape(surface) for surface in
                sorted(surfaces, key=lambda value: (-len(value), value))) + r")(?!\w)") if surfaces else None)
@@ -370,8 +379,10 @@ def build_term_document(snapshot, vocabulary):
                 if normalize_surface(original) != match.group():
                     rejected_boundary += 1
                     continue
-                eligible_forms = {key: [reason for form, sensitive, reason in forms
-                                        if not sensitive or _case_form(original) == form]
+                original_case = _case_form(original)
+                eligible_forms = {key: [reason for form, sensitive, case_pattern, reason in forms
+                                        if (not sensitive or original_case == form)
+                                        and (case_pattern is None or case_pattern.fullmatch(original_case))]
                                   for key, forms in surfaces[match.group()].items()}
                 eligible = {key for key, reasons in eligible_forms.items() if reasons}
                 if not eligible:

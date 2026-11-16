@@ -1,0 +1,149 @@
+{
+  "complete": true,
+  "issue": 605,
+  "baseline_revision": "cabf5b4b12e419774bc5f6a00c75a9882a25c100",
+  "canonical_id": "PFAM:PF02597",
+  "verification": {
+    "asset_hashes_valid": true,
+    "snapshot_and_vocabulary_unchanged": true,
+    "search_detail_and_other_manifest_data_unchanged": true,
+    "all_other_terms_postings_and_ambiguities_unchanged": true,
+    "exactly_six_false_matches_removed": true
+  },
+  "hashes": {
+    "baseline_manifest": "80fe4f4b78a6ba4fc4ff4a40a3f3ee738cbd280a5caaf289575de3fd7f393747",
+    "current_manifest": "99c0db89dbc980f8735f9a3f9cba129c0a09cf1d06d6ebc5a4d760153d933114",
+    "baseline_assets": {
+      "index": "2e65d05d83644890fe7cf8a8c63fe2a5d75951b483c53298f82878f03a466a74",
+      "terms": "b7561188bbceae4df9cd9d47f7da93bbd3df1898d5a58655b8a15077105ef38d",
+      "AntibioticMech": "64126ef7e77aa919679166a6b92ae23b777bbed1e53bff89773bc1f7efbcafd0",
+      "AssayMech": "05fd91169aaf817d2543efd46f0b6c66b9634d7c1d181c589efdf1eeb86cf7f9",
+      "CellStructureMech-0001": "170650cb47d83401d5af545ff3478aaae92cdf4c12a1e753ff2c2b46900a9210",
+      "CellStructureMech-0002": "8d6e0eb13f6004025cc1dc7fc875b80028e31042911a7a65eb8162c65421f01a",
+      "CofactorMech": "5e4853b5a024a51807e17fbf419d33881591bd0bcf33e04b5356280b10498223",
+      "CommunityMech": "6b063ae47e024dc2e733e84f54ffdc60a8a9992acc4bd208bf810304a133d58d",
+      "DUFMech": "856161af2311a93f0bf85481c23c964805c0336178247337997b61eb80063cff",
+      "MediaIngredientMech": "37d61a2d97d9dfdb2306e90afe1ffc69928347f9239c2c4687e906ab4de60428",
+      "NaturalProductMech": "28e443e792e569e20d28ecb51b5eeffe548507647b1da3a99c2eb0089eea21fc",
+      "ProteinTraitsMech": "715aa40afc6b8cc940d5427c9e2f9755a807dd4b639f8c9154b90d76cbb00f95",
+      "TraitMech": "c1c12b614c35ad37936c1b2ee1a15a4c7323c8858e24e1c2a9fe5375dcca8c33"
+    },
+    "current_assets": {
+      "index": "2e65d05d83644890fe7cf8a8c63fe2a5d75951b483c53298f82878f03a466a74",
+      "terms": "aa0ba48f885e11485f72c7cce5f3263d17bf179b0b7fd264a7d9679b1d76fc8b",
+      "AntibioticMech": "64126ef7e77aa919679166a6b92ae23b777bbed1e53bff89773bc1f7efbcafd0",
+      "AssayMech": "05fd91169aaf817d2543efd46f0b6c66b9634d7c1d181c589efdf1eeb86cf7f9",
+      "CellStructureMech-0001": "170650cb47d83401d5af545ff3478aaae92cdf4c12a1e753ff2c2b46900a9210",
+      "CellStructureMech-0002": "8d6e0eb13f6004025cc1dc7fc875b80028e31042911a7a65eb8162c65421f01a",
+      "CofactorMech": "5e4853b5a024a51807e17fbf419d33881591bd0bcf33e04b5356280b10498223",
+      "CommunityMech": "6b063ae47e024dc2e733e84f54ffdc60a8a9992acc4bd208bf810304a133d58d",
+      "DUFMech": "856161af2311a93f0bf85481c23c964805c0336178247337997b61eb80063cff",
+      "MediaIngredientMech": "37d61a2d97d9dfdb2306e90afe1ffc69928347f9239c2c4687e906ab4de60428",
+      "NaturalProductMech": "28e443e792e569e20d28ecb51b5eeffe548507647b1da3a99c2eb0089eea21fc",
+      "ProteinTraitsMech": "715aa40afc6b8cc940d5427c9e2f9755a807dd4b639f8c9154b90d76cbb00f95",
+      "TraitMech": "c1c12b614c35ad37936c1b2ee1a15a4c7323c8858e24e1c2a9fe5375dcca8c33"
+    }
+  },
+  "snapshot_sha256": "33c56cd4ba45f871e80cf3c4e12b19f9ab1cd662cc1d648185e80f2d0a75a864",
+  "vocabulary_sha256": "1c7287e258de34c2a83b525bafbaf876b39ebf1573987baeb9e4db34b0a555a1",
+  "removed_occurrences": [
+    {
+      "discussion_id": "gap-1b1e11416eaca214ffc54adb1e81da1cb0a8c0ac7e1d3ed5ccaf31260fe0d07e",
+      "mech": "DUFMech",
+      "record_id": "Pfam:PF02621",
+      "record_label": "Menaquinone biosynthesis",
+      "kind": "CURATION_TODO",
+      "source_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/data/families/PF02621.yaml",
+      "end": 153,
+      "field": "rationale",
+      "matched_as": "this family",
+      "start": 142,
+      "text": "this family",
+      "context": "The paper and inspected supplement support reaction chemistry but do not identify the MqnD clone by locus or accession. Q9K9F8/BH2689 matches this family and species but remains a candidate, so no canonical edge is added from that identity assumption."
+    },
+    {
+      "discussion_id": "gap-1f15e77b785988788c21b032c016fb8c9c0d4321cba3e4f59a5a692e1ccbbfc1",
+      "mech": "TraitMech",
+      "record_id": "traitmech:000570",
+      "record_label": "short Lamassu system",
+      "kind": "KNOWLEDGE_GAP",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/short_lamassu_system.yaml",
+      "end": 340,
+      "field": "rationale",
+      "matched_as": "this family",
+      "start": 329,
+      "text": "this family",
+      "context": "Short denotes the phylogenetic and structural LmuB family, not an arbitrary amino-acid cutoff or an isolated short protein. LmuC-loss clade S and effector-domain-loss clade O preclude requiring one universal three-component effector architecture. Type I/II component classifications and effector names are not exact synonyms for this family. HNH's explicitly short-form definition supports its new parent; SMEK's unresolved long-profile call prevents the same inference. Other table-defined subtypes require their own scope review before reparenting. The Vc-Cap4 mechanism already described on the Lamassu parent is not assumed universal across short-family effectors, so no duplicate or universal mechanism graph is asserted here. A registry Hypothetical label must not be equated with clade O's effector-domain loss without explicit evidence. The LmuC-loss architecture is now represented separately by traitmech:000573 Lamassu type I system. The paper identifies clade S as type I; clade O's effector-domain loss remains a distinct question. The new component class is not treated as a synonym for this whole length family, and its broader phylogenetic distribution is left open rather than inferred from one clade. Existing hierarchy and mechanism scope are unchanged."
+    },
+    {
+      "discussion_id": "gap-6ef55eb8957e573f44e9c51b0f347418df97e4ae68100aa6c0dd75c81e2a9596",
+      "mech": "DUFMech",
+      "record_id": "Pfam:PF01809",
+      "record_label": "Putative membrane protein insertion efficiency factor",
+      "kind": "CURATION_TODO",
+      "source_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/data/families/PF01809.yaml",
+      "end": 208,
+      "field": "rationale",
+      "matched_as": "this family",
+      "start": 197,
+      "text": "this family",
+      "context": "Selected E. coli experiments do not characterize the complete PF01809 family. The DUF31 caption conflicts with the study's DUF37 identity, and toxin-associated labels are not a functional assay of this family."
+    },
+    {
+      "discussion_id": "gap-755ec32c9f424f441fe6393191b2002570eb2c69e58bea9a210d897f3413cac1",
+      "mech": "DUFMech",
+      "record_id": "Pfam:PF01535",
+      "record_label": "PPR repeat",
+      "kind": "CURATION_TODO",
+      "source_url": "https://github.com/CultureBotAI/DUFMech/blob/a030cca0dae2771e961ae12474c24c47a32b1363/data/families/PF01535.yaml",
+      "end": 304,
+      "field": "evidence[1].explanation",
+      "matched_as": "this family",
+      "start": 293,
+      "text": "this family",
+      "context": "Pet309 deletion/translation work is a separate lead. The tested D273-10B derivatives differ from the S288c reference context, and the inspected current P32522 Pfam assignments contain PF23276 rather than PF01535. Its PPR annotation is not sufficient to transfer those deletion phenotypes into this family graph."
+    },
+    {
+      "discussion_id": "gap-7d54114d3c2360e06722964e7f4a9b4650582988db524e02d1c6e68bba322f1c",
+      "mech": "TraitMech",
+      "record_id": "traitmech:000232",
+      "record_label": "Lamassu system",
+      "kind": "KNOWLEDGE_GAP",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/lamassu_system.yaml",
+      "end": 4035,
+      "field": "rationale",
+      "matched_as": "this family",
+      "start": 4024,
+      "text": "this family",
+      "context": "Haudiquet et al. support a structurally characterized Vibrio cholerae Lamassu Vc-Cap4 system with LmuABC DNA-end sensing and LmuA Cap4 nuclease activation, and the pinned DefenseFinder tables model Lamassu-Amidase, Lamassu-Cap4_nuclease, Lamassu-FMO, Lamassu-Hydrolase, Lamassu-Lipase, Lamassu-Mrr, Lamassu-PDDEXK, Lamassu-Protease, Lamassu-Sir2, and other Lamassu-Fam subtypes as rule-row variants. Lamassu-Amidase, Lamassu-Cap4 nuclease, Lamassu-FMO, Lamassu-Hydrolase, Lamassu-Lipase, Lamassu-Mrr, Lamassu-PDDEXK, Lamassu-Protease, and Lamassu-Sir2 now capture nine DefenseFinder rule-row subtypes, but long-versus-short LmuB clades, LmuC-independent subfamilies, the Lamassu-Fam base, Lamassu-Hydrolase_Protease, and Lamassu-Hypothetical rule rows, viral-DNA triggers, exact LmuA effector substrates, FMO acronym expansion, the Lamassu-FMO rule row's relationship to FMO-scoped LmuB/LmuC HMM rows, the Lamassu-Lipase rule row's relationship to its Lipase-scoped LmuB HMM row, the Lamassu-Mrr rule row's relationship to Mrr-scoped LmuB/LmuC HMM rows, the Lamassu-PDDEXK rule row's relationship to PDDEXK-scoped LmuB/LmuC HMM rows, the Lamassu-Sir2 rule row's relationship to Sir2-scoped LmuB/LmuC HMM rows, and cell-death outputs across Lamassu loci remain unresolved. Lamassu Hydrolase-Protease system (traitmech:000567) now captures the literature-supported paired architecture with LmuB and LmuC. Its pinned executable XML requires four components, whereas the summary TSV requires three matches and calls LmuC accessory. The existing table-defined Lamassu-Hydrolase and Lamassu-Protease siblings each forbid the other's effector profile and are not exact matches to this paired architecture. Reconciling the legacy table-based sibling definitions with executable models remains open; do not interpret the summary's profile labels as current executable model requirements. Lamassu-HNH system (traitmech:000568) now captures the literature-supported short-LmuB architecture with HNH-domain LmuA and LmuC. The published dataset supplies complete computational genome calls, not HNH-specific functional validation. The pinned executable HNH model accepts either long or short LmuB, whereas all HNH calls in that dataset use short LmuB; its software key is therefore not an exact synonym for this biological scope. HNH-specific activity, substrates, and activation remain unresolved. Lamassu-SMEK system (traitmech:000569) now captures a locus with SMEK-domain LmuA, LmuB, and LmuC. The paper describes SMEK as short-specific, but its dataset contains 124 short-profile system calls and one long-profile call; the latter requires reconciliation before asserting a biological long-LmuB subtype. The definition therefore does not impose a LmuB-length restriction. The three-component architecture is not equivalent to the single-gene DS-27 system that also uses SMEK as a working label. SMEK-specific functional validation and chemistry remain unresolved. Short Lamassu system (traitmech:000570) now captures the short-LmuB phylogenetic and structural family, not a fixed protein-length bin or an effector-specific detector. Lamassu-HNH is placed below it because its existing definition explicitly requires short-form LmuB. SMEK remains directly under the broader Lamassu parent because of its unresolved long-profile exception. The short family permits the reported LmuC-loss and effector-domain-loss architectures; type I is not an exact synonym for the whole short family. The Lamassu-Hypothetical registry label is not accepted as a separate biological trait here: unknown annotation does not establish effector-domain loss, and its relationship to the paper's clade O still needs explicit mapping. The long family and component-number subtypes remain separate discovery leads. Long Lamassu system (traitmech:000571) now captures the complementary long-LmuB phylogenetic and structural family, not an 800-residue cutoff or a particular effector model. The paper assigns the B. cereus B4077 Hydrolase-Protease system to this family, but that effector architecture also occurs in short Lamassu, so the whole Hydrolase-Protease trait is not reparented. The legacy table-defined FMO trait still needs model and biological-scope reconciliation before assigning the entire record to the long family. SMEK's exception remains unresolved. Raw detection gene_name hits must not be confused with exchangeable hit_gene_ref model slots, and ambiguous loci need phylogenetic classification. Component-number type I/II traits remain separate discovery leads. Lamassu type II system (traitmech:000572) now captures the LmuC-containing component architecture defined by Payne et al. (DOI:10.1093/nar/gkab883) and independently used by Li et al. (DOI:10.1038/s41589-025-02102-z). HNH, SMEK and Hydrolase-Protease already require LmuC in their definitions and now have this parent; HNH retains its short-family parent too. This does not assert a three-gene count, universal LmuC essentiality, or new antiviral validation of those children. Long/short families and legacy detector rows are not equivalent to this component class. Type I and family-wide mechanisms remain open discovery and curation questions. Lamassu type I system (traitmech:000573) now resolves the component-class discovery lead: Haudiquet et al. explicitly identify the LmuC-loss architecture as type I, and Li et al. independently study a type-I LmuA/LmuB complex. This is not equivalent to all short Lamassu or proof that every failed LmuC hit is biological absence. No existing effector-defined child is reparented. Family-wide mechanisms, legacy model reconciliation and native-host activity remain open."
+    },
+    {
+      "discussion_id": "gap-cbbeba772805892c7ba26eb4fbebce3e028b8cf9fc4e5d065d1543a4b71aa438",
+      "mech": "TraitMech",
+      "record_id": "traitmech:000571",
+      "record_label": "long Lamassu system",
+      "kind": "KNOWLEDGE_GAP",
+      "source_url": "https://github.com/CultureBotAI/TraitMech/blob/2ccbc22ccfb8bd00c9d9ca70e11e020f818fbc18/data/traits/genomics/long_lamassu_system.yaml",
+      "end": 771,
+      "field": "rationale",
+      "matched_as": "this family",
+      "start": 760,
+      "text": "this family",
+      "context": "Long denotes a phylogenetic and structural family, not an isolated protein, a fixed amino-acid threshold, an effector name, or the component-number type II category. A raw long-profile hit alone does not settle membership of an ambiguous locus. The published detection sheet uses gene_name for actual hits and hit_gene_ref for potentially exchangeable model slots; these fields must not be conflated. Hydrolase-Protease spans both length families; the legacy FMO record's detector-defined scope and SMEK's long-profile exception need separate reconciliation before reparenting. No universal effector chemistry, LmuC requirement, zinc-hook count, or stoichiometry is imposed. The experimentally resolved short Vc-Cap4 activation mechanism is not transferred to this family. Native-host activity, accession-level protein anchors and family-wide activation remain open, so no causal mechanism graph is asserted."
+    }
+  ],
+  "removed_by_mech": {
+    "DUFMech": 3,
+    "TraitMech": 3
+  },
+  "before": {
+    "recognized_terms": 2625,
+    "accepted_occurrences": 14851,
+    "discussions_with_terms": 3217
+  },
+  "after": {
+    "recognized_terms": 2624,
+    "accepted_occurrences": 14845,
+    "discussions_with_terms": 3216
+  }
+}
