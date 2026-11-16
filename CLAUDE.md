@@ -8,6 +8,8 @@ points here.
 
 ## Repository overview
 
+Fleet ownership, session naming and input boundaries follow the [XMechBay fleet control contract](https://github.com/CultureBotAI/XMechBay/blob/main/docs/fleet-control-contract.md).
+
 The CultureBotAI organization's GitHub Pages website, showcasing the kg-microbe
 knowledge graph and the X-Mech suite of autonomous knowledge factories for
 microbial cultivation research. The site is led by Dr. Marcin P. Joachimiak at
