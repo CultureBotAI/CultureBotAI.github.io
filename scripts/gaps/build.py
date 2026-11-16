@@ -397,7 +397,7 @@ def main():
                      "layout": json.loads(args.embedding_layout.read_text()),
                      "vectors": args.embedding_vectors, "config": config}
     infrastructure = None
-    if not args.pilot and not args.without_infrastructure and args.infrastructure.is_file():
+    if not args.pilot and not args.without_infrastructure:
         infrastructure = json.loads(args.infrastructure.read_text())
     files, summary, manifest = artifacts(snapshot, vocabulary, embedding, infrastructure)
     if args.check:

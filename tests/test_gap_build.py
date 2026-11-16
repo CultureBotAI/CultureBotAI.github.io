@@ -384,6 +384,26 @@ class GapBuildTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Analytics projection exceeds"):
                 build.artifacts(self.snapshot, {"schema_version": 1})
 
+    def test_main_fails_closed_when_infrastructure_file_is_missing(self):
+        config_path, snapshot_path = self.directory / "sources.json", self.directory / "snapshot.json"
+        config_path.write_text(json.dumps(self.config))
+        snapshot_path.write_text(json.dumps(self.snapshot))
+        missing_infra = self.directory / "missing-infrastructure.json"
+        output = self.directory / "out"
+        summary_path = self.directory / "summary.html"
+        argv = [
+            "build.py", "--snapshot", str(snapshot_path), "--config", str(config_path),
+            "--claw-root", str(self.directory), "--output", str(output),
+            "--summary", str(summary_path), "--infrastructure", str(missing_infra),
+            "--without-embeddings",
+        ]
+        with (mock.patch.object(build, "ORDER", ["TraitMech"]),
+              mock.patch.object(build, "load_exporter", return_value=(self.exporter, self.provenance)),
+              mock.patch.object(build, "load_vocabulary", return_value=None),
+              mock.patch("sys.argv", argv), redirect_stdout(io.StringIO())):
+            with self.assertRaises(FileNotFoundError):
+                build.main()
+
 
 if __name__ == "__main__":
     unittest.main()

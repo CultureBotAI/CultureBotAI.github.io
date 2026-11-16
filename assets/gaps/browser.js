@@ -11,7 +11,7 @@
   var termsReady = false, termsLoading = false, termsVersion = 0, termInfo = new Map(), termRecognition = null;
   var analyticsReady = false, analyticsLoading = false, analyticsVersion = 0, analyticsDoc = null;
   var lastAnalysis = null, lastTermSummary = null, lastSelectedTerms = [];
-  var CHART_PALETTE = ['#a51b78', '#2b6cb0', '#228833', '#d97706', '#6b46c1', '#0d9488', '#be123c', '#64748b'];
+  var CHART_PALETTE = ['var(--gap-c0)', 'var(--gap-c1)', 'var(--gap-c2)', 'var(--gap-c3)', 'var(--gap-c4)', 'var(--gap-c5)', 'var(--gap-c6)', 'var(--gap-c7)'];
   var SHORT_MECH = {
     HabitatMech: 'Habitat', CommunityMech: 'Community', TraitMech: 'Trait', PathwayMech: 'Pathway',
     CellStructureMech: 'CellStruct', ProteinTraitsMech: 'ProtTraits', DUFMech: 'DUF',
@@ -191,6 +191,9 @@
       btn.addEventListener('click', function () { applyStatePatch(patch); });
       chips.push(btn);
     }
+    if (state.view !== core.defaults.view) {
+      addChip('View: ' + (state.view === 'candidates' ? 'candidates awaiting review' : 'all discussions'), {view: core.defaults.view, kind: '', status: core.defaults.status});
+    }
     if (state.q) addChip('Query: "' + state.q + '"', {q: ''});
     if (state.mech) addChip('Source: ' + state.mech, {mech: ''});
     if (state.kind) addChip('Kind: ' + human(state.kind), {kind: ''});
@@ -202,6 +205,14 @@
     if (state.ref) addChip('Reference: ' + (state.ref.length > 42 ? state.ref.slice(0, 40) + '…' : state.ref), {ref: ''});
     if (state.month) addChip('Month: ' + state.month, {month: ''});
     if (state.vocab) addChip('Vocabulary: ' + state.vocab, {vocab: '', term: '', term2: ''});
+    if (state.term) {
+      var t1 = termInfo.get(state.term);
+      addChip('Entity: ' + (t1 ? t1.label : state.term), {term: state.term2 || '', term2: ''});
+    }
+    if (state.term2) {
+      var t2 = termInfo.get(state.term2);
+      addChip('Entity: ' + (t2 ? t2.label : state.term2), {term2: ''});
+    }
     bar.replaceChildren.apply(bar, chips);
     bar.hidden = !chips.length;
   }
@@ -269,13 +280,26 @@
     return bucket.layers[key] || 0;
   }
   function applyLensFilter(lens, key, mechName) {
+    if (!key || key === '__other__') {
+      if (mechName !== undefined) applyStatePatch({mech: state.mech === mechName ? '' : mechName});
+      return;
+    }
     var patch = {};
-    if (mechName !== undefined) patch.mech = state.mech === mechName && !key ? '' : mechName;
-    if (key && key !== '__other__') {
-      var stateKey = lens;
+    var resetVal = lens === 'status' ? core.defaults.status : '';
+    if (mechName !== undefined) {
+      if (state.mech === mechName && state[lens] === key) {
+        patch.mech = '';
+        patch[lens] = resetVal;
+      } else {
+        patch.mech = mechName;
+        patch[lens] = key;
+        if (lens === 'kind' && state.view === 'gaps' && !['KNOWLEDGE_GAP', 'HUMAN_MODEL_MISMATCH'].includes(key)) patch.view = 'all';
+      }
+    } else if (state[lens] === key) {
+      patch[lens] = resetVal;
+    } else {
+      patch[lens] = key;
       if (lens === 'kind' && state.view === 'gaps' && !['KNOWLEDGE_GAP', 'HUMAN_MODEL_MISMATCH'].includes(key)) patch.view = 'all';
-      if (lens === 'status' && state.status === 'active' && !['OPEN', 'UNDER_DISCUSSION'].includes(key)) patch.status = key;
-      else patch[stateKey] = state[stateKey] === key && (!mechName || state.mech === mechName) ? '' : key;
     }
     applyStatePatch(patch);
   }
@@ -330,7 +354,10 @@
       } else {
         var mechLink = node('a', source.name, 'gap-breakdown-mech-link');
         mechLink.href = '#gap-static-title';
-        mechLink.addEventListener('click', function (e) { e.preventDefault(); jumpToSection('gap-static-title'); });
+        mechLink.addEventListener('click', function (e) {
+          if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+          e.preventDefault(); jumpToSection('gap-static-title');
+        });
         mechCell.append(mechLink);
       }
       var barArea = node('div', null, 'gap-breakdown-track');
@@ -343,6 +370,7 @@
           var el = node(seg.key === '__other__' ? 'span' : 'button', null, 'gap-breakdown-seg');
           if (seg.key !== '__other__') {
             el.type = 'button';
+            el.setAttribute('aria-pressed', String(state.mech === source.name && state[lens] === seg.key));
             el.addEventListener('click', function () { applyLensFilter(lens, seg.key, source.name); });
           }
           el.style.width = ((seg.val / segSum) * 100).toFixed(2) + '%';
@@ -370,7 +398,10 @@
       var mechCell = node('div', null, 'gap-breakdown-mech');
       var a = node('a', member.name, 'gap-breakdown-mech-link');
       a.href = '#gap-static-title';
-      a.addEventListener('click', function (e) { e.preventDefault(); jumpToSection('gap-static-title'); });
+      a.addEventListener('click', function (e) {
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        e.preventDefault(); jumpToSection('gap-static-title');
+      });
       mechCell.append(a);
       var track = node('div', null, 'gap-breakdown-track');
       track.append(node('span', 'Shared curation infrastructure — no scientific corpus', 'gap-breakdown-empty'));
@@ -411,9 +442,12 @@
     });
 
     var table = node('table', null, 'gap-matrix-table');
-    table.append(node('caption', 'Source Mech rows by Term vocabulary columns (' +
-      (mode === 'occurrences' ? 'raw entity occurrences' : mode === 'cross' ? 'off-diagonal cross-Mech distinct discussions' : 'distinct discussions') +
-      '; cross-Mech total ' + number(crossTotal) + ', within-Mech diagonal ' + number(diagTotal) + ')'));
+    var captionDetail = mode === 'occurrences'
+      ? 'raw entity occurrences; cross-Mech total ' + number(crossTotal) + ', within-Mech diagonal ' + number(diagTotal)
+      : mode === 'cross'
+        ? 'off-diagonal distinct discussions per cell; ' + number(crossTotal) + ' cross-Mech source–vocabulary discussion links; within-Mech diagonal hidden'
+        : 'distinct discussions per cell; ' + number(crossTotal) + ' cross-Mech and ' + number(diagTotal) + ' within-Mech source–vocabulary discussion links';
+    table.append(node('caption', 'Source Mech rows by Term vocabulary columns (' + captionDetail + ')'));
     var thead = node('thead'), headRow = node('tr');
     var corner = node('th', 'Source \\ Vocab'); corner.scope = 'col'; headRow.append(corner);
     names.forEach(function (voc) {
@@ -525,12 +559,13 @@
         rect.setAttribute('class', bar.cls + (active ? ' is-selected' : ''));
         rect.setAttribute('role', 'button');
         rect.setAttribute('tabindex', '0');
+        rect.setAttribute('aria-pressed', String(active));
         var desc = bar.label + ' in ' + row.month + ': ' + number(bar.count) + ' discussions';
         rect.setAttribute('aria-label', desc + '. Filter by this month');
         var title = svgNode('title'); title.textContent = desc; rect.append(title);
         function activate() {
-          var patch = {month: state.month === filterToken ? '' : filterToken};
-          if (bar.kind === 'resolved' && state.status === 'active') patch.status = '';
+          var patch = {month: active ? '' : filterToken};
+          if (!active && bar.kind === 'resolved' && state.status === 'active') patch.status = '';
           applyStatePatch(patch);
         }
         rect.addEventListener('click', activate);
@@ -574,8 +609,8 @@
     rows.slice(0, 10).forEach(function (entry) {
       var item = node('div', null, 'gap-compact-row');
       var main = node('div', null, 'gap-compact-main');
-      var display = entry.ref.length > 68 ? entry.ref.slice(0, 65) + '…' : entry.ref;
-      var href = core.referenceURL(entry.raw_ref || entry.ref);
+      var display = entry.ref.length > 68 ? entry.ref.slice(0, 36) + '…' + entry.ref.slice(-28) : entry.ref;
+      var href = core.referenceURL(entry.ref) || core.referenceURL(entry.raw_ref);
       if (href) {
         var a = node('a', display); a.href = href; a.rel = 'noopener noreferrer'; a.title = entry.ref;
         main.append(a);
@@ -614,7 +649,7 @@
     if (bridges) {
       $('bridges-summary').textContent = number(bridges.total_cross_mech_unordered_pairs) +
         ' unordered original-vector nearest-neighbor pairs link discussions in different Mechs (' +
-        number(bridges.discussions_with_cross_mech_top1) + ' discussions have their #1 nearest neighbor in another Mech).';
+        number(bridges.discussions_with_cross_mech_top1) + ' snapshot discussions have their unthresholded #1 nearest neighbor in another Mech).';
       var bFrag = document.createDocumentFragment();
       if (bridges.cross_mech_matrix && bridges.cross_mech_matrix.length) {
         var pairChips = node('div', null, 'gap-chip-cloud');
@@ -682,21 +717,33 @@
       bridges.entity_cohesion.slice(0, 5).forEach(function (ent) {
         var row = node('div', null, 'gap-compact-row');
         var main = node('div', null, 'gap-compact-main');
+        var activeEnt = state.term === ent.id && !state.term2;
         var btn = node('button', ent.label, 'gap-mini-btn');
         btn.type = 'button';
-        btn.addEventListener('click', function () { selectTerms(ent.id, ''); jumpToSection('gap-results-title'); });
+        btn.setAttribute('aria-pressed', String(activeEnt));
+        btn.addEventListener('click', function () {
+          if (activeEnt) applyStatePatch({term: '', term2: ''});
+          else applyStatePatch({view: 'all', status: '', vocab: '', term: ent.id, term2: ''}, 'gap-results-title');
+        });
         main.append(btn, node('span', ' · ' + (ent.within_entity_neighbor_share * 100).toFixed(1) + '% same-entity neighbors · ' +
-          number(ent.discussions) + ' discussions across ' + number(ent.discussion_mech_count) + ' Mechs', 'gap-note'));
+          number(ent.discussions) + ' discussions across ' + number(ent.discussion_mech_count) + ' Mech' + (ent.discussion_mech_count === 1 ? '' : 's'), 'gap-note'));
         row.append(main);
         cFrag.append(row);
       });
       (bridges.duplicate_clusters || []).slice(0, 3).forEach(function (dup) {
         var row = node('div', null, 'gap-compact-row');
         var main = node('div', null, 'gap-compact-main');
-        var btn = node('button', 'Duplicate prompt (' + number(dup.count) + '×): ' + (dup.sample_prompt || '').slice(0, 68) + '…', 'gap-mini-btn');
+        var sample = dup.sample_prompt || '';
+        var snippet = sample.length > 68 ? sample.slice(0, 68) + '…' : sample;
+        var firstId = (dup.discussion_ids && dup.discussion_ids[0]) || '';
+        var btn = node('button', 'Duplicate prompt (' + number(dup.count) + '×): ' + snippet, 'gap-mini-btn');
         btn.type = 'button';
+        if (firstId) {
+          btn.title = 'Open example discussion (' + firstId + ') from this ' + number(dup.count) + '-item identical-input cluster';
+          btn.setAttribute('aria-label', btn.textContent + '. Open example discussion ' + firstId);
+        }
         btn.addEventListener('click', function () {
-          if (dup.discussion_ids && dup.discussion_ids[0]) { lastDetailButton = btn; openDetail(dup.discussion_ids[0], true, true); }
+          if (firstId) { lastDetailButton = btn; openDetail(firstId, true, true); }
         });
         main.append(btn, node('span', ' · ' + Object.keys(dup.mechs || {}).join(', '), 'gap-note'));
         row.append(main);
@@ -753,8 +800,11 @@
     try {
       var doc = await verifiedJSON(manifest.analytics);
       if (version !== analyticsVersion || snapshotVersion !== loadVersion) return;
-      if (manifest.terms && doc.terms_sha256 && doc.terms_sha256 !== manifest.terms.sha256) {
+      if (manifest.terms && (!doc.terms_sha256 || doc.terms_sha256 !== manifest.terms.sha256)) {
         throw new Error('Synthesis sidecar does not match the active entity index.');
+      }
+      if (doc.embedding_bridges != null && !/^[a-f0-9]{64}$/.test(doc.embedding_inputs_sha256 || '')) {
+        throw new Error('Synthesis sidecar is missing valid embedding input provenance.');
       }
       analyticsDoc = doc; analyticsReady = true; analyticsLoading = false;
       renderAnalyticsSidecar();
@@ -799,6 +849,7 @@
       }); sources.append(p);
     });
     $('term-sources').replaceChildren(sources);
+    renderActiveFilters();
   }
   function selectTerms(first, second) {
     var next = core.normalize(Object.assign({}, state, {term: first || '', term2: second || '', page: 1, gap: ''}));
@@ -842,7 +893,7 @@
       return;
     }
     container.hidden = false;
-    var W = 680, H = 400, cx = W / 2, cy = H / 2, rx = 180, ry = 138;
+    var W = 720, H = 400, cx = W / 2, cy = H / 2, rx = 168, ry = 138;
     var maxDisc = Math.max.apply(null, [1].concat(nodes.map(function (t) { return t.discussions; })));
     var pos = new Map();
     nodes.forEach(function (term, idx) {
@@ -872,23 +923,31 @@
       var rawW = metric === 'npmi' ? Math.max(0.05, (pair.npmi + 1) / 2) : metric === 'jaccard' ? Math.max(0.02, pair.jaccard) : pair.discussions;
       var norm = Math.min(1, rawW / maxWeight);
       var selectedEdge = [state.term, state.term2].includes(pair.a) && [state.term, state.term2].includes(pair.b);
+      var eg = svgNode('g');
+      eg.setAttribute('class', 'gap-net-edge' + (selectedEdge ? ' is-selected' : ''));
+      eg.setAttribute('role', 'button');
+      eg.setAttribute('tabindex', '0');
+      eg.setAttribute('aria-pressed', String(selectedEdge));
+      var la = termLabel(termInfo.get(pair.a)), lb = termLabel(termInfo.get(pair.b));
+      var desc = la + ' + ' + lb + ': ' + number(pair.discussions) + ' discussions, Jaccard ' + (pair.jaccard || 0).toFixed(3) + ', NPMI ' + (pair.npmi || 0).toFixed(3);
+      eg.setAttribute('aria-label', desc + '. Show discussions with both');
+      var title = svgNode('title'); title.textContent = desc; eg.append(title);
+      var hit = svgNode('line');
+      hit.setAttribute('x1', pa.x.toFixed(1)); hit.setAttribute('y1', pa.y.toFixed(1));
+      hit.setAttribute('x2', pb.x.toFixed(1)); hit.setAttribute('y2', pb.y.toFixed(1));
+      hit.setAttribute('class', 'gap-net-edge-hit');
       var line = svgNode('line');
       line.setAttribute('x1', pa.x.toFixed(1)); line.setAttribute('y1', pa.y.toFixed(1));
       line.setAttribute('x2', pb.x.toFixed(1)); line.setAttribute('y2', pb.y.toFixed(1));
       line.setAttribute('stroke-width', (selectedEdge ? 3.5 : 1 + 3.2 * norm).toFixed(2));
       line.setAttribute('stroke-opacity', (selectedEdge ? 0.95 : 0.22 + 0.58 * norm).toFixed(2));
-      line.setAttribute('class', 'gap-net-edge' + (selectedEdge ? ' is-selected' : ''));
-      line.setAttribute('role', 'button');
-      line.setAttribute('tabindex', '0');
-      var la = termLabel(termInfo.get(pair.a)), lb = termLabel(termInfo.get(pair.b));
-      var desc = la + ' + ' + lb + ': ' + number(pair.discussions) + ' discussions, Jaccard ' + (pair.jaccard || 0).toFixed(3) + ', NPMI ' + (pair.npmi || 0).toFixed(3);
-      line.setAttribute('aria-label', desc + '. Show discussions with both');
-      var title = svgNode('title'); title.textContent = desc; line.append(title);
-      line.addEventListener('click', function () { selectTerms(pair.a, pair.b); });
-      line.addEventListener('keydown', function (e) {
+      line.setAttribute('class', 'gap-net-edge-line');
+      eg.append(hit, line);
+      eg.addEventListener('click', function () { selectTerms(pair.a, pair.b); });
+      eg.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectTerms(pair.a, pair.b); }
       });
-      edgeGroup.append(line);
+      edgeGroup.append(eg);
     });
     svg.append(edgeGroup);
 
@@ -900,6 +959,7 @@
       g.setAttribute('class', 'gap-net-node' + (isSel ? ' is-selected' : ''));
       g.setAttribute('role', 'button');
       g.setAttribute('tabindex', '0');
+      g.setAttribute('aria-pressed', String(isSel));
       var desc = termLabel(term) + ': ' + number(term.discussions) + ' discussions (' + number(term.occurrences) + ' occurrences)';
       g.setAttribute('aria-label', desc + '. Filter discussions');
       var title = svgNode('title'); title.textContent = desc; g.append(title);
@@ -1276,6 +1336,11 @@
     $('terms-content').hidden = true; $('terms-retry').hidden = true;
     if ($('analytics-content')) $('analytics-content').hidden = true;
     if ($('analytics-retry')) $('analytics-retry').hidden = true;
+    if ($('analytics-status')) {
+      $('analytics-status').hidden = false;
+      $('analytics-status').className = 'gap-note';
+      $('analytics-status').textContent = 'Loading snapshot synthesis sidecar…';
+    }
     $('app').hidden = true; $('retry').hidden = true; $('load-status').hidden = false;
     $('load-status').className = ''; $('load-status').textContent = 'Loading the search index…';
     $('detail').hidden = true; $('detail-body').replaceChildren();

@@ -50,7 +50,59 @@ def full_settled(page):
     }""")
 
 
-def view_checks(browser, url, manifest, counts, width, output, canary):
+def capture_locator(page, selector, path):
+    """Temporarily relax sticky header while capturing tall section evidence."""
+    page.evaluate("""() => {
+      const h = document.querySelector('.site-header');
+      if (h) { h.dataset.prevPos = h.style.position; h.style.position = 'static'; }
+    }""")
+    try:
+        page.locator(selector).screenshot(path=str(path))
+    finally:
+        page.evaluate("""() => {
+          const h = document.querySelector('.site-header');
+          if (h) { h.style.position = h.dataset.prevPos || ''; delete h.dataset.prevPos; }
+        }""")
+
+
+def analyses_contrast(page):
+    """Verify text and non-text graphical WCAG contrast inside #gap-analyses."""
+    result = page.evaluate("""() => {
+      const rgb = s => (s.match(/[\\d.]+/g) || []).map(Number);
+      const lum = c => c.slice(0, 3).map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4)
+        .reduce((a, v, i) => a + v * [.2126, .7152, .0722][i], 0);
+      const ratio = (a, b) => { const [lo, hi] = [lum(a), lum(b)].sort((x, y) => x - y); return (hi + .05) / (lo + .05); };
+      const bgOf = e => {
+        for (let p = e; p; p = p.parentElement) {
+          const c = rgb(getComputedStyle(p).backgroundColor);
+          if (c.length === 3 || c[3] === 1) return c;
+        }
+        return [255, 255, 255];
+      };
+      const textChecks = [...document.querySelectorAll('#gap-analyses h2,#gap-analyses h3,#gap-analyses h4,#gap-analyses .gap-breakdown-mech-btn,#gap-analyses .gap-breakdown-count,#gap-analyses .gap-legend-btn')]
+        .filter(e => e.getClientRects().length).map(e => {
+          const s = getComputedStyle(e), fg = rgb(s.color), bg = bgOf(e);
+          const size = parseFloat(s.fontSize), weight = Number(s.fontWeight);
+          return {kind: 'text', text: e.textContent.slice(0, 32), ratio: ratio(fg, bg),
+            required: size >= 24 || (size >= 18.66 && weight >= 700) ? 3 : 4.5};
+        });
+      const segChecks = [...document.querySelectorAll('#gap-breakdown-rows .gap-breakdown-seg')]
+        .filter(e => e.getClientRects().length).map(e => {
+          const fill = rgb(getComputedStyle(e).backgroundColor);
+          const track = bgOf(e.closest('.gap-breakdown-track'));
+          return {kind: 'segment', title: e.title.slice(0, 40), ratio: ratio(fill, track), required: 3.0};
+        });
+      return {text_checks: textChecks, segment_checks: segChecks};
+    }""")
+    failures = [
+        row for row in (result['text_checks'] + result['segment_checks'])
+        if row['ratio'] < row['required']
+    ]
+    assert result['text_checks'] and result['segment_checks'] and not failures, failures[:5]
+    return len(result['text_checks']) + len(result['segment_checks'])
+
+
+def view_checks(browser, url, manifest, analytics_doc, counts, width, output, canary):
     context = browser.new_context(viewport={'width': width, 'height': 900}, color_scheme='light')
     page = context.new_page()
     errors = []
@@ -74,8 +126,9 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
 
         light_layout = qa.layout(page)
         light_style = overview_qa.visual_style(page)
+        light_analyses_checked = analyses_contrast(page)
         spacing = overview_qa.overview_spacing(page)
-        page.locator('.gap-intro').screenshot(path=str(output / f'{width}-overview-light.png'))
+        capture_locator(page, '.gap-intro', output / f'{width}-overview-light.png')
 
         # 2. Cross-Mech breakdown across all 16 corpus Mechs + EdgeMech (17 rows total).
         breakdown_rows = page.locator('#gap-breakdown-rows .gap-breakdown-row')
@@ -84,7 +137,7 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
         for lens in ('status', 'stance', 'layer', 'kind'):
             page.locator('#gap-breakdown-lens').select_option(lens)
             assert page.locator('#gap-breakdown-legend li').count() >= 1
-        page.locator('#gap-analyses').screenshot(path=str(output / f'{width}-analyses-light.png'))
+        capture_locator(page, '#gap-analyses', output / f'{width}-analyses-light.png')
 
         # 3. 16 x 16 Source x Vocabulary cross-pollination matrix.
         assert page.locator('#gap-matrix-wrap').is_visible()
@@ -125,17 +178,31 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
 
         # 5. Synthesis sidecar panels: bridges, proposed experiments, blind-spots, cohesion.
         assert page.locator('#gap-analytics-content').is_visible()
-        assert '7,510' in page.locator('#gap-bridges-summary').inner_text()
-        assert '17 snapshot discussions' in page.locator('#gap-experiments-summary').inner_text()
-        assert '101 of 1,220' in page.locator('#gap-blindspot-summary').inner_text()
+        exp_bridges = f"{analytics_doc['embedding_bridges']['total_cross_mech_unordered_pairs']:,}"
+        exp_prop = f"{analytics_doc['proposed_experiments']['discussions_with_experiments']:,} snapshot discussions"
+        gaps_cov = analytics_doc['unmatched_coverage']['gaps_only']
+        all_cov = analytics_doc['unmatched_coverage']
+        exp_gaps_blind = f"{gaps_cov['unmatched_discussions']:,} of {gaps_cov['total_discussions']:,}"
+        exp_all_blind = f"{all_cov['unmatched_discussions']:,} of {all_cov['total_discussions']:,}"
+        assert exp_bridges in page.locator('#gap-bridges-summary').inner_text()
+        assert exp_prop in page.locator('#gap-experiments-summary').inner_text()
+        assert exp_gaps_blind in page.locator('#gap-blindspot-summary').inner_text()
         page.locator('#gap-blindspot-scope').select_option('all')
-        assert '614 of 3,830' in page.locator('#gap-blindspot-summary').inner_text()
+        assert exp_all_blind in page.locator('#gap-blindspot-summary').inner_text()
         page.locator('#gap-blindspot-scope').select_option('gaps')
         phrase_btn = page.locator('#gap-blindspot-phrases .gap-phrase-chip').first
         assert phrase_btn.count() == 1
         phrase_btn.click()
         full_settled(page)
         assert overview_qa.params(page).get('q'), page.url
+        page.locator('#gap-reset').click()
+        full_settled(page)
+        cohesion_btn = page.locator('#gap-cohesion-list .gap-mini-btn').first
+        assert cohesion_btn.count() == 1
+        cohesion_btn.click()
+        full_settled(page)
+        assert page.locator('#gap-results .gap-open').count() >= 1
+        assert page.locator('#gap-active-filters .gap-filter-chip').filter(has_text='Entity:').count() == 1
         page.locator('#gap-reset').click()
         full_settled(page)
 
@@ -148,7 +215,7 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
         for metric in ('npmi', 'jaccard', 'discussions'):
             page.locator('#gap-pairs-metric').select_option(metric)
             assert page.locator('#gap-term-pairs tr').count() >= 1
-        page.locator('.gap-term-explorer').screenshot(path=str(output / f'{width}-cooccurrence-light.png'))
+        capture_locator(page, '.gap-term-explorer', output / f'{width}-cooccurrence-light.png')
 
         # 7. Embedding map new color lenses, cross-Mech neighbor arcs, and unshown fleet Mechs note.
         if not canary or width == 1280:
@@ -161,7 +228,7 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
             for color_mode in ('stance', 'layer', 'experiments', 'bridge', 'mech'):
                 page.locator('#gap-map-color').select_option(color_mode)
                 assert page.locator('#gap-map-legend li').count() >= 1
-            page.locator('#gap-embedding').screenshot(path=str(output / f'{width}-embedding-bridges-light.png'))
+            capture_locator(page, '#gap-embedding', output / f'{width}-embedding-bridges-light.png')
 
         # 8. Coverage & static summary include EdgeMech without breaking 16 corpus <article> count.
         assert page.locator('#gap-coverage article').count() == len(manifest['sources']) == 16
@@ -171,14 +238,15 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
         assert page.locator('.gap-static').evaluate('e => e.open')
         assert 'EdgeMech' in page.locator('.gap-static').inner_text()
 
-        # 9. Dark mode layout and WCAG contrast check.
+        # 9. Dark mode layout and WCAG contrast check (overview + analyses text & segments).
         page.evaluate(
             "document.documentElement.setAttribute('data-theme','dark');"
             "localStorage.setItem('culturebot-theme','dark')"
         )
         dark_layout = qa.layout(page)
         dark_style = overview_qa.visual_style(page)
-        page.locator('#gap-analyses').screenshot(path=str(output / f'{width}-analyses-dark.png'))
+        dark_analyses_checked = analyses_contrast(page)
+        capture_locator(page, '#gap-analyses', output / f'{width}-analyses-dark.png')
 
         assert not errors, errors
         return {
@@ -188,8 +256,8 @@ def view_checks(browser, url, manifest, counts, width, output, canary):
             'breakdown_rows': 17,
             'light_layout': light_layout,
             'dark_layout': dark_layout,
-            'light_contrast_checked': len(light_style['checks']),
-            'dark_contrast_checked': len(dark_style['checks']),
+            'light_contrast_checked': len(light_style['checks']) + light_analyses_checked,
+            'dark_contrast_checked': len(dark_style['checks']) + dark_analyses_checked,
             'overview_spacing': spacing,
             'page_errors': errors,
         }
@@ -253,6 +321,7 @@ def main():
             target = assets / manifest[key]['url']
             assert qa.sha(target) == manifest[key]['sha256'], key
         index = json.loads((assets / manifest['index']['url']).read_text())
+        analytics_doc = json.loads((assets / manifest['analytics']['url']).read_text())
         counts = overview_qa.expected_counts(manifest, index['items'])
         report.update(
             build_id=manifest['build_id'],
@@ -272,7 +341,7 @@ def main():
                     url = f'http://127.0.0.1:{server.server_port}/knowledge-gaps/'
                     widths = [1280] if args.canary else [1280, 620, 390]
                     for width in widths:
-                        report['views'].append(view_checks(browser, url, manifest, counts, width, output, args.canary))
+                        report['views'].append(view_checks(browser, url, manifest, analytics_doc, counts, width, output, args.canary))
                         print(f'Validated {width}px gap visualizations, analyses, and 17-Mech coverage', flush=True)
                     if not args.canary:
                         report['analytics_failure'] = analytics_failure_check(browser, url, manifest, output)

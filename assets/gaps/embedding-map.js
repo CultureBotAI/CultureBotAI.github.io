@@ -366,6 +366,8 @@
     function reset(nextManifest, nextItems) {
       generation++; manifest = nextManifest; items = nextItems || []; data = null; loading = false; attempted = false; ids = []; scopeReady = false; selected = ''; drag = null; svg = null; circles.clear();
       $('content').hidden = true; $('selection').hidden = true; $('plot').replaceChildren(); $('retry').hidden = true;
+      $('color').value = 'mech';
+      if ($('bridges')) $('bridges').checked = false;
       if ($('unshown')) { $('unshown').hidden = true; $('unshown').textContent = ''; }
       $('load').hidden = false; $('load').disabled = !manifest || !manifest.embedding;
       var compressedBytes = manifest && manifest.sizes && manifest.sizes.embedding_gzip_bytes;

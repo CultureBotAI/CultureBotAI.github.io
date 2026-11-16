@@ -138,9 +138,14 @@ class GapAnalyticsTests(unittest.TestCase):
         self.assertEqual(analytics.normalize_attach_layer("components[0].localization"), "components")
         self.assertEqual(analytics.normalize_attach_layer("ecological_interactions/0"), "ecological_interactions")
         self.assertEqual(analytics.normalize_attach_layer("GO:0043625"), "entity_curie")
+        self.assertEqual(analytics.normalize_attach_layer("obo.go:00001#frag"), "entity_curie")
+        self.assertEqual(analytics.normalize_attach_layer("https://example.org/slot/1#frag"), "external_uri")
         self.assertEqual(analytics.normalize_attach_layer(""), "")
         self.assertEqual(analytics.normalize_reference_key("doi:10.1128/JB.00276-19"), "DOI:10.1128/jb.00276-19")
+        self.assertEqual(analytics.normalize_reference_key("https://doi.org/10.1128/JB.00276-19"), "DOI:10.1128/jb.00276-19")
+        self.assertEqual(analytics.normalize_reference_key("https://dx.doi.org/10.1039/C1MB05328K"), "DOI:10.1039/c1mb05328k")
         self.assertEqual(analytics.normalize_reference_key("pmid: 998877 "), "PMID:998877")
+        self.assertEqual(analytics.normalize_reference_key("https://pubmed.ncbi.nlm.nih.gov/998877/"), "PMID:998877")
 
     def test_analytics_document_summarizes_blindspots_experiments_citations_and_bridges(self):
         doc = analytics.build_analytics_document(self.snapshot, self.term_doc, self.embedding_doc)
@@ -185,6 +190,104 @@ class GapAnalyticsTests(unittest.TestCase):
         tainted_term["build_id"] = canonical_digest(tainted)
         with self.assertRaisesRegex(ValueError, "Unlisted or withheld Mech"):
             analytics.build_analytics_document(tainted, tainted_term, None)
+
+        tainted_term_only = json.loads(json.dumps(self.term_doc))
+        tainted_term_only["terms"][0]["label"] = "UnlistedExampleMech cofactor"
+        with self.assertRaisesRegex(ValueError, "Unlisted or withheld Mech"):
+            analytics.build_analytics_document(self.snapshot, tainted_term_only, None)
+
+        tainted_emb = json.loads(json.dumps(self.embedding_doc))
+        tainted_emb["model_note"] = "UnlistedExampleMech"
+        with self.assertRaisesRegex(ValueError, "Unlisted or withheld Mech"):
+            analytics.build_analytics_document(self.snapshot, self.term_doc, tainted_emb)
+
+    def test_entity_cohesion_and_sidecar_binding_guards(self):
+        items = []
+        points = []
+        for idx in range(5):
+            did = f"TraitMech:r{idx}:d{idx}" if idx < 3 else f"CommunityMech:r{idx}:d{idx}"
+            mech = "TraitMech" if idx < 3 else "CommunityMech"
+            items.append({
+                "id": did,
+                "mech": mech,
+                "record_id": f"{mech}:r{idx}",
+                "record_label": f"Record {idx}",
+                "prompt": f"How does siderophore uptake operate in case {idx}?",
+                "rationale": "Mechanism remains open.",
+                "kind": "KNOWLEDGE_GAP",
+                "status": "OPEN",
+                "lane": "recorded",
+                "attaches_to": [],
+                "evidence": [],
+                "evidence_refs": [],
+                "proposed_experiments": [],
+                "source": {"url": f"https://github.com/CultureBotAI/{mech}/blob/" + "1" * 40 + f"/{idx}.yaml"},
+            })
+        for idx in range(5):
+            did = items[idx]["id"]
+            other = items[(idx + 1) % 4]["id"] if idx < 4 else items[0]["id"]
+            neighbors = [{"id": other, "cosine_similarity": 0.85}] if idx < 4 else []
+            points.append({
+                "id": did,
+                "x": float(idx),
+                "y": float(idx) * 0.5,
+                "input_sha256": f"{idx:064x}",
+                "token_count": 12,
+                "chunk_count": 1,
+                "neighbors": neighbors,
+            })
+        snapshot = {"schema_version": 1, "items": items}
+        build_id = canonical_digest(snapshot)
+        term_doc = {
+            "schema_version": 1,
+            "build_id": build_id,
+            "terms": [{
+                "id": "term-siderophore",
+                "label": "siderophore",
+                "canonical_id": "CHEBI:26672",
+                "entity_refs": [{"mech": "CofactorMech", "record_id": "CHEBI:26672"}],
+                "postings": [{"discussion_id": item["id"], "count": 1} for item in items],
+            }],
+        }
+        terms_sha = canonical_digest(term_doc)
+        emb_doc = {
+            "schema_version": 1,
+            "build_id": build_id,
+            "terms_sha256": terms_sha,
+            "inputs_sha256": "c" * 64,
+            "points": points,
+        }
+        doc = analytics.build_analytics_document(snapshot, term_doc, emb_doc)
+        self.assertEqual(doc["terms_sha256"], terms_sha)
+        self.assertEqual(doc["embedding_inputs_sha256"], "c" * 64)
+        cohesion = doc["embedding_bridges"]["entity_cohesion"]
+        self.assertEqual(len(cohesion), 1)
+        self.assertEqual(cohesion[0]["id"], "term-siderophore")
+        self.assertEqual(cohesion[0]["discussions"], 5)
+        self.assertEqual(cohesion[0]["discussion_mech_count"], 2)
+        self.assertAlmostEqual(cohesion[0]["neighbor_hit_rate"], 0.8)
+        self.assertAlmostEqual(cohesion[0]["within_entity_neighbor_share"], 1.0)
+        self.assertAlmostEqual(cohesion[0]["mean_same_entity_cosine"], 0.85)
+
+        bad_term = json.loads(json.dumps(term_doc))
+        bad_term["build_id"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "Term recognition input does not match"):
+            analytics.build_analytics_document(snapshot, bad_term, None)
+
+        bad_emb_build = json.loads(json.dumps(emb_doc))
+        bad_emb_build["build_id"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "Embedding bundle input does not match gap snapshot"):
+            analytics.build_analytics_document(snapshot, term_doc, bad_emb_build)
+
+        bad_emb_terms = json.loads(json.dumps(emb_doc))
+        bad_emb_terms["terms_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "Embedding bundle input does not match term recognition"):
+            analytics.build_analytics_document(snapshot, term_doc, bad_emb_terms)
+
+        bad_emb_inputs = json.loads(json.dumps(emb_doc))
+        bad_emb_inputs["inputs_sha256"] = "not-a-sha256"
+        with self.assertRaisesRegex(ValueError, "missing valid inputs_sha256"):
+            analytics.build_analytics_document(snapshot, term_doc, bad_emb_inputs)
 
 
 if __name__ == "__main__":

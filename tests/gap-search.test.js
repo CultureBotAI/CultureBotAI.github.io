@@ -446,3 +446,69 @@ test('co-occurrence computes Jaccard and NPMI safely and analysis builds 16x16 c
   assert.equal(res.analysis.vocab_matrix.occurrences.TraitMech.CofactorMech, 2);
   assert.equal(res.analysis.vocab_matrix.discussions.TraitMech.MediaIngredientMech, 2);
 });
+
+test('invalid calendar months never hang timeline, year rollovers interpolate, and >60-month spans stay sparse', () => {
+  const malformed = [
+    item({id: 'bad-month-13', posed_date: '2026-13-01', resolved_date: '2026-00-15'}),
+    item({id: 'bad-month-99', posed_date: '2026-99-01'}),
+    item({id: 'valid-jan', posed_date: '2027-01-04'})
+  ];
+  const malformedRes = search(malformed, {view: 'all', status: ''});
+  assert.deepEqual(malformedRes.analysis.timeline, [{month: '2027-01', posed: 1, resolved: 0}]);
+  assert.equal(search(malformed, {view: 'all', status: '', month: '2026-13'}).total, 0);
+  assert.equal(search(malformed, {view: 'all', status: '', month: 'posed:2026-13'}).total, 0);
+  assert.equal(search(malformed, {view: 'all', status: '', month: 'resolved:2026-00'}).total, 0);
+
+  const rollover = [
+    item({id: 'nov', posed_date: '2025-11-12'}),
+    item({id: 'feb', posed_date: '2025-11-20', resolved_date: '2026-02-03', status: 'RESOLVED'})
+  ];
+  const rollRes = search(rollover, {view: 'all', status: ''});
+  assert.deepEqual(rollRes.analysis.timeline, [
+    {month: '2025-11', posed: 2, resolved: 0},
+    {month: '2025-12', posed: 0, resolved: 0},
+    {month: '2026-01', posed: 0, resolved: 0},
+    {month: '2026-02', posed: 0, resolved: 1}
+  ]);
+  assert.deepEqual(search(rollover, {view: 'all', status: '', month: '2026-02'}).all.map(r => r.id), ['feb']);
+
+  const wide = [
+    item({id: 'early', posed_date: '2019-01-10'}),
+    item({id: 'late', posed_date: '2026-06-10'})
+  ];
+  const wideRes = search(wide, {view: 'all', status: ''});
+  assert.deepEqual(wideRes.analysis.timeline, [
+    {month: '2019-01', posed: 1, resolved: 0},
+    {month: '2026-06', posed: 1, resolved: 0}
+  ]);
+});
+
+test('URL-formatted citations and dotted CURIE or HTTP attach targets normalize identically across helpers and search', () => {
+  assert.equal(core.normalizeAttachLayer('obo.go:00001#term'), 'entity_curie');
+  assert.equal(core.normalizeAttachLayer('https://example.org/slot/1#frag'), 'external_uri');
+  assert.equal(core.normalizeRefKey('https://doi.org/10.1128/JB.00276-19'), 'DOI:10.1128/jb.00276-19');
+  assert.equal(core.normalizeRefKey('https://dx.doi.org/10.1039/C1MB05328K'), 'DOI:10.1039/c1mb05328k');
+  assert.equal(core.normalizeRefKey('https://pubmed.ncbi.nlm.nih.gov/30643149/'), 'PMID:30643149');
+  assert.equal(core.normalize({ref: 'https://doi.org/10.1128/JB.00276-19'}).ref, 'DOI:10.1128/jb.00276-19');
+
+  const rows = [
+    item({
+      id: 'url-cite', mech: 'NaturalProductMech',
+      attaches_to: ['obo.go:00001#term', 'https://example.org/slot/1'],
+      evidence_refs: ['https://doi.org/10.1002/ANIE.201204138', 'https://pubmed.ncbi.nlm.nih.gov/30643149/']
+    }),
+    item({
+      id: 'curie-cite', mech: 'CellStructureMech',
+      attaches_to: ['GO:0043625'],
+      evidence_refs: ['doi:10.1002/anie.201204138', 'pmid:30643149']
+    })
+  ];
+  const allScope = {view: 'all', status: ''};
+  const res = search(rows, allScope);
+  assert.equal(res.analysis.distinct_refs, 2);
+  assert.equal(res.analysis.cross_mech_refs.length, 2);
+  assert.deepEqual(search(rows, {...allScope, ref: 'https://doi.org/10.1002/anie.201204138'}).all.map(r => r.id).sort(), ['curie-cite', 'url-cite']);
+  assert.deepEqual(search(rows, {...allScope, ref: 'https://pubmed.ncbi.nlm.nih.gov/30643149/'}).all.map(r => r.id).sort(), ['curie-cite', 'url-cite']);
+  assert.deepEqual(search(rows, {...allScope, layer: 'entity_curie'}).all.map(r => r.id).sort(), ['curie-cite', 'url-cite']);
+  assert.deepEqual(search(rows, {...allScope, layer: 'external_uri'}).all.map(r => r.id), ['url-cite']);
+});

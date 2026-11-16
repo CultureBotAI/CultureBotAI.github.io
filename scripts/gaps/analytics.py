@@ -57,8 +57,11 @@ STOPWORDS = frozenset({
 })
 
 TOKEN_RE = re.compile(r"[a-z][a-z0-9-]{2,}")
+HTTP_URI_RE = re.compile(r"^https?://\S+$", re.IGNORECASE)
 CURIE_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_.-]*:\S+$")
-ATTACH_SPLIT_RE = re.compile(r"[#.\[/]")
+ATTACH_SPLIT_RE = re.compile(r"[.\[/]")
+DOI_URL_RE = re.compile(r"^https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/\S+)$", re.IGNORECASE)
+PUBMED_URL_RE = re.compile(r"^https?://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/?$", re.IGNORECASE)
 
 
 def normalize_attach_layer(target: str) -> str:
@@ -66,26 +69,36 @@ def normalize_attach_layer(target: str) -> str:
     raw = str(target or "").strip()
     if not raw:
         return ""
-    head = ATTACH_SPLIT_RE.split(raw, maxsplit=1)[0].strip()
-    if not head:
+    base = raw.split("#", 1)[0].strip()
+    if not base:
         return ""
-    if CURIE_RE.match(head):
+    if HTTP_URI_RE.match(base):
+        return "external_uri"
+    if CURIE_RE.match(base):
         return "entity_curie"
-    return head
+    return ATTACH_SPLIT_RE.split(base, maxsplit=1)[0].strip()
 
 
 def normalize_reference_key(ref: str) -> str:
-    """Case-fold DOI and PMID prefixes so cross-Mech citation checks are canonical."""
+    """Canonicalize DOI and PMID CURIEs and URLs so cross-Mech citation checks match."""
     text = str(ref or "").strip()
     if not text:
         return ""
+    doi_url = DOI_URL_RE.match(text)
+    if doi_url:
+        return "DOI:" + doi_url.group(1).lower()
+    pubmed_url = PUBMED_URL_RE.match(text)
+    if pubmed_url:
+        return "PMID:" + pubmed_url.group(1)
     lower = text.lower()
     if lower.startswith("doi:"):
-        return "DOI:" + text[4:].strip().lower()
+        body = text[4:].strip().lower()
+        return f"DOI:{body}" if body else ""
     if re.match(r"^10\.\d{4,9}/\S+$", text):
         return "DOI:" + lower
     if lower.startswith("pmid:"):
-        return "PMID:" + text[5:].strip()
+        body = text[5:].strip()
+        return f"PMID:{body}" if body else ""
     return text
 
 
@@ -130,11 +143,9 @@ def _unmatched_phrases(items: list[dict], matched_ids: set[str]) -> tuple[dict, 
 
     min_docs = 3 if len(unmatched_items) >= 10 else 2 if len(unmatched_items) >= 2 else 1
     bigrams = []
-    bigram_counts: dict[str, int] = {}
     for (kind, phrase), doc_ids in phrase_docs.items():
         if kind != "bigram" or len(doc_ids) < min_docs:
             continue
-        bigram_counts[phrase] = len(doc_ids)
         mechs = phrase_mechs[(kind, phrase)]
         bigrams.append({
             "phrase": phrase,
@@ -145,7 +156,7 @@ def _unmatched_phrases(items: list[dict], matched_ids: set[str]) -> tuple[dict, 
             "sample_ids": sorted(doc_ids)[:3],
         })
     bigrams.sort(key=lambda r: (-r["discussions"], -r["mech_count"], r["phrase"]))
-    kept_bigrams = bigrams[:30]
+    kept_bigrams = bigrams[:25]
 
     # Suppress unigrams whose occurrences are nearly subsumed by a kept bigram.
     subsumed: dict[str, int] = defaultdict(int)
@@ -435,12 +446,27 @@ def build_analytics_document(snapshot: dict, term_document: dict | None = None,
     matched_ids: set[str] = set()
     terms_sha = None
     if term_document is not None:
-        terms_sha = digest(json_bytes(term_document))
+        if term_document.get("schema_version") != 1 or term_document.get("build_id") != build_id:
+            raise ValueError("Term recognition input does not match gap snapshot build_id")
+        raw_terms = json_bytes(term_document)
+        if contains_unlisted_mech(raw_terms.decode("utf-8")):
+            raise ValueError("Unlisted or withheld Mech in gap analytics term input")
+        terms_sha = digest(raw_terms)
         for term in term_document.get("terms") or []:
             for posting in term.get("postings") or []:
                 did = posting.get("discussion_id")
                 if did in items_by_id:
                     matched_ids.add(did)
+
+    if embedding_document is not None:
+        if embedding_document.get("schema_version") != 1 or embedding_document.get("build_id") != build_id:
+            raise ValueError("Embedding bundle input does not match gap snapshot build_id")
+        if term_document is not None and embedding_document.get("terms_sha256") != terms_sha:
+            raise ValueError("Embedding bundle input does not match term recognition digest")
+        if not re.fullmatch(r"[0-9a-f]{64}", str(embedding_document.get("inputs_sha256") or "")):
+            raise ValueError("Embedding bundle input is missing valid inputs_sha256")
+        if contains_unlisted_mech(json_bytes(embedding_document).decode("utf-8")):
+            raise ValueError("Unlisted or withheld Mech in gap analytics embedding input")
 
     unmatched_by_mech, unmatched_phrases = _unmatched_phrases(items, matched_ids)
     for source_name in sources:

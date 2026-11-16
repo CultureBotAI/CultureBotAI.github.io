@@ -14,21 +14,38 @@
   function text(value) { return value == null ? '' : String(value); }
   function fold(value) { return text(value).normalize('NFKC').toLocaleLowerCase('en'); }
   function list(value) { return Array.isArray(value) ? value : []; }
+  var MONTH_RE = /^\d{4}-(?:0[1-9]|1[0-2])$/;
+  function extractMonth(dateStr) {
+    if (typeof dateStr !== 'string') return '';
+    var m = dateStr.match(/^(\d{4}-(?:0[1-9]|1[0-2]))(?:$|[-T\s])/);
+    return m ? m[1] : '';
+  }
   function normalizeAttachLayer(target) {
     var raw = text(target).trim();
     if (!raw) return '';
-    var head = raw.split(/[#.\[/]/)[0].trim();
-    if (!head) return '';
-    if (/^[A-Za-z][A-Za-z0-9_.-]*:\S+$/.test(head)) return 'entity_curie';
-    return head;
+    var base = raw.split('#', 1)[0].trim();
+    if (!base) return '';
+    if (/^https?:\/\/\S+$/i.test(base)) return 'external_uri';
+    if (/^[A-Za-z][A-Za-z0-9_.-]*:\S+$/.test(base)) return 'entity_curie';
+    return base.split(/[.\[/]/)[0].trim();
   }
   function normalizeRefKey(ref) {
     var raw = text(ref).trim();
     if (!raw) return '';
+    var doiUrl = raw.match(/^https?:\/\/(?:dx\.)?doi\.org\/(10\.\d{4,9}\/\S+)$/i);
+    if (doiUrl) return 'DOI:' + doiUrl[1].toLowerCase();
+    var pubmedUrl = raw.match(/^https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)\/?$/i);
+    if (pubmedUrl) return 'PMID:' + pubmedUrl[1];
     var lower = raw.toLowerCase();
-    if (lower.startsWith('doi:')) return 'DOI:' + raw.slice(4).trim().toLowerCase();
+    if (lower.startsWith('doi:')) {
+      var doiBody = raw.slice(4).trim().toLowerCase();
+      return doiBody ? 'DOI:' + doiBody : '';
+    }
     if (/^10\.\d{4,9}\/\S+$/.test(raw)) return 'DOI:' + lower;
-    if (lower.startsWith('pmid:')) return 'PMID:' + raw.slice(5).trim();
+    if (lower.startsWith('pmid:')) {
+      var pmidBody = raw.slice(5).trim();
+      return pmidBody ? 'PMID:' + pmidBody : '';
+    }
     return raw;
   }
   function normalize(input) {
@@ -41,6 +58,7 @@
     ['q', 'layer', 'stance', 'experiments', 'ref', 'month', 'vocab'].forEach(function (key) {
       state[key] = state[key].trim();
     });
+    if (state.ref) state.ref = normalizeRefKey(state.ref);
     var selected = Array.from(new Set([state.term.trim(), state.term2.trim()].filter(Boolean))).sort();
     state.term = selected[0] || ''; state.term2 = selected[1] || '';
     return state;
@@ -120,10 +138,6 @@
     return {scope_discussions: totalDocs, covered_discussions: covered, occurrences: occurrences,
       terms: ranked, pairs: enrichedPairs};
   }
-  function nextMonth(ym) {
-    var parts = ym.split('-'), y = Number(parts[0]), m = Number(parts[1]);
-    return m === 12 ? String(y + 1).padStart(4, '0') + '-01' : String(y).padStart(4, '0') + '-' + String(m + 1).padStart(2, '0');
-  }
   function summarizeAnalytics(entries, termData) {
     var byMech = {}, totals = {kinds: {}, statuses: {}, stances: {}, layers: {}, unattached: 0, no_evidence: 0, with_experiments: 0};
     var posedByMonth = new Map(), resolvedByMonth = new Map();
@@ -157,13 +171,19 @@
         refMechs.get(key).add(mech);
       });
     });
-    var months = Array.from(new Set(Array.from(posedByMonth.keys()).concat(Array.from(resolvedByMonth.keys())))).sort();
+    var months = Array.from(new Set(Array.from(posedByMonth.keys()).concat(Array.from(resolvedByMonth.keys())))).filter(function (m) {
+      return MONTH_RE.test(m);
+    }).sort();
     var timeline = [];
     if (months.length) {
       var first = months[0], last = months[months.length - 1];
-      var spanMonths = (Number(last.slice(0, 4)) - Number(first.slice(0, 4))) * 12 + (Number(last.slice(5, 7)) - Number(first.slice(5, 7)));
+      var startIdx = Number(first.slice(0, 4)) * 12 + (Number(first.slice(5, 7)) - 1);
+      var endIdx = Number(last.slice(0, 4)) * 12 + (Number(last.slice(5, 7)) - 1);
+      var spanMonths = endIdx - startIdx;
       if (spanMonths >= 0 && spanMonths <= 60) {
-        for (var cur = first; cur <= last; cur = nextMonth(cur)) {
+        for (var idx = startIdx; idx <= endIdx; idx++) {
+          var yr = Math.floor(idx / 12), mo = (idx % 12) + 1;
+          var cur = String(yr).padStart(4, '0') + '-' + String(mo).padStart(2, '0');
           timeline.push({month: cur, posed: posedByMonth.get(cur) || 0, resolved: resolvedByMonth.get(cur) || 0});
         }
       } else {
@@ -228,8 +248,8 @@
         Array.from(new Set(list(item.evidence).map(function (e) { return e && e.supports ? text(e.supports).trim() : ''; }).filter(Boolean))).sort();
       var hasExperiments = Boolean(item.has_experiments || list(item.proposed_experiments).length);
       var refKeys = new Set(list(item.evidence_refs).map(normalizeRefKey).filter(Boolean));
-      var posedMonth = typeof item.posed_date === 'string' && /^\d{4}-\d{2}/.test(item.posed_date) ? item.posed_date.slice(0, 7) : '';
-      var resolvedMonth = typeof item.resolved_date === 'string' && /^\d{4}-\d{2}/.test(item.resolved_date) ? item.resolved_date.slice(0, 7) : '';
+      var posedMonth = extractMonth(item.posed_date);
+      var resolvedMonth = extractMonth(item.resolved_date);
       return {item: item, ids: ids, label: label, body: body, layers: layers, stances: stances,
         hasExperiments: hasExperiments, refKeys: refKeys, posedMonth: posedMonth, resolvedMonth: resolvedMonth};
     });
@@ -251,9 +271,15 @@
   }
   function matchesMonth(entry, filter) {
     if (!filter) return true;
-    if (filter.startsWith('posed:')) return entry.posedMonth === filter.slice(6);
-    if (filter.startsWith('resolved:')) return entry.resolvedMonth === filter.slice(9);
-    return entry.posedMonth === filter || entry.resolvedMonth === filter;
+    if (filter.startsWith('posed:')) {
+      var pm = filter.slice(6);
+      return MONTH_RE.test(pm) && entry.posedMonth === pm;
+    }
+    if (filter.startsWith('resolved:')) {
+      var rm = filter.slice(9);
+      return MONTH_RE.test(rm) && entry.resolvedMonth === rm;
+    }
+    return MONTH_RE.test(filter) && (entry.posedMonth === filter || entry.resolvedMonth === filter);
   }
   function search(prepared, input, termData) {
     var state = normalize(input), q = fold(state.q), terms = q.split(/\s+/).filter(Boolean);
