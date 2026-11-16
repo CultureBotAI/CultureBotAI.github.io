@@ -163,6 +163,31 @@ class GapTermTests(unittest.TestCase):
         self.assertEqual(doc["summary"]["accepted_occurrences"], 4)
         self.assertEqual(doc["summary"]["case_rejected_occurrences"], 4)
 
+    def test_this_family_requires_symbol_case_across_both_canonical_owners(self):
+        # #605: ordinary "this family" was assigned to PF02597 by both vocabularies.
+        entries = [entity("this-" + mech, "ThiS family", ["ThiS"],
+                          canonical_id="Pfam:PF02597", mech=mech)
+                   for mech in ("DUFMech", "ProteinTraitsMech")]
+        text = ("this family; This family; THIS family; thiS family; "
+                "ThiS family; ThiS Family; ThiS FAMILY; ThiS\nfamily; "
+                "Pfam:PF02597; ThiS; this.")
+        doc = build([item("d", text)], entries)
+        self.assertEqual(len(doc["terms"]), 1)
+        term = doc["terms"][0]
+        self.assertEqual(term["canonical_id"], "PFAM:PF02597")
+        self.assertEqual({ref["mech"] for ref in term["entity_refs"]},
+                         {"DUFMech", "ProteinTraitsMech"})
+        self.assertEqual([mention["text"] for mention in term["postings"][0]["mentions"]],
+                         ["ThiS family", "ThiS Family", "ThiS FAMILY", "ThiS\nfamily", "Pfam:PF02597"])
+        self.assertEqual(doc["summary"]["case_rejected_occurrences"], 4)
+        self.assertIn("ThiS", doc["summary"]["excluded_forms"])
+
+    def test_this_family_rule_preserves_unrelated_descriptive_label_case_folding(self):
+        entries = [entity("primase", "DnaG Primase"),
+                   entity("rnase", "Wobble nucleotide-excising tRNase")]
+        doc = build([item("d", "DnaG primase; wobble nucleotide-excising tRNase")], entries)
+        self.assertEqual(doc["summary"]["accepted_occurrences"], 2)
+
     def test_source_scoped_denials_keep_full_names_ids_and_collision_blocking(self):
         # #592: native synonyms are retained as blocked candidates, so denying
         # one sense must not silently assign that span to a competing concept.

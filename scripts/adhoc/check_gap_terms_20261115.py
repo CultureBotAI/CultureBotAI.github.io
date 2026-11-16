@@ -179,6 +179,19 @@ def view_checks(browser, url, terms, items, width, output, recognition):
         page.locator('#gap-view').select_option('all'); settled(page)
         assert_charts(page, terms, items); assert_count(page, len(items))
         result['all_discussions_scope'] = len(items)
+        # #605: exercise the reported source-Mech scope and the independent
+        # vocabulary selector against the regenerated occurrence postings.
+        page.locator('#gap-mech').select_option('DUFMech'); settled(page)
+        duf = [item for item in items if item['mech'] == 'DUFMech']
+        duf_ranked, _, _ = assert_charts(page, terms, duf); assert_count(page, len(duf))
+        result['duf_source_scope'] = {'discussions': len(duf), 'recognized_terms': len(duf_ranked)}
+        page.locator('.gap-term-explorer').screenshot(path=str(output / f'{width}-duf-cloud.png'))
+        page.locator('#gap-mech').select_option(''); settled(page)
+        page.locator('#gap-vocab').select_option('DUFMech'); settled(page)
+        duf_vocabulary, _, _ = assert_charts(page, terms, items, 'DUFMech')
+        assert_count(page, len(items))
+        result['duf_vocabulary_scope'] = {'recognized_terms': len(duf_vocabulary)}
+        page.locator('#gap-vocab').select_option(''); settled(page)
         page.locator('#gap-view').select_option('candidates'); settled(page)
         candidates = [item for item in items if item['lane'] == 'candidate']
         assert_charts(page, terms, candidates); assert_count(page, len(candidates))
