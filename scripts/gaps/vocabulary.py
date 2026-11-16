@@ -18,8 +18,8 @@ from urllib.parse import quote
 
 import yaml
 
-from snapshot import (ROOT, ORDER, blobs, digest, git, is_withheld, json_bytes,
-                      matches, publication_allowed, records, verify_repo, write_atomic)
+from snapshot import (ROOT, ORDER, blobs, contains_unlisted_mech, digest, git, is_withheld, json_bytes,
+                      matches, publication_allowed, records, validate_public_sources, verify_repo, write_atomic)
 from terms import SEMANTIC_NAMESPACES, make_surface_prefilter
 
 POLICY = {
@@ -282,6 +282,7 @@ def close_owners(existing, config, snapshot, repos_root, cache_root, selected=No
 
 
 def acquire(config, snapshot, repos_root, cache_root, selected=None):
+    validate_public_sources(config["sources"])
     names = [source["name"] for source in config["sources"]]
     if set(names) != set(ORDER) or len(names) != len(ORDER):
         raise ValueError("Vocabulary config must account for every public corpus exactly once")
@@ -373,6 +374,8 @@ def acquire(config, snapshot, repos_root, cache_root, selected=None):
 
 def validate_vocabulary(vocabulary, snapshot, config, *, pilot=False, allow_legacy=False):
     """Offline publication gate; source holds remain binding even for forged JSON."""
+    validate_public_sources(config["sources"])
+    validate_public_sources(vocabulary["sources"])
     legacy = allow_legacy and vocabulary.get("policy") == LEGACY_POLICY
     if vocabulary.get("schema_version") != 1 or (not legacy and vocabulary.get("policy") != POLICY):
         raise ValueError("Unsupported vocabulary contract or extraction policy")
@@ -480,7 +483,7 @@ def validate_vocabulary(vocabulary, snapshot, config, *, pilot=False, allow_lega
                 raise ValueError("Vocabulary canonical owner count mismatch")
     if not owner_keys <= lexical_keys:
         raise ValueError("Owner-only record has no corpus-present canonical sibling")
-    if is_withheld(json_bytes(vocabulary).decode()):
+    if contains_unlisted_mech(json_bytes(vocabulary).decode()):
         raise ValueError("Withheld identity in public vocabulary")
 
 

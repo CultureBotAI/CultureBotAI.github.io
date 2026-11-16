@@ -106,6 +106,21 @@ class GapSnapshotTests(unittest.TestCase):
         self.assertEqual(first["source"]["revision"], revision)
         self.assertEqual(self.git("branch", "--show-current"), "fixture")
 
+    def test_source_repository_must_belong_to_its_public_name_before_acquisition(self):
+        self.write("data/traits/direct.yaml", self.record())
+        revision = self.commit()
+        self.assertEqual(len(self.acquire(self.config(revision))["items"]), 1)
+        for repository in ("TraitMech/private_lab", "CultureBotAI/private_lab",
+                           "CultureBotAI/CultureMech"):
+            with self.subTest(repository=repository):
+                config = self.config(revision)
+                config["sources"][0]["repository"] = repository
+                self.git("remote", "set-url", "origin", "https://github.com/" + repository)
+                self.exporter.documents.clear()
+                with self.assertRaises(ValueError):
+                    self.acquire(config)
+                self.assertEqual(self.exporter.documents, [])
+
     def test_multiple_roots_exclusions_and_star_directory_boundaries(self):
         for path in ("data/traits/direct.yaml", "data/traits/nested/child.yml",
                      "data/traits/backups/old.yaml", "data/isolates/direct.yaml",

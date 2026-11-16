@@ -1,0 +1,65 @@
+[
+  {
+    "mutation": "canonical_projection",
+    "test": "tests/test_public_projection.py::PublicProjectionTests::test_shared_projection_removes_identity_and_distinct_artifact_contributions",
+    "source_sha256": "79d7e06a7b1f7e5adc06f6cbdc8a305c46cc376c132be36ce90b4bdcf8b210a6",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  },
+  {
+    "mutation": "identity_guard",
+    "test": "tests/test_public_projection.py::PublicProjectionTests::test_guard_uses_public_allowlist_instead_of_a_named_private_repository",
+    "source_sha256": "61259b28efe6a6bb0ca30409abddd1de32941342ff0c04a1c2a4fab6516d17ab",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  },
+  {
+    "mutation": "aggregate_guard",
+    "test": "tests/test_public_projection.py::PublicProjectionTests::test_unprojected_nonzero_census_is_refused_before_aggregation",
+    "source_sha256": "867894755f68b519cee32b9bea96621f20fbec3ba78f74f9275709d206e0eb38",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  },
+  {
+    "mutation": "graph_guard",
+    "test": "tests/test_public_projection.py::PublicProjectionTests::test_arbitrary_private_graph_endpoint_is_refused",
+    "source_sha256": "2e378b3a347bf0e3277120e3d16c875ab7082c5a938f806a8cd0e71b36cfecee",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  },
+  {
+    "mutation": "audit_rows",
+    "test": "tests/test_membership_audit.py::MembershipAuditTests::test_public_projection_precedes_retained_audit_and_note_serialization",
+    "source_sha256": "a97b878935b570a298bcd1ab609bdf3e22d1cf6bbb0238b71def2a0a3be8443c",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  },
+  {
+    "mutation": "audit_notes",
+    "test": "tests/test_membership_audit.py::MembershipAuditTests::test_public_projection_precedes_retained_audit_and_note_serialization",
+    "source_sha256": "a97b878935b570a298bcd1ab609bdf3e22d1cf6bbb0238b71def2a0a3be8443c",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  },
+  {
+    "mutation": "audit_time",
+    "test": "tests/test_membership_audit.py::MembershipAuditTests::test_observation_before_new_claw_commit_is_refused",
+    "source_sha256": "a97b878935b570a298bcd1ab609bdf3e22d1cf6bbb0238b71def2a0a3be8443c",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  }
+]

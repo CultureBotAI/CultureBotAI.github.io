@@ -14,7 +14,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 DATA = os.path.join(REPO, "_fleet", "data")
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from roots import CITATION, ORDER
+from roots import CITATION, ORDER, contains_unlisted_mech
 from build_subsets import PREF
 
 S=DATA
@@ -52,6 +52,14 @@ def validate_comparison(comparison):
 
 def build(sub, cen, cell_summary, comparison=None):
     """The blob the page embeds, refusing incomplete or mixed cell snapshots."""
+    # Refuse unprojected or stale inputs before any vocabulary, edge, count or
+    # downloadable cell metadata is aggregated or serialized.
+    if any(contains_unlisted_mech(json.dumps(value)) for value in (sub, cen, cell_summary)):
+        raise ValueError("withheld Mech must not contribute to public aggregates")
+    if any(not name.startswith("_") and name not in ORDER for name in cen):
+        raise ValueError("withheld member must not contribute to public aggregates")
+    if any(any(name not in ORDER for name in key.split("|")) for key in sub.get("edges", {})):
+        raise ValueError("Edge endpoints must belong to public corpus membership")
     pins=cen.get("_revisions", {})
     if set(pins) != set(ORDER) or sub.get("_revisions") != pins or cell_summary.get("_revisions") != pins:
         raise ValueError("Census, graph and cell source revisions must agree for every Mech")

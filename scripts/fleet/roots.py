@@ -16,6 +16,8 @@ from a corpus that shrank unless somebody is told.
 from __future__ import annotations
 
 import glob
+import json
+from pathlib import Path
 import os
 import re
 import subprocess
@@ -64,30 +66,87 @@ EXCLUDE_DIRS: dict[str, list[str]] = {
     "MediaIngredientMech": ["data/ingredients/mapped/backups/"],
 }
 
-# Private or withheld Mechs excluded from public view, pages, manifest
-# snapshots, and all suite/corpus/PR statistics until further notice.
-WITHHELD_MECHS: tuple[str, ...] = ("ScaleupMech",)
-WITHHELD_KEYS: frozenset[str] = frozenset(m.lower() for m in WITHHELD_MECHS)
-WITHHELD_REPOS: frozenset[str] = frozenset(
-    r for m in WITHHELD_MECHS for r in (m.lower(), f"culturebotai/{m.lower()}")
-)
+# The canonical public snapshot is an allowlist, never a private-name denylist.
+# It contains no excluded identities. Refuse stale/unlisted Mech inputs at every
+# consumer boundary; refreshing it requires CLAW's shared public projection.
+PUBLIC_SNAPSHOT = Path(__file__).resolve().parents[2] / "_fleet/data/manifest.json"
 
 
-def is_withheld(value: str | None) -> bool:
-    """True when a Mech name, key, repository or URL names a withheld Mech."""
-    if not isinstance(value, str):
-        return False
-    lowered = value.strip().lower()
-    if not lowered:
-        return False
-    return any(
-        re.search(rf"(?<![a-z0-9]){re.escape(key)}(?![a-z0-9])", lowered)
-        for key in WITHHELD_KEYS
+def public_members():
+    return json.loads(PUBLIC_SNAPSHOT.read_text())["mechs"]
+
+
+def public_names():
+    return frozenset(
+        token.lower() for name, mech in public_members().items()
+        for token in (name, mech["key"], mech["github"], mech["github"].rsplit("/", 1)[-1])
     )
 
 
+def contains_unlisted_mech(value: str) -> bool:
+    """Additional prose check; structured identities use the exact guard below."""
+    candidates = re.findall(r"(?<![a-z0-9])[a-z][a-z0-9]*mech(?![a-z0-9])", value.lower())
+    return bool(set(candidates) - public_names())
+
+
+def is_withheld(value: str | None) -> bool:
+    """Refuse any identity or repository locator outside public membership.
+
+    Arbitrary keys and display names are supported; a Mech suffix is not the
+    authority. The two support repositories do not contribute scientific data.
+    """
+    if value is None or value == "":
+        return False
+    if not isinstance(value, str):
+        return True
+    allowed = public_names() | {"culturebotai-claw", "culturebotai.github.io"}
+    lowered = value.strip().lower()
+    if lowered in allowed:
+        return False
+    from urllib.parse import urlsplit
+    if "://" in lowered:
+        url = urlsplit(lowered)
+        parts = url.path.strip("/").split("/")
+        if url.hostname in {"github.com", "raw.githubusercontent.com"}:
+            return "/".join(parts[:2]) not in allowed
+        if url.hostname == "api.github.com" and parts[:1] == ["repos"]:
+            return "/".join(parts[1:3]) not in allowed
+        if url.hostname == "culturebotai.github.io":
+            return parts[0] not in allowed
+        return True
+    parts = lowered.split("/")
+    if len(parts) > 1:
+        return "/".join(parts[:2]) not in allowed
+    return True
+
+
+def is_withheld_source_path(value: str) -> bool:
+    """Check a Pages-relative source path separately from repository identity."""
+    if not isinstance(value, str) or not value:
+        return True
+    if "://" in value:
+        return is_withheld(value)
+    parts = value.strip().lower().split("/")
+    return parts[0] not in public_names() or any(part in {".", ".."} for part in parts)
+
+
+def validate_public_sources(sources):
+    """Bind each scientific source name to its exact canonical public repository.
+
+    Retained configuration and snapshot digests prove consistency, not public
+    membership. Apply this before acquisition and again at offline publication.
+    """
+    members = public_members()
+    for source in sources:
+        name, repository = source.get("name"), source.get("repository")
+        member = members.get(name) if isinstance(name, str) else None
+        if (member is None or not isinstance(repository, str)
+                or repository.lower() != member["github"].lower()):
+            raise ValueError("Non-public source must match its canonical public repository")
+
+
 if any(is_withheld(name) for name in RECORD_GLOBS):
-    raise RuntimeError("RECORD_GLOBS must not include a withheld Mech")
+    raise RuntimeError("RECORD_GLOBS includes a Mech absent from public membership; refresh the census scope")
 
 ORDER = list(RECORD_GLOBS)
 

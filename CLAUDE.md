@@ -86,8 +86,9 @@ their evidenced November 9 baseline and separate November 12 new-site audits
 The suite has sixteen corpus Mechs, all under https://github.com/CultureBotAI,
 plus the orchestrator `culturebotai-claw` and separately declared infrastructure.
 The November 7, 2026 membership-only update added EdgeMech as infrastructure,
-and the November 11, 2026 refresh pins `culturebotai-claw` at
-`7233987c85dcae9c248c7a2dbd445065e5a6c1b8`. Its checked scope is in
+and the November 15, 2026 membership-only update pins `culturebotai-claw` at
+`b00b8661076a5e3ad494389a4805e8344fd11e98` (CLAW PR #1280, a merge dependency).
+Its checked infrastructure scope is in
 `_fleet/infrastructure.json`: no scientific corpus or Pages browser enters this
 audit, and it does not contribute a corpus count, pin or historical PR total.
 Infrastructure gets a repository description and canonical capability
@@ -99,6 +100,12 @@ LinkML schema, history and individual pages; the census still measures the
 frozen seed worklist. CLAW membership is read from `_fleet/data/manifest.json`, independently of
 suite coverage. An absent declaration remains undeclared; neither a suite card
 nor a website feature verdict implies admission.
+
+Public membership is projected by the committed CLAW `FleetManifest.public()`
+API before serialization and aggregation. The site uses that snapshot as its
+allowlist, including for repository requests; do not add a private-name denylist.
+The November 15 membership observation has its own `membership_checked_at_utc`;
+it retains the November 11 corpus evidence and separately dated website reviews.
 
 `mechs.md` (`/mechs/`) is **generated**. Edit its sources, never the page:
 `_fleet/mechs_template.md` (prose, cards, the cross-reference list),

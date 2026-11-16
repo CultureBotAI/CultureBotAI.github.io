@@ -85,12 +85,17 @@ class InfrastructureMembershipTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 infrastructure_markup(changed, self.inputs[1])
 
-    def test_committed_infrastructure_claw_evidence_url_matches_manifest_source(self):
-        manifest_url = self.inputs[1]["source"]["url"]
-        for name, item in self.infrastructure["members"].items():
-            url = item.get("evidence_url", "")
-            if "/culturebotai-claw/blob/" in url and url.endswith("/src/kg_microbe_fleet/fleet.yaml"):
-                self.assertEqual(url, manifest_url, f"{name} evidence_url does not match manifest.json source.url")
+    def test_infrastructure_scope_evidence_is_independent_of_membership_pin(self):
+        member = self.infrastructure["members"]["EdgeMech"]
+        self.inputs[1]["source"]["revision"] = "f" * 40
+        self.inputs[1]["source"]["url"] = (
+            "https://github.com/CultureBotAI/culturebotai-claw/blob/"
+            + "f" * 40 + "/src/kg_microbe_fleet/fleet.yaml"
+        )
+        markup = infrastructure_markup(self.infrastructure, self.inputs[1])
+        self.assertIn(member["evidence_url"], markup)
+        self.assertIn(member["checked_on"], markup)
+        self.assertNotIn(self.inputs[1]["source"]["url"], markup)
 
 
 class WithheldMechExclusionTests(unittest.TestCase):
@@ -128,6 +133,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
             roots.mech_root("ScaleupMech")
 
     def test_manifest_projection_strips_scaleupmech_and_preserves_public_snapshot(self):
+        from fixtures.pinned_fleet_api import Fleet
         snapshot = self.inputs[1]
         manifest = {
             "capability_catalogue": deepcopy(snapshot["capability_catalogue"]),
@@ -141,6 +147,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
             },
         }
         manifest["mechs"]["scaleupmech"] = {
+            "tags": ["exclude-from-public"],
             "display_name": "ScaleupMech",
             "github": "CultureBotAI/ScaleupMech",
             "capabilities": {
@@ -157,7 +164,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
                 + [{"id": "scaleupmech_schema", "source": "ScaleupMech/schema.yaml", "consumers": []}]
             ),
         }
-        projected = project(manifest, registry, snapshot["source"]["revision"])
+        projected = project(Fleet(manifest), registry, snapshot["source"]["revision"])
         self.assertNotIn("ScaleupMech", projected["mechs"])
         self.assertEqual(projected["artifact_count"], snapshot["artifact_count"])
         self.assertEqual(semantic(projected), semantic(snapshot))
@@ -229,7 +236,7 @@ class WithheldMechExclusionTests(unittest.TestCase):
 
         orig_template = self.template
         self.template = orig_template + "\n<!-- scaleupmech_export -->"
-        with self.assertRaisesRegex(ValueError, "Withheld Mech ScaleupMech"):
+        with self.assertRaisesRegex(ValueError, "withheld Mech"):
             self.render()
         self.template = orig_template
 

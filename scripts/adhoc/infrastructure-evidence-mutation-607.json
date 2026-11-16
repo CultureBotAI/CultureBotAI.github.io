@@ -1,0 +1,11 @@
+[
+  {
+    "mutation": "infrastructure_scope_evidence",
+    "test": "tests/test_membership_refresh.py::MembershipRefreshTests::test_new_membership_pin_retains_historical_infrastructure_evidence",
+    "source_sha256": "c2ebc7379f59a4db9e5dca524e2bfc578aae9bd90aee230afb87a316168f638c",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  }
+]

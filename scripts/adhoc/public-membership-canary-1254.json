@@ -1,0 +1,11 @@
+[
+  {
+    "mutation": "canonical_projection",
+    "test": "tests/test_public_projection.py::PublicProjectionTests::test_shared_projection_removes_identity_and_distinct_artifact_contributions",
+    "source_sha256": "79d7e06a7b1f7e5adc06f6cbdc8a305c46cc376c132be36ce90b4bdcf8b210a6",
+    "before_exit": 0,
+    "mutation_exit": 1,
+    "restored_exit": 0,
+    "restored_bytes": true
+  }
+]

@@ -60,7 +60,7 @@ import urllib.request
 from pathlib import Path
 
 from card_markup import card_figures, card_names, markup_problems
-from roots import is_withheld
+from roots import is_withheld, is_withheld_source_path
 
 REPO = Path(__file__).resolve().parents[2]
 TEMPLATE = REPO / "_fleet/mechs_template.md"
@@ -102,7 +102,7 @@ SOURCES: dict[str, tuple[str, str, str]] = {
     "AssayMech":           ("git-tree", "https://api.github.com/repos/CultureBotAI/AssayMech/git/trees/main?recursive=1", r"data/assays/(?!\.)[^/]+\.yaml"),
 }
 
-if any(is_withheld(name) or is_withheld(spec[1]) for name, spec in SOURCES.items()):
+if any(is_withheld(name) or is_withheld_source_path(spec[1]) for name, spec in SOURCES.items()):
     raise RuntimeError("SOURCES must not include a withheld Mech")
 
 # Repository directories shown as count-source links for corpora whose card
@@ -451,7 +451,7 @@ def check(template: str, fetcher=None, audit=None, now: datetime.datetime | None
     stated = card_figures(template)
     names = set(card_names(template))
     for name, (_, path, _) in sorted(sources.items()):
-        if is_withheld(name) or is_withheld(path):
+        if is_withheld(name) or is_withheld_source_path(path):
             raise ValueError(f"{name}: withheld Mech must not appear in check_cards")
     for name in sorted(names | set(entries)):
         if is_withheld(name):

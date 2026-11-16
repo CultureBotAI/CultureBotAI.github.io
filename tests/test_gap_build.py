@@ -72,6 +72,18 @@ class GapBuildTests(unittest.TestCase):
     def config_changed(self, snapshot, config):
         snapshot["source_config_sha256"] = build.digest(build.json_bytes(config))
 
+    def test_retained_sources_bind_name_to_canonical_public_repository(self):
+        self.validate()
+        self.assertEqual(len(self.snapshot["items"]), 2)
+        for repository in ("TraitMech/private_lab", "CultureBotAI/private_lab",
+                           "CultureBotAI/CultureMech"):
+            with self.subTest(repository=repository):
+                config = json.loads(json.dumps(self.config).replace("CultureBotAI/TraitMech", repository))
+                snapshot = json.loads(json.dumps(self.snapshot).replace("CultureBotAI/TraitMech", repository))
+                self.config_changed(snapshot, config)
+                with self.assertRaisesRegex(ValueError, "canonical public repository"):
+                    self.validate(snapshot, config)
+
     def test_deterministic_bundle_hashes_counts_and_all_index_details_correspond(self):
         self.validate()
         first = build.artifacts(self.snapshot)
