@@ -877,7 +877,7 @@
         },
         "cross_mech_links": {
           "status": "partial",
-          "note": "Record exploration links to TaxonMech/browse.html and TraitMech/browse.html return HTTP 404; the correct browsers live under pages/. These handoffs do not resolve to specific sibling records.",
+          "note": "Marine sediment's Associated taxa table names specific taxa and NCBITaxon IDs beside TaxonMech search links, rather than direct links to the corresponding individual taxon records.",
           "url": "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html"
         },
         "corpus_stats": {
@@ -1511,8 +1511,8 @@
           "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:2173"
         },
         "cross_mech_links": {
-          "status": "partial",
-          "note": "Record exploration links include CommunityMech search, but the sampled CultureMech, HabitatMech, PathwayMech and NaturalProductMech browser handoffs use missing routes and return HTTP 404.",
+          "status": "missing",
+          "note": "The three sampled taxon detail pages offer generic sibling-browser searches and home links, but do not identify or link specific related records in sibling Mechs or kg-microbe.",
           "url": "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:2173"
         },
         "corpus_stats": {

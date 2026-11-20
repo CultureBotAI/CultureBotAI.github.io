@@ -20,7 +20,7 @@ proposals; the source observations remain immutable.
 | curation_history | Dated, attributed events qualify; a single created/updated metadata block does not establish an event history. |
 | source_link | Individual source-file links qualify; repository home links and plain source paths are partial. |
 | domain_view | Scientific diagrams/maps qualify even when their explicitly labeled scope is a subset. CellStructure's unsupported point-activation wording was removed without changing this rating. |
-| cross_mech_links | Specific record relationships qualify. Broken specific Taxon record handoffs make Community partial. Generic Explore searches are assessed separately and do not invalidate Antibiotic's working WP5060 relationship; their broken route is filed. |
+| cross_mech_links | Specific record relationships qualify. Broken specific Taxon record handoffs make Community partial. Habitat names related taxa with search-only handoffs, supporting partial; Taxon offers only generic searches, supporting missing. Generic Explore searches do not invalidate Antibiotic's working WP5060 relationship; their broken route is filed. |
 | corpus_stats | Current live-site counts are described without altering the separate corpus census or suggesting full scientific review. |
 | category_browse | Linked category/subset routes qualify; facet-only subsets remain partial where the criterion requires browsing structure. |
 | suite_nav | Visible links to the central suite directory qualify; sibling links alone do not. |
@@ -32,12 +32,16 @@ proposals; the source observations remain immutable.
 | responsive | Fresh and resized 390px document widths reveal overflow; contained, keyboard-accessible table scrolling is not document overflow. |
 | load_failure | Exercise the failing dependency's user action before judging silence: Culture's optional point-navigation error appears on activation. False zero results remain partial; embedded-only sites are not applicable. |
 
-The final rating changes are six present-to-partial corrections: Community
+The final rating changes include six present-to-partial corrections: Community
 cross-Mech links and theme; MediaIngredient evidence and licence; Trait licence;
-Pathway theme. The other 378 ratings retain their previous values after
+Pathway theme. Taxon's generic sibling searches change from partial to missing,
+for seven changes overall. The other 377 ratings retain their previous values after
 revalidation, with notes updated to current observations. These are corrections
 to the recorded assessment, not proof that each defect first appeared after the
 previous audit. No rating is changed merely because a deployment is newer.
+
+The additional Taxon correction and Habitat evidence clarification came from the
+separate final PR review and are tracked in hub issue 628. See `pr-review.md`.
 
 Review limitations remain explicit: representative record rendering and scientific
 links, rather than every record and external citation; current browser observations,

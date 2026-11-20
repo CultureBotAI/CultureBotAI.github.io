@@ -74,6 +74,9 @@ precede adding it to this published-site matrix.
 - [Hub #626](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/626):
   corrected TraitMech evidence pointers and an unproven CellStructureMech
   point-activation claim before publication.
+- [Hub #628](https://github.com/CultureBotAI/CultureBotAI.github.io/issues/628):
+  final PR review corrected TaxonMech's generic-search rating and grounded
+  HabitatMech's partial rating in its named associated taxa.
 
 These upstream site defects are reflected in the ratings. This revalidation does
 not silently fix or close them. The new EdgeMech implementation has its own
