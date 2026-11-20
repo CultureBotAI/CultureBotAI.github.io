@@ -1,0 +1,593 @@
+{
+  "mech": "CellStructureMech",
+  "started_at": "2026-11-20T04:36:42.757228+00:00",
+  "finished_at": "2026-11-20T04:38:14.413228+00:00",
+  "deployment_before": {
+    "id": 7722453069,
+    "sha": "7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b",
+    "created_at": "2026-11-11T22:13:22Z",
+    "state": "success",
+    "status_created_at": "2026-11-11T22:25:20Z",
+    "log_url": "https://github.com/CultureBotAI/CellStructureMech/actions/runs/43107496580/job/130822866948",
+    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 11 Nov 2026 22:25:09 GMT",
+    "verified": true
+  },
+  "deployment_after": {
+    "id": 7722453069,
+    "sha": "7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b",
+    "created_at": "2026-11-11T22:13:22Z",
+    "state": "success",
+    "status_created_at": "2026-11-11T22:25:20Z",
+    "log_url": "https://github.com/CultureBotAI/CellStructureMech/actions/runs/43107496580/job/130822866948",
+    "site": "https://culturebotai.github.io/CellStructureMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 11 Nov 2026 22:25:09 GMT",
+    "verified": true
+  },
+  "deployment_stable": true,
+  "archives": [
+    {
+      "source": "raw.json",
+      "source_bytes": 5634363,
+      "source_sha256": "9df15413752a9eb8dd0f8062b170d61b736520c30983c1ba03c69c830edd27dc",
+      "archive": "raw.json.gz",
+      "archive_bytes": 668519,
+      "archive_sha256": "d25ae25eb3113a39d79283025cfce5e9a3c41b54b6222972b8ba5569921217f1"
+    },
+    {
+      "source": "followup-1.json",
+      "source_bytes": 6787,
+      "source_sha256": "546d04f781a595195ebbeb756417c3d80a19544f4823b310246c1fa8f4801cd3",
+      "archive": "followup-1.json.gz",
+      "archive_bytes": 2325,
+      "archive_sha256": "0cf7a8869e8611c7df6dc523553488d8afbfd591b22995976538069eb06f6ed2"
+    }
+  ],
+  "pages": {
+    "https://culturebotai.github.io/CellStructureMech/pages/index.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "1022\nSTRUCTURE RECORDS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "13\nCATEGORIES"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "873\nGO-GROUNDED"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_index_html-desktop.png",
+        "CellStructureMech_pages_index_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/browse.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_browse_html-desktop.png",
+        "CellStructureMech_pages_browse_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/archaeal_type_flagellum.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_structures_appendage_archaeal_type_flagellum_html-desktop.png",
+        "CellStructureMech_pages_structures_appendage_archaeal_type_flagellum_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/structures/appendage/attachment_organelle_membrane.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_structures_appendage_attachment_organelle_membrane_html-desktop.png",
+        "CellStructureMech_pages_structures_appendage_attachment_organelle_membrane_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/embedding-map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "map-count",
+          "cls": "meta",
+          "text": "1022 of 1022 structures shown"
+        },
+        {
+          "id": "map-details",
+          "cls": "map-details",
+          "text": "Select a structure\n\nChoose a point or find a structure in the sidebar to inspect its nearest semantic neighbours. The selected point is labelled. Browse all records as a table."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_embedding_map_html-desktop.png",
+        "CellStructureMech_pages_embedding_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/structures/envelope/s_layer.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_structures_envelope_s_layer_html-desktop.png",
+        "CellStructureMech_pages_structures_envelope_s_layer_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/structures/cytoskeleton/stentor_myoneme_system.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_structures_cytoskeleton_stentor_myoneme_system_html-desktop.png",
+        "CellStructureMech_pages_structures_cytoskeleton_stentor_myoneme_system_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/sequence-map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "seq-status",
+          "cls": "meta",
+          "text": "469 of 469 proteins shown"
+        },
+        {
+          "id": "seq-details",
+          "cls": "map-details",
+          "text": "UniProtKB:A0A0H3C8I9 \u2014 DEAD-box ATP-dependent RNA helicase RhpA\n\nOrganism: Caulobacter vibrioides \u00b7 Length: 517 aa (501-1,022 aa) \u00b7 Primary category: Ribonucleoprotein \u00b7 Role: Component / complex example\n\nCell structure records (1)\nRNP body (GO:0140365) \u2014 Component / complex example \u00b7 Ribonucleoprot"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_sequence_map_html-desktop.png",
+        "CellStructureMech_pages_sequence_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/grounded.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "873 of 873 records shown"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_grounded_html-desktop.png",
+        "CellStructureMech_pages_grounded_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/category/microcompartment.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "6 of 6 records shown"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CellStructureMech_pages_category_microcompartment_html-desktop.png",
+        "CellStructureMech_pages_category_microcompartment_html-mobile.png"
+      ]
+    }
+  },
+  "actions": {
+    "initial": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "search:GO:0097589": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=GO%3A0097589",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "search:MitoStore": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=MitoStore",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "search:cellstructuremech:insoluble_protein_deposit": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=cellstructuremech%3Ainsoluble_protein_deposit",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "search:no-such-record-nov19-audit": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=no-such-record-nov19-audit",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "0 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "query_before_reload": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=GO%3A0097589",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "query_after_reload": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?q=GO%3A0097589",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "query_clear": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "sort:": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "sort:label-desc": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=label-desc",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "sort:id-asc": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=id-asc",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "sort:category-asc": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=category-asc",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "sort:kind-asc": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=kind-asc",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "sort:status-asc": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "facet:#record-category": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "58 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "facet:#record-kind": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "27 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "facet:#record-status": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE&status=PROPOSED",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "27 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "facets_before_reload": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE&status=PROPOSED",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "27 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "facets_after_reload": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html?sort=status-asc&category=APPENDAGE&kind=APPENDAGE&status=PROPOSED",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "27 of 1022 records shown"
+        }
+      ],
+      "error": null
+    },
+    "keyboard_reset": {
+      "url": "https://culturebotai.github.io/CellStructureMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "record-count",
+          "cls": "",
+          "text": "1022 of 1022 records shown"
+        }
+      ],
+      "error": null
+    }
+  },
+  "downloads": {
+    "https://culturebotai.github.io/CellStructureMech/pages/corpus.json": {
+      "bytes": 15625381,
+      "sha256": "da903a82bc41163de02c77890817a281ab6e82d80ccbaf33d8208dd4bc11ea63",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/CellStructureMech/audit-2/860a71e86408c052-corpus.json"
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/index.json": {
+      "bytes": 545929,
+      "sha256": "813fc502c6f5b058d13afbbed8b7900fb9be50a424ae329acd550ae30eb7f063",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/CellStructureMech/audit-2/37657a4db2eb1a33-index.json"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "CellStructureMech_pages_browse_html-desktop.png",
+      "bytes": 176884,
+      "sha256": "148f63069fb9baf6fb733bb295f6c6f8ebb7d427f87399ed0e5d7e08bc0958f8"
+    },
+    {
+      "path": "CellStructureMech_pages_browse_html-mobile.png",
+      "bytes": 58924,
+      "sha256": "82b018a80efb15a0dc6e4ea4b3538eb59f4413dba228c7714ab21d7a8b0e8692"
+    },
+    {
+      "path": "CellStructureMech_pages_category_microcompartment_html-desktop.png",
+      "bytes": 201621,
+      "sha256": "7da7c9d535873a332df352e0d98889aa0ea7b96f7c336464efb027d8699b8f12"
+    },
+    {
+      "path": "CellStructureMech_pages_category_microcompartment_html-mobile.png",
+      "bytes": 61045,
+      "sha256": "392eb4cebcbb123f10b2e7867a431927c707d81b02dabc57ad7d0b18447edf4a"
+    },
+    {
+      "path": "CellStructureMech_pages_embedding_map_html-desktop.png",
+      "bytes": 273643,
+      "sha256": "5e41e5935dfef37217a8915dc8341f0fc8c99c0a02c46e8a94d0924b7513c356"
+    },
+    {
+      "path": "CellStructureMech_pages_embedding_map_html-mobile.png",
+      "bytes": 82242,
+      "sha256": "0ea37dfc19800afce86dfa4659e2db73e03c6ec55ab3f18b8acde4652001035e"
+    },
+    {
+      "path": "CellStructureMech_pages_grounded_html-desktop.png",
+      "bytes": 197945,
+      "sha256": "41a032c3f5b61973326e0ba39c3b8403b6943dc4d8de80e2970a4b37b60ee163"
+    },
+    {
+      "path": "CellStructureMech_pages_grounded_html-mobile.png",
+      "bytes": 64206,
+      "sha256": "b5ac6b878a7d088ce31c11c0e032d4edfbb166f26aa38e2c08f231adba2338dc"
+    },
+    {
+      "path": "CellStructureMech_pages_index_html-desktop.png",
+      "bytes": 212788,
+      "sha256": "351792e465e8ee10ec2b767dca3a5857fc1d82a5df793c4c017ddd98d2cd4347"
+    },
+    {
+      "path": "CellStructureMech_pages_index_html-mobile.png",
+      "bytes": 124714,
+      "sha256": "625ce08527544435a650df5ba587201883f8b62c1e45ea0a6eef665960faa7e7"
+    },
+    {
+      "path": "CellStructureMech_pages_sequence_map_html-desktop.png",
+      "bytes": 184243,
+      "sha256": "0735377c967be651711c99246204a3f5b4f739244441cca50a0446deebecec95"
+    },
+    {
+      "path": "CellStructureMech_pages_sequence_map_html-mobile.png",
+      "bytes": 101353,
+      "sha256": "83a99cccdd89979fcd4c389adadac396de40f7bafb3479cb38085e925d7867ee"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_appendage_archaeal_type_flagellum_html-desktop.png",
+      "bytes": 176665,
+      "sha256": "1b794808bb0b4c333069b7024bfa66ff7d65157bf5e56f361b3b789c0b1e5265"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_appendage_archaeal_type_flagellum_html-mobile.png",
+      "bytes": 99650,
+      "sha256": "9a06bcb294b21e78ffa1f97f4d76a88497c0b407bced228dfe631c9e2de7e05e"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_appendage_attachment_organelle_membrane_html-desktop.png",
+      "bytes": 149348,
+      "sha256": "9332a294acc4eb045d65ab00dc246e1e71dcf85b58d4bb9945c866a7c35b4655"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_appendage_attachment_organelle_membrane_html-mobile.png",
+      "bytes": 87077,
+      "sha256": "571a86ae64094d4017d04fab0e5b15c26410a0f2a3fc25d2400bb15cb73baa23"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_cytoskeleton_stentor_myoneme_system_html-desktop.png",
+      "bytes": 186328,
+      "sha256": "8e34b98c305b1d650a450a0ecc32c69a11646e2208af073929cf3afbb848d417"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_cytoskeleton_stentor_myoneme_system_html-mobile.png",
+      "bytes": 120064,
+      "sha256": "2ed2284c8c4a2141d39350c8dde8f35ae79399bf53c7ede3cbb6855882324456"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_envelope_s_layer_html-desktop.png",
+      "bytes": 189572,
+      "sha256": "0d2ca12645a11d396bc7b6ab80158341218040bc34ca2fa536b975d9ad1d6063"
+    },
+    {
+      "path": "CellStructureMech_pages_structures_envelope_s_layer_html-mobile.png",
+      "bytes": 110942,
+      "sha256": "d5b9d517a29321dbe54a3ff7ec9b9143b4b6c3b8974111fded091ab86ca820e1"
+    }
+  ],
+  "limits": "Record rendering is sampled. Complete raw observations are losslessly archived; original raw JSON and screenshots remain retained locally and are not required to be committed. External 403/429 responses do not alone establish a broken citation or absent schema."
+}

@@ -1,0 +1,623 @@
+{
+  "mech": "HabitatMech",
+  "receipt": "_fleet/reviews/site-features-20261119/group-a/HabitatMech/audit-3/raw.json",
+  "receipt_sha256": "d8d8dbaafba6b0ff22e493c30bd28b3820cf16711ab32edca61407cd8bb35e86",
+  "deployed_revision": "61edb3d0ae912e8f041378e669928051fbbd509e",
+  "downloads": {
+    "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.json": {
+      "body_sha256": "2dff6421e84742e974612e5f2494d7ac10dad694304783149a1dbef7998fcb73",
+      "arrays": {
+        "$": {
+          "rows": 1655,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 1655,
+              "unique": 1233,
+              "sha256": "2dd43cdeee4f02c242b30950d116839d5b559d31e5e29f6773c22a13442af80d",
+              "samples": [
+                "human-associated environment",
+                "environmental system determined by an organism",
+                "yellow-green algae-associated environment",
+                "zoea-associated environment"
+              ]
+            },
+            "1": {
+              "nonempty": 1655,
+              "unique": 1655,
+              "sha256": "25f95b0bba3c156f49dd98735e6cb334fb424db2f29fd247f3d827737ec45b98",
+              "samples": [
+                "human-associated-environment-habitatmech-gold-cd0b0940e5",
+                "environmental-system-determined-by-an-organism-envo-01001000",
+                "yellow-green-algae-associated-environment-habitatmech-gold-84aedefc07",
+                "zoea-associated-environment-habitatmech-gold-8b6557e4f2"
+              ]
+            },
+            "2": {
+              "nonempty": 1655,
+              "unique": 1655,
+              "sha256": "54f3037be78f647be427fa1d5073cef222a984011e69627da57c80d4065f843a",
+              "samples": [
+                "Human",
+                "Host",
+                "Algae > Yellow-green algae",
+                "Arthropoda: Crustaceans > Larva: Zoea"
+              ]
+            },
+            "3": {
+              "nonempty": 1655,
+              "unique": 6,
+              "sha256": "fe3f67e8ffabbb2f9f0751808075971dc41303b3a48c1bbdac907078fe894d0f",
+              "samples": [
+                "UNGROUNDED",
+                "EXACT",
+                "UNGROUNDED",
+                "UNGROUNDED"
+              ]
+            },
+            "4": {
+              "nonempty": 1655,
+              "unique": 214,
+              "sha256": "e08f27fd9c9f028e663e1b9f4aecea8beb0fcb1b83b906392420560cf5eb6f00",
+              "samples": [
+                "52129",
+                "28888",
+                "0",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/engineered.json": {
+      "body_sha256": "786069cbdf28d48ecd0ab4f248997660f0de4993d360c1efa91ecb3090a77697",
+      "arrays": {
+        "$": {
+          "rows": 488,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 488,
+              "unique": 373,
+              "sha256": "74dc8c6b07ca11f0359a7df0c2a1dfe77275f6b8f054f9c197f2a690a88dc9ce",
+              "samples": [
+                "compost",
+                "waste water",
+                "woodchip denitrifying bioreactor",
+                "zoological garden solid waste"
+              ]
+            },
+            "1": {
+              "nonempty": 488,
+              "unique": 488,
+              "sha256": "ce617a7475842d22b3c4946d2c50392edc8a3285e6a078541982fb0d558b3510",
+              "samples": [
+                "compost-envo-00002170",
+                "waste-water-envo-00002001",
+                "woodchip-denitrifying-bioreactor-habitatmech-gold-b076c78736",
+                "zoological-garden-solid-waste-habitatmech-gold-05440dad0f"
+              ]
+            },
+            "2": {
+              "nonempty": 488,
+              "unique": 488,
+              "sha256": "5b9b156abc791e69ee7479f57b2a483cf9a18212c091919163c81e75dc1467fc",
+              "samples": [
+                "compost",
+                "wastewater",
+                "Bioreactor > Denitrification > Woodchip Bioreactor (WBR)",
+                "Solid waste > Zoo waste"
+              ]
+            },
+            "3": {
+              "nonempty": 488,
+              "unique": 6,
+              "sha256": "aeea221838aaeba878eefb55226bd4d1c31475ea149ebccb8d365797201aa24f",
+              "samples": [
+                "EXACT",
+                "EXACT",
+                "UNGROUNDED",
+                "UNGROUNDED"
+              ]
+            },
+            "4": {
+              "nonempty": 488,
+              "unique": 78,
+              "sha256": "3eb94f616e851e294025f68b9b57f713be2659127432fa525d1713cc151851a7",
+              "samples": [
+                "2296",
+                "2287",
+                "0",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.json": {
+      "body_sha256": "8f7d96865759b94f0e769f1199a24186714ab7e76500966bc3aabc7635cf8b35",
+      "arrays": {
+        "$": {
+          "rows": 468,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 468,
+              "unique": 336,
+              "sha256": "06f329a9c4f6b7ab71fe61a47b3ccd76d9644570454fc58f192b55278067e4c1",
+              "samples": [
+                "aquatic biome",
+                "marine water body",
+                "white smoker",
+                "wood fall"
+              ]
+            },
+            "1": {
+              "nonempty": 468,
+              "unique": 468,
+              "sha256": "931d25c61787ff19cef930f949913f6bcf618bba34e807faa493cb2d2d826d6b",
+              "samples": [
+                "aquatic-biome-envo-00002030",
+                "marine-water-body-envo-00001999",
+                "white-smoker-envo-01000257",
+                "wood-fall-envo-01000142"
+              ]
+            },
+            "2": {
+              "nonempty": 468,
+              "unique": 468,
+              "sha256": "ad4f9627bd3db82332058bfdce300551f7ffaaa59455b07ce4e9c91b91525699",
+              "samples": [
+                "Aquatic",
+                "Marine",
+                "Environmental > Aquatic > Marine > Hydrothermal vents > White smokers",
+                "Environmental > Aquatic > Marine > Benthic > Wood fall"
+              ]
+            },
+            "3": {
+              "nonempty": 468,
+              "unique": 5,
+              "sha256": "6c95edf9de45a9a63aa7cfe278bcd55c7d459da9d9fdd129e8061e57bf5f2b91",
+              "samples": [
+                "EXACT",
+                "EXACT",
+                "EXACT",
+                "EXACT"
+              ]
+            },
+            "4": {
+              "nonempty": 468,
+              "unique": 145,
+              "sha256": "90495e2d98d206b81890f782d004cf0c20a98488b1344a4dc380d9ab1faf71e5",
+              "samples": [
+                "18588",
+                "8631",
+                "0",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.json": {
+      "body_sha256": "863b50b2ec5a32b07185308da8a4ba10fa3adf286c8609b882f382998ad90c0b",
+      "arrays": {
+        "$": {
+          "rows": 353,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 353,
+              "unique": 307,
+              "sha256": "1e2954bae223d77122b56fb7d51ed1442336901d112d511b9b9d0d9935f19286",
+              "samples": [
+                "soil",
+                "terrestrial biome",
+                "watershed",
+                "wetland-upland transition soil"
+              ]
+            },
+            "1": {
+              "nonempty": 353,
+              "unique": 353,
+              "sha256": "53ab3f8249cd973e497083cf9b62b13fe78c3f25475da71c7b76f6f51e6da0da",
+              "samples": [
+                "soil-envo-00001998",
+                "terrestrial-biome-envo-00000446",
+                "watershed-envo-00000292",
+                "wetland-upland-transition-soil-habitatmech-gold-7465227149"
+              ]
+            },
+            "2": {
+              "nonempty": 353,
+              "unique": 353,
+              "sha256": "fd016f9ea073ac7e26b6d886f4316d84480c587862ccd9ab91feb91469214ac7",
+              "samples": [
+                "soil",
+                "Terrestrial",
+                "Environmental > Terrestrial > Soil > Watershed",
+                "Environmental > Terrestrial > Soil > Wetland-upland transition"
+              ]
+            },
+            "3": {
+              "nonempty": 353,
+              "unique": 5,
+              "sha256": "c63d863ad8ae0e185889eb7a851e99e782f551a49d3d7b94f303d18215749a42",
+              "samples": [
+                "EXACT",
+                "EXACT",
+                "EXACT",
+                "UNGROUNDED"
+              ]
+            },
+            "4": {
+              "nonempty": 353,
+              "unique": 112,
+              "sha256": "88aefec43c45443a138e848af22f4737d778ac685e4ad8a3e721d8a336313ad9",
+              "samples": [
+                "38048",
+                "29927",
+                "0",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/other.json": {
+      "body_sha256": "63c9df5359c5746dd97a56b97912cb1a6a7887d82c0874635d65af34627ac0a9",
+      "arrays": {
+        "$": {
+          "rows": 175,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 175,
+              "unique": 175,
+              "sha256": "1514e5d2bd71288b44fcca9af869cabe3db5922104dcf32a204769a651cb283f",
+              "samples": [
+                "free-living environment",
+                "Infection",
+                "host",
+                "lowland river system"
+              ]
+            },
+            "1": {
+              "nonempty": 175,
+              "unique": 175,
+              "sha256": "4e2e43de1cba51a1a7c346b90bf62bdb1aed6903cfc64a26601e5e1a6f28530f",
+              "samples": [
+                "free-living-environment-habitatmech-bacdive-0f1e92a02c",
+                "infection-habitatmech-bacdive-995fbdda26",
+                "host-habitatmech-environments-table-54b570032a",
+                "lowland-river-system-habitatmech-gold-61d10c8224"
+              ]
+            },
+            "2": {
+              "nonempty": 175,
+              "unique": 175,
+              "sha256": "745161fa4a44fde0c3b0385aadfb0a1541a3d3f11a2e8b522b1b2f231c313950",
+              "samples": [
+                "Environmental",
+                "Infection",
+                "host",
+                "Low land river systems"
+              ]
+            },
+            "3": {
+              "nonempty": 175,
+              "unique": 6,
+              "sha256": "445653f752c2d6543b92f5e58b0a8386935bd4e1906068b3a13d6b21bb7fe057",
+              "samples": [
+                "UNGROUNDED",
+                "NOT_APPLICABLE",
+                "NOT_APPLICABLE",
+                "UNGROUNDED"
+              ]
+            },
+            "4": {
+              "nonempty": 175,
+              "unique": 121,
+              "sha256": "7e18d02a572f073bbf0a0cd127a7e0ca086e41b7e5b326ffc4adead14f1dacef",
+              "samples": [
+                "19739",
+                "8971",
+                "0",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/food.json": {
+      "body_sha256": "f76c6394ff919705ac8b4baccdbb831f0ea1169cb658796d974e0e090cdf6eb8",
+      "arrays": {
+        "$": {
+          "rows": 59,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 59,
+              "unique": 59,
+              "sha256": "0af9b94fda32d8f612776d6fd47f019a086062ffe60a23375e84ced7face8815",
+              "samples": [
+                "food production",
+                "mammalian meat food product",
+                "sweets",
+                "vinegar"
+              ]
+            },
+            "1": {
+              "nonempty": 59,
+              "unique": 59,
+              "sha256": "ce698f9937b265a625217931cd8beb5f800d8f919c7764b28c1d02c33a7a9856",
+              "samples": [
+                "food-production-foodon-03530206",
+                "mammalian-meat-food-product-foodon-00001006",
+                "sweets-foodon-03316428",
+                "vinegar-foodon-03301705"
+              ]
+            },
+            "2": {
+              "nonempty": 59,
+              "unique": 59,
+              "sha256": "a005548408713515efc37e231266d06fabdb468fe95034a31ba6f86d443c8783",
+              "samples": [
+                "Engineered > Food production",
+                "Engineered > Food production > Meat products",
+                "Engineered > Food production > Sweets",
+                "Engineered > Food production > Fermented beverages > Vinegar"
+              ]
+            },
+            "3": {
+              "nonempty": 59,
+              "unique": 4,
+              "sha256": "aefc2a8703480814cc9f6ee6363415de3b85432ec95871f0c33d61f4d53a474e",
+              "samples": [
+                "EXACT",
+                "NARROW",
+                "EXACT",
+                "EXACT"
+              ]
+            },
+            "4": {
+              "nonempty": 59,
+              "unique": 39,
+              "sha256": "b111abffff3da3d3160ea60c3e4a680af359df38ba27daa336c3550006fa7ff8",
+              "samples": [
+                "4402",
+                "1916",
+                "0",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/air.json": {
+      "body_sha256": "1c4d5b9bd7b01fca8c267c829c0c29660f34023499c4a04aa96970d08d3a7129",
+      "arrays": {
+        "$": {
+          "rows": 7,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 7,
+              "unique": 7,
+              "sha256": "07c4378bf8d5e2ca4ecf47d0db8ef175cfee3aff076b0e42dc2747603edd05cc",
+              "samples": [
+                "air",
+                "indoor air",
+                "composting facility indoor air",
+                "poultry litter bioaerosol"
+              ]
+            },
+            "1": {
+              "nonempty": 7,
+              "unique": 7,
+              "sha256": "adbf02b7e162523d4e74e42cf2b0f848a6dd3b22f6e9cb1ca41aceb789057377",
+              "samples": [
+                "air-envo-00002005",
+                "indoor-air-habitatmech-gold-40979f5751",
+                "composting-facility-indoor-air-habitatmech-gold-228c68bdf2",
+                "poultry-litter-bioaerosol-habitatmech-gold-6c54e5b602"
+              ]
+            },
+            "2": {
+              "nonempty": 7,
+              "unique": 7,
+              "sha256": "d54f1e9dea9cecddc07d68bccc406245c5f55c14bb4f128496e3d52c570b54a9",
+              "samples": [
+                "Environmental > Air",
+                "Environmental > Air > Indoor Air",
+                "Environmental > Air > Indoor Air > Composting facility",
+                "Environmental > Air > Indoor Air > Poultry farm > Poultry litter bioaerosol"
+              ]
+            },
+            "3": {
+              "nonempty": 7,
+              "unique": 2,
+              "sha256": "c68e8b9424d27440c3ffe23690d784bec3d19d89d5038dd9dac9f68aff3982a7",
+              "samples": [
+                "EXACT",
+                "UNGROUNDED",
+                "UNGROUNDED",
+                "UNGROUNDED"
+              ]
+            },
+            "4": {
+              "nonempty": 7,
+              "unique": 7,
+              "sha256": "cebf81ff93c4bf024ce5c8a9963405d9b7819437d45fea941a9dc8db74d9e8f9",
+              "samples": [
+                "2821",
+                "72",
+                "1",
+                "0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/clinical.json": {
+      "body_sha256": "5a8ca80603b1002a2e8b5bc5b26f9504e8836acfcf24513328ffa9ca1213a769",
+      "arrays": {
+        "$": {
+          "rows": 4,
+          "row_lengths": [
+            6
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 4,
+              "unique": 4,
+              "sha256": "869e5cd349db584a63ef0fc10d9aa1c85a067e54bf02f3c367b77fa1b365ab86",
+              "samples": [
+                "Medical-environment",
+                "Biopsy",
+                "Catheter Device",
+                "Endotracheal Fluid"
+              ]
+            },
+            "1": {
+              "nonempty": 4,
+              "unique": 4,
+              "sha256": "3f829ade491efd0393f426090fa83bca99142117520b221315f0d61ef3f3f545",
+              "samples": [
+                "medical-environment-habitatmech-bacdive-5e52ea1bba",
+                "biopsy-habitatmech-bacdive-3d4fdc29fb",
+                "catheter-device-ncit-c50344",
+                "endotracheal-fluid-ncit-c171504"
+              ]
+            },
+            "2": {
+              "nonempty": 4,
+              "unique": 4,
+              "sha256": "225534f285246d43c1c09662d13af96fc99a6554bb6a3f963609d0fc9f330c42",
+              "samples": [
+                "Medical-environment",
+                "Biopsy",
+                "Catheter",
+                "Tracheal-aspirate"
+              ]
+            },
+            "3": {
+              "nonempty": 4,
+              "unique": 3,
+              "sha256": "92221d8b1007bf98a4ff7403054c0e265626df0fb4b76b4f7f05f9e05339384a",
+              "samples": [
+                "UNGROUNDED",
+                "NOT_APPLICABLE",
+                "CLOSE",
+                "CLOSE"
+              ]
+            },
+            "4": {
+              "nonempty": 4,
+              "unique": 4,
+              "sha256": "707075e904c3fb7ab6a6fed9851c4ad6636f4789b1d25c06e8e7edc64db29739",
+              "samples": [
+                "438",
+                "95",
+                "75",
+                "3"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/text-map-source/points.json": {
+      "body_sha256": "aec45b70665be4f45571fefefb687f43b2deb3f3de0dd2961f492fbb17d0667c",
+      "arrays": {
+        "$": {
+          "rows": 3209,
+          "fields": {
+            "identifier": {
+              "nonempty": 3209,
+              "unique": 3209,
+              "sha256": "cfb180bbca3cde109787fc2de641a2cfc44d17a33dd283be1d5141d527a3b656",
+              "samples": [
+                "habitatmech:GOLD.f3de85dd9b",
+                "habitatmech:GOLD.72719ea056",
+                "habitatmech:GOLD.355bbcd7e3",
+                "ENVO:00003908"
+              ]
+            },
+            "label": {
+              "nonempty": 3209,
+              "unique": 2460,
+              "sha256": "fe9e3f75cd28f757fa0246d609b3aa118abcaa8dc65392bfd28c5943cd0d274c",
+              "samples": [
+                "sequencing batch enhanced biological phosphorus removal bioreactor",
+                "oil reservoir produced water",
+                "sub-seafloor deep biosphere environment",
+                "poultry deep litter"
+              ]
+            },
+            "page": {
+              "nonempty": 3209,
+              "unique": 3209,
+              "sha256": "bd0a18cca95db6efad2e25f4a49dcc021f893898e719e9933e81d97fbcd99ba4",
+              "samples": [
+                "habitats/sequencing-batch-enhanced-biological-phosphorus-removal-bioreactor-habitatmech-gold-f3de85dd9b.html",
+                "habitats/oil-reservoir-produced-water-habitatmech-gold-72719ea056.html",
+                "habitats/sub-seafloor-deep-biosphere-environment-habitatmech-gold-355bbcd7e3.html",
+                "habitats/poultry-deep-litter-envo-00003908.html"
+              ]
+            },
+            "source_path": {
+              "nonempty": 3209,
+              "unique": 3209,
+              "sha256": "557310ffca1a9e0b23a51ba4fddbfa983217f5257979852d8318bc7362f60a5c",
+              "samples": [
+                "data/habitats/engineered/sbr_ebpr.yaml",
+                "data/habitats/terrestrial/produced_water.yaml",
+                "data/habitats/terrestrial/sub_seafloor.yaml",
+                "data/habitats/other/poultry_deep_litter.yaml"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/text-map-source/manifest.json": {
+      "body_sha256": "2175d54029c756c9847696f0f39bdb234c29789975bcc1a99643f244983d1d18",
+      "arrays": {
+        "$.projection.iterations": {
+          "rows": 3
+        },
+        "$.source_vectors.shape": {
+          "rows": 2
+        }
+      }
+    }
+  },
+  "habitat_categories": {
+    "records": 3209,
+    "unique_record_slugs": 3209,
+    "slug_sha256": "de85c1f2696c908eb8b1628770dce007efd28ee68a27669a397deeb3f02757a7",
+    "route_pattern": "pages/habitats/<slug>.html"
+  }
+}

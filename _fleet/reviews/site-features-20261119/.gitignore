@@ -1,0 +1,27 @@
+# Local uncompressed browser captures and screenshots are preserved for inspection.
+# Published gzip archives are byte-identical and indexed by SHA-256.
+*.png
+/root/cofactor-canary.json
+/root/assay-auditor.json
+/root/aimech-auditor.json
+/root/aimech-auditor-v2.json
+/root/aimech-supplement.json
+/root/trait-auditor.json
+/group-a/*/audit-*/raw.json
+/group-a/*/audit-*/followup-*.json
+/group-a/HabitatMech/audit-1/
+/group-a/HabitatMech/audit-2/
+/group-a/PathwayMech/audit-1/
+/group-a/CellStructureMech/audit-1/
+/group-b/culturemech.json
+/group-b/culturemech-supplement.json
+/group-b/mediaingredientmech.json
+/group-b/mediaingredientmech-supplement.json
+/group-b/proteintraitsmech.json
+/group-b/proteintraitsmech-supplement.json
+/group-b/proteintraitsmech-controls.json
+/group-b/dufmech.json
+/group-b/naturalproductmech.json
+/group-b/naturalproductmech-supplement.json
+/group-b/cmmmech.json
+/group-b/*-review-followup.json

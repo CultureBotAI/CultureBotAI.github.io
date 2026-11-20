@@ -1,0 +1,83 @@
+{
+  "mech": "CellStructureMech",
+  "receipt": "_fleet/reviews/site-features-20261119/group-a/CellStructureMech/audit-2/raw.json",
+  "receipt_sha256": "9df15413752a9eb8dd0f8062b170d61b736520c30983c1ba03c69c830edd27dc",
+  "deployed_revision": "7a5ef9e01fe8e8bc44f649d94b61b4b2bab5ef2b",
+  "downloads": {
+    "https://culturebotai.github.io/CellStructureMech/pages/corpus.json": {
+      "body_sha256": "da903a82bc41163de02c77890817a281ab6e82d80ccbaf33d8208dd4bc11ea63",
+      "arrays": {
+        "$.records": {
+          "rows": 1022,
+          "fields": {
+            "identifier": {
+              "nonempty": 1022,
+              "unique": 1022,
+              "sha256": "89b76d540c99cfc77f0b8415dae19bf5f6e1c26ccb9cc2ec285fae604118c244",
+              "samples": [
+                "GO:0097729",
+                "cellstructuremech:archaeal_cannula",
+                "GO:0140549",
+                "GO:0031160"
+              ]
+            },
+            "label": {
+              "nonempty": 1022,
+              "unique": 1022,
+              "sha256": "8f885a2d3fb9fc4e31e3c0505945981a75235a1d3370018e258ce860ad87f0c5",
+              "samples": [
+                "9+2 motile cilium",
+                "archaeal cannula",
+                "spore inner membrane",
+                "spore wall"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/CellStructureMech/pages/index.json": {
+      "body_sha256": "813fc502c6f5b058d13afbbed8b7900fb9be50a424ae329acd550ae30eb7f063",
+      "arrays": {
+        "$": {
+          "rows": 1022,
+          "fields": {
+            "identifier": {
+              "nonempty": 1022,
+              "unique": 1022,
+              "sha256": "89b76d540c99cfc77f0b8415dae19bf5f6e1c26ccb9cc2ec285fae604118c244",
+              "samples": [
+                "GO:0097729",
+                "cellstructuremech:archaeal_cannula",
+                "GO:0140549",
+                "GO:0031160"
+              ]
+            },
+            "label": {
+              "nonempty": 1022,
+              "unique": 1022,
+              "sha256": "8f885a2d3fb9fc4e31e3c0505945981a75235a1d3370018e258ce860ad87f0c5",
+              "samples": [
+                "9+2 motile cilium",
+                "archaeal cannula",
+                "spore inner membrane",
+                "spore wall"
+              ]
+            },
+            "page": {
+              "nonempty": 1022,
+              "unique": 1022,
+              "sha256": "9bf1320ae40a1581d434902251204d7b1c17a1bf3fcc17114dfc14434a3b789d",
+              "samples": [
+                "structures/appendage/9_2_motile_cilium.html",
+                "structures/appendage/archaeal_cannula.html",
+                "structures/spore/spore_inner_membrane.html",
+                "structures/spore/spore_wall.html"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

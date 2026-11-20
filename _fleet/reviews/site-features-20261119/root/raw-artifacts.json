@@ -1,0 +1,114 @@
+{
+  "format": "gzip-json; decompress before resolving JSON pointers",
+  "artifacts": [
+    {
+      "source": "_fleet/reviews/site-features-20261119/root/cofactor-canary.json",
+      "archive": "_fleet/reviews/site-features-20261119/root/cofactor-canary.json.gz",
+      "source_sha256": "a27befe14658e340b71ad38d03bf091ae581a2f0dfb4bbcdfd7b76f7381264fa",
+      "archive_sha256": "8a16f8c98078f6278aa274103b5bbf55b5b398b36b6b7cfc90acc660afc77fa4",
+      "source_bytes": 471799,
+      "archive_bytes": 22495,
+      "deployment": {
+        "observed_at": "2026-11-20T04:26:04.014857+00:00",
+        "id": 7785837174,
+        "sha": "1af737829b74a619610a7ee81972357d7fe178fd",
+        "created_at": "2026-11-14T09:49:44Z",
+        "state": "success",
+        "status_created_at": "2026-11-14T09:50:27Z",
+        "site": "https://culturebotai.github.io/CofactorMech/",
+        "pages_build_type": "workflow",
+        "served": {
+          "url": "https://culturebotai.github.io/CofactorMech/",
+          "status": 200,
+          "last_modified": "Sat, 14 Nov 2026 09:50:19 GMT",
+          "github_request_id": "CCF0:34CA9D:17CE57:1993D0:6AFFCBB9",
+          "sha256": "a429b8f0fcad61ad2b79c48a5572db4fef6f719e0e437a3da542ba5a267d6a83",
+          "bytes": 9478
+        }
+      }
+    },
+    {
+      "source": "_fleet/reviews/site-features-20261119/root/assay-auditor.json",
+      "archive": "_fleet/reviews/site-features-20261119/root/assay-auditor.json.gz",
+      "source_sha256": "593c75561cfaddad7c7feb5b7b1014477b148561788de0ad0f50280cd921054c",
+      "archive_sha256": "dc8540390cfd00e857170f0046f5b5c0e56baa329178a33fd479bc7d5e85a2ab",
+      "source_bytes": 327872,
+      "archive_bytes": 19245,
+      "deployment": {
+        "observed_at": "2026-11-20T04:26:38.914055+00:00",
+        "id": 7785702573,
+        "sha": "2c39f17bfcd940c15c6f10dfdc26b4ce2d6e734e",
+        "created_at": "2026-11-14T09:36:16Z",
+        "state": "success",
+        "status_created_at": "2026-11-14T09:41:42Z",
+        "site": "https://culturebotai.github.io/AssayMech/",
+        "pages_build_type": "workflow",
+        "served": {
+          "url": "https://culturebotai.github.io/AssayMech/",
+          "status": 200,
+          "last_modified": "Sat, 14 Nov 2026 09:41:36 GMT",
+          "github_request_id": "8536:F5E50:183515:19FD79:6AFFCBE9",
+          "sha256": "782b2b4934c0903e992eb9fe849e3e9a5a779bdfcd93b7183fd994b878c56a4b",
+          "bytes": 9354
+        }
+      }
+    },
+    {
+      "source": "_fleet/reviews/site-features-20261119/root/aimech-auditor-v2.json",
+      "archive": "_fleet/reviews/site-features-20261119/root/aimech-auditor-v2.json.gz",
+      "source_sha256": "26ff2e2d5fc71dcfba043c321b9e51e144cf5522aeaef5ba79a60fcda8c792e1",
+      "archive_sha256": "4ac51487eedc5eb387c973ec99422cf94f6205eb339191c12a4339cf69e88423",
+      "source_bytes": 20977736,
+      "archive_bytes": 4056060,
+      "deployment": {
+        "id": 7846697982,
+        "sha": "2d9910fad1acb4a193122b9418d910a8a72f7b8a",
+        "created_at": "2026-11-17T07:13:09Z",
+        "state": "success",
+        "status_created_at": "2026-11-17T07:13:35Z",
+        "http_status": 200,
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+        "last_modified": "Tue, 17 Nov 2026 07:13:29 GMT",
+        "github_request_id": "B4A0:1A7447:175395:191BD5:6AFFCC3F"
+      }
+    },
+    {
+      "source": "_fleet/reviews/site-features-20261119/root/aimech-supplement.json",
+      "archive": "_fleet/reviews/site-features-20261119/root/aimech-supplement.json.gz",
+      "source_sha256": "afc6e86db2fd9b941ae1e42c5f3f732dcbf4e5817210d020706039ce276fd0ad",
+      "archive_sha256": "86c9db4a629cbd12e81aea1dddc752a462e31568a4fc2a2cb1b980b0aeac1b2c",
+      "source_bytes": 106732,
+      "archive_bytes": 4419,
+      "deployment": {
+        "id": 7846697982,
+        "sha": "2d9910fad1acb4a193122b9418d910a8a72f7b8a",
+        "created_at": "2026-11-17T07:13:09Z",
+        "state": "success",
+        "status_created_at": "2026-11-17T07:13:35Z",
+        "http_status": 200,
+        "url": "https://culturebotai.github.io/AIMech/pages/index.html",
+        "last_modified": "Tue, 17 Nov 2026 07:13:29 GMT",
+        "github_request_id": "B4A0:1A7447:175395:191BD5:6AFFCC3F"
+      }
+    },
+    {
+      "source": "_fleet/reviews/site-features-20261119/root/trait-auditor.json",
+      "archive": "_fleet/reviews/site-features-20261119/root/trait-auditor.json.gz",
+      "source_sha256": "1dedf591ad3feb806cd0e9f5cc27cb8cf7dd81090898cf50eeb3edc4bec53e5f",
+      "archive_sha256": "0c3655824f45b3ec1d89a7fe3dfbdaad3fe532f7dc8e86c7fa0c4eddce5fe17c",
+      "source_bytes": 20580404,
+      "archive_bytes": 2924791,
+      "deployment": {
+        "id": 7924781046,
+        "sha": "1db07d7456e55572546e2215fed19b0b870f911b",
+        "created_at": "2026-11-19T20:21:01Z",
+        "state": "success",
+        "status_created_at": "2026-11-19T20:21:26Z",
+        "http_status": 200,
+        "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+        "last_modified": "Thu, 19 Nov 2026 20:21:16 GMT",
+        "github_request_id": "C49E:20F40C:181A2E:19E581:6AFFCCFF"
+      }
+    }
+  ]
+}
