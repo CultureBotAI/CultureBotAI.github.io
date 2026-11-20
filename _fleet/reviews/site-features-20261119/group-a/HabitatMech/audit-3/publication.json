@@ -1,0 +1,589 @@
+{
+  "mech": "HabitatMech",
+  "started_at": "2026-11-20T04:28:37.132823+00:00",
+  "finished_at": "2026-11-20T04:29:43.137084+00:00",
+  "deployment_before": {
+    "id": 7722826796,
+    "sha": "61edb3d0ae912e8f041378e669928051fbbd509e",
+    "created_at": "2026-11-11T22:32:18Z",
+    "state": "success",
+    "status_created_at": "2026-11-11T22:33:55Z",
+    "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/43111091058/job/130832221355",
+    "site": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 11 Nov 2026 22:33:43 GMT",
+    "verified": true
+  },
+  "deployment_after": {
+    "id": 7722826796,
+    "sha": "61edb3d0ae912e8f041378e669928051fbbd509e",
+    "created_at": "2026-11-11T22:32:18Z",
+    "state": "success",
+    "status_created_at": "2026-11-11T22:33:55Z",
+    "log_url": "https://github.com/CultureBotAI/HabitatMech/actions/runs/43111091058/job/130832221355",
+    "site": "https://culturebotai.github.io/HabitatMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 11 Nov 2026 22:33:43 GMT",
+    "verified": true
+  },
+  "deployment_stable": true,
+  "archives": [
+    {
+      "source": "raw.json",
+      "source_bytes": 2150164,
+      "source_sha256": "d8d8dbaafba6b0ff22e493c30bd28b3820cf16711ab32edca61407cd8bb35e86",
+      "archive": "raw.json.gz",
+      "archive_bytes": 227817,
+      "archive_sha256": "33c3a2b8a2f0c3281821b5efd6f6dd200902eea28e9f07124a685bf2f96c452f"
+    },
+    {
+      "source": "followup-1.json",
+      "source_bytes": 92342,
+      "source_sha256": "13e5151507fefb53670fa36891536d71382d6c6d5204295e96305ef44db808f0",
+      "archive": "followup-1.json.gz",
+      "archive_bytes": 15339,
+      "archive_sha256": "35ac0031bac2ad75bdc1ef5855f6aff0baa3344115820f8dd8d03ffff8930907"
+    },
+    {
+      "source": "followup-2.json",
+      "source_bytes": 176529,
+      "source_sha256": "0957ff18af6676dfb3fd9968ac3148834621826a6a3eaa8c4617b81fb970f06b",
+      "archive": "followup-2.json.gz",
+      "archive_bytes": 27570,
+      "archive_sha256": "4cd7fb25ec38e0a5507f243f734d48776ac22165eba08412a01caa13eb95ef76"
+    }
+  ],
+  "pages": {
+    "https://culturebotai.github.io/HabitatMech/pages/index.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "3209\nHABITAT RECORDS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "2143\nONTOLOGY-GROUNDED"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "175\nCORROBORATED BY 2+ SOURCES"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "1301\nREVIEWED STATUS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "2678\nCONCEPTS ENVO HAS NO TERM FOR"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "2061\nNAMED BY NO VENDORED ONTOLOGY"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_index_html-desktop.png",
+        "HabitatMech_pages_index_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/browse.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_browse_html-desktop.png",
+        "HabitatMech_pages_browse_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [
+        {
+          "id": "count",
+          "cls": "meta",
+          "text": ""
+        },
+        {
+          "id": "unfiltered-count",
+          "cls": "meta",
+          "text": "Showing 300 of 468. The filter searches all 468, not just this page."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_category_aquatic_html-desktop.png",
+        "HabitatMech_pages_category_aquatic_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/habitats/marine-sediment-envo-03000033.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_habitats_marine_sediment_envo_03000033_html-desktop.png",
+        "HabitatMech_pages_habitats_marine_sediment_envo_03000033_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/text-map/": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [
+        {
+          "id": "map-status",
+          "cls": "meta",
+          "text": "3,209 matching records. Showing the first 20 links; narrow the search to find a record."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_text_map-desktop.png",
+        "HabitatMech_pages_text_map-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/text-map-source/index.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": null,
+      "saved_theme": "dark",
+      "background": "rgba(0, 0, 0, 0)",
+      "counts": [
+        {
+          "id": "detail",
+          "cls": "",
+          "text": "Select a point to open its record."
+        },
+        {
+          "id": "match-count",
+          "cls": "",
+          "text": "3,209 matching records. Showing the first 20 links; narrow the search to find a record."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_text_map_source_index_html-desktop.png",
+        "HabitatMech_pages_text_map_source_index_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/habitats/aquatic-macrophyte-associated-environment-habitatmech-bacdive-38260eea00.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 404,
+      "resized_width": 404,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_habitats_aquatic_macrophyte_associated_environment_habitatmech_bacdive_38260eea00_html-desktop.png",
+        "HabitatMech_pages_habitats_aquatic_macrophyte_associated_environment_habitatmech_bacdive_38260eea00_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(20, 23, 26)",
+      "counts": [
+        {
+          "id": "count",
+          "cls": "meta",
+          "text": ""
+        },
+        {
+          "id": "unfiltered-count",
+          "cls": "meta",
+          "text": "Showing 300 of 1655. The filter searches all 1655, not just this page."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "HabitatMech_pages_category_host_associated_html-desktop.png",
+        "HabitatMech_pages_category_host_associated_html-mobile.png"
+      ]
+    }
+  },
+  "actions": {
+    "initial": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    },
+    "search:ENVO:03000033": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=ENVO%3A03000033",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 1 of 1 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "search:marine sediment": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=marine+sediment",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 3 of 3 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "search:water": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "search:no-such-record-nov19-audit": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=no-such-record-nov19-audit",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 0 of 0 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "query_before_reload": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=ENVO%3A03000033",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 1 of 1 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "query_after_reload": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=ENVO%3A03000033",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 1 of 1 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "query_clear": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    },
+    "sort_query": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "sort:assertions-desc": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "sort:assertions-asc": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=assertions-asc",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "sort:name-asc": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=name-asc",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "sort:name-desc": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=name-desc",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "sort:grounding-asc": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=grounding-asc",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 200 of 310 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "facet:#browse-grounding": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=grounding-asc&grounding=EXACT",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 86 of 86 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "facets_before_reload": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=grounding-asc&grounding=EXACT",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 86 of 86 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "facets_after_reload": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html?q=water&sort=grounding-asc&grounding=EXACT",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "Showing 86 of 86 matching habitats"
+        }
+      ],
+      "error": null
+    },
+    "keyboard_reset": {
+      "url": "https://culturebotai.github.io/HabitatMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    }
+  },
+  "downloads": {
+    "https://culturebotai.github.io/HabitatMech/pages/category/host-associated.json": {
+      "bytes": 201753,
+      "sha256": "2dff6421e84742e974612e5f2494d7ac10dad694304783149a1dbef7998fcb73",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/d5f2a8ff5708c018-host-associated.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/engineered.json": {
+      "bytes": 64772,
+      "sha256": "786069cbdf28d48ecd0ab4f248997660f0de4993d360c1efa91ecb3090a77697",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/ac5e865689a95ce5-engineered.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/aquatic.json": {
+      "bytes": 63552,
+      "sha256": "8f7d96865759b94f0e769f1199a24186714ab7e76500966bc3aabc7635cf8b35",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/12a4f17376c1b3b4-aquatic.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/terrestrial.json": {
+      "bytes": 44991,
+      "sha256": "863b50b2ec5a32b07185308da8a4ba10fa3adf286c8609b882f382998ad90c0b",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/5dae8e7f661dcc73-terrestrial.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/other.json": {
+      "bytes": 18309,
+      "sha256": "63c9df5359c5746dd97a56b97912cb1a6a7887d82c0874635d65af34627ac0a9",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/469e0c992f768d93-other.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/food.json": {
+      "bytes": 7706,
+      "sha256": "f76c6394ff919705ac8b4baccdbb831f0ea1169cb658796d974e0e090cdf6eb8",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/e2ef3fe28fb59f34-food.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/air.json": {
+      "bytes": 949,
+      "sha256": "1c4d5b9bd7b01fca8c267c829c0c29660f34023499c4a04aa96970d08d3a7129",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/298192c3c8931b3a-air.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/category/clinical.json": {
+      "bytes": 396,
+      "sha256": "5a8ca80603b1002a2e8b5bc5b26f9504e8836acfcf24513328ffa9ca1213a769",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/7d5a3394d621592b-clinical.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/text-map-source/points.json": {
+      "bytes": 1246252,
+      "sha256": "aec45b70665be4f45571fefefb687f43b2deb3f3de0dd2961f492fbb17d0667c",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/fd9698d6ca98c315-points.json"
+    },
+    "https://culturebotai.github.io/HabitatMech/pages/text-map-source/manifest.json": {
+      "bytes": 2086,
+      "sha256": "2175d54029c756c9847696f0f39bdb234c29789975bcc1a99643f244983d1d18",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/HabitatMech/audit-3/8a2cb350c1cea956-manifest.json"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "HabitatMech_pages_browse_html-desktop.png",
+      "bytes": 121416,
+      "sha256": "1deaf17589528f746b4f00eb79b72dfa5b70e765393df36cd537387770918ca2"
+    },
+    {
+      "path": "HabitatMech_pages_browse_html-mobile.png",
+      "bytes": 54239,
+      "sha256": "afda2934d192d636771993955c163dcb48b310ce69520f00de95ab6eec8dbb23"
+    },
+    {
+      "path": "HabitatMech_pages_category_aquatic_html-desktop.png",
+      "bytes": 173339,
+      "sha256": "84abf47639fb39f0dc843cc59ea68ff0e643957e081d14b3aadf3a0aba5c6a44"
+    },
+    {
+      "path": "HabitatMech_pages_category_aquatic_html-mobile.png",
+      "bytes": 64789,
+      "sha256": "9a66fd05ed1abbcb67a82e2698d53dfef7ca8b6bc61900a0201b0ff6b4a078b6"
+    },
+    {
+      "path": "HabitatMech_pages_category_host_associated_html-desktop.png",
+      "bytes": 168339,
+      "sha256": "095a71ce68f0f07237b6da09f716bdaa25bcb415691c99c0031ba5d37676ddd5"
+    },
+    {
+      "path": "HabitatMech_pages_category_host_associated_html-mobile.png",
+      "bytes": 68492,
+      "sha256": "2f6dbc0b586561a08f6258728474767ead43880622c84f2d496b8e54a38b81a0"
+    },
+    {
+      "path": "HabitatMech_pages_habitats_aquatic_macrophyte_associated_environment_habitatmech_bacdive_38260eea00_html-desktop.png",
+      "bytes": 121617,
+      "sha256": "beefa9170e4d50885135b661f4b56330c1ce11e93b92cc4f77cb05e10d65b107"
+    },
+    {
+      "path": "HabitatMech_pages_habitats_aquatic_macrophyte_associated_environment_habitatmech_bacdive_38260eea00_html-mobile.png",
+      "bytes": 80931,
+      "sha256": "9636c4f5259d06f58e2fadf42991df8dd6a8b5460113abd61f039e4ab034d9e9"
+    },
+    {
+      "path": "HabitatMech_pages_habitats_marine_sediment_envo_03000033_html-desktop.png",
+      "bytes": 119249,
+      "sha256": "0368c1395e318fcc56491cdde8882bc36d0b325c3b574c8217fc760a2ba629c4"
+    },
+    {
+      "path": "HabitatMech_pages_habitats_marine_sediment_envo_03000033_html-mobile.png",
+      "bytes": 76961,
+      "sha256": "15e3e2d838a398da7a8658c230861544423828e3778eea01e17c3b476c7d4b1d"
+    },
+    {
+      "path": "HabitatMech_pages_index_html-desktop.png",
+      "bytes": 164763,
+      "sha256": "bac4f3717df3efcd7019d6e38441cdd0d1747975af2558502dc27d6d07f1c0ab"
+    },
+    {
+      "path": "HabitatMech_pages_index_html-mobile.png",
+      "bytes": 112717,
+      "sha256": "0c1161fbd31c4b51b4afb5d505f1abcc3e62b1e6c7278b7719b23a8c1b1a4a4d"
+    },
+    {
+      "path": "HabitatMech_pages_text_map-desktop.png",
+      "bytes": 128240,
+      "sha256": "e8ede6a0bae46629802d758a9b79aa7b3154cbc19806f5acc8aa1062c1377a7f"
+    },
+    {
+      "path": "HabitatMech_pages_text_map-mobile.png",
+      "bytes": 58039,
+      "sha256": "241e203c90574ebf342df6a81a15a647724da47998bf7be610a35305fee902bb"
+    },
+    {
+      "path": "HabitatMech_pages_text_map_source_index_html-desktop.png",
+      "bytes": 151320,
+      "sha256": "79df5daeff3d35acaf845fb280307a53b95487f1831a3052ca645fe35aed7346"
+    },
+    {
+      "path": "HabitatMech_pages_text_map_source_index_html-mobile.png",
+      "bytes": 60769,
+      "sha256": "7b8b0df1a1c9ce3ae1604c8c1c81bf2ede07b53db2eb0b13def70ef4d1a379ce"
+    }
+  ],
+  "limits": "Record rendering is sampled. Complete raw observations are losslessly archived; original raw JSON and screenshots remain retained locally and are not required to be committed. External 403/429 responses do not alone establish a broken citation or absent schema."
+}

@@ -1,0 +1,597 @@
+{
+  "mech": "TaxonMech",
+  "started_at": "2026-11-20T04:30:51.983463+00:00",
+  "finished_at": "2026-11-20T04:32:50.438129+00:00",
+  "deployment_before": {
+    "id": 7848764604,
+    "sha": "112cd752949da0fbb18cdfdeb1663b5dc5514c8f",
+    "created_at": "2026-11-17T09:05:16Z",
+    "state": "success",
+    "status_created_at": "2026-11-17T09:08:40Z",
+    "log_url": "https://github.com/CultureBotAI/TaxonMech/actions/runs/44052319044/job/133932922071",
+    "site": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Tue, 17 Nov 2026 09:08:25 GMT",
+    "verified": true
+  },
+  "deployment_after": {
+    "id": 7848764604,
+    "sha": "112cd752949da0fbb18cdfdeb1663b5dc5514c8f",
+    "created_at": "2026-11-17T09:05:16Z",
+    "state": "success",
+    "status_created_at": "2026-11-17T09:08:40Z",
+    "log_url": "https://github.com/CultureBotAI/TaxonMech/actions/runs/44052319044/job/133932922071",
+    "site": "https://culturebotai.github.io/TaxonMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Tue, 17 Nov 2026 09:08:24 GMT",
+    "verified": true
+  },
+  "deployment_stable": true,
+  "archives": [
+    {
+      "source": "raw.json",
+      "source_bytes": 6184533,
+      "source_sha256": "400ea6881acedcd65e295eddd16dc38e65d983d34d2e0906d216d91af7df9951",
+      "archive": "raw.json.gz",
+      "archive_bytes": 481345,
+      "archive_sha256": "061ae59e9129654194649ff1c85cc80dea11c7603554a199fb280ab2722316a4"
+    },
+    {
+      "source": "followup-1.json",
+      "source_bytes": 4867,
+      "source_sha256": "0121abbdd7aa80cf8d7b2de149332f3e77f9aea7f8cbc302255004659ca70550",
+      "archive": "followup-1.json.gz",
+      "archive_bytes": 1560,
+      "archive_sha256": "9a06bead24a106782ebceb026ac5212ad4bf2eaf677ee46ebf21cf454096e717"
+    }
+  ],
+  "pages": {
+    "https://culturebotai.github.io/TaxonMech/pages/index.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "626048\nTAXON RECORDS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "100745\nDISTINCT LISTED STRAINS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "20648\nWITH A TYPE STRAIN"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_index_html-desktop.png",
+        "TaxonMech_pages_index_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/browse.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_browse_html-desktop.png",
+        "TaxonMech_pages_browse_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:2173": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "strain-page-status",
+          "cls": "",
+          "text": "Strain page 1 of 1"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_taxon_htmlid_NCBITaxon_2173-desktop.png",
+        "TaxonMech_pages_taxon_htmlid_NCBITaxon_2173-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:81464": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_taxon_htmlid_NCBITaxon_81464-desktop.png",
+        "TaxonMech_pages_taxon_htmlid_NCBITaxon_81464-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/taxon.html?id=NCBITaxon:562": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "strain-page-status",
+          "cls": "",
+          "text": "Strain page 1 of 10"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_taxon_htmlid_NCBITaxon_562-desktop.png",
+        "TaxonMech_pages_taxon_htmlid_NCBITaxon_562-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/sources.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_sources_html-desktop.png",
+        "TaxonMech_pages_sources_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "map-status",
+          "cls": "",
+          "text": "31258 of 31258 embedded taxa shown."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_map_html-desktop.png",
+        "TaxonMech_pages_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/type-strains.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "20648 of 20648 records match \u00b7 page 1 of 104."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_type_strains_html-desktop.png",
+        "TaxonMech_pages_type_strains_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/domain/archaea.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(18, 19, 32)",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "14013 of 14013 records match \u00b7 page 1 of 71."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "TaxonMech_pages_domain_archaea_html-desktop.png",
+        "TaxonMech_pages_domain_archaea_html-mobile.png"
+      ]
+    }
+  },
+  "actions": {
+    "initial": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "search:NCBITaxon:2173": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=NCBITaxon%3A2173",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "32 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "error": null
+    },
+    "search:Methanobrevibacter smithii": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=Methanobrevibacter+smithii",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "26 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "error": null
+    },
+    "search:NCBITaxon:562": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=NCBITaxon%3A562",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "259 of 626048 records match \u00b7 page 1 of 2."
+        }
+      ],
+      "error": null
+    },
+    "search:no-such-record-nov19-audit": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=no-such-record-nov19-audit",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "0 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "error": null
+    },
+    "query_before_reload": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=NCBITaxon%3A2173",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "32 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "error": null
+    },
+    "query_after_reload": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?q=NCBITaxon%3A2173",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "32 of 626048 records match \u00b7 page 1 of 1."
+        }
+      ],
+      "error": null
+    },
+    "query_clear": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:label_asc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=label_asc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:label_desc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=label_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:id_asc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=id_asc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:rank_asc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=rank_asc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:strains_desc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=strains_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:gtdb_desc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=gtdb_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "sort:sources_desc": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=sources_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "facet:#taxon-domain-filter": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=sources_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "605695 of 626048 records match \u00b7 page 1 of 3029."
+        }
+      ],
+      "error": null
+    },
+    "facet:#taxon-rank-filter": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=sources_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "553073 of 626048 records match \u00b7 page 1 of 2766."
+        }
+      ],
+      "error": null
+    },
+    "facet:#taxon-source-filter": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=sources_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "553073 of 626048 records match \u00b7 page 1 of 2766."
+        }
+      ],
+      "error": null
+    },
+    "facets_before_reload": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=sources_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "553073 of 626048 records match \u00b7 page 1 of 2766."
+        }
+      ],
+      "error": null
+    },
+    "facets_after_reload": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html?sort=sources_desc",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "keyboard_reset": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 1 of 3131."
+        }
+      ],
+      "error": null
+    },
+    "next_page": {
+      "url": "https://culturebotai.github.io/TaxonMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "taxon-status",
+          "cls": "",
+          "text": "626048 of 626048 records match \u00b7 page 2 of 3131."
+        }
+      ],
+      "error": null
+    }
+  },
+  "downloads": {
+    "https://culturebotai.github.io/TaxonMech/pages/index.json.gz": {
+      "bytes": 8028105,
+      "sha256": "ed283ae2b34a61197af783e51b0a20147be656649f14394e62615577e62677df",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/TaxonMech/audit-1/355c031cec0321f3-index.json.gz"
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/index.json": {
+      "bytes": 197,
+      "sha256": "ba5730d988ab586aa7b7f02d3dbd9bf86d6e67fc5d837e475c9665cc5a649d24",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/TaxonMech/audit-1/f1470d7b78c2a87e-index.json"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "TaxonMech_pages_browse_html-desktop.png",
+      "bytes": 205404,
+      "sha256": "06b3388c1b4febd311f94c267684f6dc111dbdecd794e731d78aca1ca162627d"
+    },
+    {
+      "path": "TaxonMech_pages_browse_html-mobile.png",
+      "bytes": 65229,
+      "sha256": "6e0461e717e890322f1016f667e3831e3b1a545e226c163a734daa5a7a6807f2"
+    },
+    {
+      "path": "TaxonMech_pages_domain_archaea_html-desktop.png",
+      "bytes": 197323,
+      "sha256": "02fb929523e1f549cf66aaa5535f755cb2b7e92334a7c5466e9178b24af9b3a0"
+    },
+    {
+      "path": "TaxonMech_pages_domain_archaea_html-mobile.png",
+      "bytes": 65404,
+      "sha256": "6ad3abcb2ec476261cb0173fba43bdd5249e245b0c6224abcc223b6534f8d9d1"
+    },
+    {
+      "path": "TaxonMech_pages_index_html-desktop.png",
+      "bytes": 233739,
+      "sha256": "e8ceca7e1a7f0c8e0db9b9dd1ee3a35a679f3155e791c653d02bcc27842c86bf"
+    },
+    {
+      "path": "TaxonMech_pages_index_html-mobile.png",
+      "bytes": 141400,
+      "sha256": "f1bab48f1eded04d5e841f57ef322b3e80f86b9e125b707ed0dd13a5ad1253cd"
+    },
+    {
+      "path": "TaxonMech_pages_map_html-desktop.png",
+      "bytes": 183992,
+      "sha256": "624af88a7a3299ec76be838ac8ba58bc2e0c39ad04bbfbd43ebcd9d894c55072"
+    },
+    {
+      "path": "TaxonMech_pages_map_html-mobile.png",
+      "bytes": 85543,
+      "sha256": "50715a068440a82dc59554ae40db061446b3a9d2682a23420f57cc0955d3f989"
+    },
+    {
+      "path": "TaxonMech_pages_sources_html-desktop.png",
+      "bytes": 148659,
+      "sha256": "c08c7d4d244a6cb6aeddf297adc96ba1d21902b356430faff70176d58326f522"
+    },
+    {
+      "path": "TaxonMech_pages_sources_html-mobile.png",
+      "bytes": 88189,
+      "sha256": "ee870974524438c16f61bdfa5dad44ed95c8865548ad4c1f60112d84d5ad63c8"
+    },
+    {
+      "path": "TaxonMech_pages_taxon_htmlid_NCBITaxon_2173-desktop.png",
+      "bytes": 160767,
+      "sha256": "b6a1a2c7adaf6ff6a71a0a772bfad17c008f841aea98e9f0f22737c5f81e6394"
+    },
+    {
+      "path": "TaxonMech_pages_taxon_htmlid_NCBITaxon_2173-mobile.png",
+      "bytes": 99033,
+      "sha256": "2145b2c330dee229d134d44f256da9e069818510973ee7b775b206a7eb868e13"
+    },
+    {
+      "path": "TaxonMech_pages_taxon_htmlid_NCBITaxon_562-desktop.png",
+      "bytes": 194692,
+      "sha256": "fbadd5acb144a883b6f36ee479a4c015aa9d5c05a4a3617201259813c9bfaa6b"
+    },
+    {
+      "path": "TaxonMech_pages_taxon_htmlid_NCBITaxon_562-mobile.png",
+      "bytes": 115134,
+      "sha256": "79af1e625510f3085fe1baf5bfc23a1c5b2fe58b3947e147c81cf73b2d8b8169"
+    },
+    {
+      "path": "TaxonMech_pages_taxon_htmlid_NCBITaxon_81464-desktop.png",
+      "bytes": 152383,
+      "sha256": "873fc9843b3cabc9b8fdd101771ca477c7b95f9ad2190129421ce7da1449cc68"
+    },
+    {
+      "path": "TaxonMech_pages_taxon_htmlid_NCBITaxon_81464-mobile.png",
+      "bytes": 97360,
+      "sha256": "bf8a1d5b66e93d78af676432b6402a91fe1c5c8383cd1d9ac96bcd5a52c9dff9"
+    },
+    {
+      "path": "TaxonMech_pages_type_strains_html-desktop.png",
+      "bytes": 211461,
+      "sha256": "9cf2d3164c214dcb9f4f56e6b2ac87d7362a6d460c2e9be0ace1c4c2a947b24e"
+    },
+    {
+      "path": "TaxonMech_pages_type_strains_html-mobile.png",
+      "bytes": 74127,
+      "sha256": "713e3328b4ce3214d235963370495a1b83a8198888bbc35515cdce1e05dd242b"
+    }
+  ],
+  "limits": "Record rendering is sampled. Complete raw observations are losslessly archived; original raw JSON and screenshots remain retained locally and are not required to be committed. External 403/429 responses do not alone establish a broken citation or absent schema."
+}

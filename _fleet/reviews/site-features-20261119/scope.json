@@ -1,0 +1,121 @@
+{
+  "observed_at_utc": "2026-11-20T04:25:52.296353+00:00",
+  "website_base": "bc50236b513043e907481c4a71b40d5251fcf744",
+  "canonical_source": {
+    "repository": "CultureBotAI/culturebotai-claw",
+    "revision": "5669421db46a6e6142479caecd761dc57928ac78",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/5669421db46a6e6142479caecd761dc57928ac78/src/kg_microbe_fleet/fleet.yaml"
+  },
+  "retained_manifest_source": {
+    "repository": "CultureBotAI/culturebotai-claw",
+    "revision": "b00b8661076a5e3ad494389a4805e8344fd11e98",
+    "url": "https://github.com/CultureBotAI/culturebotai-claw/blob/b00b8661076a5e3ad494389a4805e8344fd11e98/src/kg_microbe_fleet/fleet.yaml"
+  },
+  "retained_manifest_semantics_match": true,
+  "public_members": {
+    "CultureMech": {
+      "key": "culturemech",
+      "github": "CultureBotAI/CultureMech"
+    },
+    "MediaIngredientMech": {
+      "key": "mediaingredientmech",
+      "github": "CultureBotAI/MediaIngredientMech"
+    },
+    "CommunityMech": {
+      "key": "communitymech",
+      "github": "CultureBotAI/CommunityMech"
+    },
+    "TraitMech": {
+      "key": "traitmech",
+      "github": "CultureBotAI/TraitMech"
+    },
+    "ProteinTraitsMech": {
+      "key": "proteintraitsmech",
+      "github": "CultureBotAI/proteintraitsmech"
+    },
+    "AntibioticMech": {
+      "key": "antibioticmech",
+      "github": "CultureBotAI/AntibioticMech"
+    },
+    "CellStructureMech": {
+      "key": "cellstructuremech",
+      "github": "CultureBotAI/CellStructureMech"
+    },
+    "HabitatMech": {
+      "key": "habitatmech",
+      "github": "CultureBotAI/HabitatMech"
+    },
+    "NaturalProductMech": {
+      "key": "naturalproductmech",
+      "github": "CultureBotAI/NaturalProductMech"
+    },
+    "TaxonMech": {
+      "key": "taxonmech",
+      "github": "CultureBotAI/TaxonMech"
+    },
+    "PathwayMech": {
+      "key": "pathwaymech",
+      "github": "CultureBotAI/PathwayMech"
+    },
+    "DUFMech": {
+      "key": "dufmech",
+      "github": "CultureBotAI/DUFMech"
+    },
+    "CMMMech": {
+      "key": "cmmmech",
+      "github": "CultureBotAI/CMMMech"
+    },
+    "AIMech": {
+      "key": "aimech",
+      "github": "CultureBotAI/AIMech"
+    },
+    "EdgeMech": {
+      "key": "edgemech",
+      "github": "CultureBotAI/EdgeMech"
+    },
+    "CofactorMech": {
+      "key": "cofactormech",
+      "github": "CultureBotAI/CofactorMech"
+    },
+    "AssayMech": {
+      "key": "assaymech",
+      "github": "CultureBotAI/AssayMech"
+    }
+  },
+  "feature_audit_sites": [
+    "AIMech",
+    "AntibioticMech",
+    "AssayMech",
+    "CMMMech",
+    "CellStructureMech",
+    "CofactorMech",
+    "CommunityMech",
+    "CultureMech",
+    "DUFMech",
+    "HabitatMech",
+    "MediaIngredientMech",
+    "NaturalProductMech",
+    "PathwayMech",
+    "ProteinTraitsMech",
+    "TaxonMech",
+    "TraitMech"
+  ],
+  "other_public_members": [
+    "EdgeMech"
+  ],
+  "infrastructure_declaration": {
+    "version": 1,
+    "members": {
+      "EdgeMech": {
+        "repository": "CultureBotAI/EdgeMech",
+        "description": "Curation infrastructure under development for exact KG-Microbe release-edge accounting and inherited native-review scope, with bulk rows and histories in external Parquet artifacts.",
+        "scope_note": "No published scientific corpus or Pages browser is included in this audit. Edge occurrences and inherited-review matches are not independent scientific approvals. The sixteen-corpus census, record totals, graph and historical repository statistics exclude this infrastructure project.",
+        "corpus": null,
+        "site": null,
+        "checked_on": "2026-11-11",
+        "evidence_url": "https://github.com/CultureBotAI/culturebotai-claw/blob/7233987c85dcae9c248c7a2dbd445065e5a6c1b8/src/kg_microbe_fleet/fleet.yaml"
+      }
+    }
+  },
+  "scope": "Revalidate all existing published corpus sites against the unchanged 24-feature catalogue. EdgeMech browser implementation is a separate repository PR; no unpublished browser is rated as live."
+}

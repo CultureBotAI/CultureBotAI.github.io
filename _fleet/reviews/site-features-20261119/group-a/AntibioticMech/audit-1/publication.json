@@ -1,0 +1,714 @@
+{
+  "mech": "AntibioticMech",
+  "started_at": "2026-11-20T04:36:47.111384+00:00",
+  "finished_at": "2026-11-20T04:38:11.711614+00:00",
+  "deployment_before": {
+    "id": 7723164727,
+    "sha": "6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7",
+    "created_at": "2026-11-11T22:50:52Z",
+    "state": "success",
+    "status_created_at": "2026-11-11T22:51:36Z",
+    "log_url": "https://github.com/CultureBotAI/AntibioticMech/actions/runs/43115053023/job/130841034602",
+    "site": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 11 Nov 2026 22:51:22 GMT",
+    "verified": true
+  },
+  "deployment_after": {
+    "id": 7723164727,
+    "sha": "6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7",
+    "created_at": "2026-11-11T22:50:52Z",
+    "state": "success",
+    "status_created_at": "2026-11-11T22:51:36Z",
+    "log_url": "https://github.com/CultureBotAI/AntibioticMech/actions/runs/43115053023/job/130841034602",
+    "site": "https://culturebotai.github.io/AntibioticMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Wed, 11 Nov 2026 22:51:22 GMT",
+    "verified": true
+  },
+  "deployment_stable": true,
+  "archives": [
+    {
+      "source": "raw.json",
+      "source_bytes": 2328470,
+      "source_sha256": "b0d5a60193a7b5440e3af075f7f165370c51760d531c7b88bb51d84fa1fd416c",
+      "archive": "raw.json.gz",
+      "archive_bytes": 202544,
+      "archive_sha256": "68982b13bedeb2ed8307773c7e35a58af0071c8fb02dcc901a6945a15f0faef8"
+    },
+    {
+      "source": "followup-1.json",
+      "source_bytes": 317999,
+      "source_sha256": "6b2b42afe3650aad2d3d19d9e74019e0aa92b49c8e3f22159b62018bd7877334",
+      "archive": "followup-1.json.gz",
+      "archive_bytes": 35161,
+      "archive_sha256": "80c7ef4eaafaf9b5fb377f1b2541b509d9200eece8ad9bfdfe0fed09f8be5677"
+    }
+  ],
+  "pages": {
+    "https://culturebotai.github.io/AntibioticMech/pages/index.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "3125\nCOMPOUND RECORDS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "2782\nONTOLOGY-GROUNDED"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "281\nCHEBI AND ARO"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "174\nREVIEWED STATUS"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_index_html-desktop.png",
+        "AntibioticMech_pages_index_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/browse.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_browse_html-desktop.png",
+        "AntibioticMech_pages_browse_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_antibacterial_amikacin_html-desktop.png",
+        "AntibioticMech_pages_antibacterial_amikacin_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/avibactam.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_antibacterial_avibactam_html-desktop.png",
+        "AntibioticMech_pages_antibacterial_avibactam_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/chemical-map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "map-status",
+          "cls": "map-status",
+          "text": "Showing 3125 of 3125 compounds."
+        },
+        {
+          "id": "map-search-count",
+          "cls": "",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_chemical_map_html-desktop.png",
+        "AntibioticMech_pages_chemical_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        },
+        {
+          "id": "",
+          "cls": "activity-detail",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_antimycobacterial_d_cycloserine_html-desktop.png",
+        "AntibioticMech_pages_antimycobacterial_d_cycloserine_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "map-status",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_map_html-desktop.png",
+        "AntibioticMech_pages_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/sequence-map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [
+        {
+          "id": "seq-status",
+          "cls": "map-status",
+          "text": "Showing 132 of 132 proteins."
+        },
+        {
+          "id": "seq-search-count",
+          "cls": "",
+          "text": "132 matching proteins (25 listed)."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_sequence_map_html-desktop.png",
+        "AntibioticMech_pages_sequence_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/index.html": {
+      "status": 404,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(23, 21, 15)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "AntibioticMech_pages_antibacterial_index_html-desktop.png",
+        "AntibioticMech_pages_antibacterial_index_html-mobile.png"
+      ]
+    }
+  },
+  "actions": {
+    "initial": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    },
+    "search:CHEBI:2637": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "1 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "search:rifampicin": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=rifampicin",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "1 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "search:antibiotic": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=antibiotic",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "553 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "search:no-such-record-nov19-audit": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=no-such-record-nov19-audit",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "0 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "query_before_reload": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "1 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "query_after_reload": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?q=CHEBI%3A2637",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "1 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "query_clear": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    },
+    "sort:name-asc": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    },
+    "sort:name-desc": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=name-desc",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "3125 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "sort:class": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=class",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "3125 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "sort:structural": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=structural",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "3125 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "sort:status": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=status",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "3125 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "sort:grounding": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=grounding",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "3125 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "facet:#facet-class": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=grounding&class=antibacterial",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "1196 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "facet:#facet-grounding": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=grounding&class=antibacterial&grounding=EXACT",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "881 of 3125 compounds match (first 500 shown)."
+        }
+      ],
+      "error": null
+    },
+    "facet:#facet-status": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=grounding&class=antibacterial&grounding=EXACT&status=REVIEWED",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "102 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "facets_before_reload": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=grounding&class=antibacterial&grounding=EXACT&status=REVIEWED",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "102 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "facets_after_reload": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html?sort=grounding&class=antibacterial&grounding=EXACT&status=REVIEWED",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": "102 of 3125 compounds match."
+        }
+      ],
+      "error": null
+    },
+    "keyboard_reset": {
+      "url": "https://culturebotai.github.io/AntibioticMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "browse-count",
+          "cls": "meta",
+          "text": ""
+        }
+      ],
+      "error": null
+    }
+  },
+  "downloads": {
+    "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json": {
+      "bytes": 687133,
+      "sha256": "066ca0225600b0ed63f4a49379ac6104ab7d95cc86a0f71cdcef74430aec7cdc",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/AntibioticMech/audit-1/0b7dd0a6742a0cd1-browse-index.json"
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json": {
+      "bytes": 4383206,
+      "sha256": "556a0e4278e0c013118ff54f3b4068ca8ca9a05fd6ff5cec635359d0a23ffcd9",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/AntibioticMech/audit-1/be4c112e7dadda6c-chemical-structure-map.json"
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin/record-95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823.json.gz": {
+      "bytes": 16292,
+      "sha256": "95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/AntibioticMech/audit-1/7b7dc308730ef3db-record-95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823.json.gz"
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/record-c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc.json.gz": {
+      "bytes": 4158,
+      "sha256": "c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/AntibioticMech/audit-1/bbf8ed8ff39dc34f-record-c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc.json.gz"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "AntibioticMech_pages_antibacterial_amikacin_html-desktop.png",
+      "bytes": 126648,
+      "sha256": "a3881fd7a0a480a5695493fb6ff017ed59af612545e5a98a2f80ee0860263139"
+    },
+    {
+      "path": "AntibioticMech_pages_antibacterial_amikacin_html-mobile.png",
+      "bytes": 93685,
+      "sha256": "e39e841ac6ffde0215d133d4070d437b2e7dd01aced6aefcdbad602455f7e109"
+    },
+    {
+      "path": "AntibioticMech_pages_antibacterial_avibactam_html-desktop.png",
+      "bytes": 131736,
+      "sha256": "1b100fa20707e25a1126f3d4bafaa20f97c9cd33d7f0550d1f81dea600198d66"
+    },
+    {
+      "path": "AntibioticMech_pages_antibacterial_avibactam_html-mobile.png",
+      "bytes": 97946,
+      "sha256": "6a00381674f690bfb5bd358470c0ce3e07ae347889c63756f422abd78d752803"
+    },
+    {
+      "path": "AntibioticMech_pages_antibacterial_index_html-desktop.png",
+      "bytes": 146209,
+      "sha256": "d2b9b28f5017c0a3149ea17b71d7f5830a25199808d0a94bd19717c2bd5053f0"
+    },
+    {
+      "path": "AntibioticMech_pages_antibacterial_index_html-mobile.png",
+      "bytes": 115814,
+      "sha256": "974f3b50068c9cf5033a5656524998b9c6845992a6fe25b3371ea254e7d37220"
+    },
+    {
+      "path": "AntibioticMech_pages_antimycobacterial_d_cycloserine_html-desktop.png",
+      "bytes": 150920,
+      "sha256": "0b1139ee435e785edc6c7f497c0d824c17d1035368b1a51d9a121e4bb6a23b5b"
+    },
+    {
+      "path": "AntibioticMech_pages_antimycobacterial_d_cycloserine_html-mobile.png",
+      "bytes": 107575,
+      "sha256": "93b5c515c87078a23e743ee2b0d5666ad1165de880b86693722f946f15928591"
+    },
+    {
+      "path": "AntibioticMech_pages_browse_html-desktop.png",
+      "bytes": 180012,
+      "sha256": "192770a84e73163e96250b7fb8fdb7274ab4db26b67d489f52702fab1bd30e80"
+    },
+    {
+      "path": "AntibioticMech_pages_browse_html-mobile.png",
+      "bytes": 82474,
+      "sha256": "4cbd3853f8f78d4aeca209b42598b3d7df689864e720d4c085d71afedf6b3c52"
+    },
+    {
+      "path": "AntibioticMech_pages_chemical_map_html-desktop.png",
+      "bytes": 204080,
+      "sha256": "663784b49b2f3b56f67590a3590b93714c870cfe47707c69c33337fbbf1f9a0e"
+    },
+    {
+      "path": "AntibioticMech_pages_chemical_map_html-mobile.png",
+      "bytes": 99030,
+      "sha256": "c7b37ee5de4367a6516ffa984fcc58a88a4e71e8889cd736c28e65db40c02576"
+    },
+    {
+      "path": "AntibioticMech_pages_index_html-desktop.png",
+      "bytes": 245363,
+      "sha256": "e8b073402105df7fa47d8dfc449228f5a9981a5bc871ddb2ab454c497d8e713c"
+    },
+    {
+      "path": "AntibioticMech_pages_index_html-mobile.png",
+      "bytes": 153616,
+      "sha256": "0730d9ef8f7e6994c1d02c000d0333c36b30654ee620ebb2e452ec3c6950a60f"
+    },
+    {
+      "path": "AntibioticMech_pages_map_html-desktop.png",
+      "bytes": 127890,
+      "sha256": "5b5cde10cd47b9f42e3a38d107374d1217fe8d940ac63d491917993b4dc63993"
+    },
+    {
+      "path": "AntibioticMech_pages_map_html-mobile.png",
+      "bytes": 88258,
+      "sha256": "24c7840e566531c3a87c7c9dfdc821e6e5a9f51772920a8028e09441fd08be89"
+    },
+    {
+      "path": "AntibioticMech_pages_sequence_map_html-desktop.png",
+      "bytes": 189146,
+      "sha256": "ed79de4efd5f79a181a9a15f34c8e58985d8bd3c60a3e4df1456210a279b1407"
+    },
+    {
+      "path": "AntibioticMech_pages_sequence_map_html-mobile.png",
+      "bytes": 105272,
+      "sha256": "57c04d65d4f12ccebe3ce55c378b5edcabba82d9b7d2defbdbbd41abc74daa87"
+    }
+  ],
+  "limits": "Record rendering is sampled. Complete raw observations are losslessly archived; original raw JSON and screenshots remain retained locally and are not required to be committed. External 403/429 responses do not alone establish a broken citation or absent schema."
+}

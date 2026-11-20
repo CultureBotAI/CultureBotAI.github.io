@@ -1,0 +1,40 @@
+{
+  "mech": "CommunityMech",
+  "receipt": "_fleet/reviews/site-features-20261119/group-a/CommunityMech/audit-1/raw.json",
+  "receipt_sha256": "877ae3889c526ad884a92ed1e68e5d9745ac6959fcaee5a052013b0aa0bb2da9",
+  "deployed_revision": "6097f1ad3d47424b3cc092fc24cdb869aee5b539",
+  "downloads": {
+    "https://culturebotai.github.io/CommunityMech/communities.json": {
+      "body_sha256": "74b9a83ec236ddf60cedce677694d92babd38be713bb57fe27007f117a0a4048",
+      "arrays": {
+        "$": {
+          "rows": 512,
+          "fields": {
+            "id": {
+              "nonempty": 512,
+              "unique": 512,
+              "sha256": "9a28d1a27d1a72ec7903bc0220f69b3da2f3df15e4a87b5b27a1b53e89ffdead",
+              "samples": [
+                "Aalborg_East_Full_Scale_EBPR_Community",
+                "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture",
+                "Yolo_Silt_Loam_Soil_Dopamine_Amendment_Microcosm",
+                "Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism"
+              ]
+            },
+            "name": {
+              "nonempty": 512,
+              "unique": 512,
+              "sha256": "2eb8749a5530d837d71639ee9c2ba538faf76859bc263b06f32f8913b30f49cc",
+              "samples": [
+                "Aalborg East Full-Scale EBPR Activated Sludge Community",
+                "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture",
+                "Yolo Silt Loam Soil Dopamine Amendment Microcosm",
+                "Zymomonas-E. coli Exometabolomics-Designed Obligate Mutualism"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -48,6 +48,11 @@
   feature spot-check cannot redate the entire row. An entry without a published
   site cannot carry a website recheck. Adding these optional fields is a
   provenance assertion, not an automatic browser test or approval of a feature.
+  The November 19, 2026 full feature-only revalidation covers all sixteen published
+  corpus sites and moves the common feature baseline to that date; its retained
+  [observations, independent reviews and arbitration](reviews/site-features-20261119/README.md)
+  are separate from the unchanged corpus census and pins. EdgeMech's proposed
+  sample browser is tracked in its own PR and is not counted as published here.
 - `audit_notes.json` — hand-checked explanations of each source and its counted
   entities. PathwayMech records, DUFMech seed families, CofactorMech cofactors
   and AssayMech assays use the same pinned census, statistics and site-audit

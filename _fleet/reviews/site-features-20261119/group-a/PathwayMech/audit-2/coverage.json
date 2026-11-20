@@ -1,0 +1,66 @@
+{
+  "mech": "PathwayMech",
+  "receipt": "_fleet/reviews/site-features-20261119/group-a/PathwayMech/audit-2/raw.json",
+  "receipt_sha256": "070968fea386df71da2c928e029ee9414861e94bf36fad832d4a610d65075e24",
+  "deployed_revision": "d2f73822d650851193ce541d68c8ebd8ffac4907",
+  "downloads": {
+    "https://culturebotai.github.io/PathwayMech/pages/pathway_index.json": {
+      "body_sha256": "2c2a43f4d8d576353bdeb02d1783cbe8adac0f90cc4204d5918d411fc49c195a",
+      "arrays": {
+        "$.records": {
+          "rows": 283,
+          "fields": {
+            "id": {
+              "nonempty": 283,
+              "unique": 283,
+              "sha256": "e3755a2ed0311ec9e508d22ba7eec264127cf00a125ba284786f08a6f55ad1c9",
+              "samples": [
+                "GO:0010139",
+                "GO:0019270",
+                "gomodel:YeastPathways_YEAST-GALACT-METAB-PWY",
+                "gomodel:YeastPathways_YEAST-RNT-SALV"
+              ]
+            },
+            "label": {
+              "nonempty": 283,
+              "unique": 283,
+              "sha256": "90f89cce2b3f5f89e6f25a63c5c04f2cf904d72b33d7acf3b613e48f09727363",
+              "samples": [
+                "pyrimidine deoxyribonucleotide salvage",
+                "aerobactin biosynthetic process",
+                "galactose degradation",
+                "salvage pathways of pyrimidine ribonucleotides"
+              ]
+            },
+            "page": {
+              "nonempty": 283,
+              "unique": 283,
+              "sha256": "9bc5c4303d5ad8f592d218e6177ca9d56e17e7a10d62e293ff76b6eb7df4390e",
+              "samples": [
+                "records/GO_0010139.html",
+                "records/GO_0019270.html",
+                "records/gomodel_YeastPathways_YEAST-GALACT-METAB-PWY.html",
+                "records/gomodel_YeastPathways_YEAST-RNT-SALV.html"
+              ]
+            },
+            "url": {
+              "nonempty": 283,
+              "unique": 283,
+              "sha256": "1d8e2fb0a0d96933a991e178a1a312e418c15e056c5264a32cdc424843b8a270",
+              "samples": [
+                "https://culturebotai.github.io/PathwayMech/pages/records/GO_0010139.html",
+                "https://culturebotai.github.io/PathwayMech/pages/records/GO_0019270.html",
+                "https://culturebotai.github.io/PathwayMech/pages/records/gomodel_YeastPathways_YEAST-GALACT-METAB-PWY.html",
+                "https://culturebotai.github.io/PathwayMech/pages/records/gomodel_YeastPathways_YEAST-RNT-SALV.html"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json": {
+      "body_sha256": "e9a4819e67ef45c2d94d237757c044350c99f2dd19e4c159174fa7ba68844562",
+      "arrays": {}
+    }
+  }
+}

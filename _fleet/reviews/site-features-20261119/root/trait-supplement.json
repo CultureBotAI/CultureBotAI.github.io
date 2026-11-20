@@ -1,0 +1,187 @@
+{
+  "mech": "TraitMech",
+  "observed_at": "2026-11-20T04:35:50.704982+00:00",
+  "deployment_before": {
+    "id": 7924781046,
+    "sha": "1db07d7456e55572546e2215fed19b0b870f911b",
+    "created_at": "2026-11-19T20:21:01Z",
+    "state": "success",
+    "status_created_at": "2026-11-19T20:21:26Z",
+    "http_status": 200,
+    "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+    "last_modified": "Thu, 19 Nov 2026 20:21:16 GMT",
+    "github_request_id": "C49E:20F40C:181A2E:19E581:6AFFCCFF"
+  },
+  "deployment_after": {
+    "id": 7924781046,
+    "sha": "1db07d7456e55572546e2215fed19b0b870f911b",
+    "created_at": "2026-11-19T20:21:01Z",
+    "state": "success",
+    "status_created_at": "2026-11-19T20:21:26Z",
+    "http_status": 200,
+    "url": "https://culturebotai.github.io/TraitMech/pages/index.html",
+    "last_modified": "Thu, 19 Nov 2026 20:21:16 GMT",
+    "github_request_id": "C49E:20F40C:181A2E:19E581:6AFFCCFF"
+  },
+  "downloads_and_links": [
+    {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/records/WikiPathways_WP5019.html",
+      "status": 200,
+      "final_url": "https://culturebotai.github.io/PathwayMech/pages/records/WikiPathways_WP5019.html",
+      "bytes": 155980,
+      "sha256": "6e14142b21bed7970e8893fc729133b425e43380bebe304a90073cf77aa6c68b"
+    },
+    {
+      "url": "https://culturebotai.github.io/TraitMech/pages/data/corpus_map.json",
+      "status": 200,
+      "final_url": "https://culturebotai.github.io/TraitMech/pages/data/corpus_map.json",
+      "bytes": 341422,
+      "sha256": "91465116aff9dbb93a8853b54ec3d92920716c063df043b4992c744dbbac02e6",
+      "top_type": "dict",
+      "keys": [
+        "method",
+        "model",
+        "n",
+        "corpus_fingerprint",
+        "classes",
+        "generated_from",
+        "hrefs",
+        "points"
+      ],
+      "list_counts": {
+        "classes": 10,
+        "points": 1130
+      },
+      "first_record_keys": {
+        "points": [
+          "category",
+          "class",
+          "classIdx",
+          "href",
+          "id",
+          "label",
+          "taxon",
+          "term_kind",
+          "x",
+          "y"
+        ]
+      }
+    },
+    {
+      "url": "https://culturebotai.github.io/TraitMech/pages/data/sequence_map.json",
+      "status": 200,
+      "final_url": "https://culturebotai.github.io/TraitMech/pages/data/sequence_map.json",
+      "bytes": 150161,
+      "sha256": "fed59100d7ed4330e22d6069fa634a92ef0e311aca03b8b48b59e9b6ab915eb1",
+      "top_type": "dict",
+      "keys": [
+        "method",
+        "model",
+        "dim",
+        "pooling",
+        "max_length",
+        "n",
+        "n_traits_covered",
+        "classes",
+        "generated_from",
+        "points"
+      ],
+      "list_counts": {
+        "classes": 6,
+        "points": 156
+      },
+      "first_record_keys": {
+        "points": [
+          "accession",
+          "class",
+          "classIdx",
+          "gene_symbol",
+          "label",
+          "length",
+          "n_traits",
+          "organism",
+          "primary_category",
+          "primary_href",
+          "primary_trait",
+          "protein_id",
+          "protein_label",
+          "records",
+          "relations",
+          "roles",
+          "seq_len",
+          "taxon_label",
+          "uniprot_id",
+          "uniprot_url",
+          "x",
+          "y"
+        ]
+      }
+    },
+    {
+      "url": "https://culturebotai.github.io/TraitMech/pages/data/trait_graph.json",
+      "status": 200,
+      "final_url": "https://culturebotai.github.io/TraitMech/pages/data/trait_graph.json",
+      "bytes": 230650,
+      "sha256": "bdd3ee3c4f3db4e6b73aa25d87da7dfeb179d056154e491a7abc3d643c6847d8",
+      "top_type": "list",
+      "rows": 1130,
+      "first_record_keys": [
+        "category",
+        "id",
+        "label",
+        "match_method",
+        "umap_x",
+        "umap_y"
+      ]
+    },
+    {
+      "url": "https://culturebotai.github.io/TraitMech/pages/data/trait_umap.json",
+      "status": 200,
+      "final_url": "https://culturebotai.github.io/TraitMech/pages/data/trait_umap.json",
+      "bytes": 231306,
+      "sha256": "14e7b5ac0fda14a5b57f7370765722e00537d3b6594be0ec8c8e08b0d74da9cc",
+      "top_type": "list",
+      "rows": 1130,
+      "first_record_keys": [
+        "category",
+        "id",
+        "label",
+        "match_method",
+        "umap_x",
+        "umap_y"
+      ]
+    },
+    {
+      "url": "https://culturebotai.github.io/TraitMech/pages/data/traits.json",
+      "status": 200,
+      "final_url": "https://culturebotai.github.io/TraitMech/pages/data/traits.json",
+      "bytes": 14009980,
+      "sha256": "a026242314eaea54ae8a1a74d6cf08f4b610cbe2e49f250930e3751115a83693",
+      "top_type": "list",
+      "rows": 1130,
+      "first_record_keys": [
+        "canonical_examples",
+        "causal_graphs",
+        "curation_history",
+        "definition",
+        "definition_source",
+        "discussions",
+        "evidence",
+        "identifier",
+        "label",
+        "mapping_status",
+        "parent_traits",
+        "term_kind",
+        "trait_category"
+      ]
+    },
+    {
+      "url": "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/schema/traitmech.yaml",
+      "status": 200,
+      "final_url": "https://github.com/CultureBotAI/TraitMech/blob/main/src/traitmech/schema/traitmech.yaml",
+      "bytes": 503332,
+      "sha256": "d888d743a540fc797e53f9d5b7136b9389c82a593cddaa495c861880580200a8"
+    }
+  ],
+  "complete": true
+}
