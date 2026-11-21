@@ -1,0 +1,55 @@
+{
+  "mech": "TaxonMech",
+  "receipt": "_fleet/reviews/site-features-20261119/group-a/TaxonMech/audit-1/raw.json",
+  "receipt_sha256": "400ea6881acedcd65e295eddd16dc38e65d983d34d2e0906d216d91af7df9951",
+  "deployed_revision": "112cd752949da0fbb18cdfdeb1663b5dc5514c8f",
+  "downloads": {
+    "https://culturebotai.github.io/TaxonMech/pages/index.json.gz": {
+      "body_sha256": "ed283ae2b34a61197af783e51b0a20147be656649f14394e62615577e62677df",
+      "arrays": {
+        "$": {
+          "rows": 626048,
+          "fields": {
+            "identifier": {
+              "nonempty": 626048,
+              "unique": 626048,
+              "sha256": "82eda402ce01914919986be95b39faa9936a45deba53b215aa0da5ede8207e4d",
+              "samples": [
+                "NCBITaxon:3879924",
+                "NCBITaxon:3693715",
+                "NCBITaxon:155900",
+                "NCBITaxon:32644"
+              ]
+            },
+            "label": {
+              "nonempty": 626048,
+              "unique": 626037,
+              "sha256": "b2fbb81d1300cd2178b52ddc0133914d1529ad8a8fd2767bfac06bb04280c2ab",
+              "samples": [
+                "Abyssiniarchaeum dallolvicinus (SeqCode)",
+                "Acidarchaeum fankouense (SeqCode)",
+                "uncultured organism",
+                "unidentified"
+              ]
+            },
+            "page": {
+              "nonempty": 626048,
+              "unique": 626048,
+              "sha256": "bdfdec0ebc996912e98e1672fc6e5d73a8db2a3f55a7aed0e622b4111344eb37",
+              "samples": [
+                "taxon.html?id=NCBITaxon:3879924",
+                "taxon.html?id=NCBITaxon:3693715",
+                "taxon.html?id=NCBITaxon:155900",
+                "taxon.html?id=NCBITaxon:32644"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/TaxonMech/pages/index.json": {
+      "body_sha256": "ba5730d988ab586aa7b7f02d3dbd9bf86d6e67fc5d837e475c9665cc5a649d24",
+      "arrays": {}
+    }
+  }
+}

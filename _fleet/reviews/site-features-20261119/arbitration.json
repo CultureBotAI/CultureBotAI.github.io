@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-19",
+  "arbiter": "root editor, after separate auditor and skeptic passes",
+  "overrides": [
+    {
+      "mech": "TaxonMech",
+      "feature": "cross_mech_links",
+      "auditor_status": "partial",
+      "final_status": "missing",
+      "final_note": "The three sampled taxon detail pages offer generic sibling-browser searches and home links, but do not identify or link specific related records in sibling Mechs or kg-microbe.",
+      "reason": "Apply the same specific-record criterion as AIMech and CMMMech. Generic searches alone do not qualify for partial, regardless of whether their routes work.",
+      "evidence": "_fleet/reviews/site-features-20261119/group-a/TaxonMech/audit-1/raw.json.gz#/pages",
+      "issue": "https://github.com/CultureBotAI/CultureBotAI.github.io/issues/628"
+    },
+    {
+      "mech": "HabitatMech",
+      "feature": "cross_mech_links",
+      "auditor_status": "partial",
+      "final_status": "partial",
+      "final_note": "Marine sediment's Associated taxa table names specific taxa and NCBITaxon IDs beside TaxonMech search links, rather than direct links to the corresponding individual taxon records.",
+      "reason": "Named related records with search-only handoffs support partial; unrelated generic Explore failures are not the evidence for this criterion. Table anchors are retained in desktop.links, not all_links.",
+      "evidence": "_fleet/reviews/site-features-20261119/group-a/HabitatMech/audit-3/raw.json.gz#/pages/https:~1~1culturebotai.github.io~1HabitatMech~1pages~1habitats~1marine-sediment-envo-03000033.html/desktop/links",
+      "issue": "https://github.com/CultureBotAI/CultureBotAI.github.io/issues/628"
+    },
+    {
+      "mech": "PathwayMech",
+      "feature": "theme_toggle",
+      "auditor_status": "present",
+      "final_status": "partial",
+      "final_note": "The manual dark choice persists in storage and the theme attribute, but the body remains light under a light OS preference. Manual rules update different CSS variables from those used by body text/background, producing mixed light and dark regions across the sampled pages.",
+      "reason": "Computed styles and the sequence-map screenshot contradict the initial attribute-only inference. A saved theme must also apply visually.",
+      "issue": "https://github.com/CultureBotAI/PathwayMech/issues/809"
+    },
+    {
+      "mech": "AntibioticMech",
+      "feature": "cross_mech_links",
+      "auditor_status": "partial",
+      "final_status": "present",
+      "final_note": "D-cycloserine links directly to the specific PathwayMech WikiPathways:WP5060 record, which returns HTTP 200. Generic Explore searches are distinct from these specific-record relationships; their broken MediaIngredientMech route is tracked separately.",
+      "reason": "Apply the specific-record criterion consistently with CultureMech, MediaIngredientMech and NaturalProductMech. A generic name search is not a specific-record relationship. The concrete exploration defect remains filed.",
+      "issue": "https://github.com/CultureBotAI/AntibioticMech/issues/1374"
+    },
+    {
+      "mech": "CellStructureMech",
+      "feature": "domain_view",
+      "auditor_status": "present",
+      "final_status": "present",
+      "final_note": "The text map renders all 1,022 structures. The sequence map renders 469 proteins associated with 140 structures; its populated context links the associated structure record.",
+      "reason": "A canvas-centre click did not change the default selection, so it does not establish a successful point activation. Retain the observed visualization and linked-context claim only.",
+      "issue": "https://github.com/CultureBotAI/CultureBotAI.github.io/issues/626"
+    }
+  ],
+  "root_proposal_corrections": [
+    {
+      "mech": "TraitMech",
+      "feature": "license",
+      "final_status": "partial",
+      "reason": "The linked discussion index lacks project data/code licence notices; apply the same linked-page coverage rule as HabitatMech and MediaIngredientMech.",
+      "issue": "https://github.com/CultureBotAI/TraitMech/issues/2098"
+    },
+    {
+      "mech": "TraitMech",
+      "features": ["term_links", "cross_mech_links", "build_provenance"],
+      "reason": "Point evidence at the actual aerobic-respiration and Wood-Ljungdahl source pages and the captured landing/Browse/map footers. The correct observations already existed; statuses do not change.",
+      "issue": "https://github.com/CultureBotAI/CultureBotAI.github.io/issues/626"
+    }
+  ]
+}

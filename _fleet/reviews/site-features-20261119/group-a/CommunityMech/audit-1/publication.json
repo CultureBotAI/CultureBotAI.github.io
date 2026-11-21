@@ -1,0 +1,719 @@
+{
+  "mech": "CommunityMech",
+  "started_at": "2026-11-20T04:30:45.197288+00:00",
+  "finished_at": "2026-11-20T04:32:03.394940+00:00",
+  "deployment_before": {
+    "id": 7797876073,
+    "sha": "6097f1ad3d47424b3cc092fc24cdb869aee5b539",
+    "created_at": "2026-11-15T03:22:10Z",
+    "state": "success",
+    "status_created_at": "2026-11-15T03:22:37Z",
+    "log_url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/43672045830/job/132684014587",
+    "site": "https://culturebotai.github.io/CommunityMech/",
+    "http_status": 200,
+    "last_modified": "Sun, 15 Nov 2026 03:22:31 GMT",
+    "verified": true
+  },
+  "deployment_after": {
+    "id": 7797876073,
+    "sha": "6097f1ad3d47424b3cc092fc24cdb869aee5b539",
+    "created_at": "2026-11-15T03:22:10Z",
+    "state": "success",
+    "status_created_at": "2026-11-15T03:22:37Z",
+    "log_url": "https://github.com/CultureBotAI/CommunityMech/actions/runs/43672045830/job/132684014587",
+    "site": "https://culturebotai.github.io/CommunityMech/",
+    "http_status": 200,
+    "last_modified": "Sun, 15 Nov 2026 03:22:31 GMT",
+    "verified": true
+  },
+  "deployment_stable": true,
+  "archives": [
+    {
+      "source": "raw.json",
+      "source_bytes": 10841740,
+      "source_sha256": "877ae3889c526ad884a92ed1e68e5d9745ac6959fcaee5a052013b0aa0bb2da9",
+      "archive": "raw.json.gz",
+      "archive_bytes": 2232091,
+      "archive_sha256": "3647b0153f011e36b44c9ecddabbb0a6e35da8241a925cd77e823aaa370843d7"
+    },
+    {
+      "source": "followup-1.json",
+      "source_bytes": 769499,
+      "source_sha256": "2c0c46cf6f7ad7266aa6d17a25deccda21b53312e5d89d81828ddfbf68176e48",
+      "archive": "followup-1.json.gz",
+      "archive_bytes": 156088,
+      "archive_sha256": "2cbe973de90e6e638a421446d64bc649f66abfc9b463712095367f657128e00a"
+    }
+  ],
+  "pages": {
+    "https://culturebotai.github.io/CommunityMech/": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "512\nCOMMUNITIES"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "16\nCATEGORIES"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "384-D\nTEXT EMBEDDINGS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "512-D\nV3 EMBEDDINGS"
+        },
+        {
+          "id": "",
+          "cls": "stat",
+          "text": "1280-D\nESM-2 SEQUENCES"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech-desktop.png",
+        "CommunityMech-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/browser.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_browser_html-desktop.png",
+        "CommunityMech_browser_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/communities/ANME_SRB_Marine_Methane_Seep_Consortium.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "network-status",
+          "cls": "",
+          "text": "The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction."
+        },
+        {
+          "id": "network-tooltip",
+          "cls": "network-tooltip",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_communities_ANME_SRB_Marine_Methane_Seep_Consortium_html-desktop.png",
+        "CommunityMech_communities_ANME_SRB_Marine_Methane_Seep_Consortium_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/communities/Aalborg_East_Full_Scale_EBPR_Community.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "network-status",
+          "cls": "",
+          "text": "The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction."
+        },
+        {
+          "id": "network-tooltip",
+          "cls": "network-tooltip",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_communities_Aalborg_East_Full_Scale_EBPR_Community_html-desktop.png",
+        "CommunityMech_communities_Aalborg_East_Full_Scale_EBPR_Community_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/communities/Alseth_FourSpecies_Pathogen_Phage_Community.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "network-status",
+          "cls": "",
+          "text": "The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction."
+        },
+        {
+          "id": "network-tooltip",
+          "cls": "network-tooltip",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_communities_Alseth_FourSpecies_Pathogen_Phage_Community_html-desktop.png",
+        "CommunityMech_communities_Alseth_FourSpecies_Pathogen_Phage_Community_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/community_umap.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "322"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_community_umap_html-desktop.png",
+        "CommunityMech_community_umap_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/communities/Copper_Biomining_Heap_Leach.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "network-status",
+          "cls": "",
+          "text": "The graph shows only explicitly linked interaction participants. Community members without an asserted participant link are omitted; membership alone does not imply an interaction."
+        },
+        {
+          "id": "network-tooltip",
+          "cls": "network-tooltip",
+          "text": ""
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_communities_Copper_Biomining_Heap_Leach_html-desktop.png",
+        "CommunityMech_communities_Copper_Biomining_Heap_Leach_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/schema.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 1321,
+      "resized_width": 1321,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgba(0, 0, 0, 0)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_schema_html-desktop.png",
+        "CommunityMech_schema_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/text_map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": null,
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "status-count",
+          "cls": "",
+          "text": "Showing 458 of 458"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_text_map_html-desktop.png",
+        "CommunityMech_text_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/sequence_map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": null,
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "status-count",
+          "cls": "",
+          "text": "Showing 27 of 27"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_sequence_map_html-desktop.png",
+        "CommunityMech_sequence_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/CommunityMech/community_graph.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(16, 20, 32)",
+      "counts": [
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "292"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "CommunityMech_community_graph_html-desktop.png",
+        "CommunityMech_community_graph_html-mobile.png"
+      ]
+    }
+  },
+  "actions": {
+    "initial": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "search:CommunityMech:000134": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000134",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 0 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "0"
+        }
+      ],
+      "error": null
+    },
+    "search:CommunityMech:000139": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000139",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 0 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "0"
+        }
+      ],
+      "error": null
+    },
+    "search:ANME-SRB Marine Methane Seep Consortium": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=ANME-SRB+Marine+Methane+Seep+Consortium",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 1 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "1"
+        }
+      ],
+      "error": null
+    },
+    "search:no-such-record-nov19-audit": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=no-such-record-nov19-audit",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 0 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "0"
+        }
+      ],
+      "error": null
+    },
+    "query_before_reload": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000134",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 0 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "0"
+        }
+      ],
+      "error": null
+    },
+    "query_after_reload": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?q=CommunityMech%3A000134",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 0 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "0"
+        }
+      ],
+      "error": null
+    },
+    "query_clear": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "sort:name-asc": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "sort:name-desc": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=name-desc",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "sort:members-desc": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=members-desc",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "sort:members-asc": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=members-asc",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "sort:category-asc": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    },
+    "facet:first_checkbox": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc&category=BIOTECHNOLOGY",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 99 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "99"
+        }
+      ],
+      "error": null
+    },
+    "facets_before_reload": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc&category=BIOTECHNOLOGY",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 99 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "99"
+        }
+      ],
+      "error": null
+    },
+    "facets_after_reload": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html?sort=category-asc&category=BIOTECHNOLOGY",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 99 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "99"
+        }
+      ],
+      "error": null
+    },
+    "keyboard_reset": {
+      "url": "https://culturebotai.github.io/CommunityMech/browser.html",
+      "counts": [
+        {
+          "id": "",
+          "cls": "search-results-count",
+          "text": "Showing 512 of 512 communities"
+        },
+        {
+          "id": "results-count",
+          "cls": "",
+          "text": "512"
+        }
+      ],
+      "error": null
+    }
+  },
+  "downloads": {
+    "https://culturebotai.github.io/CommunityMech/communities.json": {
+      "bytes": 517912,
+      "sha256": "74b9a83ec236ddf60cedce677694d92babd38be713bb57fe27007f117a0a4048",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/CommunityMech/audit-1/78bdcf3a3d5c9800-communities.json"
+    },
+    "https://culturebotai.github.io/CommunityMech/communities.tsv": {
+      "bytes": 401169,
+      "sha256": "3c37139f7354e20c0a6418b275a584c05ec87f8a97a627cef8722f05b7a0f2ed",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/CommunityMech/audit-1/2585fa4cc9d2fafe-communities.tsv"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "CommunityMech-desktop.png",
+      "bytes": 213314,
+      "sha256": "3e6a7fb11160b0f55064a79651812cb84dc468488c69a909ee673f4f61bf0323"
+    },
+    {
+      "path": "CommunityMech-mobile.png",
+      "bytes": 115665,
+      "sha256": "ac4700c622c873c2480f57fe3ab08528e053b3c9a72377839242e8c145d787b2"
+    },
+    {
+      "path": "CommunityMech_browser_html-desktop.png",
+      "bytes": 213523,
+      "sha256": "5c25febca4a748e30c505fa4fd945eefde37966b669963ce9d9c207e7d2bf661"
+    },
+    {
+      "path": "CommunityMech_browser_html-mobile.png",
+      "bytes": 85052,
+      "sha256": "74e6fb15aa190d4b2986a283084236d1e4983b8d919e54c01f488cf118ebd632"
+    },
+    {
+      "path": "CommunityMech_communities_ANME_SRB_Marine_Methane_Seep_Consortium_html-desktop.png",
+      "bytes": 178556,
+      "sha256": "e1c15b1dfa0d0581e79380789b69ab2b1a5c17c7decf38b223b0814d34f8b561"
+    },
+    {
+      "path": "CommunityMech_communities_ANME_SRB_Marine_Methane_Seep_Consortium_html-mobile.png",
+      "bytes": 87812,
+      "sha256": "602ce0088789d27c1f7e43c7c6ed7f6ba2799e839c0fe7f03040f9d8e782ea87"
+    },
+    {
+      "path": "CommunityMech_communities_Aalborg_East_Full_Scale_EBPR_Community_html-desktop.png",
+      "bytes": 182967,
+      "sha256": "b72f48e3e0a8c73d2ed45a1df80f9e3bc5a62f5c967d541735ddf7f6ab621796"
+    },
+    {
+      "path": "CommunityMech_communities_Aalborg_East_Full_Scale_EBPR_Community_html-mobile.png",
+      "bytes": 93417,
+      "sha256": "73abe4d9a9d5e014d69345b9d56d3441b8610eb363c15de8bc775d863f19c9f4"
+    },
+    {
+      "path": "CommunityMech_communities_Alseth_FourSpecies_Pathogen_Phage_Community_html-desktop.png",
+      "bytes": 257114,
+      "sha256": "8ef87cafcfe362c10e4ed530c08b26d34bb75dc62936c4b845aede83344313f2"
+    },
+    {
+      "path": "CommunityMech_communities_Alseth_FourSpecies_Pathogen_Phage_Community_html-mobile.png",
+      "bytes": 92731,
+      "sha256": "1eca762540276f4d8bf5fd6ddf841b2588d45dc0b4608644c3c4cc1b44283578"
+    },
+    {
+      "path": "CommunityMech_communities_Copper_Biomining_Heap_Leach_html-desktop.png",
+      "bytes": 216754,
+      "sha256": "599bf2c5abca820ca0b24493760f4b90b019afa752ae887676ecfcdf6d1233d4"
+    },
+    {
+      "path": "CommunityMech_communities_Copper_Biomining_Heap_Leach_html-mobile.png",
+      "bytes": 84518,
+      "sha256": "823aa664600b0bc54fc01f9ddbdde7bbd948e18c924155e79182353eb4e6c587"
+    },
+    {
+      "path": "CommunityMech_community_graph_html-desktop.png",
+      "bytes": 154445,
+      "sha256": "353ee55d79241bb440011ea9b2753726032f4ec28f0e80520e42168516fb5179"
+    },
+    {
+      "path": "CommunityMech_community_graph_html-mobile.png",
+      "bytes": 87123,
+      "sha256": "aac6d07e5e9ef4926da3be175c39651f9dcadc3e140cf33adfe78804918dc0c4"
+    },
+    {
+      "path": "CommunityMech_community_umap_html-desktop.png",
+      "bytes": 151185,
+      "sha256": "f45acfb67ab1a3375597186e9420c10e131f5366c2523be040958d6f3896364a"
+    },
+    {
+      "path": "CommunityMech_community_umap_html-mobile.png",
+      "bytes": 85125,
+      "sha256": "1e5aa643d658c859503e528ad2f78a37dd771c19cef00ab5ab72169fe31e666e"
+    },
+    {
+      "path": "CommunityMech_schema_html-desktop.png",
+      "bytes": 123280,
+      "sha256": "a7cc6443ad5291d29da7994fa00edbdf7d17444b4069788e18dac5f7272e6c97"
+    },
+    {
+      "path": "CommunityMech_schema_html-mobile.png",
+      "bytes": 49924,
+      "sha256": "f818db2f9f8d239fc6e8f4bf168ba9cf95b2d045d2e45e612d125265071adcbf"
+    },
+    {
+      "path": "CommunityMech_sequence_map_html-desktop.png",
+      "bytes": 311603,
+      "sha256": "8b7e005f4b882af781fe3e08514849b701d0043d00e643b205442207a1aeb758"
+    },
+    {
+      "path": "CommunityMech_sequence_map_html-mobile.png",
+      "bytes": 107201,
+      "sha256": "a64ea2cca52ac2b206eedfd2b9d1236902fd4f3f394e1ee665353cb7085329c1"
+    },
+    {
+      "path": "CommunityMech_text_map_html-desktop.png",
+      "bytes": 427961,
+      "sha256": "483472344337e1db4eae2b2bd98df150b245e7af751ef34b0357173b896288b0"
+    },
+    {
+      "path": "CommunityMech_text_map_html-mobile.png",
+      "bytes": 98556,
+      "sha256": "be34516411a886a7ca7939c3658451e2226a5b3045efa0fb03ffde61501f15e3"
+    }
+  ],
+  "limits": "Record rendering is sampled. Complete raw observations are losslessly archived; original raw JSON and screenshots remain retained locally and are not required to be committed. External 403/429 responses do not alone establish a broken citation or absent schema."
+}

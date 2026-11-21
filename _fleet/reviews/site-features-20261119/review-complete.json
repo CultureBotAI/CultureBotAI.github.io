@@ -1,0 +1,24 @@
+{
+  "checked_on": "2026-11-19",
+  "timezone": "America/Los_Angeles",
+  "all_384_verdicts_reviewed": true,
+  "cross_column_review_complete": true,
+  "assignments": [
+    {"auditor": "Group A", "skeptic": "Group B", "sites": 6, "verdicts": 144},
+    {"auditor": "Group B", "skeptic": "root", "sites": 6, "verdicts": 144},
+    {"auditor": "root: TraitMech and AIMech", "skeptic": "Group A", "sites": 2, "verdicts": 48},
+    {"auditor": "root: CofactorMech and AssayMech", "skeptic": "Group B", "sites": 2, "verdicts": 48}
+  ],
+  "review_records": [
+    "_fleet/reviews/site-features-20261119/group-b/group-a-skeptic.md",
+    "_fleet/reviews/site-features-20261119/root/group-b-skeptic.md",
+    "_fleet/reviews/site-features-20261119/group-a/root-skeptic.md",
+    "_fleet/reviews/site-features-20261119/group-b/root-cofactor-assay-skeptic.md",
+    "_fleet/reviews/site-features-20261119/cross-column-review.md",
+    "_fleet/reviews/site-features-20261119/arbitration.json",
+    "_fleet/reviews/site-features-20261119/pr-review.md"
+  ],
+  "method": "Separate read-only skeptical passes, followed by recorded corrections and root arbitration. This record summarizes completed reviews; it does not generate reviewer judgments automatically.",
+  "remaining_upstream_defects": "Filed and reflected in ratings; this PR updates the audit, not the upstream browsers.",
+  "edge_browser": "Separate EdgeMech PR 225; not yet published or rated in this matrix."
+}

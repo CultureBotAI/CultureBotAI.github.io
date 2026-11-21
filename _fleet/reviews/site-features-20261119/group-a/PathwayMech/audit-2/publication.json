@@ -1,0 +1,520 @@
+{
+  "mech": "PathwayMech",
+  "started_at": "2026-11-20T04:34:45.162074+00:00",
+  "finished_at": "2026-11-20T04:35:53.250304+00:00",
+  "deployment_before": {
+    "id": 7845573945,
+    "sha": "d2f73822d650851193ce541d68c8ebd8ffac4907",
+    "created_at": "2026-11-17T06:03:13Z",
+    "state": "success",
+    "status_created_at": "2026-11-17T06:05:14Z",
+    "log_url": "https://github.com/CultureBotAI/PathwayMech/actions/runs/44028344260/job/133854061189",
+    "site": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Tue, 17 Nov 2026 06:05:07 GMT",
+    "verified": true
+  },
+  "deployment_after": {
+    "id": 7845573945,
+    "sha": "d2f73822d650851193ce541d68c8ebd8ffac4907",
+    "created_at": "2026-11-17T06:03:13Z",
+    "state": "success",
+    "status_created_at": "2026-11-17T06:05:14Z",
+    "log_url": "https://github.com/CultureBotAI/PathwayMech/actions/runs/44028344260/job/133854061189",
+    "site": "https://culturebotai.github.io/PathwayMech/pages/index.html",
+    "http_status": 200,
+    "last_modified": "Tue, 17 Nov 2026 06:05:07 GMT",
+    "verified": true
+  },
+  "deployment_stable": true,
+  "archives": [
+    {
+      "source": "raw.json",
+      "source_bytes": 6136900,
+      "source_sha256": "070968fea386df71da2c928e029ee9414861e94bf36fad832d4a610d65075e24",
+      "archive": "raw.json.gz",
+      "archive_bytes": 672637,
+      "archive_sha256": "c393ead7d810fc9088d39deb12b1f38f847366beab2ce03a29d8b06db8d9df6d"
+    }
+  ],
+  "pages": {
+    "https://culturebotai.github.io/PathwayMech/pages/index.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_index_html-desktop.png",
+        "PathwayMech_pages_index_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/browse.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_browse_html-desktop.png",
+        "PathwayMech_pages_browse_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=glycolysis": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "1 of 283 pathways match"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_browse_htmlq_glycolysis-desktop.png",
+        "PathwayMech_pages_browse_htmlq_glycolysis-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/records/MetaCyc_PWY-6543.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "graph-status",
+          "text": "16 nodes \u00b7 16 relationships \u00b7 59% size."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_records_MetaCyc_PWY_6543_html-desktop.png",
+        "PathwayMech_pages_records_MetaCyc_PWY_6543_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/records/GO_0036040.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "graph-status",
+          "text": "12 nodes \u00b7 17 relationships \u00b7 48% size."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_records_GO_0036040_html-desktop.png",
+        "PathwayMech_pages_records_GO_0036040_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "map-status",
+          "cls": "facet-status",
+          "text": "270 of 270 pathways visible"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_map_html-desktop.png",
+        "PathwayMech_pages_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/sequence-map.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "seq-status",
+          "cls": "facet-status",
+          "text": "216 of 216 pathway centroids visible"
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_sequence_map_html-desktop.png",
+        "PathwayMech_pages_sequence_map_html-mobile.png"
+      ]
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/records/MIBiG_BGC0000194.html": {
+      "status": 200,
+      "error": null,
+      "fresh_width": 390,
+      "resized_width": 390,
+      "theme": "dark",
+      "saved_theme": "dark",
+      "background": "rgb(248, 250, 252)",
+      "counts": [
+        {
+          "id": "",
+          "cls": "graph-status",
+          "text": "4 nodes \u00b7 3 relationships \u00b7 100% size."
+        }
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "PathwayMech_pages_records_MIBiG_BGC0000194_html-desktop.png",
+        "PathwayMech_pages_records_MIBiG_BGC0000194_html-mobile.png"
+      ]
+    }
+  },
+  "actions": {
+    "initial": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "search:MetaCyc:PWY-6543": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=MetaCyc%3APWY-6543",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "1 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "search:trehalose": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=trehalose",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "3 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "search:no-such-record-nov19-audit": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=no-such-record-nov19-audit",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "0 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "query_before_reload": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=MetaCyc%3APWY-6543",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "1 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "query_after_reload": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?q=MetaCyc%3APWY-6543",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "1 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "query_clear": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "sort:label-asc": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "sort:label-desc": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=label-desc",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "sort:edges-desc": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=edges-desc",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "sort:edges-asc": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=edges-asc",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "sort:id-asc": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=id-asc",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "sort:type-asc": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=type-asc",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "facet:#pathway-type": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=type-asc&type=10+mechanistic+edges",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "1 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "facet:#pathway-taxon": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=type-asc&type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "0 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "facet:#pathway-grounding": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=type-asc&type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C&grounding=protein-grounded",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "0 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "facets_before_reload": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=type-asc&type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C&grounding=protein-grounded",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "0 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "facets_after_reload": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html?sort=type-asc&type=10+mechanistic+edges&taxon=Saccharomyces+cerevisiae+S288C&grounding=protein-grounded",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "0 of 283 pathways match"
+        }
+      ],
+      "error": null
+    },
+    "keyboard_reset": {
+      "url": "https://culturebotai.github.io/PathwayMech/pages/browse.html",
+      "counts": [
+        {
+          "id": "pathway-status",
+          "cls": "facet-status",
+          "text": "283 of 283 pathways match"
+        }
+      ],
+      "error": null
+    }
+  },
+  "downloads": {
+    "https://culturebotai.github.io/PathwayMech/pages/downloads/nodes.tsv": {
+      "bytes": 2612841,
+      "sha256": "7bad25d446e7abd770845af3d734d2e14981d6f2920383a69690282a79b8adb5",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/PathwayMech/audit-2/66d7b8b675b6b805-nodes.tsv"
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/downloads/edges.tsv": {
+      "bytes": 20081474,
+      "sha256": "c437a8daf28a98bf30fa0e6d6c263b8a4b8b495def11d249c5bdfbe81f9d6273",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/PathwayMech/audit-2/5cff2ba05ded8750-edges.tsv"
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/pathway_index.json": {
+      "bytes": 337484,
+      "sha256": "2c2a43f4d8d576353bdeb02d1783cbe8adac0f90cc4204d5918d411fc49c195a",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/PathwayMech/audit-2/5c40b44866d8076f-pathway_index.json"
+    },
+    "https://culturebotai.github.io/PathwayMech/pages/downloads/manifest.json": {
+      "bytes": 508,
+      "sha256": "e9a4819e67ef45c2d94d237757c044350c99f2dd19e4c159174fa7ba68844562",
+      "retained_body": ".temp/site-feature-audit-20261119/group-a/PathwayMech/audit-2/2c13b5040e6b2522-manifest.json"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "PathwayMech_pages_browse_html-desktop.png",
+      "bytes": 130818,
+      "sha256": "76584f7faa011c6d6027ea7b5db8a7166bb5a846a76be8a40172c2e699a35f85"
+    },
+    {
+      "path": "PathwayMech_pages_browse_html-mobile.png",
+      "bytes": 58111,
+      "sha256": "faaa38c04f51ebe2fe582c1df1a625b855b63d60a0fb592b4d6fc6a4477bef31"
+    },
+    {
+      "path": "PathwayMech_pages_browse_htmlq_glycolysis-desktop.png",
+      "bytes": 80561,
+      "sha256": "1885a3c7e082a66eee7e8f82e0029d64fa9bb82928cbed9a704abe3b4f56c3d4"
+    },
+    {
+      "path": "PathwayMech_pages_browse_htmlq_glycolysis-mobile.png",
+      "bytes": 55696,
+      "sha256": "9e095796f10723e5414c62e366c48b90d107fed5c0b79f93b4d5f8ff1707716b"
+    },
+    {
+      "path": "PathwayMech_pages_index_html-desktop.png",
+      "bytes": 198853,
+      "sha256": "442123fbb44cd74ce54778051f3692aef475785e99409b64da1649d8bfe238c6"
+    },
+    {
+      "path": "PathwayMech_pages_index_html-mobile.png",
+      "bytes": 102257,
+      "sha256": "c89bfbb8bb751c0e3f5a693983b1bf1465692b1eb5edcf6beaffa9d2d28e6593"
+    },
+    {
+      "path": "PathwayMech_pages_map_html-desktop.png",
+      "bytes": 160968,
+      "sha256": "9c6367330959eff416452e5bf1ca327c6dd749c9d1f95950e0147fcd2b48f152"
+    },
+    {
+      "path": "PathwayMech_pages_map_html-mobile.png",
+      "bytes": 69514,
+      "sha256": "6878f664d9275c85e4d2b730bc153f6a25e24b220c86e559eb5e525a12d21dc4"
+    },
+    {
+      "path": "PathwayMech_pages_records_GO_0036040_html-desktop.png",
+      "bytes": 153919,
+      "sha256": "94d434852f604a82ab8832ea566c3a12c47021a61fb2ff828dddfb09f87cac2d"
+    },
+    {
+      "path": "PathwayMech_pages_records_GO_0036040_html-mobile.png",
+      "bytes": 85646,
+      "sha256": "135c863d85a636a4f4b46d2616e0a61e30f18161299ff78487d1285fbac97d1b"
+    },
+    {
+      "path": "PathwayMech_pages_records_MIBiG_BGC0000194_html-desktop.png",
+      "bytes": 136706,
+      "sha256": "95f844fe9cbda310eaf6103859a231b90837c3df52504eaec0ce1dd3693902d4"
+    },
+    {
+      "path": "PathwayMech_pages_records_MIBiG_BGC0000194_html-mobile.png",
+      "bytes": 76697,
+      "sha256": "2d9837fd1bcb221e074361b8740292cb47668cbca0254d1102253d7e49798d42"
+    },
+    {
+      "path": "PathwayMech_pages_records_MetaCyc_PWY_6543_html-desktop.png",
+      "bytes": 108479,
+      "sha256": "ddda0b19ca714033a91e55b16aad983798c05609145a2b9e4ed8ceea3ff4e903"
+    },
+    {
+      "path": "PathwayMech_pages_records_MetaCyc_PWY_6543_html-mobile.png",
+      "bytes": 66438,
+      "sha256": "5743cf1be4d9fe8028a7985f6f00d9cd0848b1178186edd7635a59407b6b22ec"
+    },
+    {
+      "path": "PathwayMech_pages_sequence_map_html-desktop.png",
+      "bytes": 172416,
+      "sha256": "399ad6e6d0e299acbe33c703e9baa4e49c1384ec912bfdf5e6ecb7f1e577a301"
+    },
+    {
+      "path": "PathwayMech_pages_sequence_map_html-mobile.png",
+      "bytes": 77053,
+      "sha256": "385a2de1133618968dd44cb1c8221880fb455dd436db7aed5b7ae351e0a9df3c"
+    }
+  ],
+  "limits": "Record rendering is sampled. Complete raw observations are losslessly archived; original raw JSON and screenshots remain retained locally and are not required to be committed. External 403/429 responses do not alone establish a broken citation or absent schema."
+}

@@ -1,0 +1,317 @@
+{
+  "mech": "AntibioticMech",
+  "receipt": "_fleet/reviews/site-features-20261119/group-a/AntibioticMech/audit-1/raw.json",
+  "receipt_sha256": "b0d5a60193a7b5440e3af075f7f165370c51760d531c7b88bb51d84fa1fd416c",
+  "deployed_revision": "6ec4c26ca0b650f895b4e3d7d642e5d9eb22dda7",
+  "downloads": {
+    "https://culturebotai.github.io/AntibioticMech/pages/browse-index.json": {
+      "body_sha256": "066ca0225600b0ed63f4a49379ac6104ab7d95cc86a0f71cdcef74430aec7cdc",
+      "arrays": {
+        "$": {
+          "rows": 3125,
+          "row_lengths": [
+            10
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 3125,
+              "unique": 3124,
+              "sha256": "552de1b205a781d8f50ea3c05bc7453304f708af0dc5e78dc6670e07e46aa4b1",
+              "samples": [
+                "(+)-(11R,2'S)-erythro-mefloquine",
+                "(+)-N-(methoxycarbonyl)-N-norboldine",
+                "\u03b3-hexachlorocyclohexane",
+                "\u03b5-rhodomycinone"
+              ]
+            },
+            "1": {
+              "nonempty": 3125,
+              "unique": 3125,
+              "sha256": "3cbb7f52beb5a1bd5bfeffb154763f64099a4786ada8b38f602d70788bda013e",
+              "samples": [
+                "11r-2-s-erythro-mefloquine",
+                "n-methoxycarbonyl-n-norboldine",
+                "\u03b3-hexachlorocyclohexane",
+                "\u03b5-rhodomycinone"
+              ]
+            },
+            "2": {
+              "nonempty": 3125,
+              "unique": 7,
+              "sha256": "627c5778db1823beebeee762fb3ba38cab2f7846de98afaa1db7f2fd068bdb2d",
+              "samples": [
+                "antiprotozoal",
+                "unspecified",
+                "antibacterial",
+                "unspecified"
+              ]
+            },
+            "3": {
+              "nonempty": 3125,
+              "unique": 7,
+              "sha256": "5b80c666820381eeb56f76a30d3c570642fb7aa8da3d8156d1a5f2fc0f7e11b8",
+              "samples": [
+                "ANTIPROTOZOAL",
+                "ANTIMICROBIAL_UNSPECIFIED",
+                "ANTIBACTERIAL",
+                "ANTIMICROBIAL_UNSPECIFIED"
+              ]
+            },
+            "4": {
+              "nonempty": 3125,
+              "unique": 72,
+              "sha256": "0e7a689fbf0526fa9fd34b4bf62c45e106c30a0b8b70b5158a1c0ed8fc748ac8",
+              "samples": [
+                "\u2014",
+                "\u2014",
+                "\u2014",
+                "\u2014"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/data/chemical-structure-map.json": {
+      "body_sha256": "556a0e4278e0c013118ff54f3b4068ca8ca9a05fd6ff5cec635359d0a23ffcd9",
+      "arrays": {
+        "$.configuration.radii": {
+          "rows": 2
+        },
+        "$.configuration.weights": {
+          "rows": 2
+        },
+        "$.quality.duplicate_inchi_key_groups": {
+          "rows": 16,
+          "row_lengths": [
+            2
+          ],
+          "columns": {
+            "0": {
+              "nonempty": 16,
+              "unique": 16,
+              "sha256": "d36768857c55d625ae3749dac0de773d3448d9cfc1124a2b383fbcfe60743f0b",
+              "samples": [
+                "CHEBI:132987",
+                "CHEBI:134191",
+                "antibioticmech:aro-0734abf918",
+                "antibioticmech:aro-0aefa62f74"
+              ]
+            },
+            "1": {
+              "nonempty": 16,
+              "unique": 16,
+              "sha256": "443c66d135e9b83231051165202fe9e4d7e0e9d64a34526cf6daecc83e86b8f8",
+              "samples": [
+                "CHEBI:2596",
+                "CHEBI:77009",
+                "antibioticmech:aro-bf39ac682c",
+                "antibioticmech:aro-2ea67cad76"
+              ]
+            }
+          }
+        },
+        "$.records": {
+          "rows": 3125,
+          "fields": {
+            "identifier": {
+              "nonempty": 3125,
+              "unique": 3125,
+              "sha256": "2e6ef4d494af4df61d36a27d05cfd7cf54fde092710cc37d2e7eb233120c2be0",
+              "samples": [
+                "CHEBI:10003",
+                "CHEBI:100147",
+                "antibioticmech:curator-fe92479d4c",
+                "antibioticmech:curator-ff4802fa87"
+              ]
+            },
+            "label": {
+              "nonempty": 3125,
+              "unique": 3124,
+              "sha256": "552de1b205a781d8f50ea3c05bc7453304f708af0dc5e78dc6670e07e46aa4b1",
+              "samples": [
+                "ribostamycin sulfate",
+                "nalidixic acid",
+                "PBT2",
+                "IP-antibiotic 12"
+              ]
+            },
+            "path": {
+              "nonempty": 3125,
+              "unique": 3125,
+              "sha256": "f8061fdcf3d4bb3518b3e88bec777e4c7c4ddde2b338f7ed74394a48c515fe80",
+              "samples": [
+                "antibacterial/ribostamycin-sulfate.html",
+                "antibacterial/nalidixic-acid.html",
+                "antibacterial/pbt2.html",
+                "antibacterial/ip-antibiotic-12.html"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antibacterial/amikacin/record-95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823.json.gz": {
+      "body_sha256": "95343524bd8b9a46c2cf15ba842d7b163a0657af0b8b83af023fe432efc70823",
+      "arrays": {
+        "$.synonyms": {
+          "rows": 17,
+          "fields": {}
+        },
+        "$.parent_compounds": {
+          "rows": 5
+        },
+        "$.activity_roles": {
+          "rows": 2
+        },
+        "$.activity_spectrum": {
+          "rows": 294,
+          "fields": {}
+        },
+        "$.activity_membership_collections": {
+          "rows": 1,
+          "fields": {
+            "path": {
+              "nonempty": 1,
+              "unique": 1,
+              "sha256": "9d0c9e14a44051d6a4f569d6db382865fed5b243475a09ef28097eeb2833010c",
+              "samples": [
+                "membership-a37c45fb1a20e600de75799e474f2e0bd69cd13bd42d517882d768c88ca75adc.json.gz",
+                "membership-a37c45fb1a20e600de75799e474f2e0bd69cd13bd42d517882d768c88ca75adc.json.gz"
+              ]
+            }
+          }
+        },
+        "$.xrefs": {
+          "rows": 9
+        },
+        "$.drug_xrefs": {
+          "rows": 3
+        },
+        "$.document_xrefs": {
+          "rows": 3
+        },
+        "$.source_concepts": {
+          "rows": 2,
+          "fields": {}
+        },
+        "$.resistance_mechanisms": {
+          "rows": 102,
+          "fields": {
+            "label": {
+              "nonempty": 102,
+              "unique": 102,
+              "sha256": "082907642de1b23a1609bd68b4e9af07166b18f2c6214e3f4968d9f1d97f7d27",
+              "samples": [
+                "acrD",
+                "armA",
+                "aac(6')-Ib-cr11",
+                "Mycobacterium tuberculosis eis with mutation conferring resistance to amikacin"
+              ]
+            }
+          }
+        },
+        "$.molecular_targets": {
+          "rows": 1,
+          "fields": {}
+        },
+        "$.curation_history": {
+          "rows": 19,
+          "fields": {}
+        }
+      }
+    },
+    "https://culturebotai.github.io/AntibioticMech/pages/antimycobacterial/d-cycloserine/record-c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc.json.gz": {
+      "body_sha256": "c489fb792a4858d72e998281186020388df8950340ce0a4b24f725bf3a7c85bc",
+      "arrays": {
+        "$.synonyms": {
+          "rows": 20,
+          "fields": {}
+        },
+        "$.parent_compounds": {
+          "rows": 4
+        },
+        "$.activity_roles": {
+          "rows": 2
+        },
+        "$.xrefs": {
+          "rows": 9
+        },
+        "$.drug_xrefs": {
+          "rows": 3
+        },
+        "$.document_xrefs": {
+          "rows": 3
+        },
+        "$.source_concepts": {
+          "rows": 2,
+          "fields": {}
+        },
+        "$.evidence": {
+          "rows": 1,
+          "fields": {}
+        },
+        "$.resistance_mechanisms": {
+          "rows": 3,
+          "fields": {
+            "label": {
+              "nonempty": 3,
+              "unique": 3,
+              "sha256": "e722f22b836638b4bca92c9db5e5132d0fe2394355524e54f9eca30aeb174d15",
+              "samples": [
+                "Mycobacterium tuberculosis ddlA mutations confer resistance to cycloserine",
+                "Mycobacterium tuberculosis ald mutations confer resistance to cycloserine",
+                "Mycobacterium tuberculosis ald mutations confer resistance to cycloserine",
+                "Mycobacterium tuberculosis alr with mutation conferring resistance to cycloserine"
+              ]
+            }
+          }
+        },
+        "$.molecular_targets": {
+          "rows": 3,
+          "fields": {}
+        },
+        "$.activity_spectrum": {
+          "rows": 7,
+          "fields": {}
+        },
+        "$.activity_membership_collections": {
+          "rows": 1,
+          "fields": {
+            "path": {
+              "nonempty": 1,
+              "unique": 1,
+              "sha256": "d293923e59a96c33a7ed568e9ffaab49fcc2059cd865199a10aa4ece98d9f20d",
+              "samples": [
+                "membership-22631023b6dca71a93fd60519c5fa3c79d2ed7f467966a445b206ca860ebea69.json.gz",
+                "membership-22631023b6dca71a93fd60519c5fa3c79d2ed7f467966a445b206ca860ebea69.json.gz"
+              ]
+            }
+          }
+        },
+        "$.clinical_status_assertions": {
+          "rows": 1,
+          "fields": {}
+        },
+        "$.curation_history": {
+          "rows": 11,
+          "fields": {}
+        },
+        "$.related_records": {
+          "rows": 1,
+          "fields": {
+            "identifier": {
+              "nonempty": 1,
+              "unique": 1,
+              "sha256": "3e5f0987575ad0b64ce9370be6d120bbca6469a9de428e6f16ead861cb98286f",
+              "samples": [
+                "WikiPathways:WP5060",
+                "WikiPathways:WP5060"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
